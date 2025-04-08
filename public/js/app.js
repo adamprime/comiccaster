@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       try {
-        const response = await fetch('/.netlify/functions/generate-token', {
+        const response = await fetch('/.netlify/functions/generate-opml', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     try {
       // Generate OPML file
-      const response = await fetch('/.netlify/functions/generate-token', {
+      const response = await fetch('/.netlify/functions/generate-opml', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
