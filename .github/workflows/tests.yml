@@ -22,34 +22,16 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install Chrome
-      run: |
-        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-        sudo apt-get update
-        sudo apt-get install -y google-chrome-stable
-        
-    - name: Install ChromeDriver
-      run: |
-        # Get Chrome major version
-        chrome_version=$(google-chrome --version)
-        chrome_major_version=$(echo "$chrome_version" | awk '{print $3}' | cut -d. -f1)
-        echo "Chrome version: $chrome_version"
-        echo "Chrome major version: $chrome_major_version"
-        
-        # Get matching ChromeDriver version
-        chromedriver_version=$(wget -qO- "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${chrome_major_version}")
-        echo "ChromeDriver version: $chromedriver_version"
-        
-        # Download and install ChromeDriver
-        wget -q "https://chromedriver.storage.googleapis.com/${chromedriver_version}/chromedriver_linux64.zip"
-        unzip -q chromedriver_linux64.zip
-        chmod +x chromedriver
-        sudo mv chromedriver /usr/local/bin/
-        rm chromedriver_linux64.zip
-        
-        # Verify installation
-        chromedriver --version
+    - name: Setup Chrome and ChromeDriver
+      uses: browser-actions/setup-chrome@v1
+      with:
+        chrome-version: stable
+      id: setup-chrome
+
+    - name: Setup ChromeDriver
+      uses: browser-actions/setup-chromedriver@v1
+      with:
+        chromedriver-version: stable
         
     - name: Install dependencies
       run: |
@@ -61,8 +43,8 @@ jobs:
       continue-on-error: true  # Continue to show output even if tests fail
       env:
         PYTHONPATH: ${{ github.workspace }}
-        CHROME_BIN: /usr/bin/google-chrome
-        CHROMEDRIVER_PATH: /usr/local/bin/chromedriver
+        CHROME_BIN: ${{ steps.setup-chrome.outputs.chrome-path }}
+        CHROMEDRIVER_PATH: chromedriver
       run: |
         # Print versions for debugging
         google-chrome --version
