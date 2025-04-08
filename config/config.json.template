@@ -1,0 +1,15 @@
+{
+    "user_feeds": {
+        "default": {
+            "name": "My Favorite Comics",
+            "comics": [
+                "pickles",
+                "pearlsbeforeswine",
+                "calvinandhobbes"
+            ]
+        }
+    },
+    "update_interval": 24,
+    "output_dir": "feeds",
+    "base_url": "https://www.gocomics.com"
+} 

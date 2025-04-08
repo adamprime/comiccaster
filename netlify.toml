@@ -1,0 +1,20 @@
+[build]
+  publish = "public"
+  functions = "functions"
+
+[functions]
+  directory = "functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/rss/*"
+  to = "/.netlify/functions/individual-feed/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/combined"
+  to = "/.netlify/functions/combined-feed"
+  status = 200
+
+[build.environment]
+  PYTHON_VERSION = "3.9"

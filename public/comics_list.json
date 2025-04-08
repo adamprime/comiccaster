@@ -1,0 +1,3234 @@
+[
+  {
+    "name": "1 and Done",
+    "author": "Eric Scott",
+    "url": "https://www.gocomics.com/1-and-done",
+    "slug": "1-and-done",
+    "position": 1,
+    "is_updated": false
+  },
+  {
+    "name": "9 Chickweed Lane",
+    "author": "Brooke McEldowney",
+    "url": "https://www.gocomics.com/9-chickweed-lane",
+    "slug": "9-chickweed-lane",
+    "position": 2,
+    "is_updated": true
+  },
+  {
+    "name": "9 to 5",
+    "author": "Harley Schwadron",
+    "url": "https://www.gocomics.com/9to5",
+    "slug": "9to5",
+    "position": 3,
+    "is_updated": false
+  },
+  {
+    "name": "Aaggghhh",
+    "author": "Ham",
+    "url": "https://www.gocomics.com/aaggghhh",
+    "slug": "aaggghhh",
+    "position": 4,
+    "is_updated": true
+  },
+  {
+    "name": "The Academia Waltz",
+    "author": "Berkeley Breathed",
+    "url": "https://www.gocomics.com/the-academia-waltz",
+    "slug": "the-academia-waltz",
+    "position": 5,
+    "is_updated": true
+  },
+  {
+    "name": "Adam@Home",
+    "author": "Rob Harrell",
+    "url": "https://www.gocomics.com/adamathome",
+    "slug": "adamathome",
+    "position": 6,
+    "is_updated": true
+  },
+  {
+    "name": "Adult Children",
+    "author": "Stephen Beals",
+    "url": "https://www.gocomics.com/adult-children",
+    "slug": "adult-children",
+    "position": 7,
+    "is_updated": true
+  },
+  {
+    "name": "The Adventures of Business Cat",
+    "author": "Tom Fonder",
+    "url": "https://www.gocomics.com/the-adventures-of-business-cat",
+    "slug": "the-adventures-of-business-cat",
+    "position": 8,
+    "is_updated": false
+  },
+  {
+    "name": "Agnes",
+    "author": "Tony Cochran",
+    "url": "https://www.gocomics.com/agnes",
+    "slug": "agnes",
+    "position": 9,
+    "is_updated": true
+  },
+  {
+    "name": "AJ and Magnus",
+    "author": "Bryan and Simon Steel",
+    "url": "https://www.gocomics.com/aj-and-magnus",
+    "slug": "aj-and-magnus",
+    "position": 10,
+    "is_updated": false
+  },
+  {
+    "name": "Ali's House",
+    "author": "Marguerite Dabaie",
+    "url": "https://www.gocomics.com/alis-house",
+    "slug": "alis-house",
+    "position": 11,
+    "is_updated": false
+  },
+  {
+    "name": "Alley Oop",
+    "author": "Jonathan Lemon",
+    "url": "https://www.gocomics.com/alley-oop",
+    "slug": "alley-oop",
+    "position": 12,
+    "is_updated": true
+  },
+  {
+    "name": "Amanda the Great",
+    "author": "Amanda El-Dweek",
+    "url": "https://www.gocomics.com/amanda-the-great",
+    "slug": "amanda-the-great",
+    "position": 13,
+    "is_updated": false
+  },
+  {
+    "name": "Andertoons",
+    "author": "Mark Anderson",
+    "url": "https://www.gocomics.com/andertoons",
+    "slug": "andertoons",
+    "position": 14,
+    "is_updated": true
+  },
+  {
+    "name": "Andy Capp",
+    "author": "Reg Smythe",
+    "url": "https://www.gocomics.com/andycapp",
+    "slug": "andycapp",
+    "position": 15,
+    "is_updated": true
+  },
+  {
+    "name": "Angry Little Girls",
+    "author": "Lela Lee",
+    "url": "https://www.gocomics.com/angry-little-girls",
+    "slug": "angry-little-girls",
+    "position": 16,
+    "is_updated": false
+  },
+  {
+    "name": "Animal Crackers",
+    "author": "Mike Osbun",
+    "url": "https://www.gocomics.com/animalcrackers",
+    "slug": "animalcrackers",
+    "position": 17,
+    "is_updated": true
+  },
+  {
+    "name": "Annie",
+    "author": "Jay Maeder and Alan Kupperberg",
+    "url": "https://www.gocomics.com/annie",
+    "slug": "annie",
+    "position": 18,
+    "is_updated": true
+  },
+  {
+    "name": "The Argyle Sweater",
+    "author": "Scott Hilburn",
+    "url": "https://www.gocomics.com/theargylesweater",
+    "slug": "theargylesweater",
+    "position": 19,
+    "is_updated": true
+  },
+  {
+    "name": "Arlo and Janis",
+    "author": "Jimmy Johnson",
+    "url": "https://www.gocomics.com/arloandjanis",
+    "slug": "arloandjanis",
+    "position": 20,
+    "is_updated": true
+  },
+  {
+    "name": "Art by Moga",
+    "author": "Meg Adams",
+    "url": "https://www.gocomics.com/artbymoga",
+    "slug": "artbymoga",
+    "position": 21,
+    "is_updated": false
+  },
+  {
+    "name": "Ask Shagg",
+    "author": "Peter Guren",
+    "url": "https://www.gocomics.com/askshagg",
+    "slug": "askshagg",
+    "position": 22,
+    "is_updated": true
+  },
+  {
+    "name": "Aunty Acid",
+    "author": "Ged Backland",
+    "url": "https://www.gocomics.com/aunty-acid",
+    "slug": "aunty-acid",
+    "position": 23,
+    "is_updated": true
+  },
+  {
+    "name": "The Awkward Yeti",
+    "author": "Nick Seluk",
+    "url": "https://www.gocomics.com/the-awkward-yeti",
+    "slug": "the-awkward-yeti",
+    "position": 24,
+    "is_updated": false
+  },
+  {
+    "name": "Baby Blues",
+    "author": "Rick Kirkman and Jerry Scott",
+    "url": "https://www.gocomics.com/babyblues",
+    "slug": "babyblues",
+    "position": 25,
+    "is_updated": true
+  },
+  {
+    "name": "Back in the Day",
+    "author": "Eric Scott",
+    "url": "https://www.gocomics.com/backintheday",
+    "slug": "backintheday",
+    "position": 26,
+    "is_updated": false
+  },
+  {
+    "name": "Back to B.C.",
+    "author": "Johnny Hart",
+    "url": "https://www.gocomics.com/back-to-bc",
+    "slug": "back-to-bc",
+    "position": 27,
+    "is_updated": true
+  },
+  {
+    "name": "bacon",
+    "author": "Lonnie Millsap",
+    "url": "https://www.gocomics.com/bacon",
+    "slug": "bacon",
+    "position": 28,
+    "is_updated": false
+  },
+  {
+    "name": "Bad Machinery",
+    "author": "John Allison",
+    "url": "https://www.gocomics.com/bad-machinery",
+    "slug": "bad-machinery",
+    "position": 29,
+    "is_updated": false
+  },
+  {
+    "name": "Baldo",
+    "author": "Hector D. Cantú and Carlos Castellanos",
+    "url": "https://www.gocomics.com/baldo",
+    "slug": "baldo",
+    "position": 30,
+    "is_updated": true
+  },
+  {
+    "name": "Baldo en Español",
+    "author": "Hector D. Cantú and Carlos Castellanos",
+    "url": "https://www.gocomics.com/baldoespanol",
+    "slug": "baldoespanol",
+    "position": 31,
+    "is_updated": true
+  },
+  {
+    "name": "Ballard Street",
+    "author": "Jerry Van Amerongen",
+    "url": "https://www.gocomics.com/ballardstreet",
+    "slug": "ballardstreet",
+    "position": 32,
+    "is_updated": true
+  },
+  {
+    "name": "Banana Triangle",
+    "author": "Beutel, James",
+    "url": "https://www.gocomics.com/banana-triangle",
+    "slug": "banana-triangle",
+    "position": 33,
+    "is_updated": false
+  },
+  {
+    "name": "Barkeater Lake",
+    "author": "Corey Pandolph",
+    "url": "https://www.gocomics.com/barkeaterlake",
+    "slug": "barkeaterlake",
+    "position": 34,
+    "is_updated": true
+  },
+  {
+    "name": "The Barn",
+    "author": "Ralph Hagen",
+    "url": "https://www.gocomics.com/thebarn",
+    "slug": "thebarn",
+    "position": 35,
+    "is_updated": true
+  },
+  {
+    "name": "Barney & Clyde",
+    "author": "Gene Weingarten; Dan Weingarten & David Clark",
+    "url": "https://www.gocomics.com/barneyandclyde",
+    "slug": "barneyandclyde",
+    "position": 36,
+    "is_updated": true
+  },
+  {
+    "name": "Basic Instructions",
+    "author": "Scott Meyer",
+    "url": "https://www.gocomics.com/basicinstructions",
+    "slug": "basicinstructions",
+    "position": 37,
+    "is_updated": false
+  },
+  {
+    "name": "Batch Rejection",
+    "author": "Garey McKee",
+    "url": "https://www.gocomics.com/batch-rejection",
+    "slug": "batch-rejection",
+    "position": 38,
+    "is_updated": false
+  },
+  {
+    "name": "B.C.",
+    "author": "Johnny Hart",
+    "url": "https://www.gocomics.com/bc",
+    "slug": "bc",
+    "position": 39,
+    "is_updated": true
+  },
+  {
+    "name": "Beardo",
+    "author": "Dan Dougherty",
+    "url": "https://www.gocomics.com/beardo",
+    "slug": "beardo",
+    "position": 40,
+    "is_updated": true
+  },
+  {
+    "name": "Ben",
+    "author": "Daniel Shelton",
+    "url": "https://www.gocomics.com/ben",
+    "slug": "ben",
+    "position": 41,
+    "is_updated": false
+  },
+  {
+    "name": "Benitin y Eneas",
+    "author": "Pierre S. De Beaumont",
+    "url": "https://www.gocomics.com/muttandjeffespanol",
+    "slug": "muttandjeffespanol",
+    "position": 42,
+    "is_updated": false
+  },
+  {
+    "name": "Berger & Wyse",
+    "author": "Pascal Wyse",
+    "url": "https://www.gocomics.com/berger-and-wyse",
+    "slug": "berger-and-wyse",
+    "position": 43,
+    "is_updated": false
+  },
+  {
+    "name": "Berkeley Mews",
+    "author": "Ben Zaehringer",
+    "url": "https://www.gocomics.com/berkeley-mews",
+    "slug": "berkeley-mews",
+    "position": 44,
+    "is_updated": false
+  },
+  {
+    "name": "Betty",
+    "author": "Gerry Rasmussen",
+    "url": "https://www.gocomics.com/betty",
+    "slug": "betty",
+    "position": 45,
+    "is_updated": true
+  },
+  {
+    "name": "BFGF Syndrome",
+    "author": "Patabot",
+    "url": "https://www.gocomics.com/bfgf-syndrome",
+    "slug": "bfgf-syndrome",
+    "position": 46,
+    "is_updated": false
+  },
+  {
+    "name": "Big Nate",
+    "author": "Lincoln Peirce",
+    "url": "https://www.gocomics.com/bignate",
+    "slug": "bignate",
+    "position": 47,
+    "is_updated": true
+  },
+  {
+    "name": "The Big Picture",
+    "author": "Lennie Peterson",
+    "url": "https://www.gocomics.com/thebigpicture",
+    "slug": "thebigpicture",
+    "position": 48,
+    "is_updated": true
+  },
+  {
+    "name": "Big Top",
+    "author": "Rob Harrell",
+    "url": "https://www.gocomics.com/bigtop",
+    "slug": "bigtop",
+    "position": 49,
+    "is_updated": true
+  },
+  {
+    "name": "Bird and Moon",
+    "author": "Rosemary Mosco",
+    "url": "https://www.gocomics.com/bird-and-moon",
+    "slug": "bird-and-moon",
+    "position": 50,
+    "is_updated": false
+  },
+  {
+    "name": "Birdbrains",
+    "author": "Thom Bluemel",
+    "url": "https://www.gocomics.com/birdbrains",
+    "slug": "birdbrains",
+    "position": 51,
+    "is_updated": true
+  },
+  {
+    "name": "Bleeker: The Rechargeable Dog",
+    "author": "Jonathan Mahood",
+    "url": "https://www.gocomics.com/bleeker",
+    "slug": "bleeker",
+    "position": 52,
+    "is_updated": false
+  },
+  {
+    "name": "Bliss",
+    "author": "Harry Bliss",
+    "url": "https://www.gocomics.com/bliss",
+    "slug": "bliss",
+    "position": 53,
+    "is_updated": false
+  },
+  {
+    "name": "Bloom County",
+    "author": "Berkeley Breathed",
+    "url": "https://www.gocomics.com/bloomcounty",
+    "slug": "bloomcounty",
+    "position": 54,
+    "is_updated": false
+  },
+  {
+    "name": "Bloom County Continues",
+    "author": "Berkeley Breathed",
+    "url": "https://www.gocomics.com/bloom-county",
+    "slug": "bloom-county",
+    "position": 55,
+    "is_updated": false
+  },
+  {
+    "name": "Bob the Angry Flower",
+    "author": "Stephen Notley",
+    "url": "https://www.gocomics.com/bob-the-angry-flower",
+    "slug": "bob-the-angry-flower",
+    "position": 56,
+    "is_updated": false
+  },
+  {
+    "name": "Bob the Squirrel",
+    "author": "Frank Page",
+    "url": "https://www.gocomics.com/bobthesquirrel",
+    "slug": "bobthesquirrel",
+    "position": 57,
+    "is_updated": true
+  },
+  {
+    "name": "Bo Nanas",
+    "author": "John Kovaleski",
+    "url": "https://www.gocomics.com/bonanas",
+    "slug": "bonanas",
+    "position": 58,
+    "is_updated": true
+  },
+  {
+    "name": "Boomerangs",
+    "author": "Jack Pullan",
+    "url": "https://www.gocomics.com/boomerangs",
+    "slug": "boomerangs",
+    "position": 59,
+    "is_updated": false
+  },
+  {
+    "name": "The Boondocks",
+    "author": "Aaron McGruder",
+    "url": "https://www.gocomics.com/boondocks",
+    "slug": "boondocks",
+    "position": 60,
+    "is_updated": true
+  },
+  {
+    "name": "The Born Loser",
+    "author": "Chip Sansom",
+    "url": "https://www.gocomics.com/the-born-loser",
+    "slug": "the-born-loser",
+    "position": 61,
+    "is_updated": true
+  },
+  {
+    "name": "Bottomliners",
+    "author": "Eric and Bill Teitelbaum",
+    "url": "https://www.gocomics.com/bottomliners",
+    "slug": "bottomliners",
+    "position": 62,
+    "is_updated": false
+  },
+  {
+    "name": "Bound and Gagged",
+    "author": "Dana Summers",
+    "url": "https://www.gocomics.com/boundandgagged",
+    "slug": "boundandgagged",
+    "position": 63,
+    "is_updated": true
+  },
+  {
+    "name": "Bozo",
+    "author": "Foxo Reardon",
+    "url": "https://www.gocomics.com/bozo",
+    "slug": "bozo",
+    "position": 64,
+    "is_updated": false
+  },
+  {
+    "name": "Breaking Cat News",
+    "author": "Georgia Dunn",
+    "url": "https://www.gocomics.com/breaking-cat-news",
+    "slug": "breaking-cat-news",
+    "position": 65,
+    "is_updated": true
+  },
+  {
+    "name": "Brevity",
+    "author": "Dan Thompson",
+    "url": "https://www.gocomics.com/brevity",
+    "slug": "brevity",
+    "position": 66,
+    "is_updated": true
+  },
+  {
+    "name": "Brewster Rockit",
+    "author": "Tim Rickard",
+    "url": "https://www.gocomics.com/brewsterrockit",
+    "slug": "brewsterrockit",
+    "position": 67,
+    "is_updated": true
+  },
+  {
+    "name": "Brian McFadden",
+    "author": "Brian McFadden",
+    "url": "https://www.gocomics.com/brian-mcfadden",
+    "slug": "brian-mcfadden",
+    "position": 68,
+    "is_updated": false
+  },
+  {
+    "name": "Broom Hilda",
+    "author": "Russell Myers",
+    "url": "https://www.gocomics.com/broomhilda",
+    "slug": "broomhilda",
+    "position": 69,
+    "is_updated": true
+  },
+  {
+    "name": "The Buckets",
+    "author": "Greg Cravens",
+    "url": "https://www.gocomics.com/thebuckets",
+    "slug": "thebuckets",
+    "position": 70,
+    "is_updated": true
+  },
+  {
+    "name": "Buckles",
+    "author": "David Gilbert",
+    "url": "https://www.gocomics.com/buckles",
+    "slug": "buckles",
+    "position": 71,
+    "is_updated": true
+  },
+  {
+    "name": "Bully",
+    "author": "Andrew Paavola",
+    "url": "https://www.gocomics.com/bully",
+    "slug": "bully",
+    "position": 72,
+    "is_updated": false
+  },
+  {
+    "name": "Buni",
+    "author": "Ryan Pagelow",
+    "url": "https://www.gocomics.com/buni",
+    "slug": "buni",
+    "position": 73,
+    "is_updated": false
+  },
+  {
+    "name": "Calvin and Hobbes",
+    "author": "Bill Watterson",
+    "url": "https://www.gocomics.com/calvinandhobbes",
+    "slug": "calvinandhobbes",
+    "position": 74,
+    "is_updated": true
+  },
+  {
+    "name": "Calvin and Hobbes en Español",
+    "author": "Bill Watterson",
+    "url": "https://www.gocomics.com/calvinandhobbesespanol",
+    "slug": "calvinandhobbesespanol",
+    "position": 75,
+    "is_updated": true
+  },
+  {
+    "name": "Catana Comics",
+    "author": "Catana Chetwynd",
+    "url": "https://www.gocomics.com/little-moments-of-love",
+    "slug": "little-moments-of-love",
+    "position": 76,
+    "is_updated": false
+  },
+  {
+    "name": "Cathy",
+    "author": "Cathy Guisewite",
+    "url": "https://www.gocomics.com/cathy",
+    "slug": "cathy",
+    "position": 77,
+    "is_updated": true
+  },
+  {
+    "name": "Cathy Commiserations",
+    "author": "Cathy Guisewite",
+    "url": "https://www.gocomics.com/cathy-commiserations",
+    "slug": "cathy-commiserations",
+    "position": 78,
+    "is_updated": false
+  },
+  {
+    "name": "Cat's Cafe",
+    "author": "Gwen Tarpley",
+    "url": "https://www.gocomics.com/cats-cafe",
+    "slug": "cats-cafe",
+    "position": 79,
+    "is_updated": false
+  },
+  {
+    "name": "Cattitude — Doggonit",
+    "author": "Anthony Smith",
+    "url": "https://www.gocomics.com/cattitude-doggonit",
+    "slug": "cattitude-doggonit",
+    "position": 80,
+    "is_updated": true
+  },
+  {
+    "name": "C'est la Vie",
+    "author": "Jennifer Babcock",
+    "url": "https://www.gocomics.com/cestlavie",
+    "slug": "cestlavie",
+    "position": 81,
+    "is_updated": false
+  },
+  {
+    "name": "Cheer Up, Emo Kid",
+    "author": "Enzo Comics",
+    "url": "https://www.gocomics.com/cheer-up-emo-kid",
+    "slug": "cheer-up-emo-kid",
+    "position": 82,
+    "is_updated": false
+  },
+  {
+    "name": "Chuck Draws Things",
+    "author": "Chuck Mullin",
+    "url": "https://www.gocomics.com/chuckdrawsthings",
+    "slug": "chuckdrawsthings",
+    "position": 83,
+    "is_updated": false
+  },
+  {
+    "name": "Chuckle Bros",
+    "author": "Brian and Ron Boychuk",
+    "url": "https://www.gocomics.com/chucklebros",
+    "slug": "chucklebros",
+    "position": 84,
+    "is_updated": true
+  },
+  {
+    "name": "Citizen Dog",
+    "author": "Mark O'Hare",
+    "url": "https://www.gocomics.com/citizendog",
+    "slug": "citizendog",
+    "position": 85,
+    "is_updated": true
+  },
+  {
+    "name": "The City",
+    "author": "John Backderf",
+    "url": "https://www.gocomics.com/thecity",
+    "slug": "thecity",
+    "position": 86,
+    "is_updated": false
+  },
+  {
+    "name": "Claw",
+    "author": "Cathy Law",
+    "url": "https://www.gocomics.com/claw",
+    "slug": "claw",
+    "position": 87,
+    "is_updated": false
+  },
+  {
+    "name": "Cleats",
+    "author": "Bill Hinds",
+    "url": "https://www.gocomics.com/cleats",
+    "slug": "cleats",
+    "position": 88,
+    "is_updated": true
+  },
+  {
+    "name": "Close to Home",
+    "author": "John McPherson",
+    "url": "https://www.gocomics.com/closetohome",
+    "slug": "closetohome",
+    "position": 89,
+    "is_updated": true
+  },
+  {
+    "name": "The Comic Strip That Has A Finale Every Day",
+    "author": "John \"Scully\" Scully",
+    "url": "https://www.gocomics.com/the-comic-strip-that-has-a-finale-every-day",
+    "slug": "the-comic-strip-that-has-a-finale-every-day",
+    "position": 90,
+    "is_updated": false
+  },
+  {
+    "name": "Compu-toon",
+    "author": "Charles Boyce",
+    "url": "https://www.gocomics.com/compu-toon",
+    "slug": "compu-toon",
+    "position": 91,
+    "is_updated": true
+  },
+  {
+    "name": "Cornered",
+    "author": "Mike Baldwin",
+    "url": "https://www.gocomics.com/cornered",
+    "slug": "cornered",
+    "position": 92,
+    "is_updated": true
+  },
+  {
+    "name": "Cow and Boy Classics",
+    "author": "Mark Leiknes",
+    "url": "https://www.gocomics.com/cowandboy",
+    "slug": "cowandboy",
+    "position": 93,
+    "is_updated": false
+  },
+  {
+    "name": "CowTown",
+    "author": "Charlie Podrebarac",
+    "url": "https://www.gocomics.com/cowtown",
+    "slug": "cowtown",
+    "position": 94,
+    "is_updated": true
+  },
+  {
+    "name": "Crabgrass",
+    "author": "Tauhid Bondia",
+    "url": "https://www.gocomics.com/crabgrass",
+    "slug": "crabgrass",
+    "position": 95,
+    "is_updated": true
+  },
+  {
+    "name": "Crankshaft",
+    "author": "Tom Batiuk and Dan Davis",
+    "url": "https://www.gocomics.com/crankshaft",
+    "slug": "crankshaft",
+    "position": 96,
+    "is_updated": true
+  },
+  {
+    "name": "Crumb",
+    "author": "David Fletcher",
+    "url": "https://www.gocomics.com/crumb",
+    "slug": "crumb",
+    "position": 97,
+    "is_updated": false
+  },
+  {
+    "name": "Cul de Sac",
+    "author": "Richard Thompson",
+    "url": "https://www.gocomics.com/culdesac",
+    "slug": "culdesac",
+    "position": 98,
+    "is_updated": true
+  },
+  {
+    "name": "Curses!",
+    "author": "Chelsea Carr",
+    "url": "https://www.gocomics.com/curses",
+    "slug": "curses",
+    "position": 99,
+    "is_updated": false
+  },
+  {
+    "name": "Daddy's Home",
+    "author": "Tony Rubino and Gary Markstein",
+    "url": "https://www.gocomics.com/daddyshome",
+    "slug": "daddyshome",
+    "position": 100,
+    "is_updated": true
+  },
+  {
+    "name": "The Daily Drawing",
+    "author": "Lorie Ransom",
+    "url": "https://www.gocomics.com/the-daily-drawing",
+    "slug": "the-daily-drawing",
+    "position": 101,
+    "is_updated": false
+  },
+  {
+    "name": "Dark Side of the Horse",
+    "author": "Samson",
+    "url": "https://www.gocomics.com/darksideofthehorse",
+    "slug": "darksideofthehorse",
+    "position": 102,
+    "is_updated": true
+  },
+  {
+    "name": "Day by Dave",
+    "author": "Dave Whamond",
+    "url": "https://www.gocomics.com/day-by-dave",
+    "slug": "day-by-dave",
+    "position": 103,
+    "is_updated": true
+  },
+  {
+    "name": "Deep Dark Fears",
+    "author": "Fran Krause",
+    "url": "https://www.gocomics.com/deep-dark-fears",
+    "slug": "deep-dark-fears",
+    "position": 104,
+    "is_updated": false
+  },
+  {
+    "name": "DeFlocked",
+    "author": "Jeff Corriveau",
+    "url": "https://www.gocomics.com/deflocked",
+    "slug": "deflocked",
+    "position": 105,
+    "is_updated": true
+  },
+  {
+    "name": "Diamond Lil",
+    "author": "Brett Koth",
+    "url": "https://www.gocomics.com/diamondlil",
+    "slug": "diamondlil",
+    "position": 106,
+    "is_updated": true
+  },
+  {
+    "name": "Dick Tracy",
+    "author": "Mike Curtis",
+    "url": "https://www.gocomics.com/dicktracy",
+    "slug": "dicktracy",
+    "position": 107,
+    "is_updated": true
+  },
+  {
+    "name": "The Dinette Set",
+    "author": "Julie Larson",
+    "url": "https://www.gocomics.com/dinetteset",
+    "slug": "dinetteset",
+    "position": 108,
+    "is_updated": true
+  },
+  {
+    "name": "Dinosaur Comics",
+    "author": "Ryan North",
+    "url": "https://www.gocomics.com/dinosaur-comics",
+    "slug": "dinosaur-comics",
+    "position": 109,
+    "is_updated": false
+  },
+  {
+    "name": "Dog Eat Doug",
+    "author": "Brian Anderson",
+    "url": "https://www.gocomics.com/dogeatdoug",
+    "slug": "dogeatdoug",
+    "position": 110,
+    "is_updated": true
+  },
+  {
+    "name": "Dogs of C-Kennel",
+    "author": "Mick and Mason Mastroianni",
+    "url": "https://www.gocomics.com/dogsofckennel",
+    "slug": "dogsofckennel",
+    "position": 111,
+    "is_updated": true
+  },
+  {
+    "name": "Domestic Abuse",
+    "author": "Jeremy Lambros",
+    "url": "https://www.gocomics.com/domesticabuse",
+    "slug": "domesticabuse",
+    "position": 112,
+    "is_updated": false
+  },
+  {
+    "name": "Don Brutus",
+    "author": "Chip Sansom",
+    "url": "https://www.gocomics.com/don-brutus",
+    "slug": "don-brutus",
+    "position": 113,
+    "is_updated": false
+  },
+  {
+    "name": "Doodle for Food",
+    "author": "Megan McKay",
+    "url": "https://www.gocomics.com/doodle-for-food",
+    "slug": "doodle-for-food",
+    "position": 114,
+    "is_updated": false
+  },
+  {
+    "name": "Doodle Town",
+    "author": "Melissa Lomax",
+    "url": "https://www.gocomics.com/doodle-town",
+    "slug": "doodle-town",
+    "position": 115,
+    "is_updated": false
+  },
+  {
+    "name": "Doonesbury",
+    "author": "Garry Trudeau",
+    "url": "https://www.gocomics.com/doonesbury",
+    "slug": "doonesbury",
+    "position": 116,
+    "is_updated": true
+  },
+  {
+    "name": "The Doozies",
+    "author": "Tom Gammill",
+    "url": "https://www.gocomics.com/thedoozies",
+    "slug": "thedoozies",
+    "position": 117,
+    "is_updated": false
+  },
+  {
+    "name": "Drabble",
+    "author": "Kevin Fagan",
+    "url": "https://www.gocomics.com/drabble",
+    "slug": "drabble",
+    "position": 118,
+    "is_updated": true
+  },
+  {
+    "name": "The Duplex",
+    "author": "Glenn McCoy",
+    "url": "https://www.gocomics.com/duplex",
+    "slug": "duplex",
+    "position": 119,
+    "is_updated": true
+  },
+  {
+    "name": "Edge City",
+    "author": "Terry and Patty LaBan",
+    "url": "https://www.gocomics.com/edge-city",
+    "slug": "edge-city",
+    "position": 120,
+    "is_updated": true
+  },
+  {
+    "name": "Eek!",
+    "author": "Scott Nickel",
+    "url": "https://www.gocomics.com/eek",
+    "slug": "eek",
+    "position": 121,
+    "is_updated": true
+  },
+  {
+    "name": "El Café de Poncho",
+    "author": "Paul Gilligan",
+    "url": "https://www.gocomics.com/el-cafe-de-poncho",
+    "slug": "el-cafe-de-poncho",
+    "position": 122,
+    "is_updated": true
+  },
+  {
+    "name": "The Elderberries",
+    "author": "Phil Frank",
+    "url": "https://www.gocomics.com/theelderberries",
+    "slug": "theelderberries",
+    "position": 123,
+    "is_updated": true
+  },
+  {
+    "name": "Emmy Lou",
+    "author": "Marty Links",
+    "url": "https://www.gocomics.com/emmy-lou",
+    "slug": "emmy-lou",
+    "position": 124,
+    "is_updated": false
+  },
+  {
+    "name": "Endtown",
+    "author": "Aaron Neathery",
+    "url": "https://www.gocomics.com/endtown",
+    "slug": "endtown",
+    "position": 125,
+    "is_updated": false
+  },
+  {
+    "name": "Everyday People Cartoons",
+    "author": "Cathy Thorne",
+    "url": "https://www.gocomics.com/everyday-people-cartoons",
+    "slug": "everyday-people-cartoons",
+    "position": 126,
+    "is_updated": false
+  },
+  {
+    "name": "Eyebeam",
+    "author": "Sam Hurt",
+    "url": "https://www.gocomics.com/eyebeam",
+    "slug": "eyebeam",
+    "position": 127,
+    "is_updated": false
+  },
+  {
+    "name": "False Knees",
+    "author": "Joshua Barkman",
+    "url": "https://www.gocomics.com/false-knees",
+    "slug": "false-knees",
+    "position": 128,
+    "is_updated": false
+  },
+  {
+    "name": "Family Tree",
+    "author": "Signe Wilkinson",
+    "url": "https://www.gocomics.com/familytree",
+    "slug": "familytree",
+    "position": 129,
+    "is_updated": true
+  },
+  {
+    "name": "Farcus",
+    "author": "David Waisglass and Gordon Coulthart",
+    "url": "https://www.gocomics.com/farcus",
+    "slug": "farcus",
+    "position": 130,
+    "is_updated": true
+  },
+  {
+    "name": "Fat Cats",
+    "author": "Charlie Podrebarac",
+    "url": "https://www.gocomics.com/fat-cats",
+    "slug": "fat-cats",
+    "position": 131,
+    "is_updated": false
+  },
+  {
+    "name": "Flo and Friends",
+    "author": "Jenny Campbell",
+    "url": "https://www.gocomics.com/floandfriends",
+    "slug": "floandfriends",
+    "position": 132,
+    "is_updated": true
+  },
+  {
+    "name": "The Flying McCoys",
+    "author": "Glenn McCoy",
+    "url": "https://www.gocomics.com/theflyingmccoys",
+    "slug": "theflyingmccoys",
+    "position": 133,
+    "is_updated": true
+  },
+  {
+    "name": "F Minus",
+    "author": "Tony Carrillo",
+    "url": "https://www.gocomics.com/fminus",
+    "slug": "fminus",
+    "position": 134,
+    "is_updated": true
+  },
+  {
+    "name": "Foolish Mortals",
+    "author": "Tom Horacek",
+    "url": "https://www.gocomics.com/foolish-mortals",
+    "slug": "foolish-mortals",
+    "position": 135,
+    "is_updated": false
+  },
+  {
+    "name": "For Better or For Worse",
+    "author": "Lynn Johnston",
+    "url": "https://www.gocomics.com/forbetterorforworse",
+    "slug": "forbetterorforworse",
+    "position": 136,
+    "is_updated": true
+  },
+  {
+    "name": "For Heaven's Sake",
+    "author": "Mike Morgan",
+    "url": "https://www.gocomics.com/forheavenssake",
+    "slug": "forheavenssake",
+    "position": 137,
+    "is_updated": false
+  },
+  {
+    "name": "Four Eyes",
+    "author": "Gemma Correll",
+    "url": "https://www.gocomics.com/four-eyes",
+    "slug": "four-eyes",
+    "position": 138,
+    "is_updated": false
+  },
+  {
+    "name": "Fowl Language",
+    "author": "Brian Gordon",
+    "url": "https://www.gocomics.com/fowl-language",
+    "slug": "fowl-language",
+    "position": 139,
+    "is_updated": false
+  },
+  {
+    "name": "FoxTrot",
+    "author": "Bill Amend",
+    "url": "https://www.gocomics.com/foxtrot",
+    "slug": "foxtrot",
+    "position": 140,
+    "is_updated": true
+  },
+  {
+    "name": "FoxTrot Classics",
+    "author": "Bill Amend",
+    "url": "https://www.gocomics.com/foxtrotclassics",
+    "slug": "foxtrotclassics",
+    "position": 141,
+    "is_updated": false
+  },
+  {
+    "name": "FoxTrot en Español",
+    "author": "Bill Amend",
+    "url": "https://www.gocomics.com/foxtrotespanol",
+    "slug": "foxtrotespanol",
+    "position": 142,
+    "is_updated": true
+  },
+  {
+    "name": "Francis",
+    "author": "Patrick J. Marrin",
+    "url": "https://www.gocomics.com/francis",
+    "slug": "francis",
+    "position": 143,
+    "is_updated": false
+  },
+  {
+    "name": "Frank and Ernest",
+    "author": "Thaves",
+    "url": "https://www.gocomics.com/frank-and-ernest",
+    "slug": "frank-and-ernest",
+    "position": 144,
+    "is_updated": true
+  },
+  {
+    "name": "Frazz",
+    "author": "Jef Mallett",
+    "url": "https://www.gocomics.com/frazz",
+    "slug": "frazz",
+    "position": 145,
+    "is_updated": true
+  },
+  {
+    "name": "Fred Basset",
+    "author": "Alex Graham",
+    "url": "https://www.gocomics.com/fredbasset",
+    "slug": "fredbasset",
+    "position": 146,
+    "is_updated": true
+  },
+  {
+    "name": "Fred Basset en Español",
+    "author": "Alex Graham",
+    "url": "https://www.gocomics.com/fredbassetespanol",
+    "slug": "fredbassetespanol",
+    "position": 147,
+    "is_updated": true
+  },
+  {
+    "name": "Free Range",
+    "author": "Bill Whitehead",
+    "url": "https://www.gocomics.com/freerange",
+    "slug": "freerange",
+    "position": 148,
+    "is_updated": true
+  },
+  {
+    "name": "Freshly Squeezed",
+    "author": "Ed Stein",
+    "url": "https://www.gocomics.com/freshlysqueezed",
+    "slug": "freshlysqueezed",
+    "position": 149,
+    "is_updated": true
+  },
+  {
+    "name": "Frog Applause",
+    "author": "Teresa Burritt",
+    "url": "https://www.gocomics.com/frogapplause",
+    "slug": "frogapplause",
+    "position": 150,
+    "is_updated": false
+  },
+  {
+    "name": "Funky Winkerbean",
+    "author": "Tom Batiuk",
+    "url": "https://www.gocomics.com/funky-winkerbean",
+    "slug": "funky-winkerbean",
+    "position": 151,
+    "is_updated": true
+  },
+  {
+    "name": "FurBabies",
+    "author": "Nancy Beiman",
+    "url": "https://www.gocomics.com/furbabies",
+    "slug": "furbabies",
+    "position": 152,
+    "is_updated": true
+  },
+  {
+    "name": "The Fusco Brothers",
+    "author": "J.C. Duffy",
+    "url": "https://www.gocomics.com/thefuscobrothers",
+    "slug": "thefuscobrothers",
+    "position": 153,
+    "is_updated": true
+  },
+  {
+    "name": "Garfield",
+    "author": "Jim Davis",
+    "url": "https://www.gocomics.com/garfield",
+    "slug": "garfield",
+    "position": 154,
+    "is_updated": true
+  },
+  {
+    "name": "Garfield en Español",
+    "author": "Jim Davis",
+    "url": "https://www.gocomics.com/garfieldespanol",
+    "slug": "garfieldespanol",
+    "position": 155,
+    "is_updated": false
+  },
+  {
+    "name": "Gasoline Alley",
+    "author": "Jim Scancarelli",
+    "url": "https://www.gocomics.com/gasolinealley",
+    "slug": "gasolinealley",
+    "position": 156,
+    "is_updated": true
+  },
+  {
+    "name": "Gaturro",
+    "author": "NIK",
+    "url": "https://www.gocomics.com/gaturro",
+    "slug": "gaturro",
+    "position": 157,
+    "is_updated": true
+  },
+  {
+    "name": "Geech",
+    "author": "Jerry Bittle",
+    "url": "https://www.gocomics.com/geech",
+    "slug": "geech",
+    "position": 158,
+    "is_updated": true
+  },
+  {
+    "name": "Get a Life",
+    "author": "Tim Lachowski",
+    "url": "https://www.gocomics.com/getalife",
+    "slug": "getalife",
+    "position": 159,
+    "is_updated": false
+  },
+  {
+    "name": "Get Fuzzy",
+    "author": "Darby Conley",
+    "url": "https://www.gocomics.com/getfuzzy",
+    "slug": "getfuzzy",
+    "position": 160,
+    "is_updated": true
+  },
+  {
+    "name": "Gil",
+    "author": "Norm Feuti",
+    "url": "https://www.gocomics.com/gil",
+    "slug": "gil",
+    "position": 161,
+    "is_updated": false
+  },
+  {
+    "name": "Gil Thorp",
+    "author": "Henry Barajas and Rachel Merrill",
+    "url": "https://www.gocomics.com/gilthorp",
+    "slug": "gilthorp",
+    "position": 162,
+    "is_updated": false
+  },
+  {
+    "name": "Ginger Meggs",
+    "author": "Jason Chatfield",
+    "url": "https://www.gocomics.com/gingermeggs",
+    "slug": "gingermeggs",
+    "position": 163,
+    "is_updated": true
+  },
+  {
+    "name": "Ginger Meggs en Español",
+    "author": "Jason Chatfield",
+    "url": "https://www.gocomics.com/gingermeggs-espanol",
+    "slug": "gingermeggs-espanol",
+    "position": 164,
+    "is_updated": true
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "author": "Randy Glasbergen",
+    "url": "https://www.gocomics.com/glasbergen-cartoons",
+    "slug": "glasbergen-cartoons",
+    "position": 165,
+    "is_updated": true
+  },
+  {
+    "name": "Globetrotter",
+    "author": "Ainsley Ashby",
+    "url": "https://www.gocomics.com/globetrotter",
+    "slug": "globetrotter",
+    "position": 166,
+    "is_updated": false
+  },
+  {
+    "name": "G-Man Webcomics",
+    "author": "Chris Giarrusso",
+    "url": "https://www.gocomics.com/g-man-webcomics",
+    "slug": "g-man-webcomics",
+    "position": 167,
+    "is_updated": false
+  },
+  {
+    "name": "Goats",
+    "author": "Jon Rosenberg",
+    "url": "https://www.gocomics.com/goats",
+    "slug": "goats",
+    "position": 168,
+    "is_updated": false
+  },
+  {
+    "name": "Grand Avenue",
+    "author": "Mike Thompson",
+    "url": "https://www.gocomics.com/grand-avenue",
+    "slug": "grand-avenue",
+    "position": 169,
+    "is_updated": true
+  },
+  {
+    "name": "Gray Matters",
+    "author": "Stuart Carlson",
+    "url": "https://www.gocomics.com/gray-matters",
+    "slug": "gray-matters",
+    "position": 170,
+    "is_updated": true
+  },
+  {
+    "name": "Green Humour",
+    "author": "Rohan Chakravarty",
+    "url": "https://www.gocomics.com/green-humour",
+    "slug": "green-humour",
+    "position": 171,
+    "is_updated": true
+  },
+  {
+    "name": "The Grizzwells",
+    "author": "Bill Schorr",
+    "url": "https://www.gocomics.com/thegrizzwells",
+    "slug": "thegrizzwells",
+    "position": 172,
+    "is_updated": false
+  },
+  {
+    "name": "Haircut Practice",
+    "author": "Adam Koford",
+    "url": "https://www.gocomics.com/haircut-practice",
+    "slug": "haircut-practice",
+    "position": 173,
+    "is_updated": false
+  },
+  {
+    "name": "Half Full",
+    "author": "Maria Scrivan",
+    "url": "https://www.gocomics.com/half-full",
+    "slug": "half-full",
+    "position": 174,
+    "is_updated": true
+  },
+  {
+    "name": "Harley",
+    "author": "Dan Thompson",
+    "url": "https://www.gocomics.com/harley",
+    "slug": "harley",
+    "position": 175,
+    "is_updated": true
+  },
+  {
+    "name": "Heart of the City",
+    "author": "Steenz",
+    "url": "https://www.gocomics.com/heartofthecity",
+    "slug": "heartofthecity",
+    "position": 176,
+    "is_updated": true
+  },
+  {
+    "name": "Heathcliff",
+    "author": "George Gately",
+    "url": "https://www.gocomics.com/heathcliff",
+    "slug": "heathcliff",
+    "position": 177,
+    "is_updated": true
+  },
+  {
+    "name": "Heathcliff en Español",
+    "author": "George Gately",
+    "url": "https://www.gocomics.com/heathcliffespanol",
+    "slug": "heathcliffespanol",
+    "position": 178,
+    "is_updated": false
+  },
+  {
+    "name": "Herb and Jamaal",
+    "author": "Stephen Bentley",
+    "url": "https://www.gocomics.com/herbandjamaal",
+    "slug": "herbandjamaal",
+    "position": 179,
+    "is_updated": true
+  },
+  {
+    "name": "Herman",
+    "author": "Jim Unger",
+    "url": "https://www.gocomics.com/herman",
+    "slug": "herman",
+    "position": 180,
+    "is_updated": true
+  },
+  {
+    "name": "Home and Away",
+    "author": "Steve Sicula",
+    "url": "https://www.gocomics.com/homeandaway",
+    "slug": "homeandaway",
+    "position": 181,
+    "is_updated": true
+  },
+  {
+    "name": "Home Free",
+    "author": "Tom Toro",
+    "url": "https://www.gocomics.com/homefree",
+    "slug": "homefree",
+    "position": 182,
+    "is_updated": false
+  },
+  {
+    "name": "Hot Comics for Cool People",
+    "author": "Brandon Sheffield",
+    "url": "https://www.gocomics.com/hot-comics-for-cool-people",
+    "slug": "hot-comics-for-cool-people",
+    "position": 183,
+    "is_updated": false
+  },
+  {
+    "name": "The Humble Stumble",
+    "author": "Roy Schneider",
+    "url": "https://www.gocomics.com/humble-stumble",
+    "slug": "humble-stumble",
+    "position": 184,
+    "is_updated": true
+  },
+  {
+    "name": "Hutch Owen",
+    "author": "Tom Hart",
+    "url": "https://www.gocomics.com/hutch-owen",
+    "slug": "hutch-owen",
+    "position": 185,
+    "is_updated": false
+  },
+  {
+    "name": "Imagine This",
+    "author": "Lucas Turnbloom",
+    "url": "https://www.gocomics.com/imaginethis",
+    "slug": "imaginethis",
+    "position": 186,
+    "is_updated": false
+  },
+  {
+    "name": "Imogen Quest",
+    "author": "Olivia Walch",
+    "url": "https://www.gocomics.com/imogen-quest",
+    "slug": "imogen-quest",
+    "position": 187,
+    "is_updated": false
+  },
+  {
+    "name": "Ink Pen",
+    "author": "Phil Dunlap",
+    "url": "https://www.gocomics.com/inkpen",
+    "slug": "inkpen",
+    "position": 188,
+    "is_updated": true
+  },
+  {
+    "name": "In Security",
+    "author": "Bea R.",
+    "url": "https://www.gocomics.com/in-security",
+    "slug": "in-security",
+    "position": 189,
+    "is_updated": true
+  },
+  {
+    "name": "In the Bleachers",
+    "author": "Ben Zaehringer",
+    "url": "https://www.gocomics.com/inthebleachers",
+    "slug": "inthebleachers",
+    "position": 190,
+    "is_updated": true
+  },
+  {
+    "name": "In the Sticks",
+    "author": "Nathan Cooper",
+    "url": "https://www.gocomics.com/inthesticks",
+    "slug": "inthesticks",
+    "position": 191,
+    "is_updated": false
+  },
+  {
+    "name": "Invisible Bread",
+    "author": "Justin Boyd",
+    "url": "https://www.gocomics.com/invisible-bread",
+    "slug": "invisible-bread",
+    "position": 192,
+    "is_updated": false
+  },
+  {
+    "name": "It's All About You",
+    "author": "Tony Murphy",
+    "url": "https://www.gocomics.com/itsallaboutyou",
+    "slug": "itsallaboutyou",
+    "position": 193,
+    "is_updated": true
+  },
+  {
+    "name": "Jake Likes Onions",
+    "author": "Jake Thompson",
+    "url": "https://www.gocomics.com/jake-likes-onions",
+    "slug": "jake-likes-onions",
+    "position": 194,
+    "is_updated": false
+  },
+  {
+    "name": "Jane's World",
+    "author": "Paige Braddock",
+    "url": "https://www.gocomics.com/janesworld",
+    "slug": "janesworld",
+    "position": 195,
+    "is_updated": false
+  },
+  {
+    "name": "Jerry King Comics",
+    "author": "Jerry King",
+    "url": "https://www.gocomics.com/jerry-king-comics",
+    "slug": "jerry-king-comics",
+    "position": 196,
+    "is_updated": true
+  },
+  {
+    "name": "Jim Benton Cartoons",
+    "author": "Jim Benton",
+    "url": "https://www.gocomics.com/jim-benton-cartoons",
+    "slug": "jim-benton-cartoons",
+    "position": 197,
+    "is_updated": false
+  },
+  {
+    "name": "JumpStart",
+    "author": "Robb Armstrong",
+    "url": "https://www.gocomics.com/jumpstart",
+    "slug": "jumpstart",
+    "position": 198,
+    "is_updated": true
+  },
+  {
+    "name": "Junk Drawer",
+    "author": "Ellis Rosen",
+    "url": "https://www.gocomics.com/junk-drawer",
+    "slug": "junk-drawer",
+    "position": 199,
+    "is_updated": false
+  },
+  {
+    "name": "Justo y Franco",
+    "author": "Thaves",
+    "url": "https://www.gocomics.com/justo-y-franco",
+    "slug": "justo-y-franco",
+    "position": 200,
+    "is_updated": true
+  },
+  {
+    "name": "The K Chronicles",
+    "author": "Keith Knight",
+    "url": "https://www.gocomics.com/thekchronicles",
+    "slug": "thekchronicles",
+    "position": 201,
+    "is_updated": false
+  },
+  {
+    "name": "Kid Beowulf",
+    "author": "Alexis E. Fajardo",
+    "url": "https://www.gocomics.com/kid-beowulf",
+    "slug": "kid-beowulf",
+    "position": 202,
+    "is_updated": false
+  },
+  {
+    "name": "Kitchen Capers",
+    "author": "David Banks",
+    "url": "https://www.gocomics.com/kitchen-capers",
+    "slug": "kitchen-capers",
+    "position": 203,
+    "is_updated": false
+  },
+  {
+    "name": "Kliban",
+    "author": "B. Kliban",
+    "url": "https://www.gocomics.com/kliban",
+    "slug": "kliban",
+    "position": 204,
+    "is_updated": false
+  },
+  {
+    "name": "Kliban's Cats",
+    "author": "B. Kliban",
+    "url": "https://www.gocomics.com/klibans-cats",
+    "slug": "klibans-cats",
+    "position": 205,
+    "is_updated": false
+  },
+  {
+    "name": "The Knight Life",
+    "author": "Keith Knight",
+    "url": "https://www.gocomics.com/theknightlife",
+    "slug": "theknightlife",
+    "position": 206,
+    "is_updated": true
+  },
+  {
+    "name": "La Cucaracha",
+    "author": "Lalo Alcaraz",
+    "url": "https://www.gocomics.com/lacucaracha",
+    "slug": "lacucaracha",
+    "position": 207,
+    "is_updated": true
+  },
+  {
+    "name": "La Cucaracha en Español",
+    "author": "Lalo Alcaraz",
+    "url": "https://www.gocomics.com/la-cucaracha-en-espanol",
+    "slug": "la-cucaracha-en-espanol",
+    "position": 208,
+    "is_updated": false
+  },
+  {
+    "name": "Lard's World Peace Tips",
+    "author": "Keith Tutt and Daniel Saunders",
+    "url": "https://www.gocomics.com/lards-world-peace-tips",
+    "slug": "lards-world-peace-tips",
+    "position": 209,
+    "is_updated": true
+  },
+  {
+    "name": "Las Hermanas Stone",
+    "author": "Jan Eliot",
+    "url": "https://www.gocomics.com/stonesoup_espanol",
+    "slug": "stonesoup_espanol",
+    "position": 210,
+    "is_updated": true
+  },
+  {
+    "name": "Last Kiss",
+    "author": "John Lustig",
+    "url": "https://www.gocomics.com/lastkiss",
+    "slug": "lastkiss",
+    "position": 211,
+    "is_updated": false
+  },
+  {
+    "name": "Laughing Redhead Comics",
+    "author": "Teresa Logan",
+    "url": "https://www.gocomics.com/laughing-redhead-comics",
+    "slug": "laughing-redhead-comics",
+    "position": 212,
+    "is_updated": false
+  },
+  {
+    "name": "Lay Lines",
+    "author": "Carol Lay",
+    "url": "https://www.gocomics.com/lay-lines",
+    "slug": "lay-lines",
+    "position": 213,
+    "is_updated": false
+  },
+  {
+    "name": "Learn to Speak Cat",
+    "author": "Anthony Smith",
+    "url": "https://www.gocomics.com/learn-to-speak-cat",
+    "slug": "learn-to-speak-cat",
+    "position": 214,
+    "is_updated": true
+  },
+  {
+    "name": "Liberty Meadows",
+    "author": "Frank Cho",
+    "url": "https://www.gocomics.com/libertymeadows",
+    "slug": "libertymeadows",
+    "position": 215,
+    "is_updated": true
+  },
+  {
+    "name": "Life on Earth",
+    "author": "Ham",
+    "url": "https://www.gocomics.com/life-on-earth",
+    "slug": "life-on-earth",
+    "position": 216,
+    "is_updated": true
+  },
+  {
+    "name": "Li'l Abner",
+    "author": "Al Capp",
+    "url": "https://www.gocomics.com/lil-abner",
+    "slug": "lil-abner",
+    "position": 217,
+    "is_updated": false
+  },
+  {
+    "name": "Lio",
+    "author": "Mark Tatulli",
+    "url": "https://www.gocomics.com/lio",
+    "slug": "lio",
+    "position": 218,
+    "is_updated": true
+  },
+  {
+    "name": "Lio en Español",
+    "author": "Mark Tatulli",
+    "url": "https://www.gocomics.com/lioespanol",
+    "slug": "lioespanol",
+    "position": 219,
+    "is_updated": false
+  },
+  {
+    "name": "Little Dog Lost",
+    "author": "Steve Boreman",
+    "url": "https://www.gocomics.com/littledoglost",
+    "slug": "littledoglost",
+    "position": 220,
+    "is_updated": false
+  },
+  {
+    "name": "Little Fried Chicken and Sushi",
+    "author": "Khalid Birdsong",
+    "url": "https://www.gocomics.com/little-fried-chicken-and-sushi",
+    "slug": "little-fried-chicken-and-sushi",
+    "position": 221,
+    "is_updated": false
+  },
+  {
+    "name": "Little Nemo",
+    "author": "Winsor McCay",
+    "url": "https://www.gocomics.com/little-nemo",
+    "slug": "little-nemo",
+    "position": 222,
+    "is_updated": false
+  },
+  {
+    "name": "Liz Climo Cartoons",
+    "author": "Liz Climo",
+    "url": "https://www.gocomics.com/liz-climo-cartoons",
+    "slug": "liz-climo-cartoons",
+    "position": 223,
+    "is_updated": false
+  },
+  {
+    "name": "The Lockhorns",
+    "author": "John Reiner",
+    "url": "https://www.gocomics.com/lockhorns",
+    "slug": "lockhorns",
+    "position": 224,
+    "is_updated": true
+  },
+  {
+    "name": "Lola",
+    "author": "Todd Clark",
+    "url": "https://www.gocomics.com/lola",
+    "slug": "lola",
+    "position": 225,
+    "is_updated": true
+  },
+  {
+    "name": "Lola en Español",
+    "author": "Todd Clark",
+    "url": "https://www.gocomics.com/lola-en-espanol",
+    "slug": "lola-en-espanol",
+    "position": 226,
+    "is_updated": true
+  },
+  {
+    "name": "Long Story Short",
+    "author": "Daniel Beyer",
+    "url": "https://www.gocomics.com/long-story-short",
+    "slug": "long-story-short",
+    "position": 227,
+    "is_updated": false
+  },
+  {
+    "name": "Looks Good on Paper",
+    "author": "Dan Collins",
+    "url": "https://www.gocomics.com/looks-good-on-paper",
+    "slug": "looks-good-on-paper",
+    "position": 228,
+    "is_updated": true
+  },
+  {
+    "name": "Loose Parts",
+    "author": "Dave Blazek",
+    "url": "https://www.gocomics.com/looseparts",
+    "slug": "looseparts",
+    "position": 229,
+    "is_updated": true
+  },
+  {
+    "name": "Los Osorios",
+    "author": "Bill Schorr",
+    "url": "https://www.gocomics.com/los-osorios",
+    "slug": "los-osorios",
+    "position": 230,
+    "is_updated": false
+  },
+  {
+    "name": "Lost Sheep",
+    "author": "Dan Thompson",
+    "url": "https://www.gocomics.com/lostsheep",
+    "slug": "lostsheep",
+    "position": 231,
+    "is_updated": true
+  },
+  {
+    "name": "Luann",
+    "author": "Greg Evans and Karen Evans",
+    "url": "https://www.gocomics.com/luann",
+    "slug": "luann",
+    "position": 232,
+    "is_updated": true
+  },
+  {
+    "name": "Luann Againn",
+    "author": "Greg Evans",
+    "url": "https://www.gocomics.com/luann-againn",
+    "slug": "luann-againn",
+    "position": 233,
+    "is_updated": true
+  },
+  {
+    "name": "Luann en Español",
+    "author": "Greg Evans",
+    "url": "https://www.gocomics.com/luannspanish",
+    "slug": "luannspanish",
+    "position": 234,
+    "is_updated": true
+  },
+  {
+    "name": "Lucky Cow",
+    "author": "Mark Pett",
+    "url": "https://www.gocomics.com/luckycow",
+    "slug": "luckycow",
+    "position": 235,
+    "is_updated": true
+  },
+  {
+    "name": "Lug Nuts",
+    "author": "J.C. Duffy",
+    "url": "https://www.gocomics.com/lug-nuts",
+    "slug": "lug-nuts",
+    "position": 236,
+    "is_updated": true
+  },
+  {
+    "name": "Lunarbaboon",
+    "author": "Christopher Grady",
+    "url": "https://www.gocomics.com/lunarbaboon",
+    "slug": "lunarbaboon",
+    "position": 237,
+    "is_updated": false
+  },
+  {
+    "name": "Maintaining",
+    "author": "Nate Creekmore",
+    "url": "https://www.gocomics.com/maintaining",
+    "slug": "maintaining",
+    "position": 238,
+    "is_updated": true
+  },
+  {
+    "name": "Mannequin on the Moon",
+    "author": "Ian Boothby and Pia Guerra",
+    "url": "https://www.gocomics.com/mannequin-on-the-moon",
+    "slug": "mannequin-on-the-moon",
+    "position": 239,
+    "is_updated": false
+  },
+  {
+    "name": "Maria's Day",
+    "author": "John Zakour and Scott Roberts",
+    "url": "https://www.gocomics.com/marias-day",
+    "slug": "marias-day",
+    "position": 240,
+    "is_updated": true
+  },
+  {
+    "name": "Marmaduke",
+    "author": "Brad Anderson",
+    "url": "https://www.gocomics.com/marmaduke",
+    "slug": "marmaduke",
+    "position": 241,
+    "is_updated": true
+  },
+  {
+    "name": "The Martian Confederacy",
+    "author": "Paige Braddock",
+    "url": "https://www.gocomics.com/the-martian-confederacy",
+    "slug": "the-martian-confederacy",
+    "position": 242,
+    "is_updated": false
+  },
+  {
+    "name": "The Meaning of Lila",
+    "author": "John Forgetta and L.A. Rose",
+    "url": "https://www.gocomics.com/meaningoflila",
+    "slug": "meaningoflila",
+    "position": 243,
+    "is_updated": true
+  },
+  {
+    "name": "Medium Large",
+    "author": "Francesco Marciuliano",
+    "url": "https://www.gocomics.com/medium-large",
+    "slug": "medium-large",
+    "position": 244,
+    "is_updated": false
+  },
+  {
+    "name": "Messycow Comics",
+    "author": "Chen Weng",
+    "url": "https://www.gocomics.com/messy-cow",
+    "slug": "messy-cow",
+    "position": 245,
+    "is_updated": false
+  },
+  {
+    "name": "Mexikid Stories",
+    "author": "Pedro Martin",
+    "url": "https://www.gocomics.com/mexikid-stories",
+    "slug": "mexikid-stories",
+    "position": 246,
+    "is_updated": false
+  },
+  {
+    "name": "The Middle Age",
+    "author": "Steve Conley",
+    "url": "https://www.gocomics.com/the-middle-age",
+    "slug": "the-middle-age",
+    "position": 247,
+    "is_updated": false
+  },
+  {
+    "name": "The Middletons",
+    "author": "Dana Summers",
+    "url": "https://www.gocomics.com/themiddletons",
+    "slug": "themiddletons",
+    "position": 248,
+    "is_updated": true
+  },
+  {
+    "name": "Mike du Jour",
+    "author": "Mike Lester",
+    "url": "https://www.gocomics.com/mike-du-jour",
+    "slug": "mike-du-jour",
+    "position": 249,
+    "is_updated": true
+  },
+  {
+    "name": "Miss Peach",
+    "author": "Mell Lazarus",
+    "url": "https://www.gocomics.com/miss-peach",
+    "slug": "miss-peach",
+    "position": 250,
+    "is_updated": false
+  },
+  {
+    "name": "Moderately Confused",
+    "author": "Jeff Stahler",
+    "url": "https://www.gocomics.com/moderately-confused",
+    "slug": "moderately-confused",
+    "position": 251,
+    "is_updated": false
+  },
+  {
+    "name": "Molly and the Bear",
+    "author": "Bob Scott",
+    "url": "https://www.gocomics.com/molly-and-the-bear",
+    "slug": "molly-and-the-bear",
+    "position": 252,
+    "is_updated": true
+  },
+  {
+    "name": "Momma",
+    "author": "Mell Lazarus",
+    "url": "https://www.gocomics.com/momma",
+    "slug": "momma",
+    "position": 253,
+    "is_updated": true
+  },
+  {
+    "name": "Monty",
+    "author": "Jim Meddick",
+    "url": "https://www.gocomics.com/monty",
+    "slug": "monty",
+    "position": 254,
+    "is_updated": true
+  },
+  {
+    "name": "Monty Diaros",
+    "author": "Jim Meddick",
+    "url": "https://www.gocomics.com/monty-diaros",
+    "slug": "monty-diaros",
+    "position": 255,
+    "is_updated": true
+  },
+  {
+    "name": "Mother Goose and Grimm",
+    "author": "Mike Peters",
+    "url": "https://www.gocomics.com/mother-goose-and-grimm",
+    "slug": "mother-goose-and-grimm",
+    "position": 256,
+    "is_updated": true
+  },
+  {
+    "name": "Motley Classics",
+    "author": "Larry Wright",
+    "url": "https://www.gocomics.com/motley-classics",
+    "slug": "motley-classics",
+    "position": 257,
+    "is_updated": false
+  },
+  {
+    "name": "Mr. Lowe",
+    "author": "Mark Pett",
+    "url": "https://www.gocomics.com/mr-lowe",
+    "slug": "mr-lowe",
+    "position": 258,
+    "is_updated": false
+  },
+  {
+    "name": "Mutt & Jeff",
+    "author": "Bud Fisher",
+    "url": "https://www.gocomics.com/muttandjeff",
+    "slug": "muttandjeff",
+    "position": 259,
+    "is_updated": false
+  },
+  {
+    "name": "My Dad is Dracula",
+    "author": "Jason Poland",
+    "url": "https://www.gocomics.com/my-dad-is-dracula",
+    "slug": "my-dad-is-dracula",
+    "position": 260,
+    "is_updated": true
+  },
+  {
+    "name": "MythTickle",
+    "author": "Justin Thompson",
+    "url": "https://www.gocomics.com/mythtickle",
+    "slug": "mythtickle",
+    "position": 261,
+    "is_updated": false
+  },
+  {
+    "name": "Nancy",
+    "author": "Olivia Jaimes",
+    "url": "https://www.gocomics.com/nancy",
+    "slug": "nancy",
+    "position": 262,
+    "is_updated": true
+  },
+  {
+    "name": "Nancy Classics",
+    "author": "Ernie Bushmiller",
+    "url": "https://www.gocomics.com/nancy-classics",
+    "slug": "nancy-classics",
+    "position": 263,
+    "is_updated": false
+  },
+  {
+    "name": "Nate el Grande",
+    "author": "Lincoln Peirce",
+    "url": "https://www.gocomics.com/nate-el-grande",
+    "slug": "nate-el-grande",
+    "position": 264,
+    "is_updated": false
+  },
+  {
+    "name": "Nest Heads",
+    "author": "John Allen",
+    "url": "https://www.gocomics.com/nestheads",
+    "slug": "nestheads",
+    "position": 265,
+    "is_updated": true
+  },
+  {
+    "name": "NEUROTICA",
+    "author": "Allison Garwood",
+    "url": "https://www.gocomics.com/neurotica",
+    "slug": "neurotica",
+    "position": 266,
+    "is_updated": false
+  },
+  {
+    "name": "New Adventures of Queen Victoria",
+    "author": "Pab Sungenis",
+    "url": "https://www.gocomics.com/thenewadventuresofqueenvictoria",
+    "slug": "thenewadventuresofqueenvictoria",
+    "position": 267,
+    "is_updated": false
+  },
+  {
+    "name": "Next Door Neighbors",
+    "author": "Pat Sandy",
+    "url": "https://www.gocomics.com/next-door-neighbors",
+    "slug": "next-door-neighbors",
+    "position": 268,
+    "is_updated": true
+  },
+  {
+    "name": "Nick and Zuzu",
+    "author": "Nick Galifianakis",
+    "url": "https://www.gocomics.com/nick-and-zuzu",
+    "slug": "nick-and-zuzu",
+    "position": 269,
+    "is_updated": true
+  },
+  {
+    "name": "Non Sequitur",
+    "author": "Wiley Miller",
+    "url": "https://www.gocomics.com/nonsequitur",
+    "slug": "nonsequitur",
+    "position": 270,
+    "is_updated": true
+  },
+  {
+    "name": "The Norm Classics",
+    "author": "Michael Jantze",
+    "url": "https://www.gocomics.com/thenorm",
+    "slug": "thenorm",
+    "position": 271,
+    "is_updated": true
+  },
+  {
+    "name": "Nothing is Not Something",
+    "author": "Greg Wallace",
+    "url": "https://www.gocomics.com/nothing-is-not-something",
+    "slug": "nothing-is-not-something",
+    "position": 272,
+    "is_updated": false
+  },
+  {
+    "name": "Not Invented Here",
+    "author": "Bill Barnes and friends",
+    "url": "https://www.gocomics.com/not-invented-here",
+    "slug": "not-invented-here",
+    "position": 273,
+    "is_updated": false
+  },
+  {
+    "name": "Now Recharging",
+    "author": "Maiji/Mary Huang",
+    "url": "https://www.gocomics.com/now-recharging",
+    "slug": "now-recharging",
+    "position": 274,
+    "is_updated": false
+  },
+  {
+    "name": "Off the Mark",
+    "author": "Mark Parisi",
+    "url": "https://www.gocomics.com/offthemark",
+    "slug": "offthemark",
+    "position": 275,
+    "is_updated": true
+  },
+  {
+    "name": "Oh, Brother!",
+    "author": "Bob Weber Jr.",
+    "url": "https://www.gocomics.com/oh-brother",
+    "slug": "oh-brother",
+    "position": 276,
+    "is_updated": false
+  },
+  {
+    "name": "Ollie and Quentin",
+    "author": "Piers Baker",
+    "url": "https://www.gocomics.com/ollie-and-quentin",
+    "slug": "ollie-and-quentin",
+    "position": 277,
+    "is_updated": true
+  },
+  {
+    "name": "On A Claire Day",
+    "author": "Carla Ventresca and Henry Beckett",
+    "url": "https://www.gocomics.com/onaclaireday",
+    "slug": "onaclaireday",
+    "position": 278,
+    "is_updated": true
+  },
+  {
+    "name": "One Big Happy",
+    "author": "Rick Detorie",
+    "url": "https://www.gocomics.com/onebighappy",
+    "slug": "onebighappy",
+    "position": 279,
+    "is_updated": true
+  },
+  {
+    "name": "Ordinary Bill",
+    "author": "William Wilson",
+    "url": "https://www.gocomics.com/ordinary-bill",
+    "slug": "ordinary-bill",
+    "position": 280,
+    "is_updated": false
+  },
+  {
+    "name": "Origins of the Sunday Comics",
+    "author": "Peter Maresca",
+    "url": "https://www.gocomics.com/origins-of-the-sunday-comics",
+    "slug": "origins-of-the-sunday-comics",
+    "position": 281,
+    "is_updated": false
+  },
+  {
+    "name": "The Other Coast",
+    "author": "Adrian Raeside",
+    "url": "https://www.gocomics.com/theothercoast",
+    "slug": "theothercoast",
+    "position": 282,
+    "is_updated": true
+  },
+  {
+    "name": "Our Super Adventure",
+    "author": "Sarah Graley and Stef Purenins",
+    "url": "https://www.gocomics.com/our-super-adventure",
+    "slug": "our-super-adventure",
+    "position": 283,
+    "is_updated": false
+  },
+  {
+    "name": "Outland",
+    "author": "Berkeley Breathed",
+    "url": "https://www.gocomics.com/outland",
+    "slug": "outland",
+    "position": 284,
+    "is_updated": false
+  },
+  {
+    "name": "Out of the Gene Pool",
+    "author": "Matt Janz",
+    "url": "https://www.gocomics.com/outofthegenepool",
+    "slug": "outofthegenepool",
+    "position": 285,
+    "is_updated": true
+  },
+  {
+    "name": "Overboard",
+    "author": "Chip Dunham",
+    "url": "https://www.gocomics.com/overboard",
+    "slug": "overboard",
+    "position": 286,
+    "is_updated": true
+  },
+  {
+    "name": "Overboard en Español",
+    "author": "Chip Dunham",
+    "url": "https://www.gocomics.com/overboardespanol",
+    "slug": "overboardespanol",
+    "position": 287,
+    "is_updated": true
+  },
+  {
+    "name": "Over the Hedge",
+    "author": "T Lewis",
+    "url": "https://www.gocomics.com/overthehedge",
+    "slug": "overthehedge",
+    "position": 288,
+    "is_updated": true
+  },
+  {
+    "name": "Ozy and Millie",
+    "author": "Dana Simpson",
+    "url": "https://www.gocomics.com/ozy-and-millie",
+    "slug": "ozy-and-millie",
+    "position": 289,
+    "is_updated": false
+  },
+  {
+    "name": "Peanuts",
+    "author": "Charles Schulz",
+    "url": "https://www.gocomics.com/peanuts",
+    "slug": "peanuts",
+    "position": 290,
+    "is_updated": true
+  },
+  {
+    "name": "Peanuts Begins",
+    "author": "Charles Schulz",
+    "url": "https://www.gocomics.com/peanuts-begins",
+    "slug": "peanuts-begins",
+    "position": 291,
+    "is_updated": true
+  },
+  {
+    "name": "Peanuts en Español",
+    "author": "Charles Schulz",
+    "url": "https://www.gocomics.com/peanuts-espanol",
+    "slug": "peanuts-espanol",
+    "position": 292,
+    "is_updated": true
+  },
+  {
+    "name": "Pearls Before Swine",
+    "author": "Stephan Pastis",
+    "url": "https://www.gocomics.com/pearlsbeforeswine",
+    "slug": "pearlsbeforeswine",
+    "position": 293,
+    "is_updated": true
+  },
+  {
+    "name": "Periquita",
+    "author": "Olivia Jaimes",
+    "url": "https://www.gocomics.com/periquita",
+    "slug": "periquita",
+    "position": 294,
+    "is_updated": true
+  },
+  {
+    "name": "Perlas Para Los Cerdos",
+    "author": "Stephan Pastis",
+    "url": "https://www.gocomics.com/perlas-para-los-cerdos",
+    "slug": "perlas-para-los-cerdos",
+    "position": 295,
+    "is_updated": true
+  },
+  {
+    "name": "Perry Bible Fellowship",
+    "author": "Nicholas Gurewitch",
+    "url": "https://www.gocomics.com/perry-bible-fellowship",
+    "slug": "perry-bible-fellowship",
+    "position": 296,
+    "is_updated": false
+  },
+  {
+    "name": "Phoebe and Her Unicorn",
+    "author": "Dana Simpson",
+    "url": "https://www.gocomics.com/phoebe-and-her-unicorn",
+    "slug": "phoebe-and-her-unicorn",
+    "position": 297,
+    "is_updated": true
+  },
+  {
+    "name": "Pibgorn",
+    "author": "Brooke McEldowney",
+    "url": "https://www.gocomics.com/pibgorn",
+    "slug": "pibgorn",
+    "position": 298,
+    "is_updated": false
+  },
+  {
+    "name": "Pibgorn Sketches",
+    "author": "Brooke McEldowney",
+    "url": "https://www.gocomics.com/pibgornsketches",
+    "slug": "pibgornsketches",
+    "position": 299,
+    "is_updated": false
+  },
+  {
+    "name": "Pickles",
+    "author": "Brian Crane",
+    "url": "https://www.gocomics.com/pickles",
+    "slug": "pickles",
+    "position": 300,
+    "is_updated": true
+  },
+  {
+    "name": "Please Listen to Me",
+    "author": "Matt Lubchansky",
+    "url": "https://www.gocomics.com/please-listen-to-me",
+    "slug": "please-listen-to-me",
+    "position": 301,
+    "is_updated": false
+  },
+  {
+    "name": "Pluggers",
+    "author": "Rick McKee",
+    "url": "https://www.gocomics.com/pluggers",
+    "slug": "pluggers",
+    "position": 302,
+    "is_updated": true
+  },
+  {
+    "name": "Pooch Cafe",
+    "author": "Paul Gilligan",
+    "url": "https://www.gocomics.com/poochcafe",
+    "slug": "poochcafe",
+    "position": 303,
+    "is_updated": true
+  },
+  {
+    "name": "Poorcraft",
+    "author": "C. Spike Trotman",
+    "url": "https://www.gocomics.com/poorcraft",
+    "slug": "poorcraft",
+    "position": 304,
+    "is_updated": false
+  },
+  {
+    "name": "Poorly Drawn Lines",
+    "author": "Reza Farazmand",
+    "url": "https://www.gocomics.com/poorly-drawn-lines",
+    "slug": "poorly-drawn-lines",
+    "position": 305,
+    "is_updated": false
+  },
+  {
+    "name": "Pot-Shots",
+    "author": "Ashleigh Brilliant",
+    "url": "https://www.gocomics.com/pot-shots",
+    "slug": "pot-shots",
+    "position": 306,
+    "is_updated": false
+  },
+  {
+    "name": "PreTeena",
+    "author": "Allison Barrows",
+    "url": "https://www.gocomics.com/preteena",
+    "slug": "preteena",
+    "position": 307,
+    "is_updated": true
+  },
+  {
+    "name": "Prickly City",
+    "author": "Scott Stantis",
+    "url": "https://www.gocomics.com/pricklycity",
+    "slug": "pricklycity",
+    "position": 308,
+    "is_updated": true
+  },
+  {
+    "name": "A Problem Like Jamal",
+    "author": "Tauhid Bondia",
+    "url": "https://www.gocomics.com/a-problem-like-jamal",
+    "slug": "a-problem-like-jamal",
+    "position": 309,
+    "is_updated": false
+  },
+  {
+    "name": "Questionable Quotebook",
+    "author": "Sam Hepburn",
+    "url": "https://www.gocomics.com/questionable-quotebook",
+    "slug": "questionable-quotebook",
+    "position": 310,
+    "is_updated": true
+  },
+  {
+    "name": "Rabbits Against Magic",
+    "author": "Jonathan Lemon",
+    "url": "https://www.gocomics.com/rabbitsagainstmagic",
+    "slug": "rabbitsagainstmagic",
+    "position": 311,
+    "is_updated": true
+  },
+  {
+    "name": "Raising Duncan",
+    "author": "Chris Browne",
+    "url": "https://www.gocomics.com/raising-duncan",
+    "slug": "raising-duncan",
+    "position": 312,
+    "is_updated": false
+  },
+  {
+    "name": "Randolph Itch, 2 a.m.",
+    "author": "Tom Toles",
+    "url": "https://www.gocomics.com/randolphitch",
+    "slug": "randolphitch",
+    "position": 313,
+    "is_updated": false
+  },
+  {
+    "name": "Reality Check",
+    "author": "Dave Whamond",
+    "url": "https://www.gocomics.com/realitycheck",
+    "slug": "realitycheck",
+    "position": 314,
+    "is_updated": true
+  },
+  {
+    "name": "Real Life Adventures",
+    "author": "Gary Wise and Lance Aldrich",
+    "url": "https://www.gocomics.com/reallifeadventures",
+    "slug": "reallifeadventures",
+    "position": 315,
+    "is_updated": true
+  },
+  {
+    "name": "Red and Rover",
+    "author": "Brian Basset",
+    "url": "https://www.gocomics.com/redandrover",
+    "slug": "redandrover",
+    "position": 316,
+    "is_updated": true
+  },
+  {
+    "name": "Red Meat",
+    "author": "Max Cannon",
+    "url": "https://www.gocomics.com/redmeat",
+    "slug": "redmeat",
+    "position": 317,
+    "is_updated": false
+  },
+  {
+    "name": "Richard's Poor Almanac",
+    "author": "Richard Thompson",
+    "url": "https://www.gocomics.com/richards-poor-almanac",
+    "slug": "richards-poor-almanac",
+    "position": 318,
+    "is_updated": false
+  },
+  {
+    "name": "Rip Haywire",
+    "author": "Dan Thompson",
+    "url": "https://www.gocomics.com/riphaywire",
+    "slug": "riphaywire",
+    "position": 319,
+    "is_updated": false
+  },
+  {
+    "name": "Ripley’s ¡Aunque Usted no lo Crea!",
+    "author": "John Graziano",
+    "url": "https://www.gocomics.com/ripleys-en-espanol",
+    "slug": "ripleys-en-espanol",
+    "position": 320,
+    "is_updated": false
+  },
+  {
+    "name": "Ripley's Believe It or Not",
+    "author": "John Graziano",
+    "url": "https://www.gocomics.com/ripleysbelieveitornot",
+    "slug": "ripleysbelieveitornot",
+    "position": 321,
+    "is_updated": true
+  },
+  {
+    "name": "Robbie and Bobby",
+    "author": "Jason Poland",
+    "url": "https://www.gocomics.com/robbie-and-bobby",
+    "slug": "robbie-and-bobby",
+    "position": 322,
+    "is_updated": true
+  },
+  {
+    "name": "Rose Is Rose",
+    "author": "Don Wimmer",
+    "url": "https://www.gocomics.com/roseisrose",
+    "slug": "roseisrose",
+    "position": 323,
+    "is_updated": true
+  },
+  {
+    "name": "Rubes",
+    "author": "Leigh Rubin",
+    "url": "https://www.gocomics.com/rubes",
+    "slug": "rubes",
+    "position": 324,
+    "is_updated": true
+  },
+  {
+    "name": "Sarah's Scribbles",
+    "author": "Sarah Andersen",
+    "url": "https://www.gocomics.com/sarahs-scribbles",
+    "slug": "sarahs-scribbles",
+    "position": 325,
+    "is_updated": false
+  },
+  {
+    "name": "Saturday Morning Breakfast Cereal",
+    "author": "Zach Weinersmith",
+    "url": "https://www.gocomics.com/saturday-morning-breakfast-cereal",
+    "slug": "saturday-morning-breakfast-cereal",
+    "position": 326,
+    "is_updated": false
+  },
+  {
+    "name": "Savage Chickens",
+    "author": "Doug Savage",
+    "url": "https://www.gocomics.com/savage-chickens",
+    "slug": "savage-chickens",
+    "position": 327,
+    "is_updated": false
+  },
+  {
+    "name": "Scary Gary",
+    "author": "Mark Buford",
+    "url": "https://www.gocomics.com/scarygary",
+    "slug": "scarygary",
+    "position": 328,
+    "is_updated": true
+  },
+  {
+    "name": "Scenes from a Multiverse",
+    "author": "Jon Rosenberg",
+    "url": "https://www.gocomics.com/scenes-from-a-multiverse",
+    "slug": "scenes-from-a-multiverse",
+    "position": 329,
+    "is_updated": false
+  },
+  {
+    "name": "Shen Comix",
+    "author": "Shen T",
+    "url": "https://www.gocomics.com/shen-comix",
+    "slug": "shen-comix",
+    "position": 330,
+    "is_updated": false
+  },
+  {
+    "name": "Sherman's Lagoon",
+    "author": "Jim Toomey",
+    "url": "https://www.gocomics.com/shermanslagoon",
+    "slug": "shermanslagoon",
+    "position": 331,
+    "is_updated": true
+  },
+  {
+    "name": "Shirley and Son Classics",
+    "author": "Jerry Bittle",
+    "url": "https://www.gocomics.com/shirley-and-son-classics",
+    "slug": "shirley-and-son-classics",
+    "position": 332,
+    "is_updated": false
+  },
+  {
+    "name": "Shoe",
+    "author": "Susie MacNelly",
+    "url": "https://www.gocomics.com/shoe",
+    "slug": "shoe",
+    "position": 333,
+    "is_updated": true
+  },
+  {
+    "name": "Sketchshark Comics",
+    "author": "Megan Dong",
+    "url": "https://www.gocomics.com/sketchshark-comics",
+    "slug": "sketchshark-comics",
+    "position": 334,
+    "is_updated": false
+  },
+  {
+    "name": "Skin Horse",
+    "author": "Shaenon K. Garrity and Jeffrey C. Wells",
+    "url": "https://www.gocomics.com/skinhorse",
+    "slug": "skinhorse",
+    "position": 335,
+    "is_updated": false
+  },
+  {
+    "name": "Skippy",
+    "author": "Percy Crosby",
+    "url": "https://www.gocomics.com/skippy",
+    "slug": "skippy",
+    "position": 336,
+    "is_updated": false
+  },
+  {
+    "name": "Small Potatoes",
+    "author": "Paul Madonna",
+    "url": "https://www.gocomics.com/small-potatoes",
+    "slug": "small-potatoes",
+    "position": 337,
+    "is_updated": false
+  },
+  {
+    "name": "Snow Sez",
+    "author": "T. Shepherd",
+    "url": "https://www.gocomics.com/snow-sez",
+    "slug": "snow-sez",
+    "position": 338,
+    "is_updated": false
+  },
+  {
+    "name": "Speed Bump",
+    "author": "Dave Coverly",
+    "url": "https://www.gocomics.com/speedbump",
+    "slug": "speedbump",
+    "position": 339,
+    "is_updated": true
+  },
+  {
+    "name": "Spirit of the Staircase",
+    "author": "Matthew Foltz-Gray",
+    "url": "https://www.gocomics.com/spirit-of-the-staircase",
+    "slug": "spirit-of-the-staircase",
+    "position": 340,
+    "is_updated": false
+  },
+  {
+    "name": "Spot the Frog",
+    "author": "Mark Heath",
+    "url": "https://www.gocomics.com/spot-the-frog",
+    "slug": "spot-the-frog",
+    "position": 341,
+    "is_updated": false
+  },
+  {
+    "name": "Sticky Comics",
+    "author": "Christiann MacAuley",
+    "url": "https://www.gocomics.com/sticky-comics",
+    "slug": "sticky-comics",
+    "position": 342,
+    "is_updated": false
+  },
+  {
+    "name": "Stone Soup",
+    "author": "Jan Eliot",
+    "url": "https://www.gocomics.com/stonesoup",
+    "slug": "stonesoup",
+    "position": 343,
+    "is_updated": true
+  },
+  {
+    "name": "Strange Brew",
+    "author": "John Deering",
+    "url": "https://www.gocomics.com/strangebrew",
+    "slug": "strangebrew",
+    "position": 344,
+    "is_updated": true
+  },
+  {
+    "name": "Studio Jantze",
+    "author": "Michael Jantze",
+    "url": "https://www.gocomics.com/studio-jantze",
+    "slug": "studio-jantze",
+    "position": 345,
+    "is_updated": false
+  },
+  {
+    "name": "Sunny Street",
+    "author": "Max G",
+    "url": "https://www.gocomics.com/sunny-street",
+    "slug": "sunny-street",
+    "position": 346,
+    "is_updated": false
+  },
+  {
+    "name": "Super-Fun-Pak Comix",
+    "author": "Ruben Bolling",
+    "url": "https://www.gocomics.com/super-fun-pak-comix",
+    "slug": "super-fun-pak-comix",
+    "position": 347,
+    "is_updated": true
+  },
+  {
+    "name": "Swan Eaters",
+    "author": "Georgia Dunn",
+    "url": "https://www.gocomics.com/swan-eaters",
+    "slug": "swan-eaters",
+    "position": 348,
+    "is_updated": false
+  },
+  {
+    "name": "Sweet and Sour Pork",
+    "author": "Bob Holt",
+    "url": "https://www.gocomics.com/sweet-and-sour-pork",
+    "slug": "sweet-and-sour-pork",
+    "position": 349,
+    "is_updated": false
+  },
+  {
+    "name": "Sylvia",
+    "author": "Nicole Hollander",
+    "url": "https://www.gocomics.com/sylvia",
+    "slug": "sylvia",
+    "position": 350,
+    "is_updated": false
+  },
+  {
+    "name": "Tank McNamara",
+    "author": "Bill Hinds",
+    "url": "https://www.gocomics.com/tankmcnamara",
+    "slug": "tankmcnamara",
+    "position": 351,
+    "is_updated": true
+  },
+  {
+    "name": "Tarzan",
+    "author": "Edgar Rice Burroughs",
+    "url": "https://www.gocomics.com/tarzan",
+    "slug": "tarzan",
+    "position": 352,
+    "is_updated": true
+  },
+  {
+    "name": "Tarzán en Español",
+    "author": "Edgar Rice Burroughs",
+    "url": "https://www.gocomics.com/tarzan-en-espanol",
+    "slug": "tarzan-en-espanol",
+    "position": 353,
+    "is_updated": false
+  },
+  {
+    "name": "@Tavicat",
+    "author": "Rikki Simons",
+    "url": "https://www.gocomics.com/tavicat",
+    "slug": "tavicat",
+    "position": 354,
+    "is_updated": false
+  },
+  {
+    "name": "Ten Cats",
+    "author": "Graham Harrop",
+    "url": "https://www.gocomics.com/ten-cats",
+    "slug": "ten-cats",
+    "position": 355,
+    "is_updated": true
+  },
+  {
+    "name": "Tex",
+    "author": "Jesse Atwell",
+    "url": "https://www.gocomics.com/tex",
+    "slug": "tex",
+    "position": 356,
+    "is_updated": false
+  },
+  {
+    "name": "Texts From Mittens",
+    "author": "Angie Bailey",
+    "url": "https://www.gocomics.com/texts-from-mittens",
+    "slug": "texts-from-mittens",
+    "position": 357,
+    "is_updated": true
+  },
+  {
+    "name": "Thatababy",
+    "author": "Paul Trap",
+    "url": "https://www.gocomics.com/thatababy",
+    "slug": "thatababy",
+    "position": 358,
+    "is_updated": true
+  },
+  {
+    "name": "That is Priceless",
+    "author": "Steve Melcher",
+    "url": "https://www.gocomics.com/that-is-priceless",
+    "slug": "that-is-priceless",
+    "position": 359,
+    "is_updated": false
+  },
+  {
+    "name": "That New Carl Smell",
+    "author": "Carl Skanberg",
+    "url": "https://www.gocomics.com/that-new-carl-smell",
+    "slug": "that-new-carl-smell",
+    "position": 360,
+    "is_updated": false
+  },
+  {
+    "name": "(th)ink",
+    "author": "Keith Knight",
+    "url": "https://www.gocomics.com/think",
+    "slug": "think",
+    "position": 361,
+    "is_updated": false
+  },
+  {
+    "name": "Thin Lines",
+    "author": "Randy Glasbergen",
+    "url": "https://www.gocomics.com/thinlines",
+    "slug": "thinlines",
+    "position": 362,
+    "is_updated": false
+  },
+  {
+    "name": "Tiny Sepuku",
+    "author": "Ken Cursoe",
+    "url": "https://www.gocomics.com/tinysepuku",
+    "slug": "tinysepuku",
+    "position": 363,
+    "is_updated": false
+  },
+  {
+    "name": "Today's Szep",
+    "author": "Paul Szep",
+    "url": "https://www.gocomics.com/todays-szep",
+    "slug": "todays-szep",
+    "position": 364,
+    "is_updated": false
+  },
+  {
+    "name": "Tom the Dancing Bug",
+    "author": "Ruben Bolling",
+    "url": "https://www.gocomics.com/tomthedancingbug",
+    "slug": "tomthedancingbug",
+    "position": 365,
+    "is_updated": false
+  },
+  {
+    "name": "Too Much Coffee Man",
+    "author": "Shannon Wheeler",
+    "url": "https://www.gocomics.com/toomuchcoffeeman",
+    "slug": "toomuchcoffeeman",
+    "position": 366,
+    "is_updated": true
+  },
+  {
+    "name": "Trucutú",
+    "author": "Jonathan Lemon",
+    "url": "https://www.gocomics.com/trucutu",
+    "slug": "trucutu",
+    "position": 367,
+    "is_updated": false
+  },
+  {
+    "name": "Tutelandia",
+    "author": "Tute",
+    "url": "https://www.gocomics.com/tutelandia",
+    "slug": "tutelandia",
+    "position": 368,
+    "is_updated": true
+  },
+  {
+    "name": "UFO",
+    "author": "Graham Harrop",
+    "url": "https://www.gocomics.com/ufo",
+    "slug": "ufo",
+    "position": 369,
+    "is_updated": true
+  },
+  {
+    "name": "Underpants and Overbites",
+    "author": "Jackie E. Davis",
+    "url": "https://www.gocomics.com/underpants-and-overbites",
+    "slug": "underpants-and-overbites",
+    "position": 370,
+    "is_updated": false
+  },
+  {
+    "name": "Understanding Chaos",
+    "author": "Gustavo Rodriguez",
+    "url": "https://www.gocomics.com/understanding-chaos",
+    "slug": "understanding-chaos",
+    "position": 371,
+    "is_updated": true
+  },
+  {
+    "name": "Unstrange Phenomena",
+    "author": "Ed Allison",
+    "url": "https://www.gocomics.com/unstrange-phenomena",
+    "slug": "unstrange-phenomena",
+    "position": 372,
+    "is_updated": false
+  },
+  {
+    "name": "The Upside Down World of Gustave Verbeek",
+    "author": "Gustave Verbeek",
+    "url": "https://www.gocomics.com/upside-down-world-of-gustave-verbeek",
+    "slug": "upside-down-world-of-gustave-verbeek",
+    "position": 373,
+    "is_updated": false
+  },
+  {
+    "name": "Viivi & Wagner",
+    "author": "Juba",
+    "url": "https://www.gocomics.com/viivi-and-wagner",
+    "slug": "viivi-and-wagner",
+    "position": 374,
+    "is_updated": true
+  },
+  {
+    "name": "Wallace the Brave",
+    "author": "Will Henry",
+    "url": "https://www.gocomics.com/wallace-the-brave",
+    "slug": "wallace-the-brave",
+    "position": 375,
+    "is_updated": true
+  },
+  {
+    "name": "The Wandering Melon",
+    "author": "Mike Shiell",
+    "url": "https://www.gocomics.com/the-wandering-melon",
+    "slug": "the-wandering-melon",
+    "position": 376,
+    "is_updated": false
+  },
+  {
+    "name": "Wannabe",
+    "author": "Luca Debus",
+    "url": "https://www.gocomics.com/wannabe",
+    "slug": "wannabe",
+    "position": 377,
+    "is_updated": true
+  },
+  {
+    "name": "Warped",
+    "author": "Michael Cavna",
+    "url": "https://www.gocomics.com/warped",
+    "slug": "warped",
+    "position": 378,
+    "is_updated": false
+  },
+  {
+    "name": "Watch Your Head",
+    "author": "Cory Thomas",
+    "url": "https://www.gocomics.com/watchyourhead",
+    "slug": "watchyourhead",
+    "position": 379,
+    "is_updated": false
+  },
+  {
+    "name": "Wawawiwa",
+    "author": "Andrés J. Colmenares",
+    "url": "https://www.gocomics.com/wawawiwa",
+    "slug": "wawawiwa",
+    "position": 380,
+    "is_updated": false
+  },
+  {
+    "name": "WaynoVision",
+    "author": "Wayno",
+    "url": "https://www.gocomics.com/waynovision",
+    "slug": "waynovision",
+    "position": 381,
+    "is_updated": false
+  },
+  {
+    "name": "Wee Pals",
+    "author": "Morrie Turner",
+    "url": "https://www.gocomics.com/weepals",
+    "slug": "weepals",
+    "position": 382,
+    "is_updated": true
+  },
+  {
+    "name": "Widdershins",
+    "author": "Kate Ashwin",
+    "url": "https://www.gocomics.com/widdershins",
+    "slug": "widdershins",
+    "position": 383,
+    "is_updated": false
+  },
+  {
+    "name": "Wide Open!",
+    "author": "Rich Powell",
+    "url": "https://www.gocomics.com/wide-open",
+    "slug": "wide-open",
+    "position": 384,
+    "is_updated": false
+  },
+  {
+    "name": "Win, Lose, Drew",
+    "author": "Drew Litton",
+    "url": "https://www.gocomics.com/drewlitton",
+    "slug": "drewlitton",
+    "position": 385,
+    "is_updated": false
+  },
+  {
+    "name": "Wizard of Id",
+    "author": "Parker and Hart",
+    "url": "https://www.gocomics.com/wizardofid",
+    "slug": "wizardofid",
+    "position": 386,
+    "is_updated": true
+  },
+  {
+    "name": "Wizard of Id Classics",
+    "author": "Parker and Hart",
+    "url": "https://www.gocomics.com/wizard-of-id-classics",
+    "slug": "wizard-of-id-classics",
+    "position": 387,
+    "is_updated": true
+  },
+  {
+    "name": "Wizard of Id en Español",
+    "author": "Parker and Hart",
+    "url": "https://www.gocomics.com/wizardofidespanol",
+    "slug": "wizardofidespanol",
+    "position": 388,
+    "is_updated": false
+  },
+  {
+    "name": "Wondermark",
+    "author": "David Malki",
+    "url": "https://www.gocomics.com/wondermark",
+    "slug": "wondermark",
+    "position": 389,
+    "is_updated": false
+  },
+  {
+    "name": "Working Daze",
+    "author": "John Zakour and Scott Roberts",
+    "url": "https://www.gocomics.com/working-daze",
+    "slug": "working-daze",
+    "position": 390,
+    "is_updated": true
+  },
+  {
+    "name": "Working It Out",
+    "author": "Charlos Gary",
+    "url": "https://www.gocomics.com/workingitout",
+    "slug": "workingitout",
+    "position": 391,
+    "is_updated": true
+  },
+  {
+    "name": "The Worried Well",
+    "author": "Dana Maier",
+    "url": "https://www.gocomics.com/the-worried-well",
+    "slug": "the-worried-well",
+    "position": 392,
+    "is_updated": false
+  },
+  {
+    "name": "Worry Lines",
+    "author": "Worry Lines",
+    "url": "https://www.gocomics.com/worry-lines",
+    "slug": "worry-lines",
+    "position": 393,
+    "is_updated": false
+  },
+  {
+    "name": "Wrong Hands",
+    "author": "John Atkinson",
+    "url": "https://www.gocomics.com/wrong-hands",
+    "slug": "wrong-hands",
+    "position": 394,
+    "is_updated": false
+  },
+  {
+    "name": "W.T. Duck",
+    "author": "Aaron Johnson",
+    "url": "https://www.gocomics.com/wtduck",
+    "slug": "wtduck",
+    "position": 395,
+    "is_updated": false
+  },
+  {
+    "name": "WuMo",
+    "author": "Wulff & Morgenthaler",
+    "url": "https://www.gocomics.com/wumo",
+    "slug": "wumo",
+    "position": 396,
+    "is_updated": true
+  },
+  {
+    "name": "WuMo en Español",
+    "author": "Wulff & Morgenthaler",
+    "url": "https://www.gocomics.com/wumoespanol",
+    "slug": "wumoespanol",
+    "position": 397,
+    "is_updated": false
+  },
+  {
+    "name": "Yaffle",
+    "author": "Jeffrey Caulfield and Brian Ponshock",
+    "url": "https://www.gocomics.com/yaffle",
+    "slug": "yaffle",
+    "position": 398,
+    "is_updated": false
+  },
+  {
+    "name": "Yeah It’s Chill",
+    "author": "Christine Rai",
+    "url": "https://www.gocomics.com/yeah-its-chill",
+    "slug": "yeah-its-chill",
+    "position": 399,
+    "is_updated": false
+  },
+  {
+    "name": "Yes, I'm Hot in This",
+    "author": "Huda Fahmy",
+    "url": "https://www.gocomics.com/yesimhotinthis",
+    "slug": "yesimhotinthis",
+    "position": 400,
+    "is_updated": false
+  },
+  {
+    "name": "Zack Hill",
+    "author": "John Newcombe",
+    "url": "https://www.gocomics.com/zackhill",
+    "slug": "zackhill",
+    "position": 401,
+    "is_updated": true
+  },
+  {
+    "name": "Zen Pencils",
+    "author": "Gavin Aung Than",
+    "url": "https://www.gocomics.com/zen-pencils",
+    "slug": "zen-pencils",
+    "position": 402,
+    "is_updated": false
+  },
+  {
+    "name": "Ziggy",
+    "author": "Tom Wilson & Tom II",
+    "url": "https://www.gocomics.com/ziggy",
+    "slug": "ziggy",
+    "position": 403,
+    "is_updated": true
+  },
+  {
+    "name": "Ziggy en Español",
+    "author": "Tom Wilson & Tom II",
+    "url": "https://www.gocomics.com/ziggyespanol",
+    "slug": "ziggyespanol",
+    "position": 404,
+    "is_updated": true
+  }
+]

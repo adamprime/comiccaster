@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}ComicCaster - Your Feed is Ready{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h2>Your Custom Feed is Ready!</h2>
+            </div>
+            <div class="card-body">
+                <p class="lead">Your personalized comic feed has been generated. You can now subscribe to it using any RSS reader.</p>
+                
+                <div class="alert alert-warning">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Important!</h4>
+                    <p>This is the <strong>only time</strong> this feed URL will be displayed. Please copy it now and save it somewhere safe. If you lose it, you'll need to generate a new feed.</p>
+                </div>
+                
+                <div class="alert alert-info">
+                    <h4>Your Custom Feed URL:</h4>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="feedUrl" value="{{ feed_url }}" readonly>
+                        <button class="btn btn-outline-secondary" type="button" id="copyButton">Copy</button>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3>How to Use Your Feed</h3>
+                    </div>
+                    <div class="card-body">
+                        <ol>
+                            <li>Copy the feed URL above and save it somewhere safe</li>
+                            <li>Open your favorite RSS reader (like Feedly, Inoreader, or NewsBlur)</li>
+                            <li>Add a new feed and paste the URL</li>
+                            <li>Enjoy your personalized comic feed!</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">Create Another Feed</a>
+                    <a href="#" class="btn btn-outline-secondary">Learn More About RSS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const copyButton = document.getElementById('copyButton');
+        const feedUrl = document.getElementById('feedUrl');
+        
+        copyButton.addEventListener('click', function() {
+            feedUrl.select();
+            document.execCommand('copy');
+            
+            // Change button text temporarily
+            const originalText = copyButton.textContent;
+            copyButton.textContent = 'Copied!';
+            
+            setTimeout(function() {
+                copyButton.textContent = originalText;
+            }, 2000);
+        });
+    });
+</script>
+{% endblock %} 

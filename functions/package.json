@@ -1,0 +1,11 @@
+{
+  "name": "comiccaster-functions",
+  "version": "1.0.0",
+  "description": "Netlify functions for ComicCaster",
+  "main": "index.js",
+  "dependencies": {
+    "rss": "^1.2.2",
+    "uuid": "^9.0.0",
+    "xml2js": "^0.6.2"
+  }
+} 

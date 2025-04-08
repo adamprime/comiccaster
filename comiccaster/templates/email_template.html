@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your ComicCaster Feed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        .feed-url {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            word-break: break-all;
+            margin: 20px 0;
+        }
+        .comics-list {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        .instructions {
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Your ComicCaster Feed is Ready!</h1>
+    </div>
+    
+    <div class="content">
+        <p>Hello!</p>
+        
+        <p>Your personalized ComicCaster feed has been generated. You can subscribe to it using any RSS reader.</p>
+        
+        <div class="feed-url">
+            <strong>Feed URL:</strong><br>
+            <a href="{{ feed_url }}">{{ feed_url }}</a>
+        </div>
+        
+        <h2>Comics in Your Feed:</h2>
+        <ul class="comics-list">
+            {% for comic in comics %}
+            <li>{{ comic }}</li>
+            {% endfor %}
+        </ul>
+        
+        <div class="instructions">
+            <h2>How to Use Your Feed:</h2>
+            <ol>
+                <li>Copy the feed URL above</li>
+                <li>Open your favorite RSS reader (like Feedly, Inoreader, or NewsBlur)</li>
+                <li>Add a new feed and paste the URL</li>
+                <li>Enjoy your personalized comic feed!</li>
+            </ol>
+        </div>
+        
+        <p>If you want to change your selection, simply visit our website and create a new feed.</p>
+        
+        <p>Best regards,<br>The ComicCaster Team</p>
+    </div>
+    
+    <div class="footer">
+        <p>This email was sent because you requested a feed URL from ComicCaster.</p>
+    </div>
+</body>
+</html> 

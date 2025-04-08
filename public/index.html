@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComicCaster - Custom Comic RSS Feeds</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <header class="text-center mb-5">
+      <h1>ComicCaster</h1>
+      <p class="lead">Create custom RSS feeds for your favorite comics</p>
+    </header>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2>Individual Comic Feeds</h2>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <input type="text" class="form-control" id="comicSearch" placeholder="Search comics...">
+            </div>
+            <div class="table-container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Comic Name</th>
+                    <th>RSS Feed URL</th>
+                    <th>Original Source</th>
+                  </tr>
+                </thead>
+                <tbody id="comicTableBody">
+                  <!-- Comics will be loaded here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2>Create Your Custom Feed</h2>
+          </div>
+          <div class="card-body">
+            <form id="comicSelectForm">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="selectionSearch" placeholder="Search comics to select...">
+              </div>
+              <div class="comic-list mb-4" id="comicCheckboxes">
+                <!-- Comics checkboxes will be loaded here -->
+              </div>
+              
+              <div class="d-flex justify-content-between mb-4">
+                <button type="submit" class="btn btn-primary">Generate Custom Feed</button>
+                <button type="reset" class="btn btn-secondary">Reset Selection</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html> 

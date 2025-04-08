@@ -1,0 +1,100 @@
+// functions/combined-feed.js
+const fs = require('fs');
+const path = require('path');
+const { parseString } = require('xml2js');
+
+exports.handler = async function(event, context) {
+  // Get token from query parameters
+  const token = event.queryStringParameters.token;
+  
+  if (!token) {
+    return {
+      statusCode: 400,
+      body: 'No token provided'
+    };
+  }
+  
+  try {
+    // Read token data from the repository
+    const tokenPath = path.join(__dirname, '..', 'tokens', `${token}.json`);
+    const tokenData = JSON.parse(fs.readFileSync(tokenPath, 'utf8'));
+    const selectedComics = tokenData.comics;
+    
+    // Generate the combined feed
+    const combinedFeed = await generateCombinedFeed(selectedComics);
+    
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/xml',
+        'Cache-Control': 'public, max-age=3600' // Cache for 1 hour
+      },
+      body: combinedFeed
+    };
+  } catch (error) {
+    return {
+      statusCode: 404,
+      body: 'Invalid or expired token'
+    };
+  }
+};
+
+async function generateCombinedFeed(comicSlugs) {
+  // Create a new feed generator
+  const fg = new FeedGenerator();
+  fg.title('ComicCaster Combined Feed');
+  fg.description('A personalized feed of your favorite comics');
+  fg.link({ href: 'https://your-site-name.netlify.app' });
+  fg.language('en');
+  
+  // Collect all entries from the individual feeds
+  const allEntries = [];
+  
+  for (const slug of comicSlugs) {
+    try {
+      // Read the individual feed
+      const feedPath = path.join(__dirname, '..', 'feeds', `${slug}.xml`);
+      const feedContent = fs.readFileSync(feedPath, 'utf8');
+      
+      // Parse the feed
+      const result = await new Promise((resolve, reject) => {
+        parseString(feedContent, (err, result) => {
+          if (err) reject(err);
+          else resolve(result);
+        });
+      });
+      
+      // Extract entries
+      const entries = result.rss.channel[0].item || [];
+      for (const item of entries) {
+        const entry = {
+          title: item.title[0],
+          link: item.link[0],
+          description: item.description[0],
+          pubDate: item.pubDate[0],
+          category: slug
+        };
+        allEntries.push(entry);
+      }
+    } catch (error) {
+      console.error(`Error processing feed for ${slug}: ${error}`);
+    }
+  }
+  
+  // Sort entries by publication date (newest first)
+  allEntries.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+  
+  // Add entries to the feed generator (up to 50)
+  for (const entry of allEntries.slice(0, 50)) {
+    fg.addEntry({
+      title: entry.title,
+      link: entry.link,
+      description: entry.description,
+      pubDate: entry.pubDate,
+      category: entry.category
+    });
+  }
+  
+  // Generate the feed
+  return fg.rss();
+}

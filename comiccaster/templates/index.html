@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}ComicCaster - Select Your Comics{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2>AVAILABLE INDIVIDUAL COMIC FEEDS</h2>
+            </div>
+            <div class="card-body comic-list">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="comicSearch" placeholder="Search comics...">
+                </div>
+                <table class="table table-striped" id="comicTable">
+                    <thead>
+                        <tr>
+                            <th>Comic</th>
+                            <th>RSS Feed URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for comic in comics %}
+                        <tr>
+                            <td>{{ comic.name }}</td>
+                            <td><code>https://example.com/rss/{{ comic.slug }}</code></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h2>SELECT YOUR FAVORITE COMICS</h2>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('generate_feed') }}" method="post">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="selectionSearch" placeholder="Search comics to select...">
+                    </div>
+                    <div class="comic-list mb-4">
+                        {% for comic in comics %}
+                        <div class="form-check comic-item" data-comic-name="{{ comic.name|lower }}">
+                            <input class="form-check-input" type="checkbox" name="comics" value="{{ comic.slug }}" id="comic-{{ comic.slug }}">
+                            <label class="form-check-label" for="comic-{{ comic.slug }}">
+                                {{ comic.name }}
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mb-4">
+                        <button type="submit" class="btn btn-primary">Generate Custom Feed</button>
+                        <button type="reset" class="btn btn-secondary">Reset Selection</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Add select all functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add a "Select All" checkbox at the top
+        const comicList = document.querySelector('.comic-list');
+        const selectAllDiv = document.createElement('div');
+        selectAllDiv.className = 'form-check mb-3';
+        selectAllDiv.innerHTML = `
+            <input class="form-check-input" type="checkbox" id="select-all">
+            <label class="form-check-label" for="select-all">
+                <strong>Select All Comics</strong>
+            </label>
+        `;
+        comicList.insertBefore(selectAllDiv, comicList.firstChild);
+        
+        // Add event listener for the select all checkbox
+        const selectAllCheckbox = document.getElementById('select-all');
+        selectAllCheckbox.addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('input[name="comics"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+        
+        // Add search functionality for the comic table
+        const comicSearch = document.getElementById('comicSearch');
+        comicSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#comicTable tbody tr');
+            
+            rows.forEach(row => {
+                const comicName = row.querySelector('td:first-child').textContent.toLowerCase();
+                if (comicName.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+        
+        // Add search functionality for the comic selection
+        const selectionSearch = document.getElementById('selectionSearch');
+        selectionSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const comicItems = document.querySelectorAll('.comic-item');
+            
+            comicItems.forEach(item => {
+                const comicName = item.getAttribute('data-comic-name');
+                if (comicName.includes(searchTerm)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+{% endblock %} 
