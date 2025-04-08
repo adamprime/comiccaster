@@ -7,7 +7,8 @@ Runs daily to update all comic feeds with the latest content
 import json
 import os
 import logging
-from datetime import datetime
+import sys
+from datetime import datetime, timedelta
 import requests
 from bs4 import BeautifulSoup
 from feedgen.feed import FeedGenerator
@@ -22,8 +23,12 @@ logger = logging.getLogger(__name__)
 
 def load_comics_list():
     """Load the list of comics from comics_list.json."""
-    with open('comics_list.json', 'r') as f:
-        return json.load(f)
+    try:
+        with open('comics_list.json', 'r') as f:
+            return json.load(f)
+    except Exception as e:
+        logger.error(f"Error loading comics list: {e}")
+        sys.exit(1)
 
 def scrape_comic(slug):
     """Scrape the latest comic from GoComics."""
@@ -38,6 +43,7 @@ def scrape_comic(slug):
         # Extract comic image
         img_elem = soup.select_one('img[class*="strip"]')
         if not img_elem:
+            logger.warning(f"No image found for {slug}")
             return None
         
         image_url = img_elem.get('src', '')
@@ -98,38 +104,57 @@ def update_feed(comic_info, metadata):
         fg.add_entry(fe)
         
         # Save the feed
-        fg.rss_file(feed_path)
-        logger.info(f"Updated feed for {comic_info['name']} at {feed_path}")
+        os.makedirs(os.path.dirname(feed_path), exist_ok=True)
+        fg.save(feed_path)
         
+        logger.info(f"Updated feed for {comic_info['name']}")
         return True
     except Exception as e:
-        logger.error(f"Failed to update feed for {comic_info['name']}: {e}")
+        logger.error(f"Error updating feed for {comic_info['name']}: {e}")
         return False
 
-def update_all_feeds():
-    """Update all comic feeds with the latest content."""
-    # Load comics list
-    comics = load_comics_list()
-    logger.info(f"Loaded {len(comics)} comics from comics_list.json")
-    
-    # Update each comic's feed
-    success_count = 0
-    for comic in comics:
-        # Scrape the latest comic
-        metadata = scrape_comic(comic['slug'])
-        if not metadata:
-            logger.warning(f"Failed to scrape comic: {comic['name']}")
-            continue
+def cleanup_old_tokens():
+    """Remove tokens older than 7 days."""
+    try:
+        token_dir = 'tokens'
+        if not os.path.exists(token_dir):
+            return
         
-        # Update the feed
-        success = update_feed(comic, metadata)
-        if success:
-            logger.info(f"Updated feed for {comic['name']}")
-            success_count += 1
-        else:
-            logger.warning(f"Failed to update feed for {comic['name']}")
-    
-    logger.info(f"Feed update complete. Successfully updated {success_count}/{len(comics)} feeds.")
+        for filename in os.listdir(token_dir):
+            if not filename.endswith('.json'):
+                continue
+            
+            filepath = os.path.join(token_dir, filename)
+            file_time = datetime.fromtimestamp(os.path.getctime(filepath))
+            
+            if datetime.now() - file_time > timedelta(days=7):
+                os.remove(filepath)
+                logger.info(f"Removed old token: {filename}")
+    except Exception as e:
+        logger.error(f"Error cleaning up old tokens: {e}")
 
-if __name__ == "__main__":
+def update_all_feeds():
+    """Update all comic feeds."""
+    comics = load_comics_list()
+    success_count = 0
+    total_count = len(comics)
+    
+    for comic in comics:
+        metadata = scrape_comic(comic['slug'])
+        if metadata:
+            if update_feed(comic, metadata):
+                success_count += 1
+    
+    # Clean up old tokens
+    cleanup_old_tokens()
+    
+    # Log summary
+    logger.info(f"Updated {success_count} out of {total_count} feeds")
+    
+    # Exit with error if less than 90% of feeds were updated
+    if success_count < total_count * 0.9:
+        logger.error("Less than 90% of feeds were updated successfully")
+        sys.exit(1)
+
+if __name__ == '__main__':
     update_all_feeds() 

@@ -25,10 +25,24 @@ jobs:
       
       - name: Run feed update script
         run: python scripts/update_feeds.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Commit and push if changed
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add feeds/
+          git add feeds/ tokens/
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update comic feeds [skip ci]" && git push)
+      
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Feed update failed',
+              body: `The feed update workflow failed. Check the [workflow run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.`
+            })
