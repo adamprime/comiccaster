@@ -1,6 +1,6 @@
-# Contributing to ComicsCaster
+# Contributing to RSS Comics
 
-Thank you for your interest in contributing to ComicsCaster! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to RSS Comics! This document provides guidelines and instructions for contributing to the project.
 
 ## Code of Conduct
 
