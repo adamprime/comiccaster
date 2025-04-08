@@ -169,5 +169,41 @@ def generate_feed():
     response.headers['Content-Disposition'] = 'attachment; filename=comiccaster-feeds.opml'
     return response
 
+@app.route('/generate-opml', methods=['POST'])
+def generate_opml_file():
+    """Generate an OPML file for selected comics directly (no token generation)."""
+    try:
+        # Get selected comics from form
+        selected_comics = request.form.getlist('comics')
+        
+        if not selected_comics:
+            flash("Please select at least one comic")
+            return redirect(url_for('index'))
+        
+        # Validate comics
+        valid_slugs = [comic['slug'] for comic in loader.load_comics_from_file()]
+        valid_comics = [slug for slug in selected_comics if slug in valid_slugs]
+        
+        if not valid_comics:
+            flash("No valid comics selected")
+            return redirect(url_for('index'))
+        
+        # For form submissions (browser), need comics data with metadata for OPML
+        comics_data = loader.load_comics_from_file()
+        comics_with_metadata = [comic for comic in comics_data if comic['slug'] in valid_comics]
+        
+        # Generate OPML content
+        opml_content = generate_opml(comics_with_metadata, valid_comics)
+        
+        # Return the OPML file
+        response = Response(opml_content, mimetype='application/xml')
+        response.headers['Content-Disposition'] = 'attachment; filename=comiccaster-feeds.opml'
+        return response
+    
+    except Exception as e:
+        app.logger.error(f"Error generating OPML: {str(e)}")
+        flash("Error generating OPML file")
+        return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(debug=True) 

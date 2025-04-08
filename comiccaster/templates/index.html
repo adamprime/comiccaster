@@ -69,21 +69,29 @@
     /* URL styling */
     .feed-url {
         position: relative;
-        padding-right: 30px;
-        display: block;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        max-width: 100%;
+    }
+    
+    .url-text {
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;
+        color: var(--link-color);
+    }
+    
+    .url-text:hover {
+        text-decoration: underline;
     }
     
     .copy-icon {
-        position: absolute;
-        right: 8px;
-        top: 50%;
-        transform: translateY(-50%);
+        margin-right: 8px;
         cursor: pointer;
         opacity: 0.7;
         transition: opacity 0.2s;
+        flex-shrink: 0;
     }
     
     .copy-icon:hover {
@@ -172,14 +180,31 @@
     .comic-list::-webkit-scrollbar-thumb:hover {
         background: #888;
     }
+    
+    /* Success message */
+    .success-message {
+        display: none;
+        margin-top: 1rem;
+        padding: 1rem;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 4px;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="card">
     <div class="card-header">
-        <h2>Individual Comic Feeds</h2>
-        <p>Subscribe to individual comic feeds</p>
+        <h2>🎉 Welcome to ComicCaster</h2>
+        <p>Turn your daily comics into a feed you'll actually keep up with.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>🗂️ Browse All Comic Feeds</h2>
+        <p>Grab an RSS link for any individual comic below. Perfect for reading in your own RSS reader like Feedly, NetNewsWire, or Reeder.</p>
     </div>
     <div class="card-body">
         <input type="text" id="comicSearch" placeholder="Search comics...">
@@ -188,8 +213,8 @@
                 <thead>
                     <tr>
                         <th>Comic</th>
-                        <th>RSS Feed</th>
-                        <th>Source</th>
+                        <th>📡 RSS Link</th>
+                        <th>🔗 Original Page</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -198,11 +223,13 @@
                         <td>{{ comic.name }}</td>
                         <td>
                             <div class="feed-url">
-                                {{ url_for('individual_feed', comic_slug=comic.slug, _external=True) }}
                                 <span class="copy-icon" onclick="copyToClipboard(this)" data-url="{{ url_for('individual_feed', comic_slug=comic.slug, _external=True) }}">📋</span>
+                                <span class="url-text" onclick="copyToClipboard(this)" data-url="{{ url_for('individual_feed', comic_slug=comic.slug, _external=True) }}" style="cursor: pointer;">
+                                    {{ url_for('individual_feed', comic_slug=comic.slug, _external=True) }}
+                                </span>
                             </div>
                         </td>
-                        <td><a href="https://www.gocomics.com/{{ comic.slug }}" target="_blank">Source</a></td>
+                        <td><a href="https://www.gocomics.com/{{ comic.slug }}" target="_blank">🔗 Source</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -213,11 +240,11 @@
 
 <div class="card">
     <div class="card-header">
-        <h2>Create OPML File</h2>
-        <p>Build a custom collection of comic feeds</p>
+        <h2>📚 Build Your Comic Bundle</h2>
+        <p>Select your favorite comics below and click the button to generate an OPML file. It works like a playlist for your RSS reader—you can import them all at once!</p>
     </div>
     <div class="card-body">
-        <input type="text" id="customFeedSearch" placeholder="Search comics to add...">
+        <input type="text" id="customFeedSearch" placeholder="Search comics by name...">
         <div class="comic-list">
             {% for comic in comics %}
             <div class="form-check">
@@ -229,12 +256,21 @@
             {% endfor %}
         </div>
 
-        <button class="btn btn-primary" id="generateFeedBtn">Generate OPML File</button>
-        <button class="btn btn-secondary" id="resetSelectionBtn">Reset Selection</button>
+        <button class="btn btn-primary" id="generateFeedBtn">📄 Generate My OPML</button>
+        <button class="btn btn-secondary" id="resetSelectionBtn">❌ Clear Selection</button>
+        
+        <div id="success-message" class="success-message">
+            <p>✅ Your OPML file is ready! <a href="#" id="download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the comics!</p>
+        </div>
 
         <div class="help-text">
-            <p>OPML is a file format that allows you to import multiple RSS feeds at once into your favorite RSS reader. Simply select the comics you want to follow, generate the OPML file, and import it into your RSS reader.</p>
+            <h3>🧠 What's an OPML file?</h3>
+            <p>It's like a playlist for RSS readers. This file lets you subscribe to multiple comics at once—no need to copy and paste each link manually. Just import it into Feedly, Reeder, NetNewsWire, or any RSS reader that supports OPML, and start reading.</p>
         </div>
+        
+        <form id="opml-form" action="/generate-opml" method="POST" style="display: none;">
+            <!-- Selected comics will be added here as hidden inputs -->
+        </form>
     </div>
 </div>
 {% endblock %}
@@ -245,10 +281,20 @@
         const url = element.getAttribute('data-url');
         navigator.clipboard.writeText(url).then(() => {
             // Visual feedback
-            element.textContent = '✓';
-            setTimeout(() => {
-                element.textContent = '📋';
-            }, 2000);
+            if (element.classList.contains('copy-icon')) {
+                element.textContent = '✓';
+                setTimeout(() => {
+                    element.textContent = '📋';
+                }, 2000);
+            } else if (element.classList.contains('url-text')) {
+                const originalText = element.textContent;
+                element.textContent = 'Copied!';
+                element.style.color = '#4CAF50'; // Green color
+                setTimeout(() => {
+                    element.textContent = originalText;
+                    element.style.color = '';
+                }, 2000);
+            }
         }).catch(err => {
             console.error('Could not copy text: ', err);
         });
@@ -292,6 +338,11 @@
         // Generate feed functionality
         const generateFeedBtn = document.getElementById('generateFeedBtn');
         const resetSelectionBtn = document.getElementById('resetSelectionBtn');
+        const opmlForm = document.getElementById('opml-form');
+        const successMessage = document.getElementById('success-message');
+        const downloadLink = document.getElementById('download-link');
+        
+        let downloadBlob = null;
 
         generateFeedBtn.addEventListener('click', function() {
             const selectedComics = [];
@@ -304,43 +355,27 @@
                 return;
             }
 
-            // Call the API to generate the feed
-            fetch('/generate-feed', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    comics: selectedComics
-                }),
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.blob();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(blob => {
-                // Create a link to download the file
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = url;
-                a.download = 'comiccaster-feeds.opml';
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error generating your feed. Please try again.');
+            // Clear any existing inputs
+            opmlForm.innerHTML = '';
+            
+            // Add each selected comic as a separate input field
+            selectedComics.forEach(comicSlug => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'comics';
+                input.value = comicSlug;
+                opmlForm.appendChild(input);
             });
+            
+            // Submit the form
+            opmlForm.submit();
         });
 
         resetSelectionBtn.addEventListener('click', function() {
             document.querySelectorAll('.form-check-input:checked').forEach(checkbox => {
                 checkbox.checked = false;
             });
+            successMessage.style.display = 'none';
         });
     });
 </script>
