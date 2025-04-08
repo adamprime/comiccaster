@@ -33,12 +33,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Commit and push if changed
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add feeds/ tokens/
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update comic feeds [skip ci]" && git push)
+      # Note: We don't commit the feeds and tokens directories as they are ignored
+      # and are regenerated on each run. The action is considered successful
+      # as long as the feed update script completes successfully.
       
       - name: Notify on failure
         if: failure()
