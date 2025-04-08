@@ -13,12 +13,6 @@
   directory = "functions"
   node_bundler = "esbuild"
 
-# Redirect root to the static app function
-[[redirects]]
-  from = "/"
-  to = "/.netlify/functions/flask-app"
-  status = 200
-
 # Direct /rss/ requests to the individual-feed function with the slug as a parameter
 [[redirects]]
   from = "/rss/*"
@@ -30,12 +24,6 @@
 [[redirects]]
   from = "/feeds/*"
   to = "/feeds/:splat"
-  status = 200
-
-# Redirect all routes to the static app
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/flask-app"
   status = 200
 
 [build.environment]
