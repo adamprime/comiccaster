@@ -13,6 +13,12 @@
   directory = "functions"
   node_bundler = "esbuild"
 
+# Redirect root to Flask app
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/flask-app"
+  status = 200
+
 # Direct /rss/ requests to the individual-feed function with the slug as a parameter
 [[redirects]]
   from = "/rss/*"
@@ -26,5 +32,12 @@
   to = "/feeds/:splat"
   status = 200
 
+# Redirect all other paths to the Flask app
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/flask-app/:splat"
+  status = 200
+
 [build.environment]
   PYTHON_VERSION = "3.9"
+  FLASK_APP = "comiccaster.web_interface"
