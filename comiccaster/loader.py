@@ -9,14 +9,18 @@ import json
 import re
 import logging
 import time
+import os
 from typing import List, Dict, Optional, Tuple
 from pathlib import Path
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+from datetime import datetime
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Set up logging
 logging.basicConfig(
@@ -37,16 +41,28 @@ class ComicsLoader:
         """
         self.base_url = base_url
         self.a_to_z_url = f"{base_url}/comics/a-to-z"
-        self.driver = None
-    
-    def setup_driver(self):
-        """Set up the Selenium WebDriver with Firefox in headless mode."""
-        options = Options()
-        options.add_argument("--headless")
-        options.add_argument("--width=1920")
-        options.add_argument("--height=1080")
+        self.comics_list = []
+        self.chrome_options = Options()
+        self.chrome_options.add_argument('--headless')
+        self.chrome_options.add_argument('--no-sandbox')
+        self.chrome_options.add_argument('--disable-dev-shm-usage')
         
-        self.driver = webdriver.Firefox(options=options)
+        if 'CHROME_BIN' in os.environ:
+            self.chrome_options.binary_location = os.environ['CHROME_BIN']
+
+    def setup_driver(self):
+        """Set up the Selenium WebDriver with Chrome in headless mode."""
+        if os.environ.get('USE_WEBDRIVER_MANAGER', 'false').lower() == 'true':
+            self.driver = webdriver.Chrome(
+                service=Service(ChromeDriverManager().install()),
+                options=self.chrome_options
+            )
+        else:
+            service = Service()
+            if 'CHROMEDRIVER_PATH' in os.environ:
+                service = Service(executable_path=os.environ['CHROMEDRIVER_PATH'])
+            self.driver = webdriver.Chrome(service=service, options=self.chrome_options)
+            
         self.driver.set_window_size(1920, 1080)
     
     def fetch_page(self) -> Optional[str]:
@@ -207,6 +223,35 @@ class ComicsLoader:
             self.save_comics_list(comics)
         
         return comics
+
+    def load_comics_from_file(self, file_path: str = "comics_list.json") -> List[Dict[str, str]]:
+        """
+        Load comic information from a JSON file.
+        
+        Args:
+            file_path (str): Path to the JSON file containing comic information.
+            
+        Returns:
+            List[Dict[str, str]]: List of comic information dictionaries.
+            
+        Raises:
+            FileNotFoundError: If the file doesn't exist.
+            json.JSONDecodeError: If the file contains invalid JSON.
+        """
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                comics = json.load(f)
+            logger.info(f"Loaded {len(comics)} comics from {file_path}")
+            return comics
+        except FileNotFoundError:
+            logger.error(f"Comics list file not found: {file_path}")
+            raise
+        except json.JSONDecodeError as e:
+            logger.error(f"Invalid JSON in comics list file: {e}")
+            raise
+        except Exception as e:
+            logger.error(f"Failed to load comics from file: {e}")
+            raise
 
 def main():
     """Main function to demonstrate the ComicsLoader usage."""

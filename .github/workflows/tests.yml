@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, test-branch-protection ]
   pull_request:
     branches: [ main ]
 
@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
+      fail-fast: false  # Continue with other versions even if one fails
 
     steps:
     - uses: actions/checkout@v4
@@ -20,19 +21,53 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
+
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@latest
+      with:
+        chrome-version: stable
+
+    - name: Setup ChromeDriver
+      run: |
+        # Install ChromeDriver using ChromeDriver manager
+        pip install webdriver-manager
+        # The webdriver-manager will handle downloading the correct ChromeDriver version
+        python -c "from webdriver_manager.chrome import ChromeDriverManager; print(ChromeDriverManager().install())"
         
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest pytest-cov
-        pip install -e .
+        # Install requirements first
+        pip install -r requirements.txt
+        # Then install package with test dependencies
+        pip install -e ".[dev]"
         
     - name: Run tests with pytest
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+        CHROME_BIN: google-chrome
+        USE_WEBDRIVER_MANAGER: "true"
       run: |
-        pytest --cov=comiccaster --cov-report=xml
+        # Print debug information
+        echo "Python version:"
+        python --version
+        echo "\nChrome version:"
+        google-chrome --version
+        echo "\nChromeDriver path:"
+        which chromedriver
+        echo "\nEnvironment variables:"
+        env | grep -E "PYTHON|CHROME"
         
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
+        # Run tests with maximum verbosity and show local variables on errors
+        python -m pytest -vv --showlocals --log-cli-level=DEBUG
+        
+    - name: Generate coverage report
+      if: always()  # Run even if tests fail
+      run: |
+        python -m pytest --cov=comiccaster --cov-report=xml
+        
+    - name: Upload coverage reports to Codecov
+      if: always()  # Run even if tests fail
+      uses: codecov/codecov-action@v5
       with:
-        file: ./coverage.xml
-        fail_ci_if_error: true 
+        token: ${{ secrets.CODECOV_TOKEN }} 
