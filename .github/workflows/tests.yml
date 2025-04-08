@@ -31,12 +31,25 @@ jobs:
         
     - name: Install ChromeDriver
       run: |
-        CHROME_VERSION=$(google-chrome --version | cut -d ' ' -f 3 | cut -d '.' -f 1)
-        CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-        curl -L -o chromedriver.zip "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
-        unzip chromedriver.zip
+        # Get Chrome major version
+        chrome_version=$(google-chrome --version)
+        chrome_major_version=$(echo "$chrome_version" | awk '{print $3}' | cut -d. -f1)
+        echo "Chrome version: $chrome_version"
+        echo "Chrome major version: $chrome_major_version"
+        
+        # Get matching ChromeDriver version
+        chromedriver_version=$(wget -qO- "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${chrome_major_version}")
+        echo "ChromeDriver version: $chromedriver_version"
+        
+        # Download and install ChromeDriver
+        wget -q "https://chromedriver.storage.googleapis.com/${chromedriver_version}/chromedriver_linux64.zip"
+        unzip -q chromedriver_linux64.zip
         chmod +x chromedriver
         sudo mv chromedriver /usr/local/bin/
+        rm chromedriver_linux64.zip
+        
+        # Verify installation
+        chromedriver --version
         
     - name: Install dependencies
       run: |
