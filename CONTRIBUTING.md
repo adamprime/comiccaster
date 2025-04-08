@@ -1,6 +1,6 @@
-# Contributing to RSS Comics
+# Contributing to ComicCaster
 
-Thank you for your interest in contributing to RSS Comics! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to ComicCaster! This document provides guidelines and instructions for contributing to the project.
 
 ## Code of Conduct
 
@@ -18,8 +18,8 @@ Please be respectful and considerate of others when contributing to this project
 
 1. Clone your fork:
 ```bash
-git clone https://github.com/your-username/rss-comics.git
-cd rss-comics
+git clone https://github.com/your-username/comiccaster.git
+cd comiccaster
 ```
 
 2. Set up the development environment:

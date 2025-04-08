@@ -1,4 +1,4 @@
-# RSS Comics
+# ComicCaster
 
 A Python-based RSS feed generator for GoComics that allows you to create personalized comic feeds.
 
@@ -16,8 +16,8 @@ A Python-based RSS feed generator for GoComics that allows you to create persona
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/rss-comics.git
-cd rss-comics
+git clone https://github.com/yourusername/comiccaster.git
+cd comiccaster
 ```
 
 2. Create a virtual environment:
@@ -40,7 +40,7 @@ Then edit `.env` with your configuration values.
 ## Project Structure
 
 ```
-rss-comics/
+comiccaster/
 ├── .github/             # GitHub configuration
 │   └── workflows/       # GitHub Actions workflows
 │       └── update-feeds.yml # Daily feed update workflow
@@ -85,7 +85,7 @@ rss-comics/
 git init
 git add .
 git commit -m "Initial commit"
-git remote add origin https://github.com/yourusername/rss-comics.git
+git remote add origin https://github.com/yourusername/comiccaster.git
 git push -u origin main
 ```
 
