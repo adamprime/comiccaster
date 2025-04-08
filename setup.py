@@ -15,6 +15,8 @@ setup(
         "dev": [
             "pytest>=6.0.0",
             "pytest-cov>=2.0.0",
+            "pytest-flask>=1.2.0",
+            "pytest-mock>=3.6.0",
         ],
     },
     python_requires=">=3.9",
