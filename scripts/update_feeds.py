@@ -134,9 +134,11 @@ def update_all_feeds():
     # Log summary
     logger.info(f"Updated {success_count} out of {total_count} feeds")
     
-    # Exit with error if less than 90% of feeds were updated
-    if success_count < total_count * 0.9:
-        logger.error("Less than 90% of feeds were updated successfully")
+    # Exit with error only if less than 30% of feeds were updated
+    # This is a more reasonable threshold since many comics don't update daily
+    # and some may be discontinued or on hiatus
+    if success_count < total_count * 0.3:
+        logger.error(f"Only {(success_count/total_count)*100:.1f}% of feeds were updated successfully. This is unusually low and might indicate a problem.")
         sys.exit(1)
 
 if __name__ == '__main__':
