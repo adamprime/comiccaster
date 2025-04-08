@@ -84,37 +84,60 @@ class ComicFeedGenerator:
         """
         fe = FeedEntry()
         
-        # Set entry metadata
-        fe.title(metadata.get('title', f"{comic_info['name']} - {datetime.now().strftime('%Y-%m-%d')}"))
-        fe.link(href=metadata.get('url', comic_info['url']))
-        
-        # Set entry ID (using URL as permanent identifier)
-        fe.id(metadata.get('url', comic_info['url']))
-        
-        # Create HTML description with the comic image
-        description = f"""
-        <div style="text-align: center;">
-            <img src="{metadata.get('image', '')}" alt="{comic_info['name']}" style="max-width: 100%;">
-            <p>{metadata.get('description', '')}</p>
-        </div>
-        """
-        fe.description(description)
-        
-        # Set publication date if available
-        if 'pub_date' in metadata:
-            try:
-                # Parse the RFC 2822 date string
-                pub_date = datetime.strptime(metadata['pub_date'], '%a, %d %b %Y %H:%M:%S %z')
-                fe.published(pub_date)
-                fe.updated(pub_date)
-            except ValueError:
-                logger.warning(f"Could not parse publication date: {metadata['pub_date']}")
-                # Use current time as fallback
+        try:
+            # Set entry metadata
+            fe.title(metadata.get('title', f"{comic_info['name']} - {datetime.now().strftime('%Y-%m-%d')}"))
+            fe.link(href=metadata.get('url', comic_info['url']))
+            
+            # Set entry ID (using URL as permanent identifier)
+            entry_id = metadata.get('id') or metadata.get('url') or comic_info.get('url')
+            if not entry_id:
+                # Fallback to a unique ID based on date and slug
+                entry_id = f"https://comiccaster.xyz/feeds/{comic_info['slug']}/{datetime.now().strftime('%Y%m%d%H%M%S')}"
+            
+            fe.id(entry_id)
+            
+            # Create HTML description with the comic image
+            image_url = metadata.get('image', '')
+            description = f"""
+            <div style="text-align: center;">
+                <img src="{image_url}" alt="{comic_info['name']}" style="max-width: 100%;">
+                <p>{metadata.get('description', '')}</p>
+            </div>
+            """
+            fe.description(description)
+            
+            # Set publication date if available
+            if 'pub_date' in metadata:
+                try:
+                    # Parse the RFC 2822 date string
+                    pub_date = datetime.strptime(metadata['pub_date'], '%a, %d %b %Y %H:%M:%S %z')
+                    fe.published(pub_date)
+                    fe.updated(pub_date)
+                except ValueError:
+                    logger.warning(f"Could not parse publication date: {metadata['pub_date']}")
+                    # Use current time as fallback
+                    now = datetime.now(timezone.utc)
+                    fe.published(now)
+                    fe.updated(now)
+            else:
+                # Use current time if no pub_date available
                 now = datetime.now(timezone.utc)
                 fe.published(now)
                 fe.updated(now)
-        
-        return fe
+                
+            return fe
+        except Exception as e:
+            logger.error(f"Error creating feed entry: {e}")
+            # Create a minimal valid entry as fallback
+            now = datetime.now(timezone.utc)
+            fe.title(f"{comic_info['name']} - {now.strftime('%Y-%m-%d')}")
+            fe.link(href=comic_info['url'])
+            fe.id(f"{comic_info['url']}#{now.timestamp()}")
+            fe.description(f"Error loading comic: {comic_info['name']}")
+            fe.published(now)
+            fe.updated(now)
+            return fe
     
     def update_feed(self, comic_info: Dict[str, str], metadata: Dict[str, str]) -> bool:
         """
