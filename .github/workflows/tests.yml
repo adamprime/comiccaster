@@ -24,12 +24,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest pytest-cov
-        pip install -e .
+        # Install package with test dependencies
+        pip install -e ".[dev]"
         
     - name: Run tests with pytest
       run: |
-        pytest --cov=comiccaster --cov-report=xml
+        python -m pytest -v --cov=comiccaster --cov-report=xml
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
