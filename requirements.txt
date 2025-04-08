@@ -6,7 +6,7 @@ APScheduler==3.10.4
 selenium==4.18.1
 flask==3.0.2
 requests-toolbelt==1.0.0
-pytz==2024.1
+pytz==2025.2
 pytest==8.0.2
 pytest-cov==4.1.0
 pytest-mock==3.12.0
