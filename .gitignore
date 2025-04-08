@@ -32,10 +32,16 @@ ENV/
 
 # Project specific
 feeds/
+tokens/
 config/config.json
 .env
+debug_*.html
+*.log
 
-# Logs
-*.log 
 # Local Netlify folder
 .netlify
+node_modules/
+
+# OS specific
+.DS_Store
+Thumbs.db
