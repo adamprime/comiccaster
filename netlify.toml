@@ -13,9 +13,17 @@
   directory = "functions"
   node_bundler = "esbuild"
 
+# Direct /rss/ requests to the individual-feed function with the slug as a parameter
 [[redirects]]
   from = "/rss/*"
-  to = "/.netlify/functions/individual-feed/:splat"
+  to = "/.netlify/functions/individual-feed"
+  status = 200
+  force = true
+
+# Fallback for direct feed access
+[[redirects]]
+  from = "/feeds/*"
+  to = "/feeds/:splat"
   status = 200
 
 [build.environment]

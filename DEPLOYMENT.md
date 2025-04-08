@@ -5,8 +5,7 @@ This guide provides detailed instructions for deploying ComicCaster to productio
 ## Prerequisites
 
 - A GitHub account
-- A Netlify account
-- A custom domain (optional)
+- A server for hosting (Flask deployment) or a Netlify account (serverless deployment)
 - Python 3.8 or higher
 - Node.js 14 or higher (for Netlify functions)
 
@@ -35,147 +34,171 @@ cp .env.example .env
 # Edit .env with your configuration
 ```
 
-5. Run tests:
+5. Run the development server:
 ```bash
-pytest
+export FLASK_APP=comiccaster.web_interface
+export FLASK_ENV=development
+flask run --port=5001
 ```
 
-## GitHub Setup
+## Deployment Options
 
-1. Create a new repository on GitHub
-2. Push your code:
+ComicCaster can be deployed either as a self-hosted Flask application or as a serverless application using Netlify Functions.
+
+### Self-Hosted Flask Deployment
+
+1. Set up a server with Python installed
+2. Clone the repository and install dependencies
+3. Configure a production WSGI server:
+
 ```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/yourusername/comiccaster.git
-git push -u origin main
+# Install Gunicorn
+pip install gunicorn
+
+# Run the application
+gunicorn -w 4 'comiccaster.web_interface:app' -b 0.0.0.0:5000
 ```
 
-3. Enable GitHub Actions:
-   - Go to repository Settings > Actions > General
-   - Enable "Allow all actions and reusable workflows"
-   - Save changes
+4. Set up a reverse proxy (Nginx example):
 
-4. Set up Dependabot:
-   - Go to repository Settings > Code security and analysis
-   - Enable Dependabot
-   - The configuration is already in `.github/dependabot.yml`
+```nginx
+server {
+    listen 80;
+    server_name your-domain.com;
 
-## Netlify Deployment
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+    
+    location /feeds/ {
+        alias /path/to/comiccaster/feeds/;
+        expires 1h;
+    }
+}
+```
 
-1. Sign up for Netlify and connect your GitHub account
+5. Set up a scheduled task for daily feed updates:
 
-2. Create a new site:
-   - Click "New site from Git"
-   - Choose your GitHub repository
-   - Select the main branch
+```bash
+# Add to crontab
+0 1 * * * cd /path/to/comiccaster && /path/to/python/bin/python scripts/update_feeds.py >> /var/log/comiccaster.log 2>&1
+```
 
-3. Configure build settings:
-   - Build command: `npm install -g netlify-cli && netlify build`
-   - Publish directory: `public`
-   - Node version: 14 (or higher)
+### Netlify Deployment
 
-4. Set up environment variables:
-   - Go to Site settings > Build & deploy > Environment
-   - Add the following variables:
-     - `GITHUB_TOKEN`: Your GitHub personal access token with repo access
-     - `SECRET_KEY`: A secure random string for session management
+1. Create a new site on Netlify:
+   - Connect your GitHub repository
+   - Configure build settings:
+     - Build command: `npm install -g netlify-cli && netlify build`
+     - Publish directory: `public`
 
-5. Configure Netlify Functions:
-   - The functions are in the `functions` directory
-   - They will be automatically deployed
-   - Make sure the function timeout is set to at least 10 seconds
+2. Configure Netlify Functions:
+   - The functions are defined in the `functions` directory
+   - The `netlify.toml` file already includes the necessary configuration
+   - Functions automatically handle feed serving and OPML generation
 
-## Custom Domain Setup
+3. Set up a GitHub Action for daily feed updates:
+   - The workflow is defined in `.github/workflows/update-feeds.yml`
+   - No additional configuration is needed
+   - The action runs at 1 AM UTC daily
 
-1. Purchase a domain (if you don't have one)
+## Environment Variables
 
-2. Add the domain in Netlify:
-   - Go to Site settings > Domain management
-   - Click "Add custom domain"
-   - Enter your domain name
+### Flask Deployment
+- `FLASK_APP`: Set to `comiccaster.web_interface`
+- `FLASK_ENV`: Set to `production` for deployment
+- `SECRET_KEY`: A secure random string for session management
 
-3. Configure DNS:
-   - If using Netlify DNS:
-     - Add the domain in Netlify
-     - Update your domain registrar's nameservers
-   - If using external DNS:
-     - Add the following records:
-       ```
-       Type  Name  Value
-       A     @     Netlify's IP
-       CNAME www   your-site.netlify.app
-       ```
+### Netlify Deployment
+- `URL`: Your site's base URL (e.g., `https://comiccaster.xyz`)
 
-4. Enable HTTPS:
-   - Netlify will automatically provision an SSL certificate
-   - Wait for DNS propagation (can take up to 24 hours)
+## Feed Update Script
 
-## Monitoring and Maintenance
+The feed update script (`scripts/update_feeds.py`) is responsible for:
 
-1. GitHub Actions:
-   - Daily feed updates run at 1 AM UTC
-   - Check Actions tab for any failures
-   - Failed runs will create GitHub issues
+1. Loading the comic list from `comics_list.json`
+2. Scraping the latest comic for each comic
+3. Updating the individual RSS feeds
+4. Cleaning up legacy tokens (for backward compatibility)
 
-2. Dependabot:
-   - Weekly dependency updates
-   - Review and merge PRs as needed
-   - Test after major updates
+For GitHub Actions deployment, this script is run automatically. For self-hosted deployment, set up a cron job to run it daily.
 
-3. Logs:
-   - Check Netlify logs for function errors
-   - Monitor GitHub Actions logs
-   - Review error notifications
+## Directory Structure
 
-## Troubleshooting
+Important directories:
 
-1. Feed Update Failures:
-   - Check GitHub Actions logs
-   - Verify GITHUB_TOKEN permissions
-   - Check for rate limiting
+- `comiccaster/`: Core Python package
+- `feeds/`: Generated RSS feed XML files
+- `functions/`: Netlify serverless functions
+- `scripts/`: Utility scripts including feed updater
 
-2. Function Errors:
-   - Check Netlify function logs
-   - Verify environment variables
-   - Check function timeout settings
+## OPML Generation Feature
 
-3. DNS Issues:
-   - Verify DNS records
-   - Check SSL certificate status
-   - Wait for DNS propagation
+The OPML generation feature has replaced the previous combined feed approach. This simplifies deployment by:
+
+1. Eliminating the need for server-side token storage
+2. Removing the feed aggregation processing requirements
+3. Improving performance by delegating feed handling to users' RSS readers
+
+See `opml-generation.md` for detailed documentation on this feature.
+
+## Maintenance Tasks
+
+### Regular Updates
+
+- Keep Python dependencies updated
+- Monitor GitHub Actions runs for feed update failures
+- Check server or Netlify logs for errors
+
+### Troubleshooting Common Issues
+
+1. **Missing Feeds**: 
+   - Check if the comic is still available on GoComics
+   - Check if the scraper is working properly
+   - Verify that the feed directory is writable
+
+2. **Scraper Failures**:
+   - GoComics might have changed their HTML structure
+   - Update the scraper logic in `comiccaster/scraper.py`
+   - Check for rate limiting issues
+
+3. **Performance Issues**:
+   - The OPML generation is very lightweight
+   - Individual feed serving should be efficient
+   - Consider adding caching headers for feed files
 
 ## Security Considerations
 
-1. Tokens:
-   - Tokens expire after 7 days
-   - Old tokens are automatically cleaned up
-   - Use secure random generation
+1. **Server Protection**:
+   - Keep your server and dependencies updated
+   - Use HTTPS for all traffic
+   - Implement rate limiting if needed
 
-2. Environment Variables:
-   - Never commit .env file
-   - Use strong SECRET_KEY
-   - Rotate GITHUB_TOKEN periodically
+2. **No User Data**:
+   - The application doesn't store user selections
+   - No personal data is collected
+   - No authentication is required
 
-3. Dependencies:
-   - Keep dependencies updated
-   - Review security advisories
-   - Test after updates
+The simplified architecture with OPML generation reduces security concerns since there's no permanent storage of user selections.
 
-## Backup and Recovery
+## Monitoring
 
-1. Code:
-   - GitHub repository serves as backup
-   - Regular commits preserve history
-   - Consider branch protection rules
+For a production deployment, consider setting up:
 
-2. Data:
-   - Feeds are regenerated daily
-   - Tokens are temporary
-   - No persistent data to backup
+1. **Uptime Monitoring**:
+   - Use a service like UptimeRobot to monitor your website
+   - Set up alerts for downtime
 
-3. Configuration:
-   - Document all environment variables
-   - Keep deployment settings in version control
-   - Document custom DNS settings 
+2. **Log Monitoring**:
+   - Check feed update logs regularly
+   - Monitor web server logs for errors
+
+3. **GitHub Actions**:
+   - Monitor the daily feed update workflow
+   - Set up notifications for workflow failures
+
+---
+
+This deployment guide covers the basics of deploying ComicCaster. The application is designed to be simple to deploy and maintain, with minimal server-side requirements. 

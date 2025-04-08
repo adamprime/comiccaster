@@ -31,7 +31,6 @@ ENV/
 *.swo
 
 # Project specific
-feeds/
 tokens/
 config/config.json
 .env

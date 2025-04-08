@@ -3,90 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ComicCaster - RSS Feeds for Comics</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
-    <link rel="alternate icon" type="image/x-icon" href="/static/favicon.ico">
-    <!-- Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Custom styles -->
+    <title>ComicCaster - RSS feeds for your favorite comics</title>
     <style>
+        :root {
+            --background-color: #1a1a1a;
+            --text-color: #ffffff;
+            --border-color: #333333;
+        }
+
         body {
-            background-color: #1a1a1a;
-            color: #ffffff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #888;
+            margin: 0;
+        }
+
+        .card {
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            padding: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border: none;
+            background-color: #0066cc;
+            color: white;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #0052a3;
+        }
+
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
         }
     </style>
 </head>
 <body>
-    <div class="container mx-auto px-4 py-8">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold mb-4">ComicCaster</h1>
-            <p class="text-xl text-gray-300">Create custom RSS feeds for your favorite comics</p>
+    <div class="container">
+        <header class="header">
+            <h1>ComicCaster</h1>
+            <p>Read your favorite comics as an RSS feed</p>
         </header>
 
-        <div class="bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Individual Comic Feeds</h2>
-            <div class="mb-4">
-                <input type="text" 
-                       id="searchInput" 
-                       placeholder="Search comics..." 
-                       class="w-full p-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div id="comic-list" class="space-y-4">
-                <!-- Comics will be loaded here dynamically -->
-            </div>
+        <div class="card">
+            <h2>About ComicCaster</h2>
+            <p>ComicCaster is a tool that generates RSS feeds for comics from GoComics, allowing you to read your favorite comics in your preferred RSS reader.</p>
+            
+            <h3>Features:</h3>
+            <ul>
+                <li>Individual RSS feeds for hundreds of comics</li>
+                <li>OPML file generation for easy subscription</li>
+                <li>Dark mode interface</li>
+                <li>Daily updates of comic feeds</li>
+            </ul>
+
+            <a href="/.netlify/functions/app" class="btn">Launch ComicCaster App</a>
         </div>
 
-        <div class="bg-gray-800 rounded-lg shadow-lg p-6">
-            <h2 class="text-2xl font-semibold mb-4">Create Your Custom Feed</h2>
-            <div class="mb-4">
-                <input type="text" 
-                       id="customSearchInput" 
-                       placeholder="Search comics to select..." 
-                       class="w-full p-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div id="selected-comics" class="mb-4 space-y-2">
-                <!-- Selected comics will appear here -->
-            </div>
-            <div class="flex justify-between">
-                <button id="generate-opml" 
-                        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
-                    Generate Custom Feed
-                </button>
-                <button id="reset-selection" 
-                        class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors">
-                    Reset Selection
-                </button>
-            </div>
+        <div class="card">
+            <h2>RSS Access</h2>
+            <p>Individual comic feeds are available at:</p>
+            <code>/rss/comic-slug</code>
+            <p>For example, to subscribe to Calvin and Hobbes:</p>
+            <a href="/rss/calvinandhobbes">/rss/calvinandhobbes</a>
         </div>
 
-        <footer class="mt-12 text-center text-gray-400">
-            <p>Powered by <a href="https://github.com/adamprime/comiccaster" class="text-blue-400 hover:text-blue-300">ComicCaster</a></p>
+        <footer class="footer">
+            <p>Powered by <a href="https://github.com/adamprime/comiccaster">ComicCaster</a></p>
         </footer>
     </div>
-
-    <!-- Success Modal -->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-gray-800">
-                <div class="modal-header border-gray-700">
-                    <h5 class="modal-title" id="successModalLabel">OPML File Generated!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-light">Your OPML file has been downloaded. You can now:</p>
-                    <ol class="list-decimal list-inside text-light ml-4">
-                        <li>Open your preferred RSS reader</li>
-                        <li>Look for an option to "Import OPML" or "Import Feeds"</li>
-                        <li>Select the downloaded file (comiccaster-feeds.opml)</li>
-                    </ol>
-                    <p class="text-secondary mt-3">Most RSS readers support OPML import. After importing, you can manage each feed individually in your reader.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript -->
-    <script src="/js/app.js"></script>
 </body>
 </html> 

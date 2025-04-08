@@ -33,9 +33,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-      # Note: We don't commit the feeds and tokens directories as they are ignored
-      # and are regenerated on each run. The action is considered successful
-      # as long as the feed update script completes successfully.
+      - name: Commit and push updated feeds
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add feeds/*.xml
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update comic feeds"
+            git push
+          fi
       
       - name: Notify on failure
         if: failure()

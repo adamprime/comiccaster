@@ -4,30 +4,36 @@ const path = require('path');
 
 // Helper function to check if a comic feed exists
 function comicFeedExists(slug) {
-    const feedPath = path.join(process.cwd(), 'feeds', `${slug}.xml`);
+    const feedPath = path.join(process.cwd(), 'public', 'feeds', `${slug}.xml`);
     return fs.existsSync(feedPath);
 }
 
 // Helper function to store token data
 function storeToken(token, comics) {
-    const tokensPath = path.join(process.cwd(), 'data', 'tokens.json');
+    const tokensPath = path.join(process.cwd(), 'public', 'data', 'tokens.json');
     let tokens = {};
     
     // Create data directory if it doesn't exist
-    const dataDir = path.join(process.cwd(), 'data');
+    const dataDir = path.join(process.cwd(), 'public', 'data');
     if (!fs.existsSync(dataDir)) {
-        fs.mkdirSync(dataDir);
+        fs.mkdirSync(dataDir, { recursive: true });
     }
     
     // Load existing tokens if file exists
     if (fs.existsSync(tokensPath)) {
-        tokens = JSON.parse(fs.readFileSync(tokensPath, 'utf8'));
+        try {
+            tokens = JSON.parse(fs.readFileSync(tokensPath, 'utf8'));
+        } catch (error) {
+            console.error('Error parsing tokens.json:', error);
+            // Continue with empty tokens object
+        }
     }
     
     // Store new token data
     tokens[token] = {
         comics,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString() // 7 days
     };
     
     // Save updated tokens
@@ -39,14 +45,23 @@ exports.handler = async function(event, context) {
     if (event.httpMethod !== 'POST') {
         return {
             statusCode: 405,
-            body: 'Method Not Allowed'
+            body: JSON.stringify({ error: 'Method Not Allowed' })
         };
     }
 
     try {
-        const { comics } = JSON.parse(event.body);
+        let comics = [];
+        try {
+            const body = JSON.parse(event.body);
+            comics = body.comics || [];
+        } catch (error) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({ error: 'Invalid request body' })
+            };
+        }
         
-        if (!comics || !Array.isArray(comics) || comics.length === 0) {
+        if (!Array.isArray(comics) || comics.length === 0) {
             return {
                 statusCode: 400,
                 body: JSON.stringify({ error: 'Please select at least one comic' })
@@ -64,23 +79,37 @@ exports.handler = async function(event, context) {
         }
 
         // Generate a unique token and store it
-        const token = storeToken(uuidv4(), availableComics);
+        const token = uuidv4();
+        storeToken(token, availableComics);
 
         // Generate OPML content
         const opml = generateOPML(availableComics);
 
-        // Set cookie with the token
-        const cookieExpiration = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days
-        
-        return {
-            statusCode: 200,
-            headers: {
-                'Content-Type': 'application/xml',
-                'Content-Disposition': 'attachment; filename="comiccaster-feeds.opml"',
-                'Set-Cookie': `comiccaster_token=${token}; Expires=${cookieExpiration.toUTCString()}; Path=/; HttpOnly; SameSite=Strict`
-            },
-            body: opml
-        };
+        // Return response based on Accept header
+        const acceptHeader = event.headers?.accept || '';
+        if (acceptHeader.includes('application/json')) {
+            // Return JSON response with token
+            return {
+                statusCode: 200,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    token: token,
+                    feed_url: `${process.env.URL}/feed/${token}`
+                })
+            };
+        } else {
+            // Return OPML as attachment
+            return {
+                statusCode: 200,
+                headers: {
+                    'Content-Type': 'application/xml',
+                    'Content-Disposition': 'attachment; filename="comiccaster-feeds.opml"'
+                },
+                body: opml
+            };
+        }
     } catch (error) {
         console.error('Error generating OPML:', error);
         return {
@@ -92,13 +121,19 @@ exports.handler = async function(event, context) {
 
 function generateOPML(comics) {
     const date = new Date().toISOString();
+    const baseUrl = process.env.URL || 'https://comiccaster.xyz';
+    
     const feeds = comics.map(slug => {
-        return `    <outline 
-            type="rss" 
-            text="${slug.replace(/-/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase())}"
-            title="${slug.replace(/-/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase())}"
-            xmlUrl="${process.env.URL}/.netlify/functions/individual-feed?comic=${slug}"
-        />`
+        // Format the comic name nicely
+        const comicName = slug.replace(/-/g, ' ')
+            .replace(/(^|\s)\S/g, l => l.toUpperCase());
+            
+        return `            <outline 
+                type="rss" 
+                text="${comicName}"
+                title="${comicName}"
+                xmlUrl="${baseUrl}/.netlify/functions/individual-feed?comic=${slug}"
+            />`;
     }).join('\n');
 
     return `<?xml version="1.0" encoding="UTF-8"?>

@@ -1,18 +1,50 @@
 # ComicCaster
 
 [![Tests](https://github.com/adamprime/comiccaster/actions/workflows/tests.yml/badge.svg)](https://github.com/adamprime/comiccaster/actions/workflows/tests.yml)
+[![Update Feeds](https://github.com/adamprime/comiccaster/actions/workflows/update-feeds.yml/badge.svg)](https://github.com/adamprime/comiccaster/actions/workflows/update-feeds.yml)
 
-A Python-based RSS feed generator for GoComics that allows you to create personalized comic feeds.
+A Python-based RSS feed generator for GoComics that allows you to subscribe to individual comic feeds or create personalized collections using OPML files.
 
 ## Features
 
 - Generate individual RSS feeds for any comic on GoComics
-- Create personalized combined feeds using OPML files
-- Web interface for easy comic selection and feed generation
+- Create OPML files for easy import of multiple feeds into your RSS reader
+- Dark mode user interface
+- Simple comic search and selection
 - Automatic daily updates via GitHub Actions
-- Serverless deployment with Netlify
-- Simple configuration system
-- Secure token-based feed access
+- Serverless deployment options with Netlify Functions
+- Self-hosted option with Python Flask
+
+## How It Works
+
+### Individual Comic Feeds
+ComicCaster scrapes GoComics daily to create individual RSS feeds for each comic. Each feed contains:
+- The comic image
+- Title and description
+- Link to the original page
+- Publication date
+
+### OPML Generation
+Instead of creating combined feeds, ComicCaster now generates OPML files:
+1. Select your favorite comics in the web interface
+2. Click "Generate OPML File" 
+3. Import the OPML file into your RSS reader
+4. Your reader will subscribe to each individual feed automatically
+
+### Daily Updates
+A GitHub Actions workflow runs daily to:
+- Scrape the latest comic strips from GoComics
+- Update individual comic feeds
+- Clean up old tokens (legacy function)
+- Commit the updated feed files to the repository
+- Push changes to trigger automatic deployment
+
+### Feed Storage
+ComicCaster now keeps feed XML files in the Git repository:
+- Ensures feeds are immediately available after deployment
+- Provides version history of feed changes
+- Makes debugging easier with transparent feed content
+- Increases reliability of the netlify deployment
 
 ## Installation
 
@@ -48,123 +80,77 @@ comiccaster/
 │       └── update-feeds.yml # Daily feed update workflow
 ├── comiccaster/         # Main package directory
 │   ├── __init__.py
-│   ├── loader.py       # Comics A-to-Z loader
-│   ├── scraper.py      # Comic scraper module
+│   ├── loader.py        # Comics list loader
+│   ├── scraper.py       # Comic scraper module
 │   ├── feed_generator.py # RSS feed generator
-│   ├── feed_aggregator.py # Feed aggregator
-│   └── templates/      # HTML templates
-├── config/             # Configuration files
-│   └── config.json    # User configuration
-├── feeds/             # Generated RSS feeds
-├── functions/         # Netlify serverless functions
+│   ├── web_interface.py # Flask web interface
+│   └── templates/       # HTML templates
+│       ├── base.html    # Base template with styling
+│       └── index.html   # Main page template
+├── functions/           # Netlify serverless functions
 │   ├── individual-feed.js # Function to serve individual feeds
-│   ├── generate-token.js # Function to generate tokens
-│   └── package.json   # Node.js dependencies
-├── public/            # Static web files
-│   ├── index.html    # Main page
-│   ├── feed-generated.html # Feed generated page
-│   ├── css/          # Stylesheets
-│   │   └── styles.css # Main stylesheet
-│   └── js/           # JavaScript files
-│       └── app.js    # Main JavaScript
-├── scripts/          # Utility scripts
-│   └── update_feeds.py # Feed update script
-├── tokens/           # User token storage
-│   └── README.md     # Token directory documentation
-├── requirements.txt  # Python dependencies
-├── netlify.toml      # Netlify configuration
-├── comics_list.json  # List of available comics
-└── README.md         # This file
+│   ├── generate-token.js # Function to generate OPML
+│   └── package.json     # Node.js dependencies
+├── scripts/             # Utility scripts
+│   └── update_feeds.py  # Feed update script
+├── feeds/               # Generated RSS feeds (*.xml)
+├── comics_list.json     # List of available comics
+└── README.md            # This documentation
 ```
 
-## Deployment
+## Running Locally
 
-### GitHub Setup
+To run the web interface locally:
 
-1. Create a new GitHub repository
-2. Push your code to the repository:
 ```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/yourusername/comiccaster.git
-git push -u origin main
+export FLASK_APP=comiccaster.web_interface
+export FLASK_ENV=development
+flask run --port=5001
 ```
 
-3. Enable GitHub Actions in your repository settings
+The site will be available at http://localhost:5001
+
+## Feed Update Script
+
+The `scripts/update_feeds.py` script handles updating all feeds:
+
+```bash
+python scripts/update_feeds.py
+```
+
+This script:
+1. Loads the comic list from `comics_list.json`
+2. Scrapes the latest comic for each entry
+3. Updates each comic's RSS feed
+4. Reports success/failure statistics
+
+## Deployment Options
+
+### Self-Hosted Flask
+
+1. Set up a server with Python installed
+2. Clone the repository
+3. Install dependencies
+4. Configure a production WSGI server (e.g., Gunicorn)
+5. Set up a reverse proxy (e.g., Nginx)
+6. Configure a scheduled task to run `update_feeds.py` daily
 
 ### Netlify Deployment
 
-1. Sign up for a Netlify account at https://www.netlify.com/
-2. Connect your GitHub repository to Netlify
-3. Configure the build settings:
+1. Connect your GitHub repository to Netlify
+2. Configure build settings:
    - Build command: `npm install -g netlify-cli && netlify build`
    - Publish directory: `public`
-4. Set up environment variables in Netlify:
-   - `GITHUB_TOKEN`: A GitHub personal access token with repo access
-5. Configure your custom domain in Netlify's domain settings
+3. Set up environment variables in Netlify
+4. Configure your custom domain
 
-## Automatic Updates
+## Technical Components
 
-The application uses GitHub Actions to automatically update comic feeds daily. The workflow:
-
-1. Runs every day at 1 AM UTC
-2. Updates all comic feeds
-3. Cleans up old tokens (older than 7 days)
-4. Commits and pushes changes automatically
-5. Creates GitHub issues if updates fail
-
-## Feed Generation
-
-### Individual Feeds
-
-Each comic has its own RSS feed accessible at:
-```
-https://yourdomain.com/.netlify/functions/individual-feed?comic=comic-slug
-```
-
-### Combined Feeds
-
-Combined feeds are generated using OPML files. To create a combined feed:
-
-1. Select your desired comics in the web interface
-2. Download the generated OPML file
-3. Use the OPML file with your preferred RSS reader
-
-## Security
-
-- Feeds are protected by token-based authentication
-- Tokens expire after 7 days
-- Old tokens are automatically cleaned up
-- GitHub Actions uses secure tokens for authentication
-
-## Making Your Own Instance Public
-
-If you want to make your instance of this project public:
-
-1. **Security First**:
-   - Ensure no sensitive data is in the repository
-   - Check `.gitignore` is properly configured
-   - Remove any API keys or secrets
-   - Verify environment variables are properly set
-
-2. **Repository Setup**:
-   - Add a LICENSE file (MIT License recommended)
-   - Update README with your specific deployment details
-   - Add contribution guidelines
-   - Set up issue templates
-
-3. **Documentation**:
-   - Document any custom configurations
-   - Add setup instructions for your specific instance
-   - Include troubleshooting guides
-   - Add contact information for support
-
-4. **Maintenance**:
-   - Set up automated dependency updates
-   - Configure issue and PR templates
-   - Add status badges
-   - Set up project boards if needed
+- **Backend**: Python with Flask for web serving
+- **Feed Generation**: Uses `feedgen` library for RSS creation
+- **Web Scraping**: BeautifulSoup for parsing with requests/Selenium for fetching
+- **Frontend**: HTML/CSS with JavaScript for interactivity
+- **Deployment**: GitHub Actions for automated updates
 
 ## Contributing
 
