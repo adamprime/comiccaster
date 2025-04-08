@@ -64,11 +64,14 @@ def scrape_comic(slug):
         else:
             pub_date = TIMEZONE.localize(datetime.now())
         
+        # Format pub_date as RFC 2822 string
+        pub_date_str = pub_date.strftime('%a, %d %b %Y %H:%M:%S %z')
+        
         return {
             'title': title,
             'url': url,
             'image': image_url,
-            'pub_date': pub_date,
+            'pub_date': pub_date_str,
             'description': f"Latest {slug} comic strip"
         }
     except Exception as e:
