@@ -46,10 +46,18 @@ jobs:
         CHROME_BIN: google-chrome
         USE_WEBDRIVER_MANAGER: "true"
       run: |
-        # Print versions for debugging
+        # Print debug information
+        echo "Python version:"
+        python --version
+        echo "\nChrome version:"
         google-chrome --version
-        # Run tests with full output
-        python -m pytest -v --tb=short || python -m pytest -v --no-cov --tb=long
+        echo "\nChromeDriver path:"
+        which chromedriver
+        echo "\nEnvironment variables:"
+        env | grep -E "PYTHON|CHROME"
+        
+        # Run tests with maximum verbosity and show local variables on errors
+        python -m pytest -vv --showlocals --log-cli-level=DEBUG
         
     - name: Generate coverage report
       if: always()  # Run even if tests fail

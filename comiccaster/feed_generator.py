@@ -9,6 +9,8 @@ import logging
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
+import time
+import feedparser
 
 from feedgen.feed import FeedGenerator
 from feedgen.entry import FeedEntry
@@ -49,7 +51,6 @@ class ComicFeedGenerator:
         
         # Set feed metadata
         fg.title(f"{comic_info['name']} - GoComics")
-        fg.link(href=comic_info['url'])
         fg.description(f"Daily {comic_info['name']} comic strip by {comic_info['author']}")
         fg.language('en')
         
@@ -60,6 +61,13 @@ class ComicFeedGenerator:
         # Add feed author
         if comic_info.get('author'):
             fg.author({'name': comic_info['author']})
+        
+        # Add atom:link for feed self-reference
+        feed_url = f"https://comiccaster.xyz/feeds/{comic_info['slug']}.xml"
+        fg.link(href=feed_url, rel='self', type='application/rss+xml')
+        
+        # Set the main feed link to the comic's URL (this must come after the self-reference)
+        fg.link(href=comic_info['url'])
         
         return fg
     
@@ -79,6 +87,9 @@ class ComicFeedGenerator:
         # Set entry metadata
         fe.title(metadata.get('title', f"{comic_info['name']} - {datetime.now().strftime('%Y-%m-%d')}"))
         fe.link(href=metadata.get('url', comic_info['url']))
+        
+        # Set entry ID (using URL as permanent identifier)
+        fe.id(metadata.get('url', comic_info['url']))
         
         # Create HTML description with the comic image
         description = f"""
@@ -103,9 +114,6 @@ class ComicFeedGenerator:
                 fe.published(now)
                 fe.updated(now)
         
-        # Set entry ID
-        fe.id(metadata.get('url', comic_info['url']))
-        
         return fe
     
     def update_feed(self, comic_info: Dict[str, str], metadata: Dict[str, str]) -> bool:
@@ -122,12 +130,22 @@ class ComicFeedGenerator:
         try:
             feed_path = self.output_dir / f"{comic_info['slug']}.xml"
             
-            # Load existing feed or create new one
+            # Create new feed or load existing one
+            fg = self.create_feed(comic_info)
+            
+            # If feed exists, load existing entries
             if feed_path.exists():
-                fg = FeedGenerator()
-                fg.load(str(feed_path))
-            else:
-                fg = self.create_feed(comic_info)
+                existing_feed = feedparser.parse(str(feed_path))
+                for entry in existing_feed.entries:
+                    fe = fg.add_entry()
+                    fe.id(entry.id)
+                    fe.title(entry.title)
+                    fe.link(href=entry.link)
+                    fe.description(entry.description)
+                    if hasattr(entry, 'published_parsed'):
+                        pub_date = datetime.fromtimestamp(time.mktime(entry.published_parsed))
+                        fe.published(pub_date)
+                        fe.updated(pub_date)
             
             # Create and add new entry
             fe = self.create_entry(comic_info, metadata)

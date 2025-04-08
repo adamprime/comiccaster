@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 feedgen pytz
+          pip install requests beautifulsoup4 feedgen pytz feedparser
       
       - name: Run feed update script
         run: python scripts/update_feeds.py

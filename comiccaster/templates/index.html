@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="card mb-4">
             <div class="card-header">
-                <h2>AVAILABLE INDIVIDUAL COMIC FEEDS</h2>
+                <h2>Individual Comic Feeds</h2>
             </div>
             <div class="card-body comic-list">
                 <div class="mb-3">
@@ -16,15 +16,17 @@
                 <table class="table table-striped" id="comicTable">
                     <thead>
                         <tr>
-                            <th>Comic</th>
+                            <th>Comic Name</th>
                             <th>RSS Feed URL</th>
+                            <th>Original Source</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for comic in comics %}
                         <tr>
                             <td>{{ comic.name }}</td>
-                            <td><code>https://example.com/rss/{{ comic.slug }}</code></td>
+                            <td><code>{{ url_for('individual_feed', comic_slug=comic.slug, _external=True) }}</code></td>
+                            <td><a href="{{ comic.url }}" target="_blank" rel="noopener noreferrer">Source</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>

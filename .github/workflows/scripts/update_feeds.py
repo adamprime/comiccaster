@@ -10,7 +10,7 @@ import logging
 from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
-from feedgen.feed import FeedGenerator
+from comiccaster.feed_generator import ComicFeedGenerator
 from feedgen.entry import FeedEntry
 
 # Set up logging
@@ -67,7 +67,7 @@ def update_feed(comic_info, metadata):
         feed_path = f"feeds/{comic_info['slug']}.xml"
         
         # Create feed generator
-        fg = FeedGenerator()
+        fg = ComicFeedGenerator()
         fg.title(f"{comic_info['name']} - GoComics")
         fg.link(href=comic_info['url'])
         fg.description(f"Daily {comic_info['name']} comic strip by {comic_info.get('author', 'Unknown')}")

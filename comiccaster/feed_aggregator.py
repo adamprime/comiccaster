@@ -1,123 +1,146 @@
 """
-Feed Aggregator Module for ComicCaster
+Feed Aggregator Module
 
-This module combines multiple individual comic RSS feeds into a single combined feed.
-It fetches the latest entries from each feed and merges them chronologically.
+This module handles combining multiple comic feeds into a single feed.
 """
 
 import os
-import xml.etree.ElementTree as ET
-from datetime import datetime
-import feedgen
+import json
+import logging
+from typing import List, Dict, Optional, Any
+from datetime import datetime, timedelta
+import pytz
+import feedparser
 from feedgen.feed import FeedGenerator
 from feedgen.entry import FeedEntry
 
+# Set up logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 class FeedAggregator:
-    """Class to aggregate multiple RSS feeds into a single feed."""
+    """Handles combining multiple comic feeds into a single feed."""
     
-    def __init__(self, feeds_dir='feeds'):
-        """Initialize the feed aggregator.
+    def __init__(self, feeds_dir: str = 'feeds'):
+        """
+        Initialize the FeedAggregator.
         
         Args:
-            feeds_dir (str): Directory containing individual comic feeds
+            feeds_dir (str): Directory containing the feed files. Defaults to 'feeds'.
         """
         self.feeds_dir = feeds_dir
         self.feed_generator = FeedGenerator()
         self.feed_generator.title('ComicCaster Combined Feed')
-        self.feed_generator.description('A personalized feed of your favorite comics')
-        self.feed_generator.link(href='https://example.com')
+        self.feed_generator.description('A combined feed of your favorite comics')
+        self.feed_generator.link(href='https://comiccaster.xyz')
         self.feed_generator.language('en')
-        
-    def aggregate_feeds(self, comic_slugs, max_entries=50):
-        """Aggregate multiple comic feeds into a single feed.
-        
-        Args:
-            comic_slugs (list): List of comic slugs to include in the feed
-            max_entries (int): Maximum number of entries to include in the combined feed
-            
-        Returns:
-            str: XML string of the combined feed
-        """
-        # Reset the feed generator
-        self.feed_generator = FeedGenerator()
-        self.feed_generator.title('ComicCaster Combined Feed')
-        self.feed_generator.description('A personalized feed of your favorite comics')
-        self.feed_generator.link(href='https://example.com')
-        self.feed_generator.language('en')
-        
-        # Collect all entries from the individual feeds
-        all_entries = []
-        
-        for slug in comic_slugs:
-            feed_path = os.path.join(self.feeds_dir, f'{slug}.xml')
-            
-            if not os.path.exists(feed_path):
-                continue
-                
-            try:
-                # Parse the individual feed
-                tree = ET.parse(feed_path)
-                root = tree.getroot()
-                
-                # Extract entries
-                for item in root.findall('.//{http://www.w3.org/2005/Atom}entry'):
-                    entry = FeedEntry()
-                    
-                    # Get title
-                    title_elem = item.find('{http://www.w3.org/2005/Atom}title')
-                    if title_elem is not None:
-                        entry.title(title_elem.text)
-                    
-                    # Get link
-                    link_elem = item.find('{http://www.w3.org/2005/Atom}link')
-                    if link_elem is not None:
-                        entry.link(href=link_elem.get('href'))
-                    
-                    # Get published date
-                    published_elem = item.find('{http://www.w3.org/2005/Atom}published')
-                    if published_elem is not None:
-                        entry.published(published_elem.text)
-                    
-                    # Get content
-                    content_elem = item.find('{http://www.w3.org/2005/Atom}content')
-                    if content_elem is not None:
-                        entry.content(content_elem.text)
-                    
-                    # Add the comic slug as a category
-                    entry.category(term=slug, label=slug)
-                    
-                    all_entries.append(entry)
-            except Exception as e:
-                print(f"Error processing feed for {slug}: {e}")
-        
-        # Sort entries by published date (newest first)
-        all_entries.sort(key=lambda x: x.published(), reverse=True)
-        
-        # Add entries to the feed generator (up to max_entries)
-        for entry in all_entries[:max_entries]:
-            self.feed_generator.add_entry(entry)
-        
-        # Generate the feed
-        return self.feed_generator.rss_str(pretty=True).decode('utf-8')
+        self.feed_generator.updated(datetime.now(pytz.UTC))
     
-    def save_combined_feed(self, comic_slugs, output_path, max_entries=50):
-        """Aggregate feeds and save the combined feed to a file.
+    def load_feed_entries(self, comic_slug: str) -> List[Dict[str, Any]]:
+        """
+        Load entries from a comic's feed file.
         
         Args:
-            comic_slugs (list): List of comic slugs to include in the feed
-            output_path (str): Path to save the combined feed
-            max_entries (int): Maximum number of entries to include in the combined feed
+            comic_slug (str): The slug identifier for the comic.
             
         Returns:
-            bool: True if successful, False otherwise
+            List[Dict[str, Any]]: A list of feed entries as dictionaries.
+        """
+        feed_path = os.path.join(self.feeds_dir, f"{comic_slug}.xml")
+        if not os.path.exists(feed_path):
+            return []
+            
+        feed = feedparser.parse(feed_path)
+        entries = []
+        
+        for entry in feed.entries:
+            entries.append({
+                'title': entry.title,
+                'link': entry.link,
+                'description': entry.description,
+                'published': datetime.fromtimestamp(entry.published_parsed.timestamp()),
+                'comic': comic_slug
+            })
+            
+        return entries
+    
+    def add_entry(self, entry_data: Dict) -> None:
+        """
+        Add a comic entry to the feed.
+        
+        Args:
+            entry_data (Dict): Dictionary containing entry information.
         """
         try:
-            feed_xml = self.aggregate_feeds(comic_slugs, max_entries)
+            entry = FeedEntry()
+            entry.title(entry_data.get('title', 'Untitled'))
+            entry.link(href=entry_data.get('link', ''))
+            entry.description(entry_data.get('description', ''))
             
-            with open(output_path, 'w') as f:
-                f.write(feed_xml)
-                
-            return True
+            # Parse and set the publication date
+            pub_date = entry_data.get('published')
+            if pub_date:
+                if isinstance(pub_date, str):
+                    pub_date = datetime.fromisoformat(pub_date.replace('Z', '+00:00'))
+                entry.published(pub_date)
+            
+            self.feed_generator.entry(entry)
+            
         except Exception as e:
-            print(f"Error saving combined feed: {e}")
-            return False 
+            logger.error(f"Failed to add entry: {e}")
+            raise
+    
+    def generate_feed(self, comic_slugs: List[str]) -> str:
+        """
+        Generate a combined feed from multiple comics.
+        
+        Args:
+            comic_slugs (List[str]): List of comic slugs.
+            
+        Returns:
+            str: The generated feed in RSS format.
+        """
+        try:
+            # Load entries from all comics
+            all_entries = []
+            for slug in comic_slugs:
+                entries = self.load_feed_entries(slug)
+                all_entries.extend(entries)
+            
+            # Sort entries by publication date
+            all_entries.sort(key=lambda x: x.get('published', ''), reverse=True)
+            
+            # Add entries to the feed
+            for entry in all_entries:
+                self.add_entry(entry)
+            
+            # Generate the feed
+            return self.feed_generator.rss_str(pretty=True).decode('utf-8')
+            
+        except Exception as e:
+            logger.error(f"Failed to generate feed: {e}")
+            raise
+    
+    def save_feed(self, feed_content: str, output_file: str) -> None:
+        """
+        Save the generated feed to a file.
+        
+        Args:
+            feed_content (str): The feed content to save.
+            output_file (str): Path to the output file.
+        """
+        try:
+            # Ensure the output directory exists
+            os.makedirs(os.path.dirname(output_file), exist_ok=True)
+            
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(feed_content)
+            
+            logger.info(f"Saved feed to {output_file}")
+            
+        except Exception as e:
+            logger.error(f"Failed to save feed: {e}")
+            raise 

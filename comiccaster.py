@@ -11,7 +11,7 @@ from datetime import datetime
 
 from comiccaster.loader import ComicsLoader
 from comiccaster.scraper import ComicScraper
-from comiccaster.feed_generator import FeedGenerator
+from comiccaster.feed_generator import ComicFeedGenerator
 
 # Set up logging
 logging.basicConfig(
@@ -37,7 +37,7 @@ def main():
     # Initialize components
     loader = ComicsLoader()
     scraper = ComicScraper()
-    feed_generator = FeedGenerator(output_dir=args.output_dir)
+    feed_generator = ComicFeedGenerator(output_dir=args.output_dir)
 
     if args.comic:
         # Generate feed for a single comic

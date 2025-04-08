@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 import pytz
 import requests
 from bs4 import BeautifulSoup
-from feedgen.feed import FeedGenerator
+from comiccaster.feed_generator import ComicFeedGenerator
 from feedgen.entry import FeedEntry
 
 # Set up logging
@@ -81,11 +81,15 @@ def update_feed(comic_info, metadata):
         feed_path = f"feeds/{comic_info['slug']}.xml"
         
         # Create feed generator
-        fg = FeedGenerator()
+        fg = ComicFeedGenerator()
         fg.title(f"{comic_info['name']} - GoComics")
         fg.link(href=comic_info['url'])
         fg.description(f"Daily {comic_info['name']} comic strip by {comic_info.get('author', 'Unknown')}")
         fg.language('en')
+        
+        # Add atom:link with rel="self"
+        feed_url = f"https://comiccaster.com/feeds/{comic_info['slug']}.xml"
+        fg.atom_link(href=feed_url, rel='self')
         
         # Load existing feed if it exists
         if os.path.exists(feed_path):
@@ -100,13 +104,11 @@ def update_feed(comic_info, metadata):
         fe.title(metadata['title'])
         fe.link(href=metadata['url'])
         
+        # Add GUID (using the URL as a permanent identifier)
+        fe.guid(metadata['url'], permalink=True)
+        
         # Create HTML description with the comic image
-        description = f"""
-        <div style="text-align: center;">
-            <img src="{metadata['image']}" alt="{comic_info['name']}" style="max-width: 100%;">
-            <p>{metadata.get('description', '')}</p>
-        </div>
-        """
+        description = f'<div style="text-align: center;"><img src="{metadata["image"]}" alt="{comic_info["name"]}" style="max-width: 100%;"><p>{metadata.get("description", "")}</p></div>'
         fe.description(description)
         
         # Set publication date
