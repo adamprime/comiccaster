@@ -2,6 +2,39 @@ import pytest
 import os
 import tempfile
 import json
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+
+@pytest.fixture(scope="session")
+def chrome_options():
+    """Configure Chrome options for testing."""
+    options = Options()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    
+    if 'CHROME_BIN' in os.environ:
+        options.binary_location = os.environ['CHROME_BIN']
+    
+    return options
+
+@pytest.fixture(scope="session")
+def chrome_service():
+    """Configure ChromeDriver service."""
+    if 'CHROMEDRIVER_PATH' in os.environ:
+        service = Service(executable_path=os.environ['CHROMEDRIVER_PATH'])
+    else:
+        service = Service()
+    return service
+
+@pytest.fixture
+def browser(chrome_options, chrome_service):
+    """Provide a browser instance for testing."""
+    driver = webdriver.Chrome(options=chrome_options, service=chrome_service)
+    driver.set_window_size(1920, 1080)
+    yield driver
+    driver.quit()
 
 @pytest.fixture
 def test_data_dir():
