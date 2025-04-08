@@ -137,7 +137,7 @@ def generate_feed():
             return redirect(url_for('index'))
     
     # Validate comics
-    valid_slugs = loader.get_comics_list()  # Use get_comics_list instead of load_comics_from_file
+    valid_slugs = [comic['slug'] for comic in loader.load_comics_from_file()]
     valid_comics = [slug for slug in selected_comics if slug in valid_slugs]
     
     if not valid_comics:

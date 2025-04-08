@@ -252,6 +252,23 @@ class ComicsLoader:
         except Exception as e:
             logger.error(f"Failed to load comics from file: {e}")
             raise
+    
+    def get_comics_list(self, file_path: str = "comics_list.json") -> List[str]:
+        """
+        Get a list of all comic slugs from the JSON file.
+        
+        Args:
+            file_path (str): Path to the JSON file containing comic information.
+            
+        Returns:
+            List[str]: List of comic slugs.
+        """
+        try:
+            comics_data = self.load_comics_from_file(file_path)
+            return [comic['slug'] for comic in comics_data]
+        except Exception as e:
+            logger.error(f"Failed to get comics list: {e}")
+            return []
 
 def main():
     """Main function to demonstrate the ComicsLoader usage."""
