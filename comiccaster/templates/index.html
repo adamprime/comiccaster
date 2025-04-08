@@ -1,129 +1,292 @@
 {% extends "base.html" %}
 
-{% block title %}ComicCaster - Select Your Comics{% endblock %}
+{% block title %}ComicCaster - Comic RSS Feeds{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-12">
-        <div class="card mb-4">
-            <div class="card-header">
-                <h2>Individual Comic Feeds</h2>
-            </div>
-            <div class="card-body comic-list">
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="comicSearch" placeholder="Search comics...">
-                </div>
-                <table class="table table-striped" id="comicTable">
-                    <thead>
-                        <tr>
-                            <th>Comic Name</th>
-                            <th>RSS Feed URL</th>
-                            <th>Original Source</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for comic in comics %}
-                        <tr>
-                            <td>{{ comic.name }}</td>
-                            <td><code>{{ url_for('individual_feed', comic_slug=comic.slug, _external=True) }}</code></td>
-                            <td><a href="{{ comic.url }}" target="_blank" rel="noopener noreferrer">Source</a></td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="card">
+    <div class="card-header">
+        <h2>Available Comics</h2>
+        <p class="text-muted">Subscribe to individual comic feeds</p>
+    </div>
+    <input type="text" id="comicSearch" placeholder="Search comics...">
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Comic</th>
+                    <th>RSS Feed</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for comic in comics %}
+                <tr>
+                    <td>{{ comic.name }}</td>
+                    <td>
+                        <code class="feed-url" data-feed-url="{{ url_for('individual_feed', comic_slug=comic.slug, _external=True) }}">
+                            {{ url_for('individual_feed', comic_slug=comic.slug, _external=True) }}
+                            <span class="copy-icon">📋</span>
+                        </code>
+                    </td>
+                    <td><a href="{{ comic.url }}" target="_blank">View Source</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h2>SELECT YOUR FAVORITE COMICS</h2>
-            </div>
-            <div class="card-body">
-                <form action="{{ url_for('generate_feed') }}" method="post">
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="selectionSearch" placeholder="Search comics to select...">
-                    </div>
-                    <div class="comic-list mb-4">
-                        {% for comic in comics %}
-                        <div class="form-check comic-item" data-comic-name="{{ comic.name|lower }}">
-                            <input class="form-check-input" type="checkbox" name="comics" value="{{ comic.slug }}" id="comic-{{ comic.slug }}">
-                            <label class="form-check-label" for="comic-{{ comic.slug }}">
-                                {{ comic.name }}
-                            </label>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    
-                    <div class="d-flex justify-content-between mb-4">
-                        <button type="submit" class="btn btn-primary">Generate Custom Feed</button>
-                        <button type="reset" class="btn btn-secondary">Reset Selection</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+<div class="card">
+    <div class="card-header">
+        <h2>Create OPML File</h2>
+        <p class="text-muted">Select multiple comics to create an OPML file that you can import into your RSS reader.</p>
     </div>
+    <form action="{{ url_for('generate_feed') }}" method="post">
+        <input type="text" id="customFeedSearch" placeholder="Search comics to add...">
+        <div class="comic-list">
+            <div class="form-check">
+                <input type="checkbox" id="selectAll" class="form-check-input">
+                <label class="form-check-label" for="selectAll">Select All</label>
+            </div>
+            {% for comic in comics %}
+            <div class="form-check comic-option">
+                <input type="checkbox" name="comics" value="{{ comic.slug }}" class="form-check-input comic-checkbox" id="comic-{{ comic.slug }}">
+                <label class="form-check-label" for="comic-{{ comic.slug }}">{{ comic.name }}</label>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="margin-top: 20px;">
+            <button type="submit" class="btn btn-primary">Generate OPML File</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+        <div class="help-text">
+            <p class="text-muted mt-3">
+                <strong>What is OPML?</strong> OPML is a format that RSS readers use to import multiple feeds at once. 
+                After downloading the OPML file, you can import it into your RSS reader to subscribe to all selected comics.
+            </p>
+        </div>
+    </form>
 </div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .card {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-header {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .card-header h2 {
+        margin: 0;
+    }
+
+    .card-header p {
+        margin: 0.5rem 0 0 0;
+        font-size: 0.9rem;
+    }
+
+    /* Table container with forced height */
+    .table-container {
+        height: 400px; /* Fixed height instead of max-height */
+        overflow-y: scroll; /* Force scrollbar to always appear */
+        margin: 0 1rem 1rem 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    /* Table styles */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table thead {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .table th {
+        background-color: var(--background-color);
+        border-bottom: 2px solid var(--border-color);
+        padding: 0.75rem;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    .table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+        vertical-align: middle;
+    }
+
+    /* URL styling */
+    .feed-url {
+        position: relative;
+        padding-right: 30px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .copy-icon {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+    
+    .copy-icon:hover {
+        opacity: 1;
+    }
+
+    /* Comic list for OPML section */
+    .comic-list {
+        height: 300px; /* Fixed height */
+        overflow-y: scroll; /* Force scrollbar */
+        padding: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        margin: 1rem;
+    }
+
+    /* Search inputs */
+    #comicSearch, #customFeedSearch {
+        margin: 1rem;
+        width: calc(100% - 2rem);
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        background: var(--background-color);
+        color: var(--text-color);
+        outline: none;
+    }
+
+    #comicSearch:focus, #customFeedSearch:focus {
+        border-color: #0066cc;
+        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.25);
+    }
+
+    .help-text {
+        padding: 1rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 1rem;
+    }
+
+    .help-text p {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .text-muted {
+        color: #6c757d !important;
+    }
+
+    /* Custom scrollbar styling */
+    .table-container::-webkit-scrollbar,
+    .comic-list::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .table-container::-webkit-scrollbar-track,
+    .comic-list::-webkit-scrollbar-track {
+        background: #363636;
+        border-radius: 0 4px 4px 0;
+    }
+    
+    .table-container::-webkit-scrollbar-thumb,
+    .comic-list::-webkit-scrollbar-thumb {
+        background: #666;
+        border-radius: 4px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb:hover,
+    .comic-list::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+
+    /* Table column widths */
+    .table th:first-child,
+    .table td:first-child {
+        width: 25%;
+    }
+
+    .table th:nth-child(2),
+    .table td:nth-child(2) {
+        width: 60%;
+    }
+
+    .table th:last-child,
+    .table td:last-child {
+        width: 15%;
+    }
+
+    /* Add spacing between cards */
+    .card + .card {
+        margin-top: 2rem;
+    }
+</style>
 {% endblock %}
 
 {% block extra_js %}
 <script>
-    // Add select all functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add a "Select All" checkbox at the top
-        const comicList = document.querySelector('.comic-list');
-        const selectAllDiv = document.createElement('div');
-        selectAllDiv.className = 'form-check mb-3';
-        selectAllDiv.innerHTML = `
-            <input class="form-check-input" type="checkbox" id="select-all">
-            <label class="form-check-label" for="select-all">
-                <strong>Select All Comics</strong>
-            </label>
-        `;
-        comicList.insertBefore(selectAllDiv, comicList.firstChild);
+    // Search functionality for available comics table
+    document.getElementById('comicSearch').addEventListener('input', function(e) {
+        const searchText = e.target.value.toLowerCase();
+        const rows = document.querySelectorAll('tbody tr');
         
-        // Add event listener for the select all checkbox
-        const selectAllCheckbox = document.getElementById('select-all');
-        selectAllCheckbox.addEventListener('change', function() {
-            const checkboxes = document.querySelectorAll('input[name="comics"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = this.checked;
-            });
+        rows.forEach(row => {
+            const comicName = row.querySelector('td').textContent.toLowerCase();
+            row.style.display = comicName.includes(searchText) ? '' : 'none';
         });
+    });
+    
+    // Search functionality for custom feed selection
+    document.getElementById('customFeedSearch').addEventListener('input', function(e) {
+        const searchText = e.target.value.toLowerCase();
+        const options = document.querySelectorAll('.comic-option');
         
-        // Add search functionality for the comic table
-        const comicSearch = document.getElementById('comicSearch');
-        comicSearch.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const rows = document.querySelectorAll('#comicTable tbody tr');
-            
-            rows.forEach(row => {
-                const comicName = row.querySelector('td:first-child').textContent.toLowerCase();
-                if (comicName.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
+        options.forEach(option => {
+            const comicName = option.querySelector('label').textContent.toLowerCase();
+            option.style.display = comicName.includes(searchText) ? '' : 'none';
         });
-        
-        // Add search functionality for the comic selection
-        const selectionSearch = document.getElementById('selectionSearch');
-        selectionSearch.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const comicItems = document.querySelectorAll('.comic-item');
-            
-            comicItems.forEach(item => {
-                const comicName = item.getAttribute('data-comic-name');
-                if (comicName.includes(searchTerm)) {
-                    item.style.display = '';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+    });
+    
+    // Select all functionality
+    document.getElementById('selectAll').addEventListener('change', function(e) {
+        const checkboxes = document.querySelectorAll('.comic-checkbox');
+        checkboxes.forEach(checkbox => {
+            if (checkbox.closest('.comic-option').style.display !== 'none') {
+                checkbox.checked = e.target.checked;
+            }
+        });
+    });
+    
+    // Copy functionality for RSS feed URLs
+    document.querySelectorAll('.feed-url').forEach(element => {
+        element.addEventListener('click', async function() {
+            const feedUrl = this.dataset.feedUrl;
+            try {
+                await navigator.clipboard.writeText(feedUrl);
+                const icon = this.querySelector('.copy-icon');
+                icon.textContent = '✓';
+                setTimeout(() => {
+                    icon.textContent = '📋';
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
         });
     });
 </script>

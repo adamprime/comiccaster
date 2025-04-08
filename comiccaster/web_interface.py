@@ -4,7 +4,7 @@ Web Interface Module for ComicCaster
 This module provides a web interface for users to:
 1. View available individual comic feeds
 2. Select their favorite comics
-3. Generate a personalized combined RSS feed
+3. Generate an OPML file for importing feeds into RSS readers
 """
 
 import os
@@ -20,7 +20,6 @@ from functools import wraps
 from comiccaster.loader import ComicsLoader
 from comiccaster.scraper import ComicScraper
 from comiccaster.feed_generator import ComicFeedGenerator
-from comiccaster.feed_aggregator import FeedAggregator
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-key-for-testing')
@@ -29,22 +28,15 @@ app.secret_key = os.environ.get('SECRET_KEY', 'dev-key-for-testing')
 if os.environ.get('FLASK_ENV') == 'production':
     app.config['SERVER_NAME'] = os.environ.get('SERVER_NAME', 'comiccaster.xyz')
 elif os.environ.get('FLASK_ENV') == 'development':
-    app.config['SERVER_NAME'] = 'localhost:5000'
-
-# In-memory storage for temporary feed tokens (in production, use a proper database)
-# Format: {token: {'comics': [comic_slugs], 'created_at': timestamp}}
-feed_tokens = {}
+    app.config['SERVER_NAME'] = 'localhost:5001'  # Updated to match our current port
 
 # Load the comics list
 loader = ComicsLoader()
 
-# Initialize the feed aggregator
-feed_aggregator = FeedAggregator()
-
 @app.route('/')
 def index():
     """Render the home page with the comic selection interface."""
-    comics_data = loader.get_comics_list()
+    comics_data = loader.load_comics_from_file()
     return render_template('index.html', comics=comics_data)
 
 @app.route('/rss/<comic_slug>')
@@ -60,27 +52,42 @@ def individual_feed(comic_slug):
     with open(feed_path, 'r') as f:
         return Response(f.read(), mimetype='application/xml')
 
-@app.route('/feed/<token>')
-def combined_feed(token):
-    """Serve a combined RSS feed based on a token."""
-    if token not in feed_tokens:
-        error_msg = "Invalid or expired token"
-        if request.headers.get('Accept') == 'application/json':
-            return jsonify({'error': error_msg}), 404
-        return error_msg, 404
+def generate_opml(comics_data, selected_slugs):
+    """Generate OPML content for the selected comics."""
+    date = datetime.now().isoformat()
     
-    token_data = feed_tokens[token]
-    selected_comics = token_data['comics']
+    # Start with the OPML header
+    opml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+        <title>ComicCaster Feeds</title>
+        <dateCreated>{date}</dateCreated>
+    </head>
+    <body>
+        <outline text="Comics" title="Comics">
+"""
     
-    # Generate the combined feed
-    feed_xml = feed_aggregator.generate_feed(selected_comics)
+    # Add each selected comic as an outline
+    for comic in comics_data:
+        if comic['slug'] in selected_slugs:
+            feed_url = url_for('individual_feed', comic_slug=comic['slug'], _external=True)
+            opml += f"""            <outline 
+                type="rss" 
+                text="{comic['name']}"
+                title="{comic['name']}"
+                xmlUrl="{feed_url}"
+            />\n"""
     
-    # Return the feed with the correct content type
-    return Response(feed_xml, mimetype='application/rss+xml')
+    # Close the OPML structure
+    opml += """        </outline>
+    </body>
+</opml>"""
+    
+    return opml
 
 @app.route('/generate-feed', methods=['POST'])
 def generate_feed():
-    """Generate a combined feed URL based on selected comics (supports both form and JSON)."""
+    """Generate an OPML file for the selected comics."""
     # Handle JSON request
     if request.is_json:
         data = request.get_json()
@@ -95,53 +102,23 @@ def generate_feed():
             return redirect(url_for('index'))
     
     # Validate comics
-    comics_list = loader.get_comics_list()
-    valid_comics = [c for c in selected_comics if c in comics_list]
+    comics_data = loader.load_comics_from_file()
+    valid_slugs = {comic['slug'] for comic in comics_data}
+    valid_comics = [slug for slug in selected_comics if slug in valid_slugs]
+    
     if not valid_comics:
         if request.is_json:
             return jsonify({'error': 'No valid comics selected'}), 400
         flash("No valid comics selected")
         return redirect(url_for('index'))
     
-    # Generate feed URL and token
-    token, feed_url = create_feed_token(valid_comics)
+    # Generate OPML content
+    opml_content = generate_opml(comics_data, valid_comics)
     
-    # Return appropriate response format
-    if request.is_json:
-        return jsonify({
-            'token': token,
-            'feed_url': feed_url
-        })
-    return render_template('feed_generated.html', feed_url=feed_url)
-
-def create_feed_token(comics):
-    """Create a token and feed URL for the given comics."""
-    token = str(uuid.uuid4())
-    
-    # Store the selection with the token
-    feed_tokens[token] = {
-        'comics': comics,
-        'created_at': datetime.now()
-    }
-    
-    # Clean up old tokens (older than 30 days)
-    cleanup_old_tokens()
-    
-    # Generate the feed URL
-    feed_url = url_for('combined_feed', token=token, _external=True)
-    
-    return token, feed_url
-
-def cleanup_old_tokens():
-    """Remove tokens older than 30 days."""
-    now = datetime.now()
-    expired_tokens = [
-        token for token, data in feed_tokens.items()
-        if (now - data['created_at']) > timedelta(days=30)
-    ]
-    
-    for token in expired_tokens:
-        del feed_tokens[token]
+    # Return the OPML file
+    response = Response(opml_content, mimetype='application/xml')
+    response.headers['Content-Disposition'] = 'attachment; filename=comiccaster-feeds.opml'
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True) 
