@@ -20,6 +20,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from datetime import datetime
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Set up logging
 logging.basicConfig(
@@ -48,15 +49,20 @@ class ComicsLoader:
         
         if 'CHROME_BIN' in os.environ:
             self.chrome_options.binary_location = os.environ['CHROME_BIN']
-            
-        if 'CHROMEDRIVER_PATH' in os.environ:
-            self.service = Service(executable_path=os.environ['CHROMEDRIVER_PATH'])
-        else:
-            self.service = Service()
-    
+
     def setup_driver(self):
         """Set up the Selenium WebDriver with Chrome in headless mode."""
-        self.driver = webdriver.Chrome(options=self.chrome_options, service=self.service)
+        if os.environ.get('USE_WEBDRIVER_MANAGER', 'false').lower() == 'true':
+            self.driver = webdriver.Chrome(
+                service=Service(ChromeDriverManager().install()),
+                options=self.chrome_options
+            )
+        else:
+            service = Service()
+            if 'CHROMEDRIVER_PATH' in os.environ:
+                service = Service(executable_path=os.environ['CHROMEDRIVER_PATH'])
+            self.driver = webdriver.Chrome(service=service, options=self.chrome_options)
+            
         self.driver.set_window_size(1920, 1080)
     
     def fetch_page(self) -> Optional[str]:

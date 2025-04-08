@@ -22,16 +22,17 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Setup Chrome and ChromeDriver
-      uses: browser-actions/setup-chrome@v1
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@latest
       with:
         chrome-version: stable
-      id: setup-chrome
 
     - name: Setup ChromeDriver
-      uses: browser-actions/setup-chromedriver@v1
-      with:
-        chromedriver-version: stable
+      run: |
+        # Install ChromeDriver using ChromeDriver manager
+        pip install webdriver-manager
+        # The webdriver-manager will handle downloading the correct ChromeDriver version
+        python -c "from webdriver_manager.chrome import ChromeDriverManager; print(ChromeDriverManager().install())"
         
     - name: Install dependencies
       run: |
@@ -43,12 +44,12 @@ jobs:
       continue-on-error: true  # Continue to show output even if tests fail
       env:
         PYTHONPATH: ${{ github.workspace }}
-        CHROME_BIN: ${{ steps.setup-chrome.outputs.chrome-path }}
-        CHROMEDRIVER_PATH: chromedriver
+        CHROME_BIN: google-chrome
+        # Let Selenium use webdriver-manager to find ChromeDriver
+        USE_WEBDRIVER_MANAGER: "true"
       run: |
         # Print versions for debugging
         google-chrome --version
-        chromedriver --version
         python -m pytest -v --cov=comiccaster --cov-report=xml --no-cov-on-fail
         
     - name: Upload coverage to Codecov
