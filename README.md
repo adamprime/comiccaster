@@ -1,5 +1,7 @@
 # ComicCaster
 
+[![Tests](https://github.com/adamprime/comiccaster/actions/workflows/tests.yml/badge.svg)](https://github.com/adamprime/comiccaster/actions/workflows/tests.yml)
+
 A Python-based RSS feed generator for GoComics that allows you to create personalized comic feeds.
 
 ## Features
