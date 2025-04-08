@@ -1,6 +1,13 @@
 [build]
   publish = "public"
   functions = "functions"
+  command = """
+    pip install -r requirements.txt
+    pip install -e .
+    python scripts/update_feeds.py
+    mkdir -p public/feeds
+    cp feeds/* public/feeds/
+  """
 
 [functions]
   directory = "functions"

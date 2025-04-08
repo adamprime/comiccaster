@@ -1,75 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ComicCaster - Custom Comic RSS Feeds</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicCaster - RSS Feeds for Comics</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <link rel="alternate icon" type="image/x-icon" href="/static/favicon.ico">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-  <div class="container mt-5">
-    <header class="text-center mb-5">
-      <h1>ComicCaster</h1>
-      <p class="lead">Create custom RSS feeds for your favorite comics</p>
-    </header>
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4">ComicCaster</h1>
+            <p class="text-xl text-gray-300">Create custom RSS feeds for your favorite comics</p>
+        </header>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h2>Individual Comic Feeds</h2>
-          </div>
-          <div class="card-body">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="comicSearch" placeholder="Search comics...">
+        <div class="bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Individual Comic Feeds</h2>
+            <div class="mb-4">
+                <input type="text" 
+                       id="searchInput" 
+                       placeholder="Search comics..." 
+                       class="w-full p-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
-            <div class="table-container">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Comic Name</th>
-                    <th>RSS Feed URL</th>
-                    <th>Original Source</th>
-                  </tr>
-                </thead>
-                <tbody id="comicTableBody">
-                  <!-- Comics will be loaded here -->
-                </tbody>
-              </table>
+            <div id="comic-list" class="space-y-4">
+                <!-- Comics will be loaded here dynamically -->
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    
-    <div class="row mt-4">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h2>Create Your Custom Feed</h2>
-          </div>
-          <div class="card-body">
-            <form id="comicSelectForm">
-              <div class="mb-3">
-                <input type="text" class="form-control" id="selectionSearch" placeholder="Search comics to select...">
-              </div>
-              <div class="comic-list mb-4" id="comicCheckboxes">
-                <!-- Comics checkboxes will be loaded here -->
-              </div>
-              
-              <div class="d-flex justify-content-between mb-4">
-                <button type="submit" class="btn btn-primary">Generate Custom Feed</button>
-                <button type="reset" class="btn btn-secondary">Reset Selection</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/app.js"></script>
+        <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4">Create Your Custom Feed</h2>
+            <div class="mb-4">
+                <input type="text" 
+                       id="customSearchInput" 
+                       placeholder="Search comics to select..." 
+                       class="w-full p-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div id="selected-comics" class="mb-4 space-y-2">
+                <!-- Selected comics will appear here -->
+            </div>
+            <div class="flex justify-between">
+                <button id="generate-opml" 
+                        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+                    Generate Custom Feed
+                </button>
+                <button id="reset-selection" 
+                        class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors">
+                    Reset Selection
+                </button>
+            </div>
+        </div>
+
+        <footer class="mt-12 text-center text-gray-400">
+            <p>Powered by <a href="https://github.com/adamprime/comiccaster" class="text-blue-400 hover:text-blue-300">ComicCaster</a></p>
+        </footer>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-gray-800">
+                <div class="modal-header border-gray-700">
+                    <h5 class="modal-title" id="successModalLabel">OPML File Generated!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-light">Your OPML file has been downloaded. You can now:</p>
+                    <ol class="list-decimal list-inside text-light ml-4">
+                        <li>Open your preferred RSS reader</li>
+                        <li>Look for an option to "Import OPML" or "Import Feeds"</li>
+                        <li>Select the downloaded file (comiccaster-feeds.opml)</li>
+                    </ol>
+                    <p class="text-secondary mt-3">Most RSS readers support OPML import. After importing, you can manage each feed individually in your reader.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/js/app.js"></script>
 </body>
 </html> 

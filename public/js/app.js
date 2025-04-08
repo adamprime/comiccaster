@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Fetch available comics from the server
   async function fetchAvailableComics() {
     try {
-      const response = await fetch('/api/available-comics');
+      const response = await fetch('/.netlify/functions/list-comics');
       if (!response.ok) {
         throw new Error('Failed to fetch available comics');
       }
@@ -39,73 +39,136 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Initialize the comic selection interface
-  async function initializeComicSelection() {
+  // Initialize the comic list
+  async function initializeComicList() {
     const comics = await fetchAvailableComics();
     const comicList = document.getElementById('comic-list');
     
     comics.forEach(comic => {
       const div = document.createElement('div');
-      div.className = 'form-check';
+      div.className = 'bg-gray-700 p-4 rounded flex justify-between items-center';
       div.innerHTML = `
-        <input class="form-check-input" type="checkbox" value="${comic.slug}" id="${comic.slug}">
-        <label class="form-check-label" for="${comic.slug}">
-          ${comic.name}
-        </label>
+        <div>
+          <h3 class="font-semibold">${comic.name}</h3>
+        </div>
+        <div class="flex space-x-4">
+          <a href="/feeds/${comic.slug}.xml" 
+             class="text-blue-400 hover:text-blue-300 flex items-center">
+            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 110-2 1 1 0 010 2z"/>
+            </svg>
+            RSS Feed
+          </a>
+          <a href="https://www.gocomics.com/${comic.slug}" 
+             target="_blank"
+             class="text-gray-400 hover:text-gray-300">
+            View Comic
+          </a>
+        </div>
       `;
       comicList.appendChild(div);
     });
   }
 
-  // Generate OPML file
-  async function generateOPML() {
-    const selectedComics = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-      .map(checkbox => checkbox.value);
+  // Filter comics based on search input
+  function setupSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const comicList = document.getElementById('comic-list');
     
-    if (selectedComics.length === 0) {
-      alert('Please select at least one comic');
-      return;
-    }
-    
-    try {
-      const response = await fetch('/.netlify/functions/generate-token', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ comics: selectedComics })
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const comics = comicList.children;
+      
+      Array.from(comics).forEach(comic => {
+        const title = comic.querySelector('h3').textContent.toLowerCase();
+        comic.style.display = title.includes(searchTerm) ? 'flex' : 'none';
       });
-      
-      if (!response.ok) {
-        throw new Error('Failed to generate OPML file');
-      }
-      
-      // Get the OPML content
-      const opmlContent = await response.text();
-      
-      // Create and download the file
-      const blob = new Blob([opmlContent], { type: 'application/xml' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'comiccaster-feeds.opml';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      
-      // Show success modal
-      const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-      successModal.show();
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to generate OPML file. Please try again.');
-    }
+    });
   }
 
-  // Initialize when the page loads
-  document.addEventListener('DOMContentLoaded', initializeComicSelection);
+  // Handle custom feed generation
+  async function setupCustomFeedGeneration() {
+    const customSearchInput = document.getElementById('customSearchInput');
+    const selectedComics = document.getElementById('selected-comics');
+    const generateButton = document.getElementById('generate-opml');
+    const resetButton = document.getElementById('reset-selection');
+    
+    const comics = await fetchAvailableComics();
+    let selectedSlugs = new Set();
+    
+    function updateSelectedComics() {
+      selectedComics.innerHTML = '';
+      selectedSlugs.forEach(slug => {
+        const comic = comics.find(c => c.slug === slug);
+        if (comic) {
+          const div = document.createElement('div');
+          div.className = 'bg-gray-700 p-2 rounded flex justify-between items-center';
+          div.innerHTML = `
+            <span>${comic.name}</span>
+            <button class="text-red-400 hover:text-red-300" onclick="removeComic('${comic.slug}')">
+              Remove
+            </button>
+          `;
+          selectedComics.appendChild(div);
+        }
+      });
+    }
+    
+    window.removeComic = (slug) => {
+      selectedSlugs.delete(slug);
+      updateSelectedComics();
+    };
+    
+    generateButton.addEventListener('click', async () => {
+      if (selectedSlugs.size === 0) {
+        alert('Please select at least one comic');
+        return;
+      }
+      
+      try {
+        const response = await fetch('/.netlify/functions/generate-token', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ comics: Array.from(selectedSlugs) })
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to generate OPML file');
+        }
+        
+        const opmlContent = await response.text();
+        const blob = new Blob([opmlContent], { type: 'application/xml' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'comiccaster-feeds.opml';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        
+        // Show success modal
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        successModal.show();
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to generate OPML file. Please try again.');
+      }
+    });
+    
+    resetButton.addEventListener('click', () => {
+      selectedSlugs.clear();
+      updateSelectedComics();
+    });
+  }
 
-  // Add event listener to generate button
-  document.getElementById('generate-opml').addEventListener('click', generateOPML);
+  // Initialize everything when the page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    initializeComicList();
+    setupSearch();
+    setupCustomFeedGeneration();
+  });
 
   // Load comics list
   fetch('/comics_list.json')
@@ -223,30 +286,6 @@ document.addEventListener('DOMContentLoaded', function() {
       alert(`Error: ${error.message}`);
     }
   });
-
-  function setupSearch() {
-    // Comic table search
-    document.getElementById('comicSearch').addEventListener('input', function(e) {
-      const searchTerm = e.target.value.toLowerCase();
-      const rows = document.querySelectorAll('#comicTableBody tr');
-      
-      rows.forEach(row => {
-        const comicName = row.querySelector('td').textContent.toLowerCase();
-        row.style.display = comicName.includes(searchTerm) ? '' : 'none';
-      });
-    });
-
-    // Comic selection search
-    document.getElementById('selectionSearch').addEventListener('input', function(e) {
-      const searchTerm = e.target.value.toLowerCase();
-      const items = document.querySelectorAll('.comic-item');
-      
-      items.forEach(item => {
-        const comicName = item.getAttribute('data-comic-name');
-        item.style.display = comicName.includes(searchTerm) ? '' : 'none';
-      });
-    });
-  }
 
   function showSuccessMessage() {
     // Create a modal to display success message
