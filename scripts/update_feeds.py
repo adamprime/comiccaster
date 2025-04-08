@@ -9,6 +9,7 @@ import os
 import logging
 import sys
 from datetime import datetime, timedelta
+import pytz
 import requests
 from bs4 import BeautifulSoup
 from feedgen.feed import FeedGenerator
@@ -20,6 +21,9 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+# Set timezone to US/Eastern (GoComics timezone)
+TIMEZONE = pytz.timezone('US/Eastern')
 
 def load_comics_list():
     """Load the list of comics from comics_list.json."""
@@ -52,9 +56,13 @@ def scrape_comic(slug):
         title_elem = soup.select_one('h1')
         title = title_elem.text.strip() if title_elem else f"{slug} - {datetime.now().strftime('%Y-%m-%d')}"
         
-        # Extract publication date
+        # Extract publication date and add timezone
         date_elem = soup.select_one('time')
-        pub_date = date_elem.get('datetime') if date_elem else datetime.now().isoformat()
+        if date_elem and date_elem.get('datetime'):
+            pub_date = datetime.fromisoformat(date_elem.get('datetime').replace('Z', '+00:00'))
+            pub_date = TIMEZONE.localize(pub_date)
+        else:
+            pub_date = TIMEZONE.localize(datetime.now())
         
         return {
             'title': title,
@@ -81,7 +89,11 @@ def update_feed(comic_info, metadata):
         
         # Load existing feed if it exists
         if os.path.exists(feed_path):
-            fg.load(feed_path)
+            try:
+                with open(feed_path, 'r') as f:
+                    fg.rss_file(feed_path)
+            except Exception as e:
+                logger.warning(f"Could not load existing feed for {comic_info['name']}: {e}")
         
         # Create and add new entry
         fe = FeedEntry()
@@ -105,7 +117,7 @@ def update_feed(comic_info, metadata):
         
         # Save the feed
         os.makedirs(os.path.dirname(feed_path), exist_ok=True)
-        fg.save(feed_path)
+        fg.rss_file(feed_path)
         
         logger.info(f"Updated feed for {comic_info['name']}")
         return True
