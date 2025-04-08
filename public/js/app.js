@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       comics.forEach(comic => {
         const row = document.createElement('tr');
-        const feedUrl = `https://your-site-name.netlify.app/rss/${comic.slug}`;
+        const feedUrl = `${window.location.origin}/rss/${comic.slug}`;
         const sourceUrl = `https://www.gocomics.com/${comic.slug}`;
         row.innerHTML = `
           <td>${comic.name}</td>

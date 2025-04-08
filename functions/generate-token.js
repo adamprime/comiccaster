@@ -45,7 +45,7 @@ function generateOPML(comics) {
       type="rss" 
       text="${slug.replace(/-/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase())}"
       title="${slug.replace(/-/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase())}"
-      xmlUrl="https://yourdomain.com/.netlify/functions/individual-feed?comic=${slug}"
+      xmlUrl="${process.env.URL}/.netlify/functions/individual-feed?comic=${slug}"
     />`
   }).join('\n');
 

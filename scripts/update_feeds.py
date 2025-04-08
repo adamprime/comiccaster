@@ -88,7 +88,7 @@ def update_feed(comic_info, metadata):
         fg.language('en')
         
         # Add atom:link with rel="self"
-        feed_url = f"https://comiccaster.com/feeds/{comic_info['slug']}.xml"
+        feed_url = f"{os.environ.get('URL', 'http://localhost:8888')}/rss/{comic_info['slug']}"
         fg.atom_link(href=feed_url, rel='self')
         
         # Load existing feed if it exists
