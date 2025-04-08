@@ -8,6 +8,33 @@ function comicFeedExists(slug) {
     return fs.existsSync(feedPath);
 }
 
+// Helper function to store token data
+function storeToken(token, comics) {
+    const tokensPath = path.join(process.cwd(), 'data', 'tokens.json');
+    let tokens = {};
+    
+    // Create data directory if it doesn't exist
+    const dataDir = path.join(process.cwd(), 'data');
+    if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir);
+    }
+    
+    // Load existing tokens if file exists
+    if (fs.existsSync(tokensPath)) {
+        tokens = JSON.parse(fs.readFileSync(tokensPath, 'utf8'));
+    }
+    
+    // Store new token data
+    tokens[token] = {
+        comics,
+        createdAt: new Date().toISOString()
+    };
+    
+    // Save updated tokens
+    fs.writeFileSync(tokensPath, JSON.stringify(tokens, null, 2));
+    return token;
+}
+
 exports.handler = async function(event, context) {
     if (event.httpMethod !== 'POST') {
         return {
@@ -36,14 +63,21 @@ exports.handler = async function(event, context) {
             };
         }
 
+        // Generate a unique token and store it
+        const token = storeToken(uuidv4(), availableComics);
+
         // Generate OPML content
         const opml = generateOPML(availableComics);
 
+        // Set cookie with the token
+        const cookieExpiration = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days
+        
         return {
             statusCode: 200,
             headers: {
                 'Content-Type': 'application/xml',
-                'Content-Disposition': 'attachment; filename="comiccaster-feeds.opml"'
+                'Content-Disposition': 'attachment; filename="comiccaster-feeds.opml"',
+                'Set-Cookie': `comiccaster_token=${token}; Expires=${cookieExpiration.toUTCString()}; Path=/; HttpOnly; SameSite=Strict`
             },
             body: opml
         };
