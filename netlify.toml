@@ -13,7 +13,7 @@
   directory = "functions"
   node_bundler = "esbuild"
 
-# Redirect root to Flask app
+# Redirect root to the static app function
 [[redirects]]
   from = "/"
   to = "/.netlify/functions/flask-app"
@@ -32,12 +32,11 @@
   to = "/feeds/:splat"
   status = 200
 
-# Redirect all other paths to the Flask app
+# Redirect all routes to the static app
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/flask-app/:splat"
+  to = "/.netlify/functions/flask-app"
   status = 200
 
 [build.environment]
   PYTHON_VERSION = "3.9"
-  FLASK_APP = "comiccaster.web_interface"
