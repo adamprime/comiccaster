@@ -5,11 +5,12 @@ A Python-based RSS feed generator for GoComics that allows you to create persona
 ## Features
 
 - Generate individual RSS feeds for any comic on GoComics
-- Create personalized combined feeds of your favorite comics
+- Create personalized combined feeds using OPML files
 - Web interface for easy comic selection and feed generation
 - Automatic daily updates via GitHub Actions
 - Serverless deployment with Netlify
 - Simple configuration system
+- Secure token-based feed access
 
 ## Installation
 
@@ -55,7 +56,6 @@ rss-comics/
 ├── feeds/             # Generated RSS feeds
 ├── functions/         # Netlify serverless functions
 │   ├── individual-feed.js # Function to serve individual feeds
-│   ├── combined-feed.js # Function to generate combined feeds
 │   ├── generate-token.js # Function to generate tokens
 │   └── package.json   # Node.js dependencies
 ├── public/            # Static web files
@@ -98,43 +98,51 @@ git push -u origin main
 3. Configure the build settings:
    - Build command: `npm install -g netlify-cli && netlify build`
    - Publish directory: `public`
-   - Functions directory: `functions`
+4. Set up environment variables in Netlify:
+   - `GITHUB_TOKEN`: A GitHub personal access token with repo access
+5. Configure your custom domain in Netlify's domain settings
 
-4. Deploy your site
+## Automatic Updates
 
-### Custom Domain (Optional)
+The application uses GitHub Actions to automatically update comic feeds daily. The workflow:
 
-1. In the Netlify dashboard, go to "Domain settings"
-2. Click "Add custom domain"
-3. Follow the instructions to configure your domain
+1. Runs every day at 1 AM UTC
+2. Updates all comic feeds
+3. Cleans up old tokens (older than 7 days)
+4. Commits and pushes changes automatically
+5. Creates GitHub issues if updates fail
 
-## Usage
-
-### Web Interface
-
-1. Visit your deployed Netlify site
-2. Browse the available comics
-3. Select your favorite comics
-4. Generate a personalized feed
-5. Subscribe to the generated feed URL in your RSS reader
+## Feed Generation
 
 ### Individual Feeds
 
-Individual comic feeds are available at:
+Each comic has its own RSS feed accessible at:
 ```
-https://your-site-name.netlify.app/rss/comic-slug
+https://yourdomain.com/.netlify/functions/individual-feed?comic=comic-slug
 ```
 
 ### Combined Feeds
 
-Combined feeds are available at:
-```
-https://your-site-name.netlify.app/.netlify/functions/combined-feed?token=YOUR_TOKEN
-```
+Combined feeds are generated using OPML files. To create a combined feed:
+
+1. Select your desired comics in the web interface
+2. Download the generated OPML file
+3. Use the OPML file with your preferred RSS reader
+
+## Security
+
+- Feeds are protected by token-based authentication
+- Tokens expire after 7 days
+- Old tokens are automatically cleaned up
+- GitHub Actions uses secure tokens for authentication
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
 ## License
 
