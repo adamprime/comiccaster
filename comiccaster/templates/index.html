@@ -97,6 +97,24 @@
     .copy-icon:hover {
         opacity: 1;
     }
+    
+    .tooltip {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        z-index: 100;
+        font-size: 12px;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .copy-btn:hover .tooltip {
+        display: block;
+    }
 
     /* Comic list for OPML section */
     .comic-list {
@@ -156,29 +174,6 @@
 
     .btn-secondary:hover {
         background-color: #555;
-    }
-
-    /* Custom scrollbars */
-    .table-container::-webkit-scrollbar,
-    .comic-list::-webkit-scrollbar {
-        width: 10px;
-    }
-    
-    .table-container::-webkit-scrollbar-track,
-    .comic-list::-webkit-scrollbar-track {
-        background: #363636;
-        border-radius: 4px;
-    }
-    
-    .table-container::-webkit-scrollbar-thumb,
-    .comic-list::-webkit-scrollbar-thumb {
-        background: #666;
-        border-radius: 4px;
-    }
-
-    .table-container::-webkit-scrollbar-thumb:hover,
-    .comic-list::-webkit-scrollbar-thumb:hover {
-        background: #888;
     }
     
     /* Success message */
