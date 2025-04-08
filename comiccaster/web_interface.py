@@ -147,9 +147,9 @@ def generate_feed():
         flash("No valid comics selected")
         return redirect(url_for('index'))
     
-    # Special handling for tests (check if called from a test)
-    if request.is_json and 'test-comic' in valid_comics:
-        # This is likely a test - use the token approach for backward compatibility
+    # For JSON requests (API/testing), return token-based response
+    if request.is_json:
+        # Generate a token for API/test access
         token = str(uuid.uuid4())
         tokens[token] = {
             'comics': valid_comics,
@@ -158,7 +158,7 @@ def generate_feed():
         feed_url = url_for('access_feed', token=token, _external=True)
         return jsonify({'token': token, 'feed_url': feed_url})
     
-    # Normal case - generate OPML content
+    # For form submissions (browser), generate OPML content
     opml_content = generate_opml(comics_data, valid_comics)
     
     # Return the OPML file
