@@ -137,8 +137,7 @@ def generate_feed():
             return redirect(url_for('index'))
     
     # Validate comics
-    comics_data = loader.load_comics_from_file()
-    valid_slugs = {comic['slug'] for comic in comics_data}
+    valid_slugs = loader.get_comics_list()  # Use get_comics_list instead of load_comics_from_file
     valid_comics = [slug for slug in selected_comics if slug in valid_slugs]
     
     if not valid_comics:
@@ -158,8 +157,12 @@ def generate_feed():
         feed_url = url_for('access_feed', token=token, _external=True)
         return jsonify({'token': token, 'feed_url': feed_url})
     
-    # For form submissions (browser), generate OPML content
-    opml_content = generate_opml(comics_data, valid_comics)
+    # For form submissions (browser), need comics data with metadata for OPML
+    comics_data = loader.load_comics_from_file()
+    comics_with_metadata = [comic for comic in comics_data if comic['slug'] in valid_comics]
+    
+    # Generate OPML content
+    opml_content = generate_opml(comics_with_metadata, valid_comics)
     
     # Return the OPML file
     response = Response(opml_content, mimetype='application/xml')
