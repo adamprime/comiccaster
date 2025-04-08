@@ -1,7 +1,7 @@
 requests==2.32.0
 beautifulsoup4==4.12.2
 feedgen==0.9.0
-python-dotenv==1.0.1
+python-dotenv==1.1.0
 APScheduler==3.10.4
 selenium==4.18.1
 flask==3.0.2
