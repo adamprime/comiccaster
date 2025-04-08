@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg 
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 64 64"
+    width="64"
+    height="64"
+>
+  <!-- Background Circle -->
+  <circle 
+    cx="32" cy="32" 
+    r="30" 
+    fill="#F0DB4F" 
+    stroke="#000" 
+    stroke-width="4" 
+  />
+
+  <!-- Centered Speech Bubble -->
+  <path 
+    d="
+      M 18,20
+      H 46
+      a4,4 0 0 1 4,4
+      V 34
+      a4,4 0 0 1 -4,4
+      H 34
+      L 28,44
+      V 38
+      H 18
+      a4,4 0 0 1 -4,-4
+      V 24
+      a4,4 0 0 1 4,-4
+      Z
+    "
+    fill="#FFF"
+    stroke="#000"
+    stroke-width="2"
+  />
+</svg> 
