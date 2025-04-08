@@ -78,51 +78,17 @@ def scrape_comic(slug):
 def update_feed(comic_info, metadata):
     """Update a comic's feed with a new entry."""
     try:
-        feed_path = f"feeds/{comic_info['slug']}.xml"
-        
         # Create feed generator
         fg = ComicFeedGenerator()
-        fg.title(f"{comic_info['name']} - GoComics")
-        fg.link(href=comic_info['url'])
-        fg.description(f"Daily {comic_info['name']} comic strip by {comic_info.get('author', 'Unknown')}")
-        fg.language('en')
         
-        # Add atom:link with rel="self"
-        feed_url = f"{os.environ.get('URL', 'http://localhost:8888')}/rss/{comic_info['slug']}"
-        fg.atom_link(href=feed_url, rel='self')
-        
-        # Load existing feed if it exists
-        if os.path.exists(feed_path):
-            try:
-                with open(feed_path, 'r') as f:
-                    fg.rss_file(feed_path)
-            except Exception as e:
-                logger.warning(f"Could not load existing feed for {comic_info['name']}: {e}")
-        
-        # Create and add new entry
-        fe = FeedEntry()
-        fe.title(metadata['title'])
-        fe.link(href=metadata['url'])
-        
-        # Add GUID (using the URL as a permanent identifier)
-        fe.guid(metadata['url'], permalink=True)
-        
-        # Create HTML description with the comic image
-        description = f'<div style="text-align: center;"><img src="{metadata["image"]}" alt="{comic_info["name"]}" style="max-width: 100%;"><p>{metadata.get("description", "")}</p></div>'
-        fe.description(description)
-        
-        # Set publication date
-        fe.published(metadata['pub_date'])
-        
-        # Add entry to feed
-        fg.add_entry(fe)
-        
-        # Save the feed
-        os.makedirs(os.path.dirname(feed_path), exist_ok=True)
-        fg.rss_file(feed_path)
-        
-        logger.info(f"Updated feed for {comic_info['name']}")
-        return True
+        # Update the feed
+        if fg.update_feed(comic_info, metadata):
+            logger.info(f"Updated feed for {comic_info['name']}")
+            return True
+        else:
+            logger.error(f"Failed to update feed for {comic_info['name']}")
+            return False
+            
     except Exception as e:
         logger.error(f"Error updating feed for {comic_info['name']}: {e}")
         return False
