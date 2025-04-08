@@ -25,6 +25,88 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Fetch available comics from the server
+  async function fetchAvailableComics() {
+    try {
+      const response = await fetch('/api/available-comics');
+      if (!response.ok) {
+        throw new Error('Failed to fetch available comics');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching available comics:', error);
+      return [];
+    }
+  }
+
+  // Initialize the comic selection interface
+  async function initializeComicSelection() {
+    const comics = await fetchAvailableComics();
+    const comicList = document.getElementById('comic-list');
+    
+    comics.forEach(comic => {
+      const div = document.createElement('div');
+      div.className = 'form-check';
+      div.innerHTML = `
+        <input class="form-check-input" type="checkbox" value="${comic.slug}" id="${comic.slug}">
+        <label class="form-check-label" for="${comic.slug}">
+          ${comic.name}
+        </label>
+      `;
+      comicList.appendChild(div);
+    });
+  }
+
+  // Generate OPML file
+  async function generateOPML() {
+    const selectedComics = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+      .map(checkbox => checkbox.value);
+    
+    if (selectedComics.length === 0) {
+      alert('Please select at least one comic');
+      return;
+    }
+    
+    try {
+      const response = await fetch('/.netlify/functions/generate-token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ comics: selectedComics })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to generate OPML file');
+      }
+      
+      // Get the OPML content
+      const opmlContent = await response.text();
+      
+      // Create and download the file
+      const blob = new Blob([opmlContent], { type: 'application/xml' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'comiccaster-feeds.opml';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      
+      // Show success modal
+      const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+      successModal.show();
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to generate OPML file. Please try again.');
+    }
+  }
+
+  // Initialize when the page loads
+  document.addEventListener('DOMContentLoaded', initializeComicSelection);
+
+  // Add event listener to generate button
+  document.getElementById('generate-opml').addEventListener('click', generateOPML);
+
   // Load comics list
   fetch('/comics_list.json')
     .then(response => response.json())

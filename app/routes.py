@@ -1,5 +1,5 @@
 import os
-from flask import render_template
+from flask import render_template, jsonify
 from app import app
 from scripts.update_feeds import load_comics_list
 
@@ -12,4 +12,10 @@ def get_available_comics():
 def index():
     """Display the list of available comics."""
     comics = get_available_comics()
-    return render_template('index.html', comics=comics) 
+    return render_template('index.html', comics=comics)
+
+@app.route('/api/available-comics')
+def available_comics():
+    """API endpoint for available comics."""
+    comics = get_available_comics()
+    return jsonify(comics) 
