@@ -10,6 +10,7 @@ setup(
         "requests>=2.25.0",
         "beautifulsoup4>=4.9.0",
         "pytz>=2021.1",
+        "selenium>=4.0.0",
     ],
     extras_require={
         "dev": [
