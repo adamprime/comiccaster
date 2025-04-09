@@ -3,20 +3,63 @@ const path = require('path');
 
 // Helper function to check if a comic feed exists
 function comicFeedExists(slug) {
-    const feedPath = path.join(process.cwd(), 'public', 'feeds', `${slug}.xml`);
-    return fs.existsSync(feedPath);
+    // Try multiple possible locations for the feed files
+    const possiblePaths = [
+        path.join(process.cwd(), 'public', 'feeds', `${slug}.xml`),
+        path.join(process.cwd(), 'feeds', `${slug}.xml`),
+        path.join('public', 'feeds', `${slug}.xml`),
+        path.join('feeds', `${slug}.xml`)
+    ];
+
+    console.log(`Checking feed existence for slug: ${slug}`);
+    console.log('Current working directory:', process.cwd());
+    console.log('Checking paths:', possiblePaths);
+
+    // Check each possible path
+    for (const feedPath of possiblePaths) {
+        console.log(`Checking path: ${feedPath}`);
+        if (fs.existsSync(feedPath)) {
+            console.log(`Found feed at: ${feedPath}`);
+            return true;
+        }
+    }
+
+    // If we have a comics list, consider that as validation too
+    const comicsList = loadComicsList();
+    if (comicsList && comicsList.some(comic => comic.slug === slug)) {
+        console.log(`Comic ${slug} found in comics_list.json`);
+        return true;
+    }
+
+    console.log(`No feed found for: ${slug}`);
+    return false;
 }
 
 // Helper function to load comics list
 function loadComicsList() {
     try {
-        const comicsPath = path.join(process.cwd(), 'public', 'comics_list.json');
-        if (fs.existsSync(comicsPath)) {
-            return JSON.parse(fs.readFileSync(comicsPath, 'utf8'));
+        const possiblePaths = [
+            path.join(process.cwd(), 'public', 'comics_list.json'),
+            path.join('public', 'comics_list.json'),
+            path.join(process.cwd(), 'comics_list.json'),
+            path.join('comics_list.json')
+        ];
+
+        console.log('Looking for comics_list.json in:', possiblePaths);
+
+        for (const comicsPath of possiblePaths) {
+            console.log(`Checking comics list at: ${comicsPath}`);
+            if (fs.existsSync(comicsPath)) {
+                console.log(`Found comics list at: ${comicsPath}`);
+                const data = JSON.parse(fs.readFileSync(comicsPath, 'utf8'));
+                console.log(`Loaded ${data.length} comics from list`);
+                return data;
+            }
         }
     } catch (error) {
         console.error('Error loading comics list:', error);
     }
+    console.log('No comics list found');
     return [];
 }
 
