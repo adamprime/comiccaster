@@ -9,14 +9,22 @@
     # Update feeds
     python scripts/update_feeds.py
     
-    # Copy feed files to public directory
+    # Create necessary directories
     mkdir -p public/feeds
+    mkdir -p functions/data/feeds
+    
+    # Copy feed files to public directory
     cp feeds/* public/feeds/
     
     # Copy files to functions directory
-    mkdir -p functions/data/feeds
     cp public/comics_list.json functions/data/
     cp -r public/feeds/* functions/data/feeds/
+    
+    # Verify files were copied
+    echo "Verifying files in functions/data:"
+    ls -la functions/data/
+    echo "Verifying files in functions/data/feeds:"
+    ls -la functions/data/feeds/
   """
 
 [functions]
