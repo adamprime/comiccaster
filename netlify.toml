@@ -9,44 +9,14 @@
     # Update feeds
     python scripts/update_feeds.py
     
-    # Create necessary directories
-    echo "Creating directories..."
+    # Copy feed files to public directory
     mkdir -p public/feeds
-    mkdir -p functions/data/feeds
-    
-    # Copy feed files
-    echo "Copying feed files..."
     cp feeds/* public/feeds/
     
-    # Copy and verify comics list
-    echo "Copying comics list..."
-    if [ ! -f public/comics_list.json ]; then
-      echo "Error: comics_list.json not found in public directory"
-      ls -la public/
-      exit 1
-    fi
-    
     # Copy files to functions directory
-    echo "Copying files to functions directory..."
+    mkdir -p functions/data/feeds
     cp public/comics_list.json functions/data/
     cp -r public/feeds/* functions/data/feeds/
-    
-    # Verify the copy operation
-    echo "Verifying file copy..."
-    echo "Contents of functions/data:"
-    ls -la functions/data/
-    echo "Contents of functions/data/feeds:"
-    ls -la functions/data/feeds/
-    
-    if [ ! -f functions/data/comics_list.json ]; then
-      echo "Error: Failed to copy comics_list.json to functions/data/"
-      exit 1
-    fi
-    
-    # Print file sizes for verification
-    echo "File sizes:"
-    du -h functions/data/comics_list.json
-    du -h functions/data/feeds/*.xml | wc -l
   """
 
 [functions]

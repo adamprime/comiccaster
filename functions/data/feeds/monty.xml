@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Monty</title>
+        <link>https://www.gocomics.com/monty</link>
+        <description>RSS feed for Monty from GoComics</description>
+        <atom:link href="https://rss.adamcunnington.com/feeds/monty.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <item>
+            <title>Monty - 2025-04-09</title>
+            <link>https://www.gocomics.com/monty/2025/04/09</link>
+            <guid isPermaLink="false">https://www.gocomics.com/monty/2025/04/09</guid>
+            <pubDate>Wed, 09 Apr 2025 12:14:38 </pubDate>
+            <description><![CDATA[<img src="https://gocomicscmsassets.gocomics.com/staging-assets/assets/GC_Social_FB_Monty_e284dfebd1.jpg" alt="Monty - 2025-04-09" />]]></description>
+        </item>
+    </channel>
+</rss>

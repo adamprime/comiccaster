@@ -78,22 +78,36 @@ function loadComicsList() {
             console.log('Error reading data directory:', error);
         }
         
-        const possiblePaths = [
-            path.join(dataDir, 'comics_list.json'),
+        // Primary path should be in the function's data directory
+        const primaryPath = path.join(dataDir, 'comics_list.json');
+        console.log('Primary path:', primaryPath);
+        
+        // Try to read from primary path first
+        try {
+            if (fs.existsSync(primaryPath)) {
+                console.log('Found comics list at primary path');
+                const data = JSON.parse(fs.readFileSync(primaryPath, 'utf8'));
+                console.log(`Loaded ${data.length} comics from list`);
+                return data;
+            }
+        } catch (error) {
+            console.log('Error reading primary path:', error);
+        }
+        
+        // Fallback paths if primary path fails
+        const fallbackPaths = [
             path.join(dataDir, '..', 'public', 'comics_list.json'),
             path.join('public', 'comics_list.json'),
-            path.join('comics_list.json'),
-            // Add test environment paths
-            path.join('test_functions', 'data', 'comics_list.json')
+            path.join('comics_list.json')
         ];
 
-        console.log('Looking for comics_list.json in:', possiblePaths);
+        console.log('Trying fallback paths:', fallbackPaths);
 
-        for (const comicsPath of possiblePaths) {
-            console.log(`Checking comics list at: ${comicsPath}`);
+        for (const comicsPath of fallbackPaths) {
+            console.log(`Checking fallback path: ${comicsPath}`);
             try {
                 if (fs.existsSync(comicsPath)) {
-                    console.log(`Found comics list at: ${comicsPath}`);
+                    console.log(`Found comics list at fallback path: ${comicsPath}`);
                     const data = JSON.parse(fs.readFileSync(comicsPath, 'utf8'));
                     console.log(`Loaded ${data.length} comics from list`);
                     return data;
@@ -105,7 +119,7 @@ function loadComicsList() {
     } catch (error) {
         console.error('Error loading comics list:', error);
     }
-    console.log('No comics list found');
+    console.log('No comics list found in any location');
     return [];
 }
 
