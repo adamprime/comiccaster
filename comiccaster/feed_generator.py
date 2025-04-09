@@ -110,12 +110,12 @@ class ComicFeedGenerator:
             # Set entry metadata
             title = metadata.get('title', '').strip()
             if not title:
-                # Generate a stable title format
+                # Generate a stable title format using ISO date
                 if metadata.get('pub_date'):
                     pub_date = self.parse_date_with_timezone(metadata['pub_date'])
-                    title = f"{comic_info['name']} for {pub_date.strftime('%B %d, %Y')}"
+                    title = f"{comic_info['name']} - {pub_date.strftime('%Y-%m-%d')}"
                 else:
-                    title = f"{comic_info['name']} - {datetime.now(timezone.utc).strftime('%B %d, %Y')}"
+                    title = f"{comic_info['name']} - {datetime.now(timezone.utc).strftime('%Y-%m-%d')}"
             fe.title(title)
             
             # Set entry link
@@ -171,7 +171,7 @@ class ComicFeedGenerator:
             logger.error(f"Error creating feed entry: {e}")
             # Create a minimal valid entry as fallback
             now = datetime.now(timezone.utc)
-            fe.title(f"{comic_info['name']} - {now.strftime('%B %d, %Y')}")
+            fe.title(f"{comic_info['name']} - {now.strftime('%Y-%m-%d')}")
             fe.link(href=comic_info['url'])
             fe.id(f"{comic_info['url']}#{now.strftime('%Y%m%d%H%M%S')}")
             fe.description(f"Error loading comic: {comic_info['name']}. Please visit <a href='{comic_info['url']}'>the comic page</a>.")

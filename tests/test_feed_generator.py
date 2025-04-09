@@ -83,7 +83,10 @@ def test_create_entry_minimal_metadata(feed_generator, comic_info):
     
     assert comic_info['name'] in feed_str
     assert comic_info['url'] in feed_str
-    assert datetime.now().strftime('%Y-%m-%d') in feed_str
+    # Check for date in ISO format (YYYY-MM-DD)
+    current_date = datetime.now(timezone.utc)
+    date_str = current_date.strftime('%Y-%m-%d')
+    assert date_str in feed_str
 
 def test_create_entry_invalid_date(feed_generator, comic_info, metadata):
     """Test creating a feed entry with invalid publication date."""
