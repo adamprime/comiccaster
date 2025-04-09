@@ -3,16 +3,20 @@ const path = require('path');
 
 // Helper function to check if a comic feed exists
 function comicFeedExists(slug) {
+    // In production, files are in the function's data directory
+    const functionDir = path.dirname(__filename);
+    const dataDir = path.join(functionDir, 'data');
+    
     // Try multiple possible locations for the feed files
     const possiblePaths = [
-        path.join(process.cwd(), 'public', 'feeds', `${slug}.xml`),
-        path.join(process.cwd(), 'feeds', `${slug}.xml`),
+        path.join(dataDir, 'feeds', `${slug}.xml`),
         path.join('public', 'feeds', `${slug}.xml`),
         path.join('feeds', `${slug}.xml`)
     ];
 
     console.log(`Checking feed existence for slug: ${slug}`);
-    console.log('Current working directory:', process.cwd());
+    console.log('Function directory:', functionDir);
+    console.log('Data directory:', dataDir);
     console.log('Checking paths:', possiblePaths);
 
     // Check each possible path
@@ -38,10 +42,12 @@ function comicFeedExists(slug) {
 // Helper function to load comics list
 function loadComicsList() {
     try {
+        const functionDir = path.dirname(__filename);
+        const dataDir = path.join(functionDir, 'data');
+        
         const possiblePaths = [
-            path.join(process.cwd(), 'public', 'comics_list.json'),
+            path.join(dataDir, 'comics_list.json'),
             path.join('public', 'comics_list.json'),
-            path.join(process.cwd(), 'comics_list.json'),
             path.join('comics_list.json')
         ];
 

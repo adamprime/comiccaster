@@ -7,11 +7,16 @@
     python scripts/update_feeds.py
     mkdir -p public/feeds
     cp feeds/* public/feeds/
+    # Copy files needed for OPML generation
+    mkdir -p functions/data
+    cp public/comics_list.json functions/data/
+    cp -r public/feeds functions/data/
   """
 
 [functions]
   directory = "functions"
   node_bundler = "esbuild"
+  included_files = ["data/**"]
 
 # Direct /rss/ requests to the static feed files
 [[redirects]]
