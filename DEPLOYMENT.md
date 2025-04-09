@@ -1,3 +1,149 @@
+# ComicCaster Deployment Guide
+
+This guide covers the deployment process for ComicCaster, a serverless web application that generates RSS feeds for comics.
+
+## Prerequisites
+
+- GitHub account
+- Netlify account
+- Node.js 14 or higher (for local development)
+- Python 3.8 or higher (for feed generation scripts)
+
+## Architecture Overview
+
+ComicCaster uses a hybrid architecture:
+1. Static site hosted on Netlify
+2. Serverless functions for dynamic features
+3. GitHub Actions for automated feed updates
+4. Git repository for feed storage
+
+## Deployment Steps
+
+### 1. Initial Setup
+
+1. Fork the repository on GitHub
+2. Create a new Netlify site:
+   - Connect to your GitHub repository
+   - Set build command: `npm install -g netlify-cli && netlify build`
+   - Set publish directory: `public`
+
+### 2. Environment Variables
+
+Set the following in Netlify's environment variables:
+```
+NODE_VERSION=14
+NETLIFY_FUNCTIONS_DIR=functions
+```
+
+### 3. Domain Configuration
+
+1. Add your custom domain in Netlify settings
+2. Configure DNS records as instructed by Netlify
+3. Enable HTTPS (automatic with Netlify)
+
+### 4. GitHub Actions Setup
+
+The repository includes two main workflows:
+1. `update-feeds.yml`: Daily feed updates
+2. `tests.yml`: Automated testing
+
+No additional configuration needed - they work automatically after forking.
+
+## Feed Update Process
+
+The feed update process runs daily via GitHub Actions:
+
+1. Workflow triggers at scheduled time
+2. Runs `scripts/update_feeds.py`
+3. Commits updated feeds to `public/feeds/`
+4. Pushes changes to trigger Netlify deployment
+
+### Monitoring Updates
+
+1. Check GitHub Actions dashboard for workflow status
+2. Review commit history for feed updates
+3. Monitor Netlify deploy logs
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Feed Updates Failing**
+   - Check GitHub Actions logs
+   - Verify Python dependencies
+   - Check for GoComics site changes
+
+2. **Deployment Failures**
+   - Review Netlify deploy logs
+   - Verify build settings
+   - Check environment variables
+
+3. **Missing Comics**
+   - Update `comics_list.json`
+   - Run update script manually
+   - Check scraper logs
+
+### Manual Intervention
+
+If needed, you can run feed updates locally:
+```bash
+python scripts/update_feeds.py
+```
+
+## Performance Optimization
+
+1. **Feed Storage**
+   - Feeds stored in Git repository
+   - Immediate availability after deployment
+   - Version control for feed changes
+
+2. **Caching**
+   - Netlify's CDN caches static files
+   - Browser caching headers set automatically
+   - Feed files cached by RSS readers
+
+3. **Error Handling**
+   - Failed updates don't affect existing feeds
+   - Automatic retry for transient errors
+   - Logging for debugging
+
+## Security Considerations
+
+1. No user data stored
+2. Static file serving only
+3. Rate limiting on serverless functions
+4. HTTPS enforced by default
+
+## Maintenance
+
+### Regular Tasks
+
+1. Monitor GitHub Actions workflows
+2. Review Netlify deploy logs
+3. Update dependencies periodically
+4. Check for GoComics site changes
+
+### Backup Strategy
+
+1. Git repository serves as primary backup
+2. Feed files versioned in Git
+3. Netlify provides deploy rollbacks
+
+## Support Resources
+
+- [Netlify Documentation](https://docs.netlify.com/)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [ComicCaster Issues](https://github.com/yourusername/comiccaster/issues)
+
+## Future Improvements
+
+1. Add monitoring and alerting
+2. Implement feed validation
+3. Add feed statistics
+4. Improve error reporting
+
+Remember to update this documentation as the deployment process evolves.
+
 # Deployment Guide
 
 This guide provides detailed instructions for deploying ComicCaster to production.
