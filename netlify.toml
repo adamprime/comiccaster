@@ -13,10 +13,10 @@
   directory = "functions"
   node_bundler = "esbuild"
 
-# Direct /rss/ requests to the individual-feed function with the slug as a parameter
+# Direct /rss/ requests to the static feed files
 [[redirects]]
   from = "/rss/*"
-  to = "/.netlify/functions/individual-feed"
+  to = "/feeds/:splat.xml"
   status = 200
   force = true
 
