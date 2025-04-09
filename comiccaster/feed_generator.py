@@ -279,7 +279,7 @@ class ComicFeedGenerator:
             # Create new feed
             fg = self.create_feed(comic_info)
             
-            # Sort entries by publication date in reverse chronological order
+            # Sort entries by publication date in reverse chronological order (newest first)
             sorted_entries = sorted(
                 entries,
                 key=lambda x: self.parse_date_with_timezone(x.get('pub_date', '')).timestamp(),

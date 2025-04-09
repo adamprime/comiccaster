@@ -49,18 +49,39 @@ def scrape_comic(slug, url=None, target_date=None):
         
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Get the OpenGraph image
-        og_image = soup.select_one('meta[property="og:image"]')
-        if not og_image or not og_image.get('content'):
-            logger.warning(f"No OpenGraph image found for {url}")
-            return None
-            
-        image_url = og_image.get('content')
+        # First try to find the actual comic strip image
+        comic_image_url = None
         
-        # Accept generic social media images - don't skip them
-        # This is important for weekly/biweekly comics that may not have new content daily
-        if 'GC_Social_FB_Generic' in image_url:
-            logger.info(f"Generic social media image found for {url}, but continuing anyway")
+        # Look for image tags with comic strip classes
+        comic_images = soup.select('img.Comic_comic__image__6e_Fw')
+        if comic_images:
+            # If multiple images, prefer the one with strip class
+            for img in comic_images:
+                classes = img.get('class', [])
+                if 'Comic_comic__image_strip__hPLFq' in classes:
+                    comic_image_url = img.get('src')
+                    logger.info(f"Found comic strip image for {url}")
+                    break
+            
+            # If no strip-specific class found, use the first comic image
+            if not comic_image_url and comic_images:
+                comic_image_url = comic_images[0].get('src')
+                logger.info(f"Found comic image for {url}")
+        
+        # Fall back to OpenGraph image if no comic images found
+        if not comic_image_url:
+            og_image = soup.select_one('meta[property="og:image"]')
+            if not og_image or not og_image.get('content'):
+                logger.warning(f"No OpenGraph image found for {url}")
+                return None
+                
+            comic_image_url = og_image.get('content')
+            logger.info(f"Using OpenGraph image for {url}")
+            
+            # Accept generic social media images - don't skip them
+            # This is important for weekly/biweekly comics that may not have new content daily
+            if 'GC_Social_FB_Generic' in comic_image_url:
+                logger.info(f"Generic social media image found for {url}, but continuing anyway")
         
         # Use target_date if provided
         if target_date:
@@ -101,12 +122,12 @@ def scrape_comic(slug, url=None, target_date=None):
         title = f"{slug.replace('-', ' ').title()} - {pub_date.strftime('%Y-%m-%d')}"
         
         # Create description with image
-        description = f'<img src="{image_url}" alt="{title}" />'
+        description = f'<img src="{comic_image_url}" alt="{title}" />'
         
         return {
             'title': title,
             'url': url,
-            'image': image_url,
+            'image': comic_image_url,
             'pub_date': pub_date_str,
             'description': description,
             'id': url  # Use URL as ID to ensure uniqueness
