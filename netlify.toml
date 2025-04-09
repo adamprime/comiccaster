@@ -9,10 +9,19 @@
     cp feeds/* public/feeds/
     # Copy files needed for OPML generation
     mkdir -p functions/data/feeds
+    # Ensure comics_list.json exists and copy it
+    if [ ! -f public/comics_list.json ]; then
+      echo "Error: comics_list.json not found in public directory"
+      exit 1
+    fi
     cp public/comics_list.json functions/data/
     cp -r public/feeds/* functions/data/feeds/
     # Verify the copy operation
     echo "Verifying file copy..."
+    if [ ! -f functions/data/comics_list.json ]; then
+      echo "Error: Failed to copy comics_list.json to functions/data/"
+      exit 1
+    fi
     ls -la functions/data/feeds/
     ls -la functions/data/comics_list.json
   """
