@@ -1,0 +1,28 @@
+// functions/individual-feed.js
+const fs = require('fs');
+const path = require('path');
+
+exports.handler = async function(event, context) {
+  // Get comic slug from path
+  const slug = event.path.split('/').pop();
+  
+  try {
+    // Read the feed file from the repository
+    const feedPath = path.join(__dirname, '..', 'feeds', `${slug}.xml`);
+    const feedContent = fs.readFileSync(feedPath, 'utf8');
+    
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/xml',
+        'Cache-Control': 'public, max-age=3600' // Cache for 1 hour
+      },
+      body: feedContent
+    };
+  } catch (error) {
+    return {
+      statusCode: 404,
+      body: `Feed for ${slug} not found`
+    };
+  }
+};

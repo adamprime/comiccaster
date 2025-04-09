@@ -44,59 +44,139 @@
             margin: 0;
         }
 
+        /* Card styling */
         .card {
             background: var(--background-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             margin-bottom: 2rem;
             overflow: hidden;
-            padding: 1.5rem;
         }
 
-        .search-box {
-            margin: 1rem 0;
+        .card-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .card-header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        /* Fixed height table with scrolling */
+        .table-container {
+            height: 400px;
+            overflow-y: scroll; 
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .table th {
+            background-color: var(--background-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 0.75rem;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* URL styling */
+        .feed-url {
+            position: relative;
             display: flex;
-            gap: 0.5rem;
+            align-items: center;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        
+        .url-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--link-color);
+            cursor: pointer;
+        }
+        
+        .url-text:hover {
+            text-decoration: underline;
+        }
+        
+        .copy-icon {
+            margin-right: 8px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            flex-shrink: 0;
+        }
+        
+        .copy-icon:hover {
+            opacity: 1;
         }
 
-        .search-box input {
-            flex: 1;
+        /* Comic list for OPML section */
+        .comic-list {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 1rem;
             padding: 0.5rem;
-            font-size: 1rem;
+        }
+
+        .form-check {
+            margin-bottom: 0.5rem;
+        }
+
+        .form-check-input {
+            margin-right: 0.5rem;
+        }
+
+        /* Search inputs */
+        #comicSearch, #customFeedSearch {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
             border: 1px solid var(--border-color);
             border-radius: 4px;
             background: #333;
             color: #fff;
         }
 
-        .search-box button {
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            background: var(--button-color);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .popular-feeds {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .feed-card {
+        .help-text {
             padding: 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
         }
 
-        .feed-card:hover {
-            border-color: var(--link-color);
-        }
-
+        /* Button styling */
         .btn {
             display: inline-block;
             padding: 0.5rem 1rem;
@@ -108,13 +188,34 @@
             cursor: pointer;
             transition: background-color 0.2s;
             border: none;
-            background-color: #0066cc;
-            color: white;
-            margin-top: 1rem;
         }
 
-        .btn:hover {
+        .btn-primary {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
             background-color: #0052a3;
+        }
+
+        .btn-secondary {
+            background-color: #666;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #555;
+        }
+        
+        /* Success message */
+        .success-message {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
         }
 
         a {
@@ -126,13 +227,6 @@
             text-decoration: underline;
         }
 
-        code {
-            background: #333;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-
         .footer {
             text-align: center;
             margin-top: 40px;
@@ -142,8 +236,12 @@
         }
 
         @media (max-width: 768px) {
-            .popular-feeds {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            .table-container {
+                height: 300px;
+            }
+            
+            .comic-list {
+                height: 200px;
             }
         }
     </style>
@@ -156,92 +254,233 @@
         </header>
 
         <div class="card">
-            <h2>About ComicCaster</h2>
-            <p>ComicCaster is a tool that generates RSS feeds for comics from GoComics, allowing you to read your favorite comics in your preferred RSS reader.</p>
-            
-            <h3>Features:</h3>
-            <ul>
-                <li>Individual RSS feeds for hundreds of comics</li>
-                <li>Daily updates of comic feeds</li>
-                <li>High-quality comic images</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>Find a Comic Feed</h2>
-            <p>Use the search box to find your favorite comics, or browse some popular options below.</p>
-            
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search comics..." aria-label="Search comics">
-                <button id="search-button" type="button">Search</button>
-            </div>
-
-            <h3>Popular Comics</h3>
-            <div class="popular-feeds">
-                <a href="/rss/calvinandhobbes" class="feed-card">
-                    <div>Calvin and Hobbes</div>
-                </a>
-                <a href="/rss/garfield" class="feed-card">
-                    <div>Garfield</div>
-                </a>
-                <a href="/rss/peanuts" class="feed-card">
-                    <div>Peanuts</div>
-                </a>
-                <a href="/rss/dilbert-classics" class="feed-card">
-                    <div>Dilbert Classics</div>
-                </a>
-                <a href="/rss/luann" class="feed-card">
-                    <div>Luann</div>
-                </a>
-                <a href="/rss/foxtrot" class="feed-card">
-                    <div>FoxTrot</div>
-                </a>
-                <a href="/rss/pearlsbeforeswine" class="feed-card">
-                    <div>Pearls Before Swine</div>
-                </a>
-                <a href="/rss/doonesbury" class="feed-card">
-                    <div>Doonesbury</div>
-                </a>
+            <div class="card-header">
+                <h2>🎉 Welcome to ComicCaster</h2>
+                <p>Turn your daily comics into a feed you'll actually keep up with.</p>
             </div>
         </div>
 
         <div class="card">
-            <h2>How to Use</h2>
-            <p>To subscribe to a comic in your RSS reader, use a URL in this format:</p>
-            <code>https://comiccaster.xyz/rss/comic-slug</code>
-            <p>For example, to subscribe to Calvin and Hobbes:</p>
-            <a href="https://comiccaster.xyz/rss/calvinandhobbes">https://comiccaster.xyz/rss/calvinandhobbes</a>
-            <p>The "comic-slug" is the name that appears in the GoComics URL for that comic.</p>
+            <div class="card-header">
+                <h2>🗂️ Browse All Comic Feeds</h2>
+                <p>Grab an RSS link for any individual comic below. Perfect for reading in your own RSS reader like Feedly, NetNewsWire, or Reeder.</p>
+            </div>
+            <div class="card-body">
+                <input type="text" id="comicSearch" placeholder="Search comics...">
+                <div class="table-container">
+                    <table class="table" id="comics-table">
+                        <thead>
+                            <tr>
+                                <th>Comic</th>
+                                <th>📡 RSS Link</th>
+                                <th>🔗 Original Page</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comics-table-body">
+                            <!-- Comic rows will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>📚 Build Your Comic Bundle</h2>
+                <p>Select your favorite comics below and click the button to generate an OPML file. It works like a playlist for your RSS reader—you can import them all at once!</p>
+            </div>
+            <div class="card-body">
+                <input type="text" id="customFeedSearch" placeholder="Search comics by name...">
+                <div class="comic-list" id="comics-list">
+                    <!-- Comics checkboxes will be populated dynamically -->
+                </div>
+
+                <button class="btn btn-primary" id="generateOPMLBtn">📄 Generate My OPML</button>
+                <button class="btn btn-secondary" id="resetSelectionBtn">❌ Clear Selection</button>
+                
+                <div id="success-message" class="success-message">
+                    <p>✅ Your OPML file is ready! <a href="#" id="download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the comics!</p>
+                </div>
+
+                <div class="help-text">
+                    <h3>🧠 What's an OPML file?</h3>
+                    <p>It's like a playlist for RSS readers. This file lets you subscribe to multiple comics at once—no need to copy and paste each link manually. Just import it into Feedly, Reeder, NetNewsWire, or any RSS reader that supports OPML, and start reading.</p>
+                </div>
+            </div>
         </div>
 
         <footer class="footer">
-            <p>Powered by <a href="https://github.com/adamprime/comiccaster">ComicCaster</a></p>
+            <p>Made with ❤️ by <a href="https://github.com/adamprime/comiccaster">ComicCaster</a></p>
         </footer>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('search-input');
-            const searchButton = document.getElementById('search-button');
+            // Load comics data
+            fetch('/comics_list.json')
+                .then(response => response.json())
+                .then(comics => {
+                    populateComicsTable(comics);
+                    populateComicsList(comics);
+                    setupSearch();
+                    setupOPMLGeneration();
+                })
+                .catch(error => {
+                    console.error('Error fetching comics:', error);
+                });
             
-            // Handle search
-            function handleSearch() {
-                const query = searchInput.value.trim().toLowerCase();
-                if (query) {
-                    // Convert spaces to hyphens and remove special characters
-                    const slug = query.replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
-                    window.location.href = '/rss/' + slug;
-                }
+            function populateComicsTable(comics) {
+                const tableBody = document.getElementById('comics-table-body');
+                tableBody.innerHTML = '';
+                
+                comics.forEach(comic => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${comic.name}</td>
+                        <td>
+                            <div class="feed-url">
+                                <span class="copy-icon" onclick="copyToClipboard(this)" data-url="https://comiccaster.xyz/rss/${comic.slug}">📋</span>
+                                <span class="url-text" onclick="copyToClipboard(this)" data-url="https://comiccaster.xyz/rss/${comic.slug}">
+                                    https://comiccaster.xyz/rss/${comic.slug}
+                                </span>
+                            </div>
+                        </td>
+                        <td><a href="https://www.gocomics.com/${comic.slug}" target="_blank">🔗 Source</a></td>
+                    `;
+                    row.dataset.name = comic.name.toLowerCase();
+                    tableBody.appendChild(row);
+                });
             }
             
-            // Event listeners
-            searchButton.addEventListener('click', handleSearch);
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    handleSearch();
-                }
-            });
+            function populateComicsList(comics) {
+                const comicsList = document.getElementById('comics-list');
+                comicsList.innerHTML = '';
+                
+                comics.forEach(comic => {
+                    const checkboxItem = document.createElement('div');
+                    checkboxItem.className = 'form-check';
+                    checkboxItem.dataset.name = comic.name.toLowerCase();
+                    checkboxItem.innerHTML = `
+                        <input class="form-check-input" type="checkbox" value="${comic.slug}" id="comic-${comic.slug}">
+                        <label class="form-check-label" for="comic-${comic.slug}">
+                            ${comic.name}
+                        </label>
+                    `;
+                    comicsList.appendChild(checkboxItem);
+                });
+            }
+            
+            function setupSearch() {
+                // Comic table search
+                const comicSearch = document.getElementById('comicSearch');
+                const tableRows = document.querySelectorAll('#comics-table-body tr');
+                
+                comicSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    tableRows.forEach(row => {
+                        const name = row.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+                
+                // Comic list search
+                const customFeedSearch = document.getElementById('customFeedSearch');
+                const checkboxItems = document.querySelectorAll('.comic-list .form-check');
+                
+                customFeedSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    checkboxItems.forEach(item => {
+                        const name = item.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            function setupOPMLGeneration() {
+                const generateBtn = document.getElementById('generateOPMLBtn');
+                const resetBtn = document.getElementById('resetSelectionBtn');
+                const successMessage = document.getElementById('success-message');
+                const downloadLink = document.getElementById('download-link');
+                
+                generateBtn.addEventListener('click', function() {
+                    const selectedComics = [];
+                    document.querySelectorAll('.form-check-input:checked').forEach(checkbox => {
+                        selectedComics.push(checkbox.value);
+                    });
+                    
+                    if (selectedComics.length === 0) {
+                        alert('Please select at least one comic.');
+                        return;
+                    }
+                    
+                    fetch('/.netlify/functions/generate-opml', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ comics: selectedComics }),
+                    })
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        downloadLink.href = url;
+                        downloadLink.download = 'comiccaster-feeds.opml';
+                        successMessage.style.display = 'block';
+                        
+                        // Set up the download link
+                        downloadLink.addEventListener('click', function(e) {
+                            setTimeout(() => {
+                                URL.revokeObjectURL(url);
+                            }, 100);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error generating OPML:', error);
+                        alert('There was an error generating your OPML file. Please try again.');
+                    });
+                });
+                
+                resetBtn.addEventListener('click', function() {
+                    document.querySelectorAll('.form-check-input:checked').forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    successMessage.style.display = 'none';
+                });
+            }
         });
+        
+        function copyToClipboard(element) {
+            const url = element.getAttribute('data-url');
+            navigator.clipboard.writeText(url).then(() => {
+                // Visual feedback
+                if (element.classList.contains('copy-icon')) {
+                    element.textContent = '✓';
+                    setTimeout(() => {
+                        element.textContent = '📋';
+                    }, 2000);
+                } else if (element.classList.contains('url-text')) {
+                    const originalText = element.textContent;
+                    element.textContent = 'Copied!';
+                    element.style.color = '#4CAF50'; // Green color
+                    setTimeout(() => {
+                        element.textContent = originalText;
+                        element.style.color = '';
+                    }, 2000);
+                }
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
     </script>
 </body>
 </html> 
