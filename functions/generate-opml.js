@@ -53,6 +53,31 @@ function loadComicsList() {
         const functionDir = path.dirname(__filename);
         const dataDir = path.join(functionDir, 'data');
         
+        console.log('Function directory:', functionDir);
+        console.log('Data directory:', dataDir);
+        
+        // List contents of function directory
+        console.log('Contents of function directory:');
+        try {
+            const files = fs.readdirSync(functionDir);
+            console.log(files);
+        } catch (error) {
+            console.log('Error reading function directory:', error);
+        }
+        
+        // List contents of data directory if it exists
+        console.log('Contents of data directory:');
+        try {
+            if (fs.existsSync(dataDir)) {
+                const files = fs.readdirSync(dataDir);
+                console.log(files);
+            } else {
+                console.log('Data directory does not exist');
+            }
+        } catch (error) {
+            console.log('Error reading data directory:', error);
+        }
+        
         const possiblePaths = [
             path.join(dataDir, 'comics_list.json'),
             path.join(dataDir, '..', 'public', 'comics_list.json'),
