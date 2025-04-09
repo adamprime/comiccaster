@@ -10,8 +10,12 @@ function comicFeedExists(slug) {
     // Try multiple possible locations for the feed files
     const possiblePaths = [
         path.join(dataDir, 'feeds', `${slug}.xml`),
+        path.join(dataDir, `${slug}.xml`),
         path.join('public', 'feeds', `${slug}.xml`),
-        path.join('feeds', `${slug}.xml`)
+        path.join('feeds', `${slug}.xml`),
+        // Add test environment paths
+        path.join('test_functions', 'data', 'feeds', `${slug}.xml`),
+        path.join('test_functions', 'data', `${slug}.xml`)
     ];
 
     console.log(`Checking feed existence for slug: ${slug}`);
@@ -22,9 +26,13 @@ function comicFeedExists(slug) {
     // Check each possible path
     for (const feedPath of possiblePaths) {
         console.log(`Checking path: ${feedPath}`);
-        if (fs.existsSync(feedPath)) {
-            console.log(`Found feed at: ${feedPath}`);
-            return true;
+        try {
+            if (fs.existsSync(feedPath)) {
+                console.log(`Found feed at: ${feedPath}`);
+                return true;
+            }
+        } catch (error) {
+            console.log(`Error checking path ${feedPath}:`, error);
         }
     }
 
@@ -47,19 +55,26 @@ function loadComicsList() {
         
         const possiblePaths = [
             path.join(dataDir, 'comics_list.json'),
+            path.join(dataDir, '..', 'public', 'comics_list.json'),
             path.join('public', 'comics_list.json'),
-            path.join('comics_list.json')
+            path.join('comics_list.json'),
+            // Add test environment paths
+            path.join('test_functions', 'data', 'comics_list.json')
         ];
 
         console.log('Looking for comics_list.json in:', possiblePaths);
 
         for (const comicsPath of possiblePaths) {
             console.log(`Checking comics list at: ${comicsPath}`);
-            if (fs.existsSync(comicsPath)) {
-                console.log(`Found comics list at: ${comicsPath}`);
-                const data = JSON.parse(fs.readFileSync(comicsPath, 'utf8'));
-                console.log(`Loaded ${data.length} comics from list`);
-                return data;
+            try {
+                if (fs.existsSync(comicsPath)) {
+                    console.log(`Found comics list at: ${comicsPath}`);
+                    const data = JSON.parse(fs.readFileSync(comicsPath, 'utf8'));
+                    console.log(`Loaded ${data.length} comics from list`);
+                    return data;
+                }
+            } catch (error) {
+                console.log(`Error checking/reading ${comicsPath}:`, error);
             }
         }
     } catch (error) {
@@ -137,17 +152,30 @@ exports.handler = async function(event, context) {
             };
         }
 
+        // Load comics list first to validate slugs
+        const comicsList = loadComicsList();
+        if (comicsList.length === 0) {
+            console.error('No comics list found - this is a critical error');
+            return {
+                statusCode: 500,
+                body: JSON.stringify({ error: 'Comics list not found - please contact support' })
+            };
+        }
+
         // Filter out comics without feeds
         const availableComics = comics.filter(comicFeedExists);
 
         if (availableComics.length === 0) {
             return {
                 statusCode: 400,
-                body: JSON.stringify({ error: 'None of the selected comics have available feeds' })
+                body: JSON.stringify({ 
+                    error: 'None of the selected comics have available feeds',
+                    details: 'Please try again later or contact support if the issue persists'
+                })
             };
         }
 
-        // Generate OPML content without token creation
+        // Generate OPML content
         const opml = generateOPML(availableComics);
 
         // Return OPML as attachment
@@ -163,7 +191,10 @@ exports.handler = async function(event, context) {
         console.error('Error generating OPML:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'Failed to generate OPML file' })
+            body: JSON.stringify({ 
+                error: 'Failed to generate OPML file',
+                details: error.message
+            })
         };
     }
 }; 

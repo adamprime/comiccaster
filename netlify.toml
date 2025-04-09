@@ -8,9 +8,13 @@
     mkdir -p public/feeds
     cp feeds/* public/feeds/
     # Copy files needed for OPML generation
-    mkdir -p functions/data
+    mkdir -p functions/data/feeds
     cp public/comics_list.json functions/data/
-    cp -r public/feeds functions/data/
+    cp -r public/feeds/* functions/data/feeds/
+    # Verify the copy operation
+    echo "Verifying file copy..."
+    ls -la functions/data/feeds/
+    ls -la functions/data/comics_list.json
   """
 
 [functions]
