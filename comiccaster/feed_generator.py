@@ -184,14 +184,26 @@ class ComicFeedGenerator:
                 existing_feed = feedparser.parse(str(feed_path))
                 for entry in existing_feed.entries:
                     fe = fg.add_entry()
-                    fe.id(entry.id)
-                    fe.title(entry.title)
-                    fe.link(href=entry.link)
-                    fe.description(entry.description)
+                    # Ensure entry has an ID, generate one if missing
+                    entry_id = getattr(entry, 'id', None)
+                    if not entry_id:
+                        entry_id = f"{comic_info['url']}#{datetime.now(timezone.utc).timestamp()}"
+                    fe.id(entry_id)
+                    
+                    fe.title(getattr(entry, 'title', f"{comic_info['name']} - Unknown Date"))
+                    fe.link(href=getattr(entry, 'link', comic_info['url']))
+                    fe.description(getattr(entry, 'description', ''))
+                    
+                    # Handle publication date with timezone
                     if hasattr(entry, 'published_parsed'):
                         pub_date = datetime.fromtimestamp(time.mktime(entry.published_parsed))
-                        fe.published(pub_date)
-                        fe.updated(pub_date)
+                        if pub_date.tzinfo is None:
+                            pub_date = pub_date.replace(tzinfo=timezone.utc)
+                    else:
+                        pub_date = datetime.now(timezone.utc)
+                    
+                    fe.published(pub_date)
+                    fe.updated(pub_date)
             
             # Create and add new entry
             fe = self.create_entry(comic_info, metadata)
@@ -199,12 +211,10 @@ class ComicFeedGenerator:
             
             # Save the feed as RSS
             fg.rss_file(str(feed_path))
-            logger.info(f"Updated feed for {comic_info['name']} at {feed_path}")
-            
             return True
             
         except Exception as e:
-            logger.error(f"Failed to update feed for {comic_info['name']}: {e}")
+            logger.error(f"Error updating feed for {comic_info['name']}: {e}")
             return False
     
     def generate_feed(self, comic_info: Dict[str, str], entries: List[Dict[str, str]]) -> bool:
