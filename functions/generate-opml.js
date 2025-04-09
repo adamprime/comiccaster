@@ -51,10 +51,7 @@ function comicFeedExists(slug) {
 function loadComicsList() {
     try {
         const functionDir = path.dirname(__filename);
-        const dataDir = path.join(functionDir, 'data');
-        
         console.log('Function directory:', functionDir);
-        console.log('Data directory:', dataDir);
         
         // List contents of function directory
         console.log('Contents of function directory:');
@@ -65,39 +62,25 @@ function loadComicsList() {
             console.log('Error reading function directory:', error);
         }
         
-        // List contents of data directory if it exists
-        console.log('Contents of data directory:');
-        try {
-            if (fs.existsSync(dataDir)) {
-                const files = fs.readdirSync(dataDir);
-                console.log(files);
-            } else {
-                console.log('Data directory does not exist');
-            }
-        } catch (error) {
-            console.log('Error reading data directory:', error);
-        }
+        // Try to read from public directory first
+        const publicPath = path.join(functionDir, '..', 'public', 'comics_list.json');
+        console.log('Public path:', publicPath);
         
-        // Primary path should be in the function's data directory
-        const primaryPath = path.join(dataDir, 'comics_list.json');
-        console.log('Primary path:', primaryPath);
-        
-        // Try to read from primary path first
         try {
-            if (fs.existsSync(primaryPath)) {
-                console.log('Found comics list at primary path');
-                const data = JSON.parse(fs.readFileSync(primaryPath, 'utf8'));
+            if (fs.existsSync(publicPath)) {
+                console.log('Found comics list in public directory');
+                const data = JSON.parse(fs.readFileSync(publicPath, 'utf8'));
                 console.log(`Loaded ${data.length} comics from list`);
                 return data;
             }
         } catch (error) {
-            console.log('Error reading primary path:', error);
+            console.log('Error reading public path:', error);
         }
         
-        // Fallback paths if primary path fails
+        // Fallback paths if public path fails
         const fallbackPaths = [
-            path.join(dataDir, '..', 'public', 'comics_list.json'),
-            path.join('public', 'comics_list.json'),
+            path.join(functionDir, 'data', 'comics_list.json'),
+            path.join(functionDir, '..', 'functions', 'data', 'comics_list.json'),
             path.join('comics_list.json')
         ];
 
