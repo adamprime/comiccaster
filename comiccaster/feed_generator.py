@@ -137,15 +137,27 @@ class ComicFeedGenerator:
             
             fe.id(entry_id)
             
-            # Create HTML description with the comic image
+            # Create HTML description with the comic image and description
             image_url = metadata.get('image', '').strip()
-            description = metadata.get('description', '')  # Use provided description if available
+            description_text = metadata.get('description', '')  # Get the description text
             
-            if not description and image_url:
-                description = f'<img src="{image_url}" alt="{title}" />'
-            elif not description:
-                description = f"<p>Comic image not available. Please visit <a href='{url}'>the comic page</a>.</p>"
+            # Build the complete description
+            description_parts = []
             
+            # Add image if available
+            if image_url:
+                description_parts.append(f'<img src="{image_url}" alt="{title}" />')
+            
+            # Add description text if available
+            if description_text:
+                description_parts.append(f'<p>{description_text}</p>')
+            
+            # If we have no content, add a fallback message
+            if not description_parts:
+                description_parts.append(f"<p>Comic image not available. Please visit <a href='{url}'>the comic page</a>.</p>")
+            
+            # Join all parts with newlines
+            description = '\n'.join(description_parts)
             fe.description(description)
             
             # Set publication date with timezone information
