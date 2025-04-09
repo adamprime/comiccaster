@@ -30,7 +30,7 @@
 [functions]
   directory = "functions"
   node_bundler = "esbuild"
-  included_files = ["data/**"]
+  included_files = ["data/comics_list.json", "data/feeds/**"]
 
 # Direct /rss/ requests to the static feed files
 [[redirects]]
