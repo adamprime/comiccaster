@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+        <title>ComicCaster Feeds</title>
+        <dateCreated>2025-04-09T17:39:53.660Z</dateCreated>
+    </head>
+    <body>
+        <outline text="Comics" title="Comics">
+            <outline 
+                type="rss" 
+                text="Garfield"
+                title="Garfield"
+                xmlUrl="http://localhost:8888/rss/garfield"
+            />
+            <outline 
+                type="rss" 
+                text="Calvin and Hobbes"
+                title="Calvin and Hobbes"
+                xmlUrl="http://localhost:8888/rss/calvinandhobbes"
+            />
+            <outline 
+                type="rss" 
+                text="Peanuts"
+                title="Peanuts"
+                xmlUrl="http://localhost:8888/rss/peanuts"
+            />
+        </outline>
+    </body>
+</opml>
