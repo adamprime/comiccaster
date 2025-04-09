@@ -1,0 +1,8 @@
+{
+  "name": "comiccaster",
+  "version": "1.0.0",
+  "description": "RSS feeds for comics",
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+} 

@@ -118,6 +118,7 @@
             align-items: center;
             overflow: hidden;
             max-width: 100%;
+            gap: 8px;
         }
         
         .url-text {
@@ -142,6 +143,20 @@
         
         .copy-icon:hover {
             opacity: 1;
+        }
+
+        .preview-link {
+            color: var(--link-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        
+        .preview-link:hover {
+            opacity: 1;
+            text-decoration: none;
         }
 
         /* Comic list for OPML section */
@@ -348,6 +363,7 @@
                                 <span class="url-text" onclick="copyToClipboard(this)" data-url="https://comiccaster.xyz/rss/${comic.slug}">
                                     https://comiccaster.xyz/rss/${comic.slug}
                                 </span>
+                                <a href="/preview.html?url=https://comiccaster.xyz/rss/${comic.slug}" class="preview-link" target="_blank">👁️ Preview</a>
                             </div>
                         </td>
                         <td><a href="https://www.gocomics.com/${comic.slug}" target="_blank">🔗 Source</a></td>
