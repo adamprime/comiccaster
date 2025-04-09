@@ -123,31 +123,27 @@ class ComicFeedGenerator:
             fe.link(href=url)
             
             # Generate a unique and stable ID
-            if metadata.get('url'):
-                entry_id = metadata['url']
-            elif metadata.get('pub_date'):
-                # Use publication date and URL for a stable ID
-                pub_date = self.parse_date_with_timezone(metadata['pub_date'])
-                entry_id = f"{url}#{pub_date.strftime('%Y%m%d')}"
-            else:
-                # Use title and URL as fallback
-                entry_id = f"{url}#{title}"
+            entry_id = metadata.get('id', '')  # Use provided ID if available
+            if not entry_id:
+                if metadata.get('url'):
+                    entry_id = metadata['url']
+                elif metadata.get('pub_date'):
+                    # Use publication date and URL for a stable ID
+                    pub_date = self.parse_date_with_timezone(metadata['pub_date'])
+                    entry_id = f"{url}#{pub_date.strftime('%Y%m%d')}"
+                else:
+                    # Use title and URL as fallback
+                    entry_id = f"{url}#{title}"
             
             fe.id(entry_id)
             
-            # Create HTML description with the comic image and proper error handling
+            # Create HTML description with the comic image
             image_url = metadata.get('image', '').strip()
-            description = ''
+            description = metadata.get('description', '')  # Use provided description if available
             
-            if image_url:
-                description = f"""
-                <div style="text-align: center;">
-                    <img src="{image_url}" alt="{title}" style="max-width: 100%;">
-                """
-                if metadata.get('description'):
-                    description += f"<p>{metadata['description']}</p>"
-                description += "</div>"
-            else:
+            if not description and image_url:
+                description = f'<img src="{image_url}" alt="{title}" />'
+            elif not description:
                 description = f"<p>Comic image not available. Please visit <a href='{url}'>the comic page</a>.</p>"
             
             fe.description(description)
@@ -271,15 +267,27 @@ class ComicFeedGenerator:
             # Create new feed
             fg = self.create_feed(comic_info)
             
-            # Add entries in reverse chronological order
-            for metadata in sorted(entries, key=lambda x: x.get('pub_date', ''), reverse=True):
-                fe = self.create_entry(comic_info, metadata)
-                fg.add_entry(fe)
+            # Sort entries by publication date in reverse chronological order
+            sorted_entries = sorted(
+                entries,
+                key=lambda x: self.parse_date_with_timezone(x.get('pub_date', '')).timestamp(),
+                reverse=True
+            )
+            
+            # Add all entries
+            for metadata in sorted_entries:
+                try:
+                    fe = self.create_entry(comic_info, metadata)
+                    fg.add_entry(fe)
+                    logger.debug(f"Added entry: {metadata.get('title')} - {metadata.get('pub_date')}")
+                except Exception as entry_error:
+                    logger.error(f"Error adding entry to feed: {entry_error}")
+                    continue
             
             # Save the feed as RSS
             feed_path = self.output_dir / f"{comic_info['slug']}.xml"
             fg.rss_file(str(feed_path))
-            logger.info(f"Generated feed for {comic_info['name']} at {feed_path}")
+            logger.info(f"Generated feed for {comic_info['name']} at {feed_path} with {len(sorted_entries)} entries")
             
             return True
             
