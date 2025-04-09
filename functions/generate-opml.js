@@ -62,25 +62,25 @@ function loadComicsList() {
             console.log('Error reading function directory:', error);
         }
         
-        // Try to read from public directory first
-        const publicPath = path.join(functionDir, '..', 'public', 'comics_list.json');
-        console.log('Public path:', publicPath);
+        // Try to read from function directory first
+        const functionPath = path.join(functionDir, 'comics_list.json');
+        console.log('Function path:', functionPath);
         
         try {
-            if (fs.existsSync(publicPath)) {
-                console.log('Found comics list in public directory');
-                const data = JSON.parse(fs.readFileSync(publicPath, 'utf8'));
+            if (fs.existsSync(functionPath)) {
+                console.log('Found comics list in function directory');
+                const data = JSON.parse(fs.readFileSync(functionPath, 'utf8'));
                 console.log(`Loaded ${data.length} comics from list`);
                 return data;
             }
         } catch (error) {
-            console.log('Error reading public path:', error);
+            console.log('Error reading function path:', error);
         }
         
-        // Fallback paths if public path fails
+        // Fallback paths if function path fails
         const fallbackPaths = [
             path.join(functionDir, 'data', 'comics_list.json'),
-            path.join(functionDir, '..', 'functions', 'data', 'comics_list.json'),
+            path.join(functionDir, '..', 'public', 'comics_list.json'),
             path.join('comics_list.json')
         ];
 

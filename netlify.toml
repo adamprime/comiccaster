@@ -21,10 +21,13 @@
     cp feeds/* public/feeds/
     
     # Copy files to functions directory
+    cp public/comics_list.json functions/
     cp public/comics_list.json functions/data/
     cp -r public/feeds/* functions/data/feeds/
     
     # Verify files were copied
+    echo "Verifying files in functions directory:"
+    ls -la functions/
     echo "Verifying files in functions/data:"
     ls -la functions/data/
     echo "Verifying files in functions/data/feeds:"
@@ -38,7 +41,7 @@
 [functions]
   directory = "functions"
   node_bundler = "esbuild"
-  included_files = ["data/comics_list.json", "data/feeds/**"]
+  included_files = ["comics_list.json", "data/**"]
 
 # Direct /rss/ requests to the static feed files
 [[redirects]]
