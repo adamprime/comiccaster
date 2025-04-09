@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 import time
 import feedparser
+from email.utils import parsedate_to_datetime
 
 from feedgen.feed import FeedGenerator
 from feedgen.entry import FeedEntry
@@ -51,7 +52,7 @@ class ComicFeedGenerator:
         
         # Set feed metadata
         fg.title(f"{comic_info['name']} - GoComics")
-        fg.description(f"Daily {comic_info['name']} comic strip by {comic_info['author']}")
+        fg.description(f"Daily {comic_info['name']} comic strip by {comic_info.get('author', 'Unknown Author')}")
         fg.language('en')
         
         # Set feed ID and updated time
@@ -71,6 +72,27 @@ class ComicFeedGenerator:
         
         return fg
     
+    def parse_date_with_timezone(self, date_str: str) -> datetime:
+        """
+        Parse a date string and ensure it has timezone information.
+        
+        Args:
+            date_str (str): Date string in RFC 2822 format.
+            
+        Returns:
+            datetime: Datetime object with timezone information.
+        """
+        try:
+            # Try to parse RFC 2822 date string
+            dt = parsedate_to_datetime(date_str)
+            if dt.tzinfo is None:
+                # If no timezone info, assume UTC
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt
+        except Exception as e:
+            logger.warning(f"Could not parse date '{date_str}': {e}")
+            return datetime.now(timezone.utc)
+    
     def create_entry(self, comic_info: Dict[str, str], metadata: Dict[str, str]) -> FeedEntry:
         """
         Create a feed entry for a comic strip.
@@ -86,14 +108,25 @@ class ComicFeedGenerator:
         
         try:
             # Set entry metadata
-            fe.title(metadata.get('title', f"{comic_info['name']} - {datetime.now().strftime('%Y-%m-%d')}"))
-            fe.link(href=metadata.get('url', comic_info['url']))
+            title = metadata.get('title')
+            if not title:
+                title = f"{comic_info['name']} - {datetime.now(timezone.utc).strftime('%Y-%m-%d')}"
+            fe.title(title)
             
-            # Set entry ID (using URL as permanent identifier)
-            entry_id = metadata.get('id') or metadata.get('url') or comic_info.get('url')
-            if not entry_id:
-                # Fallback to a unique ID based on date and slug
-                entry_id = f"https://comiccaster.xyz/feeds/{comic_info['slug']}/{datetime.now().strftime('%Y%m%d%H%M%S')}"
+            # Set entry link
+            url = metadata.get('url') or comic_info['url']
+            fe.link(href=url)
+            
+            # Generate a unique ID that's stable across updates
+            if metadata.get('url'):
+                entry_id = metadata['url']
+            elif metadata.get('pub_date'):
+                # Use publication date and slug if URL not available
+                pub_date = self.parse_date_with_timezone(metadata['pub_date'])
+                entry_id = f"https://comiccaster.xyz/feeds/{comic_info['slug']}/{pub_date.strftime('%Y%m%d')}"
+            else:
+                # Fallback to current time-based ID
+                entry_id = f"https://comiccaster.xyz/feeds/{comic_info['slug']}/{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
             
             fe.id(entry_id)
             
@@ -107,24 +140,14 @@ class ComicFeedGenerator:
             """
             fe.description(description)
             
-            # Set publication date if available
+            # Set publication date with timezone information
             if 'pub_date' in metadata:
-                try:
-                    # Parse the RFC 2822 date string
-                    pub_date = datetime.strptime(metadata['pub_date'], '%a, %d %b %Y %H:%M:%S %z')
-                    fe.published(pub_date)
-                    fe.updated(pub_date)
-                except ValueError:
-                    logger.warning(f"Could not parse publication date: {metadata['pub_date']}")
-                    # Use current time as fallback
-                    now = datetime.now(timezone.utc)
-                    fe.published(now)
-                    fe.updated(now)
+                pub_date = self.parse_date_with_timezone(metadata['pub_date'])
             else:
-                # Use current time if no pub_date available
-                now = datetime.now(timezone.utc)
-                fe.published(now)
-                fe.updated(now)
+                pub_date = datetime.now(timezone.utc)
+            
+            fe.published(pub_date)
+            fe.updated(pub_date)
                 
             return fe
         except Exception as e:
