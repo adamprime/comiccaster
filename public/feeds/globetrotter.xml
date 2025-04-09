@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Globetrotter</title>
+        <link>https://www.gocomics.com/globetrotter</link>
+        <description>RSS feed for Globetrotter from GoComics</description>
+        <atom:link href="https://rss.adamcunnington.com/feeds/globetrotter.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <item>
+            <title>Globetrotter - 2025-04-09</title>
+            <link>https://www.gocomics.com/globetrotter/2025/04/09</link>
+            <guid isPermaLink="false">https://www.gocomics.com/globetrotter/2025/04/09</guid>
+            <pubDate>Wed, 09 Apr 2025 12:14:00 </pubDate>
+            <description><![CDATA[<img src="https://gocomicscmsassets.gocomics.com/assets/assets/GC_Social_FB_Globetrotter_561eebecb2.jpg" alt="Globetrotter - 2025-04-09" />]]></description>
+        </item>
+    </channel>
+</rss>

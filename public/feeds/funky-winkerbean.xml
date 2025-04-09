@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Funky Winkerbean</title>
+        <link>https://www.gocomics.com/funky-winkerbean</link>
+        <description>RSS feed for Funky Winkerbean from GoComics</description>
+        <atom:link href="https://rss.adamcunnington.com/feeds/funky-winkerbean.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <item>
+            <title>Funky Winkerbean - 2025-04-09</title>
+            <link>https://www.gocomics.com/funky-winkerbean/2025/04/09</link>
+            <guid isPermaLink="false">https://www.gocomics.com/funky-winkerbean/2025/04/09</guid>
+            <pubDate>Wed, 09 Apr 2025 12:13:53 </pubDate>
+            <description><![CDATA[<img src="https://gocomicscmsassets.gocomics.com/staging-assets/assets/GC_Social_FB_Funky_Winkerbean_e4b01b1e98.jpg" alt="Funky Winkerbean - 2025-04-09" />]]></description>
+        </item>
+    </channel>
+</rss>

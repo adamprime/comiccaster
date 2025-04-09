@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Baby Blues</title>
+        <link>https://www.gocomics.com/babyblues</link>
+        <description>RSS feed for Baby Blues from GoComics</description>
+        <atom:link href="https://rss.adamcunnington.com/feeds/babyblues.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <item>
+            <title>Babyblues - 2025-04-09</title>
+            <link>https://www.gocomics.com/babyblues/2025/04/09</link>
+            <guid isPermaLink="false">https://www.gocomics.com/babyblues/2025/04/09</guid>
+            <pubDate>Wed, 09 Apr 2025 12:12:53 </pubDate>
+            <description><![CDATA[<img src="https://gocomicscmsassets.gocomics.com/staging-assets/assets/GC_Social_FB_Baby_Blues_5f789afabc.jpg" alt="Babyblues - 2025-04-09" />]]></description>
+        </item>
+    </channel>
+</rss>

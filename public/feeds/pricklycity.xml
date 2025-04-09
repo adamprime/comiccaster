@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Prickly City</title>
+        <link>https://www.gocomics.com/pricklycity</link>
+        <description>RSS feed for Prickly City from GoComics</description>
+        <atom:link href="https://rss.adamcunnington.com/feeds/pricklycity.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <item>
+            <title>Pricklycity - 2025-04-09</title>
+            <link>https://www.gocomics.com/pricklycity/2025/04/09</link>
+            <guid isPermaLink="false">https://www.gocomics.com/pricklycity/2025/04/09</guid>
+            <pubDate>Wed, 09 Apr 2025 12:15:06 </pubDate>
+            <description><![CDATA[<img src="https://gocomicscmsassets.gocomics.com/staging-assets/assets/GC_Social_FB_Prickly_City_1205106236.jpg" alt="Pricklycity - 2025-04-09" />]]></description>
+        </item>
+    </channel>
+</rss>
