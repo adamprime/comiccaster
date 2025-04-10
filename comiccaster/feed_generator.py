@@ -130,12 +130,15 @@ class ComicFeedGenerator:
         # Set the entry URL
         entry.link(href=metadata.get('url', comic_info['url']))
         
+        # Get image URL from either image or image_url field
+        image_url = metadata.get('image_url', metadata.get('image', ''))
+        
         # Create description with image if available
         description = metadata.get('description', '')
-        if metadata.get('image_url'):
+        if image_url:
             description = f"""
             <div style="text-align: center;">
-                <img src="{metadata['image_url']}" alt="{comic_info['name']}" style="max-width: 100%;">
+                <img src="{image_url}" alt="{comic_info['name']}" style="max-width: 100%;">
                 <p>{description}</p>
             </div>
             """
@@ -145,8 +148,8 @@ class ComicFeedGenerator:
         entry.published(pub_date)
         
         # Add image as enclosure for podcast apps if image URL is available
-        if metadata.get('image_url'):
-            entry.enclosure(metadata['image_url'], 0, 'image/jpeg')
+        if image_url:
+            entry.enclosure(image_url, 0, 'image/jpeg')
         
         return entry
     
@@ -252,13 +255,7 @@ class ComicFeedGenerator:
             # Add all entries
             for metadata in sorted_entries:
                 try:
-                    title = metadata.get('title', f"{comic_info['name']} - {self.parse_date_with_timezone(metadata.get('pub_date', '')).strftime('%Y-%m-%d')}")
-                    url = metadata.get('url', '').strip() or comic_info['url']
-                    # Use image_url field consistently
-                    image_url = metadata.get('image_url', '').strip() or metadata.get('image', '').strip()
-                    description = metadata.get('description', '')
-                    pub_date = self.parse_date_with_timezone(metadata.get('pub_date', '')) if metadata.get('pub_date') else datetime.now(timezone.utc)
-                    
+                    # Create entry with the metadata
                     fe = self.create_entry(comic_info, metadata)
                     fg.add_entry(fe)
                     logger.debug(f"Added entry: {metadata.get('title')} - {metadata.get('pub_date')}")
