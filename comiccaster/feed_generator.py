@@ -84,44 +84,71 @@ class ComicFeedGenerator:
             datetime: Datetime object with timezone information.
         """
         try:
-            # First try to parse RFC 2822 date string
-            try:
-                dt = parsedate_to_datetime(date_str)
-            except Exception:
-                # If that fails, try ISO format or let dateutil.parser handle it
+            # If date_str is already a datetime object, just ensure it has timezone
+            if isinstance(date_str, datetime):
+                dt = date_str
+            else:
+                # First try to parse RFC 2822 date string
                 try:
-                    # Try simple ISO format first
-                    if re.match(r'^\d{4}-\d{2}-\d{2}$', date_str):
-                        dt = datetime.strptime(date_str, '%Y-%m-%d')
-                    else:
-                        # Use dateutil parser as a last resort
-                        from dateutil import parser as date_parser
-                        dt = date_parser.parse(date_str)
-                except Exception as e:
-                    logger.warning(f"Failed to parse date with dateutil parser: {e}")
-                    raise
+                    dt = parsedate_to_datetime(date_str)
+                except Exception:
+                    # If that fails, try ISO format
+                    try:
+                        # Try simple ISO format first
+                        if re.match(r'^\d{4}-\d{2}-\d{2}$', date_str):
+                            dt = datetime.strptime(date_str, '%Y-%m-%d')
+                        else:
+                            # Use dateutil parser as a last resort
+                            from dateutil import parser as date_parser
+                            dt = date_parser.parse(date_str)
+                    except Exception as e:
+                        logger.error(f"Failed to parse date string '{date_str}': {e}")
+                        # Return current time as fallback
+                        dt = datetime.now()
             
-            # Ensure timezone information is present
+            # Ensure the datetime has timezone information
             if dt.tzinfo is None:
-                # If no timezone info, assume UTC
                 dt = dt.replace(tzinfo=timezone.utc)
+            
             return dt
+            
         except Exception as e:
-            logger.warning(f"Could not parse date '{date_str}': {e}")
+            logger.error(f"Error parsing date '{date_str}': {e}")
             return datetime.now(timezone.utc)
     
     def create_entry(self, comic_info, metadata):
-        entry = FeedEntry()  # Create a FeedEntry object
-        entry.title(metadata.get('title', f"{comic_info['name']} - {self.parse_date_with_timezone(metadata.get('pub_date', '')).strftime('%Y-%m-%d')}"))  # Set title correctly
-        entry.link(href=metadata.get('url', comic_info['url']))  # Set link correctly
-        entry.description(metadata.get('description', ''))  # Set description correctly
-        # Ensure pub_date is set correctly
-        if metadata.get('pub_date'):
-            entry.published(self.parse_date_with_timezone(metadata['pub_date']))
+        """Create a feed entry from comic metadata."""
+        entry = FeedEntry()
+        
+        # Parse the publication date
+        pub_date = self.parse_date_with_timezone(metadata.get('pub_date', ''))
+        
+        # Create title with the correct date format
+        title = metadata.get('title', f"{comic_info['name']} - {pub_date.strftime('%Y-%m-%d')}")
+        entry.title(title)
+        
+        # Set the entry URL
+        entry.link(href=metadata.get('url', comic_info['url']))
+        
+        # Create description with image if available
+        description = metadata.get('description', '')
+        if metadata.get('image_url'):
+            description = f"""
+            <div style="text-align: center;">
+                <img src="{metadata['image_url']}" alt="{comic_info['name']}" style="max-width: 100%;">
+                <p>{description}</p>
+            </div>
+            """
+        entry.description(description)
+        
+        # Set publication date
+        entry.published(pub_date)
+        
         # Add image as enclosure for podcast apps if image URL is available
-        if metadata.get('image'):
-            entry.enclosure(metadata['image'], 0, 'image/jpeg')
-        return entry  # Return the entry object, not a dict
+        if metadata.get('image_url'):
+            entry.enclosure(metadata['image_url'], 0, 'image/jpeg')
+        
+        return entry
     
     def update_feed(self, comic_info: Dict[str, str], metadata: Dict[str, str]) -> bool:
         """
