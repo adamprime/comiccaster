@@ -13,6 +13,7 @@ import time
 import feedparser
 from email.utils import parsedate_to_datetime
 import re
+import pytz
 
 from feedgen.feed import FeedGenerator
 from feedgen.entry import FeedEntry
@@ -96,25 +97,29 @@ class ComicFeedGenerator:
                     try:
                         # Try simple ISO format first
                         if re.match(r'^\d{4}-\d{2}-\d{2}$', date_str):
+                            # For simple ISO format, create naive datetime and localize to UTC
                             dt = datetime.strptime(date_str, '%Y-%m-%d')
+                            dt = pytz.UTC.localize(dt)
                         else:
                             # Use dateutil parser as a last resort
                             from dateutil import parser as date_parser
                             dt = date_parser.parse(date_str)
+                            if dt.tzinfo is None:
+                                dt = pytz.UTC.localize(dt)
                     except Exception as e:
                         logger.error(f"Failed to parse date string '{date_str}': {e}")
                         # Return current time as fallback
-                        dt = datetime.now()
+                        dt = datetime.now(pytz.UTC)
             
             # Ensure the datetime has timezone information
             if dt.tzinfo is None:
-                dt = dt.replace(tzinfo=timezone.utc)
+                dt = pytz.UTC.localize(dt)
             
             return dt
             
         except Exception as e:
             logger.error(f"Error parsing date '{date_str}': {e}")
-            return datetime.now(timezone.utc)
+            return datetime.now(pytz.UTC)
     
     def create_entry(self, comic_info, metadata):
         """Create a feed entry from comic metadata."""
@@ -172,7 +177,7 @@ class ComicFeedGenerator:
             
             # Create new feed or load existing one
             fg = self.create_feed(comic_info)
-            existing_entries = set()  # Track existing entry IDs
+            existing_entries = []  # Track existing entries with their dates
             
             # If feed exists, load existing entries
             if feed_path.exists():
@@ -180,52 +185,38 @@ class ComicFeedGenerator:
                     existing_feed = feedparser.parse(str(feed_path))
                     for entry in existing_feed.entries:
                         try:
-                            fe = fg.add_entry()
-                            # Ensure entry has an ID, generate one if missing
-                            entry_id = getattr(entry, 'id', None)
-                            if not entry_id:
-                                # Generate a stable ID based on title and link
-                                title = getattr(entry, 'title', '')
-                                link = getattr(entry, 'link', '')
-                                entry_id = f"{comic_info['url']}#{title}#{link}"
-                            
-                            existing_entries.add(entry_id)
-                            fe.id(entry_id)
-                            
-                            fe.title(getattr(entry, 'title', f"{comic_info['name']} - Unknown Date"))
-                            fe.link(href=getattr(entry, 'link', comic_info['url']))
-                            fe.description(getattr(entry, 'description', ''))
-                            
-                            # Handle publication date with timezone
+                            # Get publication date
                             if hasattr(entry, 'published_parsed'):
                                 pub_date = datetime.fromtimestamp(time.mktime(entry.published_parsed))
                                 if pub_date.tzinfo is None:
-                                    pub_date = pub_date.replace(tzinfo=timezone.utc)
+                                    pub_date = pytz.UTC.localize(pub_date)
                             else:
-                                pub_date = datetime.now(timezone.utc)
+                                pub_date = datetime.now(pytz.UTC)
                             
-                            fe.published(pub_date)
-                            fe.updated(pub_date)
-                            
-                        except Exception as entry_error:
-                            logger.warning(f"Error loading entry from existing feed: {entry_error}")
+                            # Store entry with its date
+                            existing_entries.append({
+                                'entry': entry,
+                                'date': pub_date
+                            })
+                        except Exception as e:
+                            logger.error(f"Error processing existing entry: {e}")
                             continue
-                            
-                except Exception as feed_error:
-                    logger.error(f"Error loading existing feed: {feed_error}")
+                except Exception as e:
+                    logger.error(f"Error loading existing feed: {e}")
             
-            # Create and add new entry
+            # Create new entry
             new_entry = self.create_entry(comic_info, metadata)
             
-            # Check if entry already exists
-            new_entry_id = new_entry.id()
-            if new_entry_id not in existing_entries:
-                fg.add_entry(new_entry)
-                logger.info(f"Added new entry with ID: {new_entry_id}")
-            else:
-                logger.info(f"Entry with ID {new_entry_id} already exists, skipping")
+            # Add new entry to feed
+            fg.add_entry(new_entry)
             
-            # Save the feed as RSS
+            # Add existing entries, ensuring no duplicates
+            new_pub_date = new_entry.published()
+            for entry_data in existing_entries:
+                if entry_data['date'] != new_pub_date:
+                    fg.add_entry(entry_data['entry'])
+            
+            # Save the feed
             fg.rss_file(str(feed_path))
             return True
             
@@ -248,20 +239,52 @@ class ComicFeedGenerator:
             # Create new feed
             fg = self.create_feed(comic_info)
             
-            # Sort entries by publication date in reverse chronological order (newest first)
+            # Create a list to store entries with parsed dates
+            entries_with_dates = []
+            seen_dates = {}  # Track entries by date to prevent duplicates
+            
+            # Process entries and parse their dates
+            for metadata in entries:
+                try:
+                    # Parse the publication date
+                    pub_date = self.parse_date_with_timezone(metadata.get('pub_date', ''))
+                    date_str = pub_date.strftime('%Y-%m-%d')
+                    
+                    # Skip if we already have a more recent entry for this date
+                    if date_str in seen_dates:
+                        existing_date = seen_dates[date_str]['pub_date']
+                        if pub_date <= existing_date:
+                            logger.debug(f"Skipping duplicate entry for {date_str}")
+                            continue
+                    
+                    # Store the entry with its date
+                    entries_with_dates.append({
+                        'metadata': metadata,
+                        'pub_date': pub_date
+                    })
+                    seen_dates[date_str] = {
+                        'metadata': metadata,
+                        'pub_date': pub_date
+                    }
+                except Exception as e:
+                    logger.error(f"Error processing entry: {e}")
+                    continue
+            
+            # Sort entries by date in reverse chronological order (newest first)
             sorted_entries = sorted(
-                entries,
-                key=lambda x: self.parse_date_with_timezone(x.get('pub_date', '')).timestamp(),
+                entries_with_dates,
+                key=lambda x: x['pub_date'].timestamp(),
                 reverse=True
             )
             
-            # Add all entries
-            for metadata in sorted_entries:
+            # Add entries to feed
+            for entry_data in sorted_entries:
                 try:
                     # Create entry with the metadata
-                    fe = self.create_entry(comic_info, metadata)
+                    fe = self.create_entry(comic_info, entry_data['metadata'])
+                    # Add entry to the feed
                     fg.add_entry(fe)
-                    logger.debug(f"Added entry: {metadata.get('title')} - {metadata.get('pub_date')}")
+                    logger.debug(f"Added entry: {entry_data['metadata'].get('title')} - {entry_data['pub_date']}")
                 except Exception as entry_error:
                     logger.error(f"Error adding entry to feed: {entry_error}")
                     continue
@@ -274,7 +297,7 @@ class ComicFeedGenerator:
             return True
             
         except Exception as e:
-            logger.error(f"Failed to generate feed for {comic_info['name']}: {e}")
+            logger.error(f"Error updating feed for {comic_info['name']}: {e}")
             return False
 
 def main():

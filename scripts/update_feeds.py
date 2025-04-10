@@ -78,41 +78,72 @@ def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
             
-            # Look for the main comic container first
-            comic_container = soup.find('div', class_='ComicViewer_comicViewer__comic__oftX6')
-            if not comic_container:
-                logging.warning(f"Could not find comic container for {comic['name']} on {date_str}")
-                return None
-                
-            # Find all images in the container
-            comic_images = []
-            for img in comic_container.find_all('img'):
-                classes = img.get('class', [])
-                src = img.get('src', '')
-                
-                # Skip social media preview images and staging assets
-                if 'GC_Social_FB' in src or 'staging-assets' in src:
-                    continue
-                    
-                # Check for both required classes
-                if ('Comic_comic__image__6e_Fw' in classes and 
-                    'Comic_comic__image_strip__hPLFq' in classes):
-                    comic_images.append(img)
+            # Extract the comic image URL (prioritizing the actual comic)
+            comic_image = None
             
-            # If we found multiple valid images, use the first one
-            if comic_images:
-                comic_image = comic_images[0]
-                # Extract image URL and clean it
-                image_url = comic_image.get('src', '').split('?')[0]  # Remove any query parameters
-                alt_text = comic_image.get('alt', '')
-                
-                return {
-                    'image_url': image_url,
-                    'alt_text': alt_text
-                }
-            else:
-                logging.warning(f"No valid comic strip image found for {comic['name']} on {date_str}")
+            # Try to find the comic image URL in the JSON data embedded in script tags
+            scripts = soup.find_all("script", type="application/ld+json")
+            for script in scripts:
+                try:
+                    if script.string and "ImageObject" in script.string and "contentUrl" in script.string:
+                        data = json.loads(script.string)
+                        if data.get("@type") == "ImageObject" and data.get("contentUrl") and "featureassets.gocomics.com" in data.get("contentUrl"):
+                            comic_image = data.get("contentUrl")
+                            logging.info(f"Found actual comic image in JSON data for {url}")
+                            break
+                except Exception as e:
+                    logging.warning(f"Error parsing JSON data in script tag: {e}")
+            
+            # Try to extract from JSON data within Next.js script payloads
+            if not comic_image:
+                for script in soup.find_all("script"):
+                    if script.string and "featureassets.gocomics.com/assets" in script.string and "url" in script.string:
+                        try:
+                            # Find URLs that look like comic strip images
+                            matches = re.findall(r'"url"\s*:\s*"(https://featureassets\.gocomics\.com/assets/[^"]+)"', script.string)
+                            if matches:
+                                comic_image = matches[0]
+                                logging.info(f"Found comic image URL in script data for {url}")
+                                break
+                        except Exception as e:
+                            logging.warning(f"Error extracting URL from script: {e}")
+            
+            # If no comic image found in scripts, try the social media image as fallback
+            if not comic_image:
+                meta_tag = soup.select_one('meta[property="og:image"]')
+                if meta_tag and meta_tag.get("content"):
+                    comic_image = meta_tag["content"]
+                    logging.info(f"Found social media image for {url}")
+            
+            if not comic_image:
+                logging.error(f"No comic image found for {url}")
                 return None
+            
+            # Get the comic URL (which might be different than the constructed URL)
+            comic_url = url
+            
+            # Parse publication date from URL
+            pub_date_str = date_str.replace("/", "-")
+            
+            # Create title from date
+            title = f"{comic['name']} - {target_date.strftime('%Y-%m-%d')}"
+            
+            # Don't include the image in the description, as it will be handled separately
+            description_text = f'Comic strip for {target_date.strftime("%Y-%m-%d")}'
+            
+            # Parse the date and convert to datetime and UTC
+            pub_date = target_date.replace(tzinfo=pytz.UTC)
+            
+            # Use the image URL for the image field, but don't duplicate it in the description
+            # This will prevent the image from appearing twice in the feed
+            return {
+                'title': title,
+                'url': url,
+                'image': comic_image,
+                'pub_date': pub_date_str,
+                'description': description_text,
+                'id': url  # Use URL as ID to ensure uniqueness
+            }
             
         except requests.RequestException as e:
             if attempt < retries - 1:
@@ -129,8 +160,13 @@ def process_comic_date(comic, date, existing_entries):
     date_str = date.strftime('%Y-%m-%d')
     entry_id = f"{comic['slug']}_{date_str}"
     
-    # Check if entry already exists
-    if any(entry['id'] == entry_id for entry in existing_entries):
+    # Check if entry already exists with the same date
+    existing_entry = next(
+        (entry for entry in existing_entries if entry['id'] == entry_id),
+        None
+    )
+    
+    if existing_entry:
         logging.info(f"Entry for {comic['name']} on {date_str} already exists")
         return None
         
@@ -138,24 +174,16 @@ def process_comic_date(comic, date, existing_entries):
     if not comic_data:
         return None
         
-    # Create description with alt text if available
-    description = f"{comic['name']} for {date_str}"
-    if comic_data.get('alt_text'):
-        description = f"{description}\n\n{comic_data['alt_text']}"
-        
-    return {
-        'id': entry_id,
-        'title': f"{comic['name']} - {date_str}",
-        'url': f"https://www.gocomics.com/{comic['slug']}/{date_str}",
-        'image_url': comic_data['image_url'],
-        'description': description,
-        'pub_date': date
-    }
+    # Add the entry ID to the comic data
+    comic_data['id'] = entry_id
+    
+    # The scrape_comic function now returns the complete entry data
+    return comic_data
 
 def load_existing_entries(feed_path):
     """Load existing entries from a feed file."""
     entries = []
-    seen_dates = set()  # Track unique dates to prevent duplicates
+    seen_dates = {}  # Track entries by date and use latest version
     try:
         if os.path.exists(feed_path):
             feed = feedparser.parse(feed_path)
@@ -166,9 +194,14 @@ def load_existing_entries(feed_path):
                     continue
                 entry_date = date_match.group(0)
                 
-                # Skip if we already have an entry for this date
-                if entry_date in seen_dates:
-                    continue
+                # Parse the publication date
+                pub_date = None
+                if hasattr(entry, 'published'):
+                    try:
+                        pub_date = datetime.strptime(entry.published, '%a, %d %b %Y %H:%M:%S %z')
+                    except (ValueError, TypeError):
+                        # If parsing fails, use current time
+                        pub_date = datetime.now(timezone.utc)
                 
                 # Look for image URL in enclosures first
                 image_url = ""
@@ -193,18 +226,26 @@ def load_existing_entries(feed_path):
                 
                 # Only add entry if we found a valid image URL
                 if image_url:
-                    seen_dates.add(entry_date)
-                    entries.append({
+                    entry_data = {
                         'title': entry.title,
                         'url': entry.link,
                         'image_url': image_url,
                         'description': entry.description,
-                        'pub_date': entry.get('published', ''),
-                        'id': entry.get('id', '')
-                    })
+                        'pub_date': pub_date.strftime('%a, %d %b %Y %H:%M:%S %z') if pub_date else '',
+                        'id': entry.get('id', f"{entry.link}#{entry_date}")
+                    }
+                    
+                    # Keep only the latest version of an entry for a given date
+                    if entry_date not in seen_dates or pub_date > seen_dates[entry_date]['pub_date']:
+                        seen_dates[entry_date] = {
+                            'entry': entry_data,
+                            'pub_date': pub_date
+                        }
     except Exception as e:
         logging.error(f"Error loading existing entries from {feed_path}: {e}")
     
+    # Add only the latest version of each entry
+    entries = [data['entry'] for data in seen_dates.values()]
     return entries
 
 def regenerate_feed(comic_info, entries):
@@ -234,11 +275,11 @@ def update_feed(comic, feed_dir='feeds'):
     # Load existing entries
     existing_entries = load_existing_entries(feed_path)
     
-    # Get last 5 days of comics in chronological order (oldest to newest)
+    # Get last 10 days of comics in chronological order (oldest to newest)
     today = datetime.now(TIMEZONE)
     test_dates = [
         (today - timedelta(days=i))
-        for i in range(4, -1, -1)  # Start from 4 days ago to today
+        for i in range(9, -1, -1)  # Start from 9 days ago to today
     ]
     
     # Process dates concurrently
@@ -263,12 +304,11 @@ def update_feed(comic, feed_dir='feeds'):
         # Add new entries to existing ones
         all_entries = existing_entries + new_entries
         
-        # Sort all entries by date in reverse chronological order (newest first)
+        # Sort all entries by date in chronological order (oldest first)
         all_entries.sort(
             key=lambda x: datetime.strptime(x['pub_date'], '%a, %d %b %Y %H:%M:%S %z').timestamp() 
             if isinstance(x['pub_date'], str) 
-            else x['pub_date'].timestamp(),
-            reverse=True
+            else x['pub_date'].timestamp()
         )
         
         # Initialize feed generator and generate feed
