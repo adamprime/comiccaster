@@ -154,37 +154,67 @@ def regenerate_feed(comic_info, entries):
 
 def update_feed(comic, feed_dir='feeds'):
     """Update a comic's feed with new entries."""
-    # Get today's comic
-    today_str = datetime.now(timezone.utc).strftime('%Y-%m-%d')
-    comic_data = scrape_comic(comic, today_str)
+    # Ensure feed directory exists
+    os.makedirs(feed_dir, exist_ok=True)
     
-    if comic_data:
-        # Create entry ID and title
-        entry_id = f"{comic['slug']}_{today_str}"
-        title = f"{comic['name']} - {today_str}"
+    # Get feed path
+    feed_path = os.path.join(feed_dir, f"{comic['slug']}.xml")
+    
+    # Load existing entries
+    existing_entries = load_existing_entries(feed_path)
+    
+    # Get last 5 days of comics in chronological order (oldest to newest)
+    today = datetime.now(TIMEZONE)
+    test_dates = [
+        (today - timedelta(days=i))
+        for i in range(4, -1, -1)  # Start from 4 days ago to today
+    ]
+    
+    new_entries = []
+    for date in test_dates:
+        date_str = date.strftime('%Y-%m-%d')
+        comic_data = scrape_comic(comic, date_str)
         
-        # Create description with alt text if available
-        description = f"{comic['name']} for {today_str}"
-        if comic_data.get('alt_text'):
-            description = f"{description}\n\n{comic_data['alt_text']}"
+        if comic_data:
+            # Create entry ID and title
+            entry_id = f"{comic['slug']}_{date_str}"
+            title = f"{comic['name']} - {date_str}"
+            
+            # Check if entry already exists
+            if any(entry['id'] == entry_id for entry in existing_entries):
+                logging.info(f"Entry for {comic['name']} on {date_str} already exists")
+                continue
+            
+            # Create description with alt text if available
+            description = f"{comic['name']} for {date_str}"
+            if comic_data.get('alt_text'):
+                description = f"{description}\n\n{comic_data['alt_text']}"
+            
+            # Create the new entry
+            new_entry = {
+                'id': entry_id,
+                'title': title,
+                'url': f"https://www.gocomics.com/{comic['slug']}/{date_str}",
+                'image_url': comic_data['image_url'],
+                'description': description,
+                'pub_date': date
+            }
+            new_entries.append(new_entry)
+            logging.info(f"Added new entry for {comic['name']} on {date_str}")
+    
+    if new_entries:
+        # Add new entries to existing ones
+        existing_entries.extend(new_entries)
         
-        # Create the entry
-        entry = {
-            'id': entry_id,
-            'title': title,
-            'url': f"https://www.gocomics.com/{comic['slug']}/{today_str}",
-            'image_url': comic_data['image_url'],
-            'description': description,
-            'pub_date': datetime.strptime(today_str, '%Y-%m-%d')
-        }
-        
-        # Add the entry to the feed
-        feed_generator.add_entry(entry)
-        feed_generator.generate_feed()
-        logging.info(f"Updated feed for {comic['name']}")
-    else:
-        logging.warning(f"No new comic found for {comic['name']}")
-        
+        # Initialize feed generator and generate feed
+        feed_generator = ComicFeedGenerator()
+        if feed_generator.generate_feed(comic, existing_entries):
+            logging.info(f"Updated feed for {comic['name']} with {len(new_entries)} new entries")
+            return True
+        else:
+            logging.error(f"Failed to generate feed for {comic['name']}")
+            return False
+    
     return True
 
 def cleanup_old_tokens():
