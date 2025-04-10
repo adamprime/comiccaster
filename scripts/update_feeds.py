@@ -85,15 +85,20 @@ def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
                 return None
                 
             # Find the comic image within the main container
-            # First try to find an image with both classes
+            # First try to find an image with both classes (this is the actual comic strip)
             comic_image = comic_container.find('img', class_=['Comic_comic__image__6e_Fw', 'Comic_comic__image_strip__hPLFq'])
             
-            # If not found, look for any image with the base class, but verify it's in the main comic container
+            # If not found, look for any image with both required classes anywhere in the container
             if not comic_image:
-                comic_image = comic_container.find('img', class_='Comic_comic__image__6e_Fw')
+                for img in comic_container.find_all('img'):
+                    classes = img.get('class', [])
+                    if 'Comic_comic__image__6e_Fw' in classes and 'Comic_comic__image_strip__hPLFq' in classes:
+                        comic_image = img
+                        break
             
-            if not comic_image:
-                logging.warning(f"No valid comic image found for {comic['name']} on {date_str}")
+            # Only proceed if we found an image with both classes
+            if not comic_image or 'Comic_comic__image_strip__hPLFq' not in comic_image.get('class', []):
+                logging.warning(f"No valid comic strip image found for {comic['name']} on {date_str}")
                 return None
                 
             # Extract image URL and clean it
@@ -232,11 +237,19 @@ def update_feed(comic, feed_dir='feeds'):
 
     if new_entries:
         # Add new entries to existing ones
-        existing_entries.extend(new_entries)
+        all_entries = existing_entries + new_entries
+        
+        # Sort all entries by date in reverse chronological order (newest first)
+        all_entries.sort(
+            key=lambda x: datetime.strptime(x['pub_date'], '%a, %d %b %Y %H:%M:%S %z').timestamp() 
+            if isinstance(x['pub_date'], str) 
+            else x['pub_date'].timestamp(),
+            reverse=True
+        )
         
         # Initialize feed generator and generate feed
         feed_generator = ComicFeedGenerator()
-        if feed_generator.generate_feed(comic, existing_entries):
+        if feed_generator.generate_feed(comic, all_entries):
             logging.info(f"Updated feed for {comic['name']} with {len(new_entries)} new entries")
             return True
         else:
