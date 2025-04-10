@@ -12,6 +12,7 @@ from typing import Dict, List, Optional
 import time
 import feedparser
 from email.utils import parsedate_to_datetime
+import re
 
 from feedgen.feed import FeedGenerator
 from feedgen.entry import FeedEntry
@@ -93,99 +94,49 @@ class ComicFeedGenerator:
             logger.warning(f"Could not parse date '{date_str}': {e}")
             return datetime.now(timezone.utc)
     
-    def create_entry(self, comic_info: Dict[str, str], metadata: Dict[str, str]) -> FeedEntry:
+    def create_entry(self, title, url, image_url=None, description="", pub_date=None):
         """
-        Create a feed entry for a comic strip.
+        Create a feed entry for a comic.
         
         Args:
-            comic_info (Dict[str, str]): Dictionary containing comic information.
-            metadata (Dict[str, str]): Dictionary containing comic strip metadata.
+            title (str): The title of the comic.
+            url (str): The URL of the comic.
+            image_url (str, optional): The URL of the comic image.
+            description (str, optional): The description of the comic.
+            pub_date (datetime, optional): The publication date of the comic.
             
         Returns:
-            FeedEntry: A configured feed entry.
+            feedgen.entry.FeedEntry: The feed entry.
         """
-        fe = FeedEntry()
+        # Initialize feed if not already done
+        if not hasattr(self, 'feed'):
+            self.feed = FeedGenerator()
+            
+        entry = self.feed.add_entry()
+        entry.title(title)
+        entry.link(href=url)
         
-        try:
-            # Set entry metadata
-            title = metadata.get('title', '').strip()
-            if not title:
-                # Generate a stable title format using ISO date
-                if metadata.get('pub_date'):
-                    pub_date = self.parse_date_with_timezone(metadata['pub_date'])
-                    title = f"{comic_info['name']} - {pub_date.strftime('%Y-%m-%d')}"
-                else:
-                    title = f"{comic_info['name']} - {datetime.now(timezone.utc).strftime('%Y-%m-%d')}"
-            fe.title(title)
+        # Generate a stable ID based on title and link
+        entry.id(f"{url}#{title}")
+        
+        # Create description with image
+        entry_description = ""
+        if image_url:
+            # Check if description already contains the image (avoid duplication)
+            img_pattern = f'<img[^>]+src=["\']?{re.escape(image_url)}["\']?'
+            if not re.search(img_pattern, description):
+                entry_description = f'<img src="{image_url}" alt="{title}" /><br/>'
             
-            # Set entry link
-            url = metadata.get('url', '').strip() or comic_info['url']
-            fe.link(href=url)
+            # Add image as enclosure for podcast apps
+            entry.enclosure(image_url, 0, 'image/jpeg')
             
-            # Generate a unique and stable ID
-            entry_id = metadata.get('id', '')  # Use provided ID if available
-            if not entry_id:
-                if metadata.get('url'):
-                    entry_id = metadata['url']
-                elif metadata.get('pub_date'):
-                    # Use publication date and URL for a stable ID
-                    pub_date = self.parse_date_with_timezone(metadata['pub_date'])
-                    entry_id = f"{url}#{pub_date.strftime('%Y%m%d')}"
-                else:
-                    # Use title and URL as fallback
-                    entry_id = f"{url}#{title}"
-            
-            fe.id(entry_id)
-            
-            # Create HTML description with the comic image and description
-            image_url = metadata.get('image', '').strip()
-            description_text = metadata.get('description', '')  # Get the description text
-            
-            # Build the complete description
-            description_parts = []
-            
-            # Add image if available
-            if image_url:
-                description_parts.append(f'<img src="{image_url}" alt="{title}" />')
-            
-            # Add description text if available
-            if description_text:
-                description_parts.append(f'<p>{description_text}</p>')
-            
-            # If we have no content, add a fallback message
-            if not description_parts:
-                description_parts.append(f"<p>Comic image not available. Please visit <a href='{url}'>the comic page</a>.</p>")
-            
-            # Join all parts with newlines
-            description = '\n'.join(description_parts)
-            fe.description(description)
-            
-            # Set publication date with timezone information
-            if 'pub_date' in metadata:
-                pub_date = self.parse_date_with_timezone(metadata['pub_date'])
-            else:
-                pub_date = datetime.now(timezone.utc)
-            
-            fe.published(pub_date)
-            fe.updated(pub_date)
-            
-            # Add additional metadata if available
-            if metadata.get('author'):
-                fe.author({'name': metadata['author']})
-            
-            return fe
-            
-        except Exception as e:
-            logger.error(f"Error creating feed entry: {e}")
-            # Create a minimal valid entry as fallback
-            now = datetime.now(timezone.utc)
-            fe.title(f"{comic_info['name']} - {now.strftime('%Y-%m-%d')}")
-            fe.link(href=comic_info['url'])
-            fe.id(f"{comic_info['url']}#{now.strftime('%Y%m%d%H%M%S')}")
-            fe.description(f"Error loading comic: {comic_info['name']}. Please visit <a href='{comic_info['url']}'>the comic page</a>.")
-            fe.published(now)
-            fe.updated(now)
-            return fe
+        entry_description += description
+        entry.description(entry_description)
+        
+        if pub_date:
+            entry.published(pub_date)
+        
+        return entry
     
     def update_feed(self, comic_info: Dict[str, str], metadata: Dict[str, str]) -> bool:
         """
@@ -246,7 +197,13 @@ class ComicFeedGenerator:
                     logger.error(f"Error loading existing feed: {feed_error}")
             
             # Create and add new entry
-            new_entry = self.create_entry(comic_info, metadata)
+            new_entry = self.create_entry(
+                title=metadata.get('title', f"{comic_info['name']} - {datetime.now(timezone.utc).strftime('%Y-%m-%d')}"),
+                url=metadata.get('url', '').strip() or comic_info['url'],
+                image_url=metadata.get('image_url', '').strip() or metadata.get('image', '').strip(),
+                description=metadata.get('description', ''),
+                pub_date=self.parse_date_with_timezone(metadata.get('pub_date', '')) if metadata.get('pub_date') else datetime.now(timezone.utc)
+            )
             
             # Check if entry already exists
             new_entry_id = new_entry.id()
@@ -289,7 +246,20 @@ class ComicFeedGenerator:
             # Add all entries
             for metadata in sorted_entries:
                 try:
-                    fe = self.create_entry(comic_info, metadata)
+                    title = metadata.get('title', f"{comic_info['name']} - {self.parse_date_with_timezone(metadata.get('pub_date', '')).strftime('%Y-%m-%d')}")
+                    url = metadata.get('url', '').strip() or comic_info['url']
+                    # Use image_url field consistently
+                    image_url = metadata.get('image_url', '').strip() or metadata.get('image', '').strip()
+                    description = metadata.get('description', '')
+                    pub_date = self.parse_date_with_timezone(metadata.get('pub_date', '')) if metadata.get('pub_date') else datetime.now(timezone.utc)
+                    
+                    fe = self.create_entry(
+                        title=title,
+                        url=url,
+                        image_url=image_url,
+                        description=description,
+                        pub_date=pub_date
+                    )
                     fg.add_entry(fe)
                     logger.debug(f"Added entry: {metadata.get('title')} - {metadata.get('pub_date')}")
                 except Exception as entry_error:

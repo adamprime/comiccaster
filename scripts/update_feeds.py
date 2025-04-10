@@ -8,13 +8,21 @@ import json
 import os
 import logging
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import pytz
 import requests
 from bs4 import BeautifulSoup
 from comiccaster.feed_generator import ComicFeedGenerator
 from feedgen.entry import FeedEntry
 import feedparser
+import configparser
+import random
+import re
+import time
+from pathlib import Path
+from typing import Dict, List, Optional, Union
+import yaml
+from dateutil import parser as date_parser
 
 # Set up logging
 logging.basicConfig(
@@ -35,105 +43,82 @@ def load_comics_list():
         logger.error(f"Error loading comics list: {e}")
         sys.exit(1)
 
-def scrape_comic(slug, url=None, target_date=None):
-    """Scrape a comic from GoComics."""
-    if url is None:
-        url = f"https://www.gocomics.com/{slug}"
+def scrape_comic(comic_info, date_str):
+    """Scrape a comic for a specific date."""
+    comic_date = datetime.strptime(date_str, "%Y-%m-%d")
+    title = f"{comic_info['name']} - {date_str}"
+    url = f"{COMICS_URL}/{comic_info['slug']}/{date_str}"
     
     try:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        
+        response = requests.get(url, headers=get_headers())
+        if response.status_code != 200:
+            logger.warning(f"Failed to fetch {comic_info['name']} for {date_str}: HTTP {response.status_code}")
+            return None
+            
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # First try to find the actual comic strip image
-        comic_image_url = None
+        # Find the comic image - try the specific asset URL first
+        comic_img = None
+        comic_container = soup.select_one('picture.item-comic-image')
         
-        # Look for image tags with comic strip classes
-        comic_images = soup.select('img.Comic_comic__image__6e_Fw')
-        if comic_images:
-            # If multiple images, prefer the one with strip class
-            for img in comic_images:
-                classes = img.get('class', [])
-                if 'Comic_comic__image_strip__hPLFq' in classes:
-                    comic_image_url = img.get('src')
-                    logger.info(f"Found comic strip image for {url}")
-                    break
+        if comic_container:
+            # Try to find the actual comic image
+            img_src = None
+            img_element = comic_container.select_one('img.lazyload')
             
-            # If no strip-specific class found, use the first comic image
-            if not comic_image_url and comic_images:
-                comic_image_url = comic_images[0].get('src')
-                logger.info(f"Found comic image for {url}")
-        
-        # Fall back to OpenGraph image if no comic images found
-        if not comic_image_url:
-            og_image = soup.select_one('meta[property="og:image"]')
-            if not og_image or not og_image.get('content'):
-                logger.warning(f"No OpenGraph image found for {url}")
-                return None
+            if img_element and img_element.has_attr('data-srcset'):
+                srcset = img_element['data-srcset']
+                # Extract the URL before the first space (the 1x version)
+                img_src = srcset.split(' ')[0]
+            elif img_element and img_element.has_attr('src'):
+                img_src = img_element['src']
                 
-            comic_image_url = og_image.get('content')
-            logger.info(f"Using OpenGraph image for {url}")
+            if img_src:
+                # Fix relative URLs
+                if img_src.startswith('/'):
+                    img_src = f"https:{img_src}"
+                comic_img = img_src
+        
+        # Fallback to common image containers if we didn't find the specific asset
+        if not comic_img:
+            logger.warning(f"Could not find specific comic asset for {comic_info['name']} on {date_str}, trying general image")
+            img_tags = soup.select('picture.item-comic-image img')
+            if img_tags:
+                for img in img_tags:
+                    if img.has_attr('src') and 'assets' in img['src']:
+                        comic_img = img['src']
+                        if comic_img.startswith('//'):
+                            comic_img = f"https:{comic_img}"
+                        break
+        
+        # Final fallback to any image with src containing assets
+        if not comic_img:
+            logger.warning(f"Still no comic image found for {comic_info['name']} on {date_str}, trying any asset image")
+            img_tags = soup.select('img[src*="assets"]')
+            if img_tags:
+                comic_img = img_tags[0]['src']
+                if comic_img.startswith('//'):
+                    comic_img = f"https:{comic_img}"
+        
+        if not comic_img:
+            logger.error(f"Could not find any comic image for {comic_info['name']} on {date_str}")
+            return None
             
-            # Accept generic social media images - don't skip them
-            # This is important for weekly/biweekly comics that may not have new content daily
-            if 'GC_Social_FB_Generic' in comic_image_url:
-                logger.info(f"Generic social media image found for {url}, but continuing anyway")
-        
-        # Use target_date if provided
-        if target_date:
-            pub_date = target_date
-        else:
-            # Extract publication date and add timezone
-            pub_date = None
-            
-            # Method 1: time element
-            date_elem = soup.select_one('time')
-            if date_elem and date_elem.get('datetime'):
-                try:
-                    pub_date = datetime.fromisoformat(date_elem.get('datetime').replace('Z', '+00:00'))
-                except ValueError:
-                    pass
-            
-            # Method 2: Article published date meta
-            if not pub_date:
-                published_meta = soup.select_one('meta[property="article:published_time"]')
-                if published_meta and published_meta.get('content'):
-                    try:
-                        pub_date = datetime.fromisoformat(published_meta.get('content').replace('Z', '+00:00'))
-                    except ValueError:
-                        pass
-            
-            # Fallback: use current date
-            if not pub_date:
-                pub_date = datetime.now()
-        
-        # Ensure timezone is set
-        if pub_date.tzinfo is None:
-            pub_date = TIMEZONE.localize(pub_date)
-        
-        # Format pub_date as RFC 2822 string
-        pub_date_str = pub_date.strftime('%a, %d %b %Y %H:%M:%S %z')
-        
-        # Create title from date
-        title = f"{slug.replace('-', ' ').title()} - {pub_date.strftime('%Y-%m-%d')}"
-        
-        # Create description with image
-        description = f'<img src="{comic_image_url}" alt="{title}" />'
+        # Create description - don't include the image tag here to avoid duplication
+        # The feed_generator.py will add the image properly
+        description = f"{comic_info['name']} for {date_str}"
         
         return {
+            'id': f"{comic_info['slug']}_{date_str}",
             'title': title,
             'url': url,
-            'image': comic_image_url,
-            'pub_date': pub_date_str,
-            'description': description,
-            'id': url  # Use URL as ID to ensure uniqueness
+            'image_url': comic_img,  # Pass image URL separately
+            'description': description,  # Just text description without image
+            'pub_date': comic_date
         }
+            
     except Exception as e:
-        logger.error(f"Error scraping {url}: {e}")
+        logger.error(f"Error scraping {comic_info['name']} for {date_str}: {e}")
         return None
 
 def load_existing_entries(feed_path):
@@ -143,10 +128,26 @@ def load_existing_entries(feed_path):
         if os.path.exists(feed_path):
             feed = feedparser.parse(feed_path)
             for entry in feed.entries:
+                # Look for image URL in enclosures first
+                image_url = ""
+                if hasattr(entry, 'enclosures') and entry.enclosures:
+                    for enclosure in entry.enclosures:
+                        if enclosure.get('type', '').startswith('image/'):
+                            image_url = enclosure.get('href', '')
+                            break
+                
+                # Extract image from description if no enclosure found
+                if not image_url and hasattr(entry, 'description'):
+                    # Basic extraction of image URL from description
+                    match = re.search(r'<img[^>]+src="([^"]+)"', entry.description)
+                    if match:
+                        image_url = match.group(1)
+                
+                # Create entry dictionary
                 entries.append({
                     'title': entry.title,
                     'url': entry.link,
-                    'image': entry.description,  # Image URL is stored in description
+                    'image_url': image_url,  # Properly named field with extracted image URL
                     'pub_date': entry.published,
                     'description': entry.description,
                     'id': entry.id
@@ -270,8 +271,7 @@ def update_all_feeds():
         # Scrape last 5 days
         for date in test_dates:
             formatted_date = date.strftime('%Y/%m/%d')
-            url = f"https://www.gocomics.com/{comic['slug']}/{formatted_date}"
-            metadata = scrape_comic(comic['slug'], url=url, target_date=date)
+            metadata = scrape_comic(comic, formatted_date)
             if metadata:
                 entries.append(metadata)
                 logger.info(f"Successfully scraped {comic['name']} for {formatted_date}")
@@ -298,9 +298,9 @@ def update_all_feeds():
     # Clean up old tokens
     cleanup_old_tokens()
     
-    # Log summary
     logger.info(f"Updated {updated_count} out of {total_count} feeds with new content")
     logger.info(f"Successfully processed {success_count} out of {total_count} feeds")
+    return success_count, total_count
 
 if __name__ == '__main__':
     update_all_feeds() 
