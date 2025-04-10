@@ -110,61 +110,18 @@ class ComicFeedGenerator:
             logger.warning(f"Could not parse date '{date_str}': {e}")
             return datetime.now(timezone.utc)
     
-    def create_entry(self, title, url, image_url=None, description="", pub_date=None):
-        """
-        Create a feed entry for a comic.
-        
-        Args:
-            title (str): The title of the comic.
-            url (str): The URL of the comic.
-            image_url (str, optional): The URL of the comic image.
-            description (str, optional): The description of the comic.
-            pub_date (datetime, optional): The publication date of the comic.
-            
-        Returns:
-            feedgen.entry.FeedEntry: The feed entry.
-        """
-        # Initialize feed if not already done
-        if not hasattr(self, 'feed'):
-            self.feed = FeedGenerator()
-            
-        entry = self.feed.add_entry()
-        entry.title(title)
-        entry.link(href=url)
-        
-        # Generate a stable ID based on title and link
-        entry.id(f"{url}#{title}")
-        
+    def create_entry(self, comic_info, metadata):
+        entry = FeedEntry()  # Create a FeedEntry object
+        entry.title(metadata.get('title', f"{comic_info['name']} - {self.parse_date_with_timezone(metadata.get('pub_date', '')).strftime('%Y-%m-%d')}"))  # Set title correctly
+        entry.link(href=metadata.get('url', comic_info['url']))  # Set link correctly
+        entry.description(metadata.get('description', ''))  # Set description correctly
+        # Ensure pub_date is set correctly
+        if metadata.get('pub_date'):
+            entry.published(self.parse_date_with_timezone(metadata['pub_date']))
         # Add image as enclosure for podcast apps if image URL is available
-        if image_url:
-            entry.enclosure(image_url, 0, 'image/jpeg')
-        
-        # Create description
-        entry_description = description
-        
-        # Add our image to the description if image_url exists
-        if image_url:
-            # Only avoid adding if this exact image is already in the description
-            has_this_image = image_url in description if description else False
-            
-            if not has_this_image:
-                img_html = f'<img src="{image_url}" alt="{title}" /><br/>'
-                # If there's already an image, add ours before it
-                if description and '<img' in description:
-                    # Find the first img tag
-                    img_start = description.find('<img')
-                    # Insert our image before the existing one
-                    entry_description = description[:img_start] + img_html + description[img_start:]
-                else:
-                    # No existing image, just prepend ours
-                    entry_description = img_html + description
-        
-        entry.description(entry_description)
-        
-        if pub_date:
-            entry.published(pub_date)
-        
-        return entry
+        if metadata.get('image'):
+            entry.enclosure(metadata['image'], 0, 'image/jpeg')
+        return entry  # Return the entry object, not a dict
     
     def update_feed(self, comic_info: Dict[str, str], metadata: Dict[str, str]) -> bool:
         """
@@ -225,13 +182,7 @@ class ComicFeedGenerator:
                     logger.error(f"Error loading existing feed: {feed_error}")
             
             # Create and add new entry
-            new_entry = self.create_entry(
-                title=metadata.get('title', f"{comic_info['name']} - {datetime.now(timezone.utc).strftime('%Y-%m-%d')}"),
-                url=metadata.get('url', '').strip() or comic_info['url'],
-                image_url=metadata.get('image_url', '').strip() or metadata.get('image', '').strip(),
-                description=metadata.get('description', ''),
-                pub_date=self.parse_date_with_timezone(metadata.get('pub_date', '')) if metadata.get('pub_date') else datetime.now(timezone.utc)
-            )
+            new_entry = self.create_entry(comic_info, metadata)
             
             # Check if entry already exists
             new_entry_id = new_entry.id()
@@ -281,13 +232,7 @@ class ComicFeedGenerator:
                     description = metadata.get('description', '')
                     pub_date = self.parse_date_with_timezone(metadata.get('pub_date', '')) if metadata.get('pub_date') else datetime.now(timezone.utc)
                     
-                    fe = self.create_entry(
-                        title=title,
-                        url=url,
-                        image_url=image_url,
-                        description=description,
-                        pub_date=pub_date
-                    )
+                    fe = self.create_entry(comic_info, metadata)
                     fg.add_entry(fe)
                     logger.debug(f"Added entry: {metadata.get('title')} - {metadata.get('pub_date')}")
                 except Exception as entry_error:
