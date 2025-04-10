@@ -52,63 +52,53 @@ def get_headers():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
 
-def scrape_comic(comic_info, date_str):
-    """Scrape a comic for a specific date."""
-    # Convert slashes to dashes for datetime parsing
-    date_for_parsing = date_str.replace('/', '-')
-    comic_date = datetime.strptime(date_for_parsing, "%Y-%m-%d")
-    title = f"{comic_info['name']} - {date_for_parsing}"
-    url = f"{COMICS_URL}/{comic_info['slug']}/{date_str}"
+def scrape_comic(comic, date_str):
+    """Scrape a comic from GoComics for a given date."""
+    logging.info(f"Fetching {comic['name']} for {date_str}")
     
     try:
+        # Format the date correctly for the URL
+        if '/' in date_str:
+            # If date is already in URL format (YYYY/MM/DD), use as is
+            url = f"https://www.gocomics.com/{comic['slug']}/{date_str}"
+        else:
+            # Convert YYYY-MM-DD to URL format
+            target_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+            url = f"https://www.gocomics.com/{comic['slug']}/{target_date.strftime('%Y/%m/%d')}"
+    
         response = requests.get(url, headers=get_headers())
-        if response.status_code != 200:
-            logger.warning(f"Failed to fetch {comic_info['name']} for {date_str}: HTTP {response.status_code}")
-            return None
-            
+        response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Find the comic image - look for the specific class and domain
-        comic_img = None
-        
-        # Look for images with the specific comic class
-        comic_images = soup.find_all('img', class_='Comic_comic__image__6e_Fw')
-        for img in comic_images:
-            src = img.get('src', '')
-            if src and 'featureassets.gocomics.com' in src:
-                # Prefer images that also have the strip class
-                if 'Comic_comic__image_strip__hPLFq' in img.get('class', []):
-                    comic_img = src
-                    break
-                # If we haven't found an image yet, use this one
-                elif not comic_img:
-                    comic_img = src
-        
-        if not comic_img:
-            logger.error(f"Could not find any valid comic image for {comic_info['name']} on {date_str}")
+        # Look for the main comic container first
+        comic_container = soup.find('div', class_='ComicViewer_comicViewer__comic__oftX6')
+        if not comic_container:
+            logging.warning(f"Could not find comic container for {comic['name']} on {date_str}")
             return None
             
-        logger.info(f"Found comic image for {comic_info['name']} on {date_str}: {comic_img}")
+        # Find the comic image within the main container
+        # First try to find an image with both classes
+        comic_image = comic_container.find('img', class_=['Comic_comic__image__6e_Fw', 'Comic_comic__image_strip__hPLFq'])
         
-        # Get the alt text which often contains the comic dialogue
-        alt_text = next((img.get('alt', '') for img in comic_images if img.get('src') == comic_img), '')
+        # If not found, look for any image with the base class, but verify it's in the main comic container
+        if not comic_image:
+            comic_image = comic_container.find('img', class_='Comic_comic__image__6e_Fw')
         
-        # Create description with the alt text if available
-        description = f"{comic_info['name']} for {date_str}"
-        if alt_text:
-            description = f"{description}\n\n{alt_text}"
+        if not comic_image:
+            logging.warning(f"No valid comic image found for {comic['name']} on {date_str}")
+            return None
+            
+        # Extract image URL and clean it
+        image_url = comic_image.get('src', '').split('?')[0]  # Remove any query parameters
+        alt_text = comic_image.get('alt', '')
         
         return {
-            'id': f"{comic_info['slug']}_{date_str}",
-            'title': title,
-            'url': url,
-            'image_url': comic_img,
-            'description': description,
-            'pub_date': comic_date
+            'image_url': image_url,
+            'alt_text': alt_text
         }
-            
-    except Exception as e:
-        logger.error(f"Error scraping {comic_info['name']} for {date_str}: {e}")
+        
+    except requests.RequestException as e:
+        logging.warning(f"Failed to fetch {comic['name']} for {date_str}: {str(e)}")
         return None
 
 def load_existing_entries(feed_path):
@@ -162,35 +152,40 @@ def regenerate_feed(comic_info, entries):
         logger.error(f"Error regenerating feed for {comic_info['name']}: {e}")
         return False
 
-def update_feed(comic_info, metadata):
-    """Update a comic's feed with a new entry."""
-    try:
-        # Create feed generator
-        fg = ComicFeedGenerator()
+def update_feed(comic, feed_dir='feeds'):
+    """Update a comic's feed with new entries."""
+    # Get today's comic
+    today_str = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    comic_data = scrape_comic(comic, today_str)
+    
+    if comic_data:
+        # Create entry ID and title
+        entry_id = f"{comic['slug']}_{today_str}"
+        title = f"{comic['name']} - {today_str}"
         
-        # Load existing entries
-        feed_path = os.path.join('public', 'feeds', f"{comic_info['slug']}.xml")
-        existing_entries = load_existing_entries(feed_path)
+        # Create description with alt text if available
+        description = f"{comic['name']} for {today_str}"
+        if comic_data.get('alt_text'):
+            description = f"{description}\n\n{comic_data['alt_text']}"
         
-        # Add new entry if it doesn't exist
-        if metadata and not any(e['id'] == metadata['id'] for e in existing_entries):
-            existing_entries.append(metadata)
-            logger.info(f"Added new entry to feed for {comic_info['name']}")
-        else:
-            logger.info(f"No new entries to add for {comic_info['name']}")
-            return True  # Return success even if no new entries
+        # Create the entry
+        entry = {
+            'id': entry_id,
+            'title': title,
+            'url': f"https://www.gocomics.com/{comic['slug']}/{today_str}",
+            'image_url': comic_data['image_url'],
+            'description': description,
+            'pub_date': datetime.strptime(today_str, '%Y-%m-%d')
+        }
         
-        # Generate feed with all entries
-        if fg.generate_feed(comic_info, existing_entries):
-            logger.info(f"Updated feed for {comic_info['name']} with {len(existing_entries)} entries")
-            return True
-        else:
-            logger.error(f"Failed to update feed for {comic_info['name']}")
-            return False
-            
-    except Exception as e:
-        logger.error(f"Error updating feed for {comic_info['name']}: {e}")
-        return False
+        # Add the entry to the feed
+        feed_generator.add_entry(entry)
+        feed_generator.generate_feed()
+        logging.info(f"Updated feed for {comic['name']}")
+    else:
+        logging.warning(f"No new comic found for {comic['name']}")
+        
+    return True
 
 def cleanup_old_tokens():
     """Remove tokens older than 7 days."""
@@ -247,18 +242,18 @@ def update_all_feeds():
     total_count = len(comics)
     updated_count = 0
     
-    # Get last 5 days of comics
+    # Get last 5 days of comics in chronological order (oldest to newest)
     today = datetime.now(TIMEZONE)
     test_dates = [
         (today - timedelta(days=i))
-        for i in range(5)  # Get last 5 days
+        for i in range(4, -1, -1)  # Start from 4 days ago to today
     ]
     
     for comic in comics:  # Process all comics
         entries = []
         has_new_content = False
         
-        # Scrape last 5 days
+        # Scrape last 5 days in chronological order
         for date in test_dates:
             formatted_date = date.strftime('%Y/%m/%d')
             metadata = scrape_comic(comic, formatted_date)
@@ -277,7 +272,7 @@ def update_all_feeds():
                     logger.info(f"Successfully regenerated feed for {comic['name']} with {len(entries)} entries")
             else:
                 # Just update with new entries
-                if update_feed(comic, entries[0] if entries else None):
+                if update_feed(comic):
                     success_count += 1
                     if has_new_content:
                         updated_count += 1
