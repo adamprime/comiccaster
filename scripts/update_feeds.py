@@ -68,64 +68,21 @@ def scrape_comic(comic_info, date_str):
             
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Find the comic image - try multiple selectors in order of specificity
+        # Find the comic image - look for the specific class and domain
         comic_img = None
         
-        # 1. Try the main comic image container first - this is where the actual comic strip should be
-        comic_container = soup.select_one('picture.item-comic-image')
-        if comic_container:
-            # Look for the actual comic image
-            img_element = comic_container.select_one('img.lazyload')
-            if img_element:
-                if img_element.has_attr('data-srcset'):
-                    srcset = img_element['data-srcset']
-                    # Extract the URL before the first space (the 1x version)
-                    img_src = srcset.split(' ')[0]
-                    if img_src and not any(x in img_src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
-                        comic_img = img_src
-                elif img_element.has_attr('src'):
-                    img_src = img_element['src']
-                    if img_src and not any(x in img_src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
-                        comic_img = img_src
-        
-        # 2. Try the comic strip container
-        if not comic_img:
-            strip_container = soup.select_one('div.item-comic-image')
-            if strip_container:
-                img_element = strip_container.select_one('img')
-                if img_element and img_element.has_attr('src'):
-                    img_src = img_element['src']
-                    if img_src and not any(x in img_src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
-                        comic_img = img_src
-        
-        # 3. Try finding any image that looks like a comic strip
-        if not comic_img:
-            # Look for images with specific patterns that indicate they're comic strips
-            img_tags = soup.select('img')
-            for img in img_tags:
-                src = img.get('src', '')
-                # Skip social media thumbnails, feature badges, and generic images
-                if any(x in src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
-                    continue
-                # Look for images that are likely comic strips
-                if any(term in src.lower() for term in ['strip', 'comic', 'daily']):
+        # Look for images with the specific comic class
+        comic_images = soup.find_all('img', class_='Comic_comic__image__6e_Fw')
+        for img in comic_images:
+            src = img.get('src', '')
+            if src and 'featureassets.gocomics.com' in src:
+                # Prefer images that also have the strip class
+                if 'Comic_comic__image_strip__hPLFq' in img.get('class', []):
                     comic_img = src
                     break
-        
-        # 4. Try the og:image meta tag as a last resort
-        if not comic_img:
-            meta_tag = soup.select_one('meta[property="og:image"]')
-            if meta_tag and meta_tag.get("content"):
-                img_src = meta_tag["content"]
-                if img_src and not any(x in img_src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
-                    comic_img = img_src
-        
-        # Fix relative URLs
-        if comic_img:
-            if comic_img.startswith('//'):
-                comic_img = f"https:{comic_img}"
-            elif comic_img.startswith('/'):
-                comic_img = f"https://www.gocomics.com{comic_img}"
+                # If we haven't found an image yet, use this one
+                elif not comic_img:
+                    comic_img = src
         
         if not comic_img:
             logger.error(f"Could not find any valid comic image for {comic_info['name']} on {date_str}")
@@ -133,16 +90,20 @@ def scrape_comic(comic_info, date_str):
             
         logger.info(f"Found comic image for {comic_info['name']} on {date_str}: {comic_img}")
         
-        # Create description - don't include the image tag here to avoid duplication
-        # The feed_generator.py will add the image properly
+        # Get the alt text which often contains the comic dialogue
+        alt_text = next((img.get('alt', '') for img in comic_images if img.get('src') == comic_img), '')
+        
+        # Create description with the alt text if available
         description = f"{comic_info['name']} for {date_str}"
+        if alt_text:
+            description = f"{description}\n\n{alt_text}"
         
         return {
             'id': f"{comic_info['slug']}_{date_str}",
             'title': title,
             'url': url,
-            'image_url': comic_img,  # Pass image URL separately
-            'description': description,  # Just text description without image
+            'image_url': comic_img,
+            'description': description,
             'pub_date': comic_date
         }
             

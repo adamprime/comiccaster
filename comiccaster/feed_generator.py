@@ -133,25 +133,26 @@ class ComicFeedGenerator:
         # Get image URL from either image or image_url field
         image_url = metadata.get('image_url', metadata.get('image', ''))
         
-        # Create description with image if available
+        # Create description with image and alt text
         description = metadata.get('description', '')
+        if image_url:
+            # Only add the image tag if it's not already in the description
+            if '<img' not in description:
+                description = f"""
+                <div style="text-align: center;">
+                    <img src="{image_url}" alt="{comic_info['name']}" style="max-width: 100%;">
+                    <p>{description}</p>
+                </div>
+                """
+            entry.enclosure(image_url, 0, 'image/jpeg')
         
-        # Check if the description already contains an image tag
-        if image_url and '<img' not in description:
-            description = f"""
-            <div style="text-align: center;">
-                <img src="{image_url}" alt="{comic_info['name']}" style="max-width: 100%;">
-                <p>{description}</p>
-            </div>
-            """
         entry.description(description)
         
         # Set publication date
         entry.published(pub_date)
         
-        # Add image as enclosure for podcast apps if image URL is available
-        if image_url:
-            entry.enclosure(image_url, 0, 'image/jpeg')
+        # Set unique ID
+        entry.id(metadata.get('id', metadata.get('url', f"{comic_info['url']}#{pub_date.isoformat()}")))
         
         return entry
     
