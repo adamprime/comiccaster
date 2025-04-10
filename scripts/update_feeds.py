@@ -71,20 +71,21 @@ def scrape_comic(comic_info, date_str):
         # Find the comic image - try multiple selectors in order of specificity
         comic_img = None
         
-        # 1. Try the main comic image container first
+        # 1. Try the main comic image container first - this is where the actual comic strip should be
         comic_container = soup.select_one('picture.item-comic-image')
         if comic_container:
+            # Look for the actual comic image
             img_element = comic_container.select_one('img.lazyload')
             if img_element:
                 if img_element.has_attr('data-srcset'):
                     srcset = img_element['data-srcset']
                     # Extract the URL before the first space (the 1x version)
                     img_src = srcset.split(' ')[0]
-                    if img_src and not 'Generic' in img_src:
+                    if img_src and not any(x in img_src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
                         comic_img = img_src
                 elif img_element.has_attr('src'):
                     img_src = img_element['src']
-                    if img_src and not 'Generic' in img_src:
+                    if img_src and not any(x in img_src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
                         comic_img = img_src
         
         # 2. Try the comic strip container
@@ -94,21 +95,30 @@ def scrape_comic(comic_info, date_str):
                 img_element = strip_container.select_one('img')
                 if img_element and img_element.has_attr('src'):
                     img_src = img_element['src']
-                    if img_src and not 'Generic' in img_src:
+                    if img_src and not any(x in img_src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
                         comic_img = img_src
         
         # 3. Try finding any image that looks like a comic strip
         if not comic_img:
-            img_tags = soup.select('img[src*="assets"]')
+            # Look for images with specific patterns that indicate they're comic strips
+            img_tags = soup.select('img')
             for img in img_tags:
                 src = img.get('src', '')
-                # Skip generic images and social media thumbnails
-                if 'Generic' in src or 'Social_FB' in src:
+                # Skip social media thumbnails, feature badges, and generic images
+                if any(x in src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
                     continue
                 # Look for images that are likely comic strips
                 if any(term in src.lower() for term in ['strip', 'comic', 'daily']):
                     comic_img = src
                     break
+        
+        # 4. Try the og:image meta tag as a last resort
+        if not comic_img:
+            meta_tag = soup.select_one('meta[property="og:image"]')
+            if meta_tag and meta_tag.get("content"):
+                img_src = meta_tag["content"]
+                if img_src and not any(x in img_src.lower() for x in ['social_fb', 'feature_badge', 'generic']):
+                    comic_img = img_src
         
         # Fix relative URLs
         if comic_img:

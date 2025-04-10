@@ -135,7 +135,9 @@ class ComicFeedGenerator:
         
         # Create description with image if available
         description = metadata.get('description', '')
-        if image_url:
+        
+        # Check if the description already contains an image tag
+        if image_url and '<img' not in description:
             description = f"""
             <div style="text-align: center;">
                 <img src="{image_url}" alt="{comic_info['name']}" style="max-width: 100%;">
