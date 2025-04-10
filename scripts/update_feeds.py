@@ -34,6 +34,9 @@ logger = logging.getLogger(__name__)
 # Set timezone to US/Eastern (GoComics timezone)
 TIMEZONE = pytz.timezone('US/Eastern')
 
+# GoComics base URL
+COMICS_URL = "https://www.gocomics.com"
+
 def load_comics_list():
     """Load the list of comics from comics_list.json."""
     try:
@@ -43,10 +46,18 @@ def load_comics_list():
         logger.error(f"Error loading comics list: {e}")
         sys.exit(1)
 
+def get_headers():
+    """Get browser-like headers for HTTP requests."""
+    return {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    }
+
 def scrape_comic(comic_info, date_str):
     """Scrape a comic for a specific date."""
-    comic_date = datetime.strptime(date_str, "%Y-%m-%d")
-    title = f"{comic_info['name']} - {date_str}"
+    # Convert slashes to dashes for datetime parsing
+    date_for_parsing = date_str.replace('/', '-')
+    comic_date = datetime.strptime(date_for_parsing, "%Y-%m-%d")
+    title = f"{comic_info['name']} - {date_for_parsing}"
     url = f"{COMICS_URL}/{comic_info['slug']}/{date_str}"
     
     try:

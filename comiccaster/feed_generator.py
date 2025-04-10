@@ -78,14 +78,30 @@ class ComicFeedGenerator:
         Parse a date string and ensure it has timezone information.
         
         Args:
-            date_str (str): Date string in RFC 2822 format.
+            date_str (str): Date string in RFC 2822 or ISO format (YYYY-MM-DD).
             
         Returns:
             datetime: Datetime object with timezone information.
         """
         try:
-            # Try to parse RFC 2822 date string
-            dt = parsedate_to_datetime(date_str)
+            # First try to parse RFC 2822 date string
+            try:
+                dt = parsedate_to_datetime(date_str)
+            except Exception:
+                # If that fails, try ISO format or let dateutil.parser handle it
+                try:
+                    # Try simple ISO format first
+                    if re.match(r'^\d{4}-\d{2}-\d{2}$', date_str):
+                        dt = datetime.strptime(date_str, '%Y-%m-%d')
+                    else:
+                        # Use dateutil parser as a last resort
+                        from dateutil import parser as date_parser
+                        dt = date_parser.parse(date_str)
+                except Exception as e:
+                    logger.warning(f"Failed to parse date with dateutil parser: {e}")
+                    raise
+            
+            # Ensure timezone information is present
             if dt.tzinfo is None:
                 # If no timezone info, assume UTC
                 dt = dt.replace(tzinfo=timezone.utc)
@@ -119,18 +135,30 @@ class ComicFeedGenerator:
         # Generate a stable ID based on title and link
         entry.id(f"{url}#{title}")
         
-        # Create description with image
-        entry_description = ""
+        # Add image as enclosure for podcast apps if image URL is available
         if image_url:
-            # Check if description already contains the image (avoid duplication)
-            img_pattern = f'<img[^>]+src=["\']?{re.escape(image_url)}["\']?'
-            if not re.search(img_pattern, description):
-                entry_description = f'<img src="{image_url}" alt="{title}" /><br/>'
-            
-            # Add image as enclosure for podcast apps
             entry.enclosure(image_url, 0, 'image/jpeg')
+        
+        # Create description
+        entry_description = description
+        
+        # Add our image to the description if image_url exists
+        if image_url:
+            # Only avoid adding if this exact image is already in the description
+            has_this_image = image_url in description if description else False
             
-        entry_description += description
+            if not has_this_image:
+                img_html = f'<img src="{image_url}" alt="{title}" /><br/>'
+                # If there's already an image, add ours before it
+                if description and '<img' in description:
+                    # Find the first img tag
+                    img_start = description.find('<img')
+                    # Insert our image before the existing one
+                    entry_description = description[:img_start] + img_html + description[img_start:]
+                else:
+                    # No existing image, just prepend ours
+                    entry_description = img_html + description
+        
         entry.description(entry_description)
         
         if pub_date:
