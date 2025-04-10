@@ -84,31 +84,35 @@ def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
                 logging.warning(f"Could not find comic container for {comic['name']} on {date_str}")
                 return None
                 
-            # Find the comic image within the main container
-            # First try to find an image with both classes (this is the actual comic strip)
-            comic_image = comic_container.find('img', class_=['Comic_comic__image__6e_Fw', 'Comic_comic__image_strip__hPLFq'])
+            # Find all images in the container
+            comic_images = []
+            for img in comic_container.find_all('img'):
+                classes = img.get('class', [])
+                src = img.get('src', '')
+                
+                # Skip social media preview images and staging assets
+                if 'GC_Social_FB' in src or 'staging-assets' in src:
+                    continue
+                    
+                # Check for both required classes
+                if ('Comic_comic__image__6e_Fw' in classes and 
+                    'Comic_comic__image_strip__hPLFq' in classes):
+                    comic_images.append(img)
             
-            # If not found, look for any image with both required classes anywhere in the container
-            if not comic_image:
-                for img in comic_container.find_all('img'):
-                    classes = img.get('class', [])
-                    if 'Comic_comic__image__6e_Fw' in classes and 'Comic_comic__image_strip__hPLFq' in classes:
-                        comic_image = img
-                        break
-            
-            # Only proceed if we found an image with both classes
-            if not comic_image or 'Comic_comic__image_strip__hPLFq' not in comic_image.get('class', []):
+            # If we found multiple valid images, use the first one
+            if comic_images:
+                comic_image = comic_images[0]
+                # Extract image URL and clean it
+                image_url = comic_image.get('src', '').split('?')[0]  # Remove any query parameters
+                alt_text = comic_image.get('alt', '')
+                
+                return {
+                    'image_url': image_url,
+                    'alt_text': alt_text
+                }
+            else:
                 logging.warning(f"No valid comic strip image found for {comic['name']} on {date_str}")
                 return None
-                
-            # Extract image URL and clean it
-            image_url = comic_image.get('src', '').split('?')[0]  # Remove any query parameters
-            alt_text = comic_image.get('alt', '')
-            
-            return {
-                'image_url': image_url,
-                'alt_text': alt_text
-            }
             
         except requests.RequestException as e:
             if attempt < retries - 1:
@@ -151,36 +155,56 @@ def process_comic_date(comic, date, existing_entries):
 def load_existing_entries(feed_path):
     """Load existing entries from a feed file."""
     entries = []
+    seen_dates = set()  # Track unique dates to prevent duplicates
     try:
         if os.path.exists(feed_path):
             feed = feedparser.parse(feed_path)
             for entry in feed.entries:
+                # Extract date from title
+                date_match = re.search(r'\d{4}-\d{2}-\d{2}', entry.title)
+                if not date_match:
+                    continue
+                entry_date = date_match.group(0)
+                
+                # Skip if we already have an entry for this date
+                if entry_date in seen_dates:
+                    continue
+                
                 # Look for image URL in enclosures first
                 image_url = ""
                 if hasattr(entry, 'enclosures') and entry.enclosures:
                     for enclosure in entry.enclosures:
                         if enclosure.get('type', '').startswith('image/'):
-                            image_url = enclosure.get('href', '')
-                            break
+                            url = enclosure.get('href', '')
+                            # Skip social media preview images and staging assets
+                            if 'GC_Social_FB' not in url and 'staging-assets' not in url:
+                                image_url = url
+                                break
                 
                 # Extract image from description if no enclosure found
                 if not image_url and hasattr(entry, 'description'):
-                    # Basic extraction of image URL from description
+                    # Look for img tag in description
                     match = re.search(r'<img[^>]+src="([^"]+)"', entry.description)
                     if match:
-                        image_url = match.group(1)
+                        url = match.group(1)
+                        # Skip social media preview images and staging assets
+                        if 'GC_Social_FB' not in url and 'staging-assets' not in url:
+                            image_url = url
                 
-                # Create entry dictionary
-                entries.append({
-                    'title': entry.title,
-                    'url': entry.link,
-                    'image_url': image_url,  # Properly named field with extracted image URL
-                    'pub_date': entry.published,
-                    'description': entry.description,
-                    'id': entry.id
-                })
+                # Only add entry if we found a valid image URL
+                if image_url:
+                    seen_dates.add(entry_date)
+                    entries.append({
+                        'title': entry.title,
+                        'url': entry.link,
+                        'image_url': image_url,
+                        'description': entry.description,
+                        'pub_date': entry.get('published', ''),
+                        'id': entry.get('id', '')
+                    })
     except Exception as e:
-        logger.error(f"Error loading existing entries from {feed_path}: {e}")
+        logging.error(f"Error loading existing entries from {feed_path}: {e}")
+    
     return entries
 
 def regenerate_feed(comic_info, entries):
