@@ -23,6 +23,8 @@ from pathlib import Path
 from typing import Dict, List, Optional, Union
 import yaml
 from dateutil import parser as date_parser
+import concurrent.futures
+from functools import partial
 
 # Set up logging
 logging.basicConfig(
@@ -36,6 +38,11 @@ TIMEZONE = pytz.timezone('US/Eastern')
 
 # GoComics base URL
 COMICS_URL = "https://www.gocomics.com"
+
+# Constants for concurrent processing
+MAX_WORKERS = 10  # Maximum number of concurrent workers
+REQUEST_TIMEOUT = 10  # Timeout for HTTP requests in seconds
+MAX_RETRIES = 3  # Maximum number of retries for failed requests
 
 def load_comics_list():
     """Load the list of comics from comics_list.json."""
@@ -52,54 +59,89 @@ def get_headers():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
 
-def scrape_comic(comic, date_str):
+def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
     """Scrape a comic from GoComics for a given date."""
     logging.info(f"Fetching {comic['name']} for {date_str}")
     
-    try:
-        # Format the date correctly for the URL
-        if '/' in date_str:
-            # If date is already in URL format (YYYY/MM/DD), use as is
-            url = f"https://www.gocomics.com/{comic['slug']}/{date_str}"
-        else:
-            # Convert YYYY-MM-DD to URL format
-            target_date = datetime.strptime(date_str, '%Y-%m-%d').date()
-            url = f"https://www.gocomics.com/{comic['slug']}/{target_date.strftime('%Y/%m/%d')}"
+    for attempt in range(retries):
+        try:
+            # Format the date correctly for the URL
+            if '/' in date_str:
+                # If date is already in URL format (YYYY/MM/DD), use as is
+                url = f"https://www.gocomics.com/{comic['slug']}/{date_str}"
+            else:
+                # Convert YYYY-MM-DD to URL format
+                target_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+                url = f"https://www.gocomics.com/{comic['slug']}/{target_date.strftime('%Y/%m/%d')}"
+        
+            response = requests.get(url, headers=get_headers(), timeout=timeout)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            # Look for the main comic container first
+            comic_container = soup.find('div', class_='ComicViewer_comicViewer__comic__oftX6')
+            if not comic_container:
+                logging.warning(f"Could not find comic container for {comic['name']} on {date_str}")
+                return None
+                
+            # Find the comic image within the main container
+            # First try to find an image with both classes
+            comic_image = comic_container.find('img', class_=['Comic_comic__image__6e_Fw', 'Comic_comic__image_strip__hPLFq'])
+            
+            # If not found, look for any image with the base class, but verify it's in the main comic container
+            if not comic_image:
+                comic_image = comic_container.find('img', class_='Comic_comic__image__6e_Fw')
+            
+            if not comic_image:
+                logging.warning(f"No valid comic image found for {comic['name']} on {date_str}")
+                return None
+                
+            # Extract image URL and clean it
+            image_url = comic_image.get('src', '').split('?')[0]  # Remove any query parameters
+            alt_text = comic_image.get('alt', '')
+            
+            return {
+                'image_url': image_url,
+                'alt_text': alt_text
+            }
+            
+        except requests.RequestException as e:
+            if attempt < retries - 1:
+                time.sleep(1)  # Wait before retrying
+                continue
+            logging.warning(f"Failed to fetch {comic['name']} for {date_str} after {retries} attempts: {str(e)}")
+            return None
+        except Exception as e:
+            logging.warning(f"Unexpected error fetching {comic['name']} for {date_str}: {str(e)}")
+            return None
+
+def process_comic_date(comic, date, existing_entries):
+    """Process a single comic for a specific date."""
+    date_str = date.strftime('%Y-%m-%d')
+    entry_id = f"{comic['slug']}_{date_str}"
     
-        response = requests.get(url, headers=get_headers())
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Look for the main comic container first
-        comic_container = soup.find('div', class_='ComicViewer_comicViewer__comic__oftX6')
-        if not comic_container:
-            logging.warning(f"Could not find comic container for {comic['name']} on {date_str}")
-            return None
-            
-        # Find the comic image within the main container
-        # First try to find an image with both classes
-        comic_image = comic_container.find('img', class_=['Comic_comic__image__6e_Fw', 'Comic_comic__image_strip__hPLFq'])
-        
-        # If not found, look for any image with the base class, but verify it's in the main comic container
-        if not comic_image:
-            comic_image = comic_container.find('img', class_='Comic_comic__image__6e_Fw')
-        
-        if not comic_image:
-            logging.warning(f"No valid comic image found for {comic['name']} on {date_str}")
-            return None
-            
-        # Extract image URL and clean it
-        image_url = comic_image.get('src', '').split('?')[0]  # Remove any query parameters
-        alt_text = comic_image.get('alt', '')
-        
-        return {
-            'image_url': image_url,
-            'alt_text': alt_text
-        }
-        
-    except requests.RequestException as e:
-        logging.warning(f"Failed to fetch {comic['name']} for {date_str}: {str(e)}")
+    # Check if entry already exists
+    if any(entry['id'] == entry_id for entry in existing_entries):
+        logging.info(f"Entry for {comic['name']} on {date_str} already exists")
         return None
+        
+    comic_data = scrape_comic(comic, date_str)
+    if not comic_data:
+        return None
+        
+    # Create description with alt text if available
+    description = f"{comic['name']} for {date_str}"
+    if comic_data.get('alt_text'):
+        description = f"{description}\n\n{comic_data['alt_text']}"
+        
+    return {
+        'id': entry_id,
+        'title': f"{comic['name']} - {date_str}",
+        'url': f"https://www.gocomics.com/{comic['slug']}/{date_str}",
+        'image_url': comic_data['image_url'],
+        'description': description,
+        'pub_date': date
+    }
 
 def load_existing_entries(feed_path):
     """Load existing entries from a feed file."""
@@ -170,38 +212,24 @@ def update_feed(comic, feed_dir='feeds'):
         for i in range(4, -1, -1)  # Start from 4 days ago to today
     ]
     
-    new_entries = []
-    for date in test_dates:
-        date_str = date.strftime('%Y-%m-%d')
-        comic_data = scrape_comic(comic, date_str)
+    # Process dates concurrently
+    with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        # Create a partial function with the comic and existing_entries arguments
+        process_func = partial(process_comic_date, comic, existing_entries=existing_entries)
+        # Map the function over the dates
+        future_to_date = {executor.submit(process_func, date): date for date in test_dates}
         
-        if comic_data:
-            # Create entry ID and title
-            entry_id = f"{comic['slug']}_{date_str}"
-            title = f"{comic['name']} - {date_str}"
-            
-            # Check if entry already exists
-            if any(entry['id'] == entry_id for entry in existing_entries):
-                logging.info(f"Entry for {comic['name']} on {date_str} already exists")
-                continue
-            
-            # Create description with alt text if available
-            description = f"{comic['name']} for {date_str}"
-            if comic_data.get('alt_text'):
-                description = f"{description}\n\n{comic_data['alt_text']}"
-            
-            # Create the new entry
-            new_entry = {
-                'id': entry_id,
-                'title': title,
-                'url': f"https://www.gocomics.com/{comic['slug']}/{date_str}",
-                'image_url': comic_data['image_url'],
-                'description': description,
-                'pub_date': date
-            }
-            new_entries.append(new_entry)
-            logging.info(f"Added new entry for {comic['name']} on {date_str}")
-    
+        new_entries = []
+        for future in concurrent.futures.as_completed(future_to_date):
+            date = future_to_date[future]
+            try:
+                entry = future.result()
+                if entry:
+                    new_entries.append(entry)
+                    logging.info(f"Added new entry for {comic['name']} on {date.strftime('%Y-%m-%d')}")
+            except Exception as e:
+                logging.error(f"Error processing {comic['name']} for {date}: {e}")
+
     if new_entries:
         # Add new entries to existing ones
         existing_entries.extend(new_entries)
@@ -265,57 +293,49 @@ def should_regenerate_feed(comic_info):
     
     return False
 
-def update_all_feeds():
-    """Update all comic feeds."""
-    comics = load_comics_list()
-    success_count = 0
-    total_count = len(comics)
-    updated_count = 0
-    
-    # Get last 5 days of comics in chronological order (oldest to newest)
-    today = datetime.now(TIMEZONE)
-    test_dates = [
-        (today - timedelta(days=i))
-        for i in range(4, -1, -1)  # Start from 4 days ago to today
-    ]
-    
-    for comic in comics:  # Process all comics
-        entries = []
-        has_new_content = False
-        
-        # Scrape last 5 days in chronological order
-        for date in test_dates:
-            formatted_date = date.strftime('%Y/%m/%d')
-            metadata = scrape_comic(comic, formatted_date)
-            if metadata:
-                entries.append(metadata)
-                logger.info(f"Successfully scraped {comic['name']} for {formatted_date}")
-                has_new_content = True
-        
-        if entries:
-            # Check if we need to regenerate the feed
-            if should_regenerate_feed(comic):
-                # Regenerate the entire feed
-                if regenerate_feed(comic, entries):
-                    success_count += 1
-                    updated_count += 1
-                    logger.info(f"Successfully regenerated feed for {comic['name']} with {len(entries)} entries")
-            else:
-                # Just update with new entries
-                if update_feed(comic):
-                    success_count += 1
-                    if has_new_content:
-                        updated_count += 1
-                        logger.info(f"Successfully updated feed for {comic['name']} with new content")
-                    else:
-                        logger.info(f"No new content for {comic['name']}, feed not updated")
-    
-    # Clean up old tokens
-    cleanup_old_tokens()
-    
-    logger.info(f"Updated {updated_count} out of {total_count} feeds with new content")
-    logger.info(f"Successfully processed {success_count} out of {total_count} feeds")
-    return success_count, total_count
+def process_comic(comic):
+    """Process a single comic."""
+    try:
+        logger.info(f"Processing {comic['name']}")
+        update_feed(comic)
+        logger.info(f"Successfully updated feed for {comic['name']} with new content")
+        return True
+    except Exception as e:
+        logger.error(f"Error processing {comic['name']}: {e}")
+        return False
 
-if __name__ == '__main__':
-    update_all_feeds() 
+def main():
+    """Main function to update all comic feeds."""
+    try:
+        # Load comics list
+        comics = load_comics_list()
+        logger.info(f"Loaded {len(comics)} comics")
+        
+        # Process comics concurrently
+        with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+            # Submit all comics for processing
+            future_to_comic = {executor.submit(process_comic, comic): comic for comic in comics}
+            
+            # Process results as they complete
+            successful = 0
+            failed = 0
+            for future in concurrent.futures.as_completed(future_to_comic):
+                comic = future_to_comic[future]
+                try:
+                    if future.result():
+                        successful += 1
+                    else:
+                        failed += 1
+                except Exception as e:
+                    logger.error(f"Error processing {comic['name']}: {e}")
+                    failed += 1
+            
+            logger.info(f"Completed processing {len(comics)} comics: {successful} successful, {failed} failed")
+        
+        return 0
+    except Exception as e:
+        logger.error(f"Fatal error in main: {e}")
+        return 1
+
+if __name__ == "__main__":
+    sys.exit(main()) 

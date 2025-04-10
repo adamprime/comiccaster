@@ -6,24 +6,20 @@
     pip install -r requirements.txt
     pip install -e .
     
-    # Update feeds
-    python scripts/update_feeds.py
+    # Update feeds with timeout
+    timeout 15m python scripts/update_feeds.py || echo "Feed update timed out but continuing build"
     
     # Create necessary directories
     mkdir -p public/feeds
     mkdir -p functions/data/feeds
     
-    # Verify comics_list.json exists in public
-    echo "Checking for comics_list.json in public directory:"
-    ls -la public/comics_list.json || echo "comics_list.json not found in public directory"
-    
     # Copy feed files to public directory
-    cp feeds/* public/feeds/
+    cp feeds/* public/feeds/ || true
     
     # Copy files to functions directory
-    cp public/comics_list.json functions/
-    cp public/comics_list.json functions/data/
-    cp -r public/feeds/* functions/data/feeds/
+    cp public/comics_list.json functions/ || true
+    cp public/comics_list.json functions/data/ || true
+    cp -r public/feeds/* functions/data/feeds/ || true
     
     # Verify files were copied
     echo "Verifying files in functions directory:"
@@ -58,3 +54,7 @@
 
 [build.environment]
   PYTHON_VERSION = "3.9"
+  # Add environment variables for the feed generator
+  MAX_WORKERS = "10"
+  REQUEST_TIMEOUT = "10"
+  MAX_RETRIES = "3"

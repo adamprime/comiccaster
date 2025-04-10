@@ -82,3 +82,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Thanks to GoComics for providing the comic content
 - Built with Netlify Functions and GitHub Actions 
+- Inspired by ComicsRSS.com
