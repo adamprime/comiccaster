@@ -63,38 +63,77 @@ def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
     """Scrape a comic from GoComics for a given date."""
     logging.info(f"Fetching {comic['name']} for {date_str}")
     
+    # Define target_date early based on input date_str format
+    try:
+        if '/' in date_str:
+            # Input is YYYY/MM/DD
+            target_date = datetime.strptime(date_str, '%Y/%m/%d').date()
+            url_date_str = date_str # Already in correct format for URL
+        else:
+            # Assume input is YYYY-MM-DD or similar parseable format
+            target_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+            url_date_str = target_date.strftime('%Y/%m/%d') # Convert to URL format
+        
+        url = f"https://www.gocomics.com/{comic['slug']}/{url_date_str}"
+        # Ensure pub_date_str uses YYYY-MM-DD format for consistency later
+        pub_date_str_for_return = target_date.strftime('%Y-%m-%d') 
+
+    except ValueError as e:
+        logging.error(f"Error parsing date string '{date_str}' for {comic['name']}: {e}")
+        return None # Cannot proceed without a valid date
+    
     for attempt in range(retries):
         try:
-            # Format the date correctly for the URL
-            if '/' in date_str:
-                # If date is already in URL format (YYYY/MM/DD), use as is
-                url = f"https://www.gocomics.com/{comic['slug']}/{date_str}"
-            else:
-                # Convert YYYY-MM-DD to URL format
-                target_date = datetime.strptime(date_str, '%Y-%m-%d').date()
-                url = f"https://www.gocomics.com/{comic['slug']}/{target_date.strftime('%Y/%m/%d')}"
-        
             response = requests.get(url, headers=get_headers(), timeout=timeout)
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
             
             # Extract the comic image URL (prioritizing the actual comic)
             comic_image = None
-            
-            # Try to find the comic image URL in the JSON data embedded in script tags
-            scripts = soup.find_all("script", type="application/ld+json")
-            for script in scripts:
-                try:
-                    if script.string and "ImageObject" in script.string and "contentUrl" in script.string:
-                        data = json.loads(script.string)
-                        if data.get("@type") == "ImageObject" and data.get("contentUrl") and "featureassets.gocomics.com" in data.get("contentUrl"):
-                            comic_image = data.get("contentUrl")
-                            logging.info(f"Found actual comic image in JSON data for {url}")
+
+            # === NEW ORDER: Method 1 - Try finding the specific comic strip image tag by class, src host, AND fetchpriority ===
+            # Add fetchpriority='high' to the selector for more specificity
+            specific_selector = 'img.Comic_comic__image_strip__hPLFq[src*="featureassets.gocomics.com/assets/"][fetchpriority="high"]'
+            img_tag = soup.select_one(specific_selector)
+            if img_tag and img_tag.get('src'):
+                # Found the specific image tag, extract its src
+                comic_image = img_tag['src']
+                logging.info(f"Found actual comic image via specific img tag selector (class, src, fetchpriority) for {url}")
+            # else:
+                # logging.info(f"Specific comic img tag ({specific_selector}) not found. Trying JSON-LD.")
+
+            # === Method 2 (Fallback 1) - Try JSON-LD if specific img tag failed ===
+            if not comic_image:
+                potential_json_images = [] # Store candidates from JSON-LD
+                scripts = soup.find_all("script", type="application/ld+json")
+                for script in scripts:
+                    try:
+                        if script.string and "ImageObject" in script.string and "contentUrl" in script.string:
+                            data = json.loads(script.string)
+                            # Check if it's an ImageObject with a featureassets URL
+                            if data.get("@type") == "ImageObject" and data.get("contentUrl") and "featureassets.gocomics.com" in data.get("contentUrl"):
+                                potential_json_images.append({'url': data.get("contentUrl"), 'json': data})
+                    except Exception as e:
+                        logging.warning(f"Error parsing JSON data in script tag: {e}")
+                
+                # Now, choose the best image from the potential JSON candidates
+                if potential_json_images:
+                    found_match_by_date = False
+                    for item in potential_json_images:
+                        caption = item['json'].get('caption', '')
+                        name = item['json'].get('name', '')
+                        if pub_date_str_for_return in caption or pub_date_str_for_return in name:
+                            comic_image = item['url']
+                            logging.info(f"Found actual comic image in JSON data (matched date {pub_date_str_for_return}) for {url}")
+                            found_match_by_date = True
                             break
-                except Exception as e:
-                    logging.warning(f"Error parsing JSON data in script tag: {e}")
-            
-            # Try to extract from JSON data within Next.js script payloads
+                    if not found_match_by_date:
+                        comic_image = potential_json_images[0]['url']
+                        logging.warning(f"Could not confirm date in JSON metadata for {url}. Using first found featureassets URL from JSON-LD: {comic_image}")
+                # else: # Optional log if JSON-LD also yields nothing
+                    # logging.info(f"No suitable image found in JSON-LD for {url}. Trying script regex.")
+
+            # === Method 3 (Fallback 2) - Try regex in other scripts ===
             if not comic_image:
                 for script in soup.find_all("script"):
                     if script.string and "featureassets.gocomics.com/assets" in script.string and "url" in script.string:
@@ -108,7 +147,9 @@ def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
                         except Exception as e:
                             logging.warning(f"Error extracting URL from script: {e}")
             
-            # If no comic image found in scripts, try the social media image as fallback
+            # === Method 4 (Fallback 3) - Try og:image ===
+            # Original Method 3/4 combined (img tag check removed as it's now Method 1)
+            # Method 4: If no comic image found yet, try the social media image as fallback
             if not comic_image:
                 meta_tag = soup.select_one('meta[property="og:image"]')
                 if meta_tag and meta_tag.get("content"):
@@ -122,17 +163,11 @@ def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
             # Get the comic URL (which might be different than the constructed URL)
             comic_url = url
             
-            # Parse publication date from URL
-            pub_date_str = date_str.replace("/", "-")
-            
             # Create title from date
             title = f"{comic['name']} - {target_date.strftime('%Y-%m-%d')}"
             
             # Don't include the image in the description, as it will be handled separately
             description_text = f'Comic strip for {target_date.strftime("%Y-%m-%d")}'
-            
-            # Parse the date and convert to datetime and UTC
-            pub_date = target_date.replace(tzinfo=pytz.UTC)
             
             # Use the image URL for the image field, but don't duplicate it in the description
             # This will prevent the image from appearing twice in the feed
@@ -140,7 +175,7 @@ def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
                 'title': title,
                 'url': url,
                 'image': comic_image,
-                'pub_date': pub_date_str,
+                'pub_date': pub_date_str_for_return, # Use the consistently formatted YYYY-MM-DD string
                 'description': description_text,
                 'id': url  # Use URL as ID to ensure uniqueness
             }
@@ -264,63 +299,90 @@ def regenerate_feed(comic_info, entries):
         logger.error(f"Error regenerating feed for {comic_info['name']}: {e}")
         return False
 
-def update_feed(comic, feed_dir='feeds'):
-    """Update a comic's feed with new entries."""
-    # Ensure feed directory exists
-    os.makedirs(feed_dir, exist_ok=True)
-    
-    # Get feed path
-    feed_path = os.path.join(feed_dir, f"{comic['slug']}.xml")
-    
-    # Load existing entries
-    existing_entries = load_existing_entries(feed_path)
-    
-    # Get last 10 days of comics in chronological order (oldest to newest)
-    today = datetime.now(TIMEZONE)
-    test_dates = [
-        (today - timedelta(days=i))
-        for i in range(9, -1, -1)  # Start from 9 days ago to today
-    ]
-    
-    # Process dates concurrently
-    with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        # Create a partial function with the comic and existing_entries arguments
-        process_func = partial(process_comic_date, comic, existing_entries=existing_entries)
-        # Map the function over the dates
-        future_to_date = {executor.submit(process_func, date): date for date in test_dates}
-        
-        new_entries = []
-        for future in concurrent.futures.as_completed(future_to_date):
-            date = future_to_date[future]
-            try:
-                entry = future.result()
-                if entry:
-                    new_entries.append(entry)
-                    logging.info(f"Added new entry for {comic['name']} on {date.strftime('%Y-%m-%d')}")
-            except Exception as e:
-                logging.error(f"Error processing {comic['name']} for {date}: {e}")
+def update_feed(comic, feed_dir='feeds', days_to_scrape=10):
+    """Update a comic's feed by scraping the last N days and regenerating the feed."""
+    logger.info(f"Starting update for {comic['name']} - scraping last {days_to_scrape} days.")
 
-    if new_entries:
-        # Add new entries to existing ones
-        all_entries = existing_entries + new_entries
-        
-        # Sort all entries by date in chronological order (oldest first)
-        all_entries.sort(
-            key=lambda x: datetime.strptime(x['pub_date'], '%a, %d %b %Y %H:%M:%S %z').timestamp() 
-            if isinstance(x['pub_date'], str) 
-            else x['pub_date'].timestamp()
-        )
-        
-        # Initialize feed generator and generate feed
-        feed_generator = ComicFeedGenerator()
-        if feed_generator.generate_feed(comic, all_entries):
-            logging.info(f"Updated feed for {comic['name']} with {len(new_entries)} new entries")
-            return True
-        else:
-            logging.error(f"Failed to generate feed for {comic['name']}")
-            return False
+    # Ensure the output directory exists (using public/feeds directly)
+    output_dir = Path('public/feeds')
+    output_dir.mkdir(parents=True, exist_ok=True)
     
-    return True
+    # Get the target dates in chronological order (oldest to newest)
+    today = datetime.now(TIMEZONE)
+    target_dates = [
+        (today - timedelta(days=i)).strftime('%Y/%m/%d')
+        for i in range(days_to_scrape - 1, -1, -1)  # e.g., for 10 days: 9 days ago -> today
+    ]
+
+    scraped_entries = []
+    
+    # Use ThreadPoolExecutor for concurrent scraping
+    # Note: Using 'with' ensures threads are cleaned up properly
+    with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        # Map scrape_comic function over the target dates
+        # partial allows us to pass the 'comic' argument to scrape_comic
+        future_to_date = {
+            executor.submit(scrape_comic, comic, date_str): date_str 
+            for date_str in target_dates
+        }
+
+        # Process completed futures as they finish
+        for future in concurrent.futures.as_completed(future_to_date):
+            date_str = future_to_date[future]
+            try:
+                # Get the result from the future (the scraped metadata dict or None)
+                metadata = future.result()
+                if metadata:
+                    # Make sure the pub_date is a datetime object for sorting later
+                    # The current scrape_comic returns a string 'YYYY-MM-DD'
+                    try:
+                        # Convert 'YYYY-MM-DD' string to datetime object in UTC
+                        metadata['pub_date'] = datetime.strptime(metadata['pub_date'], '%Y-%m-%d').replace(tzinfo=pytz.UTC)
+                    except (ValueError, KeyError) as date_err:
+                         logger.warning(f"Could not parse pub_date '{metadata.get('pub_date')}' for {comic['name']} on {date_str}: {date_err}")
+                         # Assign a default date or skip if critical? For now, let's keep it but log warning
+                         # Assigning based on the target date might be safer
+                         try:
+                            parsed_date_from_str = datetime.strptime(date_str, '%Y/%m/%d').replace(tzinfo=pytz.UTC)
+                            metadata['pub_date'] = parsed_date_from_str
+                            logger.info(f"Assigned pub_date {parsed_date_from_str.strftime('%Y-%m-%d')} based on target date.")
+                         except ValueError:
+                             logger.error(f"Could not parse target date {date_str} either. Skipping entry.")
+                             continue # Skip this entry if we can't determine a reliable date
+
+                    scraped_entries.append(metadata)
+                    logger.info(f"Successfully scraped {comic['name']} for {date_str}")
+                else:
+                    # Log if scrape_comic returned None (already logged inside scrape_comic, but good for overview)
+                    logger.warning(f"Failed to scrape {comic['name']} for {date_str} (returned None)")
+            except Exception as exc:
+                # Catch any exceptions raised during the future's execution
+                logger.error(f"{comic['name']} on {date_str} generated an exception: {exc}")
+
+    # Check if we actually got any entries
+    if not scraped_entries:
+        logger.warning(f"No entries were successfully scraped for {comic['name']}. Feed will not be regenerated.")
+        return False # Indicate that no update occurred
+
+    # Sort the successfully scraped entries by publication date (newest first for RSS)
+    # Ensure pub_date is a datetime object before sorting
+    try:
+         scraped_entries.sort(key=lambda x: x.get('pub_date', datetime.min.replace(tzinfo=pytz.UTC)), reverse=True)
+    except TypeError as sort_err:
+        logger.error(f"Error sorting entries for {comic['name']} due to inconsistent pub_date types: {sort_err}")
+        # Attempt recovery or fail gracefully? For now, log error and proceed with potentially unsorted entries.
+        # It might be better to filter out entries with invalid pub_dates here.
+
+    # Call regenerate_feed with ONLY the newly scraped entries
+    logger.info(f"Regenerating feed for {comic['name']} with {len(scraped_entries)} scraped entries.")
+    success = regenerate_feed(comic, scraped_entries)
+
+    if success:
+        logger.info(f"Successfully regenerated feed for {comic['name']}")
+    else:
+        logger.error(f"Failed to regenerate feed for {comic['name']}")
+        
+    return success
 
 def cleanup_old_tokens():
     """Remove tokens older than 7 days."""
