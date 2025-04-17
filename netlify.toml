@@ -6,15 +6,9 @@
     pip install -r requirements.txt
     pip install -e .
     
-    # Update feeds with timeout
-    timeout 15m python scripts/update_feeds.py || echo "Feed update timed out but continuing build"
-    
     # Create necessary directories
     mkdir -p public/feeds
     mkdir -p functions/data/feeds
-    
-    # Copy feed files to public directory
-    cp feeds/* public/feeds/ || true
     
     # Copy files to functions directory
     cp public/comics_list.json functions/ || true

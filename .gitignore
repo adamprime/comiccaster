@@ -45,3 +45,6 @@ package-lock.json
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Generated content
+/public/

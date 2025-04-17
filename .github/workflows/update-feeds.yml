@@ -2,7 +2,7 @@ name: Update Comic Feeds
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # Run at 1 AM daily
+    - cron: '0 9 * * *'  # Run at 9 AM UTC daily (~1 AM PST / 2 AM PDT)
   workflow_dispatch:  # Allow manual triggering
 
 permissions:
@@ -37,7 +37,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add feeds/*.xml
+          git add public/feeds/*.xml
           
           if git diff --staged --quiet; then
             echo "No changes to commit"

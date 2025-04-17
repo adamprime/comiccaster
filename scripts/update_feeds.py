@@ -25,6 +25,7 @@ import yaml
 from dateutil import parser as date_parser
 import concurrent.futures
 from functools import partial
+from email.utils import parsedate_to_datetime
 
 # Set up logging
 logging.basicConfig(
@@ -43,6 +44,15 @@ COMICS_URL = "https://www.gocomics.com"
 MAX_WORKERS = 10  # Maximum number of concurrent workers
 REQUEST_TIMEOUT = 10  # Timeout for HTTP requests in seconds
 MAX_RETRIES = 3  # Maximum number of retries for failed requests
+
+# Define the path relative to the script's location
+SCRIPT_DIR = Path(__file__).parent
+WORKSPACE_ROOT = SCRIPT_DIR.parent
+FEEDS_OUTPUT_DIR = WORKSPACE_ROOT / "public" / "feeds" # Output to public/feeds
+
+# Add the parent directory to sys.path to find the comiccaster module
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from comiccaster.feed_generator import ComicFeedGenerator
 
 def load_comics_list():
     """Load the list of comics from comics_list.json."""
@@ -190,30 +200,50 @@ def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
             logging.warning(f"Unexpected error fetching {comic['name']} for {date_str}: {str(e)}")
             return None
 
-def process_comic_date(comic, date, existing_entries):
-    """Process a single comic for a specific date."""
-    date_str = date.strftime('%Y-%m-%d')
-    entry_id = f"{comic['slug']}_{date_str}"
-    
-    # Check if entry already exists with the same date
-    existing_entry = next(
-        (entry for entry in existing_entries if entry['id'] == entry_id),
-        None
-    )
-    
-    if existing_entry:
-        logging.info(f"Entry for {comic['name']} on {date_str} already exists")
+def process_comic_date(comic_info: Dict[str, str], date: datetime) -> Optional[Dict[str, any]]:
+    """
+    Processes scraping for a single comic on a specific date.
+
+    Args:
+        comic_info: Dictionary containing comic details.
+        date: The date for which to scrape the comic.
+
+    Returns:
+        A dictionary with scraped comic data or None if scraping fails.
+    """
+    date_str = date.strftime("%Y/%m/%d")
+    comic_url = f"{comic_info['url']}/{date_str}"
+    try:
+        # Simulate scraping delay
+        # time.sleep(random.uniform(0.5, 1.5))
+        scrape_result = scrape_comic(comic_info, date_str)
+        if scrape_result:
+            # Convert the date string from scrape_result to a datetime object for sorting
+            # Ensure the date from scrape_result matches the requested date, or handle discrepancies
+            scraped_date_str = scrape_result.get("date") # e.g., "April 09, 2025" or "2025-04-09"
+            try:
+                 # Handle formats like "Month Day, Year" or "YYYY-MM-DD"
+                if ',' in scraped_date_str:
+                    parsed_date = datetime.strptime(scraped_date_str, "%B %d, %Y")
+                else:
+                    parsed_date = datetime.strptime(scraped_date_str, "%Y-%m-%d")
+                # Make the date timezone-aware (UTC)
+                scrape_result['pub_date'] = pytz.UTC.localize(parsed_date)
+
+            except ValueError as e:
+                 logger.warning(f"Could not parse date '{scraped_date_str}' for {comic_info['name']} on {date_str}: {e}. Using requested date.")
+                 # Fallback to the requested date if parsing fails
+                 scrape_result['pub_date'] = date # Already timezone-aware UTC
+
+            # Add comic slug for reference if needed later
+            scrape_result['comic_slug'] = comic_info['slug']
+            return scrape_result
+        else:
+            logger.warning(f"No scrape result for {comic_info['name']} on {date_str}")
+            return None
+    except Exception as e:
+        logger.error(f"Error processing {comic_info['name']} for date {date_str}: {e}")
         return None
-        
-    comic_data = scrape_comic(comic, date_str)
-    if not comic_data:
-        return None
-        
-    # Add the entry ID to the comic data
-    comic_data['id'] = entry_id
-    
-    # The scrape_comic function now returns the complete entry data
-    return comic_data
 
 def load_existing_entries(feed_path):
     """Load existing entries from a feed file."""
@@ -283,25 +313,135 @@ def load_existing_entries(feed_path):
     entries = [data['entry'] for data in seen_dates.values()]
     return entries
 
-def regenerate_feed(comic_info, entries):
-    """Regenerate a comic's feed with all entries sorted by date."""
-    try:
-        # Get path to the feed file
-        feed_path = os.path.join('public', 'feeds', f"{comic_info['slug']}.xml")
-        
-        # Create feed generator and generate sorted feed
-        fg = ComicFeedGenerator()
-        if fg.generate_feed(comic_info, entries):
-            logger.info(f"Regenerated feed for {comic_info['name']} with {len(entries)} entries")
-            return True
-        return False
-    except Exception as e:
-        logger.error(f"Error regenerating feed for {comic_info['name']}: {e}")
-        return False
+def regenerate_feed(comic_info: Dict[str, str], new_entries: List[Dict[str, any]]):
+    """
+    Regenerates the feed file for a comic, merging new entries with existing ones.
 
-def update_feed(comic, feed_dir='feeds', days_to_scrape=10):
+    Args:
+        comic_info: Dictionary containing comic details.
+        new_entries: List of newly scraped comic entry dictionaries. Each should have 'pub_date' (datetime), 'id' or 'url'.
+    """
+    logger.info(f"Regenerating feed for {comic_info['name']}...")
+    generator = ComicFeedGenerator(output_dir=str(FEEDS_OUTPUT_DIR))
+    feed_path = FEEDS_OUTPUT_DIR / f"{comic_info['slug']}.xml"
+
+    all_entries = {} # Use dict for deduplication based on unique ID (e.g., URL)
+
+    # 1. Load existing entries from the feed file
+    if feed_path.exists():
+        try:
+            logger.debug(f"Loading existing feed: {feed_path}")
+            parsed_feed = feedparser.parse(str(feed_path))
+            if parsed_feed.bozo:
+                logger.warning(f"Existing feed '{feed_path}' may be ill-formed: {parsed_feed.bozo_exception}")
+
+            for entry in parsed_feed.entries:
+                try:
+                    # Extract necessary data and ensure timezone-aware date
+                    pub_date = datetime.now(pytz.UTC) # Default fallback
+                    if hasattr(entry, 'published_parsed') and entry.published_parsed:
+                         # feedparser gives time.struct_time, convert to datetime
+                         ts = time.mktime(entry.published_parsed)
+                         naive_dt = datetime.fromtimestamp(ts)
+                         pub_date = pytz.UTC.localize(naive_dt) # Assume UTC if no timezone
+                    elif hasattr(entry, 'published'):
+                         # Try parsing the published string
+                         try:
+                             parsed_dt = parsedate_to_datetime(entry.published)
+                             if parsed_dt.tzinfo is None:
+                                 pub_date = pytz.UTC.localize(parsed_dt)
+                             else:
+                                 pub_date = parsed_dt.astimezone(pytz.UTC)
+                         except Exception as parse_err:
+                             logger.warning(f"Could not parse date string '{entry.published}' for existing entry {entry.get('id', entry.get('link', 'Unknown'))}: {parse_err}. Using default.")
+
+                    # Use entry link or id as a unique key for deduplication
+                    # Prefer 'id' if available, otherwise use 'link'
+                    entry_id = entry.get('id', entry.get('link'))
+                    if not entry_id:
+                        logger.warning(f"Skipping existing entry with no id or link.")
+                        continue
+
+                    # Store existing entry data in a format similar to new_entries
+                    # Ensure all necessary fields for generate_feed are present
+                    entry_data = {
+                        'title': entry.get('title', ''),
+                        'url': entry.get('link', ''), # Link is often the unique URL
+                        'id': entry_id,
+                        'pub_date': pub_date,
+                        'description': entry.get('summary', entry.get('description', '')),
+                        # Attempt to extract image_url if structured in description
+                        'image_url': extract_image_from_description(entry.get('summary', entry.get('description', ''))),
+                    }
+                    # Only add if we have a valid ID
+                    all_entries[entry_id] = entry_data
+
+                except Exception as e:
+                    entry_identifier = entry.get('id', entry.get('link', 'UNKNOWN'))
+                    logger.error(f"Error processing existing entry '{entry_identifier}': {e}", exc_info=True)
+                    continue # Skip problematic entries
+
+        except Exception as e:
+            logger.error(f"Error parsing existing feed file '{feed_path}': {e}", exc_info=True)
+            # Continue without existing entries if parsing fails
+
+    # 2. Add new entries, overwriting duplicates based on ID
+    logger.debug(f"Adding {len(new_entries)} new entries.")
+    for entry_data in new_entries:
+        # Use URL or a generated ID as the key for deduplication
+        entry_id = entry_data.get('id', entry_data.get('url'))
+        if not entry_id:
+             # Generate an ID if missing, e.g., based on URL and date
+             entry_id = f"{entry_data.get('url', comic_info['url'])}#{entry_data.get('pub_date', datetime.now(pytz.UTC)).isoformat()}"
+             entry_data['id'] = entry_id # Ensure ID exists in the data
+
+        # Ensure pub_date is timezone-aware
+        if isinstance(entry_data.get('pub_date'), datetime) and entry_data['pub_date'].tzinfo is None:
+            entry_data['pub_date'] = pytz.UTC.localize(entry_data['pub_date'])
+        elif not isinstance(entry_data.get('pub_date'), datetime):
+             logger.warning(f"New entry for {entry_id} missing valid datetime pub_date. Using now().")
+             entry_data['pub_date'] = datetime.now(pytz.UTC)
+
+
+        all_entries[entry_id] = entry_data # Add/overwrite entry
+
+    # 3. Sort all unique entries by publication date (newest first)
+    logger.debug(f"Total unique entries before sorting: {len(all_entries)}")
+    sorted_entries = sorted(all_entries.values(), key=lambda x: x['pub_date'], reverse=True)
+
+    # Optional: Limit the number of entries in the feed
+    max_feed_entries = 100 # Example limit
+    if len(sorted_entries) > max_feed_entries:
+        logger.info(f"Limiting feed entries from {len(sorted_entries)} to {max_feed_entries}.")
+        sorted_entries = sorted_entries[:max_feed_entries]
+
+
+    # 4. Generate the feed using ComicFeedGenerator
+    logger.info(f"Generating final feed with {len(sorted_entries)} entries.")
+    success = generator.generate_feed(comic_info, sorted_entries)
+
+    if success:
+        logger.info(f"Successfully regenerated feed for {comic_info['name']} at {feed_path}")
+    else:
+        logger.error(f"Failed to regenerate feed for {comic_info['name']}")
+
+    return success
+
+def extract_image_from_description(description: str) -> Optional[str]:
+    """
+    Helper function to extract the first <img> src URL from an HTML description string.
+    """
+    if not description:
+        return None
+    # Basic regex to find the first <img src="...">
+    match = re.search(r'<img[^>]+src="([^"]+)"', description, re.IGNORECASE)
+    if match:
+        return match.group(1)
+    return None
+
+def update_feed(comic_info: Dict[str, str], days_to_scrape: int = 10):
     """Update a comic's feed by scraping the last N days and regenerating the feed."""
-    logger.info(f"Starting update for {comic['name']} - scraping last {days_to_scrape} days.")
+    logger.info(f"Starting update for {comic_info['name']} - scraping last {days_to_scrape} days.")
 
     # Ensure the output directory exists (using public/feeds directly)
     output_dir = Path('public/feeds')
@@ -322,7 +462,7 @@ def update_feed(comic, feed_dir='feeds', days_to_scrape=10):
         # Map scrape_comic function over the target dates
         # partial allows us to pass the 'comic' argument to scrape_comic
         future_to_date = {
-            executor.submit(scrape_comic, comic, date_str): date_str 
+            executor.submit(scrape_comic, comic_info, date_str): date_str 
             for date_str in target_dates
         }
 
@@ -339,7 +479,7 @@ def update_feed(comic, feed_dir='feeds', days_to_scrape=10):
                         # Convert 'YYYY-MM-DD' string to datetime object in UTC
                         metadata['pub_date'] = datetime.strptime(metadata['pub_date'], '%Y-%m-%d').replace(tzinfo=pytz.UTC)
                     except (ValueError, KeyError) as date_err:
-                         logger.warning(f"Could not parse pub_date '{metadata.get('pub_date')}' for {comic['name']} on {date_str}: {date_err}")
+                         logger.warning(f"Could not parse pub_date '{metadata.get('pub_date')}' for {comic_info['name']} on {date_str}: {date_err}")
                          # Assign a default date or skip if critical? For now, let's keep it but log warning
                          # Assigning based on the target date might be safer
                          try:
@@ -351,17 +491,17 @@ def update_feed(comic, feed_dir='feeds', days_to_scrape=10):
                              continue # Skip this entry if we can't determine a reliable date
 
                     scraped_entries.append(metadata)
-                    logger.info(f"Successfully scraped {comic['name']} for {date_str}")
+                    logger.info(f"Successfully scraped {comic_info['name']} for {date_str}")
                 else:
                     # Log if scrape_comic returned None (already logged inside scrape_comic, but good for overview)
-                    logger.warning(f"Failed to scrape {comic['name']} for {date_str} (returned None)")
+                    logger.warning(f"Failed to scrape {comic_info['name']} for {date_str} (returned None)")
             except Exception as exc:
                 # Catch any exceptions raised during the future's execution
-                logger.error(f"{comic['name']} on {date_str} generated an exception: {exc}")
+                logger.error(f"{comic_info['name']} on {date_str} generated an exception: {exc}")
 
     # Check if we actually got any entries
     if not scraped_entries:
-        logger.warning(f"No entries were successfully scraped for {comic['name']}. Feed will not be regenerated.")
+        logger.warning(f"No entries were successfully scraped for {comic_info['name']}. Feed will not be regenerated.")
         return False # Indicate that no update occurred
 
     # Sort the successfully scraped entries by publication date (newest first for RSS)
@@ -369,18 +509,18 @@ def update_feed(comic, feed_dir='feeds', days_to_scrape=10):
     try:
          scraped_entries.sort(key=lambda x: x.get('pub_date', datetime.min.replace(tzinfo=pytz.UTC)), reverse=True)
     except TypeError as sort_err:
-        logger.error(f"Error sorting entries for {comic['name']} due to inconsistent pub_date types: {sort_err}")
+        logger.error(f"Error sorting entries for {comic_info['name']} due to inconsistent pub_date types: {sort_err}")
         # Attempt recovery or fail gracefully? For now, log error and proceed with potentially unsorted entries.
         # It might be better to filter out entries with invalid pub_dates here.
 
     # Call regenerate_feed with ONLY the newly scraped entries
-    logger.info(f"Regenerating feed for {comic['name']} with {len(scraped_entries)} scraped entries.")
-    success = regenerate_feed(comic, scraped_entries)
+    logger.info(f"Regenerating feed for {comic_info['name']} with {len(scraped_entries)} scraped entries.")
+    success = regenerate_feed(comic_info, scraped_entries)
 
     if success:
-        logger.info(f"Successfully regenerated feed for {comic['name']}")
+        logger.info(f"Successfully regenerated feed for {comic_info['name']}")
     else:
-        logger.error(f"Failed to regenerate feed for {comic['name']}")
+        logger.error(f"Failed to regenerate feed for {comic_info['name']}")
         
     return success
 
