@@ -408,6 +408,15 @@ def regenerate_feed(comic_info: Dict[str, str], new_entries: List[Dict[str, any]
     # 3. Sort all unique entries by publication date (newest first)
     logger.debug(f"Total unique entries before sorting: {len(all_entries)}")
     sorted_entries = sorted(all_entries.values(), key=lambda x: x['pub_date'], reverse=True)
+    # Add debug logging to verify sort order
+    if sorted_entries:
+        logger.debug(f"Sorted entries dates (newest first?): {[entry['pub_date'].strftime('%Y-%m-%d') for entry in sorted_entries[:3]]}")
+
+    # REVERSE the list: If feedgen prepends entries, feeding it oldest-first
+    # will result in newest-first output.
+    sorted_entries.reverse()
+    if sorted_entries:
+        logger.debug(f"Reversed sorted entries dates (now oldest first?): {[entry['pub_date'].strftime('%Y-%m-%d') for entry in sorted_entries[:3]]}")
 
     # Optional: Limit the number of entries in the feed
     max_feed_entries = 100 # Example limit
