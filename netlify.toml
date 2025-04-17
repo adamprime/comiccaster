@@ -12,7 +12,7 @@
     
     # REMOVED file copying - function reads from deployed /public path
     # cp public/comics_list.json functions/ || true
-    # cp public/comics_list.json functions/data/ || true
+    # cp public/comics_list.json functions/data/feeds/ || true
     # cp -r public/feeds/* functions/data/feeds/ || true
     
     # REMOVED verification logs - not needed for minimal build
@@ -33,11 +33,11 @@
   status = 200
   force = true
 
-# Fallback for direct feed access
-[[redirects]]
-  from = "/feeds/*"
-  to = "/feeds/:splat"
-  status = 200
+# REMOVED: Problematic fallback rule that might interfere with static serving
+# [[redirects]]
+#   from = "/feeds/*"
+#   to = "/feeds/:splat"
+#   status = 200
 
 [build.environment]
   PYTHON_VERSION = "3.9"
