@@ -2,30 +2,23 @@
   publish = "public"
   functions = "functions"
   command = """
-    # Install dependencies
-    pip install -r requirements.txt
-    pip install -e .
+    # REMOVED Python dependency installation - not needed for build
+    # pip install -r requirements.txt
+    # pip install -e .
     
-    # Create necessary directories
+    # Create necessary directories (may be redundant if committed by Action)
     mkdir -p public/feeds
     mkdir -p functions/data/feeds
     
-    # Copy files to functions directory
-    cp public/comics_list.json functions/ || true
-    cp public/comics_list.json functions/data/ || true
-    cp -r public/feeds/* functions/data/feeds/ || true
+    # REMOVED file copying - function reads from deployed /public path
+    # cp public/comics_list.json functions/ || true
+    # cp public/comics_list.json functions/data/ || true
+    # cp -r public/feeds/* functions/data/feeds/ || true
     
-    # Verify files were copied
-    echo "Verifying files in functions directory:"
-    ls -la functions/
-    echo "Verifying files in functions/data:"
-    ls -la functions/data/
-    echo "Verifying files in functions/data/feeds:"
-    ls -la functions/data/feeds/
-    
-    # Final verification of public directory
-    echo "Final contents of public directory:"
-    ls -la public/
+    # REMOVED verification logs - not needed for minimal build
+    # echo "Verifying files..."
+    # ls -la ...
+    echo "Build command complete (no actions needed)."
   """
 
 [functions]
