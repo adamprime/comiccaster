@@ -270,20 +270,15 @@ class ComicFeedGenerator:
                     logger.error(f"Error processing entry: {e}")
                     continue
             
-            # Sort entries by date in reverse chronological order (newest first)
-            sorted_entries = sorted(
-                entries_with_dates,
-                key=lambda x: x['pub_date'].timestamp(),
-                reverse=True
-            )
-            
-            # Add entries to feed
-            for entry_data in sorted_entries:
+            # Add entries to feed (iterating over the potentially pre-sorted list)
+            feed_entry_count = 0
+            for entry_data in entries_with_dates: # Iterate over the list as received
                 try:
                     # Create entry with the metadata
                     fe = self.create_entry(comic_info, entry_data['metadata'])
                     # Add entry to the feed
                     fg.add_entry(fe)
+                    feed_entry_count += 1
                     logger.debug(f"Added entry: {entry_data['metadata'].get('title')} - {entry_data['pub_date']}")
                 except Exception as entry_error:
                     logger.error(f"Error adding entry to feed: {entry_error}")
@@ -292,7 +287,7 @@ class ComicFeedGenerator:
             # Save the feed as RSS
             feed_path = self.output_dir / f"{comic_info['slug']}.xml"
             fg.rss_file(str(feed_path))
-            logger.info(f"Generated feed for {comic_info['name']} at {feed_path} with {len(sorted_entries)} entries")
+            logger.info(f"Generated feed for {comic_info['name']} at {feed_path} with {feed_entry_count} entries")
             
             return True
             
