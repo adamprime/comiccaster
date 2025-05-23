@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WuMo - GoComics</title><link>https://www.gocomics.com/wumo</link><description>Daily WuMo comic strip by Wulff &amp; Morgenthaler</description><atom:link href="https://comiccaster.xyz/feeds/wumo.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 22 May 2025 09:15:41 +0000</lastBuildDate><item><title>WuMo - 2025-05-22</title><link>https://www.gocomics.com/wumo/2025/05/22</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>WuMo - GoComics</title><link>https://www.gocomics.com/wumo</link><description>Daily WuMo comic strip by Wulff &amp; Morgenthaler</description><atom:link href="https://comiccaster.xyz/feeds/wumo.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 23 May 2025 09:15:46 +0000</lastBuildDate><item><title>WuMo - 2025-05-23</title><link>https://www.gocomics.com/wumo/2025/05/23</link><description>
+                &lt;div style="text-align: center;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/f7519b30fddb013d9bb3005056a9545d" alt="WuMo" style="max-width: 100%;"&gt;
+                    &lt;p&gt;Comic strip for 2025-05-23&lt;/p&gt;
+                &lt;/div&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/wumo/2025/05/23</guid><enclosure url="https://featureassets.gocomics.com/assets/f7519b30fddb013d9bb3005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 23 May 2025 00:00:00 +0000</pubDate></item><item><title>WuMo - 2025-05-22</title><link>https://www.gocomics.com/wumo/2025/05/22</link><description>
                 &lt;div style="text-align: center;"&gt;
                     &lt;img src="https://featureassets.gocomics.com/assets/f3cba690fddb013d9bb3005056a9545d" alt="WuMo" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-05-22&lt;/p&gt;
@@ -44,12 +49,10 @@
                     &lt;img src="https://featureassets.gocomics.com/assets/2ba7a3b0fdde013d9bb3005056a9545d" alt="WuMo" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-05-14&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/wumo/2025/05/14</guid><enclosure url="https://featureassets.gocomics.com/assets/2ba7a3b0fdde013d9bb3005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate></item><item><title>WuMo - 2025-05-13</title><link>https://www.gocomics.com/wumo/2025/05/13</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/28ac4360fdde013d9bb3005056a9545d" alt="WuMo" style="max-width: 100%;"&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/wumo/2025/05/14</guid><enclosure url="https://featureassets.gocomics.com/assets/2ba7a3b0fdde013d9bb3005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate></item><item><title>WuMo - 2025-05-13</title><link>https://www.gocomics.com/wumo/2025/05/13</link><description>&lt;div style="text-align: center;"&gt;
+                    &lt;img alt="WuMo" src="https://featureassets.gocomics.com/assets/28ac4360fdde013d9bb3005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-13&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/wumo/2025/05/13</guid><enclosure url="https://featureassets.gocomics.com/assets/28ac4360fdde013d9bb3005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 13 May 2025 00:00:00 +0000</pubDate></item><item><title>WuMo - 2025-05-12</title><link>https://www.gocomics.com/wumo/2025/05/12</link><description>&lt;div style="text-align: center;"&gt;
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/wumo/2025/05/13</guid><enclosure url="https://featureassets.gocomics.com/assets/28ac4360fdde013d9bb3005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 13 May 2025 00:00:00 +0000</pubDate></item><item><title>WuMo - 2025-05-12</title><link>https://www.gocomics.com/wumo/2025/05/12</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="WuMo" src="https://featureassets.gocomics.com/assets/258e2280fdde013d9bb3005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-12&lt;/p&gt;
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/wumo/2025/05/12</guid><enclosure url="https://featureassets.gocomics.com/assets/258e2280fdde013d9bb3005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate></item><item><title>WuMo - 2025-05-11</title><link>https://www.gocomics.com/wumo/2025/05/11</link><description>&lt;div style="text-align: center;"&gt;
