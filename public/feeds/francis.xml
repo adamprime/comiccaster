@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Francis - GoComics</title><link>https://www.gocomics.com/francis</link><description>Daily Francis comic strip by Patrick J. Marrin</description><atom:link href="https://comiccaster.xyz/feeds/francis.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 24 May 2025 09:12:35 +0000</lastBuildDate><item><title>Francis - 2025-05-22</title><link>https://www.gocomics.com/francis/2025/05/22</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Francis - GoComics</title><link>https://www.gocomics.com/francis</link><description>Daily Francis comic strip by Patrick J. Marrin</description><atom:link href="https://comiccaster.xyz/feeds/francis.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 25 May 2025 09:12:29 +0000</lastBuildDate><item><title>Francis - 2025-05-25</title><link>https://www.gocomics.com/francis/2025/05/25</link><description>
+                &lt;div style="text-align: center;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/43f641b01980013ea15a005056a9545d" alt="Francis" style="max-width: 100%;"&gt;
+                    &lt;p&gt;Comic strip for 2025-05-25&lt;/p&gt;
+                &lt;/div&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/francis/2025/05/25</guid><enclosure url="https://featureassets.gocomics.com/assets/43f641b01980013ea15a005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate></item><item><title>Francis - 2025-05-22</title><link>https://www.gocomics.com/francis/2025/05/22</link><description>
                 &lt;div style="text-align: center;"&gt;
                     &lt;img src="https://featureassets.gocomics.com/assets/69a92ad01592013ea053005056a9545d" alt="Francis" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-05-22&lt;/p&gt;
@@ -9,12 +14,10 @@
                     &lt;img src="https://featureassets.gocomics.com/assets/0deb9bf01357013e9fc2005056a9545d" alt="Francis" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-05-19&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/francis/2025/05/19</guid><enclosure url="https://featureassets.gocomics.com/assets/0deb9bf01357013e9fc2005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate></item><item><title>Francis - 2025-05-15</title><link>https://www.gocomics.com/francis/2025/05/15</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/ea86641010ce013e9f20005056a9545d" alt="Francis" style="max-width: 100%;"&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/francis/2025/05/19</guid><enclosure url="https://featureassets.gocomics.com/assets/0deb9bf01357013e9fc2005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate></item><item><title>Francis - 2025-05-15</title><link>https://www.gocomics.com/francis/2025/05/15</link><description>&lt;div style="text-align: center;"&gt;
+                    &lt;img alt="Francis" src="https://featureassets.gocomics.com/assets/ea86641010ce013e9f20005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-15&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/francis/2025/05/15</guid><enclosure url="https://featureassets.gocomics.com/assets/ea86641010ce013e9f20005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate></item><item><title>Francis - 2025-05-12</title><link>https://www.gocomics.com/francis/2025/05/12</link><description>&lt;div style="text-align: center;"&gt;
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/francis/2025/05/15</guid><enclosure url="https://featureassets.gocomics.com/assets/ea86641010ce013e9f20005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 15 May 2025 00:00:00 +0000</pubDate></item><item><title>Francis - 2025-05-12</title><link>https://www.gocomics.com/francis/2025/05/12</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Francis" src="https://featureassets.gocomics.com/assets/f66c6e501181013e9f4c005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-12&lt;/p&gt;
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/francis/2025/05/12</guid><enclosure url="https://featureassets.gocomics.com/assets/f66c6e501181013e9f4c005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate></item><item><title>Francis - 2025-04-22</title><link>https://www.gocomics.com/francis/2025/04/22</link><description>&lt;div style="text-align: center;"&gt;
