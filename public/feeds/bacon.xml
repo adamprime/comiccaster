@@ -1,10 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>bacon - GoComics</title><link>https://www.gocomics.com/bacon</link><description>Daily bacon comic strip by Lonnie Millsap</description><atom:link href="https://comiccaster.xyz/feeds/bacon.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 05 Jun 2025 09:14:14 +0000</lastBuildDate><item><title>bacon - 2025-06-04</title><link>https://www.gocomics.com/bacon/2025/06/04</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>bacon - GoComics</title><link>https://www.gocomics.com/bacon</link><description>Daily bacon comic strip by Lonnie Millsap</description><atom:link href="https://comiccaster.xyz/feeds/bacon.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 06 Jun 2025 09:14:07 +0000</lastBuildDate><item><title>bacon - 2025-06-06</title><link>https://www.gocomics.com/bacon/2025/06/06</link><description>
                 &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/04849d701d7c013ea20c005056a9545d" alt="bacon" style="max-width: 100%;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/2822f1701dfb013ea224005056a9545d" alt="bacon" style="max-width: 100%;"&gt;
+                    &lt;p&gt;Comic strip for 2025-06-06&lt;/p&gt;
+                &lt;/div&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/bacon/2025/06/06</guid><enclosure url="https://featureassets.gocomics.com/assets/2822f1701dfb013ea224005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 06 Jun 2025 00:00:00 +0000</pubDate></item><item><title>bacon - 2025-06-04</title><link>https://www.gocomics.com/bacon/2025/06/04</link><description>
+                &lt;div style="text-align: center;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/2ff28d80f962013d9ad6005056a9545d" alt="bacon" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-06-04&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/bacon/2025/06/04</guid><enclosure url="https://featureassets.gocomics.com/assets/04849d701d7c013ea20c005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate></item><item><title>bacon - 2025-06-02</title><link>https://www.gocomics.com/bacon/2025/06/02</link><description>
+                </description><guid isPermaLink="false">https://www.gocomics.com/bacon/2025/06/04</guid><enclosure url="https://featureassets.gocomics.com/assets/2ff28d80f962013d9ad6005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate></item><item><title>bacon - 2025-06-02</title><link>https://www.gocomics.com/bacon/2025/06/02</link><description>
                 &lt;div style="text-align: center;"&gt;
                     &lt;img src="https://featureassets.gocomics.com/assets/2658bce01dfb013ea224005056a9545d" alt="bacon" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-06-02&lt;/p&gt;
@@ -19,12 +24,10 @@
                     &lt;img src="https://featureassets.gocomics.com/assets/02b3eb901d7c013ea20c005056a9545d" alt="bacon" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-05-28&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/bacon/2025/05/28</guid><enclosure url="https://featureassets.gocomics.com/assets/02b3eb901d7c013ea20c005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate></item><item><title>bacon - 2025-05-27</title><link>https://www.gocomics.com/bacon/2025/05/27</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/3e0038501dca013ea21b005056a9545d" alt="bacon" style="max-width: 100%;"&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/bacon/2025/05/28</guid><enclosure url="https://featureassets.gocomics.com/assets/02b3eb901d7c013ea20c005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate></item><item><title>bacon - 2025-05-27</title><link>https://www.gocomics.com/bacon/2025/05/27</link><description>&lt;div style="text-align: center;"&gt;
+                    &lt;img alt="bacon" src="https://featureassets.gocomics.com/assets/3e0038501dca013ea21b005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-27&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/bacon/2025/05/27</guid><enclosure url="https://featureassets.gocomics.com/assets/3e0038501dca013ea21b005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate></item><item><title>bacon - 2025-05-14</title><link>https://www.gocomics.com/bacon/2025/05/14</link><description>&lt;div style="text-align: center;"&gt;
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bacon/2025/05/27</guid><enclosure url="https://featureassets.gocomics.com/assets/3e0038501dca013ea21b005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate></item><item><title>bacon - 2025-05-14</title><link>https://www.gocomics.com/bacon/2025/05/14</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="bacon" src="https://featureassets.gocomics.com/assets/4be805c00e1b013e9eaa005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-14&lt;/p&gt;
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bacon/2025/05/14</guid><enclosure url="https://featureassets.gocomics.com/assets/4be805c00e1b013e9eaa005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate></item><item><title>bacon - 2025-05-12</title><link>https://www.gocomics.com/bacon/2025/05/12</link><description>&lt;div style="text-align: center;"&gt;
