@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+<channel>
+<title>VERIFICATION: Peanuts - Daily Comics Fix</title>
+<link>https://www.gocomics.com/peanuts</link>
+<description>Peanuts - Classic strip format - Test feed for verifying actual daily comics (not "best of")</description>
+<atom:link href="https://comiccaster.xyz/feeds/peanuts-verification.xml" rel="self" type="application/rss+xml"/>
+<docs>http://www.rssboard.org/rss-specification</docs>
+<generator>ComicCaster Verification Test - fetchpriority Fix</generator>
+<language>en</language>
+<lastBuildDate>Wed, 25 Jun 2025 12:09:24 +0000</lastBuildDate>
+<item>
+<title>Peanuts - 2025-06-23</title>
+<link>https://www.gocomics.com/peanuts/2025/06/23</link>
+<description><![CDATA[
+                <div style="text-align: center;">
+                    <img src="https://featureassets.gocomics.com/assets/687582a02dc3013ea592005056a9545d?optimizer=image&width=2800&quality=85" alt="Peanuts" style="max-width: 100%;">
+                    <p>Peanuts comic for 2025-06-23</p>
+                    <p><strong>Verification:</strong> ✅ fetchpriority="high" Daily Comic</p>
+                    <p><strong>Hash:</strong> 687582a02dc3013ea592005056a9545d</p>
+                    <p><strong>Source:</strong> featureassets.gocomics.com</p>
+                </div>
+                ]]></description>
+<guid isPermaLink="false">https://www.gocomics.com/peanuts/2025/06/23</guid>
+<enclosure url="https://featureassets.gocomics.com/assets/687582a02dc3013ea592005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/>
+<pubDate>Mon, 23 Jun 2025 00:00:00 +0000</pubDate>
+</item><item>
+<title>Peanuts - 2025-06-24</title>
+<link>https://www.gocomics.com/peanuts/2025/06/24</link>
+<description><![CDATA[
+                <div style="text-align: center;">
+                    <img src="https://featureassets.gocomics.com/assets/6b6f60002dc3013ea592005056a9545d?optimizer=image&width=2800&quality=85" alt="Peanuts" style="max-width: 100%;">
+                    <p>Peanuts comic for 2025-06-24</p>
+                    <p><strong>Verification:</strong> ✅ fetchpriority="high" Daily Comic</p>
+                    <p><strong>Hash:</strong> 6b6f60002dc3013ea592005056a9545d</p>
+                    <p><strong>Source:</strong> featureassets.gocomics.com</p>
+                </div>
+                ]]></description>
+<guid isPermaLink="false">https://www.gocomics.com/peanuts/2025/06/24</guid>
+<enclosure url="https://featureassets.gocomics.com/assets/6b6f60002dc3013ea592005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/>
+<pubDate>Tue, 24 Jun 2025 00:00:00 +0000</pubDate>
+</item><item>
+<title>Peanuts - 2025-06-25</title>
+<link>https://www.gocomics.com/peanuts</link>
+<description><![CDATA[
+                <div style="text-align: center;">
+                    <img src="https://featureassets.gocomics.com/assets/6e2783b02dc3013ea592005056a9545d?optimizer=image&width=2800&quality=85" alt="Peanuts" style="max-width: 100%;">
+                    <p>Peanuts comic for 2025-06-25</p>
+                    <p><strong>Verification:</strong> ✅ fetchpriority="high" Daily Comic</p>
+                    <p><strong>Hash:</strong> 6e2783b02dc3013ea592005056a9545d</p>
+                    <p><strong>Source:</strong> featureassets.gocomics.com</p>
+                </div>
+                ]]></description>
+<guid isPermaLink="false">https://www.gocomics.com/peanuts</guid>
+<enclosure url="https://featureassets.gocomics.com/assets/6e2783b02dc3013ea592005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/>
+<pubDate>Wed, 25 Jun 2025 00:00:00 +0000</pubDate>
+</item>
+</channel>
+</rss>

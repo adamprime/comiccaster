@@ -79,22 +79,51 @@ class ComicScraper:
             if date:
                 url = f"{url}/{date}"
             
-            # First try with simple requests
-            response = self.session.get(url)
-            if response.status_code == 200 and 'og:image' in response.text:
-                return response.text
-            
-            # If simple request fails, use Selenium
+            # For accurate daily comic detection, we need Selenium to wait for fetchpriority="high" images
+            # Skip simple requests and go straight to Selenium for more reliable detection
             self.setup_driver()
             logger.info(f"Fetching {url}")
             self.driver.get(url)
             
-            # Wait for the comic image to load
-            wait = WebDriverWait(self.driver, 10)
-            wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "meta[property='og:image']")))
+            # Wait for the main comic image to load (with responsive srcset)
+            wait = WebDriverWait(self.driver, 15)
             
-            # Additional wait for any dynamic content
-            time.sleep(2)
+            try:
+                # First, wait for any comic image to be present
+                wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "img[class*='Comic_comic__image']")))
+                
+                # Additional wait for lazy loading and JavaScript to complete
+                time.sleep(3)
+                
+                # Wait aggressively for the main comic with fetchpriority="high" to load
+                # This is the key to getting the actual daily comic vs "best of"
+                logger.info("Waiting for main comic with fetchpriority='high' to load...")
+                
+                # Aggressive polling strategy - check every 2 seconds for up to 30 seconds
+                max_wait_time = 30
+                poll_interval = 2
+                elapsed_time = 0
+                
+                while elapsed_time < max_wait_time:
+                    try:
+                        priority_imgs = self.driver.find_elements(By.CSS_SELECTOR, "img[fetchpriority='high']")
+                        if priority_imgs:
+                            logger.info(f"✅ Found {len(priority_imgs)} fetchpriority='high' comic(s) after {elapsed_time}s")
+                            break
+                    except:
+                        pass
+                    
+                    logger.info(f"⏳ Still waiting for fetchpriority='high' comic... ({elapsed_time}s elapsed)")
+                    time.sleep(poll_interval)
+                    elapsed_time += poll_interval
+                
+                if elapsed_time >= max_wait_time:
+                    logger.error("❌ Timeout: No fetchpriority='high' comics found after 30 seconds")
+                    
+            except TimeoutException:
+                logger.warning("No comic images detected, trying og:image fallback")
+                # Fallback to og:image detection
+                wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "meta[property='og:image']")))
             
             return self.driver.page_source
             
@@ -107,9 +136,149 @@ class ComicScraper:
         finally:
             self.cleanup_driver()
     
+    def _extract_comic_image(self, soup: BeautifulSoup) -> Optional[str]:
+        """
+        Extract the actual comic strip image URL from the page.
+        
+        Args:
+            soup (BeautifulSoup): Parsed HTML content.
+            
+        Returns:
+            Optional[str]: The comic strip image URL, or None if not found.
+        """
+        # Strategy 1: Look for images with comic strip classes
+        # Order is important - check for the main comic class FIRST
+        comic_strip_selectors = [
+            # Main comic image class (the actual daily comic)
+            'img.Comic_comic__image__6e_Fw',
+            # Strip format comics (often "best of" comics)
+            'img.Comic_comic__image_isStrip__eCtT2',
+            # Vertical/skinny format comics  
+            'img.Comic_comic__image_isSkinny__NZ2aF'
+        ]
+        
+        for selector in comic_strip_selectors:
+            comic_imgs = soup.select(selector)
+            if comic_imgs:
+                # For multiple images, try to find the most relevant one
+                best_img = self._select_best_comic_image(comic_imgs, soup)
+                if best_img:
+                    img_src = best_img.get('src', '')
+                    if img_src and 'featureassets.gocomics.com' in img_src:
+                        logger.info(f"Found comic using selector: {selector}")
+                        return img_src
+        
+        # Strategy 2: Look for images in comic containers
+        comic_containers = soup.find_all(['div', 'section'], 
+                                       class_=lambda x: x and any(term in ' '.join(x).lower() 
+                                                                 for term in ['comic', 'strip']) if x else False)
+        
+        for container in comic_containers:
+            img = container.find('img')
+            if img:
+                img_src = img.get('src', '')
+                if img_src and 'featureassets.gocomics.com' in img_src:
+                    logger.info("Found comic in comic container")
+                    return img_src
+        
+        # Strategy 3: Look for any images from the GoComics asset domain
+        all_imgs = soup.find_all('img')
+        for img in all_imgs:
+            img_src = img.get('src', '')
+            if img_src and 'featureassets.gocomics.com' in img_src:
+                # Verify it's not a thumbnail or other small image
+                if any(size in img_src for size in ['width=2800', 'width=1400', 'large']):
+                    logger.info("Found comic using asset domain strategy")
+                    return img_src
+        
+        logger.warning("Could not find comic strip image using any strategy")
+        return None
+    
+    def _select_best_comic_image(self, comic_imgs: list, soup: BeautifulSoup) -> Optional:
+        """
+        When multiple comic images are found, select the most relevant one.
+        
+        For Comic_comic__image__6e_Fw class:
+        - Look for the image with srcset (indicates main comic with responsive images)
+        - Prefer images with fetchpriority="high"
+        - Fall back to first image
+        
+        Args:
+            comic_imgs (list): List of comic image elements.
+            soup (BeautifulSoup): The full page soup for context.
+            
+        Returns:
+            Optional: The best comic image element, or None.
+        """
+        if not comic_imgs:
+            return None
+        
+        if len(comic_imgs) == 1:
+            return comic_imgs[0]
+        
+        logger.info(f"Found {len(comic_imgs)} comic images, selecting best one...")
+        
+        # Strategy 1: Look for images with fetchpriority="high" - THIS IS THE KEY!
+        # All actual daily comics have fetchpriority="high", "best of" comics don't
+        for img in comic_imgs:
+            if img.get('fetchpriority') == 'high':
+                logger.info("✅ Selected comic with fetchpriority='high' (the actual daily comic)")
+                return img
+        
+        # Strategy 2: Look for images with srcset (responsive images - backup)
+        for img in comic_imgs:
+            if img.get('srcset'):
+                logger.info("Selected comic with srcset (responsive image)")
+                return img
+        
+        # Strategy 3: Look for images with data-nimg attribute (Next.js optimized images)
+        for img in comic_imgs:
+            if img.get('data-nimg'):
+                logger.info("Selected Next.js optimized image")
+                return img
+        
+        # Fallback: return the first image
+        logger.info("Using first comic image as fallback")
+        return comic_imgs[0]
+    
+    def _is_promotional_image(self, image_url: str) -> bool:
+        """
+        Check if an image URL appears to be a promotional/social media image rather than a comic strip.
+        
+        Args:
+            image_url (str): The image URL to check.
+            
+        Returns:
+            bool: True if the image appears to be promotional, False otherwise.
+        """
+        if not image_url:
+            return True
+            
+        # Check for social media image patterns
+        social_indicators = [
+            'GC_Social_FB_',  # Facebook social images
+            'GC_Social_',     # General social images
+            'social_',        # Social media images
+            '_social',        # Social media images
+            'promotional',    # Promotional images
+            'banner',         # Banner images
+        ]
+        
+        for indicator in social_indicators:
+            if indicator in image_url:
+                logger.warning(f"Detected promotional image: {indicator} in {image_url}")
+                return True
+        
+        # Check for asset domain vs social asset domain
+        if 'gocomicscmsassets.gocomics.com' in image_url:
+            logger.warning(f"Detected CMS asset (likely promotional): {image_url}")
+            return True
+            
+        return False
+    
     def extract_metadata(self, html_content: str) -> Dict[str, str]:
         """
-        Extract metadata from a comic page using Open Graph tags.
+        Extract metadata from a comic page, prioritizing actual comic strip images over og:image.
         
         Args:
             html_content (str): The HTML content of the comic page.
@@ -121,9 +290,8 @@ class ComicScraper:
             soup = BeautifulSoup(html_content, 'html.parser')
             metadata = {}
             
-            # Extract Open Graph metadata
+            # Extract Open Graph metadata (for title, url, description)
             og_tags = {
-                'image': 'og:image',
                 'title': 'og:title',
                 'url': 'og:url',
                 'description': 'og:description'
@@ -133,6 +301,23 @@ class ComicScraper:
                 meta = soup.find('meta', property=tag)
                 if meta:
                     metadata[key] = meta.get('content', '')
+            
+            # Extract the actual comic strip image (prioritized over og:image)
+            comic_image_url = self._extract_comic_image(soup)
+            if comic_image_url and not self._is_promotional_image(comic_image_url):
+                metadata['image'] = comic_image_url
+                logger.info(f"Found valid comic strip image: {comic_image_url}")
+            else:
+                # Fallback to og:image if no comic strip image found
+                og_image = soup.find('meta', property='og:image')
+                if og_image:
+                    og_image_url = og_image.get('content', '')
+                    if self._is_promotional_image(og_image_url):
+                        logger.error(f"Both comic strip and og:image appear to be promotional. Using og:image anyway: {og_image_url}")
+                    metadata['image'] = og_image_url
+                    logger.warning("Using og:image as fallback - may not be the actual comic strip")
+                else:
+                    logger.error("No image found at all")
             
             # Extract publication date
             date_meta = soup.find('meta', property='article:published_time')

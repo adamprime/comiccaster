@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+<channel>
+<title>VERIFICATION: Realitycheck - Daily Comics Fix</title>
+<link>https://www.gocomics.com/realitycheck</link>
+<description>Reality Check - Modern webcomic format - Test feed for verifying actual daily comics (not "best of")</description>
+<atom:link href="https://comiccaster.xyz/feeds/realitycheck-verification.xml" rel="self" type="application/rss+xml"/>
+<docs>http://www.rssboard.org/rss-specification</docs>
+<generator>ComicCaster Additional Verification Test - fetchpriority Fix</generator>
+<language>en</language>
+<lastBuildDate>Wed, 25 Jun 2025 12:23:19 +0000</lastBuildDate>
+<item>
+<title>Realitycheck - 2025-06-25</title>
+<link>https://www.gocomics.com/realitycheck</link>
+<description><![CDATA[
+                <div style="text-align: center;">
+                    <img src="https://featureassets.gocomics.com/assets/8cc884302dc3013ea592005056a9545d?optimizer=image&width=2800&quality=85" alt="Realitycheck" style="max-width: 100%;">
+                    <p>Realitycheck comic for 2025-06-25</p>
+                    <p><strong>Verification:</strong> ✅ fetchpriority="high" Daily Comic</p>
+                    <p><strong>Hash:</strong> 8cc884302dc3013ea592005056a9545d</p>
+                    <p><strong>Source:</strong> ✅ Comic Asset (featureassets.gocomics.com)</p>
+                </div>
+                ]]></description>
+<guid isPermaLink="false">https://www.gocomics.com/realitycheck</guid>
+<enclosure url="https://featureassets.gocomics.com/assets/8cc884302dc3013ea592005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/>
+<pubDate>Wed, 25 Jun 2025 00:00:00 +0000</pubDate>
+</item>
+</channel>
+</rss>
