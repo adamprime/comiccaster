@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+<channel>
+<title>Test Bloom County - Issue #27 Fix</title>
+<link>https://www.gocomics.com/bloomcounty</link>
+<description>Test feed for verifying GitHub issue #27 fix - Daily Bloom County comic strip</description>
+<atom:link href="https://comiccaster.xyz/feeds/bloomcounty-test.xml" rel="self" type="application/rss+xml"/>
+<docs>http://www.rssboard.org/rss-specification</docs>
+<generator>ComicCaster Test - Issue #27 Fix</generator>
+<language>en</language>
+<lastBuildDate>Wed, 25 Jun 2025 11:54:13 +0000</lastBuildDate>
+<item>
+<title>Bloom County - 2025-06-21</title>
+<link>https://www.gocomics.com/bloomcounty/2025/06/21</link>
+<description><![CDATA[
+                <div style="text-align: center;">
+                    <img src="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&width=2800&quality=85" alt="Bloom County" style="max-width: 100%;">
+                    <p>Comic strip for 2025-06-21</p>
+                </div>
+                ]]></description>
+<guid isPermaLink="false">https://www.gocomics.com/bloomcounty/2025/06/21</guid>
+<enclosure url="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/>
+<pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate>
+</item><item>
+<title>Bloom County - 2025-06-23</title>
+<link>https://www.gocomics.com/bloomcounty/2025/06/23</link>
+<description><![CDATA[
+                <div style="text-align: center;">
+                    <img src="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&width=2800&quality=85" alt="Bloom County" style="max-width: 100%;">
+                    <p>Comic strip for 2025-06-23</p>
+                </div>
+                ]]></description>
+<guid isPermaLink="false">https://www.gocomics.com/bloomcounty/2025/06/23</guid>
+<enclosure url="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/>
+<pubDate>Mon, 23 Jun 2025 00:00:00 +0000</pubDate>
+</item><item>
+<title>Bloom County - 2025-06-24</title>
+<link>https://www.gocomics.com/bloomcounty/2025/06/24</link>
+<description><![CDATA[
+                <div style="text-align: center;">
+                    <img src="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&width=2800&quality=85" alt="Bloom County" style="max-width: 100%;">
+                    <p>Comic strip for 2025-06-24</p>
+                </div>
+                ]]></description>
+<guid isPermaLink="false">https://www.gocomics.com/bloomcounty/2025/06/24</guid>
+<enclosure url="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/>
+<pubDate>Tue, 24 Jun 2025 00:00:00 +0000</pubDate>
+</item><item>
+<title>Bloom County - 2025-06-25</title>
+<link>https://www.gocomics.com/bloomcounty</link>
+<description><![CDATA[
+                <div style="text-align: center;">
+                    <img src="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&width=2800&quality=85" alt="Bloom County" style="max-width: 100%;">
+                    <p>Comic strip for 2025-06-25</p>
+                </div>
+                ]]></description>
+<guid isPermaLink="false">https://www.gocomics.com/bloomcounty</guid>
+<enclosure url="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/>
+<pubDate>Wed, 25 Jun 2025 00:00:00 +0000</pubDate>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+<channel>
+    <title>Issue #27 Fix Demonstration - Bloom County</title>
+    <link>https://www.gocomics.com/bloomcounty</link>
+    <description>Demonstration of fix for GitHub issue #27: Comics showing incorrect images</description>
+    <atom:link href="https://comiccaster.xyz/feeds/demo-bloomcounty.xml" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>ComicCaster Fixed Scraper</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Jun 2025 11:10:00 +0000</lastBuildDate>
+    
+    <item>
+        <title>Issue #27 Fix Demo - 2025-06-25</title>
+        <link>https://www.gocomics.com/bloomcounty/2025/06/25</link>
+        <description>
+            <![CDATA[
+            <div style="text-align: center; font-family: Arial, sans-serif;">
+                <h2>GitHub Issue #27 Fix Demonstration</h2>
+                <img src="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&width=2800&quality=85" alt="Bloom County" style="max-width: 100%; border: 2px solid #ccc;">
+                
+                <div style="background: #f0f8ff; padding: 20px; margin: 20px 0; border-radius: 10px;">
+                    <h3>🔍 Issue Analysis:</h3>
+                    <p><strong>Problem:</strong> RSS feeds were showing social media/promotional images instead of actual daily comics</p>
+                    <p><strong>Root Cause:</strong> Scraper was using og:image meta tags which point to generic social images</p>
+                </div>
+                
+                <div style="background: #f0fff0; padding: 20px; margin: 20px 0; border-radius: 10px;">
+                    <h3>✅ Fix Applied:</h3>
+                    <p><strong>Enhanced Image Detection:</strong> Now prioritizes actual comic strip images</p>
+                    <p><strong>Image URL:</strong> <code>https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&width=2800&quality=85</code></p>
+                    <p><strong>Source Domain:</strong> ✅ featureassets.gocomics.com (Comic Asset - GOOD)</p>
+                    <p><strong>Social Media Image:</strong> ✅ NO (No GC_Social_FB_ or gocomicscmsassets patterns)</p>
+                    <p><strong>High Resolution:</strong> ✅ YES (width=2800)</p>
+                </div>
+                
+                <div style="background: #fff8f0; padding: 20px; margin: 20px 0; border-radius: 10px;">
+                    <h3>🔧 Technical Changes:</h3>
+                    <ul style="text-align: left; display: inline-block;">
+                        <li>Enhanced scraper.py with better image detection</li>
+                        <li>Added multiple fallback strategies for comic image selection</li>
+                        <li>Added validation to detect promotional images</li>
+                        <li>Prioritizes comic strip CSS classes over og:image tags</li>
+                    </ul>
+                </div>
+                
+                <p><em>This demonstrates that the scraper now correctly identifies actual comic strip images instead of social media promotional images.</em></p>
+            </div>
+            ]]>
+        </description>
+        <guid isPermaLink="false">demo-bloomcounty-2025-06-25</guid>
+        <enclosure url="https://featureassets.gocomics.com/assets/d1259d807c5e0135ec56005056a9545d?optimizer=image&width=2800&quality=85" length="0" type="image/jpeg"/>
+        <pubDate>Wed, 25 Jun 2025 00:00:00 +0000</pubDate>
+    </item>
+    
+    <item>
+        <title>BEFORE Fix - What users were seeing</title>
+        <link>https://github.com/adamprime/comiccaster/issues/27</link>
+        <description>
+            <![CDATA[
+            <div style="text-align: center; font-family: Arial, sans-serif;">
+                <h2>❌ BEFORE: What was happening</h2>
+                <div style="background: #ffebee; padding: 20px; margin: 20px 0; border-radius: 10px; border: 2px solid #f44336;">
+                    <h3>Problems Reported:</h3>
+                    <p><strong>Affected Comics:</strong> bloomcounty, pearlsbeforeswine, toomuchcoffeeman</p>
+                    <p><strong>Issue:</strong> Feeds showing generic "best of" or social media images</p>
+                    <p><strong>Example Bad URL:</strong> <code>https://gocomicscmsassets.gocomics.com/staging-assets/assets/GC_Social_FB_Bloom_County_*.jpg</code></p>
+                    <p><strong>Problem Pattern:</strong> URLs contained GC_Social_FB_ indicating social media images</p>
+                </div>
+                
+                <div style="background: #e8f5e8; padding: 20px; margin: 20px 0; border-radius: 10px; border: 2px solid #4caf50;">
+                    <h3>✅ AFTER: Fix Applied</h3>
+                    <p><strong>New Behavior:</strong> Correctly identifies actual comic strip images</p>
+                    <p><strong>Good URL Pattern:</strong> <code>https://featureassets.gocomics.com/assets/*</code></p>
+                    <p><strong>High Resolution:</strong> Images include width=2800 parameter</p>
+                    <p><strong>Result:</strong> Users now see actual daily comics in their RSS feeds</p>
+                </div>
+                
+                <p><strong>GitHub Issue:</strong> <a href="https://github.com/adamprime/comiccaster/issues/27">#27 - Incorrect images shown</a></p>
+            </div>
+            ]]>
+        </description>
+        <guid isPermaLink="false">demo-before-fix-explanation</guid>
+        <pubDate>Tue, 24 Jun 2025 00:00:00 +0000</pubDate>
+    </item>
+</channel>
+</rss>
