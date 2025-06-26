@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Garfield - GoComics</title><link>https://www.gocomics.com/garfield</link><description>Daily Garfield comic strip by Jim Davis</description><atom:link href="https://comiccaster.xyz/feeds/garfield.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 25 Jun 2025 18:02:52 +0000</lastBuildDate><item><title>Garfield - 2025-06-25</title><link>https://www.gocomics.com/garfield/2025/06/25</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Garfield - GoComics</title><link>https://www.gocomics.com/garfield</link><description>Daily Garfield comic strip by Jim Davis</description><atom:link href="https://comiccaster.xyz/feeds/garfield.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Jun 2025 09:15:34 +0000</lastBuildDate><item><title>Garfield - 2025-06-26</title><link>https://www.gocomics.com/garfield/2025/06/26</link><description>
+                &lt;div style="text-align: center;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/c231a3e017c5013ea0c4005056a9545d" alt="Garfield" style="max-width: 100%;"&gt;
+                    &lt;p&gt;Comic strip for 2025-06-26&lt;/p&gt;
+                &lt;/div&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/garfield/2025/06/26</guid><enclosure url="https://featureassets.gocomics.com/assets/c231a3e017c5013ea0c4005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Garfield - 2025-06-25</title><link>https://www.gocomics.com/garfield/2025/06/25</link><description>
                 &lt;div style="text-align: center;"&gt;
                     &lt;img src="https://featureassets.gocomics.com/assets/bfb81ae017c5013ea0c4005056a9545d" alt="Garfield" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-06-25&lt;/p&gt;
@@ -16,10 +21,10 @@
                 &lt;/div&gt;
                 </description><guid isPermaLink="false">https://www.gocomics.com/garfield/2025/06/23</guid><enclosure url="https://featureassets.gocomics.com/assets/ba5040d017c5013ea0c4005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 23 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Garfield - 2025-06-22</title><link>https://www.gocomics.com/garfield/2025/06/22</link><description>
                 &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/fa49d1402dba013ea58e005056a9545d" alt="Garfield" style="max-width: 100%;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/aead3a905f69012ee3c100163e41dd5b" alt="Garfield" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-06-22&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/garfield/2025/06/22</guid><enclosure url="https://featureassets.gocomics.com/assets/fa49d1402dba013ea58e005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Garfield - 2025-06-21</title><link>https://www.gocomics.com/garfield/2025/06/21</link><description>
+                </description><guid isPermaLink="false">https://www.gocomics.com/garfield/2025/06/22</guid><enclosure url="https://featureassets.gocomics.com/assets/aead3a905f69012ee3c100163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Garfield - 2025-06-21</title><link>https://www.gocomics.com/garfield/2025/06/21</link><description>
                 &lt;div style="text-align: center;"&gt;
                     &lt;img src="https://featureassets.gocomics.com/assets/e2099fd017c8013ea0c5005056a9545d" alt="Garfield" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-06-21&lt;/p&gt;
@@ -44,12 +49,10 @@
                     &lt;img src="https://featureassets.gocomics.com/assets/d6fb082017c8013ea0c5005056a9545d" alt="Garfield" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-06-17&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/garfield/2025/06/17</guid><enclosure url="https://featureassets.gocomics.com/assets/d6fb082017c8013ea0c5005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Garfield - 2025-06-16</title><link>https://www.gocomics.com/garfield/2025/06/16</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/b305629017c5013ea0c4005056a9545d" alt="Garfield" style="max-width: 100%;"&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/garfield/2025/06/17</guid><enclosure url="https://featureassets.gocomics.com/assets/d6fb082017c8013ea0c5005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Garfield - 2025-06-16</title><link>https://www.gocomics.com/garfield/2025/06/16</link><description>&lt;div style="text-align: center;"&gt;
+                    &lt;img alt="Garfield" src="https://featureassets.gocomics.com/assets/b305629017c5013ea0c4005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-16&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/garfield/2025/06/16</guid><enclosure url="https://featureassets.gocomics.com/assets/b305629017c5013ea0c4005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Garfield - 2025-06-15</title><link>https://www.gocomics.com/garfield/2025/06/15</link><description>&lt;div style="text-align: center;"&gt;
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/garfield/2025/06/16</guid><enclosure url="https://featureassets.gocomics.com/assets/b305629017c5013ea0c4005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Garfield - 2025-06-15</title><link>https://www.gocomics.com/garfield/2025/06/15</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Garfield" src="https://featureassets.gocomics.com/assets/70e706b022ee013ea323005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-15&lt;/p&gt;
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/garfield/2025/06/15</guid><enclosure url="https://featureassets.gocomics.com/assets/70e706b022ee013ea323005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 15 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Garfield - 2025-06-14</title><link>https://www.gocomics.com/garfield/2025/06/14</link><description>&lt;div style="text-align: center;"&gt;

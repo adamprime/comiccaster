@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Harley - GoComics</title><link>https://www.gocomics.com/harley</link><description>Daily Harley comic strip by Dan Thompson</description><atom:link href="https://comiccaster.xyz/feeds/harley.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 25 Jun 2025 18:02:58 +0000</lastBuildDate><item><title>Harley - 2025-06-25</title><link>https://www.gocomics.com/harley/2025/06/25</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Harley - GoComics</title><link>https://www.gocomics.com/harley</link><description>Daily Harley comic strip by Dan Thompson</description><atom:link href="https://comiccaster.xyz/feeds/harley.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Jun 2025 09:15:40 +0000</lastBuildDate><item><title>Harley - 2025-06-26</title><link>https://www.gocomics.com/harley/2025/06/26</link><description>
+                &lt;div style="text-align: center;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/eda67a60319e013ea67d005056a9545d" alt="Harley" style="max-width: 100%;"&gt;
+                    &lt;p&gt;Comic strip for 2025-06-26&lt;/p&gt;
+                &lt;/div&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/harley/2025/06/26</guid><enclosure url="https://featureassets.gocomics.com/assets/eda67a60319e013ea67d005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Harley - 2025-06-25</title><link>https://www.gocomics.com/harley/2025/06/25</link><description>
                 &lt;div style="text-align: center;"&gt;
                     &lt;img src="https://featureassets.gocomics.com/assets/1946fae0319c013ea67c005056a9545d" alt="Harley" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-06-25&lt;/p&gt;
@@ -41,15 +46,13 @@
                 &lt;/div&gt;
                 </description><guid isPermaLink="false">https://www.gocomics.com/harley/2025/06/18</guid><enclosure url="https://featureassets.gocomics.com/assets/625e3ed02c5c013ea539005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 18 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Harley - 2025-06-17</title><link>https://www.gocomics.com/harley/2025/06/17</link><description>
                 &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/5e8695402c5c013ea539005056a9545d" alt="Harley" style="max-width: 100%;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/a14022d0f579013d9a11005056a9545d" alt="Harley" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025-06-17&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/harley/2025/06/17</guid><enclosure url="https://featureassets.gocomics.com/assets/5e8695402c5c013ea539005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Harley - 2025-06-16</title><link>https://www.gocomics.com/harley/2025/06/16</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/5a2737802c5c013ea539005056a9545d" alt="Harley" style="max-width: 100%;"&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/harley/2025/06/17</guid><enclosure url="https://featureassets.gocomics.com/assets/a14022d0f579013d9a11005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Harley - 2025-06-16</title><link>https://www.gocomics.com/harley/2025/06/16</link><description>&lt;div style="text-align: center;"&gt;
+                    &lt;img alt="Harley" src="https://featureassets.gocomics.com/assets/5a2737802c5c013ea539005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-16&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/harley/2025/06/16</guid><enclosure url="https://featureassets.gocomics.com/assets/5a2737802c5c013ea539005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Harley - 2025-06-15</title><link>https://www.gocomics.com/harley/2025/06/15</link><description>&lt;div style="text-align: center;"&gt;
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/harley/2025/06/16</guid><enclosure url="https://featureassets.gocomics.com/assets/5a2737802c5c013ea539005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Harley - 2025-06-15</title><link>https://www.gocomics.com/harley/2025/06/15</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Harley" src="https://featureassets.gocomics.com/assets/ee018e9026d0013ea3fe005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-15&lt;/p&gt;
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/harley/2025/06/15</guid><enclosure url="https://featureassets.gocomics.com/assets/ee018e9026d0013ea3fe005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 15 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Harley - 2025-06-14</title><link>https://www.gocomics.com/harley/2025/06/14</link><description>&lt;div style="text-align: center;"&gt;
