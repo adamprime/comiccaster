@@ -13,6 +13,7 @@ import pytz
 import requests
 from bs4 import BeautifulSoup
 from comiccaster.feed_generator import ComicFeedGenerator
+from comiccaster.scraper import ComicScraper
 from feedgen.entry import FeedEntry
 import feedparser
 import configparser
@@ -63,142 +64,49 @@ def load_comics_list():
         logger.error(f"Error loading comics list: {e}")
         sys.exit(1)
 
-def get_headers():
-    """Get browser-like headers for HTTP requests."""
-    return {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-    }
+# Removed get_headers() function - no longer needed since we use ComicScraper with Selenium
 
-def scrape_comic(comic, date_str, timeout=REQUEST_TIMEOUT, retries=MAX_RETRIES):
-    """Scrape a comic from GoComics for a given date."""
+def scrape_comic(comic, date_str):
+    """Scrape a comic from GoComics for a given date using the unified ComicScraper."""
     logging.info(f"Fetching {comic['name']} for {date_str}")
     
-    # Define target_date early based on input date_str format
-    try:
-        if '/' in date_str:
-            # Input is YYYY/MM/DD
-            target_date = datetime.strptime(date_str, '%Y/%m/%d').date()
-            url_date_str = date_str # Already in correct format for URL
-        else:
-            # Assume input is YYYY-MM-DD or similar parseable format
-            target_date = datetime.strptime(date_str, '%Y-%m-%d').date()
-            url_date_str = target_date.strftime('%Y/%m/%d') # Convert to URL format
-        
-        url = f"https://www.gocomics.com/{comic['slug']}/{url_date_str}"
-        # Ensure pub_date_str uses YYYY-MM-DD format for consistency later
-        pub_date_str_for_return = target_date.strftime('%Y-%m-%d') 
-
-    except ValueError as e:
-        logging.error(f"Error parsing date string '{date_str}' for {comic['name']}: {e}")
-        return None # Cannot proceed without a valid date
+    # Create a ComicScraper instance (will use Selenium for reliable scraping)
+    scraper = ComicScraper()
     
-    for attempt in range(retries):
-        try:
-            response = requests.get(url, headers=get_headers(), timeout=timeout)
-            response.raise_for_status()
-            soup = BeautifulSoup(response.text, 'html.parser')
-            
-            # Extract the comic image URL (prioritizing the actual comic)
-            comic_image = None
-
-            # === NEW ORDER: Method 1 - Try finding the specific comic strip image tag by class, src host, AND fetchpriority ===
-            # Add fetchpriority='high' to the selector for more specificity
-            specific_selector = 'img.Comic_comic__image_strip__hPLFq[src*="featureassets.gocomics.com/assets/"][fetchpriority="high"]'
-            img_tag = soup.select_one(specific_selector)
-            if img_tag and img_tag.get('src'):
-                # Found the specific image tag, extract its src
-                comic_image = img_tag['src']
-                logging.info(f"Found actual comic image via specific img tag selector (class, src, fetchpriority) for {url}")
-            # else:
-                # logging.info(f"Specific comic img tag ({specific_selector}) not found. Trying JSON-LD.")
-
-            # === Method 2 (Fallback 1) - Try JSON-LD if specific img tag failed ===
-            if not comic_image:
-                potential_json_images = [] # Store candidates from JSON-LD
-                scripts = soup.find_all("script", type="application/ld+json")
-                for script in scripts:
-                    try:
-                        if script.string and "ImageObject" in script.string and "contentUrl" in script.string:
-                            data = json.loads(script.string)
-                            # Check if it's an ImageObject with a featureassets URL
-                            if data.get("@type") == "ImageObject" and data.get("contentUrl") and "featureassets.gocomics.com" in data.get("contentUrl"):
-                                potential_json_images.append({'url': data.get("contentUrl"), 'json': data})
-                    except Exception as e:
-                        logging.warning(f"Error parsing JSON data in script tag: {e}")
-                
-                # Now, choose the best image from the potential JSON candidates
-                if potential_json_images:
-                    found_match_by_date = False
-                    for item in potential_json_images:
-                        caption = item['json'].get('caption', '')
-                        name = item['json'].get('name', '')
-                        if pub_date_str_for_return in caption or pub_date_str_for_return in name:
-                            comic_image = item['url']
-                            logging.info(f"Found actual comic image in JSON data (matched date {pub_date_str_for_return}) for {url}")
-                            found_match_by_date = True
-                            break
-                    if not found_match_by_date:
-                        comic_image = potential_json_images[0]['url']
-                        logging.warning(f"Could not confirm date in JSON metadata for {url}. Using first found featureassets URL from JSON-LD: {comic_image}")
-                # else: # Optional log if JSON-LD also yields nothing
-                    # logging.info(f"No suitable image found in JSON-LD for {url}. Trying script regex.")
-
-            # === Method 3 (Fallback 2) - Try regex in other scripts ===
-            if not comic_image:
-                for script in soup.find_all("script"):
-                    if script.string and "featureassets.gocomics.com/assets" in script.string and "url" in script.string:
-                        try:
-                            # Find URLs that look like comic strip images
-                            matches = re.findall(r'"url"\s*:\s*"(https://featureassets\.gocomics\.com/assets/[^"]+)"', script.string)
-                            if matches:
-                                comic_image = matches[0]
-                                logging.info(f"Found comic image URL in script data for {url}")
-                                break
-                        except Exception as e:
-                            logging.warning(f"Error extracting URL from script: {e}")
-            
-            # === Method 4 (Fallback 3) - Try og:image ===
-            # Original Method 3/4 combined (img tag check removed as it's now Method 1)
-            # Method 4: If no comic image found yet, try the social media image as fallback
-            if not comic_image:
-                meta_tag = soup.select_one('meta[property="og:image"]')
-                if meta_tag and meta_tag.get("content"):
-                    comic_image = meta_tag["content"]
-                    logging.info(f"Found social media image for {url}")
-            
-            if not comic_image:
-                logging.error(f"No comic image found for {url}")
-                return None
-            
-            # Get the comic URL (which might be different than the constructed URL)
-            comic_url = url
-            
-            # Create title from date
-            title = f"{comic['name']} - {target_date.strftime('%Y-%m-%d')}"
-            
-            # Don't include the image in the description, as it will be handled separately
-            description_text = f'Comic strip for {target_date.strftime("%Y-%m-%d")}'
-            
-            # Use the image URL for the image field, but don't duplicate it in the description
-            # This will prevent the image from appearing twice in the feed
+    try:
+        # Convert date format if needed
+        if '/' in date_str:
+            # Input is YYYY/MM/DD (already correct)
+            target_date = datetime.strptime(date_str, '%Y/%m/%d').date()
+            scraper_date_str = date_str
+        else:
+            # Convert YYYY-MM-DD to YYYY/MM/DD for scraper
+            target_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+            scraper_date_str = target_date.strftime('%Y/%m/%d')
+        
+        # Use the proven scraper logic
+        metadata = scraper.scrape_comic(comic['slug'], scraper_date_str)
+        
+        if metadata:
+            # Convert to format expected by feed updater
             return {
-                'title': title,
-                'url': url,
-                'image': comic_image,
-                'pub_date': pub_date_str_for_return, # Use the consistently formatted YYYY-MM-DD string
-                'description': description_text,
-                'id': url  # Use URL as ID to ensure uniqueness
+                'title': f"{comic['name']} - {target_date.strftime('%Y-%m-%d')}",
+                'url': metadata.get('url', f"https://www.gocomics.com/{comic['slug']}/{scraper_date_str}"),
+                'image': metadata.get('image', ''),
+                'pub_date': target_date.strftime('%Y-%m-%d'),
+                'description': metadata.get('description', f'Comic strip for {target_date.strftime("%Y-%m-%d")}'),
+                'id': metadata.get('url', f"https://www.gocomics.com/{comic['slug']}/{scraper_date_str}")
             }
+        else:
+            logging.error(f"ComicScraper returned no metadata for {comic['name']} on {date_str}")
+            return None
             
-        except requests.RequestException as e:
-            if attempt < retries - 1:
-                time.sleep(1)  # Wait before retrying
-                continue
-            logging.warning(f"Failed to fetch {comic['name']} for {date_str} after {retries} attempts: {str(e)}")
-            return None
-        except Exception as e:
-            logging.warning(f"Unexpected error fetching {comic['name']} for {date_str}: {str(e)}")
-            return None
+    except Exception as e:
+        logging.error(f"Error using ComicScraper for {comic['name']} on {date_str}: {e}")
+        return None
+    finally:
+        # Ensure cleanup
+        scraper.cleanup_driver()
 
 def process_comic_date(comic_info: Dict[str, str], date: datetime) -> Optional[Dict[str, any]]:
     """
