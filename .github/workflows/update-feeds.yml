@@ -25,7 +25,16 @@ jobs:
       - name: Install Firefox and geckodriver
         run: |
           sudo apt-get update
-          sudo apt-get install -y firefox xvfb
+          sudo apt-get install -y xvfb
+          
+          # Remove snap firefox if it exists
+          sudo snap remove firefox || true
+          
+          # Install Firefox from Mozilla's official repository
+          sudo wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+          echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+          sudo apt-get update
+          sudo apt-get install -y firefox
           
           # Install geckodriver (use a known stable version)
           wget https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
