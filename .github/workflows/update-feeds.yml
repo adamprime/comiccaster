@@ -28,7 +28,7 @@ jobs:
           firefox-version: latest
       
       - name: Setup geckodriver  
-        uses: nanasess/setup-geckodriver@v2
+        uses: browser-actions/setup-geckodriver@v1
         
       - name: Install Xvfb for headless display
         run: sudo apt-get update && sudo apt-get install -y xvfb
