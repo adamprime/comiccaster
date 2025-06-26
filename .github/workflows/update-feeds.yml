@@ -44,13 +44,18 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
       
-      - name: Run feed update script
+      - name: Test scraping works
         run: |
           # Set up virtual display for headless Firefox
           export DISPLAY=:99
           Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
           
-          # Run the feed update script
+          # Test single comic first
+          python test_github_scraping.py
+      
+      - name: Run feed update script
+        run: |
+          # Run the feed update script (display already set up)
           python scripts/update_feeds.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

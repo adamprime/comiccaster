@@ -42,7 +42,7 @@ TIMEZONE = pytz.timezone('US/Eastern')
 COMICS_URL = "https://www.gocomics.com"
 
 # Constants for concurrent processing
-MAX_WORKERS = 10  # Maximum number of concurrent workers
+MAX_WORKERS = 2  # Maximum number of concurrent workers (reduced for GitHub Actions)
 REQUEST_TIMEOUT = 10  # Timeout for HTTP requests in seconds
 MAX_RETRIES = 3  # Maximum number of retries for failed requests
 
