@@ -48,9 +48,13 @@ Produce a master list of comic slugs (e.g., "pickles", "pearlsbeforeswine") avai
 
 B. Comic Scraper Module
 	•	Purpose:
-For each comic slug, fetch the daily page (e.g., https://www.gocomics.com/pickles) and extract metadata like the comic image URL (using the og:image meta tag), title, and publication date.
+For each comic slug, fetch the daily page (e.g., https://www.gocomics.com/pickles) and extract metadata like the comic image URL, title, and publication date while ensuring accurate detection of daily comics vs "best of" reruns.
 	•	Key Technique:
-Meta Piggybacking: Leverage the Open Graph metadata (e.g., <meta property="og:image">) for a robust and stable extraction method.
+JSON-LD Date Matching: Parse structured data (JSON-LD) from GoComics pages to find `ImageObject` entries that match the specific requested date, ensuring we get the actual daily comic rather than historical reruns.
+	•	Fallback Methods:
+		- CSS selector with `fetchpriority="high"` attribute detection
+		- Open Graph metadata (`og:image`) as secondary option
+		- Multiple parsing strategies for maximum reliability
 
 C. Feed Generator (Per-Comic)
 	•	Purpose:
@@ -167,6 +171,58 @@ Use Docker for containerization and GitHub Actions or a cron job on a VM for sch
 
 ## Implementation Details
 
+### Enhanced Comic Detection System (June 2025)
+
+**Challenge**: GoComics displays multiple comics per page - both the current daily comic and historical "best of" reruns. The system needed to reliably distinguish between these to ensure feeds show only current daily content.
+
+**Solution**: Multi-strategy scraping approach with JSON-LD date matching as the primary method:
+
+1. **JSON-LD Structured Data Parsing** (Primary):
+   - Parse `<script type="application/ld+json">` blocks on comic pages
+   - Look for `ImageObject` entries with `contentUrl` pointing to GoComics assets
+   - Match comic publication date with requested date using formatted date strings
+   - Example: "June 26, 2025" format matching for date-specific comic identification
+
+2. **CSS Selector with fetchpriority** (Secondary):
+   - Target images with `fetchpriority="high"` attribute
+   - This attribute indicates the current daily comic vs reruns
+   - Used as fallback when JSON-LD parsing fails
+
+3. **Open Graph Metadata** (Tertiary):
+   - Extract from `<meta property="og:image">` tags
+   - Least reliable due to potential caching issues
+
+**Technical Implementation**:
+```python
+# Primary strategy: JSON-LD with date matching
+target_date = datetime.strptime(date_str, '%Y/%m/%d')
+target_date_formatted = target_date.strftime('%B %d, %Y').replace(' 0', ' ')
+
+scripts = soup.find_all("script", type="application/ld+json")
+for script in scripts:
+    if script.string and "ImageObject" in script.string:
+        data = json.loads(script.string)
+        if (data.get("@type") == "ImageObject" and 
+            data.get("contentUrl") and 
+            "featureassets.gocomics.com" in data.get("contentUrl")):
+            
+            name = data.get("name", "")
+            if target_date_formatted in name:
+                return extract_comic_data(data, url)
+```
+
+**Performance Optimizations**:
+- HTTP-only requests (no browser automation needed)
+- Parallel processing with 8 concurrent workers
+- Efficient error handling and fallback strategies
+- GitHub Actions optimized workflow
+
+**Results**:
+- ✅ Fixed incorrect comics in feeds ("Pearls Before Swine", "In the Bleachers", etc.)
+- ✅ 404+ comic feeds now show accurate daily content
+- ✅ Eliminated "best of" reruns appearing in daily feeds
+- ✅ Improved reliability and performance
+
 ### Feed URL Generation and Display
 
 The application generates unique feed URLs for users based on their comic selections:
@@ -189,8 +245,19 @@ The application generates unique feed URLs for users based on their comic select
 ## Summary
 
 This project provides:
-	•	Individual RSS feeds for GoComics comics
+	•	Individual RSS feeds for GoComics comics with accurate daily comic detection
 	•	A web interface for selecting and combining feeds
 	•	Search functionality for finding comics
 	•	Token-based feed URLs for privacy
-	•	Automatic daily updates
+	•	Automatic daily updates with enhanced scraping reliability
+	•	Robust comic detection that distinguishes between daily content and reruns
+	•	Optimized performance with parallel processing and HTTP-only scraping
+
+## Recent Major Improvements
+
+**June 2025 - Enhanced Daily Comic Detection**:
+- Resolved critical issue where feeds were showing historical "best of" comics instead of current daily strips
+- Implemented sophisticated JSON-LD parsing with date matching for accurate comic identification
+- Improved system reliability and performance with optimized GitHub Actions workflow
+- Successfully tested with problematic comics like "Pearls Before Swine" and "In the Bleachers"
+- Enhanced error handling and fallback strategies for maximum uptime
