@@ -25,7 +25,7 @@ jobs:
       - name: Install Firefox and geckodriver
         run: |
           sudo apt-get update
-          sudo apt-get install -y firefox-esr xvfb
+          sudo apt-get install -y firefox xvfb
           
           # Install geckodriver
           GECKODRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep tag_name | cut -d '"' -f 4)
