@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ten Cats - GoComics</title><link>https://www.gocomics.com/ten-cats</link><description>Daily Ten Cats comic strip by Graham Harrop</description><atom:link href="https://comiccaster.xyz/feeds/ten-cats.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 02 Jul 2025 09:17:22 +0000</lastBuildDate><item><title>Ten Cats - 2025-07-01</title><link>https://www.gocomics.com/ten-cats/2025/07/01</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ten Cats - GoComics</title><link>https://www.gocomics.com/ten-cats</link><description>Daily Ten Cats comic strip by Graham Harrop</description><atom:link href="https://comiccaster.xyz/feeds/ten-cats.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 03 Jul 2025 09:16:22 +0000</lastBuildDate><item><title>Ten Cats - 2025-07-03</title><link>https://www.gocomics.com/ten-cats/2025/07/03</link><description>
+                &lt;div style="text-align: center;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/65d8b63039f8013ea89f005056a9545d" alt="Ten Cats" style="max-width: 100%;"&gt;
+                    &lt;p&gt;Comic strip for 2025/07/03&lt;/p&gt;
+                &lt;/div&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/ten-cats/2025/07/03</guid><enclosure url="https://featureassets.gocomics.com/assets/65d8b63039f8013ea89f005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Ten Cats - 2025-07-01</title><link>https://www.gocomics.com/ten-cats/2025/07/01</link><description>
                 &lt;div style="text-align: center;"&gt;
                     &lt;img src="https://featureassets.gocomics.com/assets/458e3e003629013ea7c3005056a9545d" alt="Ten Cats" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025/07/01&lt;/p&gt;
@@ -19,12 +24,10 @@
                     &lt;img src="https://featureassets.gocomics.com/assets/60c9519034f6013ea771005056a9545d" alt="Ten Cats" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025/06/25&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/ten-cats/2025/06/25</guid><enclosure url="https://featureassets.gocomics.com/assets/60c9519034f6013ea771005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 25 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ten Cats - 2025-06-23</title><link>https://www.gocomics.com/ten-cats/2025/06/23</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/b8f065f031bd013ea680005056a9545d" alt="Ten Cats" style="max-width: 100%;"&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/ten-cats/2025/06/25</guid><enclosure url="https://featureassets.gocomics.com/assets/60c9519034f6013ea771005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 25 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ten Cats - 2025-06-23</title><link>https://www.gocomics.com/ten-cats/2025/06/23</link><description>&lt;div style="text-align: center;"&gt;
+                    &lt;img alt="Ten Cats" src="https://featureassets.gocomics.com/assets/b8f065f031bd013ea680005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/06/23&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/ten-cats/2025/06/23</guid><enclosure url="https://featureassets.gocomics.com/assets/b8f065f031bd013ea680005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 23 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ten Cats - 2025-06-21</title><link>https://www.gocomics.com/ten-cats/2025/06/21</link><description>&lt;div style="text-align: center;"&gt;
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/ten-cats/2025/06/23</guid><enclosure url="https://featureassets.gocomics.com/assets/b8f065f031bd013ea680005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 23 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ten Cats - 2025-06-21</title><link>https://www.gocomics.com/ten-cats/2025/06/21</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Ten Cats" src="https://featureassets.gocomics.com/assets/b22a50302e70013ea5cb005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/06/21&lt;/p&gt;
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/ten-cats/2025/06/21</guid><enclosure url="https://featureassets.gocomics.com/assets/b22a50302e70013ea5cb005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ten Cats - 2025-06-19</title><link>https://www.gocomics.com/ten-cats/2025/06/19</link><description>&lt;div style="text-align: center;"&gt;
