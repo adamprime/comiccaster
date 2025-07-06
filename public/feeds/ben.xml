@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ben - GoComics</title><link>https://www.gocomics.com/ben</link><description>Daily Ben comic strip by Daniel Shelton</description><atom:link href="https://comiccaster.xyz/feeds/ben.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 05 Jul 2025 09:13:00 +0000</lastBuildDate><item><title>Ben - 2025-07-05</title><link>https://www.gocomics.com/ben/2025/07/05</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ben - GoComics</title><link>https://www.gocomics.com/ben</link><description>Daily Ben comic strip by Daniel Shelton</description><atom:link href="https://comiccaster.xyz/feeds/ben.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 06 Jul 2025 09:12:41 +0000</lastBuildDate><item><title>Ben - 2025-07-05</title><link>https://www.gocomics.com/ben/2025/07/05</link><description>
                 &lt;div style="text-align: center;"&gt;
                     &lt;img src="https://featureassets.gocomics.com/assets/e00a0a601c02013ea1c4005056a9545d" alt="Ben" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025/07/05&lt;/p&gt;
@@ -39,12 +39,10 @@
                     &lt;img src="https://featureassets.gocomics.com/assets/a68db9301c05013ea1c5005056a9545d" alt="Ben" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025/06/27&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/ben/2025/06/27</guid><enclosure url="https://featureassets.gocomics.com/assets/a68db9301c05013ea1c5005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 27 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ben - 2025-06-26</title><link>https://www.gocomics.com/ben/2025/06/26</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/561c09201d62013ea202005056a9545d" alt="Ben" style="max-width: 100%;"&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/ben/2025/06/27</guid><enclosure url="https://featureassets.gocomics.com/assets/a68db9301c05013ea1c5005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 27 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ben - 2025-06-26</title><link>https://www.gocomics.com/ben/2025/06/26</link><description>&lt;div style="text-align: center;"&gt;
+                    &lt;img alt="Ben" src="https://featureassets.gocomics.com/assets/561c09201d62013ea202005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/06/26&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/ben/2025/06/26</guid><enclosure url="https://featureassets.gocomics.com/assets/561c09201d62013ea202005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ben - 2025-06-25</title><link>https://www.gocomics.com/ben/2025/06/25</link><description>&lt;div style="text-align: center;"&gt;
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/ben/2025/06/26</guid><enclosure url="https://featureassets.gocomics.com/assets/561c09201d62013ea202005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ben - 2025-06-25</title><link>https://www.gocomics.com/ben/2025/06/25</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Ben" src="https://featureassets.gocomics.com/assets/548c96101d62013ea202005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/06/25&lt;/p&gt;
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/ben/2025/06/25</guid><enclosure url="https://featureassets.gocomics.com/assets/548c96101d62013ea202005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 25 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Ben - 2025-06-24</title><link>https://www.gocomics.com/ben/2025/06/24</link><description>&lt;div style="text-align: center;"&gt;
