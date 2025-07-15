@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ziggy - GoComics</title><link>https://www.gocomics.com/ziggy</link><description>Daily Ziggy comic strip by Tom Wilson &amp; Tom II</description><atom:link href="https://comiccaster.xyz/feeds/ziggy.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 14 Jul 2025 09:22:18 +0000</lastBuildDate><item><title>Ziggy - 2025-07-14</title><link>https://www.gocomics.com/ziggy/2025/07/14</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ziggy - GoComics</title><link>https://www.gocomics.com/ziggy</link><description>Daily Ziggy comic strip by Tom Wilson &amp; Tom II</description><atom:link href="https://comiccaster.xyz/feeds/ziggy.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 15 Jul 2025 09:24:08 +0000</lastBuildDate><item><title>Ziggy - 2025-07-15</title><link>https://www.gocomics.com/ziggy/2025/07/15</link><description>
+                &lt;div style="text-align: center;"&gt;
+                    &lt;img src="https://featureassets.gocomics.com/assets/5677f3703f32013ea9c2005056a9545d" alt="Ziggy" style="max-width: 100%;"&gt;
+                    &lt;p&gt;Comic strip for 2025/07/15&lt;/p&gt;
+                &lt;/div&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/ziggy/2025/07/15</guid><enclosure url="https://featureassets.gocomics.com/assets/5677f3703f32013ea9c2005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Ziggy - 2025-07-14</title><link>https://www.gocomics.com/ziggy/2025/07/14</link><description>
                 &lt;div style="text-align: center;"&gt;
                     &lt;img src="https://featureassets.gocomics.com/assets/54214d803f32013ea9c2005056a9545d" alt="Ziggy" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025/07/14&lt;/p&gt;
@@ -44,12 +49,10 @@
                     &lt;img src="https://featureassets.gocomics.com/assets/95ceae201ee3013ea269005056a9545d" alt="Ziggy" style="max-width: 100%;"&gt;
                     &lt;p&gt;Comic strip for 2025/07/06&lt;/p&gt;
                 &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/ziggy/2025/07/06</guid><enclosure url="https://featureassets.gocomics.com/assets/95ceae201ee3013ea269005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Ziggy - 2025-07-05</title><link>https://www.gocomics.com/ziggy/2025/07/05</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/e32e51b03434013ea731005056a9545d" alt="Ziggy" style="max-width: 100%;"&gt;
+                </description><guid isPermaLink="false">https://www.gocomics.com/ziggy/2025/07/06</guid><enclosure url="https://featureassets.gocomics.com/assets/95ceae201ee3013ea269005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Ziggy - 2025-07-05</title><link>https://www.gocomics.com/ziggy/2025/07/05</link><description>&lt;div style="text-align: center;"&gt;
+                    &lt;img alt="Ziggy" src="https://featureassets.gocomics.com/assets/e32e51b03434013ea731005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/07/05&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/ziggy/2025/07/05</guid><enclosure url="https://featureassets.gocomics.com/assets/e32e51b03434013ea731005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Ziggy - 2025-07-04</title><link>https://www.gocomics.com/ziggy/2025/07/04</link><description>&lt;div style="text-align: center;"&gt;
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/ziggy/2025/07/05</guid><enclosure url="https://featureassets.gocomics.com/assets/e32e51b03434013ea731005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Ziggy - 2025-07-04</title><link>https://www.gocomics.com/ziggy/2025/07/04</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Ziggy" src="https://featureassets.gocomics.com/assets/e0b6de103434013ea731005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/07/04&lt;/p&gt;
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/ziggy/2025/07/04</guid><enclosure url="https://featureassets.gocomics.com/assets/e0b6de103434013ea731005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Ziggy - 2025-07-03</title><link>https://www.gocomics.com/ziggy/2025/07/03</link><description>&lt;div style="text-align: center;"&gt;
