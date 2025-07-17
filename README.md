@@ -40,6 +40,19 @@ netlify dev
 
 4. Visit `http://localhost:8888` in your browser
 
+### Running Flask Directly (Optional)
+
+For Flask-specific development:
+```bash
+# Run Flask without debug mode (recommended)
+python run_app.py
+
+# Run Flask with debug mode (development only - NEVER use in production)
+FLASK_DEBUG=true python run_app.py
+```
+
+The Flask app will be available at `http://localhost:5001`
+
 ## Project Structure
 
 ```

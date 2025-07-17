@@ -206,4 +206,6 @@ def generate_opml_file():
         return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    # Only enable debug mode if explicitly set in environment
+    debug = os.environ.get('FLASK_DEBUG', 'False').lower() in ['true', '1', 'yes']
+    app.run(debug=debug) 
