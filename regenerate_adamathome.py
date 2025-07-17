@@ -10,6 +10,7 @@ from pathlib import Path
 from comiccaster.feed_generator import ComicFeedGenerator
 import json
 import re
+from urllib.parse import urlparse
 
 # Setup logging
 logging.basicConfig(
@@ -62,17 +63,20 @@ def scrape_comic(slug, url=None, target_date=None):
             try:
                 if script.string and "ImageObject" in script.string and "contentUrl" in script.string:
                     data = json.loads(script.string)
-                    if data.get("@type") == "ImageObject" and data.get("contentUrl") and "featureassets.gocomics.com" in data.get("contentUrl"):
-                        comic_image = data.get("contentUrl")
-                        logger.info(f"Found actual comic image in JSON data for {url}")
-                        break
+                    if data.get("@type") == "ImageObject" and data.get("contentUrl"):
+                        content_url = data.get("contentUrl")
+                        parsed_url = urlparse(content_url)
+                        if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
+                            comic_image = data.get("contentUrl")
+                            logger.info(f"Found actual comic image in JSON data for {url}")
+                            break
             except Exception as e:
                 logger.warning(f"Error parsing JSON data in script tag: {e}")
         
         # Try to extract from JSON data within Next.js script payloads
         if not comic_image:
             for script in soup.find_all("script"):
-                if script.string and "featureassets.gocomics.com/assets" in script.string and "url" in script.string:
+                if script.string and "gocomics.com/assets" in script.string and "url" in script.string:
                     try:
                         # Find URLs that look like comic strip images
                         matches = re.findall(r'"url"\s*:\s*"(https://featureassets\.gocomics\.com/assets/[^"]+)"', script.string)

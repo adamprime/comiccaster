@@ -10,7 +10,7 @@ import re
 import time
 from datetime import datetime
 from typing import Dict, Optional
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -67,7 +67,7 @@ class EnhancedHTTPScraper:
                 
                 # Look for patterns like: img.fetchPriority = "high" or fetchpriority="high"
                 # and try to find associated image URLs
-                if 'featureassets.gocomics.com' in js_code:
+                if 'gocomics.com' in js_code:
                     urls = re.findall(r'https://featureassets\.gocomics\.com/assets/[^\s"\']+', js_code)
                     if urls:
                         logger.info(f"Found {len(urls)} potential fetchpriority URLs in JavaScript")
@@ -92,9 +92,11 @@ class EnhancedHTTPScraper:
         if priority_imgs:
             for img in priority_imgs:
                 img_src = img.get('src', '')
-                if img_src and 'featureassets.gocomics.com' in img_src:
-                    logger.info(f"✅ Found fetchpriority='high' comic image: {img_src}")
-                    return img_src
+                if img_src:
+                    parsed_url = urlparse(img_src)
+                    if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
+                        logger.info(f"✅ Found fetchpriority='high' comic image: {img_src}")
+                        return img_src
         
         # Strategy 2: Look for comic strip classes (same as Selenium scraper)
         comic_strip_selectors = [
@@ -110,9 +112,11 @@ class EnhancedHTTPScraper:
                 best_img = self._select_best_comic_image(comic_imgs)
                 if best_img:
                     img_src = best_img.get('src', '')
-                    if img_src and 'featureassets.gocomics.com' in img_src:
-                        logger.info(f"Found comic using selector: {selector}")
-                        return img_src
+                    if img_src:
+                        parsed_url = urlparse(img_src)
+                        if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
+                            logger.info(f"Found comic using selector: {selector}")
+                            return img_src
         
         # Strategy 3: JSON-LD approach (enhanced with date validation)
         comic_image = self._extract_from_json_ld(soup)
@@ -178,11 +182,13 @@ class EnhancedHTTPScraper:
                 if script.string and "ImageObject" in script.string:
                     data = json.loads(script.string)
                     if (data.get("@type") == "ImageObject" and 
-                        data.get("contentUrl") and 
-                        "featureassets.gocomics.com" in data.get("contentUrl")):
-                        
-                        logger.info("Found comic image in JSON-LD structured data")
-                        return data.get("contentUrl")
+                        data.get("contentUrl")):
+                        content_url = data.get("contentUrl")
+                        parsed_url = urlparse(content_url)
+                        if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
+                            
+                            logger.info("Found comic image in JSON-LD structured data")
+                            return data.get("contentUrl")
             except Exception as e:
                 logger.warning(f"Error parsing JSON-LD: {e}")
         return None
@@ -192,7 +198,7 @@ class EnhancedHTTPScraper:
         scripts = soup.find_all("script")
         for script in scripts:
             if (script.string and 
-                "featureassets.gocomics.com/assets" in script.string and 
+                "gocomics.com/assets" in script.string and 
                 "url" in script.string):
                 try:
                     # Find URLs that look like comic strip images

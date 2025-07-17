@@ -9,6 +9,7 @@ sys.path.append(os.path.abspath('.'))
 
 from scripts.update_feeds import scrape_comic
 from datetime import datetime, timedelta
+from urllib.parse import urlparse
 
 def test_single_comic():
     """Test enhanced HTTP scraping to verify it works"""
@@ -30,8 +31,9 @@ def test_single_comic():
             print(f'URL: {result["url"]}')
             
             # Verify we got a real comic image URL
-            if 'featureassets.gocomics.com' in result["image"]:
-                print('✅ Image URL looks valid (featureassets domain)')
+            parsed_url = urlparse(result["image"])
+            if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
+                print('✅ Image URL looks valid (gocomics domain)')
                 return True
             else:
                 print('⚠️  WARNING: Image URL may not be a comic strip')
