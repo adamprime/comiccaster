@@ -40,7 +40,9 @@ def test_feed_aggregator_initialization():
     feed_str = aggregator.feed_generator.rss_str(pretty=True).decode('utf-8')
     assert 'ComicCaster Combined Feed' in feed_str
     assert 'A combined feed of your favorite comics' in feed_str
-    assert 'https://comiccaster.xyz' in feed_str
+    # Check for exact URL in link tag to prevent substring matching vulnerabilities
+    import re
+    assert re.search(r'<link>https://comiccaster\.xyz</link>', feed_str)
     assert '<language>en</language>' in feed_str
 
 @patch('os.path.exists')
