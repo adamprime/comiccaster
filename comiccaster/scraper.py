@@ -166,7 +166,7 @@ class ComicScraper:
                     img_src = best_img.get('src', '')
                     if img_src:
                         parsed_url = urlparse(img_src)
-                        if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                        if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
                             logger.info(f"Found comic using selector: {selector}")
                             return img_src
         
@@ -181,7 +181,7 @@ class ComicScraper:
                 img_src = img.get('src', '')
                 if img_src:
                     parsed_url = urlparse(img_src)
-                    if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                    if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
                         logger.info("Found comic in comic container")
                         return img_src
         
@@ -191,7 +191,7 @@ class ComicScraper:
             img_src = img.get('src', '')
             if img_src:
                 parsed_url = urlparse(img_src)
-                if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
                     # Verify it's not a thumbnail or other small image
                     if any(size in img_src for size in ['width=2800', 'width=1400', 'large']):
                         logger.info("Found comic using asset domain strategy")

@@ -127,7 +127,7 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
                         data.get("contentUrl")):
                         content_url = data.get("contentUrl")
                         parsed_url = urlparse(content_url)
-                        if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                        if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
                             
                             # CHECK IF THE NAME MATCHES OUR TARGET DATE
                             name = data.get("name", "")
@@ -163,7 +163,7 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
                     img_src = best_img.get('src', '')
                     if img_src:
                         parsed_url = urlparse(img_src)
-                        if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                        if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
                             logging.info(f"Found comic using selector: {selector}")
                             return {
                                 'image': img_src,
