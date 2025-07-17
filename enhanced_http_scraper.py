@@ -67,7 +67,8 @@ class EnhancedHTTPScraper:
                 
                 # Look for patterns like: img.fetchPriority = "high" or fetchpriority="high"
                 # and try to find associated image URLs
-                if 'gocomics.com' in js_code:
+                # Check for gocomics.com domain more strictly to prevent substring matching vulnerabilities
+                if re.search(r'(?:^|[^a-zA-Z0-9])gocomics\.com(?:[^a-zA-Z0-9]|$)', js_code):
                     urls = re.findall(r'https://featureassets\.gocomics\.com/assets/[^\s"\']+', js_code)
                     if urls:
                         logger.info(f"Found {len(urls)} potential fetchpriority URLs in JavaScript")
