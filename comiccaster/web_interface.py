@@ -15,6 +15,8 @@ import requests
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, Response
 from datetime import datetime, timedelta
 from functools import wraps
+from pathlib import Path
+from werkzeug.utils import secure_filename
 
 # Import our existing modules
 from comiccaster.loader import ComicsLoader
@@ -45,15 +47,41 @@ def index():
 @app.route('/rss/<comic_slug>')
 def individual_feed(comic_slug):
     """Serve an individual comic's RSS feed."""
-    feed_path = f'feeds/{comic_slug}.xml'
+    # Validate the comic_slug to prevent path traversal attacks
+    # First check if it contains any dangerous characters or patterns
+    if not comic_slug or '..' in comic_slug or '/' in comic_slug or '\\' in comic_slug:
+        return "Invalid comic slug", 400
+    
+    # Ensure it only contains allowed characters (alphanumeric, underscore, hyphen)
+    if not re.match(r'^[a-zA-Z0-9_-]+$', comic_slug):
+        return "Invalid comic slug", 400
+    
+    # Use secure_filename as an additional safety measure
+    safe_slug = secure_filename(comic_slug)
+    
+    # Construct the path safely
+    feeds_dir = Path('feeds')
+    feed_path = feeds_dir / f'{safe_slug}.xml'
+    
+    # Ensure the resolved path is within the feeds directory
+    try:
+        feed_path = feed_path.resolve()
+        feeds_dir_resolved = feeds_dir.resolve()
+        if not str(feed_path).startswith(str(feeds_dir_resolved)):
+            return "Invalid feed path", 403
+    except Exception:
+        return "Invalid feed path", 403
     
     # Check if the feed exists
-    if not os.path.exists(feed_path):
-        return f"Feed for {comic_slug} not found", 404
+    if not feed_path.exists():
+        return f"Feed for {safe_slug} not found", 404
     
     # Serve the XML file with the correct content type
-    with open(feed_path, 'r') as f:
-        return Response(f.read(), mimetype='application/xml')
+    try:
+        with open(feed_path, 'r') as f:
+            return Response(f.read(), mimetype='application/xml')
+    except Exception:
+        return "Error reading feed", 500
 
 @app.route('/feed/<token>')
 def access_feed(token):
