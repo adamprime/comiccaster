@@ -9,7 +9,7 @@ import logging
 import time
 from datetime import datetime
 from typing import Dict, Optional
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -164,9 +164,11 @@ class ComicScraper:
                 best_img = self._select_best_comic_image(comic_imgs, soup)
                 if best_img:
                     img_src = best_img.get('src', '')
-                    if img_src and 'featureassets.gocomics.com' in img_src:
-                        logger.info(f"Found comic using selector: {selector}")
-                        return img_src
+                    if img_src:
+                        parsed_url = urlparse(img_src)
+                        if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                            logger.info(f"Found comic using selector: {selector}")
+                            return img_src
         
         # Strategy 2: Look for images in comic containers
         comic_containers = soup.find_all(['div', 'section'], 
@@ -177,19 +179,23 @@ class ComicScraper:
             img = container.find('img')
             if img:
                 img_src = img.get('src', '')
-                if img_src and 'featureassets.gocomics.com' in img_src:
-                    logger.info("Found comic in comic container")
-                    return img_src
+                if img_src:
+                    parsed_url = urlparse(img_src)
+                    if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                        logger.info("Found comic in comic container")
+                        return img_src
         
         # Strategy 3: Look for any images from the GoComics asset domain
         all_imgs = soup.find_all('img')
         for img in all_imgs:
             img_src = img.get('src', '')
-            if img_src and 'featureassets.gocomics.com' in img_src:
-                # Verify it's not a thumbnail or other small image
-                if any(size in img_src for size in ['width=2800', 'width=1400', 'large']):
-                    logger.info("Found comic using asset domain strategy")
-                    return img_src
+            if img_src:
+                parsed_url = urlparse(img_src)
+                if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                    # Verify it's not a thumbnail or other small image
+                    if any(size in img_src for size in ['width=2800', 'width=1400', 'large']):
+                        logger.info("Found comic using asset domain strategy")
+                        return img_src
         
         logger.warning("Could not find comic strip image using any strategy")
         return None
@@ -270,7 +276,8 @@ class ComicScraper:
                 return True
         
         # Check for asset domain vs social asset domain
-        if 'gocomicscmsassets.gocomics.com' in image_url:
+        parsed_url = urlparse(image_url)
+        if parsed_url.hostname and parsed_url.hostname == 'gocomicscmsassets.gocomics.com':
             logger.warning(f"Detected CMS asset (likely promotional): {image_url}")
             return True
             

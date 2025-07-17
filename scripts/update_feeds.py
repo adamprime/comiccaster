@@ -26,6 +26,7 @@ from dateutil import parser as date_parser
 import concurrent.futures
 from functools import partial
 from email.utils import parsedate_to_datetime
+from urllib.parse import urlparse
 
 # Set up logging
 logging.basicConfig(
@@ -123,21 +124,23 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
                 if script.string and "ImageObject" in script.string:
                     data = json.loads(script.string)
                     if (data.get("@type") == "ImageObject" and 
-                        data.get("contentUrl") and 
-                        "featureassets.gocomics.com" in data.get("contentUrl")):
-                        
-                        # CHECK IF THE NAME MATCHES OUR TARGET DATE
-                        name = data.get("name", "")
-                        if target_date_formatted in name:
-                            logging.info(f"✅ Found JSON-LD comic for exact date: {target_date_formatted}")
-                            return {
-                                'image': data.get("contentUrl"),
-                                'url': url,
-                                'title': soup.find('title').get_text() if soup.find('title') else '',
-                                'description': f'Comic strip for {date_str}'
-                            }
-                        else:
-                            logging.debug(f"JSON-LD name '{name}' doesn't match target date '{target_date_formatted}'")
+                        data.get("contentUrl")):
+                        content_url = data.get("contentUrl")
+                        parsed_url = urlparse(content_url)
+                        if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                            
+                            # CHECK IF THE NAME MATCHES OUR TARGET DATE
+                            name = data.get("name", "")
+                            if target_date_formatted in name:
+                                logging.info(f"✅ Found JSON-LD comic for exact date: {target_date_formatted}")
+                                return {
+                                    'image': data.get("contentUrl"),
+                                    'url': url,
+                                    'title': soup.find('title').get_text() if soup.find('title') else '',
+                                    'description': f'Comic strip for {date_str}'
+                                }
+                            else:
+                                logging.debug(f"JSON-LD name '{name}' doesn't match target date '{target_date_formatted}'")
                             
             except Exception as e:
                 logging.warning(f"Error parsing JSON-LD: {e}")
@@ -158,14 +161,16 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
                 best_img = select_best_comic_image_http(comic_imgs)
                 if best_img:
                     img_src = best_img.get('src', '')
-                    if img_src and 'featureassets.gocomics.com' in img_src:
-                        logging.info(f"Found comic using selector: {selector}")
-                        return {
-                            'image': img_src,
-                            'url': url,
-                            'title': soup.find('title').get_text() if soup.find('title') else '',
-                            'description': f'Comic strip for {date_str}'
-                        }
+                    if img_src:
+                        parsed_url = urlparse(img_src)
+                        if parsed_url.hostname and parsed_url.hostname.endswith('gocomics.com'):
+                            logging.info(f"Found comic using selector: {selector}")
+                            return {
+                                'image': img_src,
+                                'url': url,
+                                'title': soup.find('title').get_text() if soup.find('title') else '',
+                                'description': f'Comic strip for {date_str}'
+                            }
         
         # Strategy 3: JavaScript regex extraction
         scripts = soup.find_all("script")
