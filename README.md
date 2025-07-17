@@ -24,7 +24,7 @@ Visit [ComicCaster](https://comiccaster.xyz) to:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/comiccaster.git
+git clone https://github.com/adamprime/comiccaster.git
 cd comiccaster
 ```
 
