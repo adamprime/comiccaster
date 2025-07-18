@@ -6,6 +6,7 @@ This script will save the HTML and take screenshots for analysis
 
 import os
 from datetime import datetime
+from urllib.parse import urlparse
 from comiccaster.tinyview_scraper import TinyviewScraper
 from selenium.webdriver.common.by import By
 import time
@@ -53,7 +54,25 @@ def debug_tinyview():
         src = img.get_attribute('src') or ''
         data_src = img.get_attribute('data-src') or ''
         
-        if 'cdn.tinyview.com' in src or 'cdn.tinyview.com' in data_src:
+        # Parse URLs to check hostname properly (prevent substring matching attacks)
+        src_is_cdn = False
+        data_src_is_cdn = False
+        
+        try:
+            if src:
+                parsed_src = urlparse(src)
+                src_is_cdn = parsed_src.hostname == 'cdn.tinyview.com'
+        except:
+            pass
+            
+        try:
+            if data_src:
+                parsed_data_src = urlparse(data_src)
+                data_src_is_cdn = parsed_data_src.hostname == 'cdn.tinyview.com'
+        except:
+            pass
+        
+        if src_is_cdn or data_src_is_cdn:
             cdn_images.append({
                 'src': src,
                 'data-src': data_src,

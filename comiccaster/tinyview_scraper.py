@@ -9,7 +9,7 @@ import logging
 import time
 from datetime import datetime
 from typing import Dict, List, Optional
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
@@ -148,28 +148,41 @@ class TinyviewScraper:
         
         for img in all_imgs:
             src = img.get('src', '')
-            if 'cdn.tinyview.com' in src:
-                image_data = {
-                    'url': src,
-                    'alt': img.get('alt', ''),
-                    'title': img.get('title', '')
-                }
-                images.append(image_data)
-                logger.info(f"Found comic image: {src}")
+            # Parse URL to check hostname properly (prevent substring matching attacks)
+            try:
+                parsed_url = urlparse(src)
+                if parsed_url.hostname == 'cdn.tinyview.com':
+                    image_data = {
+                        'url': src,
+                        'alt': img.get('alt', ''),
+                        'title': img.get('title', '')
+                    }
+                    images.append(image_data)
+                    logger.info(f"Found comic image: {src}")
+            except:
+                # Skip invalid URLs
+                pass
         
         # If no CDN images found, look for other patterns
         if not images:
             # Try data-src attributes (lazy loading)
             for img in all_imgs:
                 data_src = img.get('data-src', '')
-                if data_src and ('tinyview' in data_src or 'comic' in data_src):
-                    image_data = {
-                        'url': data_src,
-                        'alt': img.get('alt', ''),
-                        'title': img.get('title', '')
-                    }
-                    images.append(image_data)
-                    logger.info(f"Found comic image (data-src): {data_src}")
+                if data_src:
+                    try:
+                        parsed_url = urlparse(data_src)
+                        # Check if hostname contains tinyview.com
+                        if parsed_url.hostname and 'tinyview.com' in parsed_url.hostname:
+                            image_data = {
+                                'url': data_src,
+                                'alt': img.get('alt', ''),
+                                'title': img.get('title', '')
+                            }
+                            images.append(image_data)
+                            logger.info(f"Found comic image (data-src): {data_src}")
+                    except:
+                        # Skip invalid URLs
+                        pass
         
         return images
     
