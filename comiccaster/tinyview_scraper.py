@@ -171,8 +171,9 @@ class TinyviewScraper:
                 if data_src:
                     try:
                         parsed_url = urlparse(data_src)
-                        # Check if hostname contains tinyview.com
-                        if parsed_url.hostname and 'tinyview.com' in parsed_url.hostname:
+                        # Check if hostname ends with .tinyview.com or is exactly tinyview.com
+                        if parsed_url.hostname and (parsed_url.hostname == 'tinyview.com' or 
+                                                    parsed_url.hostname.endswith('.tinyview.com')):
                             image_data = {
                                 'url': data_src,
                                 'alt': img.get('alt', ''),
