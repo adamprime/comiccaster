@@ -1,0 +1,93 @@
+name: Smart Update Comic Feeds
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Run at 9 AM UTC daily (~1 AM PST / 2 AM PDT)
+  workflow_dispatch:  # Allow manual triggering
+    inputs:
+      force_all:
+        description: 'Update all comics regardless of schedule'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  smart-update-feeds:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+      
+      - name: Run smart feed update
+        run: |
+          if [ "${{ github.event.inputs.force_all }}" == "true" ]; then
+            echo "Force updating all comics..."
+            python scripts/update_feeds.py
+          else
+            echo "Running smart update (only comics that need updates)..."
+            python -c "from scripts.update_feeds import update_feeds_smart; update_feeds_smart()"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Show update statistics
+        if: always()
+        run: |
+          if [ -f "data/last_update_times.json" ]; then
+            echo "Comics updated:"
+            python -c "
+import json
+from datetime import datetime, timezone
+with open('data/last_update_times.json', 'r') as f:
+    data = json.load(f)
+    now = datetime.now(timezone.utc)
+    recent = [(k, v) for k, v in data.items() if (now - datetime.fromisoformat(v)).total_seconds() < 300]
+    print(f'Updated {len(recent)} comics in the last 5 minutes')
+            "
+          fi
+      
+      - name: Commit and push updated feeds
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          
+          # Add feed files
+          git add -f public/feeds/*.xml
+          
+          # Add update tracking file
+          git add -f data/last_update_times.json
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Smart update comic feeds - $(date +%Y-%m-%d)"
+            git push
+          fi
+      
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Smart feed update failed',
+              body: `The smart feed update workflow failed. Check the [workflow run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.`
+            })
