@@ -1,8 +1,11 @@
-name: Update Comic Feeds
+name: Update Comic Feeds (Legacy - Updates All)
+
+# NOTE: Consider using update-feeds-smart.yml instead for more efficient updates
+# This workflow updates ALL comics regardless of their publishing schedule
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Run at 9 AM UTC daily (~1 AM PST / 2 AM PDT)
+    - cron: '0 9 * * *'  # Run at 9 AM UTC daily (~1 AM PST / 2 AM PDT) 
   workflow_dispatch:  # Allow manual triggering
 
 permissions:
