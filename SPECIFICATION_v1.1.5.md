@@ -8,13 +8,20 @@
 
 ## Executive Summary
 
-This specification outlines the implementation of Tinyview comic support in ComicCaster, enabling users to subscribe to comics from tinyview.com alongside existing GoComics content. The implementation follows test-driven development principles to ensure stability and maintainability.
+This specification outlines the implementation of Tinyview comic support in ComicCaster, enabling users to subscribe to comics from tinyview.com alongside existing GoComics content. The implementation follows test-driven development principles and coordinates with the parallel political cartoons implementation (v1.1).
 
 ### Key Features
 - Support for single and multi-image Tinyview comics
+- Granular source attribution system compatible with political cartoons
+- Multi-image RSS feed support without UI complexity
 - Seamless integration with existing RSS feed generation
-- Tab-based UI separation between GoComics and Tinyview content
 - Backward compatibility with existing feeds
+
+### Coordination Notes
+- **Political Cartoons (v1.1)**: Uses `gocomics-political` source with separate configuration
+- **Daily Comics**: Existing comics use `gocomics-daily` source  
+- **Tinyview Comics**: New comics use `tinyview` source
+- **No UI conflicts**: Each team manages their own tab interface
 
 ---
 
@@ -26,10 +33,13 @@ This specification outlines the implementation of Tinyview comic support in Comi
 - Single image per comic strip
 
 ### Future State (v1.1.5)
-- Dual-source support (GoComics + Tinyview)
+- Multi-source support with granular attribution:
+  - `gocomics-daily` - Regular daily comics (existing)
+  - `gocomics-political` - Political cartoons (v1.1 parallel work)
+  - `tinyview` - Tinyview comics (new)
 - Multi-image comic support
 - Source-specific scrapers with common interface
-- Enhanced UI with tabbed navigation
+- RSS feeds handle multiple images transparently
 
 ---
 
@@ -63,37 +73,59 @@ def test_base_scraper_not_instantiable():
 2. Refactor `ComicScraper` to inherit from `BaseScraper`
 3. Ensure all existing tests pass
 
-### Story 1.2: Implement Source Field in Comic Configuration
+### Story 1.2: Implement Granular Source Field in Comic Configuration
 **Acceptance Criteria:**
-- Comics configuration includes 'source' field
-- Default source is 'gocomics' for backward compatibility
-- Source field determines which scraper to use
+- Comics configuration includes granular 'source' field
+- Source values: `gocomics-daily`, `gocomics-political`, `tinyview`
+- Default source is `gocomics-daily` for backward compatibility
+- Coordinates with political cartoons team (no conflicts)
 
 **Tests First:**
 ```python
 # tests/test_comic_config.py
-def test_comic_has_source_field():
-    """Test that comic config includes source field."""
+def test_comic_has_granular_source_field():
+    """Test that comic config includes granular source field."""
     comic = {
         'slug': 'garfield',
         'name': 'Garfield',
-        'source': 'gocomics'
+        'source': 'gocomics-daily'
     }
-    assert comic['source'] == 'gocomics'
+    assert comic['source'] == 'gocomics-daily'
 
-def test_default_source_is_gocomics():
+def test_tinyview_source_field():
+    """Test Tinyview comics have correct source."""
+    comic = {
+        'slug': 'nick-anderson',
+        'name': 'Nick Anderson',
+        'source': 'tinyview'
+    }
+    assert comic['source'] == 'tinyview'
+
+def test_default_source_is_gocomics_daily():
     """Test backward compatibility for comics without source."""
     from comiccaster.loader import ComicsLoader
     loader = ComicsLoader()
     comic = {'slug': 'garfield', 'name': 'Garfield'}
     normalized = loader.normalize_comic_config(comic)
-    assert normalized['source'] == 'gocomics'
+    assert normalized['source'] == 'gocomics-daily'
+
+def test_political_cartoons_compatibility():
+    """Test political cartoons use separate source."""
+    # Political cartoons team will use 'gocomics-political'
+    # This ensures no conflicts with their implementation
+    comic = {
+        'slug': 'political-cartoon',
+        'name': 'Political Cartoon',
+        'source': 'gocomics-political'
+    }
+    assert comic['source'] == 'gocomics-political'
 ```
 
 **Implementation Tasks:**
-1. Update `comics.json` schema
-2. Add source field normalization
-3. Update loader to handle source field
+1. Update comic configuration normalization for granular sources
+2. Add source field validation (only allow approved values)
+3. Coordinate with political cartoons team on source naming
+4. Update loader to handle granular source field
 
 ### Story 1.3: Create Scraper Factory
 **Acceptance Criteria:**
@@ -104,10 +136,16 @@ def test_default_source_is_gocomics():
 **Tests First:**
 ```python
 # tests/test_scraper_factory.py
-def test_factory_returns_gocomics_scraper():
-    """Test factory returns GoComics scraper for gocomics source."""
+def test_factory_returns_gocomics_scraper_for_daily():
+    """Test factory returns GoComics scraper for daily comics."""
     from comiccaster.scraper_factory import ScraperFactory
-    scraper = ScraperFactory.get_scraper('gocomics')
+    scraper = ScraperFactory.get_scraper('gocomics-daily')
+    assert scraper.__class__.__name__ == 'ComicScraper'
+
+def test_factory_returns_gocomics_scraper_for_political():
+    """Test factory returns GoComics scraper for political cartoons."""
+    from comiccaster.scraper_factory import ScraperFactory
+    scraper = ScraperFactory.get_scraper('gocomics-political')
     assert scraper.__class__.__name__ == 'ComicScraper'
 
 def test_factory_returns_tinyview_scraper():
@@ -121,6 +159,13 @@ def test_factory_raises_for_unknown_source():
     from comiccaster.scraper_factory import ScraperFactory
     with pytest.raises(ValueError):
         ScraperFactory.get_scraper('unknown')
+
+def test_factory_backward_compatibility():
+    """Test factory handles legacy 'gocomics' source."""
+    from comiccaster.scraper_factory import ScraperFactory
+    # Should default to gocomics-daily
+    scraper = ScraperFactory.get_scraper('gocomics')
+    assert scraper.__class__.__name__ == 'ComicScraper'
 ```
 
 **Implementation Tasks:**
@@ -334,27 +379,31 @@ describe('Comic Browser Tabs', () => {
 2. Add JavaScript filtering logic
 3. Style tab consistently
 
-### Story 4.2: Visual Distinction for Multi-Image Comics
+### Story 4.2: RSS Feed Preview Support for Multi-Image Comics
 **Acceptance Criteria:**
-- Multi-image comics show panel count indicator
-- Different icon or badge for galleries
-- Tooltip explains multi-image format
+- RSS feed previewer correctly displays multiple images
+- Images display in correct order within feed entries
+- Feed preview maintains responsive design
+- No special UI indicators needed (RSS handles this transparently)
 
 **Tests First:**
 ```javascript
-it('should show panel count for multi-image comics', () => {
-    cy.visit('/');
-    cy.get('.comic-row[data-multi-image="true"]')
-      .find('.panel-count')
-      .should('be.visible')
-      .and('contain', 'panels');
+// tests/test_feed_preview.js
+it('should display all images in multi-image comic feeds', () => {
+    cy.visit('/?preview=adhdinos'); // Multi-image comic
+    cy.get('.feed-preview-entry').first().within(() => {
+        cy.get('img').should('have.length.greaterThan', 1);
+        // Images should be in order
+        cy.get('img').first().should('be.visible');
+        cy.get('img').last().should('be.visible');
+    });
 });
 ```
 
 **Implementation Tasks:**
-1. Add panel count to comic metadata
-2. Create visual indicators
-3. Add hover tooltips
+1. Ensure feed preview handles multiple images per entry
+2. Test RSS compatibility with popular feed readers
+3. Verify image ordering is preserved
 
 ---
 
