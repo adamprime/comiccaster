@@ -8,7 +8,7 @@ It extracts comic images from their CDN and handles both single and multi-image 
 import logging
 import time
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from urllib.parse import urljoin, urlparse
 
 from selenium import webdriver
@@ -19,25 +19,23 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from bs4 import BeautifulSoup
 
+from .base_scraper import BaseScraper
+
 # Set up logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
 logger = logging.getLogger(__name__)
 
-class TinyviewScraper:
+
+class TinyviewScraper(BaseScraper):
     """Handles scraping individual comic pages from Tinyview."""
     
-    def __init__(self, base_url: str = "https://tinyview.com"):
-        """
-        Initialize the TinyviewScraper.
-        
-        Args:
-            base_url (str): The base URL for Tinyview. Defaults to "https://tinyview.com".
-        """
-        self.base_url = base_url
+    def __init__(self):
+        """Initialize the TinyviewScraper."""
+        super().__init__(base_url="https://tinyview.com")
         self.driver = None
+    
+    def get_source_name(self) -> str:
+        """Return the source name for this scraper."""
+        return "tinyview"
     
     def setup_driver(self):
         """Set up the Selenium WebDriver with Firefox in headless mode."""
@@ -60,18 +58,19 @@ class TinyviewScraper:
             self.driver.quit()
             self.driver = None
     
-    def fetch_comic_page(self, comic_slug: str, date: str, title_slug: str = "cartoon") -> Optional[str]:
+    def fetch_comic_page(self, comic_slug: str, date: str) -> Optional[str]:
         """
         Fetch a comic page using Selenium to execute JavaScript.
         
         Args:
             comic_slug (str): The slug of the comic to fetch (e.g., 'nick-anderson', 'adhdinos').
             date (str): The date in YYYY/MM/DD format.
-            title_slug (str): The title slug (default is 'cartoon' for most comics).
             
         Returns:
             Optional[str]: The page HTML content, or None if fetching fails.
         """
+        # Tinyview uses a title slug in the URL, default to 'cartoon'
+        title_slug = "cartoon"
         url = f"{self.base_url}/{comic_slug}/{date}/{title_slug}"
         
         try:
@@ -130,7 +129,7 @@ class TinyviewScraper:
             logger.error(f"Failed to fetch comic page: {e}")
             return None
     
-    def extract_comic_images(self, html_content: str) -> List[Dict[str, str]]:
+    def extract_images(self, html_content: str, comic_slug: str, date: str) -> List[Dict[str, str]]:
         """
         Extract comic image URLs from the HTML content.
         
@@ -236,43 +235,30 @@ class TinyviewScraper:
         
         return metadata
     
-    def scrape_comic(self, comic_slug: str, date: str, title_slug: str = "cartoon") -> Optional[Dict[str, any]]:
+    def scrape_comic(self, comic_slug: str, date: str) -> Optional[Dict[str, Any]]:
         """
         Main method to scrape a comic page and extract its images and metadata.
         
         Args:
             comic_slug (str): The slug of the comic to scrape.
             date (str): The date in YYYY/MM/DD format.
-            title_slug (str): The title slug (default is 'cartoon').
             
         Returns:
-            Optional[Dict[str, any]]: Dictionary containing the comic data, or None if scraping fails.
+            Optional[Dict[str, Any]]: Dictionary containing the comic data, or None if scraping fails.
         """
-        html_content = self.fetch_comic_page(comic_slug, date, title_slug)
+        html_content = self.fetch_comic_page(comic_slug, date)
         if not html_content:
             return None
         
-        images = self.extract_comic_images(html_content)
+        images = self.extract_images(html_content, comic_slug, date)
         if not images:
             logger.error(f"No comic images found for {comic_slug} on {date}")
             return None
         
         metadata = self.extract_metadata(html_content, comic_slug, date)
         
-        # Build the result
-        result = {
-            **metadata,
-            'images': images,
-            'image_count': len(images),
-            'url': f"{self.base_url}/{comic_slug}/{date}/{title_slug}"
-        }
-        
-        # For single image comics, add convenience fields
-        if len(images) == 1:
-            result['image_url'] = images[0]['url']
-            result['image_alt'] = images[0]['alt']
-        
-        return result
+        # Use the base class helper to build standardized result
+        return self.build_comic_result(comic_slug, date, images, metadata)
     
     def __del__(self):
         """Ensure driver is closed when object is destroyed."""
