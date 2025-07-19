@@ -77,6 +77,7 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 2. Ensures accurate detection of daily comics vs "best of" reruns
 3. Commits updated feed files to the repository
 4. Triggers a new Netlify deployment
+5. **Validates feed freshness** using canary monitoring (new!)
 
 ### Recent Improvements (June 2025)
 
@@ -96,6 +97,21 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 - ✅ Improved performance with parallel processing
 - ✅ Better error handling and logging
 - ✅ GitHub Actions workflow optimized for stability
+
+### Feed Health Monitoring (July 2025)
+
+**Automated Feed Validation System:**
+- **Problem Solved**: Feed generation bugs could go unnoticed for days, resulting in stale feeds
+- **Solution**: Implemented canary monitoring using 15 reliable daily comics as health indicators
+- **How it works**:
+  - After each daily update, a validation script checks if canary feeds have entries within 3 days
+  - If any canary feeds are stale, the system automatically creates a GitHub issue with details
+  - Canary comics include: Garfield, Pearls Before Swine, Doonesbury, Calvin and Hobbes, and 11 others
+- **Benefits**:
+  - ✅ Proactive detection of feed update failures
+  - ✅ Automated alerting via GitHub issues
+  - ✅ Detailed diagnostics for troubleshooting
+  - ✅ Prevents multi-day outages from going unnoticed
 
 ## Technical Components
 
