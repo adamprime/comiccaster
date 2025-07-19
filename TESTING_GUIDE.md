@@ -4,8 +4,8 @@ This document provides comprehensive documentation of all tests in the ComicCast
 
 ## Test Overview
 
-- **Total test files**: 25
-- **Total test methods**: 85 (all passing)
+- **Total test files**: 26
+- **Total test methods**: 93 (all passing)
 - **Test framework**: pytest
 - **Coverage target**: Comprehensive coverage of core functionality
 
@@ -94,6 +94,20 @@ Tests for feed update functionality and bug prevention.
 - `test_get_feed_entries()` - Tests feed entry extraction helper
 - **Status**: ✅ Passing
 - **Purpose**: Feed update reliability and bug prevention
+
+#### `tests/test_update_feeds_main.py` ✅ **8 tests**
+Tests for the main update_feeds.py script ensuring political comics are processed.
+
+- `test_main_loads_both_comic_types()` - Verifies main() loads both regular and political comics
+- `test_main_processes_all_comics()` - Ensures all loaded comics are submitted for processing
+- `test_main_handles_missing_political_comics()` - Graceful handling when political_comics_list.json is missing
+- `test_smart_update_loads_political_comics()` - Verifies smart update function exists and is callable
+- `test_load_political_comics_list_exists()` - Tests the political comics loader function exists
+- `test_load_political_comics_list_reads_correct_file()` - Verifies correct file path for political comics
+- `test_main_political_comics_have_is_political_flag()` - Ensures is_political flag is preserved
+- `test_update_feed_creates_political_comic_feed()` - Integration test for political comic feed generation
+- **Status**: ✅ Passing
+- **Purpose**: Ensures political comics are included in daily updates
 
 ### 1.2 Political Comics Integration Tests (Epic 1)
 
