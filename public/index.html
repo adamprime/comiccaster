@@ -264,9 +264,35 @@
                 height: 200px;
             }
         }
+        
+        /* Notification banner */
+        .notification-banner {
+            background-color: #fbbf24;
+            color: #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .notification-banner a {
+            color: #0066cc;
+            font-weight: 600;
+        }
+        
+        .notification-banner a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+    <div class="notification-banner">
+        Some feeds wandered off and haven't updated for a few days. Possibly abducted by cows. 🐄 Possibly just broken. (But you never know with cows and their cow tools 🐮) Either way, we're investigating. See our scribbles here: <a href="https://github.com/adamprime/comiccaster/issues/46" target="_blank">GitHub #46</a>
+    </div>
     <div class="container">
         <header class="header">
             <h1>ComicCaster</h1>
