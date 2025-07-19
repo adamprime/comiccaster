@@ -1,8 +1,8 @@
 name: Smart Update Comic Feeds
 
 on:
-  schedule:
-    - cron: '0 9 * * *'  # Run at 9 AM UTC daily (~1 AM PST / 2 AM PDT)
+  # schedule:
+  #   - cron: '0 9 * * *'  # Run at 9 AM UTC daily (~1 AM PST / 2 AM PDT)
   workflow_dispatch:  # Allow manual triggering
     inputs:
       force_all:
