@@ -505,13 +505,19 @@ class TestTinyviewScraperStory23:
         scraper = TinyviewScraper()
         scraper.max_retries = 2
         
-        with patch.object(scraper, 'setup_driver'), \
-             patch.object(scraper, 'driver') as mock_driver:
-            
-            # First call raises TimeoutException, second succeeds
-            mock_driver.get.side_effect = [TimeoutException(), None]
-            mock_driver.page_source = '<html><img src="https://cdn.tinyview.com/test.jpg"></html>'
-            
+        # Create a mock driver that will be used
+        mock_driver = Mock()
+        mock_driver.title = 'Test Page'
+        mock_driver.page_source = '<html><img src="https://cdn.tinyview.com/test.jpg"></html>'
+        
+        # First call raises TimeoutException, second succeeds
+        mock_driver.get.side_effect = [TimeoutException(), None]
+        
+        # Mock setup_driver to set the mock driver
+        def mock_setup_driver():
+            scraper.driver = mock_driver
+        
+        with patch.object(scraper, 'setup_driver', side_effect=mock_setup_driver):
             # Mock WebDriverWait to avoid timeout in test
             with patch('comiccaster.tinyview_scraper.WebDriverWait') as mock_wait:
                 mock_wait_instance = Mock()

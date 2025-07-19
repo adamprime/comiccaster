@@ -1,16 +1,20 @@
 [
   {
     "name": "ADHDinos",
-    "author": "Dani Donovan",
-    "url": "https://tinyview.com/adhdinos",
     "slug": "adhdinos",
+    "url": "https://tinyview.com/adhdinos",
     "source": "tinyview"
   },
   {
     "name": "Nick Anderson",
-    "author": "Nick Anderson",
-    "url": "https://tinyview.com/nick-anderson",
     "slug": "nick-anderson",
+    "url": "https://tinyview.com/nick-anderson",
+    "source": "tinyview"
+  },
+  {
+    "name": "Fowl Language",
+    "slug": "fowl-language",
+    "url": "https://tinyview.com/fowl-language",
     "source": "tinyview"
   }
 ]

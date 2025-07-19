@@ -74,84 +74,79 @@ class TinyviewScraper(BaseScraper):
         Returns:
             Optional[str]: The page HTML content, or None if fetching fails.
         """
-        # Tinyview uses a title slug in the URL, default to 'cartoon'
-        title_slug = "cartoon"
-        url = f"{self.base_url}/{comic_slug}/{date}/{title_slug}"
+        # First, try to get the comic's main page to find strips for this date
+        comic_main_url = f"{self.base_url}/{comic_slug}"
         
         # Retry logic with exponential backoff
         for attempt in range(self.max_retries):
             try:
                 self.setup_driver()
-                logger.info(f"Fetching comic page (attempt {attempt + 1}/{self.max_retries}): {url}")
+                logger.info(f"Fetching comic main page (attempt {attempt + 1}/{self.max_retries}): {comic_main_url}")
                 
-                # Navigate to the page
-                self.driver.get(url)
+                # First navigate to the comic's main page
+                self.driver.get(comic_main_url)
                 
                 # Check for 404 or error pages
                 page_title = self.driver.title.lower()
                 if '404' in page_title or 'not found' in page_title or 'error' in page_title:
-                    logger.warning(f"Page not found (404) for {url}")
+                    logger.warning(f"Comic not found (404) for {comic_main_url}")
                     return None
                 
-                # Wait for the Angular app to load
+                # Wait for the page to load
                 time.sleep(3)
                 
-                # Wait for images from cdn.tinyview.com to load
-                logger.info("Waiting for comic images from CDN...")
-                wait = WebDriverWait(self.driver, 30)
+                # Now we need to find links for the specific date
+                soup = BeautifulSoup(self.driver.page_source, 'html.parser')
                 
-                # Try multiple strategies to find comic images
-                comic_found = False
+                # Look for links that match the date pattern
+                date_links = []
+                all_links = soup.find_all('a', href=True)
                 
-                # Strategy 1: Wait for any img with src containing cdn.tinyview.com
-                try:
-                    wait.until(EC.presence_of_element_located((By.XPATH, "//img[contains(@src, 'cdn.tinyview.com')]")))
-                    comic_found = True
-                    logger.info("Found CDN images using XPath selector")
-                except TimeoutException:
-                    logger.warning("No CDN images found with XPath selector")
+                for link in all_links:
+                    href = link['href']
+                    # Check if this link contains our date
+                    if date in href:
+                        date_links.append(href)
+                        logger.info(f"Found link for date {date}: {href}")
                 
-                # Strategy 2: Check for images in common container classes
-                if not comic_found:
-                    try:
-                        # Common Angular/React container patterns
-                        containers = [
-                            "comic-container", "comic-wrapper", "comic-image",
-                            "story-container", "story-wrapper", "content",
-                            "main-content", "comic-strip", "strip-container"
-                        ]
-                        
-                        for container in containers:
-                            try:
-                                elements = self.driver.find_elements(By.CLASS_NAME, container)
-                                if elements:
-                                    logger.info(f"Found container with class: {container}")
-                                    # Wait a bit more for images to load within containers
-                                    time.sleep(2)
-                                    comic_found = True
-                                    break
-                            except:
-                                pass
-                                
-                    except Exception as e:
-                        logger.warning(f"Error checking containers: {e}")
+                if not date_links:
+                    logger.warning(f"No strips found for date {date} on {comic_slug}")
+                    return None
                 
-                # Additional wait to ensure dynamic content is loaded
-                time.sleep(2)
+                # Visit ALL strips for this date to collect all comics
+                all_strips_content = []
+                for strip_url in date_links:
+                    if not strip_url.startswith('http'):
+                        strip_url = urljoin(self.base_url, strip_url)
+                    
+                    logger.info(f"Fetching strip: {strip_url}")
+                    self.driver.get(strip_url)
+                    
+                    # Save the strip URL for later use
+                    self._last_strip_url = strip_url
+                    
+                    # Wait for the strip page to load
+                    time.sleep(2)
+                    
+                    # Collect the page content
+                    all_strips_content.append(self.driver.page_source)
                 
-                # Return page source if we made it this far
-                page_source = self.driver.page_source
+                # Combine all strips content into one HTML document
+                # This allows us to extract all images from all strips on this date
+                combined_html = "<html><body>"
+                for content in all_strips_content:
+                    soup = BeautifulSoup(content, 'html.parser')
+                    body = soup.find('body')
+                    if body:
+                        combined_html += str(body)
+                combined_html += "</body></html>"
                 
-                # Log success
-                if comic_found:
-                    logger.info(f"Successfully fetched page with comic images: {url}")
-                else:
-                    logger.warning(f"Page fetched but no comic images detected: {url}")
+                logger.info(f"Successfully fetched {len(date_links)} strips for date {date}")
                 
-                return page_source
+                return combined_html
                 
             except TimeoutException as e:
-                logger.warning(f"Timeout on attempt {attempt + 1}/{self.max_retries} for {url}: {e}")
+                logger.warning(f"Timeout on attempt {attempt + 1}/{self.max_retries} for {comic_main_url}: {e}")
                 if attempt < self.max_retries - 1:
                     # Exponential backoff: wait 2^attempt seconds
                     wait_time = 2 ** attempt
@@ -160,11 +155,11 @@ class TinyviewScraper(BaseScraper):
                     # Close and reopen driver for clean retry
                     self.close_driver()
                 else:
-                    logger.error(f"All {self.max_retries} attempts failed for {url}")
+                    logger.error(f"All {self.max_retries} attempts failed for {comic_main_url}")
                     return None
                     
             except Exception as e:
-                logger.error(f"Error on attempt {attempt + 1}/{self.max_retries} for {url}: {e}")
+                logger.error(f"Error on attempt {attempt + 1}/{self.max_retries} for {comic_main_url}: {e}")
                 if attempt < self.max_retries - 1:
                     # Exponential backoff
                     wait_time = 2 ** attempt
@@ -173,7 +168,7 @@ class TinyviewScraper(BaseScraper):
                     # Close and reopen driver for clean retry
                     self.close_driver()
                 else:
-                    logger.error(f"All {self.max_retries} attempts failed for {url}")
+                    logger.error(f"All {self.max_retries} attempts failed for {comic_main_url}")
                     return None
         
         # This should never be reached, but just in case
@@ -191,6 +186,7 @@ class TinyviewScraper(BaseScraper):
         """
         soup = BeautifulSoup(html_content, 'html.parser')
         images = []
+        seen_urls = set()  # Track unique images to avoid duplicates
         
         # Find all images from cdn.tinyview.com
         all_imgs = soup.find_all('img')
@@ -201,13 +197,37 @@ class TinyviewScraper(BaseScraper):
             try:
                 parsed_url = urlparse(src)
                 if parsed_url.hostname == 'cdn.tinyview.com':
-                    image_data = {
-                        'url': src,
-                        'alt': img.get('alt', ''),
-                        'title': img.get('title', '')
-                    }
-                    images.append(image_data)
-                    logger.info(f"Found comic image: {src}")
+                    # Filter out generic Tinyview images (promotional, UI elements, etc.)
+                    path = parsed_url.path.lower()
+                    if any(skip in path for skip in ['/tinyview/app/', '/tinyview/subscribe/', '/tinyview/influence-points/']):
+                        logger.debug(f"Skipping non-comic image: {src}")
+                        continue
+                    
+                    # Check if this looks like a comic image (should contain the comic slug)
+                    if comic_slug in parsed_url.path:
+                        # Skip profile images
+                        if 'profile' in path:
+                            logger.debug(f"Skipping profile image: {src}")
+                            continue
+                        
+                        # Include all images from this date (we want all strips from the date)
+                        if date in parsed_url.path:
+                            # Skip duplicates
+                            if src not in seen_urls:
+                                seen_urls.add(src)
+                                image_data = {
+                                    'url': src,
+                                    'alt': img.get('alt', ''),
+                                    'title': img.get('title', '')
+                                }
+                                images.append(image_data)
+                                logger.info(f"Found comic image for date {date}: {src}")
+                            else:
+                                logger.debug(f"Skipping duplicate image: {src}")
+                        else:
+                            logger.debug(f"Skipping image from different date: {src}")
+                    else:
+                        logger.debug(f"Skipping image not matching comic slug: {src}")
             except:
                 # Skip invalid URLs
                 pass
@@ -223,13 +243,18 @@ class TinyviewScraper(BaseScraper):
                         # Check if hostname ends with .tinyview.com or is exactly tinyview.com
                         if parsed_url.hostname and (parsed_url.hostname == 'tinyview.com' or 
                                                     parsed_url.hostname.endswith('.tinyview.com')):
-                            image_data = {
-                                'url': data_src,
-                                'alt': img.get('alt', ''),
-                                'title': img.get('title', '')
-                            }
-                            images.append(image_data)
-                            logger.info(f"Found comic image (data-src): {data_src}")
+                            # Skip duplicates
+                            if data_src not in seen_urls:
+                                seen_urls.add(data_src)
+                                image_data = {
+                                    'url': data_src,
+                                    'alt': img.get('alt', ''),
+                                    'title': img.get('title', '')
+                                }
+                                images.append(image_data)
+                                logger.info(f"Found comic image (data-src): {data_src}")
+                            else:
+                                logger.debug(f"Skipping duplicate image (data-src): {data_src}")
                     except:
                         # Skip invalid URLs
                         pass
@@ -317,11 +342,29 @@ class TinyviewScraper(BaseScraper):
             # Extract metadata
             metadata = self.extract_metadata(html_content, comic_slug, date)
             
-            # Use the base class helper to build standardized result
-            result = self.build_comic_result(comic_slug, date, images, metadata)
+            # Get the actual strip URL from the fetch process
+            # Since we may have multiple strips, use the comic's main page as the URL
+            strip_url = f"{self.base_url}/{comic_slug}/{date}"
             
-            if result:
-                logger.info(f"Successfully scraped {comic_slug} for {date}: {len(images)} images found")
+            # Build the result with all required fields
+            result = {
+                'source': self.get_source_name(),
+                'comic_slug': comic_slug,
+                'date': date,
+                'title': metadata.get('title', f'{comic_slug} - {date}'),
+                'url': strip_url,
+                'images': images,
+                'image_count': len(images),
+                'published_date': metadata.get('published_date', datetime.now()),
+                'description': metadata.get('description', '')
+            }
+            
+            # Add convenience fields for single-image comics
+            if len(images) == 1:
+                result['image_url'] = images[0]['url']
+                result['image_alt'] = images[0].get('alt', '')
+            
+            logger.info(f"Successfully scraped {comic_slug} for {date}: {len(images)} images found")
             
             return result
             
