@@ -37,9 +37,13 @@ function comicFeedExists(slug) {
     }
 
     // If we have a comics list, consider that as validation too
-    const comicsList = loadComicsList();
-    if (comicsList && comicsList.some(comic => comic.slug === slug)) {
-        console.log(`Comic ${slug} found in comics_list.json`);
+    // Check both daily and political lists
+    const dailyComicsList = loadComicsList('daily');
+    const politicalComicsList = loadComicsList('political');
+    
+    if ((dailyComicsList && dailyComicsList.some(comic => comic.slug === slug)) ||
+        (politicalComicsList && politicalComicsList.some(comic => comic.slug === slug))) {
+        console.log(`Comic ${slug} found in comics list`);
         return true;
     }
 
@@ -48,10 +52,13 @@ function comicFeedExists(slug) {
 }
 
 // Helper function to load comics list
-function loadComicsList() {
+function loadComicsList(type = 'daily') {
     try {
         const functionDir = path.dirname(__filename);
         console.log('Function directory:', functionDir);
+        
+        // Determine the filename based on type
+        const filename = type === 'political' ? 'political_comics_list.json' : 'comics_list.json';
         
         // List contents of function directory
         console.log('Contents of function directory:');
@@ -63,14 +70,14 @@ function loadComicsList() {
         }
         
         // Try to read from function directory first
-        const functionPath = path.join(functionDir, 'comics_list.json');
+        const functionPath = path.join(functionDir, filename);
         console.log('Function path:', functionPath);
         
         try {
             if (fs.existsSync(functionPath)) {
-                console.log('Found comics list in function directory');
+                console.log(`Found ${type} comics list in function directory`);
                 const data = JSON.parse(fs.readFileSync(functionPath, 'utf8'));
-                console.log(`Loaded ${data.length} comics from list`);
+                console.log(`Loaded ${data.length} ${type} comics from list`);
                 return data;
             }
         } catch (error) {
@@ -79,9 +86,10 @@ function loadComicsList() {
         
         // Fallback paths if function path fails
         const fallbackPaths = [
-            path.join(functionDir, 'data', 'comics_list.json'),
-            path.join(functionDir, '..', 'public', 'comics_list.json'),
-            path.join('comics_list.json')
+            path.join(functionDir, 'data', filename),
+            path.join(functionDir, '..', 'public', filename),
+            path.join('public', filename),
+            path.join(filename)
         ];
 
         console.log('Trying fallback paths:', fallbackPaths);
@@ -90,9 +98,9 @@ function loadComicsList() {
             console.log(`Checking fallback path: ${comicsPath}`);
             try {
                 if (fs.existsSync(comicsPath)) {
-                    console.log(`Found comics list at fallback path: ${comicsPath}`);
+                    console.log(`Found ${type} comics list at fallback path: ${comicsPath}`);
                     const data = JSON.parse(fs.readFileSync(comicsPath, 'utf8'));
-                    console.log(`Loaded ${data.length} comics from list`);
+                    console.log(`Loaded ${data.length} ${type} comics from list`);
                     return data;
                 }
             } catch (error) {
@@ -100,17 +108,17 @@ function loadComicsList() {
             }
         }
     } catch (error) {
-        console.error('Error loading comics list:', error);
+        console.error(`Error loading ${type} comics list:`, error);
     }
-    console.log('No comics list found in any location');
+    console.log(`No ${type} comics list found in any location`);
     return [];
 }
 
 // Generate OPML content
-function generateOPML(comics) {
+function generateOPML(comics, type = 'daily') {
     const date = new Date().toISOString();
     const baseUrl = process.env.URL || 'https://comiccaster.xyz';
-    const comicsList = loadComicsList();
+    const comicsList = loadComicsList(type);
     
     // Create a mapping of slugs to comic names
     const slugToName = {};
@@ -133,14 +141,17 @@ function generateOPML(comics) {
             />`;
     }).join('\n');
 
+    const categoryTitle = type === 'political' ? 'Political Cartoons' : 'Comics';
+    const opmlTitle = type === 'political' ? 'ComicCaster Political Cartoons' : 'ComicCaster Daily Comics';
+
     return `<?xml version="1.0" encoding="UTF-8"?>
 <opml version="1.0">
     <head>
-        <title>ComicCaster Feeds</title>
+        <title>${opmlTitle}</title>
         <dateCreated>${date}</dateCreated>
     </head>
     <body>
-        <outline text="Comics" title="Comics">
+        <outline text="${categoryTitle}" title="${categoryTitle}">
 ${feeds}
         </outline>
     </body>
@@ -157,9 +168,11 @@ exports.handler = async function(event, context) {
 
     try {
         let comics = [];
+        let type = 'daily';
         try {
             const body = JSON.parse(event.body);
             comics = body.comics || [];
+            type = body.type || 'daily';
         } catch (error) {
             return {
                 statusCode: 400,
@@ -175,12 +188,12 @@ exports.handler = async function(event, context) {
         }
 
         // Load comics list first to validate slugs
-        const comicsList = loadComicsList();
+        const comicsList = loadComicsList(type);
         if (comicsList.length === 0) {
-            console.error('No comics list found - this is a critical error');
+            console.error(`No ${type} comics list found - this is a critical error`);
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: 'Comics list not found - please contact support' })
+                body: JSON.stringify({ error: `${type} comics list not found - please contact support` })
             };
         }
 
@@ -198,14 +211,17 @@ exports.handler = async function(event, context) {
         }
 
         // Generate OPML content
-        const opml = generateOPML(availableComics);
+        const opml = generateOPML(availableComics, type);
+
+        // Determine filename based on type
+        const filename = type === 'political' ? 'political-cartoons.opml' : 'daily-comics.opml';
 
         // Return OPML as attachment
         return {
             statusCode: 200,
             headers: {
                 'Content-Type': 'application/xml',
-                'Content-Disposition': 'attachment; filename="comiccaster-feeds.opml"'
+                'Content-Disposition': `attachment; filename="${filename}"`
             },
             body: opml
         };

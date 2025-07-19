@@ -4,8 +4,8 @@ This document provides comprehensive documentation of all tests in the ComicCast
 
 ## Test Overview
 
-- **Total test files**: 24
-- **Total test methods**: ~80
+- **Total test files**: 25
+- **Total test methods**: 85 (all passing)
 - **Test framework**: pytest
 - **Coverage target**: Comprehensive coverage of core functionality
 
@@ -160,6 +160,28 @@ TDD test suite for adjusting feed content for political comics.
 - **Status**: ✅ Passing
 - **Purpose**: Political comic categorization and content adjustments
 
+### 1.4 Frontend UI Tests (Epic 3)
+
+#### `tests/test_tabbed_interface.py` ✅ **14 tests**
+TDD test suite for tabbed interface implementation.
+
+- `test_political_comics_list_exists()` - Political comics list in public directory
+- `test_political_comics_data_structure()` - Validates political comics data format
+- `test_html_tab_structure()` - Tab buttons and content divs exist
+- `test_css_tab_styling()` - CSS styles for tab functionality
+- `test_javascript_tab_functionality()` - JavaScript tab switching logic
+- `test_separate_search_inputs()` - Each tab has its own search
+- `test_separate_tables()` - Browse section has separate tables
+- `test_separate_comic_lists()` - OPML section has separate lists
+- `test_opml_type_parameter()` - OPML sends type parameter
+- `test_opml_filenames()` - Type-specific OPML filenames
+- `test_opml_function_type_handling()` - generate-opml.js handles types
+- `test_opml_function_loads_political_list()` - Loads political_comics_list.json
+- `test_tab_button_icons()` - Appropriate icons for each tab
+- `test_placeholder_text()` - Search inputs have type-specific placeholders
+- **Status**: ✅ Passing
+- **Purpose**: Frontend tabbed interface for comic type separation
+
 ---
 
 ## 2. Integration Tests
@@ -310,6 +332,9 @@ pytest tests/test_political_comics_discovery.py tests/test_publishing_analyzer.p
 
 # Smart update tests (Epic 2)
 pytest tests/test_smart_update_strategy.py tests/test_feed_content_adjustments.py -v
+
+# Frontend UI tests (Epic 3)
+pytest tests/test_tabbed_interface.py -v
 
 # Feed validation (runs after daily updates)
 python scripts/validate_feeds.py

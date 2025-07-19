@@ -4,11 +4,14 @@ ComicCaster is a web application that generates RSS feeds for comics from GoComi
 
 ## Features
 
-- Individual RSS feeds for hundreds of comics from GoComics
+- Individual RSS feeds for 400+ daily comics and 60+ political cartoons from GoComics
 - **Accurate daily comic detection** - distinguishes between current daily comics and "best of" reruns
+- **Tabbed interface** - separate browsing for daily comics and political editorial cartoons
+- **Smart update scheduling** - optimizes feed updates based on comic publishing patterns
+- **Political comic support** - dedicated feeds for editorial cartoons with appropriate content descriptions
 - Feed preview functionality to check comic content before subscribing
-- OPML file generation for custom comic bundles
-- Modern, responsive web interface
+- OPML file generation for custom comic bundles (separate files for daily comics and political cartoons)
+- Modern, responsive web interface with intuitive tab navigation
 - Fast and efficient serverless deployment
 - Daily feed updates via GitHub Actions with enhanced scraping reliability
 
@@ -79,7 +82,16 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 4. Triggers a new Netlify deployment
 5. **Validates feed freshness** using canary monitoring (new!)
 
-### Recent Improvements (June 2025)
+### Recent Improvements (July 2025)
+
+**Political Comics Integration:**
+- **New Feature**: Added support for 63+ political editorial cartoons from GoComics
+- **Tabbed Interface**: Separate tabs for daily comics and political cartoons for better organization
+- **Smart Updates**: Comics are updated based on their publishing frequency (daily, weekly, irregular)
+- **Content Warnings**: Political feeds include appropriate descriptions and content categories
+- **Separate OPML Files**: Generate `daily-comics.opml` or `political-cartoons.opml` based on your preferences
+
+### Previous Improvements (June 2025)
 
 **Enhanced Comic Detection System:**
 - **Problem Solved**: GoComics serves both current daily comics and historical "best of" reruns on the same page, making it difficult to distinguish which is the actual daily comic
