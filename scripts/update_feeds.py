@@ -460,17 +460,17 @@ def regenerate_feed(comic_info: Dict[str, str], new_entries: List[Dict[str, any]
     if sorted_entries:
         logger.debug(f"Sorted entries dates (newest first?): {[entry['pub_date'].strftime('%Y-%m-%d') for entry in sorted_entries[:3]]}")
 
+    # Limit the number of entries in the feed BEFORE reversing
+    max_feed_entries = 100 # Example limit
+    if len(sorted_entries) > max_feed_entries:
+        logger.info(f"Limiting feed entries from {len(sorted_entries)} to {max_feed_entries}.")
+        sorted_entries = sorted_entries[:max_feed_entries]
+
     # REVERSE the list: If feedgen prepends entries, feeding it oldest-first
     # will result in newest-first output.
     sorted_entries.reverse()
     if sorted_entries:
         logger.debug(f"Reversed sorted entries dates (now oldest first?): {[entry['pub_date'].strftime('%Y-%m-%d') for entry in sorted_entries[:3]]}")
-
-    # Optional: Limit the number of entries in the feed
-    max_feed_entries = 100 # Example limit
-    if len(sorted_entries) > max_feed_entries:
-        logger.info(f"Limiting feed entries from {len(sorted_entries)} to {max_feed_entries}.")
-        sorted_entries = sorted_entries[:max_feed_entries]
 
 
     # 4. Generate the feed using ComicFeedGenerator
