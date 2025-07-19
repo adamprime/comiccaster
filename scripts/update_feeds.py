@@ -836,9 +836,13 @@ def calculate_backoff_days(failure_count: int, base_days: int = 1) -> int:
 def main():
     """Main function to update all comic feeds."""
     try:
-        # Load comics list
-        comics = load_comics_list()
-        logger.info(f"Loaded {len(comics)} comics")
+        # Load both regular and political comics
+        regular_comics = load_comics_list()
+        political_comics = load_political_comics_list()
+        
+        # Combine all comics
+        comics = regular_comics + political_comics
+        logger.info(f"Loaded {len(regular_comics)} regular comics and {len(political_comics)} political comics (total: {len(comics)})")
         
         # Process comics concurrently
         with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
