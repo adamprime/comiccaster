@@ -269,6 +269,100 @@ class ComicsLoader:
         except Exception as e:
             logger.error(f"Failed to get comics list: {e}")
             return []
+    
+    def normalize_comic_config(self, comic: Dict[str, str]) -> Dict[str, str]:
+        """
+        Normalize a comic configuration dictionary by adding default values.
+        
+        Args:
+            comic (Dict[str, str]): Comic configuration dictionary.
+            
+        Returns:
+            Dict[str, str]: Normalized comic configuration with default source.
+        """
+        normalized = comic.copy()
+        
+        # Add default source if not present (backward compatibility)
+        if 'source' not in normalized:
+            normalized['source'] = 'gocomics-daily'
+        
+        return normalized
+    
+    def validate_comic_config(self, comic: Dict[str, str]) -> bool:
+        """
+        Validate a comic configuration dictionary.
+        
+        Args:
+            comic (Dict[str, str]): Comic configuration dictionary.
+            
+        Returns:
+            bool: True if valid.
+            
+        Raises:
+            ValueError: If the configuration is invalid.
+        """
+        # Valid source types
+        valid_sources = ['gocomics-daily', 'gocomics-political', 'tinyview']
+        
+        # Check required fields
+        required_fields = ['slug', 'name']
+        for field in required_fields:
+            if field not in comic:
+                raise ValueError(f"Missing required field: {field}")
+        
+        # Validate source field
+        source = comic.get('source', 'gocomics-daily')
+        if source not in valid_sources:
+            raise ValueError(f"Invalid source '{source}'. Valid sources: {valid_sources}")
+        
+        return True
+    
+    def load_all_comics(self, regular_comics_file: str = "comics_list.json", 
+                       political_comics_file: str = "political_comics_list.json") -> List[Dict[str, str]]:
+        """
+        Load all comics from both regular and political comics files.
+        
+        Args:
+            regular_comics_file (str): Path to regular comics JSON file.
+            political_comics_file (str): Path to political comics JSON file.
+            
+        Returns:
+            List[Dict[str, str]]: List of all comic configurations with normalized sources.
+        """
+        all_comics = []
+        
+        # Load regular comics
+        try:
+            regular_comics = self.load_comics_from_file(regular_comics_file)
+            for comic in regular_comics:
+                normalized = self.normalize_comic_config(comic)
+                self.validate_comic_config(normalized)
+                all_comics.append(normalized)
+            logger.info(f"Loaded {len(regular_comics)} regular comics")
+        except FileNotFoundError:
+            logger.warning(f"Regular comics file not found: {regular_comics_file}")
+        except Exception as e:
+            logger.error(f"Error loading regular comics: {e}")
+            
+        # Load political comics
+        try:
+            political_comics = self.load_comics_from_file(political_comics_file)
+            for comic in political_comics:
+                # Political comics should already have source set, but normalize anyway
+                normalized = self.normalize_comic_config(comic)
+                # Override source for political comics if not explicitly set to political
+                if normalized.get('source') == 'gocomics-daily':
+                    normalized['source'] = 'gocomics-political'
+                self.validate_comic_config(normalized)
+                all_comics.append(normalized)
+            logger.info(f"Loaded {len(political_comics)} political comics")
+        except FileNotFoundError:
+            logger.info(f"Political comics file not found: {political_comics_file}")
+        except Exception as e:
+            logger.error(f"Error loading political comics: {e}")
+        
+        logger.info(f"Total comics loaded: {len(all_comics)}")
+        return all_comics
 
 def main():
     """Main function to demonstrate the ComicsLoader usage."""

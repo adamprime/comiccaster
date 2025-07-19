@@ -52,10 +52,21 @@ class ComicFeedGenerator:
         """
         fg = FeedGenerator()
         
+        # Get source information
+        source = comic_info.get('source', 'gocomics-daily')
+        source_display = {
+            'gocomics-daily': 'GoComics',
+            'gocomics-political': 'GoComics Political',
+            'tinyview': 'TinyView'
+        }.get(source, 'GoComics')
+        
         # Set feed metadata
-        fg.title(f"{comic_info['name']} - GoComics")
-        fg.description(f"Daily {comic_info['name']} comic strip by {comic_info.get('author', 'Unknown Author')}")
+        fg.title(f"{comic_info['name']} - {source_display}")
+        fg.description(f"Daily {comic_info['name']} comic strip by {comic_info.get('author', 'Unknown Author')} from {source_display}")
         fg.language('en')
+        
+        # Add source as a category
+        fg.category(term=source, label=source_display)
         
         # Set feed ID and updated time
         fg.id(comic_info['url'])
