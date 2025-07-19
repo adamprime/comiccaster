@@ -4,8 +4,8 @@ This document provides comprehensive documentation of all tests in the ComicCast
 
 ## Test Overview
 
-- **Total test files**: 27
-- **Total test methods**: 101 (all passing)
+- **Total test files**: 28
+- **Total test methods**: 113 (all passing)
 - **Test framework**: pytest
 - **Coverage target**: Comprehensive coverage of core functionality
 
@@ -124,7 +124,24 @@ TDD test suite for the Abstract Base Scraper class.
 - **Status**: ✅ Passing
 - **Purpose**: Foundation for multi-source scraper architecture
 
-### 1.3 Political Comics Integration Tests
+#### `tests/test_comic_config.py` ✅ **12 tests**
+TDD test suite for the Granular Source Field implementation.
+
+- `test_comic_has_granular_source_field()` - Tests basic source field structure
+- `test_tinyview_source_field()` - Tests Tinyview comic source assignment
+- `test_political_comics_source_field()` - Tests political comic source assignment
+- `test_default_source_is_gocomics_daily()` - Tests backward compatibility default
+- `test_political_cartoons_compatibility()` - Tests coordination with political cartoons
+- `test_loader_validates_source_field()` - Tests source field validation
+- `test_loader_preserves_source_on_load()` - Tests source preservation during loading
+- `test_update_feeds_uses_source_field()` - Tests scraper selection by source
+- `test_feed_generator_includes_source_metadata()` - Tests source in feed metadata
+- `test_backward_compatibility_for_missing_source()` - Tests missing source handling
+- `test_mixed_source_comic_lists()` - Tests loading mixed source configurations
+- **Status**: ✅ Passing
+- **Purpose**: Multi-source comic configuration and processing
+
+### 1.4 Political Comics Integration Tests
 
 #### `tests/test_political_comics_discovery.py` ✅ **7 tests**
 TDD test suite for discovering political comics from GoComics.
@@ -155,7 +172,7 @@ TDD test suite for analyzing comic publishing schedules.
 - **Status**: ✅ Passing
 - **Purpose**: Publishing pattern analysis and update scheduling
 
-### 1.4 Smart Update System Tests (Epic 2)
+### 1.5 Smart Update System Tests (Epic 2)
 
 #### `tests/test_smart_update_strategy.py` ✅ **10 tests**
 TDD test suite for smart update scheduling based on publishing patterns.
@@ -189,7 +206,7 @@ TDD test suite for adjusting feed content for political comics.
 - **Status**: ✅ Passing
 - **Purpose**: Political comic categorization and content adjustments
 
-### 1.5 Frontend UI Tests (Epic 3)
+### 1.6 Frontend UI Tests (Epic 3)
 
 #### `tests/test_tabbed_interface.py` ✅ **14 tests**
 TDD test suite for tabbed interface implementation.
