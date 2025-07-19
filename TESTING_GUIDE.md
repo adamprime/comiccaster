@@ -4,8 +4,8 @@ This document provides comprehensive documentation of all tests in the ComicCast
 
 ## Test Overview
 
-- **Total test files**: 31
-- **Total test methods**: 165 (all passing)
+- **Total test files**: 32
+- **Total test methods**: 177 (all passing)
 - **Test framework**: pytest
 - **Coverage target**: Comprehensive coverage of core functionality
 
@@ -303,6 +303,26 @@ TDD test suite for tabbed interface implementation.
 - `test_placeholder_text()` - Search inputs have type-specific placeholders
 - **Status**: ✅ Passing
 - **Purpose**: Frontend tabbed interface for comic type separation
+
+### 1.8 Tinyview UI Enhancement Tests (Epic 4)
+
+#### `tests/test_ui_tabs.py` ✅ **12 tests**
+TDD test suite for Epic 4, Story 4.1: Add Tinyview Tab to Comic Browser.
+
+- `test_tinyview_comics_list_json_exists()` - Tests that tinyview_comics_list.json file structure is valid
+- `test_browse_section_has_tinyview_tab()` - Tests that Browse section includes Tinyview tab
+- `test_tinyview_tab_content_structure()` - Tests that Tinyview tab has proper content structure
+- `test_opml_section_has_tinyview_tab()` - Tests that OPML section includes Tinyview tab
+- `test_tinyview_opml_content_structure()` - Tests that Tinyview OPML tab has proper content structure
+- `test_javascript_tab_switching_logic()` - Tests that JavaScript handles Tinyview tab switching
+- `test_tinyview_data_loading()` - Tests that Tinyview comics are loaded from tinyview_comics_list.json
+- `test_tinyview_table_population()` - Tests that Tinyview comics table is populated correctly
+- `test_tinyview_search_functionality()` - Tests that Tinyview comics search works properly
+- `test_tinyview_opml_generation()` - Tests that Tinyview OPML generation includes type parameter
+- `test_tinyview_comics_have_source_attribute()` - Tests that Tinyview comics are properly attributed with source
+- `test_tab_styling_consistency()` - Tests that Tinyview tab has consistent styling with other tabs
+- **Status**: ✅ Passing
+- **Purpose**: Frontend UI enhancement for Tinyview comics integration
 
 ---
 
