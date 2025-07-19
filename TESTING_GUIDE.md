@@ -4,8 +4,8 @@ This document provides comprehensive documentation of all tests in the ComicCast
 
 ## Test Overview
 
-- **Total test files**: 26
-- **Total test methods**: 93 (all passing)
+- **Total test files**: 27
+- **Total test methods**: 101 (all passing)
 - **Test framework**: pytest
 - **Coverage target**: Comprehensive coverage of core functionality
 
@@ -109,7 +109,22 @@ Tests for the main update_feeds.py script ensuring political comics are processe
 - **Status**: ✅ Passing
 - **Purpose**: Ensures political comics are included in daily updates
 
-### 1.2 Political Comics Integration Tests (Epic 1)
+### 1.2 Backend Infrastructure Tests (Tinyview Integration - Epic 1)
+
+#### `tests/test_base_scraper.py` ✅ **8 tests**
+TDD test suite for the Abstract Base Scraper class.
+
+- `test_base_scraper_interface()` - Tests required abstract methods exist
+- `test_base_scraper_not_instantiable()` - Cannot instantiate abstract class  
+- `test_base_scraper_common_attributes()` - Tests base_url, timeout, max_retries
+- `test_base_scraper_standardized_output()` - Verifies output format
+- `test_base_scraper_single_vs_multi_image()` - Handles single/multi images
+- `test_base_scraper_error_handling()` - Proper error handling
+- `test_base_scraper_supports_both_gocomics_and_tinyview()` - Multi-source support
+- **Status**: ✅ Passing
+- **Purpose**: Foundation for multi-source scraper architecture
+
+### 1.3 Political Comics Integration Tests
 
 #### `tests/test_political_comics_discovery.py` ✅ **7 tests**
 TDD test suite for discovering political comics from GoComics.
@@ -140,7 +155,7 @@ TDD test suite for analyzing comic publishing schedules.
 - **Status**: ✅ Passing
 - **Purpose**: Publishing pattern analysis and update scheduling
 
-### 1.3 Smart Update System Tests (Epic 2)
+### 1.4 Smart Update System Tests (Epic 2)
 
 #### `tests/test_smart_update_strategy.py` ✅ **10 tests**
 TDD test suite for smart update scheduling based on publishing patterns.
@@ -174,7 +189,7 @@ TDD test suite for adjusting feed content for political comics.
 - **Status**: ✅ Passing
 - **Purpose**: Political comic categorization and content adjustments
 
-### 1.4 Frontend UI Tests (Epic 3)
+### 1.5 Frontend UI Tests (Epic 3)
 
 #### `tests/test_tabbed_interface.py` ✅ **14 tests**
 TDD test suite for tabbed interface implementation.
