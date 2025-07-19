@@ -54,33 +54,22 @@ FEEDS_OUTPUT_DIR = WORKSPACE_ROOT / "public" / "feeds" # Output to public/feeds
 # Add the parent directory to sys.path to find the comiccaster module
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from comiccaster.feed_generator import ComicFeedGenerator
-from comiccaster.gocomics_scraper import GoComicsScraper
-from comiccaster.tinyview_scraper import TinyviewScraper
-from comiccaster.base_scraper import BaseScraper
+from comiccaster.scraper_factory import ScraperFactory
 
-def get_scraper_for_comic(comic: Dict[str, str]) -> BaseScraper:
+# For backward compatibility, expose the factory method
+def get_scraper_for_comic(comic: Dict[str, str]):
     """
     Get the appropriate scraper for a comic based on its source field.
+    
+    This is a convenience wrapper around ScraperFactory.get_scraper_for_comic().
     
     Args:
         comic (Dict[str, str]): Comic configuration with source field.
         
     Returns:
         BaseScraper: The appropriate scraper instance.
-        
-    Raises:
-        ValueError: If the source is not recognized.
     """
-    source = comic.get('source', 'gocomics-daily')
-    
-    if source == 'gocomics-daily':
-        return GoComicsScraper(source_type='gocomics-daily')
-    elif source == 'gocomics-political':
-        return GoComicsScraper(source_type='gocomics-political')
-    elif source == 'tinyview':
-        return TinyviewScraper()
-    else:
-        raise ValueError(f"Unknown comic source: {source}")
+    return ScraperFactory.get_scraper_for_comic(comic)
 
 def load_comics_list():
     """Load the list of comics from comics_list.json."""
