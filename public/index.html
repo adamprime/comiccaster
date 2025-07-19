@@ -178,7 +178,7 @@
         }
 
         /* Search inputs */
-        #comicSearch, #customFeedSearch {
+        #comicSearch, #customFeedSearch, #politicalComicSearch, #politicalFeedSearch, #tinyviewComicSearch, #tinyviewFeedSearch {
             width: 100%;
             padding: 0.5rem;
             margin-bottom: 1rem;
@@ -186,6 +186,44 @@
             border-radius: 4px;
             background: #333;
             color: #fff;
+        }
+
+        /* Tab styling */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-button:hover {
+            color: #fff;
+        }
+
+        .tab-button.active {
+            color: #fff;
+            border-bottom-color: var(--accent-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         .help-text {
@@ -264,9 +302,36 @@
                 height: 200px;
             }
         }
+        
+        /* Notification banner */
+        .notification-banner {
+            background-color: #fbbf24;
+            color: #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .notification-banner a {
+            color: #0066cc;
+            font-weight: 600;
+        }
+        
+        .notification-banner a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+    <!-- Notification banner - uncomment when needed -->
+    <!-- <div class="notification-banner">
+        Some feeds wandered off and haven't updated for a few days. Possibly abducted by cows. 🐄 Possibly just broken. (But you never know with cows and their cow tools 🐮) Either way, we're investigating. See our scribbles here: <a href="https://github.com/adamprime/comiccaster/issues/46" target="_blank">GitHub #46</a>
+    </div> -->
     <div class="container">
         <header class="header">
             <h1>ComicCaster</h1>
@@ -286,20 +351,61 @@
                 <p>Grab an RSS link for any individual comic below. Perfect for reading in your own RSS reader like Feedly, NetNewsWire, or Reeder.</p>
             </div>
             <div class="card-body">
-                <input type="text" id="comicSearch" placeholder="Search comics...">
-                <div class="table-container">
-                    <table class="table" id="comics-table">
-                        <thead>
-                            <tr>
-                                <th>Comic</th>
-                                <th>📡 RSS Link</th>
-                                <th>🔗 Original Page</th>
-                            </tr>
-                        </thead>
-                        <tbody id="comics-table-body">
-                            <!-- Comic rows will be populated dynamically -->
-                        </tbody>
-                    </table>
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="daily">📰 Daily Comics</button>
+                    <button class="tab-button" data-tab="political">🏛️ Political Cartoons</button>
+                    <button class="tab-button" data-tab="tinyview">📱 TinyView</button>
+                </div>
+                <div class="tab-content active" id="daily-tab">
+                    <input type="text" id="comicSearch" placeholder="Search daily comics...">
+                    <div class="table-container">
+                        <table class="table" id="comics-table">
+                            <thead>
+                                <tr>
+                                    <th>Comic</th>
+                                    <th>📡 RSS Link</th>
+                                    <th>🔗 Original Page</th>
+                                </tr>
+                            </thead>
+                            <tbody id="comics-table-body">
+                                <!-- Comic rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-content" id="political-tab">
+                    <input type="text" id="politicalComicSearch" placeholder="Search political cartoons...">
+                    <div class="table-container">
+                        <table class="table" id="political-comics-table">
+                            <thead>
+                                <tr>
+                                    <th>Comic</th>
+                                    <th>📡 RSS Link</th>
+                                    <th>🔗 Original Page</th>
+                                </tr>
+                            </thead>
+                            <tbody id="political-comics-table-body">
+                                <!-- Political comic rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-content" id="tinyview-tab">
+                    <input type="text" id="tinyviewComicSearch" placeholder="Search TinyView comics...">
+                    <div class="table-container">
+                        <table class="table" id="tinyview-comics-table">
+                            <thead>
+                                <tr>
+                                    <th>Comic</th>
+                                    <th>📡 RSS Link</th>
+                                    <th>🔗 Original Page</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tinyview-comics-table-body">
+                                <!-- Tinyview comic rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -310,16 +416,49 @@
                 <p>Select your favorite comics below and click the button to generate an OPML file. It works like a playlist for your RSS reader—you can import them all at once!</p>
             </div>
             <div class="card-body">
-                <input type="text" id="customFeedSearch" placeholder="Search comics by name...">
-                <div class="comic-list" id="comics-list">
-                    <!-- Comics checkboxes will be populated dynamically -->
+                <div class="tabs">
+                    <button class="tab-button opml-tab active" data-tab="daily-opml">📰 Daily Comics</button>
+                    <button class="tab-button opml-tab" data-tab="political-opml">🏛️ Political Cartoons</button>
+                    <button class="tab-button opml-tab" data-tab="tinyview-opml">📱 TinyView</button>
                 </div>
+                <div class="tab-content opml-content active" id="daily-opml-tab">
+                    <input type="text" id="customFeedSearch" placeholder="Search daily comics by name...">
+                    <div class="comic-list" id="comics-list">
+                        <!-- Comics checkboxes will be populated dynamically -->
+                    </div>
 
-                <button class="btn btn-primary" id="generateOPMLBtn">📄 Generate My OPML</button>
-                <button class="btn btn-secondary" id="resetSelectionBtn">❌ Clear Selection</button>
-                
-                <div id="success-message" class="success-message">
-                    <p>✅ Your OPML file is ready! <a href="#" id="download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the comics!</p>
+                    <button class="btn btn-primary" id="generateOPMLBtn">📄 Generate Daily Comics OPML</button>
+                    <button class="btn btn-secondary" id="resetSelectionBtn">❌ Clear Selection</button>
+                    
+                    <div id="success-message" class="success-message">
+                        <p>✅ Your OPML file is ready! <a href="#" id="download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the comics!</p>
+                    </div>
+                </div>
+                <div class="tab-content opml-content" id="political-opml-tab">
+                    <input type="text" id="politicalFeedSearch" placeholder="Search political cartoons by name...">
+                    <div class="comic-list" id="political-comics-list">
+                        <!-- Political comics checkboxes will be populated dynamically -->
+                    </div>
+
+                    <button class="btn btn-primary" id="generatePoliticalOPMLBtn">📄 Generate Political Cartoons OPML</button>
+                    <button class="btn btn-secondary" id="resetPoliticalSelectionBtn">❌ Clear Selection</button>
+                    
+                    <div id="political-success-message" class="success-message">
+                        <p>✅ Your OPML file is ready! <a href="#" id="political-download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the political cartoons!</p>
+                    </div>
+                </div>
+                <div class="tab-content opml-content" id="tinyview-opml-tab">
+                    <input type="text" id="tinyviewFeedSearch" placeholder="Search TinyView comics by name...">
+                    <div class="comic-list" id="tinyview-comics-list">
+                        <!-- Tinyview comics checkboxes will be populated dynamically -->
+                    </div>
+
+                    <button class="btn btn-primary" id="generateTinyviewOPMLBtn">📄 Generate TinyView Comics OPML</button>
+                    <button class="btn btn-secondary" id="resetTinyviewSelectionBtn">❌ Clear Selection</button>
+                    
+                    <div id="tinyview-success-message" class="success-message">
+                        <p>✅ Your OPML file is ready! <a href="#" id="tinyview-download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the TinyView comics!</p>
+                    </div>
                 </div>
 
                 <div class="help-text">
@@ -336,25 +475,46 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Load comics data
-            fetch('/comics_list.json')
-                .then(response => response.json())
-                .then(comics => {
-                    populateComicsTable(comics);
-                    populateComicsList(comics);
-                    setupSearch();
-                    setupOPMLGeneration();
-                })
-                .catch(error => {
-                    console.error('Error fetching comics:', error);
-                });
+            let dailyComics = [];
+            let politicalComics = [];
+            let tinyviewComics = [];
             
-            function populateComicsTable(comics) {
-                const tableBody = document.getElementById('comics-table-body');
+            // Load all three types of comics data
+            Promise.all([
+                fetch('/comics_list.json').then(r => r.json()),
+                fetch('/political_comics_list.json').then(r => r.json()),
+                fetch('/tinyview_comics_list.json').then(r => r.json()).catch(() => []) // Fallback to empty array if file doesn't exist yet
+            ])
+            .then(([daily, political, tinyview]) => {
+                dailyComics = daily;
+                politicalComics = political;
+                tinyviewComics = tinyview;
+                
+                // Populate tables and lists
+                populateComicsTable(dailyComics, 'comics-table-body', 'gocomics');
+                populateComicsTable(politicalComics, 'political-comics-table-body', 'gocomics');
+                populateComicsTable(tinyviewComics, 'tinyview-comics-table-body', 'tinyview');
+                populateComicsList(dailyComics, 'comics-list');
+                populateComicsList(politicalComics, 'political-comics-list');
+                populateComicsList(tinyviewComics, 'tinyview-comics-list');
+                
+                // Setup functionality
+                setupTabSwitching();
+                setupSearch();
+                setupOPMLGeneration();
+            })
+            .catch(error => {
+                console.error('Error fetching comics:', error);
+            });
+            
+            function populateComicsTable(comics, tableBodyId, source = 'gocomics') {
+                const tableBody = document.getElementById(tableBodyId);
                 tableBody.innerHTML = '';
                 
                 comics.forEach(comic => {
                     const row = document.createElement('tr');
+                    const sourceUrl = source === 'tinyview' ? comic.url : `https://www.gocomics.com/${comic.slug}`;
+                    
                     row.innerHTML = `
                         <td>${comic.name}</td>
                         <td>
@@ -366,24 +526,31 @@
                                 <a href="/preview.html?url=https://comiccaster.xyz/rss/${comic.slug}" class="preview-link" target="_blank">👁️ Preview</a>
                             </div>
                         </td>
-                        <td><a href="https://www.gocomics.com/${comic.slug}" target="_blank">🔗 Source</a></td>
+                        <td><a href="${sourceUrl}" target="_blank">🔗 Source</a></td>
                     `;
                     row.dataset.name = comic.name.toLowerCase();
+                    row.dataset.source = source;
                     tableBody.appendChild(row);
                 });
             }
             
-            function populateComicsList(comics) {
-                const comicsList = document.getElementById('comics-list');
+            function populateComicsList(comics, listId) {
+                const comicsList = document.getElementById(listId);
                 comicsList.innerHTML = '';
                 
                 comics.forEach(comic => {
                     const checkboxItem = document.createElement('div');
                     checkboxItem.className = 'form-check';
                     checkboxItem.dataset.name = comic.name.toLowerCase();
+                    let prefix = 'comic';
+                    if (listId === 'political-comics-list') {
+                        prefix = 'political';
+                    } else if (listId === 'tinyview-comics-list') {
+                        prefix = 'tinyview';
+                    }
                     checkboxItem.innerHTML = `
-                        <input class="form-check-input" type="checkbox" value="${comic.slug}" id="comic-${comic.slug}">
-                        <label class="form-check-label" for="comic-${comic.slug}">
+                        <input class="form-check-input" type="checkbox" value="${comic.slug}" id="${prefix}-${comic.slug}">
+                        <label class="form-check-label" for="${prefix}-${comic.slug}">
                             ${comic.name}
                         </label>
                     `;
@@ -391,15 +558,40 @@
                 });
             }
             
+            function setupTabSwitching() {
+                const tabButtons = document.querySelectorAll('.tab-button');
+                
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const tab = this.dataset.tab;
+                        const isOPMLTab = this.classList.contains('opml-tab');
+                        
+                        if (isOPMLTab) {
+                            // Handle OPML tabs
+                            document.querySelectorAll('.opml-tab').forEach(b => b.classList.remove('active'));
+                            document.querySelectorAll('.opml-content').forEach(c => c.classList.remove('active'));
+                            this.classList.add('active');
+                            document.getElementById(tab + '-tab').classList.add('active');
+                        } else {
+                            // Handle browse tabs
+                            document.querySelectorAll('.tab-button:not(.opml-tab)').forEach(b => b.classList.remove('active'));
+                            document.querySelectorAll('.tab-content:not(.opml-content)').forEach(c => c.classList.remove('active'));
+                            this.classList.add('active');
+                            document.getElementById(tab + '-tab').classList.add('active');
+                        }
+                    });
+                });
+            }
+            
             function setupSearch() {
-                // Comic table search
+                // Daily comic table search
                 const comicSearch = document.getElementById('comicSearch');
-                const tableRows = document.querySelectorAll('#comics-table-body tr');
+                const dailyTableRows = document.querySelectorAll('#comics-table-body tr');
                 
                 comicSearch.addEventListener('input', function() {
                     const searchTerm = this.value.toLowerCase();
                     
-                    tableRows.forEach(row => {
+                    dailyTableRows.forEach(row => {
                         const name = row.dataset.name;
                         if (name.includes(searchTerm)) {
                             row.style.display = '';
@@ -409,14 +601,82 @@
                     });
                 });
                 
-                // Comic list search
+                // Political comic table search
+                const politicalComicSearch = document.getElementById('politicalComicSearch');
+                const politicalTableRows = document.querySelectorAll('#political-comics-table-body tr');
+                
+                politicalComicSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    politicalTableRows.forEach(row => {
+                        const name = row.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+                
+                // Daily comic list search
                 const customFeedSearch = document.getElementById('customFeedSearch');
-                const checkboxItems = document.querySelectorAll('.comic-list .form-check');
+                const dailyCheckboxItems = document.querySelectorAll('#comics-list .form-check');
                 
                 customFeedSearch.addEventListener('input', function() {
                     const searchTerm = this.value.toLowerCase();
                     
-                    checkboxItems.forEach(item => {
+                    dailyCheckboxItems.forEach(item => {
+                        const name = item.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+                
+                // Political comic list search
+                const politicalFeedSearch = document.getElementById('politicalFeedSearch');
+                const politicalCheckboxItems = document.querySelectorAll('#political-comics-list .form-check');
+                
+                politicalFeedSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    politicalCheckboxItems.forEach(item => {
+                        const name = item.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+                
+                // Tinyview comic table search
+                const tinyviewComicSearch = document.getElementById('tinyviewComicSearch');
+                const tinyviewTableRows = document.querySelectorAll('#tinyview-comics-table-body tr');
+                
+                tinyviewComicSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    tinyviewTableRows.forEach(row => {
+                        const name = row.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+                
+                // Tinyview comic list search
+                const tinyviewFeedSearch = document.getElementById('tinyviewFeedSearch');
+                const tinyviewCheckboxItems = document.querySelectorAll('#tinyview-comics-list .form-check');
+                
+                tinyviewFeedSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    tinyviewCheckboxItems.forEach(item => {
                         const name = item.dataset.name;
                         if (name.includes(searchTerm)) {
                             item.style.display = '';
@@ -428,6 +688,7 @@
             }
             
             function setupOPMLGeneration() {
+                // Daily comics OPML
                 const generateBtn = document.getElementById('generateOPMLBtn');
                 const resetBtn = document.getElementById('resetSelectionBtn');
                 const successMessage = document.getElementById('success-message');
@@ -435,7 +696,7 @@
                 
                 generateBtn.addEventListener('click', function() {
                     const selectedComics = [];
-                    document.querySelectorAll('.form-check-input:checked').forEach(checkbox => {
+                    document.querySelectorAll('#comics-list .form-check-input:checked').forEach(checkbox => {
                         selectedComics.push(checkbox.value);
                     });
                     
@@ -449,13 +710,13 @@
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ comics: selectedComics }),
+                        body: JSON.stringify({ comics: selectedComics, type: 'daily' }),
                     })
                     .then(response => response.blob())
                     .then(blob => {
                         const url = URL.createObjectURL(blob);
                         downloadLink.href = url;
-                        downloadLink.download = 'comiccaster-feeds.opml';
+                        downloadLink.download = 'daily-comics.opml';
                         successMessage.style.display = 'block';
                         
                         // Set up the download link
@@ -472,10 +733,112 @@
                 });
                 
                 resetBtn.addEventListener('click', function() {
-                    document.querySelectorAll('.form-check-input:checked').forEach(checkbox => {
+                    document.querySelectorAll('#comics-list .form-check-input:checked').forEach(checkbox => {
                         checkbox.checked = false;
                     });
                     successMessage.style.display = 'none';
+                });
+                
+                // Political comics OPML
+                const generatePoliticalBtn = document.getElementById('generatePoliticalOPMLBtn');
+                const resetPoliticalBtn = document.getElementById('resetPoliticalSelectionBtn');
+                const politicalSuccessMessage = document.getElementById('political-success-message');
+                const politicalDownloadLink = document.getElementById('political-download-link');
+                
+                generatePoliticalBtn.addEventListener('click', function() {
+                    const selectedComics = [];
+                    document.querySelectorAll('#political-comics-list .form-check-input:checked').forEach(checkbox => {
+                        selectedComics.push(checkbox.value);
+                    });
+                    
+                    if (selectedComics.length === 0) {
+                        alert('Please select at least one political cartoon.');
+                        return;
+                    }
+                    
+                    fetch('/.netlify/functions/generate-opml', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ comics: selectedComics, type: 'political' }),
+                    })
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        politicalDownloadLink.href = url;
+                        politicalDownloadLink.download = 'political-cartoons.opml';
+                        politicalSuccessMessage.style.display = 'block';
+                        
+                        // Set up the download link
+                        politicalDownloadLink.addEventListener('click', function(e) {
+                            setTimeout(() => {
+                                URL.revokeObjectURL(url);
+                            }, 100);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error generating OPML:', error);
+                        alert('There was an error generating your OPML file. Please try again.');
+                    });
+                });
+                
+                resetPoliticalBtn.addEventListener('click', function() {
+                    document.querySelectorAll('#political-comics-list .form-check-input:checked').forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    politicalSuccessMessage.style.display = 'none';
+                });
+                
+                // Tinyview comics OPML
+                const generateTinyviewBtn = document.getElementById('generateTinyviewOPMLBtn');
+                const resetTinyviewBtn = document.getElementById('resetTinyviewSelectionBtn');
+                const tinyviewSuccessMessage = document.getElementById('tinyview-success-message');
+                const tinyviewDownloadLink = document.getElementById('tinyview-download-link');
+                
+                generateTinyviewBtn.addEventListener('click', function() {
+                    const selectedComics = [];
+                    document.querySelectorAll('#tinyview-comics-list .form-check-input:checked').forEach(checkbox => {
+                        selectedComics.push(checkbox.value);
+                    });
+                    
+                    if (selectedComics.length === 0) {
+                        alert('Please select at least one TinyView comic.');
+                        return;
+                    }
+                    
+                    fetch('/.netlify/functions/generate-opml', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ comics: selectedComics, type: 'tinyview' }),
+                    })
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        tinyviewDownloadLink.href = url;
+                        tinyviewDownloadLink.download = 'tinyview-comics.opml';
+                        tinyviewSuccessMessage.style.display = 'block';
+                        
+                        // Set up the download link
+                        tinyviewDownloadLink.addEventListener('click', function(e) {
+                            setTimeout(() => {
+                                URL.revokeObjectURL(url);
+                            }, 100);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error generating OPML:', error);
+                        alert('There was an error generating your OPML file. Please try again.');
+                    });
+                });
+                
+                resetTinyviewBtn.addEventListener('click', function() {
+                    document.querySelectorAll('#tinyview-comics-list .form-check-input:checked').forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    tinyviewSuccessMessage.style.display = 'none';
                 });
             }
         });
