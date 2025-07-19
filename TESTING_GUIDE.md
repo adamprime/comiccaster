@@ -4,8 +4,8 @@ This document provides comprehensive documentation of all tests in the ComicCast
 
 ## Test Overview
 
-- **Total test files**: 30
-- **Total test methods**: 140 (all passing)
+- **Total test files**: 31
+- **Total test methods**: 165 (all passing)
 - **Test framework**: pytest
 - **Coverage target**: Comprehensive coverage of core functionality
 
@@ -178,6 +178,44 @@ TDD test suite for multi-image RSS feed support (Story 1.4).
 - `test_integration_with_tinyview_scraper_output()` - Tests integration with Tinyview data format
 - **Status**: ✅ Passing
 - **Purpose**: Multi-image RSS feed generation for Tinyview comics
+
+### 1.3 Tinyview Scraper Implementation Tests (Epic 2)
+
+#### `tests/test_tinyview_scraper.py` ✅ **25 tests**
+TDD test suite for Epic 2: Tinyview Scraper Implementation with comprehensive error handling.
+
+**Story 2.1: Basic Tinyview Scraper for Single Images (10 tests)**
+- `test_scraper_inherits_from_base_scraper()` - Tests inheritance from BaseScraper interface
+- `test_tinyview_url_construction()` - Tests proper Tinyview URL construction logic
+- `test_scrape_single_image_comic_with_mock()` - Tests single-image comic scraping with mocked Selenium
+- `test_cdn_image_detection_logic()` - Tests CDN image detection and filtering
+- `test_lazy_loading_image_detection()` - Tests detection of lazy-loaded images (data-src)
+- `test_angular_page_loading_handling()` - Tests Angular app loading delay handling
+- `test_metadata_extraction()` - Tests extraction of comic metadata from HTML
+- `test_selenium_driver_setup()` - Tests proper WebDriver configuration
+- `test_driver_cleanup()` - Tests WebDriver cleanup and resource management
+- `test_standardized_output_format()` - Tests standardized comic data structure output
+
+**Story 2.2: Multi-Image Comic Support (5 tests)**
+- `test_scrape_multi_image_comic_with_mock()` - Tests multi-image comic scraping
+- `test_image_order_preservation()` - Tests that image order is preserved during extraction
+- `test_various_gallery_layouts()` - Tests handling of different comic gallery layouts
+- `test_mixed_image_sources_filtering()` - Tests filtering of non-CDN images from mixed sources
+- `test_empty_alt_text_handling()` - Tests handling of images with missing alt text
+
+**Story 2.3: Error Handling and Resilience (10 tests)**
+- `test_handle_missing_comic_404()` - Tests graceful handling of 404 pages
+- `test_handle_empty_page_content()` - Tests handling of pages with no comic images
+- `test_retry_on_timeout_with_mock()` - Tests retry logic with exponential backoff
+- `test_selenium_exception_handling()` - Tests handling of WebDriver exceptions
+- `test_malformed_html_handling()` - Tests parsing of malformed HTML content
+- `test_network_timeout_handling()` - Tests network timeout recovery
+- `test_invalid_date_handling()` - Tests handling of invalid date formats
+- `test_comprehensive_logging()` - Tests appropriate log message generation
+- `test_driver_cleanup_on_exception()` - Tests driver cleanup during error conditions
+
+- **Status**: ✅ Passing
+- **Purpose**: Production-ready Tinyview scraper with comprehensive error handling and resilience
 
 ### 1.5 Political Comics Integration Tests
 
