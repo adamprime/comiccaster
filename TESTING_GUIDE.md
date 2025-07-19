@@ -4,8 +4,8 @@ This document provides comprehensive documentation of all tests in the ComicCast
 
 ## Test Overview
 
-- **Total test files**: 23
-- **Total test methods**: ~73
+- **Total test files**: 25
+- **Total test methods**: 85 (all passing)
 - **Test framework**: pytest
 - **Coverage target**: Comprehensive coverage of core functionality
 
@@ -81,6 +81,20 @@ Tests for the Flask web application interface.
 - **Status**: ✅ Passing
 - **Purpose**: Web interface functionality
 
+#### `tests/test_update_feeds.py` ✅ **8 tests**
+Tests for feed update functionality and bug prevention.
+
+- `test_regenerate_feed_no_entries()` - Tests feed generation with no existing entries
+- `test_regenerate_feed_with_existing_entries()` - Tests adding new entries to existing feed
+- `test_regenerate_feed_duplicate_handling()` - Ensures no duplicate entries in feeds
+- `test_regenerate_feed_sorting()` - Validates proper chronological sorting
+- `test_regenerate_feed_over_limit()` - Tests entry limiting to 100 items
+- `test_regenerate_feed_over_limit_bug_scenario()` - **Critical test that prevents the July 2025 bug**
+- `test_regenerate_feed_error_handling()` - Tests graceful error recovery
+- `test_get_feed_entries()` - Tests feed entry extraction helper
+- **Status**: ✅ Passing
+- **Purpose**: Feed update reliability and bug prevention
+
 ### 1.2 Political Comics Integration Tests (Epic 1)
 
 #### `tests/test_political_comics_discovery.py` ✅ **7 tests**
@@ -146,6 +160,28 @@ TDD test suite for adjusting feed content for political comics.
 - **Status**: ✅ Passing
 - **Purpose**: Political comic categorization and content adjustments
 
+### 1.4 Frontend UI Tests (Epic 3)
+
+#### `tests/test_tabbed_interface.py` ✅ **14 tests**
+TDD test suite for tabbed interface implementation.
+
+- `test_political_comics_list_exists()` - Political comics list in public directory
+- `test_political_comics_data_structure()` - Validates political comics data format
+- `test_html_tab_structure()` - Tab buttons and content divs exist
+- `test_css_tab_styling()` - CSS styles for tab functionality
+- `test_javascript_tab_functionality()` - JavaScript tab switching logic
+- `test_separate_search_inputs()` - Each tab has its own search
+- `test_separate_tables()` - Browse section has separate tables
+- `test_separate_comic_lists()` - OPML section has separate lists
+- `test_opml_type_parameter()` - OPML sends type parameter
+- `test_opml_filenames()` - Type-specific OPML filenames
+- `test_opml_function_type_handling()` - generate-opml.js handles types
+- `test_opml_function_loads_political_list()` - Loads political_comics_list.json
+- `test_tab_button_icons()` - Appropriate icons for each tab
+- `test_placeholder_text()` - Search inputs have type-specific placeholders
+- **Status**: ✅ Passing
+- **Purpose**: Frontend tabbed interface for comic type separation
+
 ---
 
 ## 2. Integration Tests
@@ -191,9 +227,35 @@ Tests Peanuts comic scraping with configurable parameters.
 
 ---
 
-## 3. Development/Manual Tests
+## 3. Validation and Monitoring
 
-### 3.1 Feed Quality Tests
+### 3.1 Feed Validation System
+
+#### `scripts/validate_feeds.py` ✅ **Validation Script**
+Monitors feed health using 15 reliable daily comics as canaries.
+
+- **Canary Comics**: Garfield, Pearls Before Swine, Doonesbury, Calvin and Hobbes, Peanuts, Baby Blues, Adam@Home, Brewster Rockit, Baldo, Brevity, Free Range, La Cucaracha, Overboard, Pickles, Speed Bump
+- **Validation Criteria**: Feeds must have entries within 3 days
+- **Output**: JSON report with per-comic status and summary
+- **Integration**: Runs automatically after daily feed updates via GitHub Actions
+- **Alerting**: Creates GitHub issue if validation fails
+- **Status**: ✅ Active monitoring
+- **Purpose**: Proactive detection of feed update failures
+
+#### `.github/workflows/validate-feeds.yml` ✅ **Validation Workflow**
+Automated validation that runs after feed updates.
+
+- Triggers after "Update Comic Feeds" workflow completes
+- Runs validation script and uploads results
+- Creates GitHub issue with detailed report if feeds are stale
+- **Status**: ✅ Active in CI/CD
+- **Purpose**: Automated monitoring and alerting
+
+---
+
+## 4. Development/Manual Tests
+
+### 4.1 Feed Quality Tests
 
 #### `test_duplicate_images.py` ⚠️ **1 test**
 Verifies duplicate image filtering in feeds.
@@ -216,7 +278,7 @@ Tests ComicFeedGenerator for image duplication prevention.
 - **Status**: ⚠️ Manual verification required
 - **Purpose**: Content quality control
 
-### 3.2 Debugging/Development Tools
+### 4.2 Debugging/Development Tools
 
 #### `test_different_approach.py` 🔧 **1 test**
 Tests different browser configurations for Selenium scraping.
@@ -248,7 +310,7 @@ Tests feed generation with subset of popular comics.
 
 ---
 
-## 4. Test Status Legend
+## 5. Test Status Legend
 
 - ✅ **Passing**: Test passes consistently and is part of CI/CD
 - ⚠️ **Manual**: Test requires manual verification or inspection
@@ -258,18 +320,24 @@ Tests feed generation with subset of popular comics.
 
 ---
 
-## 5. Test Execution Strategies
+## 6. Test Execution Strategies
 
 ### Continuous Integration
 ```bash
 # Core test suite (runs in CI)
-pytest tests/test_basic.py tests/test_feed_generator.py tests/test_web_interface.py -v
+pytest tests/test_basic.py tests/test_feed_generator.py tests/test_web_interface.py tests/test_update_feeds.py -v
 
 # Political comics tests (Epic 1)
 pytest tests/test_political_comics_discovery.py tests/test_publishing_analyzer.py -v
 
 # Smart update tests (Epic 2)
 pytest tests/test_smart_update_strategy.py tests/test_feed_content_adjustments.py -v
+
+# Frontend UI tests (Epic 3)
+pytest tests/test_tabbed_interface.py -v
+
+# Feed validation (runs after daily updates)
+python scripts/validate_feeds.py
 ```
 
 ### Manual Testing
@@ -296,7 +364,7 @@ python test_different_approach.py
 
 ---
 
-## 6. Test Coverage Goals
+## 7. Test Coverage Goals
 
 ### Current Coverage
 - **Core functionality**: 100% (feed generation, web interface)
@@ -312,7 +380,7 @@ python test_different_approach.py
 
 ---
 
-## 7. Adding New Tests
+## 8. Adding New Tests
 
 When adding new functionality:
 
