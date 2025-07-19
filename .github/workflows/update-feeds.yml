@@ -1,7 +1,7 @@
-name: Update Comic Feeds (Legacy - Updates All)
+name: Update Comic Feeds
 
-# NOTE: Consider using update-feeds-smart.yml instead for more efficient updates
-# This workflow updates ALL comics regardless of their publishing schedule
+# This workflow updates ALL comics daily to ensure we never miss new content
+# Smart updates were disabled as comics have irregular publishing schedules
 
 on:
   schedule:
