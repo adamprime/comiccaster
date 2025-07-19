@@ -4,8 +4,8 @@ This document provides comprehensive documentation of all tests in the ComicCast
 
 ## Test Overview
 
-- **Total test files**: 28
-- **Total test methods**: 113 (all passing)
+- **Total test files**: 29
+- **Total test methods**: 128 (all passing)
 - **Test framework**: pytest
 - **Coverage target**: Comprehensive coverage of core functionality
 
@@ -141,7 +141,27 @@ TDD test suite for the Granular Source Field implementation.
 - **Status**: ✅ Passing
 - **Purpose**: Multi-source comic configuration and processing
 
-### 1.4 Political Comics Integration Tests
+#### `tests/test_scraper_factory.py` ✅ **15 tests**
+TDD test suite for the Scraper Factory implementation.
+
+- `test_factory_returns_gocomics_scraper_for_daily()` - Tests GoComics daily scraper creation
+- `test_factory_returns_gocomics_scraper_for_political()` - Tests GoComics political scraper creation
+- `test_factory_returns_tinyview_scraper()` - Tests Tinyview scraper creation
+- `test_factory_raises_for_unknown_source()` - Tests error handling for invalid sources
+- `test_factory_backward_compatibility()` - Tests legacy 'gocomics' source support
+- `test_factory_singleton_pattern()` - Tests singleton pattern for same source type
+- `test_factory_different_instances_for_different_sources()` - Tests distinct instances per source
+- `test_factory_clear_cache()` - Tests cache clearing functionality
+- `test_factory_get_all_supported_sources()` - Tests listing all supported sources
+- `test_factory_supports_source_checking()` - Tests source validation
+- `test_factory_inherits_from_base_scraper()` - Tests all scrapers inherit from BaseScraper
+- `test_factory_integration_with_comic_config()` - Tests comic configuration integration
+- `test_factory_error_handling()` - Tests edge case error handling
+- `test_factory_performance_with_many_requests()` - Tests caching performance
+- **Status**: ✅ Passing
+- **Purpose**: Centralized scraper management with singleton pattern
+
+### 1.5 Political Comics Integration Tests
 
 #### `tests/test_political_comics_discovery.py` ✅ **7 tests**
 TDD test suite for discovering political comics from GoComics.
@@ -172,7 +192,7 @@ TDD test suite for analyzing comic publishing schedules.
 - **Status**: ✅ Passing
 - **Purpose**: Publishing pattern analysis and update scheduling
 
-### 1.5 Smart Update System Tests (Epic 2)
+### 1.6 Smart Update System Tests (Epic 2)
 
 #### `tests/test_smart_update_strategy.py` ✅ **10 tests**
 TDD test suite for smart update scheduling based on publishing patterns.
@@ -206,7 +226,7 @@ TDD test suite for adjusting feed content for political comics.
 - **Status**: ✅ Passing
 - **Purpose**: Political comic categorization and content adjustments
 
-### 1.6 Frontend UI Tests (Epic 3)
+### 1.7 Frontend UI Tests (Epic 3)
 
 #### `tests/test_tabbed_interface.py` ✅ **14 tests**
 TDD test suite for tabbed interface implementation.
