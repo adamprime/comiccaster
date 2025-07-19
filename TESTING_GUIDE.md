@@ -4,8 +4,8 @@ This document provides comprehensive documentation of all tests in the ComicCast
 
 ## Test Overview
 
-- **Total test files**: 29
-- **Total test methods**: 128 (all passing)
+- **Total test files**: 30
+- **Total test methods**: 140 (all passing)
 - **Test framework**: pytest
 - **Coverage target**: Comprehensive coverage of core functionality
 
@@ -160,6 +160,24 @@ TDD test suite for the Scraper Factory implementation.
 - `test_factory_performance_with_many_requests()` - Tests caching performance
 - **Status**: ✅ Passing
 - **Purpose**: Centralized scraper management with singleton pattern
+
+#### `tests/test_multi_image_rss.py` ✅ **12 tests**
+TDD test suite for multi-image RSS feed support (Story 1.4).
+
+- `test_generate_single_image_entry()` - Tests single-image comic entry generation (backward compatibility)
+- `test_generate_multi_image_entry()` - Tests multi-image comic entry generation
+- `test_multi_image_html_structure()` - Tests proper HTML gallery structure for multiple images
+- `test_image_loading_optimization()` - Tests lazy loading and image optimization
+- `test_feed_entry_with_description_and_images()` - Tests entries with both description and images
+- `test_feed_validation_with_multi_images()` - Tests RSS feed validity with multi-image entries
+- `test_backward_compatibility_single_image()` - Tests old single-image format still works
+- `test_empty_images_handling()` - Tests handling entries with no images
+- `test_image_alt_text_accessibility()` - Tests accessibility features and alt text fallbacks
+- `test_image_gallery_responsive_design()` - Tests responsive design for mobile feed readers
+- `test_performance_with_many_images()` - Tests performance with high image count (20+ images)
+- `test_integration_with_tinyview_scraper_output()` - Tests integration with Tinyview data format
+- **Status**: ✅ Passing
+- **Purpose**: Multi-image RSS feed generation for Tinyview comics
 
 ### 1.5 Political Comics Integration Tests
 
