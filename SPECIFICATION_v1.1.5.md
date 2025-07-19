@@ -379,31 +379,6 @@ describe('Comic Browser Tabs', () => {
 2. Add JavaScript filtering logic
 3. Style tab consistently
 
-### Story 4.2: RSS Feed Preview Support for Multi-Image Comics
-**Acceptance Criteria:**
-- RSS feed previewer correctly displays multiple images
-- Images display in correct order within feed entries
-- Feed preview maintains responsive design
-- No special UI indicators needed (RSS handles this transparently)
-
-**Tests First:**
-```javascript
-// tests/test_feed_preview.js
-it('should display all images in multi-image comic feeds', () => {
-    cy.visit('/?preview=adhdinos'); // Multi-image comic
-    cy.get('.feed-preview-entry').first().within(() => {
-        cy.get('img').should('have.length.greaterThan', 1);
-        // Images should be in order
-        cy.get('img').first().should('be.visible');
-        cy.get('img').last().should('be.visible');
-    });
-});
-```
-
-**Implementation Tasks:**
-1. Ensure feed preview handles multiple images per entry
-2. Test RSS compatibility with popular feed readers
-3. Verify image ordering is preserved
 
 ---
 

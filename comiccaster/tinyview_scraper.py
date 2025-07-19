@@ -28,10 +28,15 @@ logger = logging.getLogger(__name__)
 class TinyviewScraper(BaseScraper):
     """Handles scraping individual comic pages from Tinyview."""
     
-    def __init__(self):
-        """Initialize the TinyviewScraper."""
+    def __init__(self, max_retries: int = 3):
+        """Initialize the TinyviewScraper.
+        
+        Args:
+            max_retries: Maximum number of retries for failed requests
+        """
         super().__init__(base_url="https://tinyview.com")
         self.driver = None
+        self.max_retries = max_retries
     
     def get_source_name(self) -> str:
         """Return the source name for this scraper."""
@@ -60,7 +65,7 @@ class TinyviewScraper(BaseScraper):
     
     def fetch_comic_page(self, comic_slug: str, date: str) -> Optional[str]:
         """
-        Fetch a comic page using Selenium to execute JavaScript.
+        Fetch a comic page using Selenium with retry logic and error handling.
         
         Args:
             comic_slug (str): The slug of the comic to fetch (e.g., 'nick-anderson', 'adhdinos').
@@ -73,61 +78,106 @@ class TinyviewScraper(BaseScraper):
         title_slug = "cartoon"
         url = f"{self.base_url}/{comic_slug}/{date}/{title_slug}"
         
-        try:
-            self.setup_driver()
-            logger.info(f"Fetching comic page: {url}")
-            self.driver.get(url)
-            
-            # Wait for the Angular app to load
-            time.sleep(3)
-            
-            # Wait for images from cdn.tinyview.com to load
-            logger.info("Waiting for comic images from CDN...")
-            wait = WebDriverWait(self.driver, 30)
-            
-            # Try multiple strategies to find comic images
-            comic_found = False
-            
-            # Strategy 1: Wait for any img with src containing cdn.tinyview.com
+        # Retry logic with exponential backoff
+        for attempt in range(self.max_retries):
             try:
-                wait.until(EC.presence_of_element_located((By.XPATH, "//img[contains(@src, 'cdn.tinyview.com')]")))
-                comic_found = True
-                logger.info("Found CDN images using XPath selector")
-            except TimeoutException:
-                logger.warning("No CDN images found with XPath selector")
-            
-            # Strategy 2: Check for images in common container classes
-            if not comic_found:
+                self.setup_driver()
+                logger.info(f"Fetching comic page (attempt {attempt + 1}/{self.max_retries}): {url}")
+                
+                # Navigate to the page
+                self.driver.get(url)
+                
+                # Check for 404 or error pages
+                page_title = self.driver.title.lower()
+                if '404' in page_title or 'not found' in page_title or 'error' in page_title:
+                    logger.warning(f"Page not found (404) for {url}")
+                    return None
+                
+                # Wait for the Angular app to load
+                time.sleep(3)
+                
+                # Wait for images from cdn.tinyview.com to load
+                logger.info("Waiting for comic images from CDN...")
+                wait = WebDriverWait(self.driver, 30)
+                
+                # Try multiple strategies to find comic images
+                comic_found = False
+                
+                # Strategy 1: Wait for any img with src containing cdn.tinyview.com
                 try:
-                    # Common Angular/React container patterns
-                    containers = [
-                        "comic-container", "comic-wrapper", "comic-image",
-                        "story-container", "story-wrapper", "content",
-                        "main-content", "comic-strip", "strip-container"
-                    ]
+                    wait.until(EC.presence_of_element_located((By.XPATH, "//img[contains(@src, 'cdn.tinyview.com')]")))
+                    comic_found = True
+                    logger.info("Found CDN images using XPath selector")
+                except TimeoutException:
+                    logger.warning("No CDN images found with XPath selector")
+                
+                # Strategy 2: Check for images in common container classes
+                if not comic_found:
+                    try:
+                        # Common Angular/React container patterns
+                        containers = [
+                            "comic-container", "comic-wrapper", "comic-image",
+                            "story-container", "story-wrapper", "content",
+                            "main-content", "comic-strip", "strip-container"
+                        ]
+                        
+                        for container in containers:
+                            try:
+                                elements = self.driver.find_elements(By.CLASS_NAME, container)
+                                if elements:
+                                    logger.info(f"Found container with class: {container}")
+                                    # Wait a bit more for images to load within containers
+                                    time.sleep(2)
+                                    comic_found = True
+                                    break
+                            except:
+                                pass
+                                
+                    except Exception as e:
+                        logger.warning(f"Error checking containers: {e}")
+                
+                # Additional wait to ensure dynamic content is loaded
+                time.sleep(2)
+                
+                # Return page source if we made it this far
+                page_source = self.driver.page_source
+                
+                # Log success
+                if comic_found:
+                    logger.info(f"Successfully fetched page with comic images: {url}")
+                else:
+                    logger.warning(f"Page fetched but no comic images detected: {url}")
+                
+                return page_source
+                
+            except TimeoutException as e:
+                logger.warning(f"Timeout on attempt {attempt + 1}/{self.max_retries} for {url}: {e}")
+                if attempt < self.max_retries - 1:
+                    # Exponential backoff: wait 2^attempt seconds
+                    wait_time = 2 ** attempt
+                    logger.info(f"Retrying in {wait_time} seconds...")
+                    time.sleep(wait_time)
+                    # Close and reopen driver for clean retry
+                    self.close_driver()
+                else:
+                    logger.error(f"All {self.max_retries} attempts failed for {url}")
+                    return None
                     
-                    for container in containers:
-                        try:
-                            elements = self.driver.find_elements(By.CLASS_NAME, container)
-                            if elements:
-                                logger.info(f"Found container with class: {container}")
-                                # Wait a bit more for images to load within containers
-                                time.sleep(2)
-                                break
-                        except:
-                            pass
-                            
-                except Exception as e:
-                    logger.warning(f"Error checking containers: {e}")
-            
-            # Additional wait to ensure dynamic content is loaded
-            time.sleep(2)
-            
-            return self.driver.page_source
-            
-        except Exception as e:
-            logger.error(f"Failed to fetch comic page: {e}")
-            return None
+            except Exception as e:
+                logger.error(f"Error on attempt {attempt + 1}/{self.max_retries} for {url}: {e}")
+                if attempt < self.max_retries - 1:
+                    # Exponential backoff
+                    wait_time = 2 ** attempt
+                    logger.info(f"Retrying in {wait_time} seconds...")
+                    time.sleep(wait_time)
+                    # Close and reopen driver for clean retry
+                    self.close_driver()
+                else:
+                    logger.error(f"All {self.max_retries} attempts failed for {url}")
+                    return None
+        
+        # This should never be reached, but just in case
+        return None
     
     def extract_images(self, html_content: str, comic_slug: str, date: str) -> List[Dict[str, str]]:
         """
@@ -246,19 +296,42 @@ class TinyviewScraper(BaseScraper):
         Returns:
             Optional[Dict[str, Any]]: Dictionary containing the comic data, or None if scraping fails.
         """
-        html_content = self.fetch_comic_page(comic_slug, date)
-        if not html_content:
+        try:
+            # Validate input parameters
+            if not comic_slug or not date:
+                logger.error(f"Invalid parameters: comic_slug='{comic_slug}', date='{date}'")
+                return None
+            
+            # Fetch the comic page
+            html_content = self.fetch_comic_page(comic_slug, date)
+            if not html_content:
+                logger.warning(f"No HTML content retrieved for {comic_slug} on {date}")
+                return None
+            
+            # Extract images
+            images = self.extract_images(html_content, comic_slug, date)
+            if not images:
+                logger.warning(f"No comic images found for {comic_slug} on {date}")
+                return None
+            
+            # Extract metadata
+            metadata = self.extract_metadata(html_content, comic_slug, date)
+            
+            # Use the base class helper to build standardized result
+            result = self.build_comic_result(comic_slug, date, images, metadata)
+            
+            if result:
+                logger.info(f"Successfully scraped {comic_slug} for {date}: {len(images)} images found")
+            
+            return result
+            
+        except Exception as e:
+            logger.error(f"Unexpected error scraping {comic_slug} for {date}: {e}")
             return None
-        
-        images = self.extract_images(html_content, comic_slug, date)
-        if not images:
-            logger.error(f"No comic images found for {comic_slug} on {date}")
-            return None
-        
-        metadata = self.extract_metadata(html_content, comic_slug, date)
-        
-        # Use the base class helper to build standardized result
-        return self.build_comic_result(comic_slug, date, images, metadata)
+        finally:
+            # Ensure driver cleanup happens
+            if hasattr(self, '_cleanup_needed'):
+                self.close_driver()
     
     def __del__(self):
         """Ensure driver is closed when object is destroyed."""
