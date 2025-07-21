@@ -46,12 +46,15 @@ class TinyviewScraper(BaseScraper):
         """Set up the Selenium WebDriver with Firefox in headless mode."""
         if not self.driver:
             options = Options()
-            options.add_argument('-headless')
+            options.add_argument('--headless')
             options.add_argument('--no-sandbox')
             options.add_argument('--disable-dev-shm-usage')
             options.add_argument('--disable-gpu')
+            options.add_argument('--disable-extensions')
+            options.add_argument('--disable-plugins')
+            options.add_argument('--disable-images')  # Speed up by not loading images
             options.set_preference("general.useragent.override", 
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+                "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0")
             
             # Try to find Firefox binary in common locations
             firefox_paths = [
@@ -64,20 +67,47 @@ class TinyviewScraper(BaseScraper):
             for path in firefox_paths:
                 try:
                     import subprocess
-                    result = subprocess.run([path, '--version'], capture_output=True, text=True)
-                    if result.returncode == 0:
-                        firefox_binary = path
-                        logger.info(f"Found Firefox at: {path}")
-                        break
-                except:
+                    import os.path
+                    # Check if the file exists and is executable
+                    if os.path.isfile(path) and os.access(path, os.X_OK):
+                        result = subprocess.run([path, '--version'], capture_output=True, text=True, timeout=10)
+                        if result.returncode == 0:
+                            firefox_binary = path
+                            logger.info(f"Found Firefox at: {path}")
+                            break
+                except Exception as e:
+                    logger.debug(f"Could not verify Firefox at {path}: {e}")
                     continue
             
+            # Set binary location if we found a specific path
             if firefox_binary and firefox_binary != 'firefox':
                 options.binary_location = firefox_binary
+                logger.info(f"Setting Firefox binary location to: {firefox_binary}")
             
-            self.driver = webdriver.Firefox(options=options)
-            self.driver.set_window_size(1920, 1080)
-            logger.info("Firefox WebDriver set up successfully")
+            try:
+                self.driver = webdriver.Firefox(options=options)
+                self.driver.set_window_size(1920, 1080)
+                # Set longer timeouts for slower CI environments
+                self.driver.implicitly_wait(10)
+                self.driver.set_page_load_timeout(30)
+                logger.info("Firefox WebDriver set up successfully")
+            except Exception as e:
+                logger.error(f"Failed to initialize Firefox WebDriver: {e}")
+                # Try without explicit binary location
+                if firefox_binary:
+                    logger.info("Retrying without explicit binary location...")
+                    options.binary_location = None
+                    try:
+                        self.driver = webdriver.Firefox(options=options)
+                        self.driver.set_window_size(1920, 1080)
+                        self.driver.implicitly_wait(10)
+                        self.driver.set_page_load_timeout(30)
+                        logger.info("Firefox WebDriver set up successfully (fallback)")
+                    except Exception as e2:
+                        logger.error(f"Fallback Firefox initialization also failed: {e2}")
+                        raise e2
+                else:
+                    raise e
     
     def close_driver(self):
         """Close the Selenium WebDriver."""
