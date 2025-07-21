@@ -2,29 +2,23 @@
   publish = "public"
   functions = "functions"
   command = """
-    # REMOVED Python dependency installation - not needed for build
-    # pip install -r requirements.txt
-    # pip install -e .
-    
     # Create necessary directories (may be redundant if committed by Action)
     mkdir -p public/feeds
     mkdir -p functions/data/feeds
     
-    # REMOVED file copying - function reads from deployed /public path
-    # cp public/comics_list.json functions/ || true
-    # cp public/comics_list.json functions/data/feeds/ || true
-    # cp -r public/feeds/* functions/data/feeds/ || true
+    # Copy necessary files for functions
+    cp public/comics_list.json functions/ || true
+    cp public/political_comics_list.json functions/ || true
+    cp public/comics_list.json functions/data/ || true
+    cp public/political_comics_list.json functions/data/ || true
     
-    # REMOVED verification logs - not needed for minimal build
-    # echo "Verifying files..."
-    # ls -la ...
-    echo "Build command complete (no actions needed)."
+    echo "Build command complete."
   """
 
 [functions]
   directory = "functions"
   node_bundler = "esbuild"
-  included_files = ["comics_list.json", "data/**"]
+  included_files = ["comics_list.json", "political_comics_list.json", "data/**"]
 
 # Direct /rss/ requests to the static feed files
 [[redirects]]
