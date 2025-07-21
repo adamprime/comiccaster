@@ -1,25 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kliban - GoComics</title><link>https://www.gocomics.com/kliban</link><description>Daily Kliban comic strip by B. Kliban</description><atom:link href="https://comiccaster.xyz/feeds/kliban.xml" rel="self" type="application/rss+xml"/><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 21 Jul 2025 18:12:10 +0000</lastBuildDate><ttl>1440</ttl><item><title>Kliban - 2025-07-21</title><link>https://www.gocomics.com/kliban/2025/07/21</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/ed5b58403853013ea81c005056a9545d" alt="Kliban" style="max-width: 100%;"&gt;
-                    &lt;p&gt;Comic strip for 2025/07/21&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/kliban/2025/07/21</guid><enclosure url="https://featureassets.gocomics.com/assets/ed5b58403853013ea81c005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Kliban - 2025-07-18</title><link>https://www.gocomics.com/kliban/2025/07/18</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/2073ae803851013ea81b005056a9545d" alt="Kliban" style="max-width: 100%;"&gt;
-                    &lt;p&gt;Comic strip for 2025/07/18&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/kliban/2025/07/18</guid><enclosure url="https://featureassets.gocomics.com/assets/2073ae803851013ea81b005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Kliban - 2025-07-16</title><link>https://www.gocomics.com/kliban/2025/07/16</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/6c55b7e0384b013ea819005056a9545d" alt="Kliban" style="max-width: 100%;"&gt;
-                    &lt;p&gt;Comic strip for 2025/07/16&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/kliban/2025/07/16</guid><enclosure url="https://featureassets.gocomics.com/assets/6c55b7e0384b013ea819005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Kliban - 2025-07-14</title><link>https://www.gocomics.com/kliban/2025/07/14</link><description>
-                &lt;div style="text-align: center;"&gt;
-                    &lt;img src="https://featureassets.gocomics.com/assets/50c7db20382e013ea812005056a9545d" alt="Kliban" style="max-width: 100%;"&gt;
-                    &lt;p&gt;Comic strip for 2025/07/14&lt;/p&gt;
-                &lt;/div&gt;
-                </description><guid isPermaLink="false">https://www.gocomics.com/kliban/2025/07/14</guid><enclosure url="https://featureassets.gocomics.com/assets/50c7db20382e013ea812005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Kliban - 2025-07-11</title><link>https://www.gocomics.com/kliban/2025/07/11</link><description>&lt;div style="text-align: center;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kliban - GoComics</title><link>https://www.gocomics.com/kliban</link><description>Daily Kliban comic strip by B. Kliban from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/kliban.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 21 Jul 2025 19:57:21 +0000</lastBuildDate><ttl>1440</ttl><item><title>Kliban - 2025-07-21</title><link>https://www.gocomics.com/kliban/2025/07/21</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/ed5b58403853013ea81c005056a9545d" 
+                     alt="Kliban" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/21&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/kliban/2025/07/21</guid><enclosure url="https://featureassets.gocomics.com/assets/ed5b58403853013ea81c005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Kliban - 2025-07-18</title><link>https://www.gocomics.com/kliban/2025/07/18</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/2073ae803851013ea81b005056a9545d" 
+                     alt="Kliban" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/18&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/kliban/2025/07/18</guid><enclosure url="https://featureassets.gocomics.com/assets/2073ae803851013ea81b005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Kliban - 2025-07-16</title><link>https://www.gocomics.com/kliban/2025/07/16</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/6c55b7e0384b013ea819005056a9545d" 
+                     alt="Kliban" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/16&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/kliban/2025/07/16</guid><enclosure url="https://featureassets.gocomics.com/assets/6c55b7e0384b013ea819005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Kliban - 2025-07-14</title><link>https://www.gocomics.com/kliban/2025/07/14</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/50c7db20382e013ea812005056a9545d" 
+                     alt="Kliban" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/14&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/kliban/2025/07/14</guid><enclosure url="https://featureassets.gocomics.com/assets/50c7db20382e013ea812005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Kliban - 2025-07-11</title><link>https://www.gocomics.com/kliban/2025/07/11</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Kliban" src="https://featureassets.gocomics.com/assets/72ed106038a3013ea825005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/07/11&lt;/p&gt;
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/kliban/2025/07/11</guid><enclosure url="https://featureassets.gocomics.com/assets/72ed106038a3013ea825005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Kliban - 2025-07-09</title><link>https://www.gocomics.com/kliban/2025/07/09</link><description>&lt;div style="text-align: center;"&gt;
