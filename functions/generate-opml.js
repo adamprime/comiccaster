@@ -56,6 +56,21 @@ function comicFeedExists(slug) {
 // Helper function to load comics list
 function loadComicsList(type = 'daily') {
     try {
+        // Try to use require() first - this should work with Netlify's bundler
+        try {
+            if (type === 'political') {
+                const politicalComics = require('./political_comics_list.json');
+                console.log(`Loaded ${politicalComics.length} political comics using require()`);
+                return politicalComics;
+            } else {
+                const dailyComics = require('./comics_list.json');
+                console.log(`Loaded ${dailyComics.length} daily comics using require()`);
+                return dailyComics;
+            }
+        } catch (requireError) {
+            console.log('Could not load using require(), trying fs methods:', requireError.message);
+        }
+        
         const functionDir = path.dirname(__filename);
         console.log('Function directory:', functionDir);
         

@@ -1,0 +1,655 @@
+[
+  {
+    "name": "Al Goodwyn Editorial Cartoons",
+    "slug": "algoodwyn",
+    "url": "https://www.gocomics.com/algoodwyn",
+    "author": "Al Goodwyn Editorial Cartoons",
+    "position": 1,
+    "is_political": true,
+    "publishing_frequency": {
+      "average_gap_days": 1.6666666666666667,
+      "min_gap_days": 1,
+      "max_gap_days": 3,
+      "publishes_on_weekends": true,
+      "type": "irregular",
+      "days_per_week": 4,
+      "confidence": 0.5
+    },
+    "update_recommendation": "smart"
+  },
+  {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "url": "https://www.gocomics.com/bill-bramhall",
+    "author": "Bill Bramhall",
+    "position": 2,
+    "is_political": true,
+    "publishing_frequency": {
+      "average_gap_days": 1.25,
+      "min_gap_days": 1,
+      "max_gap_days": 4,
+      "publishes_on_weekends": true,
+      "type": "irregular",
+      "days_per_week": 6,
+      "confidence": 0.5
+    },
+    "update_recommendation": "smart"
+  },
+  {
+    "name": "Bob Gorrell",
+    "slug": "bobgorrell",
+    "url": "https://www.gocomics.com/bobgorrell",
+    "author": "Bob Gorrell",
+    "position": 3,
+    "is_political": true,
+    "publishing_frequency": {
+      "type": "unknown",
+      "confidence": 0,
+      "reason": "no_data_found"
+    },
+    "update_recommendation": "daily"
+  },
+  {
+    "name": "Brian McFadden",
+    "slug": "brian-mcfadden",
+    "url": "https://www.gocomics.com/brian-mcfadden",
+    "author": "Brian McFadden",
+    "position": 4,
+    "is_political": true,
+    "publishing_frequency": {
+      "average_gap_days": 7.0,
+      "min_gap_days": 7,
+      "max_gap_days": 7,
+      "publishes_on_weekends": false,
+      "type": "weekly",
+      "days_per_week": 1,
+      "confidence": 0.95
+    },
+    "update_recommendation": "weekly"
+  },
+  {
+    "name": "Chip Bok",
+    "slug": "chipbok",
+    "url": "https://www.gocomics.com/chipbok",
+    "author": "Chip Bok",
+    "position": 5,
+    "is_political": true,
+    "publishing_frequency": {
+      "average_gap_days": 1.7058823529411764,
+      "min_gap_days": 1,
+      "max_gap_days": 4,
+      "publishes_on_weekends": true,
+      "type": "irregular",
+      "days_per_week": 4,
+      "confidence": 0.5
+    },
+    "update_recommendation": "smart"
+  },
+  {
+    "name": "Chris Britt",
+    "slug": "chrisbritt",
+    "url": "https://www.gocomics.com/chrisbritt",
+    "author": "Chris Britt",
+    "position": 6,
+    "is_political": true,
+    "publishing_frequency": {
+      "average_gap_days": 2.4166666666666665,
+      "min_gap_days": 1,
+      "max_gap_days": 7,
+      "publishes_on_weekends": false,
+      "type": "semi-weekly",
+      "days_per_week": 3,
+      "confidence": 0.85
+    },
+    "update_recommendation": "smart"
+  },
+  {
+    "name": "Clay Bennett",
+    "slug": "claybennett",
+    "url": "https://www.gocomics.com/claybennett",
+    "author": "Clay Bennett",
+    "position": 7,
+    "is_political": true,
+    "publishing_frequency": {
+      "average_gap_days": 1.3181818181818181,
+      "min_gap_days": 1,
+      "max_gap_days": 2,
+      "publishes_on_weekends": true,
+      "type": "irregular",
+      "days_per_week": 5,
+      "confidence": 0.5
+    },
+    "update_recommendation": "smart"
+  },
+  {
+    "name": "Clay Jones",
+    "slug": "clayjones",
+    "url": "https://www.gocomics.com/clayjones",
+    "author": "Clay Jones",
+    "position": 8,
+    "is_political": true,
+    "publishing_frequency": {
+      "average_gap_days": 1.0,
+      "min_gap_days": 1,
+      "max_gap_days": 1,
+      "publishes_on_weekends": true,
+      "type": "daily",
+      "days_per_week": 7,
+      "confidence": 0.95
+    },
+    "update_recommendation": "daily"
+  },
+  {
+    "name": "Dana Summers",
+    "slug": "danasummers",
+    "url": "https://www.gocomics.com/danasummers",
+    "author": "Dana Summers",
+    "position": 9,
+    "is_political": true,
+    "publishing_frequency": {
+      "average_gap_days": 1.5789473684210527,
+      "min_gap_days": 1,
+      "max_gap_days": 4,
+      "publishes_on_weekends": true,
+      "type": "irregular",
+      "days_per_week": 4,
+      "confidence": 0.5
+    },
+    "update_recommendation": "smart"
+  },
+  {
+    "name": "Doonesbury",
+    "slug": "doonesbury",
+    "url": "https://www.gocomics.com/doonesbury",
+    "author": "Doonesbury",
+    "position": 10,
+    "is_political": true,
+    "publishing_frequency": {
+      "average_gap_days": 1.0,
+      "min_gap_days": 1,
+      "max_gap_days": 1,
+      "publishes_on_weekends": true,
+      "type": "daily",
+      "days_per_week": 7,
+      "confidence": 0.95
+    },
+    "update_recommendation": "daily"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "url": "https://www.gocomics.com/drewsheneman",
+    "author": "Drew Sheneman",
+    "position": 11,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Eric Allie",
+    "slug": "eric-allie",
+    "url": "https://www.gocomics.com/eric-allie",
+    "author": "Eric Allie",
+    "position": 12,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Gary Markstein",
+    "slug": "garymarkstein",
+    "url": "https://www.gocomics.com/garymarkstein",
+    "author": "Gary Markstein",
+    "position": 13,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "url": "https://www.gocomics.com/garyvarvel",
+    "author": "Gary Varvel",
+    "position": 14,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "url": "https://www.gocomics.com/henrypayne",
+    "author": "Henry Payne",
+    "position": 15,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Jack Ohman",
+    "slug": "jackohman",
+    "url": "https://www.gocomics.com/jackohman",
+    "author": "Jack Ohman",
+    "position": 16,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "url": "https://www.gocomics.com/jeffdanziger",
+    "author": "Jeff Danziger",
+    "position": 17,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Jeff Stahler",
+    "slug": "jeffstahler",
+    "url": "https://www.gocomics.com/jeffstahler",
+    "author": "Jeff Stahler",
+    "position": 18,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Jen Sorensen",
+    "slug": "jen-sorensen",
+    "url": "https://www.gocomics.com/jen-sorensen",
+    "author": "Jen Sorensen",
+    "position": 19,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Jim Morin",
+    "slug": "jimmorin",
+    "url": "https://www.gocomics.com/jimmorin",
+    "author": "Jim Morin",
+    "position": 20,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "url": "https://www.gocomics.com/joe-heller",
+    "author": "Joe Heller",
+    "position": 21,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Joel Pett",
+    "slug": "joelpett",
+    "url": "https://www.gocomics.com/joelpett",
+    "author": "Joel Pett",
+    "position": 22,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "url": "https://www.gocomics.com/joey-weatherford",
+    "author": "Joey Weatherford",
+    "position": 23,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "John Deering",
+    "slug": "johndeering",
+    "url": "https://www.gocomics.com/johndeering",
+    "author": "John Deering",
+    "position": 24,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "url": "https://www.gocomics.com/kal",
+    "author": "Kevin Kallaugher",
+    "position": 25,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Kevin Necessary Editorial Cartoons",
+    "slug": "kevin-necessary-editorial-cartoons",
+    "url": "https://www.gocomics.com/kevin-necessary-editorial-cartoons",
+    "author": "Kevin Necessary Editorial Cartoons",
+    "position": 26,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Lalo Alcaraz",
+    "slug": "laloalcaraz",
+    "url": "https://www.gocomics.com/laloalcaraz",
+    "author": "Lalo Alcaraz",
+    "position": 27,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Lisa Benson",
+    "slug": "lisabenson",
+    "url": "https://www.gocomics.com/lisabenson",
+    "author": "Lisa Benson",
+    "position": 28,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "M2Bulls",
+    "slug": "m2bulls",
+    "url": "https://www.gocomics.com/m2bulls",
+    "author": "M2Bulls",
+    "position": 29,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Marshall Ramsey",
+    "slug": "marshallramsey",
+    "url": "https://www.gocomics.com/marshallramsey",
+    "author": "Marshall Ramsey",
+    "position": 30,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Matt Bors",
+    "slug": "matt-bors",
+    "url": "https://www.gocomics.com/matt-bors",
+    "author": "Matt Bors",
+    "position": 31,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "url": "https://www.gocomics.com/mattdavies",
+    "author": "Matt Davies",
+    "position": 32,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Matt Wuerker",
+    "slug": "mattwuerker",
+    "url": "https://www.gocomics.com/mattwuerker",
+    "author": "Matt Wuerker",
+    "position": 33,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Michael Ramirez",
+    "slug": "michaelramirez",
+    "url": "https://www.gocomics.com/michaelramirez",
+    "author": "Michael Ramirez",
+    "position": 34,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Mike Beckom",
+    "slug": "mike-beckom",
+    "url": "https://www.gocomics.com/mike-beckom",
+    "author": "Mike Beckom",
+    "position": 35,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Mike Lester",
+    "slug": "mike-lester",
+    "url": "https://www.gocomics.com/mike-lester",
+    "author": "Mike Lester",
+    "position": 36,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Mike Luckovich",
+    "slug": "mikeluckovich",
+    "url": "https://www.gocomics.com/mikeluckovich",
+    "author": "Mike Luckovich",
+    "position": 37,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "url": "https://www.gocomics.com/nickanderson",
+    "author": "Nick Anderson",
+    "position": 38,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Pat Oliphant",
+    "slug": "patoliphant",
+    "url": "https://www.gocomics.com/patoliphant",
+    "author": "Pat Oliphant",
+    "position": 39,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Pedro X. Molina",
+    "slug": "pedroxmolina",
+    "url": "https://www.gocomics.com/pedroxmolina",
+    "author": "Pedro X. Molina",
+    "position": 40,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Phil Hands",
+    "slug": "phil-hands",
+    "url": "https://www.gocomics.com/phil-hands",
+    "author": "Phil Hands",
+    "position": 41,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Rebecca Hendin",
+    "slug": "rebecca-hendin",
+    "url": "https://www.gocomics.com/rebecca-hendin",
+    "author": "Rebecca Hendin",
+    "position": 42,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "url": "https://www.gocomics.com/robert-ariail",
+    "author": "Robert Ariail",
+    "position": 43,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "url": "https://www.gocomics.com/robrogers",
+    "author": "Rob Rogers",
+    "position": 44,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Scott Stantis",
+    "slug": "scottstantis",
+    "url": "https://www.gocomics.com/scottstantis",
+    "author": "Scott Stantis",
+    "position": 45,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Steve Benson",
+    "slug": "stevebenson",
+    "url": "https://www.gocomics.com/stevebenson",
+    "author": "Steve Benson",
+    "position": 46,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "url": "https://www.gocomics.com/stevebreen",
+    "author": "Steve Breen",
+    "position": 47,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Steve Kelley",
+    "slug": "stevekelley",
+    "url": "https://www.gocomics.com/stevekelley",
+    "author": "Steve Kelley",
+    "position": 48,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Ted Rall",
+    "slug": "ted-rall",
+    "url": "https://www.gocomics.com/ted-rall",
+    "author": "Ted Rall",
+    "position": 49,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "(th)ink",
+    "slug": "think",
+    "url": "https://www.gocomics.com/think",
+    "author": "(th)ink",
+    "position": 50,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "url": "https://www.gocomics.com/tim-campbell",
+    "author": "Tim Campbell",
+    "position": 51,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Tom the Dancing Bug",
+    "slug": "tomthedancingbug",
+    "url": "https://www.gocomics.com/tomthedancingbug",
+    "author": "Tom the Dancing Bug",
+    "position": 52,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Tom Toles",
+    "slug": "tomtoles",
+    "url": "https://www.gocomics.com/tomtoles",
+    "author": "Tom Toles",
+    "position": 53,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "url": "https://www.gocomics.com/two-party-opera",
+    "author": "Two Party Opera",
+    "position": 54,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "ViewsAfrica",
+    "slug": "viewsafrica",
+    "url": "https://www.gocomics.com/viewsafrica",
+    "author": "ViewsAfrica",
+    "position": 55,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "ViewsAmerica",
+    "slug": "viewsamerica",
+    "url": "https://www.gocomics.com/viewsamerica",
+    "author": "ViewsAmerica",
+    "position": 56,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "ViewsAsia",
+    "slug": "viewsasia",
+    "url": "https://www.gocomics.com/viewsasia",
+    "author": "ViewsAsia",
+    "position": 57,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "ViewsBusiness",
+    "slug": "viewsbusiness",
+    "url": "https://www.gocomics.com/viewsbusiness",
+    "author": "ViewsBusiness",
+    "position": 58,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "ViewsEurope",
+    "slug": "viewseurope",
+    "url": "https://www.gocomics.com/viewseurope",
+    "author": "ViewsEurope",
+    "position": 59,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "ViewsLatinAmerica",
+    "slug": "viewslatinamerica",
+    "url": "https://www.gocomics.com/viewslatinamerica",
+    "author": "ViewsLatinAmerica",
+    "position": 60,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "ViewsMidEast",
+    "slug": "viewsmideast",
+    "url": "https://www.gocomics.com/viewsmideast",
+    "author": "ViewsMidEast",
+    "position": 61,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Views of the World",
+    "slug": "viewsoftheworld",
+    "url": "https://www.gocomics.com/viewsoftheworld",
+    "author": "Views of the World",
+    "position": 62,
+    "is_political": true,
+    "publishing_frequency": null
+  },
+  {
+    "name": "Walt Handelsman",
+    "slug": "walthandelsman",
+    "url": "https://www.gocomics.com/walthandelsman",
+    "author": "Walt Handelsman",
+    "position": 63,
+    "is_political": true,
+    "publishing_frequency": null
+  }
+]

@@ -4,13 +4,17 @@ ComicCaster is a web application that generates RSS feeds for comics from GoComi
 
 ## Features
 
-- Individual RSS feeds for hundreds of comics from GoComics and TinyView
+- Individual RSS feeds for 400+ daily comics and 60+ political cartoons from GoComics
+- **29 independent comics from TinyView** - including ADHDinos, Fowl Language, Nick Anderson, and more
 - **Multi-source support** - GoComics daily comics, political cartoons, and TinyView comics
 - **Accurate daily comic detection** - distinguishes between current daily comics and "best of" reruns
 - **Multi-strip support** - handles TinyView comics that publish multiple strips per day
+- **Tabbed interface** - separate browsing for daily comics, political cartoons, and TinyView comics
+- **Smart update scheduling** - optimizes feed updates based on comic publishing patterns
+- **Political comic support** - dedicated feeds for editorial cartoons with appropriate content descriptions
 - Feed preview functionality to check comic content before subscribing
-- OPML file generation for custom comic bundles
-- Modern, responsive web interface with tabbed navigation
+- OPML file generation for custom comic bundles (separate files for each comic source)
+- Modern, responsive web interface with intuitive tab navigation
 - Fast and efficient serverless deployment
 - Daily feed updates via GitHub Actions with enhanced scraping reliability
 - **Parallel processing** - uses 8 concurrent workers for efficient scraping
@@ -81,8 +85,18 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 2. Ensures accurate detection of daily comics vs "best of" reruns
 3. Commits updated feed files to the repository
 4. Triggers a new Netlify deployment
+5. **Validates feed freshness** using canary monitoring (new!)
 
-### Recent Improvements (June 2025)
+### Recent Improvements (July 2025)
+
+**Political Comics Integration:**
+- **New Feature**: Added support for 63+ political editorial cartoons from GoComics
+- **Tabbed Interface**: Separate tabs for daily comics and political cartoons for better organization
+- **Smart Updates**: Comics are updated based on their publishing frequency (daily, weekly, irregular)
+- **Content Warnings**: Political feeds include appropriate descriptions and content categories
+- **Separate OPML Files**: Generate `daily-comics.opml` or `political-cartoons.opml` based on your preferences
+
+### Previous Improvements (June 2025)
 
 **Enhanced Comic Detection System:**
 - **Problem Solved**: GoComics serves both current daily comics and historical "best of" reruns on the same page, making it difficult to distinguish which is the actual daily comic
@@ -100,6 +114,21 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 - ✅ Improved performance with parallel processing
 - ✅ Better error handling and logging
 - ✅ GitHub Actions workflow optimized for stability
+
+### Feed Health Monitoring (July 2025)
+
+**Automated Feed Validation System:**
+- **Problem Solved**: Feed generation bugs could go unnoticed for days, resulting in stale feeds
+- **Solution**: Implemented canary monitoring using 15 reliable daily comics as health indicators
+- **How it works**:
+  - After each daily update, a validation script checks if canary feeds have entries within 3 days
+  - If any canary feeds are stale, the system automatically creates a GitHub issue with details
+  - Canary comics include: Garfield, Pearls Before Swine, Doonesbury, Calvin and Hobbes, and 11 others
+- **Benefits**:
+  - ✅ Proactive detection of feed update failures
+  - ✅ Automated alerting via GitHub issues
+  - ✅ Detailed diagnostics for troubleshooting
+  - ✅ Prevents multi-day outages from going unnoticed
 
 ## Technical Components
 
@@ -125,12 +154,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Daily Comics**: Calvin and Hobbes, Garfield, Dilbert, and hundreds more
 - **Political Cartoons**: Doonesbury, Non Sequitur, and other editorial comics
 - **Update Frequency**: Checks last 10 days of comics
+<<<<<<< HEAD
 
 ### TinyView
 - **Independent Comics**: 29 comics including ADHDinos, Fowl Language, Nick Anderson, and more
 - **Multi-strip Support**: Handles comics that publish multiple strips per day
 - **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
 - **Comic Descriptions**: Extracts and includes artist commentary when available
+=======
+- **Scraping Method**: HTTP requests with JSON-LD parsing
+
+### TinyView
+- **Independent Comics**: 29 comics including ADHDinos, Fowl Language, Nick Anderson, Pedro X. Molina, and more
+- **Multi-strip Support**: Handles comics that publish multiple strips per day
+- **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
+- **Comic Descriptions**: Extracts and includes artist commentary when available
+- **Scraping Method**: Selenium WebDriver for dynamic content
+>>>>>>> origin/main
 
 ## Acknowledgments
 

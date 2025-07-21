@@ -62,26 +62,50 @@ class ComicFeedGenerator:
         
         # Set feed metadata
         fg.title(f"{comic_info['name']} - {source_display}")
-        fg.description(f"Daily {comic_info['name']} comic strip by {comic_info.get('author', 'Unknown Author')} from {source_display}")
+        
+        # Adjust description based on comic type
+        if comic_info.get('is_political'):
+            fg.description(f"Political editorial cartoon by {comic_info.get('author', comic_info['name'])} from {source_display}. May contain political content and commentary on current events.")
+        else:
+            fg.description(f"Daily {comic_info['name']} comic strip by {comic_info.get('author', 'Unknown Author')} from {source_display}")
         fg.language('en')
         
         # Add source as a category
         fg.category(term=source, label=source_display)
         
         # Set feed ID and updated time
-        fg.id(comic_info['url'])
+        comic_url = comic_info.get('url', f"https://www.gocomics.com/{comic_info.get('slug', '')}")
+        fg.id(comic_url)
         fg.updated(datetime.now(timezone.utc))
         
         # Add feed author
         if comic_info.get('author'):
             fg.author({'name': comic_info['author']})
         
+        # Add categories
+        if comic_info.get('is_political'):
+            fg.category(term='political', label='Political Comics')
+            fg.category(term='editorial', label='Editorial Cartoons')
+        else:
+            fg.category(term='comics', label='Comic Strips')
+        
+        # Set TTL based on update recommendation
+        update_rec = comic_info.get('update_recommendation', 'daily')
+        if update_rec == 'daily':
+            fg.ttl('1440')  # 24 hours in minutes
+        elif update_rec == 'weekly':
+            fg.ttl('10080')  # 7 days in minutes
+        else:
+            # Smart/irregular - check every 2 days
+            fg.ttl('2880')  # 48 hours in minutes
+        
         # Add atom:link for feed self-reference
         feed_url = f"https://comiccaster.xyz/feeds/{comic_info['slug']}.xml"
         fg.link(href=feed_url, rel='self', type='application/rss+xml')
         
         # Set the main feed link to the comic's URL (this must come after the self-reference)
-        fg.link(href=comic_info['url'])
+        comic_url = comic_info.get('url', f"https://www.gocomics.com/{comic_info.get('slug', '')}")
+        fg.link(href=comic_url)
         
         return fg
     
@@ -166,6 +190,28 @@ class ComicFeedGenerator:
         """ + gallery_html
         
         return responsive_css
+    
+    def create_feed_object(self, comic_info: Dict[str, str]) -> FeedGenerator:
+        """
+        Alias for create_feed to support test compatibility.
+        """
+        return self.create_feed(comic_info)
+    
+    def add_feed_entry(self, feed: FeedGenerator, entry_data: Dict[str, str], comic_info: Dict[str, str]) -> FeedEntry:
+        """
+        Add an entry to a feed object.
+        
+        Args:
+            feed: The FeedGenerator object
+            entry_data: Entry metadata dictionary
+            comic_info: Comic information dictionary
+            
+        Returns:
+            FeedEntry: The created feed entry
+        """
+        entry = self.create_entry(comic_info, entry_data)
+        feed.add_entry(entry)
+        return entry
     
     def parse_date_with_timezone(self, date_str: str) -> datetime:
         """
@@ -254,6 +300,10 @@ class ComicFeedGenerator:
         
         # Set unique ID
         entry.id(metadata.get('id', metadata.get('url', f"{comic_info['url']}#{pub_date.isoformat()}")))
+        
+        # Add categories based on comic type
+        if comic_info.get('is_political'):
+            entry.category(term='political', label='Political Comics')
         
         return entry
     

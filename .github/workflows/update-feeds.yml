@@ -1,8 +1,11 @@
 name: Update Comic Feeds
 
+# This workflow updates ALL comics daily to ensure we never miss new content
+# Smart updates were disabled as comics have irregular publishing schedules
+
 on:
   schedule:
-    - cron: '0 9 * * *'  # Run at 9 AM UTC daily (~1 AM PST / 2 AM PDT)
+    - cron: '0 9 * * *'  # Run at 9 AM UTC daily (~1 AM PST / 2 AM PDT) 
   workflow_dispatch:  # Allow manual triggering
 
 permissions:
@@ -36,6 +39,10 @@ jobs:
       - name: Test enhanced HTTP scraping
         run: |
           python test_github_scraping.py
+      
+      - name: Test political comics are loaded
+        run: |
+          python -m pytest tests/test_update_feeds_main.py::TestUpdateFeedsMain::test_main_loads_both_comic_types -v
       
       - name: Update GoComics feeds
         run: |

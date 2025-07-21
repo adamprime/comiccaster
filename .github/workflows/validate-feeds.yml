@@ -1,0 +1,91 @@
+name: Validate Feed Updates
+
+on:
+  # Run after the feed update workflow
+  workflow_run:
+    workflows: ["Update Comic Feeds (Legacy - Updates All)"]
+    types:
+      - completed
+  
+  # Also allow manual triggering
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    # Only run if the update workflow succeeded
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser
+      
+      - name: Run feed validation
+        id: validate
+        run: |
+          python scripts/validate_feeds.py
+        continue-on-error: true
+      
+      - name: Upload validation results
+        uses: actions/upload-artifact@v3
+        with:
+          name: validation-results
+          path: feed_validation_results.json
+      
+      - name: Create issue if validation fails
+        if: steps.validate.outcome == 'failure'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const results = JSON.parse(fs.readFileSync('feed_validation_results.json', 'utf8'));
+            
+            // Build issue body
+            let issueBody = `## Feed Validation Failed\n\n`;
+            issueBody += `The following canary feeds are not updating properly:\n\n`;
+            
+            // Add details for problematic feeds
+            for (const [comic, result] of Object.entries(results.canaries)) {
+              if (result.status !== 'OK') {
+                issueBody += `- **${comic}**: ${result.status} - ${result.message}\n`;
+                if (result.latest_date) {
+                  issueBody += `  - Last update: ${result.latest_date}\n`;
+                }
+              }
+            }
+            
+            issueBody += `\n### Summary\n`;
+            issueBody += `- ✅ OK: ${results.summary.ok}\n`;
+            issueBody += `- ⚠️ Stale: ${results.summary.stale}\n`;
+            issueBody += `- ❌ Error: ${results.summary.error}\n`;
+            
+            issueBody += `\n### Action Required\n`;
+            issueBody += `Please investigate why these feeds are not updating. Common causes:\n`;
+            issueBody += `- GoComics page structure changes\n`;
+            issueBody += `- Network/scraping errors\n`;
+            issueBody += `- Feed generation bugs\n`;
+            
+            issueBody += `\nValidation run: ${results.check_time}`;
+            
+            // Create the issue
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Feed validation failed - ${results.summary.stale + results.summary.error} comics not updating`,
+              body: issueBody,
+              labels: ['bug', 'feed-update']
+            });
