@@ -104,10 +104,16 @@ class TinyviewScraper(BaseScraper):
                 
                 for link in all_links:
                     href = link['href']
-                    # Check if this link contains our date
-                    if date in href:
-                        date_links.append(href)
-                        logger.info(f"Found link for date {date}: {href}")
+                    # Check if this link contains our date using proper URL parsing
+                    try:
+                        # Parse the URL and check if the path contains the date
+                        parsed = urlparse(urljoin(self.base_url, href))
+                        if date in parsed.path:
+                            date_links.append(href)
+                            logger.info(f"Found link for date {date}: {href}")
+                    except Exception:
+                        # Skip invalid URLs
+                        continue
                 
                 if not date_links:
                     logger.warning(f"No strips found for date {date} on {comic_slug}")
@@ -198,20 +204,25 @@ class TinyviewScraper(BaseScraper):
                 parsed_url = urlparse(src)
                 if parsed_url.hostname == 'cdn.tinyview.com':
                     # Filter out generic Tinyview images (promotional, UI elements, etc.)
-                    path = parsed_url.path.lower()
-                    if any(skip in path for skip in ['/tinyview/app/', '/tinyview/subscribe/', '/tinyview/influence-points/']):
+                    path_lower = parsed_url.path.lower()
+                    skip_paths = ['/tinyview/app/', '/tinyview/subscribe/', '/tinyview/influence-points/']
+                    # Check if path starts with any skip path (more secure than substring matching)
+                    if any(path_lower.startswith(skip) for skip in skip_paths):
                         logger.debug(f"Skipping non-comic image: {src}")
                         continue
                     
                     # Check if this looks like a comic image (should contain the comic slug)
-                    if comic_slug in parsed_url.path:
+                    # Use proper path segment checking instead of substring matching
+                    path_segments = parsed_url.path.strip('/').split('/')
+                    if comic_slug in path_segments:
                         # Skip profile images
-                        if 'profile' in path:
+                        if 'profile' in path_segments:
                             logger.debug(f"Skipping profile image: {src}")
                             continue
                         
                         # Include all images from this date (we want all strips from the date)
-                        if date in parsed_url.path:
+                        # Check if any path segment contains the date
+                        if any(date in segment for segment in path_segments):
                             # Skip duplicates
                             if src not in seen_urls:
                                 seen_urls.add(src)

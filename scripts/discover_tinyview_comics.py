@@ -76,7 +76,7 @@ def discover_comics(driver) -> List[Dict[str, str]]:
             if href.startswith('/') and len(href.split('/')) == 2 and not href.startswith('/api'):
                 # This looks like a comic URL pattern: /comic-slug
                 comic_links.append(link)
-            elif 'tinyview.com/' in href and href.count('/') == 3:
+            elif href.startswith('https://tinyview.com/') and href.count('/') == 3:
                 # Full URL pattern: https://tinyview.com/comic-slug
                 comic_links.append(link)
         

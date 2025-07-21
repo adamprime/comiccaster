@@ -50,8 +50,9 @@ For Flask-specific development:
 # Run Flask without debug mode (recommended)
 python run_app.py
 
-# Run Flask with debug mode (development only - NEVER use in production)
-FLASK_DEBUG=true python run_app.py
+# Run Flask with debug mode (LOCAL DEVELOPMENT ONLY - NEVER use in production!)
+# WARNING: Debug mode is a security vulnerability - it exposes sensitive data
+FLASK_DEBUG=true python run_app.py  # INSECURE - Use only for local debugging!
 ```
 
 The Flask app will be available at `http://localhost:5001`

@@ -24,7 +24,7 @@ netlify dev  # Full stack at http://localhost:8888
 python run_app.py  # Flask only at http://localhost:5001
 
 # Enable Flask debug mode for development only
-FLASK_DEBUG=true python run_app.py  # With debug mode
+FLASK_DEBUG=true python run_app.py  # LOCAL DEV ONLY - Security vulnerability!
 ```
 
 ### Feed Management
