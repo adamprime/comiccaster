@@ -166,7 +166,7 @@ class GoComicsScraper(BaseScraper):
                 from urllib.parse import urlparse
                 parsed = urlparse(src)
                 # Check hostname and path separately
-                if parsed.hostname and 'assets.amuniversal.com' in parsed.hostname:
+                if parsed.hostname == 'assets.amuniversal.com':
                     # Check if comic slug is in path segments
                     path_segments = parsed.path.strip('/').split('/')
                     if comic_slug in path_segments:
