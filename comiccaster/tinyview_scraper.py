@@ -93,12 +93,22 @@ class TinyviewScraper(BaseScraper):
                 logger.info("Firefox WebDriver set up successfully")
             except Exception as e:
                 logger.error(f"Failed to initialize Firefox WebDriver: {e}")
-                # Try without explicit binary location
+                # Try without explicit binary location - create fresh options
                 if firefox_binary:
                     logger.info("Retrying without explicit binary location...")
-                    options.binary_location = None
+                    fallback_options = Options()
+                    fallback_options.add_argument('--headless')
+                    fallback_options.add_argument('--no-sandbox')
+                    fallback_options.add_argument('--disable-dev-shm-usage')
+                    fallback_options.add_argument('--disable-gpu')
+                    fallback_options.add_argument('--disable-extensions')
+                    fallback_options.add_argument('--disable-plugins')
+                    fallback_options.add_argument('--disable-images')
+                    fallback_options.set_preference("general.useragent.override", 
+                        "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0")
+                    # Don't set binary_location at all in fallback
                     try:
-                        self.driver = webdriver.Firefox(options=options)
+                        self.driver = webdriver.Firefox(options=fallback_options)
                         self.driver.set_window_size(1920, 1080)
                         self.driver.implicitly_wait(10)
                         self.driver.set_page_load_timeout(30)
