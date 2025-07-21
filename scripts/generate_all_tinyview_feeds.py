@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Discover all Tinyview comics and generate RSS feeds for them.
+Generate RSS feeds for all Tinyview comics.
 """
 
 import sys
@@ -9,17 +9,10 @@ import json
 import logging
 import time
 from datetime import datetime, timedelta
-from urllib.parse import urljoin
+from pathlib import Path
 
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup
 
 from comiccaster.tinyview_scraper import TinyviewScraper
 from comiccaster.feed_generator import ComicFeedGenerator
@@ -29,91 +22,18 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 
-def setup_driver():
-    """Set up the Selenium WebDriver with Firefox in headless mode."""
-    options = Options()
-    options.add_argument('-headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
+def load_tinyview_comics():
+    """Load the list of Tinyview comics from the JSON file."""
+    comics_list_path = Path(__file__).parent.parent / 'public' / 'tinyview_comics_list.json'
     
-    driver = webdriver.Firefox(options=options)
-    driver.set_window_size(1920, 1080)
-    logger.info("Firefox WebDriver set up successfully")
-    return driver
-
-
-def discover_all_tinyview_comics(driver):
-    """Discover all comics from Tinyview by exploring the site."""
-    comics = []
-    
-    # Start with known comics
-    known_comics = [
-        {'name': 'ADHDinos', 'slug': 'adhdinos', 'author': 'Pina Vazquez'},
-        {'name': 'Nick Anderson', 'slug': 'nick-anderson', 'author': 'Nick Anderson'},
-        {'name': 'Fowl Language', 'slug': 'fowl-language', 'author': 'Brian Gordon'},
-    ]
-    
-    # Try to discover more from the homepage
-    logger.info("Exploring Tinyview homepage for comics...")
-    driver.get("https://tinyview.com")
-    time.sleep(5)
-    
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
-    
-    # Look for comic links
-    for link in soup.find_all('a', href=True):
-        href = link['href']
-        if href.startswith('/') and '/' not in href[1:]:  # Single-segment paths
-            slug = href.strip('/')
-            
-            # Skip known non-comic pages
-            skip_slugs = ['tinyview', 'about', 'contact', 'privacy', 'terms', 'help', 
-                         'login', 'signup', 'subscribe', 'api', 'admin', 'support',
-                         'comic-series-directory', 'directory', 'browse', 'home']
-            
-            if slug in skip_slugs:
-                continue
-            
-            # Check if we already have this comic
-            if not any(c['slug'] == slug for c in known_comics):
-                name = link.get_text(strip=True) or slug.replace('-', ' ').title()
-                logger.info(f"Found potential comic: {name} ({slug})")
-                
-                # Verify it's a real comic page
-                comic_url = f"https://tinyview.com/{slug}"
-                driver.get(comic_url)
-                time.sleep(2)
-                
-                page_title = driver.title.lower()
-                if '404' not in page_title and 'not found' not in page_title:
-                    known_comics.append({
-                        'name': name,
-                        'slug': slug,
-                        'author': 'Unknown'
-                    })
-    
-    # Also try the directory page one more time
-    logger.info("Checking directory page...")
-    driver.get("https://tinyview.com/tinyview/comic-series-directory")
-    time.sleep(5)
-    
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
-    for link in soup.find_all('a', href=True):
-        href = link['href']
-        text = link.get_text(strip=True)
-        
-        if href.startswith('/') and text and '/' not in href[1:]:
-            slug = href.strip('/')
-            if not any(c['slug'] == slug for c in known_comics):
-                if slug not in skip_slugs:
-                    known_comics.append({
-                        'name': text,
-                        'slug': slug,
-                        'author': 'Unknown'
-                    })
-                    logger.info(f"Found from directory: {text} ({slug})")
-    
-    return known_comics
+    try:
+        with open(comics_list_path, 'r') as f:
+            comics = json.load(f)
+        logger.info(f"Loaded {len(comics)} Tinyview comics from {comics_list_path}")
+        return comics
+    except Exception as e:
+        logger.error(f"Error loading comics list: {e}")
+        return []
 
 
 def generate_feed_for_comic(comic_info, days_back=7):
@@ -186,32 +106,35 @@ def generate_feed_for_comic(comic_info, days_back=7):
 
 
 def main():
-    """Main function to discover and generate all Tinyview feeds."""
+    """Main function to generate all Tinyview feeds."""
     logger.info("Starting Tinyview Feed Generation")
-    logger.info("This will discover all comics and generate RSS feeds\n")
+    logger.info("This will generate RSS feeds for all Tinyview comics\n")
     
-    # First, discover all comics
-    driver = setup_driver()
+    # Load the comics list
+    comics = load_tinyview_comics()
+    if not comics:
+        logger.error("No comics loaded, exiting")
+        return
     
-    try:
-        comics = discover_all_tinyview_comics(driver)
-        logger.info(f"\nDiscovered {len(comics)} comics total")
-        
-        # Save the discovered comics
-        with open('public/tinyview_comics_list.json', 'w') as f:
-            json.dump(comics, f, indent=2)
-        logger.info("Saved comic list to public/tinyview_comics_list.json")
-        
-    finally:
-        driver.quit()
+    # Check which feeds already exist
+    feeds_dir = Path(__file__).parent.parent / 'public' / 'feeds'
+    existing_feeds = set()
+    for feed_file in feeds_dir.glob('*.xml'):
+        existing_feeds.add(feed_file.stem)
     
     # Generate feeds for all comics
-    logger.info(f"\nGenerating feeds for {len(comics)} comics...")
+    logger.info(f"\nProcessing {len(comics)} comics...")
     
     success_count = 0
+    skipped_count = 0
     failed_comics = []
     
     for comic in comics:
+        if comic['slug'] in existing_feeds:
+            logger.info(f"✓ {comic['name']}: Feed already exists, skipping")
+            skipped_count += 1
+            continue
+            
         if generate_feed_for_comic(comic, days_back=5):
             success_count += 1
         else:
@@ -225,16 +148,32 @@ def main():
     logger.info("FEED GENERATION SUMMARY")
     logger.info("=" * 60)
     logger.info(f"Total comics: {len(comics)}")
-    logger.info(f"Successful feeds: {success_count}")
-    logger.info(f"Failed feeds: {len(failed_comics)}")
+    logger.info(f"Generated new feeds: {success_count}")
+    logger.info(f"Skipped (already exist): {skipped_count}")
+    logger.info(f"Failed: {len(failed_comics)}")
     
     if failed_comics:
         logger.info("\nFailed comics:")
         for comic in failed_comics:
             logger.info(f"  - {comic}")
     
-    if success_count > 0:
-        logger.info(f"\n🎉 Successfully generated {success_count} Tinyview feeds!")
+    # List all existing Tinyview feeds
+    logger.info(f"\n{'='*60}")
+    logger.info("EXISTING TINYVIEW FEEDS")
+    logger.info(f"{'='*60}")
+    
+    tinyview_feeds = []
+    for comic in comics:
+        feed_path = feeds_dir / f"{comic['slug']}.xml"
+        if feed_path.exists():
+            tinyview_feeds.append(comic['slug'])
+    
+    logger.info(f"Found {len(tinyview_feeds)} Tinyview feeds:")
+    for feed in sorted(tinyview_feeds):
+        logger.info(f"  - {feed}")
+    
+    if success_count > 0 or len(tinyview_feeds) > 0:
+        logger.info(f"\n🎉 Total Tinyview feeds available: {len(tinyview_feeds)}")
         logger.info("You can now run the local server to view them.")
     
     # Update the main comics list

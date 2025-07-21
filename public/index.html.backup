@@ -178,7 +178,11 @@
         }
 
         /* Search inputs */
+<<<<<<< HEAD
         #comicSearch, #customFeedSearch, #politicalComicSearch, #politicalFeedSearch, #tinyviewComicSearch, #tinyviewFeedSearch {
+=======
+        #comicSearch, #customFeedSearch, #politicalComicSearch, #politicalFeedSearch {
+>>>>>>> origin/main
             width: 100%;
             padding: 0.5rem;
             margin-bottom: 1rem;
@@ -354,7 +358,10 @@
                 <div class="tabs">
                     <button class="tab-button active" data-tab="daily">📰 Daily Comics</button>
                     <button class="tab-button" data-tab="political">🏛️ Political Cartoons</button>
+<<<<<<< HEAD
                     <button class="tab-button" data-tab="tinyview">📱 TinyView</button>
+=======
+>>>>>>> origin/main
                 </div>
                 <div class="tab-content active" id="daily-tab">
                     <input type="text" id="comicSearch" placeholder="Search daily comics...">
@@ -389,6 +396,7 @@
                             </tbody>
                         </table>
                     </div>
+<<<<<<< HEAD
                 </div>
                 <div class="tab-content" id="tinyview-tab">
                     <input type="text" id="tinyviewComicSearch" placeholder="Search TinyView comics...">
@@ -406,6 +414,8 @@
                             </tbody>
                         </table>
                     </div>
+=======
+>>>>>>> origin/main
                 </div>
             </div>
         </div>
@@ -419,7 +429,10 @@
                 <div class="tabs">
                     <button class="tab-button opml-tab active" data-tab="daily-opml">📰 Daily Comics</button>
                     <button class="tab-button opml-tab" data-tab="political-opml">🏛️ Political Cartoons</button>
+<<<<<<< HEAD
                     <button class="tab-button opml-tab" data-tab="tinyview-opml">📱 TinyView</button>
+=======
+>>>>>>> origin/main
                 </div>
                 <div class="tab-content opml-content active" id="daily-opml-tab">
                     <input type="text" id="customFeedSearch" placeholder="Search daily comics by name...">
@@ -446,6 +459,7 @@
                     <div id="political-success-message" class="success-message">
                         <p>✅ Your OPML file is ready! <a href="#" id="political-download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the political cartoons!</p>
                     </div>
+<<<<<<< HEAD
                 </div>
                 <div class="tab-content opml-content" id="tinyview-opml-tab">
                     <input type="text" id="tinyviewFeedSearch" placeholder="Search TinyView comics by name...">
@@ -459,6 +473,8 @@
                     <div id="tinyview-success-message" class="success-message">
                         <p>✅ Your OPML file is ready! <a href="#" id="tinyview-download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the TinyView comics!</p>
                     </div>
+=======
+>>>>>>> origin/main
                 </div>
 
                 <div class="help-text">
@@ -477,6 +493,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             let dailyComics = [];
             let politicalComics = [];
+<<<<<<< HEAD
             let tinyviewComics = [];
             
             // Load all three types of comics data
@@ -497,6 +514,23 @@
                 populateComicsList(dailyComics, 'comics-list');
                 populateComicsList(politicalComics, 'political-comics-list');
                 populateComicsList(tinyviewComics, 'tinyview-comics-list');
+=======
+            
+            // Load both daily and political comics data
+            Promise.all([
+                fetch('/comics_list.json').then(r => r.json()),
+                fetch('/political_comics_list.json').then(r => r.json())
+            ])
+            .then(([daily, political]) => {
+                dailyComics = daily;
+                politicalComics = political;
+                
+                // Populate tables and lists
+                populateComicsTable(dailyComics, 'comics-table-body');
+                populateComicsTable(politicalComics, 'political-comics-table-body');
+                populateComicsList(dailyComics, 'comics-list');
+                populateComicsList(politicalComics, 'political-comics-list');
+>>>>>>> origin/main
                 
                 // Setup functionality
                 setupTabSwitching();
@@ -507,7 +541,11 @@
                 console.error('Error fetching comics:', error);
             });
             
+<<<<<<< HEAD
             function populateComicsTable(comics, tableBodyId, source = 'gocomics') {
+=======
+            function populateComicsTable(comics, tableBodyId) {
+>>>>>>> origin/main
                 const tableBody = document.getElementById(tableBodyId);
                 tableBody.innerHTML = '';
                 
@@ -546,12 +584,16 @@
                     const checkboxItem = document.createElement('div');
                     checkboxItem.className = 'form-check';
                     checkboxItem.dataset.name = comic.name.toLowerCase();
+<<<<<<< HEAD
                     let prefix = 'comic';
                     if (listId === 'political-comics-list') {
                         prefix = 'political';
                     } else if (listId === 'tinyview-comics-list') {
                         prefix = 'tinyview';
                     }
+=======
+                    const prefix = listId === 'political-comics-list' ? 'political' : 'comic';
+>>>>>>> origin/main
                     checkboxItem.innerHTML = `
                         <input class="form-check-input" type="checkbox" value="${comic.slug}" id="${prefix}-${comic.slug}">
                         <label class="form-check-label" for="${prefix}-${comic.slug}">
@@ -647,6 +689,7 @@
                     const searchTerm = this.value.toLowerCase();
                     
                     politicalCheckboxItems.forEach(item => {
+<<<<<<< HEAD
                         const name = item.dataset.name;
                         if (name.includes(searchTerm)) {
                             item.style.display = '';
@@ -681,6 +724,8 @@
                     const searchTerm = this.value.toLowerCase();
                     
                     tinyviewCheckboxItems.forEach(item => {
+=======
+>>>>>>> origin/main
                         const name = item.dataset.name;
                         if (name.includes(searchTerm)) {
                             item.style.display = '';
@@ -793,6 +838,7 @@
                     });
                     politicalSuccessMessage.style.display = 'none';
                 });
+<<<<<<< HEAD
                 
                 // Tinyview comics OPML
                 const generateTinyviewBtn = document.getElementById('generateTinyviewOPMLBtn');
@@ -844,6 +890,8 @@
                     });
                     tinyviewSuccessMessage.style.display = 'none';
                 });
+=======
+>>>>>>> origin/main
             }
         });
         

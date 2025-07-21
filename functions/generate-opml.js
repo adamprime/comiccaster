@@ -37,12 +37,14 @@ function comicFeedExists(slug) {
     }
 
     // If we have a comics list, consider that as validation too
-    // Check both daily and political lists
+    // Check daily, political, and tinyview lists
     const dailyComicsList = loadComicsList('daily');
     const politicalComicsList = loadComicsList('political');
+    const tinyviewComicsList = loadComicsList('tinyview');
     
     if ((dailyComicsList && dailyComicsList.some(comic => comic.slug === slug)) ||
-        (politicalComicsList && politicalComicsList.some(comic => comic.slug === slug))) {
+        (politicalComicsList && politicalComicsList.some(comic => comic.slug === slug)) ||
+        (tinyviewComicsList && tinyviewComicsList.some(comic => comic.slug === slug))) {
         console.log(`Comic ${slug} found in comics list`);
         return true;
     }
@@ -73,7 +75,9 @@ function loadComicsList(type = 'daily') {
         console.log('Function directory:', functionDir);
         
         // Determine the filename based on type
-        const filename = type === 'political' ? 'political_comics_list.json' : 'comics_list.json';
+        const filename = type === 'political' ? 'political_comics_list.json' : 
+                         type === 'tinyview' ? 'tinyview_comics_list.json' : 
+                         'comics_list.json';
         
         // List contents of function directory
         console.log('Contents of function directory:');
@@ -156,8 +160,12 @@ function generateOPML(comics, type = 'daily') {
             />`;
     }).join('\n');
 
-    const categoryTitle = type === 'political' ? 'Political Cartoons' : 'Comics';
-    const opmlTitle = type === 'political' ? 'ComicCaster Political Cartoons' : 'ComicCaster Daily Comics';
+    const categoryTitle = type === 'political' ? 'Political Cartoons' : 
+                         type === 'tinyview' ? 'TinyView Comics' : 
+                         'Comics';
+    const opmlTitle = type === 'political' ? 'ComicCaster Political Cartoons' : 
+                     type === 'tinyview' ? 'ComicCaster TinyView Comics' : 
+                     'ComicCaster Daily Comics';
 
     return `<?xml version="1.0" encoding="UTF-8"?>
 <opml version="1.0">
@@ -229,7 +237,9 @@ exports.handler = async function(event, context) {
         const opml = generateOPML(availableComics, type);
 
         // Determine filename based on type
-        const filename = type === 'political' ? 'political-cartoons.opml' : 'daily-comics.opml';
+        const filename = type === 'political' ? 'political-cartoons.opml' : 
+                        type === 'tinyview' ? 'tinyview-comics.opml' : 
+                        'daily-comics.opml';
 
         // Return OPML as attachment
         return {

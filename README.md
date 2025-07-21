@@ -6,6 +6,7 @@ ComicCaster is a web application that generates RSS feeds for comics from GoComi
 
 - Individual RSS feeds for 400+ daily comics and 60+ political cartoons from GoComics
 - **29 independent comics from TinyView** - including ADHDinos, Fowl Language, Nick Anderson, and more
+- **Multi-source support** - GoComics daily comics, political cartoons, and TinyView comics
 - **Accurate daily comic detection** - distinguishes between current daily comics and "best of" reruns
 - **Multi-strip support** - handles TinyView comics that publish multiple strips per day
 - **Tabbed interface** - separate browsing for daily comics, political cartoons, and TinyView comics
@@ -53,8 +54,9 @@ For Flask-specific development:
 # Run Flask without debug mode (recommended)
 python run_app.py
 
-# Run Flask with debug mode (development only - NEVER use in production)
-FLASK_DEBUG=true python run_app.py
+# Run Flask with debug mode (LOCAL DEVELOPMENT ONLY - NEVER use in production!)
+# WARNING: Debug mode is a security vulnerability - it exposes sensitive data
+FLASK_DEBUG=true python run_app.py  # INSECURE - Use only for local debugging!
 ```
 
 The Flask app will be available at `http://localhost:5001`
@@ -132,8 +134,11 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 
 - **Static Site**: Served by Netlify
 - **Serverless Functions**: Handle OPML generation and feed previews
-- **GitHub Actions**: Automate daily feed updates
+- **GitHub Actions**: Automate daily feed updates for both GoComics and TinyView
 - **Python Scripts**: Generate and update RSS feeds
+- **Scrapers**: 
+  - GoComics scraper using HTTP requests with JSON-LD parsing
+  - TinyView scraper using Selenium WebDriver for dynamic content
 
 ## Contributing
 
@@ -149,6 +154,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Daily Comics**: Calvin and Hobbes, Garfield, Dilbert, and hundreds more
 - **Political Cartoons**: Doonesbury, Non Sequitur, and other editorial comics
 - **Update Frequency**: Checks last 10 days of comics
+<<<<<<< HEAD
+
+### TinyView
+- **Independent Comics**: 29 comics including ADHDinos, Fowl Language, Nick Anderson, and more
+- **Multi-strip Support**: Handles comics that publish multiple strips per day
+- **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
+- **Comic Descriptions**: Extracts and includes artist commentary when available
+=======
 - **Scraping Method**: HTTP requests with JSON-LD parsing
 
 ### TinyView
@@ -157,6 +170,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
 - **Comic Descriptions**: Extracts and includes artist commentary when available
 - **Scraping Method**: Selenium WebDriver for dynamic content
+>>>>>>> origin/main
 
 ## Acknowledgments
 
