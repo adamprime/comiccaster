@@ -28,13 +28,24 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
       
+      - name: Install Firefox and geckodriver for Tinyview scraping
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y firefox firefox-geckodriver
+      
       - name: Test enhanced HTTP scraping
         run: |
           python test_github_scraping.py
       
-      - name: Run feed update script
+      - name: Update GoComics feeds
         run: |
           python scripts/update_feeds.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Update Tinyview feeds
+        run: |
+          python scripts/update_tinyview_feeds.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       

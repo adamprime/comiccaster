@@ -20,8 +20,16 @@ exports.handler = async function(event, context) {
             };
         }
 
+        // Handle local development URLs
+        let feedUrl = url;
+        if (url.includes('comiccaster.xyz') && process.env.CONTEXT === 'dev') {
+            // In local development, replace production URL with localhost
+            feedUrl = url.replace('https://comiccaster.xyz', 'http://localhost:8888');
+            console.log('Rewriting URL for local development:', feedUrl);
+        }
+
         // Parse the feed
-        const feed = await parser.parseURL(url);
+        const feed = await parser.parseURL(feedUrl);
         
         // Transform the feed data
         const transformedFeed = {

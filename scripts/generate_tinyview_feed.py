@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 
-def generate_feed(comic_slug: str, days_back: int = 7):
+def generate_feed(comic_slug: str, days_back: int = 15):
     """Generate RSS feed for a Tinyview comic."""
     scraper = TinyviewScraper()
     

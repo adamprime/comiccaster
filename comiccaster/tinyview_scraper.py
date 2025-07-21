@@ -296,6 +296,14 @@ class TinyviewScraper(BaseScraper):
         if og_description:
             metadata['description'] = og_description.get('content', '')
         
+        # Look for the Tinyview comic description in the comments div
+        comments_div = soup.find('div', class_='comments')
+        if comments_div and comments_div.get_text(strip=True):
+            description_text = comments_div.get_text(strip=True)
+            # Override with this more specific description if found
+            metadata['description'] = description_text
+            logger.info(f"Found comic description: {description_text[:100]}...")
+        
         # Parse date
         try:
             date_parts = date.split('/')

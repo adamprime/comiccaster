@@ -515,15 +515,19 @@
                     const row = document.createElement('tr');
                     const sourceUrl = source === 'tinyview' ? comic.url : `https://www.gocomics.com/${comic.slug}`;
                     
+                    // Use different feed paths for different sources
+                    const feedPath = source === 'tinyview' ? `/feeds/${comic.slug}.xml` : `/rss/${comic.slug}`;
+                    const feedUrl = `https://comiccaster.xyz${feedPath}`;
+                    
                     row.innerHTML = `
                         <td>${comic.name}</td>
                         <td>
                             <div class="feed-url">
-                                <span class="copy-icon" onclick="copyToClipboard(this)" data-url="https://comiccaster.xyz/rss/${comic.slug}">📋</span>
-                                <span class="url-text" onclick="copyToClipboard(this)" data-url="https://comiccaster.xyz/rss/${comic.slug}">
-                                    https://comiccaster.xyz/rss/${comic.slug}
+                                <span class="copy-icon" onclick="copyToClipboard(this)" data-url="${feedUrl}">📋</span>
+                                <span class="url-text" onclick="copyToClipboard(this)" data-url="${feedUrl}">
+                                    ${feedUrl}
                                 </span>
-                                <a href="/preview.html?url=https://comiccaster.xyz/rss/${comic.slug}" class="preview-link" target="_blank">👁️ Preview</a>
+                                <a href="/preview.html?url=${feedUrl}" class="preview-link" target="_blank">👁️ Preview</a>
                             </div>
                         </td>
                         <td><a href="${sourceUrl}" target="_blank">🔗 Source</a></td>

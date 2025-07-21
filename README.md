@@ -1,16 +1,19 @@
 # ComicCaster
 
-ComicCaster is a web application that generates RSS feeds for comics from GoComics.com. It allows you to subscribe to individual comics or create custom bundles of multiple comics using OPML files.
+ComicCaster is a web application that generates RSS feeds for comics from GoComics.com and TinyView.com. It allows you to subscribe to individual comics or create custom bundles of multiple comics using OPML files.
 
 ## Features
 
-- Individual RSS feeds for hundreds of comics from GoComics
+- Individual RSS feeds for hundreds of comics from GoComics and TinyView
+- **Multi-source support** - GoComics daily comics, political cartoons, and TinyView comics
 - **Accurate daily comic detection** - distinguishes between current daily comics and "best of" reruns
+- **Multi-strip support** - handles TinyView comics that publish multiple strips per day
 - Feed preview functionality to check comic content before subscribing
 - OPML file generation for custom comic bundles
-- Modern, responsive web interface
+- Modern, responsive web interface with tabbed navigation
 - Fast and efficient serverless deployment
 - Daily feed updates via GitHub Actions with enhanced scraping reliability
+- **Parallel processing** - uses 8 concurrent workers for efficient scraping
 
 ## Quick Start
 
@@ -101,8 +104,11 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 
 - **Static Site**: Served by Netlify
 - **Serverless Functions**: Handle OPML generation and feed previews
-- **GitHub Actions**: Automate daily feed updates
+- **GitHub Actions**: Automate daily feed updates for both GoComics and TinyView
 - **Python Scripts**: Generate and update RSS feeds
+- **Scrapers**: 
+  - GoComics scraper using HTTP requests with JSON-LD parsing
+  - TinyView scraper using Selenium WebDriver for dynamic content
 
 ## Contributing
 
@@ -112,8 +118,21 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Supported Comic Sources
+
+### GoComics
+- **Daily Comics**: Calvin and Hobbes, Garfield, Dilbert, and hundreds more
+- **Political Cartoons**: Doonesbury, Non Sequitur, and other editorial comics
+- **Update Frequency**: Checks last 10 days of comics
+
+### TinyView
+- **Independent Comics**: 29 comics including ADHDinos, Fowl Language, Nick Anderson, and more
+- **Multi-strip Support**: Handles comics that publish multiple strips per day
+- **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
+- **Comic Descriptions**: Extracts and includes artist commentary when available
+
 ## Acknowledgments
 
-- Thanks to GoComics for providing the comic content
+- Thanks to GoComics and TinyView for providing the comic content
 - Built with Netlify Functions and GitHub Actions 
 - Inspired by ComicsRSS.com
