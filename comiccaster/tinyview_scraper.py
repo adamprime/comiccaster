@@ -53,6 +53,28 @@ class TinyviewScraper(BaseScraper):
             options.set_preference("general.useragent.override", 
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
             
+            # Try to find Firefox binary in common locations
+            firefox_paths = [
+                '/usr/bin/firefox',  # Standard apt install
+                '/snap/bin/firefox',  # Snap install
+                'firefox'  # Let system find it
+            ]
+            
+            firefox_binary = None
+            for path in firefox_paths:
+                try:
+                    import subprocess
+                    result = subprocess.run([path, '--version'], capture_output=True, text=True)
+                    if result.returncode == 0:
+                        firefox_binary = path
+                        logger.info(f"Found Firefox at: {path}")
+                        break
+                except:
+                    continue
+            
+            if firefox_binary and firefox_binary != 'firefox':
+                options.binary_location = firefox_binary
+            
             self.driver = webdriver.Firefox(options=options)
             self.driver.set_window_size(1920, 1080)
             logger.info("Firefox WebDriver set up successfully")
