@@ -7,12 +7,13 @@ It extracts comic images from their CDN and handles both single and multi-image 
 
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
 from urllib.parse import urljoin, urlparse
 
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -43,81 +44,83 @@ class TinyviewScraper(BaseScraper):
         return "tinyview"
     
     def setup_driver(self):
-        """Set up the Selenium WebDriver with Firefox in headless mode."""
+        """Set up the Selenium WebDriver with Chrome or Firefox in headless mode."""
         if not self.driver:
-            options = Options()
-            options.add_argument('--headless')
-            options.add_argument('--no-sandbox')
-            options.add_argument('--disable-dev-shm-usage')
-            options.add_argument('--disable-gpu')
-            options.add_argument('--disable-extensions')
-            options.add_argument('--disable-plugins')
-            options.add_argument('--disable-images')  # Speed up by not loading images
-            options.set_preference("general.useragent.override", 
-                "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0")
-            
-            # Try to find Firefox binary in common locations
-            firefox_paths = [
-                '/usr/bin/firefox',  # Standard apt install
-                '/snap/bin/firefox',  # Snap install
-                'firefox'  # Let system find it
-            ]
-            
-            firefox_binary = None
-            for path in firefox_paths:
-                try:
-                    import subprocess
-                    import os.path
-                    # Check if the file exists and is executable
-                    if os.path.isfile(path) and os.access(path, os.X_OK):
-                        result = subprocess.run([path, '--version'], capture_output=True, text=True, timeout=10)
-                        if result.returncode == 0:
-                            firefox_binary = path
-                            logger.info(f"Found Firefox at: {path}")
-                            break
-                except Exception as e:
-                    logger.debug(f"Could not verify Firefox at {path}: {e}")
-                    continue
-            
-            # Set binary location if we found a specific path
-            if firefox_binary and firefox_binary != 'firefox':
-                options.binary_location = firefox_binary
-                logger.info(f"Setting Firefox binary location to: {firefox_binary}")
-            
+            # Try Chrome first (more reliable in CI environments)
             try:
-                self.driver = webdriver.Firefox(options=options)
+                logger.info("Attempting to set up Chrome WebDriver...")
+                chrome_options = Options()
+                chrome_options.add_argument('--headless')
+                chrome_options.add_argument('--no-sandbox')
+                chrome_options.add_argument('--disable-dev-shm-usage')
+                chrome_options.add_argument('--disable-gpu')
+                chrome_options.add_argument('--disable-extensions')
+                chrome_options.add_argument('--disable-plugins')
+                chrome_options.add_argument('--disable-images')
+                chrome_options.add_argument('--disable-web-security')
+                chrome_options.add_argument('--allow-running-insecure-content')
+                chrome_options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+                
+                self.driver = webdriver.Chrome(options=chrome_options)
                 self.driver.set_window_size(1920, 1080)
-                # Set longer timeouts for slower CI environments
+                self.driver.implicitly_wait(10)
+                self.driver.set_page_load_timeout(30)
+                logger.info("Chrome WebDriver set up successfully")
+                return
+                
+            except Exception as chrome_error:
+                logger.warning(f"Chrome WebDriver failed: {chrome_error}")
+                logger.info("Falling back to Firefox WebDriver...")
+            
+            # Fallback to Firefox if Chrome fails
+            try:
+                firefox_options = FirefoxOptions()
+                firefox_options.add_argument('--headless')
+                firefox_options.add_argument('--no-sandbox')
+                firefox_options.add_argument('--disable-dev-shm-usage')
+                firefox_options.add_argument('--disable-gpu')
+                firefox_options.add_argument('--disable-extensions')
+                firefox_options.add_argument('--disable-plugins')
+                firefox_options.add_argument('--disable-images')
+                firefox_options.set_preference("general.useragent.override", 
+                    "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0")
+                
+                # Try to find Firefox binary in common locations
+                firefox_paths = [
+                    '/usr/bin/firefox',  # Standard apt install
+                    '/snap/bin/firefox',  # Snap install
+                    'firefox'  # Let system find it
+                ]
+                
+                firefox_binary = None
+                for path in firefox_paths:
+                    try:
+                        import subprocess
+                        import os.path
+                        if os.path.isfile(path) and os.access(path, os.X_OK):
+                            result = subprocess.run([path, '--version'], capture_output=True, text=True, timeout=10)
+                            if result.returncode == 0:
+                                firefox_binary = path
+                                logger.info(f"Found Firefox at: {path}")
+                                break
+                    except Exception as e:
+                        logger.debug(f"Could not verify Firefox at {path}: {e}")
+                        continue
+                
+                # Set binary location if we found a specific path
+                if firefox_binary and firefox_binary != 'firefox':
+                    firefox_options.binary_location = firefox_binary
+                    logger.info(f"Setting Firefox binary location to: {firefox_binary}")
+                
+                self.driver = webdriver.Firefox(options=firefox_options)
+                self.driver.set_window_size(1920, 1080)
                 self.driver.implicitly_wait(10)
                 self.driver.set_page_load_timeout(30)
                 logger.info("Firefox WebDriver set up successfully")
-            except Exception as e:
-                logger.error(f"Failed to initialize Firefox WebDriver: {e}")
-                # Try without explicit binary location - create fresh options
-                if firefox_binary:
-                    logger.info("Retrying without explicit binary location...")
-                    fallback_options = Options()
-                    fallback_options.add_argument('--headless')
-                    fallback_options.add_argument('--no-sandbox')
-                    fallback_options.add_argument('--disable-dev-shm-usage')
-                    fallback_options.add_argument('--disable-gpu')
-                    fallback_options.add_argument('--disable-extensions')
-                    fallback_options.add_argument('--disable-plugins')
-                    fallback_options.add_argument('--disable-images')
-                    fallback_options.set_preference("general.useragent.override", 
-                        "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0")
-                    # Don't set binary_location at all in fallback
-                    try:
-                        self.driver = webdriver.Firefox(options=fallback_options)
-                        self.driver.set_window_size(1920, 1080)
-                        self.driver.implicitly_wait(10)
-                        self.driver.set_page_load_timeout(30)
-                        logger.info("Firefox WebDriver set up successfully (fallback)")
-                    except Exception as e2:
-                        logger.error(f"Fallback Firefox initialization also failed: {e2}")
-                        raise e2
-                else:
-                    raise e
+                
+            except Exception as firefox_error:
+                logger.error(f"Firefox WebDriver also failed: {firefox_error}")
+                raise Exception(f"Both Chrome and Firefox WebDriver initialization failed. Chrome: {chrome_error}, Firefox: {firefox_error}")
     
     def close_driver(self):
         """Close the Selenium WebDriver."""
@@ -125,18 +128,17 @@ class TinyviewScraper(BaseScraper):
             self.driver.quit()
             self.driver = None
     
-    def fetch_comic_page(self, comic_slug: str, date: str) -> Optional[str]:
+    def get_recent_comics(self, comic_slug: str, days_back: int = 15) -> List[Dict[str, str]]:
         """
-        Fetch a comic page using Selenium with retry logic and error handling.
+        Get all recent comics from the last N days by parsing the comic's main page.
         
         Args:
             comic_slug (str): The slug of the comic to fetch (e.g., 'nick-anderson', 'adhdinos').
-            date (str): The date in YYYY/MM/DD format.
+            days_back (int): Number of days to look back for recent comics.
             
         Returns:
-            Optional[str]: The page HTML content, or None if fetching fails.
+            List[Dict[str, str]]: List of comic info dictionaries with keys: href, date, title
         """
-        # First, try to get the comic's main page to find strips for this date
         comic_main_url = f"{self.base_url}/{comic_slug}"
         
         # Retry logic with exponential backoff
@@ -145,73 +147,73 @@ class TinyviewScraper(BaseScraper):
                 self.setup_driver()
                 logger.info(f"Fetching comic main page (attempt {attempt + 1}/{self.max_retries}): {comic_main_url}")
                 
-                # First navigate to the comic's main page
+                # Navigate to the comic's main page
                 self.driver.get(comic_main_url)
                 
                 # Check for 404 or error pages
                 page_title = self.driver.title.lower()
                 if '404' in page_title or 'not found' in page_title or 'error' in page_title:
                     logger.warning(f"Comic not found (404) for {comic_main_url}")
-                    return None
+                    return []
                 
                 # Wait for the page to load
                 time.sleep(3)
                 
-                # Now we need to find links for the specific date
+                # Parse the page to find all recent comic links
                 soup = BeautifulSoup(self.driver.page_source, 'html.parser')
-                
-                # Look for links that match the date pattern
-                date_links = []
                 all_links = soup.find_all('a', href=True)
+                
+                # Find all comic links and extract their dates
+                recent_comics = []
+                cutoff_date = datetime.now() - timedelta(days=days_back)
                 
                 for link in all_links:
                     href = link['href']
-                    # Check if this link contains our date using proper URL parsing
+                    
+                    # Skip non-comic links
+                    if not href.startswith(f'/{comic_slug}/'):
+                        continue
+                    
+                    # Extract date from URL path like /lunarbaboon/2025/07/15/wanted
                     try:
-                        # Parse the URL and check if the path contains the date
                         parsed = urlparse(urljoin(self.base_url, href))
-                        if date in parsed.path:
-                            date_links.append(href)
-                            logger.info(f"Found link for date {date}: {href}")
+                        path_parts = parsed.path.strip('/').split('/')
+                        
+                        # Expected format: ['comic-slug', 'YYYY', 'MM', 'DD', 'title']
+                        if len(path_parts) >= 4:
+                            comic_name = path_parts[0]
+                            if comic_name != comic_slug:
+                                continue
+                                
+                            year_str, month_str, day_str = path_parts[1], path_parts[2], path_parts[3]
+                            
+                            # Parse the date
+                            try:
+                                comic_date = datetime(int(year_str), int(month_str), int(day_str))
+                                
+                                # Only include comics from the last N days
+                                if comic_date >= cutoff_date:
+                                    title = path_parts[4] if len(path_parts) > 4 else "untitled"
+                                    recent_comics.append({
+                                        'href': href,
+                                        'date': comic_date.strftime('%Y/%m/%d'),
+                                        'date_obj': comic_date,
+                                        'title': title,
+                                        'url': urljoin(self.base_url, href)
+                                    })
+                                    logger.info(f"Found recent comic: {href} from {comic_date.strftime('%Y-%m-%d')}")
+                            except ValueError:
+                                # Invalid date format, skip
+                                continue
                     except Exception:
                         # Skip invalid URLs
                         continue
                 
-                if not date_links:
-                    logger.warning(f"No strips found for date {date} on {comic_slug}")
-                    return None
+                # Sort by date (newest first) and return
+                recent_comics.sort(key=lambda x: x['date_obj'], reverse=True)
+                logger.info(f"Found {len(recent_comics)} recent comics for {comic_slug}")
                 
-                # Visit ALL strips for this date to collect all comics
-                all_strips_content = []
-                for strip_url in date_links:
-                    if not strip_url.startswith('http'):
-                        strip_url = urljoin(self.base_url, strip_url)
-                    
-                    logger.info(f"Fetching strip: {strip_url}")
-                    self.driver.get(strip_url)
-                    
-                    # Save the strip URL for later use
-                    self._last_strip_url = strip_url
-                    
-                    # Wait for the strip page to load
-                    time.sleep(2)
-                    
-                    # Collect the page content
-                    all_strips_content.append(self.driver.page_source)
-                
-                # Combine all strips content into one HTML document
-                # This allows us to extract all images from all strips on this date
-                combined_html = "<html><body>"
-                for content in all_strips_content:
-                    soup = BeautifulSoup(content, 'html.parser')
-                    body = soup.find('body')
-                    if body:
-                        combined_html += str(body)
-                combined_html += "</body></html>"
-                
-                logger.info(f"Successfully fetched {len(date_links)} strips for date {date}")
-                
-                return combined_html
+                return recent_comics
                 
             except TimeoutException as e:
                 logger.warning(f"Timeout on attempt {attempt + 1}/{self.max_retries} for {comic_main_url}: {e}")
@@ -224,7 +226,7 @@ class TinyviewScraper(BaseScraper):
                     self.close_driver()
                 else:
                     logger.error(f"All {self.max_retries} attempts failed for {comic_main_url}")
-                    return None
+                    return []
                     
             except Exception as e:
                 logger.error(f"Error on attempt {attempt + 1}/{self.max_retries} for {comic_main_url}: {e}")
@@ -237,6 +239,79 @@ class TinyviewScraper(BaseScraper):
                     self.close_driver()
                 else:
                     logger.error(f"All {self.max_retries} attempts failed for {comic_main_url}")
+                    return []
+        
+        return []
+
+    def fetch_comic_page(self, comic_slug: str, date: str) -> Optional[str]:
+        """
+        Fetch a specific comic page using Selenium with retry logic and error handling.
+        
+        Args:
+            comic_slug (str): The slug of the comic to fetch (e.g., 'nick-anderson', 'adhdinos').
+            date (str): The date in YYYY/MM/DD format.
+            
+        Returns:
+            Optional[str]: The page HTML content, or None if fetching fails.
+        """
+        # For backward compatibility, we'll use the new method to find the comic
+        # and then fetch the specific one that matches the date
+        recent_comics = self.get_recent_comics(comic_slug, days_back=30)  # Look back further for specific dates
+        
+        # Find the comic that matches this date
+        target_comic = None
+        for comic in recent_comics:
+            if comic['date'] == date:
+                target_comic = comic
+                break
+        
+        if not target_comic:
+            logger.warning(f"No comic found for {comic_slug} on {date}")
+            return None
+        
+        # Fetch the specific comic page
+        strip_url = target_comic['url']
+        
+        # Retry logic with exponential backoff
+        for attempt in range(self.max_retries):
+            try:
+                if not self.driver:
+                    self.setup_driver()
+                    
+                logger.info(f"Fetching comic strip (attempt {attempt + 1}/{self.max_retries}): {strip_url}")
+                
+                self.driver.get(strip_url)
+                
+                # Wait for the strip page to load
+                time.sleep(2)
+                
+                # Return the page content
+                return self.driver.page_source
+                
+            except TimeoutException as e:
+                logger.warning(f"Timeout on attempt {attempt + 1}/{self.max_retries} for {strip_url}: {e}")
+                if attempt < self.max_retries - 1:
+                    # Exponential backoff: wait 2^attempt seconds
+                    wait_time = 2 ** attempt
+                    logger.info(f"Retrying in {wait_time} seconds...")
+                    time.sleep(wait_time)
+                    # Close and reopen driver for clean retry
+                    self.close_driver()
+                else:
+                    logger.error(f"All {self.max_retries} attempts failed for {strip_url}")
+                    return None
+                    
+            except Exception as e:
+                logger.error(f"Error on attempt {attempt + 1}/{self.max_retries} for {strip_url}: {e}")
+                if attempt < self.max_retries - 1:
+                    # Exponential backoff
+                    wait_time = 2 ** attempt
+                    logger.info(f"Retrying in {wait_time} seconds...")
+                    time.sleep(wait_time)
+                    # Close and reopen driver for clean retry
+                    self.close_driver()
+                else:
+                    logger.error(f"All {self.max_retries} attempts failed for {strip_url}")
                     return None
         
         # This should never be reached, but just in case

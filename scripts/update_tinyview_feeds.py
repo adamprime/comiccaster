@@ -42,13 +42,13 @@ def load_tinyview_comics():
         return []
 
 
-def scrape_comic_for_date(comic_slug: str, date: datetime) -> Dict:
+def scrape_single_comic(comic_slug: str, comic_data: Dict[str, str]) -> Dict:
     """
-    Scrape a single comic for a single date.
+    Scrape a single comic based on comic data found on the main page.
     
     Args:
         comic_slug: Comic slug identifier
-        date: Date to scrape
+        comic_data: Dict with comic info (href, date, title, url)
         
     Returns:
         Dict with comic data or None if scraping failed
@@ -56,12 +56,11 @@ def scrape_comic_for_date(comic_slug: str, date: datetime) -> Dict:
     scraper = TinyviewScraper()
     
     try:
-        date_str = date.strftime("%Y/%m/%d")
-        result = scraper.scrape_comic(comic_slug, date_str)
+        result = scraper.scrape_comic(comic_slug, comic_data['date'])
         return result
             
     except Exception as e:
-        logger.error(f"Error scraping {comic_slug} for {date}: {e}")
+        logger.error(f"Error scraping {comic_slug} for {comic_data['date']}: {e}")
         return None
     finally:
         scraper.close_driver()
@@ -69,7 +68,7 @@ def scrape_comic_for_date(comic_slug: str, date: datetime) -> Dict:
 
 def update_comic_feed(comic_info: Dict) -> Tuple[bool, str, int]:
     """
-    Update RSS feed for a single Tinyview comic using parallel scraping.
+    Update RSS feed for a single Tinyview comic using the new smart scraping approach.
     
     Args:
         comic_info: Comic metadata
@@ -80,32 +79,42 @@ def update_comic_feed(comic_info: Dict) -> Tuple[bool, str, int]:
     try:
         logger.info(f"Updating feed for: {comic_info['name']} ({comic_info['slug']})")
         
-        # Generate list of dates to scrape
-        today = datetime.now()
-        target_dates = [today - timedelta(days=i) for i in range(DAYS_TO_SCRAPE)]
-        
-        # Use ThreadPoolExecutor for concurrent scraping of dates
-        items = []
-        with concurrent.futures.ThreadPoolExecutor(max_workers=min(DAYS_TO_SCRAPE, MAX_WORKERS)) as executor:
-            # Submit all scraping tasks for this comic
-            future_to_date = {
-                executor.submit(scrape_comic_for_date, comic_info['slug'], date): date 
-                for date in target_dates
-            }
+        # Use the new scraper method to get recent comics directly
+        scraper = TinyviewScraper()
+        try:
+            # Get all recent comics from the last DAYS_TO_SCRAPE days
+            recent_comics = scraper.get_recent_comics(comic_info['slug'], days_back=DAYS_TO_SCRAPE)
             
-            # Process completed futures as they finish
-            for future in concurrent.futures.as_completed(future_to_date):
-                date = future_to_date[future]
-                try:
-                    result = future.result()
-                    if result:
-                        items.append(result)
-                except Exception as exc:
-                    logger.error(f"{comic_info['name']} on {date} generated an exception: {exc}")
+            if not recent_comics:
+                logger.info(f"No recent comics found for {comic_info['name']} in the last {DAYS_TO_SCRAPE} days")
+                items = []
+            else:
+                logger.info(f"Found {len(recent_comics)} recent comics for {comic_info['name']}")
+                
+                # Now scrape each found comic for full details
+                items = []
+                with concurrent.futures.ThreadPoolExecutor(max_workers=min(len(recent_comics), MAX_WORKERS)) as executor:
+                    # Submit scraping tasks for each found comic
+                    future_to_comic = {
+                        executor.submit(scrape_single_comic, comic_info['slug'], comic_data): comic_data
+                        for comic_data in recent_comics
+                    }
+                    
+                    # Process completed futures as they finish
+                    for future in concurrent.futures.as_completed(future_to_comic):
+                        comic_data = future_to_comic[future]
+                        try:
+                            result = future.result()
+                            if result:
+                                items.append(result)
+                        except Exception as exc:
+                            logger.error(f"{comic_info['name']} comic '{comic_data['title']}' generated an exception: {exc}")
+                
+                # Items are already sorted by date in get_recent_comics
+                logger.info(f"Successfully scraped {len(items)} comics for {comic_info['name']}")
         
-        # Sort items by date (newest first)
-        if items:
-            items.sort(key=lambda x: x.get('published_date', datetime.now()), reverse=True)
+        finally:
+            scraper.close_driver()
         
         # Update comic info for feed generation
         comic_info['url'] = f"https://tinyview.com/{comic_info['slug']}"

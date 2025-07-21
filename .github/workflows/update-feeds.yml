@@ -31,21 +31,27 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
       
-      - name: Install Firefox and geckodriver for Tinyview scraping
+      - name: Install Chrome and chromedriver for Tinyview scraping
         run: |
           sudo apt-get update
-          sudo apt-get install -y firefox xvfb
-          # Verify Firefox installation
-          firefox --version
-          which firefox
-          ls -la /usr/bin/firefox
-          # Download and install geckodriver separately
-          GECKODRIVER_VERSION=v0.33.0
-          wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz"
-          tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
-          sudo mv geckodriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/geckodriver
-          geckodriver --version
+          # Install Chrome (more reliable in CI than Firefox)
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable xvfb
+          # Verify Chrome installation
+          google-chrome --version
+          which google-chrome
+          # Install chromedriver using Chrome for Testing
+          # Get the latest stable version
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+          CHROMEDRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_${CHROME_VERSION%%.*}")
+          echo "Installing ChromeDriver version: $CHROMEDRIVER_VERSION for Chrome: $CHROME_VERSION"
+          wget -q "https://storage.googleapis.com/chrome-for-testing-public/${CHROMEDRIVER_VERSION}/linux64/chromedriver-linux64.zip"
+          unzip chromedriver-linux64.zip
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
+          chromedriver --version
           # Set display for headless operation
           export DISPLAY=:99
           Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
