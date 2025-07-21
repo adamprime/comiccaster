@@ -1,19 +1,22 @@
 # ComicCaster
 
-ComicCaster is a web application that generates RSS feeds for comics from GoComics.com. It allows you to subscribe to individual comics or create custom bundles of multiple comics using OPML files.
+ComicCaster is a web application that generates RSS feeds for comics from GoComics.com and TinyView.com. It allows you to subscribe to individual comics or create custom bundles of multiple comics using OPML files.
 
 ## Features
 
 - Individual RSS feeds for 400+ daily comics and 60+ political cartoons from GoComics
+- **29 independent comics from TinyView** - including ADHDinos, Fowl Language, Nick Anderson, and more
 - **Accurate daily comic detection** - distinguishes between current daily comics and "best of" reruns
-- **Tabbed interface** - separate browsing for daily comics and political editorial cartoons
+- **Multi-strip support** - handles TinyView comics that publish multiple strips per day
+- **Tabbed interface** - separate browsing for daily comics, political cartoons, and TinyView comics
 - **Smart update scheduling** - optimizes feed updates based on comic publishing patterns
 - **Political comic support** - dedicated feeds for editorial cartoons with appropriate content descriptions
 - Feed preview functionality to check comic content before subscribing
-- OPML file generation for custom comic bundles (separate files for daily comics and political cartoons)
+- OPML file generation for custom comic bundles (separate files for each comic source)
 - Modern, responsive web interface with intuitive tab navigation
 - Fast and efficient serverless deployment
 - Daily feed updates via GitHub Actions with enhanced scraping reliability
+- **Parallel processing** - uses 8 concurrent workers for efficient scraping
 
 ## Quick Start
 
@@ -140,8 +143,23 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Supported Comic Sources
+
+### GoComics
+- **Daily Comics**: Calvin and Hobbes, Garfield, Dilbert, and hundreds more
+- **Political Cartoons**: Doonesbury, Non Sequitur, and other editorial comics
+- **Update Frequency**: Checks last 10 days of comics
+- **Scraping Method**: HTTP requests with JSON-LD parsing
+
+### TinyView
+- **Independent Comics**: 29 comics including ADHDinos, Fowl Language, Nick Anderson, Pedro X. Molina, and more
+- **Multi-strip Support**: Handles comics that publish multiple strips per day
+- **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
+- **Comic Descriptions**: Extracts and includes artist commentary when available
+- **Scraping Method**: Selenium WebDriver for dynamic content
+
 ## Acknowledgments
 
-- Thanks to GoComics for providing the comic content
+- Thanks to GoComics and TinyView for providing the comic content
 - Built with Netlify Functions and GitHub Actions 
 - Inspired by ComicsRSS.com

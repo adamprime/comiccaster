@@ -324,6 +324,36 @@ TDD test suite for Epic 4, Story 4.1: Add Tinyview Tab to Comic Browser.
 - **Status**: ✅ Passing
 - **Purpose**: Frontend UI enhancement for Tinyview comics integration
 
+### 1.9 TinyView Scraper Tests (Epic 2)
+
+#### `tests/test_tinyview_scraper.py` ⚠️ **24 tests (some failing)**
+TDD test suite for Epic 2: TinyView scraper implementation.
+
+**Story 2.1 Tests** - TinyView Scraper Foundation (8 tests)
+- `test_tinyview_source_field_configuration()` - Scraper returns 'tinyview' as source
+- `test_inherits_from_base_scraper()` - Inherits from BaseScraper
+- `test_selenium_webdriver_usage()` - Uses Selenium WebDriver
+- `test_tinyview_url_construction()` - Constructs correct TinyView URLs
+- `test_scrape_single_image_comic_with_mock()` - Handles single-image comics
+- `test_cdn_image_detection_logic()` - Detects images from cdn.tinyview.com
+- `test_angular_page_loading_handling()` - Handles Angular dynamic content
+- `test_standardized_output_format()` - Returns standardized format
+
+**Story 2.2 Tests** - Multi-image Support (8 tests)
+- `test_scrape_multi_image_comic_with_mock()` - Handles multiple images
+- `test_image_order_preservation()` - Preserves image order
+- `test_various_gallery_layouts()` - Handles different layouts
+- `test_mixed_image_sources_filtering()` - Filters CDN images only
+- `test_empty_alt_text_handling()` - Handles missing alt text
+
+**Story 2.3 Tests** - Resilience Features (8 tests)
+- `test_retry_on_timeout_with_mock()` - Retries on timeout
+- `test_malformed_html_handling()` - Handles malformed HTML
+- `test_network_timeout_handling()` - Handles network timeouts
+- `test_comprehensive_logging()` - Logs scraping activity
+- **Status**: ⚠️ Some tests failing due to mock setup
+- **Purpose**: Backend TinyView comic scraping functionality
+
 ---
 
 ## 2. Integration Tests
@@ -343,6 +373,24 @@ Tests enhanced HTTP scraping in GitHub Actions environment.
 - `test_single_comic()` - Verifies scraping works in CI environment
 - **Status**: ✅ Passing
 - **Purpose**: CI/CD validation
+
+#### `scripts/test_gocomics_regression.py` ✅ **Regression tests**
+Ensures GoComics functionality continues working after TinyView integration.
+
+- Tests daily comics (Garfield, Calvin and Hobbes, Peanuts)
+- Tests political comics (Doonesbury, Non Sequitur)
+- Tests feed generation
+- **Status**: ✅ Passing (except The Boondocks - no longer updating)
+- **Purpose**: Regression testing to prevent breaking existing functionality
+
+#### `scripts/test_tinyview_scraper.py` ✅ **Interactive tests**
+Interactive testing for TinyView comic scraping.
+
+- `--known` - Tests known working comics (ADHDinos, Nick Anderson, Fowl Language)
+- `--comic <slug>` - Tests specific comic
+- `--multiple` - Tests multiple strips per day functionality
+- **Status**: ✅ Passing
+- **Purpose**: Manual verification of TinyView scraping
 
 ### 2.2 Specific Comic Feed Tests
 

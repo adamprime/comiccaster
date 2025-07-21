@@ -30,17 +30,21 @@ FLASK_DEBUG=true python run_app.py  # With debug mode
 ### Feed Management
 ```bash
 # Update all feeds
-python scripts/update_feeds.py
+python scripts/update_feeds.py  # GoComics feeds
+python scripts/update_tinyview_feeds.py  # TinyView feeds
 
 # Generate single comic feed
-python comiccaster.py --comic <comic-slug>
+python comiccaster.py --comic <comic-slug>  # GoComics
+python scripts/generate_tinyview_feed.py <comic-slug>  # TinyView
 
 # Generate all feeds
-python comiccaster.py --all
+python comiccaster.py --all  # GoComics
+python scripts/generate_all_tinyview_feeds.py  # TinyView (parallel)
 
 # Test comic scraping
-python check_comic.py  # Interactive testing
-python regenerate_feed.py  # Regenerate specific feeds
+python check_comic.py  # Interactive testing for GoComics
+python scripts/test_tinyview_scraper.py  # Test TinyView scraping
+python regenerate_feed.py  # Regenerate specific GoComics feeds
 ```
 
 ## Architecture
@@ -48,15 +52,19 @@ python regenerate_feed.py  # Regenerate specific feeds
 ### Core Components
 
 1. **comiccaster/** - Main Python package
-   - `scraper.py` - Enhanced HTTP scraping with JSON-LD parsing for accurate comic detection
-   - `feed_generator.py` - RSS feed generation using feedgen
+   - `base_scraper.py` - Abstract base class for all scrapers
+   - `gocomics_scraper.py` - Enhanced HTTP scraping with JSON-LD parsing for accurate comic detection
+   - `tinyview_scraper.py` - Selenium-based scraper for TinyView's dynamic content
+   - `scraper_factory.py` - Factory pattern for selecting appropriate scraper
+   - `feed_generator.py` - RSS feed generation using feedgen with multi-image support
    - `loader.py` - Comic configuration management
    - `web_interface.py` - Flask web application
 
 2. **public/** - Static files served by Netlify
-   - `feeds/*.xml` - Pre-generated RSS feeds
-   - `comics_list.json` - Comic metadata
-   - `index.html` - Main web interface
+   - `feeds/*.xml` - Pre-generated RSS feeds for both GoComics and TinyView
+   - `comics_list.json` - Main comic metadata (includes all sources)
+   - `tinyview_comics_list.json` - TinyView-specific comic list
+   - `index.html` - Main web interface with tabbed navigation
 
 3. **functions/** - Netlify serverless functions (Node.js)
    - `generate-opml.js` - OPML bundle generation
@@ -88,7 +96,16 @@ Daily updates run automatically via GitHub Actions at 9 AM UTC.
 
 ## Important Implementation Details
 
-1. **Comic Detection**: The system distinguishes between daily comics and "best of" reruns using date-matching in JSON-LD data
+1. **Comic Detection**: 
+   - GoComics: Distinguishes between daily comics and "best of" reruns using date-matching in JSON-LD data
+   - TinyView: Visits comic main page, finds date-specific strip links, then scrapes each strip page
 2. **Error Handling**: Graceful fallbacks when comics are unavailable or structure changes
-3. **Performance**: Concurrent scraping with ThreadPoolExecutor, HTTP-only approach (no Selenium)
+3. **Performance**: 
+   - Concurrent scraping with ThreadPoolExecutor (8 workers)
+   - GoComics: HTTP-only approach for speed
+   - TinyView: Selenium WebDriver for dynamic content
 4. **Feed Format**: Standard RSS 2.0 with proper content encoding and metadata
+5. **Multi-strip Support**: TinyView comics can have multiple strips per day, all included in feed
+6. **Update Frequency**:
+   - GoComics: Checks last 10 days
+   - TinyView: Checks last 15 days (accommodates less frequent updates)
