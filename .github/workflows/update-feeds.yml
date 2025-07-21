@@ -34,11 +34,14 @@ jobs:
       - name: Install Firefox and geckodriver for Tinyview scraping
         run: |
           sudo apt-get update
-          sudo apt-get install -y firefox firefox-geckodriver
-      
-      - name: Test enhanced HTTP scraping
-        run: |
-          python test_github_scraping.py
+          sudo apt-get install -y firefox
+          # Download and install geckodriver separately
+          GECKODRIVER_VERSION=v0.33.0
+          wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz"
+          tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
+          sudo mv geckodriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/geckodriver
+          geckodriver --version
       
       - name: Test political comics are loaded
         run: |
