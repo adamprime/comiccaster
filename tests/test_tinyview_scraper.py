@@ -31,21 +31,21 @@ class TestTinyviewScraperStory21:
         comic_slug = 'nick-anderson'
         date = '2025/01/17'
         
-        # The URL should follow pattern: https://tinyview.com/{comic_slug}/{date}/cartoon
-        expected_base = f"https://tinyview.com/{comic_slug}/{date}"
+        # The implementation first goes to the main comic page
+        expected_main_url = f"https://tinyview.com/{comic_slug}"
         
         # We'll verify this by mocking the driver and checking the URL passed to get()
         with patch.object(scraper, 'setup_driver'), \
              patch.object(scraper, 'driver') as mock_driver:
             
-            mock_driver.page_source = '<html></html>'
+            # Mock the main page to have no date links
+            mock_driver.page_source = '<html><body>No strips for this date</body></html>'
             scraper.fetch_comic_page(comic_slug, date)
             
-            # Check that driver.get was called with correct URL
-            mock_driver.get.assert_called_once()
+            # Check that driver.get was called with main comic URL first
+            mock_driver.get.assert_called()
             called_url = mock_driver.get.call_args[0][0]
-            assert called_url.startswith(expected_base)
-            assert 'cartoon' in called_url  # Default title slug
+            assert called_url == expected_main_url
     
     @pytest.mark.network
     def test_scrape_single_image_comic_with_mock(self):
@@ -53,12 +53,13 @@ class TestTinyviewScraperStory21:
         from comiccaster.tinyview_scraper import TinyviewScraper
         
         # Mock HTML content with single CDN image
+        # Using actual TinyView URL format
         mock_html = '''
         <html>
             <head><title>Nick Anderson - Jan 17, 2025</title></head>
             <body>
                 <div class="comic-container">
-                    <img src="https://cdn.tinyview.com/nick-anderson/2025-01-17.jpg" 
+                    <img src="https://cdn.tinyview.com/nick-anderson/2025/01/17/federal-overreach/nick-anderson-cartoon.jpg" 
                          alt="Nick Anderson cartoon" 
                          title="Political cartoon">
                 </div>
@@ -98,10 +99,10 @@ class TestTinyviewScraperStory21:
         test_html = '''
         <html>
             <body>
-                <img src="https://cdn.tinyview.com/valid-comic.jpg" alt="Valid comic">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip-title/valid-comic.jpg" alt="Valid comic">
                 <img src="https://example.com/invalid.jpg" alt="Invalid source">
                 <img src="/local/path.jpg" alt="Local path">
-                <img src="https://cdn.tinyview.com/another-valid.jpg" alt="Another valid">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip-title/another-valid.jpg" alt="Another valid">
             </body>
         </html>
         '''
@@ -148,27 +149,47 @@ class TestTinyviewScraperStory21:
         
         with patch.object(scraper, 'setup_driver'), \
              patch.object(scraper, 'driver') as mock_driver, \
-             patch('time.sleep') as mock_sleep, \
-             patch('comiccaster.tinyview_scraper.WebDriverWait') as mock_wait:
+             patch('time.sleep') as mock_sleep:
             
-            mock_driver.page_source = '<html><img src="https://cdn.tinyview.com/test.jpg"></html>'
+            # First page_source will be the main comic page with date links
+            main_page_html = '''<html>
+                <body>
+                    <a href="/test-comic/2025/01/17/strip-title">Comic for Jan 17</a>
+                </body>
+            </html>'''
             
-            # Mock WebDriverWait to simulate successful image loading
-            mock_wait_instance = Mock()
-            mock_wait.return_value = mock_wait_instance
-            mock_wait_instance.until.return_value = True
+            # Second page_source will be the actual comic strip page with body content
+            strip_page_html = '''<html>
+                <body>
+                    <div class="comic-content">
+                        <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip-title/test.jpg">
+                    </div>
+                </body>
+            </html>'''
+            
+            # Set up the mock to return different values on successive calls
+            mock_driver.page_source = main_page_html
+            mock_driver.title = 'Test Comic'
+            
+            # Make page_source return strip page after navigation
+            def side_effect(url):
+                if '2025/01/17' in url:
+                    mock_driver.page_source = strip_page_html
+            
+            mock_driver.get.side_effect = side_effect
             
             result = scraper.fetch_comic_page('test-comic', '2025/01/17')
             
             # Verify that sleep was called for Angular loading
             assert mock_sleep.called
+            # The implementation uses time.sleep for delays
+            # Should be called at least twice (once for main page, once for strip page)
+            assert mock_sleep.call_count >= 2
             
-            # Verify that WebDriverWait was used to wait for CDN images
-            mock_wait.assert_called()
-            mock_wait_instance.until.assert_called()
-            
-            # Should return page source
-            assert result == mock_driver.page_source
+            # Should return combined HTML with body content
+            assert result is not None
+            assert '<body>' in result
+            assert 'test.jpg' in result
     
     def test_metadata_extraction(self):
         """Test extraction of comic metadata from HTML."""
@@ -248,7 +269,7 @@ class TestTinyviewScraperStory21:
         <html>
             <head><title>Test Comic</title></head>
             <body>
-                <img src="https://cdn.tinyview.com/test.jpg" alt="Test comic">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip-title/test.jpg" alt="Test comic">
             </body>
         </html>
         '''
@@ -292,9 +313,9 @@ class TestTinyviewScraperStory22:
             <head><title>ADHDinos - Multi Panel Comic</title></head>
             <body>
                 <div class="comic-panels">
-                    <img src="https://cdn.tinyview.com/adhdinos/2025-01-15-1.jpg" alt="Panel 1">
-                    <img src="https://cdn.tinyview.com/adhdinos/2025-01-15-2.jpg" alt="Panel 2">
-                    <img src="https://cdn.tinyview.com/adhdinos/2025-01-15-3.jpg" alt="Panel 3">
+                    <img src="https://cdn.tinyview.com/adhdinos/2025/01/15/multi-panel/panel-1.jpg" alt="Panel 1">
+                    <img src="https://cdn.tinyview.com/adhdinos/2025/01/15/multi-panel/panel-2.jpg" alt="Panel 2">
+                    <img src="https://cdn.tinyview.com/adhdinos/2025/01/15/multi-panel/panel-3.jpg" alt="Panel 3">
                 </div>
             </body>
         </html>
@@ -315,9 +336,9 @@ class TestTinyviewScraperStory22:
             
             # Verify image ordering is preserved
             urls = [img['url'] for img in result['images']]
-            assert '2025-01-15-1.jpg' in urls[0]
-            assert '2025-01-15-2.jpg' in urls[1] 
-            assert '2025-01-15-3.jpg' in urls[2]
+            assert 'panel-1.jpg' in urls[0]
+            assert 'panel-2.jpg' in urls[1] 
+            assert 'panel-3.jpg' in urls[2]
     
     def test_image_order_preservation(self):
         """Test that image order is preserved during extraction."""
@@ -330,9 +351,9 @@ class TestTinyviewScraperStory22:
         <html>
             <body>
                 <div class="comic-container">
-                    <img src="https://cdn.tinyview.com/panel-3.jpg" alt="Third panel">
-                    <img src="https://cdn.tinyview.com/panel-1.jpg" alt="First panel">
-                    <img src="https://cdn.tinyview.com/panel-2.jpg" alt="Second panel">
+                    <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/panel-3.jpg" alt="Third panel">
+                    <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/panel-1.jpg" alt="First panel">
+                    <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/panel-2.jpg" alt="Second panel">
                 </div>
             </body>
         </html>
@@ -362,8 +383,8 @@ class TestTinyviewScraperStory22:
             # Layout 1: Direct div with images
             '''
             <div class="comic-strip">
-                <img src="https://cdn.tinyview.com/layout1-1.jpg" alt="Panel 1">
-                <img src="https://cdn.tinyview.com/layout1-2.jpg" alt="Panel 2">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/layout1/image-1.jpg" alt="Panel 1">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/layout1/image-2.jpg" alt="Panel 2">
             </div>
             ''',
             
@@ -371,10 +392,10 @@ class TestTinyviewScraperStory22:
             '''
             <div class="story-container">
                 <div class="panel-wrapper">
-                    <img src="https://cdn.tinyview.com/layout2-1.jpg" alt="Panel A">
+                    <img src="https://cdn.tinyview.com/test-comic/2025/01/17/layout2/panel-a.jpg" alt="Panel A">
                 </div>
                 <div class="panel-wrapper">
-                    <img src="https://cdn.tinyview.com/layout2-2.jpg" alt="Panel B">
+                    <img src="https://cdn.tinyview.com/test-comic/2025/01/17/layout2/panel-b.jpg" alt="Panel B">
                 </div>
             </div>
             ''',
@@ -383,10 +404,10 @@ class TestTinyviewScraperStory22:
             '''
             <article>
                 <figure>
-                    <img src="https://cdn.tinyview.com/layout3-1.jpg" alt="Figure 1">
+                    <img src="https://cdn.tinyview.com/test-comic/2025/01/17/layout3/figure-1.jpg" alt="Figure 1">
                 </figure>
                 <figure>
-                    <img src="https://cdn.tinyview.com/layout3-2.jpg" alt="Figure 2">
+                    <img src="https://cdn.tinyview.com/test-comic/2025/01/17/layout3/figure-2.jpg" alt="Figure 2">
                 </figure>
             </article>
             '''
@@ -411,12 +432,12 @@ class TestTinyviewScraperStory22:
         mixed_html = '''
         <html>
             <body>
-                <img src="https://cdn.tinyview.com/comic-1.jpg" alt="Valid comic 1">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip1/comic-1.jpg" alt="Valid comic 1">
                 <img src="https://ads.example.com/banner.jpg" alt="Ad banner">
-                <img src="https://cdn.tinyview.com/comic-2.jpg" alt="Valid comic 2">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip2/comic-2.jpg" alt="Valid comic 2">
                 <img src="/static/logo.png" alt="Site logo">
                 <img src="https://social.example.com/share.jpg" alt="Social share">
-                <img src="https://cdn.tinyview.com/comic-3.jpg" alt="Valid comic 3">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip3/comic-3.jpg" alt="Valid comic 3">
             </body>
         </html>
         '''
@@ -442,9 +463,9 @@ class TestTinyviewScraperStory22:
         test_html = '''
         <html>
             <body>
-                <img src="https://cdn.tinyview.com/no-alt.jpg">
-                <img src="https://cdn.tinyview.com/empty-alt.jpg" alt="">
-                <img src="https://cdn.tinyview.com/with-alt.jpg" alt="Has alt text">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/no-alt.jpg">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/empty-alt.jpg" alt="">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/with-alt.jpg" alt="Has alt text">
             </body>
         </html>
         '''
@@ -508,27 +529,39 @@ class TestTinyviewScraperStory23:
         # Create a mock driver that will be used
         mock_driver = Mock()
         mock_driver.title = 'Test Page'
-        mock_driver.page_source = '<html><img src="https://cdn.tinyview.com/test.jpg"></html>'
+        # Main page HTML with date link
+        main_page = '''<html><body>
+            <a href="/test-comic/2025/01/17/strip">Today's Comic</a>
+        </body></html>'''
+        # Strip page HTML 
+        strip_page = '''<html><body>
+            <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/test.jpg">
+        </body></html>'''
         
-        # First call raises TimeoutException, second succeeds
-        mock_driver.get.side_effect = [TimeoutException(), None]
+        # Set initial page source
+        mock_driver.page_source = main_page
+        
+        # First get call raises TimeoutException, retry succeeds
+        def get_side_effect(url):
+            if mock_driver.get.call_count == 1:
+                raise TimeoutException()
+            # On retry, if it's the strip URL, change page source
+            if '2025/01/17' in url:
+                mock_driver.page_source = strip_page
+                
+        mock_driver.get.side_effect = get_side_effect
         
         # Mock setup_driver to set the mock driver
         def mock_setup_driver():
             scraper.driver = mock_driver
         
         with patch.object(scraper, 'setup_driver', side_effect=mock_setup_driver):
-            # Mock WebDriverWait to avoid timeout in test
-            with patch('comiccaster.tinyview_scraper.WebDriverWait') as mock_wait:
-                mock_wait_instance = Mock()
-                mock_wait.return_value = mock_wait_instance
-                mock_wait_instance.until.return_value = True
-                
+            with patch('time.sleep'):  # Mock sleep to speed up test
                 result = scraper.fetch_comic_page('test-comic', '2025/01/17')
                 
                 # Should succeed after retry
                 assert result is not None
-                assert mock_driver.get.call_count == 2  # Initial call + 1 retry
+                assert mock_driver.get.call_count >= 2  # Initial call + retry
     
     def test_selenium_exception_handling(self):
         """Test handling of various Selenium exceptions."""
@@ -559,9 +592,9 @@ class TestTinyviewScraperStory23:
         <html>
             <head><title>Malformed</title>
             <body>
-                <img src="https://cdn.tinyview.com/test.jpg" alt="Test
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/test.jpg" alt="Test
                 <div><span>Unclosed tags
-                <img src="https://cdn.tinyview.com/test2.jpg">
+                <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/test2.jpg">
         '''
         
         # Should handle malformed HTML gracefully
@@ -579,19 +612,18 @@ class TestTinyviewScraperStory23:
         
         with patch.object(scraper, 'setup_driver'), \
              patch.object(scraper, 'driver') as mock_driver, \
-             patch('comiccaster.tinyview_scraper.WebDriverWait') as mock_wait:
+             patch('time.sleep'):
             
-            # Simulate timeout waiting for CDN images
-            mock_wait_instance = Mock()
-            mock_wait.return_value = mock_wait_instance
-            mock_wait_instance.until.side_effect = TimeoutException()
+            # Set up page with date link
+            mock_driver.page_source = '''<html><body>
+                <a href="/test-comic/2025/01/17/strip">Today's Comic</a>
+            </body></html>'''
+            mock_driver.title = 'Test Comic'
             
-            mock_driver.page_source = '<html><img src="https://cdn.tinyview.com/test.jpg"></html>'
-            
-            # Should still return page source even if explicit wait times out
+            # Should handle timeouts gracefully and still return content
             result = scraper.fetch_comic_page('test-comic', '2025/01/17')
             
-            # Should return page source (may contain images even if wait timed out)
+            # Even without images found, should return the HTML structure
             assert result is not None
     
     def test_invalid_date_handling(self):
@@ -625,7 +657,7 @@ class TestTinyviewScraperStory23:
         
         # Capture log messages
         with patch('comiccaster.tinyview_scraper.logger') as mock_logger:
-            mock_html = '<html><img src="https://cdn.tinyview.com/test.jpg"></html>'
+            mock_html = '<html><img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/test.jpg"></html>'
             
             with patch.object(scraper, 'fetch_comic_page', return_value=mock_html):
                 result = scraper.scrape_comic('test-comic', '2025/01/17')

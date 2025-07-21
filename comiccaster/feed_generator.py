@@ -272,7 +272,7 @@ class ComicFeedGenerator:
         entry.title(title)
         
         # Set the entry URL
-        entry.link(href=metadata.get('url', comic_info['url']))
+        entry.link(href=metadata.get('url', comic_info.get('url', f"https://example.com/{comic_info.get('slug', 'comic')}")))
         
         # Handle both new multi-image format and legacy single image format
         description = metadata.get('description', '')
@@ -299,7 +299,8 @@ class ComicFeedGenerator:
         entry.published(pub_date)
         
         # Set unique ID
-        entry.id(metadata.get('id', metadata.get('url', f"{comic_info['url']}#{pub_date.isoformat()}")))
+        default_url = comic_info.get('url', f"https://example.com/{comic_info.get('slug', 'comic')}")
+        entry.id(metadata.get('id', metadata.get('url', f"{default_url}#{pub_date.isoformat()}")))
         
         # Add categories based on comic type
         if comic_info.get('is_political'):

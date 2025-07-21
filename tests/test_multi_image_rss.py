@@ -38,8 +38,10 @@ class TestMultiImageRSSSupport:
         # Should work exactly as before for single images
         assert entry is not None
         content = entry.content()
-        assert 'garfield.jpg' in content
-        assert 'img src=' in content
+        # content() returns a dict with 'content' key
+        content_str = content['content'] if isinstance(content, dict) else content
+        assert 'garfield.jpg' in content_str
+        assert 'img src=' in content_str
     
     def test_generate_multi_image_entry(self):
         """Test RSS entry generation for multi-image comic."""
@@ -70,14 +72,15 @@ class TestMultiImageRSSSupport:
         # Should contain all three images
         assert entry is not None
         content = entry.content()
-        assert 'panel1.jpg' in content
-        assert 'panel2.jpg' in content
-        assert 'panel3.jpg' in content
+        content_str = content['content'] if isinstance(content, dict) else content
+        assert 'panel1.jpg' in content_str
+        assert 'panel2.jpg' in content_str
+        assert 'panel3.jpg' in content_str
         
         # Images should be in correct order
-        panel1_pos = content.find('panel1.jpg')
-        panel2_pos = content.find('panel2.jpg')
-        panel3_pos = content.find('panel3.jpg')
+        panel1_pos = content_str.find('panel1.jpg')
+        panel2_pos = content_str.find('panel2.jpg')
+        panel3_pos = content_str.find('panel3.jpg')
         
         assert panel1_pos < panel2_pos < panel3_pos
     
@@ -104,17 +107,18 @@ class TestMultiImageRSSSupport:
         
         entry = generator.create_entry(comic_info, metadata)
         content = entry.content()
+        content_str = content['content'] if isinstance(content, dict) else content
         
         # Should have proper image container structure
-        assert '<div class="comic-gallery">' in content or '<div class="comic-images">' in content
+        assert 'class="comic-gallery"' in content_str or 'class="comic-images"' in content_str
         
         # Each image should have proper attributes
-        assert 'alt="Panel 1"' in content
-        assert 'alt="Panel 2"' in content
-        assert 'title="First panel"' in content
+        assert 'alt="Panel 1"' in content_str
+        assert 'alt="Panel 2"' in content_str
+        assert 'title="First panel"' in content_str
         
         # Should be mobile-friendly
-        assert 'width="100%"' in content or 'max-width' in content or 'responsive' in content
+        assert 'width="100%"' in content_str or 'max-width' in content_str or 'responsive' in content_str
     
     def test_image_loading_optimization(self):
         """Test that images are optimized for feed readers."""
@@ -138,12 +142,13 @@ class TestMultiImageRSSSupport:
         
         entry = generator.create_entry(comic_info, metadata)
         content = entry.content()
+        content_str = content['content'] if isinstance(content, dict) else content
         
         # Should have loading optimization attributes
-        assert 'loading="lazy"' in content or 'data-src=' in content
+        assert 'loading="lazy"' in content_str or 'data-src=' in content_str
         
         # Should have reasonable size constraints
-        assert 'style=' in content  # CSS styling for size control
+        assert 'style=' in content_str  # CSS styling for size control
     
     def test_feed_validation_with_multi_images(self):
         """Test that feeds with multi-image entries validate correctly."""
@@ -178,10 +183,12 @@ class TestMultiImageRSSSupport:
         
         # Basic validation
         assert rss_content is not None
-        assert '<?xml' in rss_content
-        assert '<rss' in rss_content
-        assert 'img1.jpg' in rss_content
-        assert 'img2.jpg' in rss_content
+        # Decode bytes to string for checking
+        rss_str = rss_content.decode('utf-8')
+        assert '<?xml' in rss_str
+        assert '<rss' in rss_str
+        assert 'img1.jpg' in rss_str
+        assert 'img2.jpg' in rss_str
     
     def test_backward_compatibility_single_image(self):
         """Test that single-image comics still work with the new system."""
@@ -206,14 +213,15 @@ class TestMultiImageRSSSupport:
         
         entry = generator.create_entry(comic_info, metadata)
         content = entry.content()
+        content_str = content['content'] if isinstance(content, dict) else content
         
         # Should work exactly as before
         assert entry is not None
-        assert 'legacy.jpg' in content
-        assert '<img' in content
+        assert 'legacy.jpg' in content_str
+        assert '<img' in content_str
         
         # Should not have gallery wrapper for single images
-        assert 'comic-gallery' not in content or content.count('<img') == 1
+        assert 'comic-gallery' not in content_str or content_str.count('<img') == 1
     
     def test_empty_images_handling(self):
         """Test handling of entries with no images."""
@@ -236,11 +244,12 @@ class TestMultiImageRSSSupport:
         
         entry = generator.create_entry(comic_info, metadata)
         content = entry.content()
+        content_str = content['content'] if isinstance(content, dict) else content
         
         # Should handle gracefully
         assert entry is not None
-        assert 'This entry has no images' in content
-        assert '<img' not in content  # No images should be present
+        assert 'This entry has no images' in content_str
+        assert '<img' not in content_str  # No images should be present
     
     def test_image_alt_text_accessibility(self):
         """Test that all images have proper alt text for accessibility."""
@@ -265,12 +274,13 @@ class TestMultiImageRSSSupport:
         
         entry = generator.create_entry(comic_info, metadata)
         content = entry.content()
+        content_str = content['content'] if isinstance(content, dict) else content
         
         # First image should have provided alt text
-        assert 'alt="Panel 1 description"' in content
+        assert 'alt="Panel 1 description"' in content_str
         
         # Second image should have fallback alt text
-        assert 'alt=' in content.replace('alt="Panel 1 description"', '')  # Check for second alt
+        assert 'alt=' in content_str.replace('alt="Panel 1 description"', '')  # Check for second alt
     
     def test_image_gallery_responsive_design(self):
         """Test that multi-image galleries are responsive."""
@@ -295,14 +305,15 @@ class TestMultiImageRSSSupport:
         
         entry = generator.create_entry(comic_info, metadata)
         content = entry.content()
+        content_str = content['content'] if isinstance(content, dict) else content
         
         # Should have responsive CSS
-        assert 'max-width' in content or 'width: 100%' in content
-        assert 'style=' in content
+        assert 'max-width' in content_str or 'width: 100%' in content_str
+        assert 'style=' in content_str
         
         # All images should be present
         for i in range(1, 5):
-            assert f'{i}.jpg' in content
+            assert f'{i}.jpg' in content_str
     
     def test_performance_with_many_images(self):
         """Test performance with comics that have many images."""
@@ -328,12 +339,13 @@ class TestMultiImageRSSSupport:
         
         entry = generator.create_entry(comic_info, metadata)
         content = entry.content()
+        content_str = content['content'] if isinstance(content, dict) else content
         
         # All panels should be included
-        assert all(f'panel{i:02d}.jpg' in content for i in range(1, 21))
+        assert all(f'panel{i:02d}.jpg' in content_str for i in range(1, 21))
         
         # Should maintain order
-        positions = [content.find(f'panel{i:02d}.jpg') for i in range(1, 21)]
+        positions = [content_str.find(f'panel{i:02d}.jpg') for i in range(1, 21)]
         assert positions == sorted(positions)
     
     def test_integration_with_tinyview_scraper_output(self):
@@ -375,11 +387,12 @@ class TestMultiImageRSSSupport:
         
         entry = generator.create_entry(comic_info, scraper_output)
         content = entry.content()
+        content_str = content['content'] if isinstance(content, dict) else content
         
         # Should handle all panels
-        assert all(f'panel{i}.jpg' in content for i in range(1, 4))
+        assert all(f'panel{i}.jpg' in content_str for i in range(1, 4))
         
         # Should preserve alt text
-        assert 'ADHDinos comic panel 1' in content
-        assert 'ADHDinos comic panel 2' in content
-        assert 'ADHDinos comic panel 3' in content
+        assert 'ADHDinos comic panel 1' in content_str
+        assert 'ADHDinos comic panel 2' in content_str
+        assert 'ADHDinos comic panel 3' in content_str

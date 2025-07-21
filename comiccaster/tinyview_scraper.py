@@ -221,22 +221,42 @@ class TinyviewScraper(BaseScraper):
                             continue
                         
                         # Include all images from this date (we want all strips from the date)
-                        # Check if any path segment contains the date
-                        if any(date in segment for segment in path_segments):
-                            # Skip duplicates
-                            if src not in seen_urls:
-                                seen_urls.add(src)
-                                image_data = {
-                                    'url': src,
-                                    'alt': img.get('alt', ''),
-                                    'title': img.get('title', '')
-                                }
-                                images.append(image_data)
-                                logger.info(f"Found comic image for date {date}: {src}")
+                        # Check if the URL path contains the date components in order
+                        # Date format is YYYY/MM/DD, so split and check if all parts are in the path
+                        date_parts = date.split('/')
+                        if len(date_parts) == 3:
+                            # Check if all date parts appear in the path segments in order
+                            path_str = '/'.join(path_segments)
+                            date_in_path = all(part in path_segments for part in date_parts)
+                            
+                            # Also check if the date appears in the expected order in the URL
+                            if date_in_path:
+                                # Verify the date components appear in sequence
+                                try:
+                                    year_idx = path_segments.index(date_parts[0])
+                                    month_idx = path_segments.index(date_parts[1])
+                                    day_idx = path_segments.index(date_parts[2])
+                                    if year_idx < month_idx < day_idx:
+                                        # Date components are in correct order
+                                        if src not in seen_urls:
+                                            seen_urls.add(src)
+                                            image_data = {
+                                                'url': src,
+                                                'alt': img.get('alt', ''),
+                                                'title': img.get('title', '')
+                                            }
+                                            images.append(image_data)
+                                            logger.info(f"Found comic image for date {date}: {src}")
+                                        else:
+                                            logger.debug(f"Skipping duplicate image: {src}")
+                                    else:
+                                        logger.debug(f"Date components not in expected order: {src}")
+                                except ValueError:
+                                    logger.debug(f"Date components not all present in path: {src}")
                             else:
-                                logger.debug(f"Skipping duplicate image: {src}")
+                                logger.debug(f"Date components not found in path: {src}")
                         else:
-                            logger.debug(f"Skipping image from different date: {src}")
+                            logger.debug(f"Invalid date format: {date}")
                     else:
                         logger.debug(f"Skipping image not matching comic slug: {src}")
             except:
