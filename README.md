@@ -1,23 +1,33 @@
 # ComicCaster
 
-ComicCaster is a web application that generates RSS feeds for comics from GoComics.com and TinyView.com. It allows you to subscribe to individual comics or create custom bundles of multiple comics using OPML files.
+ComicCaster is a web application that generates RSS feeds for comics from GoComics.com and TinyView.com. It provides a unified interface to subscribe to your favorite comics through RSS, supporting both traditional daily comics and independent web comics.
 
 ## Features
 
-- Individual RSS feeds for 400+ daily comics and 60+ political cartoons from GoComics
-- **29 independent comics from TinyView** - including ADHDinos, Fowl Language, Nick Anderson, and more
-- **Multi-source support** - GoComics daily comics, political cartoons, and TinyView comics
-- **Accurate daily comic detection** - distinguishes between current daily comics and "best of" reruns
-- **Multi-strip support** - handles TinyView comics that publish multiple strips per day
-- **Tabbed interface** - separate browsing for daily comics, political cartoons, and TinyView comics
-- **Smart update scheduling** - optimizes feed updates based on comic publishing patterns
-- **Political comic support** - dedicated feeds for editorial cartoons with appropriate content descriptions
-- Feed preview functionality to check comic content before subscribing
-- OPML file generation for custom comic bundles (separate files for each comic source)
-- Modern, responsive web interface with intuitive tab navigation
-- Fast and efficient serverless deployment
-- Daily feed updates via GitHub Actions with enhanced scraping reliability
-- **Parallel processing** - uses 8 concurrent workers for efficient scraping
+### Core Functionality
+- **500+ Comics Available**: Access to 400+ GoComics daily strips, 60+ political cartoons, and 29 TinyView independent comics
+- **Multi-Source Architecture**: Unified interface for comics from different platforms using a modular scraper system
+- **RSS Feed Generation**: Standard RSS 2.0 feeds compatible with all major feed readers
+- **OPML Bundle Creation**: Generate custom bundles of comics for easy import into feed readers
+
+### Advanced Features
+- **Multi-Image RSS Support**: Full support for comics that publish multiple images/panels per day
+- **Accurate Daily Comic Detection**: Distinguishes between current daily comics and "best of" reruns using JSON-LD parsing
+- **Smart Update Scheduling**: Optimizes feed updates based on comic publishing patterns (daily, weekly, irregular)
+- **Parallel Processing**: Uses 8 concurrent workers for efficient feed generation
+- **Feed Health Monitoring**: Automated canary system detects and alerts on stale feeds
+
+### User Interface
+- **Tabbed Navigation**: Separate tabs for daily comics, political cartoons, and TinyView comics
+- **Feed Preview**: Check comic content before subscribing
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Search and Filter**: Quickly find comics by name or category
+
+### Technical Features
+- **Modular Scraper System**: Extensible architecture with base scraper class and source-specific implementations
+- **Granular Source Tracking**: Each comic tracked with specific source field for proper scraper selection
+- **Error Resilience**: Graceful handling of missing comics, site changes, and network issues
+- **Comprehensive Logging**: Detailed logs for debugging and monitoring
 
 ## Quick Start
 
@@ -65,17 +75,32 @@ The Flask app will be available at `http://localhost:5001`
 
 ```
 comiccaster/
-├── public/              # Static files served by Netlify
-│   ├── index.html      # Main application page
-│   ├── preview.html    # Feed preview page
-│   ├── feeds/          # Generated RSS feed files
-│   └── comics_list.json # List of available comics
-├── functions/          # Netlify serverless functions
-│   ├── generate-opml.js # OPML generation function
-│   └── fetch-feed.js   # Feed preview function
-├── scripts/           # Utility scripts
-│   └── update_feeds.py # Daily feed update script
-└── netlify.toml      # Netlify configuration
+├── comiccaster/           # Main Python package
+│   ├── base_scraper.py    # Abstract base class for all scrapers
+│   ├── gocomics_scraper.py # GoComics HTTP scraper with JSON-LD parsing
+│   ├── tinyview_scraper.py # TinyView Selenium-based scraper
+│   ├── scraper_factory.py  # Factory pattern for scraper selection
+│   ├── feed_generator.py   # RSS feed generation with multi-image support
+│   ├── loader.py          # Comic configuration management
+│   └── web_interface.py   # Flask web application
+├── public/               # Static files served by Netlify
+│   ├── index.html       # Main application page with tabbed interface
+│   ├── feeds/           # Pre-generated RSS feed files
+│   └── comics_list.json # Comic metadata with source information
+├── functions/           # Netlify serverless functions
+│   ├── generate-opml.js # OPML bundle generation
+│   └── fetch-feed.js    # Feed preview functionality
+├── scripts/             # Utility and update scripts
+│   ├── update_feeds.py  # Daily feed update orchestrator
+│   └── test_gocomics_regression.py # Regression testing
+├── tests/               # Test suite
+│   ├── test_base_scraper.py    # Base scraper tests
+│   ├── test_tinyview_scraper.py # TinyView scraper tests
+│   ├── test_multi_image_rss.py  # Multi-image RSS tests
+│   └── test_scraper_factory.py  # Factory pattern tests
+├── docs/                # Documentation
+│   └── specifications/  # Project specifications and design docs
+└── legacy_scripts/      # Historical scripts for reference
 ```
 
 ## Feed Updates
@@ -88,6 +113,20 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 5. **Validates feed freshness** using canary monitoring (new!)
 
 ### Recent Improvements (July 2025)
+
+**TinyView Integration:**
+- **New Platform**: Added support for 29 independent comics from TinyView.com
+- **Multi-Strip Comics**: Full support for comics that publish multiple strips per day
+- **Selenium Scraping**: Implemented Selenium WebDriver to handle TinyView's dynamic content
+- **Smart Date Matching**: Advanced logic to extract comics from specific dates across complex URL structures
+- **Description Extraction**: Captures artist commentary and descriptions when available
+
+**Architectural Improvements:**
+- **Scraper Factory Pattern**: Modular system for managing different comic sources
+- **Base Scraper Class**: Standardized interface for all scrapers with shared functionality
+- **Multi-Image RSS**: Enhanced feed generator supports comics with multiple images per entry
+- **Source Field**: Each comic now has a granular source field (gocomics-daily, gocomics-political, tinyview)
+- **Comprehensive Testing**: Added 100+ tests covering all new functionality
 
 **Political Comics Integration:**
 - **New Feature**: Added support for 63+ political editorial cartoons from GoComics
@@ -140,9 +179,76 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
   - GoComics scraper using HTTP requests with JSON-LD parsing
   - TinyView scraper using Selenium WebDriver for dynamic content
 
+## Development
+
+### Setting Up Development Environment
+
+```bash
+# Clone the repository
+git clone https://github.com/adamprime/comiccaster.git
+cd comiccaster
+
+# Create virtual environment
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+pip install -e .  # Install package in development mode
+
+# Install test dependencies
+pip install pytest pytest-cov pytest-mock
+
+# For TinyView development (requires Firefox)
+# macOS
+brew install --cask firefox
+
+# Ubuntu
+sudo apt-get install firefox firefox-geckodriver
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+pytest -v
+
+# Run with coverage
+pytest -v --cov=comiccaster --cov-report=term-missing
+
+# Run specific test category
+pytest -v tests/test_tinyview_scraper.py
+```
+
+See [TESTING_GUIDE.md](TESTING_GUIDE.md) for comprehensive testing documentation.
+
+### Adding New Comics
+
+1. **For GoComics**: Add to appropriate JSON file in `public/`
+2. **For TinyView**: Add to `public/tinyview_comics_list.json`
+3. **Required fields**:
+   ```json
+   {
+     "name": "Comic Name",
+     "slug": "comic-slug",
+     "url": "https://source.com/comic-slug",
+     "source": "gocomics-daily|gocomics-political|tinyview"
+   }
+   ```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+### Contribution Guidelines
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Write tests for new functionality
+4. Ensure all tests pass (`pytest -v`)
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
 
 ## License
 
@@ -154,14 +260,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Daily Comics**: Calvin and Hobbes, Garfield, Dilbert, and hundreds more
 - **Political Cartoons**: Doonesbury, Non Sequitur, and other editorial comics
 - **Update Frequency**: Checks last 10 days of comics
-<<<<<<< HEAD
-
-### TinyView
-- **Independent Comics**: 29 comics including ADHDinos, Fowl Language, Nick Anderson, and more
-- **Multi-strip Support**: Handles comics that publish multiple strips per day
-- **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
-- **Comic Descriptions**: Extracts and includes artist commentary when available
-=======
 - **Scraping Method**: HTTP requests with JSON-LD parsing
 
 ### TinyView
@@ -170,7 +268,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
 - **Comic Descriptions**: Extracts and includes artist commentary when available
 - **Scraping Method**: Selenium WebDriver for dynamic content
->>>>>>> origin/main
 
 ## Acknowledgments
 
