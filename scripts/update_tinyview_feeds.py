@@ -118,8 +118,8 @@ def update_comic_feed(comic_info: Dict) -> Tuple[bool, str, int]:
             # Create placeholder entry if no comics found
             entries = [{
                 'title': f"{comic_info['name']} - No Recent Updates",
-                'link': comic_info['url'],
-                'date': datetime.now().strftime('%Y-%m-%d'),
+                'url': comic_info['url'],
+                'pub_date': datetime.now().strftime('%Y-%m-%d'),
                 'description': f"No recent comics found for {comic_info['name']}. Check back later!",
                 'image_url': '',
                 'images': []
@@ -130,8 +130,8 @@ def update_comic_feed(comic_info: Dict) -> Tuple[bool, str, int]:
             for item in items:
                 entry = {
                     'title': item.get('title', f"{comic_info['name']} - {item['date']}"),
-                    'link': item['url'],
-                    'date': item['date'].replace('/', '-'),  # Convert to ISO format
+                    'url': item['url'],
+                    'pub_date': item['date'].replace('/', '-'),  # Convert to ISO format
                     'description': item.get('description', ''),
                     'image_url': item['images'][0]['url'] if item['images'] else '',
                     'images': item['images']
