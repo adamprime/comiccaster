@@ -43,6 +43,10 @@ jobs:
           sudo chmod +x /usr/local/bin/geckodriver
           geckodriver --version
       
+      - name: Test GoComics scraping works
+        run: |
+          python test_github_scraping.py
+      
       - name: Test political comics are loaded
         run: |
           python -m pytest tests/test_update_feeds_main.py::TestUpdateFeedsMain::test_main_loads_both_comic_types -v
