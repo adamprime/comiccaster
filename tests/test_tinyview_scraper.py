@@ -79,7 +79,7 @@ class TestTinyviewScraperStory21:
             
             # Verify image data
             image = result['images'][0]
-            assert 'cdn.tinyview.com' in image['url']
+            assert image['url'].startswith('https://cdn.tinyview.com/')
             assert image['alt'] == 'Nick Anderson cartoon'
             assert image['title'] == 'Political cartoon'
             
@@ -110,7 +110,7 @@ class TestTinyviewScraperStory21:
         
         # Should only extract CDN images
         assert len(images) == 2
-        assert all('cdn.tinyview.com' in img['url'] for img in images)
+        assert all(img['url'].startswith('https://cdn.tinyview.com/') for img in images)
         assert 'valid-comic.jpg' in images[0]['url']
         assert 'another-valid.jpg' in images[1]['url']
     
@@ -311,7 +311,7 @@ class TestTinyviewScraperStory22:
             assert len(result['images']) == 3
             
             # Verify all images are from CDN
-            assert all('cdn.tinyview.com' in img['url'] for img in result['images'])
+            assert all(img['url'].startswith('https://cdn.tinyview.com/') for img in result['images'])
             
             # Verify image ordering is preserved
             urls = [img['url'] for img in result['images']]
@@ -399,7 +399,7 @@ class TestTinyviewScraperStory22:
             assert len(images) == 2, f"Layout {i+1} failed: found {len(images)} images"
             
             # All should be CDN images
-            assert all('cdn.tinyview.com' in img['url'] for img in images)
+            assert all(img['url'].startswith('https://cdn.tinyview.com/') for img in images)
     
     def test_mixed_image_sources_filtering(self):
         """Test that only Tinyview CDN images are extracted from mixed sources."""
@@ -425,7 +425,7 @@ class TestTinyviewScraperStory22:
         
         # Should only extract the 3 CDN images
         assert len(images) == 3
-        assert all('cdn.tinyview.com' in img['url'] for img in images)
+        assert all(img['url'].startswith('https://cdn.tinyview.com/') for img in images)
         
         # Verify correct images were extracted
         urls = [img['url'] for img in images]
@@ -569,7 +569,7 @@ class TestTinyviewScraperStory23:
         
         # BeautifulSoup should still extract images despite malformed HTML
         assert len(images) >= 1
-        assert 'cdn.tinyview.com' in images[0]['url']
+        assert images[0]['url'].startswith('https://cdn.tinyview.com/')
     
     def test_network_timeout_handling(self):
         """Test handling of network timeouts during page loading."""

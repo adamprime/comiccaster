@@ -183,7 +183,17 @@ def verify_comic(driver, comic: Dict[str, str]) -> bool:
         
         # Check if there are any images from CDN
         soup = BeautifulSoup(driver.page_source, 'html.parser')
-        cdn_images = soup.find_all('img', src=lambda x: x and 'cdn.tinyview.com' in x)
+        cdn_images = []
+        for img in soup.find_all('img'):
+            src = img.get('src', '')
+            if src:
+                try:
+                    from urllib.parse import urlparse
+                    parsed = urlparse(src)
+                    if parsed.hostname == 'cdn.tinyview.com':
+                        cdn_images.append(img)
+                except:
+                    continue
         
         if cdn_images:
             logger.info(f"Comic {comic['name']} verified - found {len(cdn_images)} CDN images")

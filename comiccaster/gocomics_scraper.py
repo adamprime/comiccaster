@@ -161,13 +161,22 @@ class GoComicsScraper(BaseScraper):
         # Method 3: Look for any img tag with the comic in the src
         for img in soup.find_all('img'):
             src = img.get('src', '')
-            if 'assets.amuniversal.com' in src and comic_slug in src:
-                images.append({
-                    'url': src,
-                    'alt': img.get('alt', ''),
-                    'title': img.get('title', '')
-                })
-                return images
+            # Use proper URL parsing to check domain
+            try:
+                from urllib.parse import urlparse
+                parsed = urlparse(src)
+                # Check hostname and path separately
+                if parsed.hostname and 'assets.amuniversal.com' in parsed.hostname:
+                    # Check if comic slug is in path segments
+                    path_segments = parsed.path.strip('/').split('/')
+                    if comic_slug in path_segments:
+                        images.append({
+                            'url': src,
+                            'alt': img.get('alt', ''),
+                            'title': img.get('title', '')
+                        })
+            except:
+                continue
         
         logger.warning(f"No images found for {comic_slug} on {date}")
         return images

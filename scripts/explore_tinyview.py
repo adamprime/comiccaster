@@ -94,7 +94,17 @@ def explore_tinyview():
             
             # Look for comic images
             all_images = soup.find_all('img')
-            cdn_images = [img for img in all_images if img.get('src', '').startswith('https://cdn.tinyview.com')]
+            cdn_images = []
+            for img in all_images:
+                src = img.get('src', '')
+                if src:
+                    try:
+                        from urllib.parse import urlparse
+                        parsed = urlparse(src)
+                        if parsed.scheme == 'https' and parsed.hostname == 'cdn.tinyview.com':
+                            cdn_images.append(img)
+                    except:
+                        continue
             
             logger.info(f"Total images: {len(all_images)}")
             logger.info(f"CDN images: {len(cdn_images)}")
