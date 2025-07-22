@@ -282,8 +282,21 @@ class TinyviewScraper(BaseScraper):
                 
                 self.driver.get(strip_url)
                 
-                # Wait for the strip page to load
+                # Wait for the strip page to load initially
                 time.sleep(2)
+                
+                # Wait for dynamic content to load (panels loaded via JavaScript)
+                try:
+                    # Wait up to 5 seconds for comic panel container to have images
+                    WebDriverWait(self.driver, 5).until(
+                        lambda driver: len(driver.find_elements(By.CSS_SELECTOR, 
+                            f'img[src*="cdn.tinyview.com/{comic_slug}/{date}"]')) > 0
+                    )
+                    # Additional wait to ensure all panels are loaded
+                    time.sleep(1)
+                except:
+                    # If wait fails, continue anyway - some comics might not have dynamic loading
+                    logger.debug(f"Dynamic content wait timed out for {strip_url}")
                 
                 # Return the page content
                 return self.driver.page_source
@@ -352,46 +365,34 @@ class TinyviewScraper(BaseScraper):
                     # Use proper path segment checking instead of substring matching
                     path_segments = parsed_url.path.strip('/').split('/')
                     if comic_slug in path_segments:
-                        # Skip profile images
-                        if 'profile' in path_segments:
-                            logger.debug(f"Skipping profile image: {src}")
+                        # Skip profile images and other non-comic images
+                        if 'profile' in path_segments or 'external-link' in parsed_url.path:
+                            logger.debug(f"Skipping non-comic image: {src}")
                             continue
                         
-                        # Include all images from this date (we want all strips from the date)
-                        # Check if the URL path contains the date components in order
-                        # Date format is YYYY/MM/DD, so split and check if all parts are in the path
+                        # Check if the image is in a date-based directory
+                        # Date format is YYYY/MM/DD
                         date_parts = date.split('/')
                         if len(date_parts) == 3:
-                            # Check if all date parts appear in the path segments in order
-                            path_str = '/'.join(path_segments)
-                            date_in_path = all(part in path_segments for part in date_parts)
+                            # Create the date path pattern
+                            date_path = f"{comic_slug}/{date}"
                             
-                            # Also check if the date appears in the expected order in the URL
-                            if date_in_path:
-                                # Verify the date components appear in sequence
-                                try:
-                                    year_idx = path_segments.index(date_parts[0])
-                                    month_idx = path_segments.index(date_parts[1])
-                                    day_idx = path_segments.index(date_parts[2])
-                                    if year_idx < month_idx < day_idx:
-                                        # Date components are in correct order
-                                        if src not in seen_urls:
-                                            seen_urls.add(src)
-                                            image_data = {
-                                                'url': src,
-                                                'alt': img.get('alt', ''),
-                                                'title': img.get('title', '')
-                                            }
-                                            images.append(image_data)
-                                            logger.info(f"Found comic image for date {date}: {src}")
-                                        else:
-                                            logger.debug(f"Skipping duplicate image: {src}")
-                                    else:
-                                        logger.debug(f"Date components not in expected order: {src}")
-                                except ValueError:
-                                    logger.debug(f"Date components not all present in path: {src}")
+                            # Check if the URL contains the date path (more flexible)
+                            if date_path in parsed_url.path:
+                                # This image is in the correct date directory
+                                if src not in seen_urls:
+                                    seen_urls.add(src)
+                                    image_data = {
+                                        'url': src,
+                                        'alt': img.get('alt', ''),
+                                        'title': img.get('title', '')
+                                    }
+                                    images.append(image_data)
+                                    logger.info(f"Found comic image for date {date}: {src}")
+                                else:
+                                    logger.debug(f"Skipping duplicate image: {src}")
                             else:
-                                logger.debug(f"Date components not found in path: {src}")
+                                logger.debug(f"Image not in date directory {date_path}: {src}")
                         else:
                             logger.debug(f"Invalid date format: {date}")
                     else:
