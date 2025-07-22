@@ -144,52 +144,49 @@ class TestTinyviewScraperStory21:
     def test_angular_page_loading_handling(self):
         """Test that scraper handles Angular page loading delays."""
         from comiccaster.tinyview_scraper import TinyviewScraper
+        from datetime import datetime
         
         scraper = TinyviewScraper()
         
-        with patch.object(scraper, 'setup_driver'), \
-             patch.object(scraper, 'driver') as mock_driver, \
+        # The new implementation uses get_recent_comics, so let's test that directly
+        # Mock setup_driver to set the driver
+        def mock_setup_driver():
+            scraper.driver = mock_driver
+        
+        with patch.object(scraper, 'setup_driver', side_effect=mock_setup_driver), \
              patch('time.sleep') as mock_sleep:
             
-            # First page_source will be the main comic page with date links
-            main_page_html = '''<html>
+            # Create mock driver
+            mock_driver = Mock()
+            
+            # Use today's date to ensure comics are within the date range
+            today = datetime.now()
+            yesterday = today.replace(day=today.day-1)
+            
+            # Main page with comic links using dates within range
+            main_page_html = f'''<html>
                 <body>
-                    <a href="/test-comic/2025/01/17/strip-title">Comic for Jan 17</a>
+                    <a href="/test-comic/{today.year:04d}/{today.month:02d}/{today.day:02d}/strip-title">Comic for Today</a>
+                    <a href="/test-comic/{yesterday.year:04d}/{yesterday.month:02d}/{yesterday.day:02d}/other-strip">Comic for Yesterday</a>
                 </body>
             </html>'''
             
-            # Second page_source will be the actual comic strip page with body content
-            strip_page_html = '''<html>
-                <body>
-                    <div class="comic-content">
-                        <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip-title/test.jpg">
-                    </div>
-                </body>
-            </html>'''
-            
-            # Set up the mock to return different values on successive calls
             mock_driver.page_source = main_page_html
             mock_driver.title = 'Test Comic'
             
-            # Make page_source return strip page after navigation
-            def side_effect(url):
-                if '2025/01/17' in url:
-                    mock_driver.page_source = strip_page_html
+            # Make driver.get not raise errors
+            mock_driver.get.return_value = None
             
-            mock_driver.get.side_effect = side_effect
+            # Test get_recent_comics which is what the new implementation uses
+            recent_comics = scraper.get_recent_comics('test-comic', days_back=30)
             
-            result = scraper.fetch_comic_page('test-comic', '2025/01/17')
-            
-            # Verify that sleep was called for Angular loading
+            # Verify that sleep was called for page loading
             assert mock_sleep.called
-            # The implementation uses time.sleep for delays
-            # Should be called at least twice (once for main page, once for strip page)
-            assert mock_sleep.call_count >= 2
+            assert mock_sleep.call_count >= 1
             
-            # Should return combined HTML with body content
-            assert result is not None
-            assert '<body>' in result
-            assert 'test.jpg' in result
+            # Should find comics in the page
+            assert len(recent_comics) > 0
+            assert any(f'{today.year:04d}/{today.month:02d}/{today.day:02d}' in comic['date'] for comic in recent_comics)
     
     def test_metadata_extraction(self):
         """Test extraction of comic metadata from HTML."""
@@ -224,18 +221,20 @@ class TestTinyviewScraperStory21:
         
         scraper = TinyviewScraper()
         
-        with patch('comiccaster.tinyview_scraper.webdriver.Firefox') as mock_firefox:
+        # Test Chrome first (new default), then Firefox fallback
+        with patch('comiccaster.tinyview_scraper.webdriver.Chrome') as mock_chrome, \
+             patch('comiccaster.tinyview_scraper.webdriver.Firefox') as mock_firefox:
             mock_driver = Mock()
-            mock_firefox.return_value = mock_driver
+            mock_chrome.return_value = mock_driver
             
             scraper.setup_driver()
             
-            # Verify Firefox WebDriver was created
-            mock_firefox.assert_called_once()
+            # Verify Chrome WebDriver was tried first
+            mock_chrome.assert_called_once()
             
-            # Verify headless configuration
-            options_arg = mock_firefox.call_args[1]['options']
-            assert any('-headless' in str(arg) for arg in options_arg.arguments)
+            # Verify headless configuration for Chrome
+            options_arg = mock_chrome.call_args[1]['options']
+            assert any('--headless' in str(arg) for arg in options_arg.arguments)
             
             # Verify window size is set
             mock_driver.set_window_size.assert_called_with(1920, 1080)
@@ -522,46 +521,48 @@ class TestTinyviewScraperStory23:
     def test_retry_on_timeout_with_mock(self):
         """Test retry logic on Selenium timeout."""
         from comiccaster.tinyview_scraper import TinyviewScraper
+        from datetime import datetime
         
         scraper = TinyviewScraper()
         scraper.max_retries = 2
         
-        # Create a mock driver that will be used
-        mock_driver = Mock()
-        mock_driver.title = 'Test Page'
-        # Main page HTML with date link
-        main_page = '''<html><body>
-            <a href="/test-comic/2025/01/17/strip">Today's Comic</a>
-        </body></html>'''
-        # Strip page HTML 
-        strip_page = '''<html><body>
-            <img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/test.jpg">
-        </body></html>'''
-        
-        # Set initial page source
-        mock_driver.page_source = main_page
-        
-        # First get call raises TimeoutException, retry succeeds
-        def get_side_effect(url):
-            if mock_driver.get.call_count == 1:
-                raise TimeoutException()
-            # On retry, if it's the strip URL, change page source
-            if '2025/01/17' in url:
-                mock_driver.page_source = strip_page
-                
-        mock_driver.get.side_effect = get_side_effect
-        
-        # Mock setup_driver to set the mock driver
-        def mock_setup_driver():
-            scraper.driver = mock_driver
-        
-        with patch.object(scraper, 'setup_driver', side_effect=mock_setup_driver):
-            with patch('time.sleep'):  # Mock sleep to speed up test
-                result = scraper.fetch_comic_page('test-comic', '2025/01/17')
-                
-                # Should succeed after retry
-                assert result is not None
-                assert mock_driver.get.call_count >= 2  # Initial call + retry
+        # Test that retries work when TimeoutException is raised
+        with patch('comiccaster.tinyview_scraper.webdriver.Chrome') as mock_chrome, \
+             patch('comiccaster.tinyview_scraper.webdriver.Firefox') as mock_firefox, \
+             patch('time.sleep'):
+            
+            # Create mock driver
+            mock_driver = Mock()
+            mock_chrome.return_value = mock_driver
+            
+            # Track get calls
+            get_call_count = 0
+            def get_side_effect(url):
+                nonlocal get_call_count
+                get_call_count += 1
+                if get_call_count == 1:
+                    raise TimeoutException("First attempt timeout")
+                # On retry, provide page with comics
+                # Use a date within the last 30 days to ensure it's included
+                today = datetime.now()
+                mock_driver.page_source = f'''<html><body>
+                    <a href="/test-comic/{today.year:04d}/{today.month:02d}/{today.day:02d}/strip">Today's Comic</a>
+                </body></html>'''
+            
+            mock_driver.get.side_effect = get_side_effect
+            mock_driver.title = 'Test Comic'
+            mock_driver.page_source = '<html><body></body></html>'  # Initial empty page
+            mock_driver.quit = Mock()  # Mock quit method
+            mock_driver.set_window_size = Mock()
+            mock_driver.implicitly_wait = Mock()
+            mock_driver.set_page_load_timeout = Mock()
+            
+            # Call get_recent_comics which handles retries
+            recent_comics = scraper.get_recent_comics('test-comic', days_back=30)
+            
+            # Should succeed after retry
+            assert len(recent_comics) > 0
+            assert get_call_count >= 2  # At least one retry
     
     def test_selenium_exception_handling(self):
         """Test handling of various Selenium exceptions."""
@@ -609,22 +610,41 @@ class TestTinyviewScraperStory23:
         from comiccaster.tinyview_scraper import TinyviewScraper
         
         scraper = TinyviewScraper()
+        scraper.max_retries = 3
         
-        with patch.object(scraper, 'setup_driver'), \
-             patch.object(scraper, 'driver') as mock_driver, \
+        # Test that all retries are exhausted on persistent timeouts
+        # Track setup calls
+        setup_count = 0
+        def mock_setup_driver():
+            nonlocal setup_count
+            setup_count += 1
+            scraper.driver = mock_driver
+        
+        # Mock close_driver to reset driver
+        def mock_close_driver():
+            if scraper.driver:
+                scraper.driver.quit()
+                scraper.driver = None
+        
+        with patch.object(scraper, 'setup_driver', side_effect=mock_setup_driver), \
+             patch.object(scraper, 'close_driver', side_effect=mock_close_driver), \
              patch('time.sleep'):
             
-            # Set up page with date link
-            mock_driver.page_source = '''<html><body>
-                <a href="/test-comic/2025/01/17/strip">Today's Comic</a>
-            </body></html>'''
+            # Create mock driver
+            mock_driver = Mock()
+            mock_driver.quit = Mock()
+            
+            # Always raise timeout
+            mock_driver.get.side_effect = TimeoutException("Network timeout")
             mock_driver.title = 'Test Comic'
             
-            # Should handle timeouts gracefully and still return content
-            result = scraper.fetch_comic_page('test-comic', '2025/01/17')
+            # Call get_recent_comics which should exhaust retries
+            recent_comics = scraper.get_recent_comics('test-comic', days_back=15)
             
-            # Even without images found, should return the HTML structure
-            assert result is not None
+            # Should return empty list after all retries fail
+            assert recent_comics == []
+            # Should have tried max_retries times (setup_driver called for each retry)
+            assert setup_count == scraper.max_retries
     
     def test_invalid_date_handling(self):
         """Test handling of invalid date formats."""
