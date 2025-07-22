@@ -1,2 +1,80 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 21 Jul 2025 21:58:32 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina - No Recent Updates</title><link>https://tinyview.com/pedro-x-molina</link><description>No recent comics found for Pedro X. Molina. Check back later!</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina</guid><pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 22 Jul 2025 01:11:24 +0000</lastBuildDate><ttl>1440</ttl><item><title>The lifesaver</title><link>https://tinyview.com/pedro-x-molina/2025/07/14</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Dealing with increasingly frequent natural disasters is difficult enough, but it's doubly hard when you also have to deal with the incompetent arrogance of those in political power who are supposed to warn about and mitigate them. There are many possible explanations for the slow response of this administration to the disaster in Texas: excessive bureaucratic hurdles, political indolence, inexperience... However, the fault does not lie with FEMA itself, but rather with those currently in charge of it, who have even threatened to eliminate it.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/14/the-lifesaver/LifeSaverTVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/14/the-lifesaver/LifeSaverTV.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/14</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/14/the-lifesaver/LifeSaverTVC.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate></item><item><title>The Epstein files</title><link>https://tinyview.com/pedro-x-molina/2025/07/17</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;No matter how much Trump now tries to blame the Democrats for the fiasco with the Epstein files, the truth is that it was he himself who, for political expediency, not only appropriated but fed the conspiracy theories about it, inflating the expectations of his most fanatical base to levels unmanageable even for himself.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/17/the-epstein-files/EFilesTVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/17/the-epstein-files/EFilesTV.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/17</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/17/the-epstein-files/EFilesTVC.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Big Bondi.</title><link>https://tinyview.com/pedro-x-molina/2025/07/08</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It is a disgrace to this nation that the promoters of doublethink in power can lie, twist, and discard whatever they please without ever facing consequences. It is also an injustice. One that can only be corrected by an empowered and truthfully informed citizenry.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/08/big-bondi/BondiTVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/08/big-bondi/BondiTV.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/08</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/08/big-bondi/BondiTVC.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
