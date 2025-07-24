@@ -1,91 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 23 Jul 2025 09:23:13 +0000</lastBuildDate><ttl>1440</ttl><item><title>Flood Memorial</title><link>https://tinyview.com/nick-anderson/2025/07/09</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;The Trump administration cut 600 jobs from the National Weather Service. What could go wrong?&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/09/flood-memorial/070825.NWS-Half-Staff-copy-2.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/09/flood-memorial/070825.NWS-Half-Staff-copy.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/09</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/09/flood-memorial/070825.NWS-Half-Staff-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Tied Up</title><link>https://tinyview.com/nick-anderson/2025/07/21</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;A Washington Post analysis reveals that during President Donald Trump’s second term, his administration has been accused of defying or circumventing judicial rulings in more than one-third of the lawsuits it has lost. Out of 337 legal challenges to Trump administration policies, courts have ruled against the administration in 165 cases. In 57 of these—approximately 35%—plaintiffs and judges alike say the administration has engaged in actions that either directly violate court orders or intentionally obstruct judicial oversight.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/21/tied-up/072125.Courts-Tied-up-a-third.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/21/tied-up/072125.Courts-Tied-up-a-third-copy.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/21</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/21/tied-up/072125.Courts-Tied-up-a-third.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Federal Overreach</title><link>https://tinyview.com/nick-anderson/2025/07/18</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;In what appears to be a nostalgic sequel to the 2020 election circus, the Trump administration is once again stirring up anxiety among state and local election officials—this time with sweeping requests for voter rolls and behind-the-scenes attempts to inspect voting machines. The Justice Department has asked at least nine states to hand over voter data, while a former aide to Rep. Lauren Boebert has been cold-calling Colorado clerks, claiming he's working with the White House on an “election integrity” project that suspiciously resembles federal meddling.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/18/federal-overreach/071625.Election_Equipment_Inspection-copy.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/18/federal-overreach/071625.Election_Equipment_Inspection-copy-2.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/18/bunker-buster/071526.Epstein_Files_Iran_Nuclear-copy-2.jpg" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/18/pbs/071725.PBS_Cuts_Big_Bird-copy.jpg" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/18</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/18/federal-overreach/071625.Election_Equipment_Inspection-copy.jpg" length="0" type="image/jpeg"/><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Fanning the Flames</title><link>https://tinyview.com/nick-anderson/2025/07/10</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 24 Jul 2025 09:22:51 +0000</lastBuildDate><ttl>1440</ttl><item><title>Fanning the Flames</title><link>https://tinyview.com/nick-anderson/2025/07/10</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -133,4 +47,172 @@ And given all they’ve done to promote conspiracy theories, it serves them righ
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/10</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/10/fanning-the-flames/070925.Fanning-flames-conspriacy-theories-Epstein-copy-7.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/10</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/10/fanning-the-flames/070925.Fanning-flames-conspriacy-theories-Epstein-copy-7.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate></item><item><title>FEMA</title><link>https://tinyview.com/nick-anderson/2025/07/11</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;In the wake of catastrophic flooding in Central Texas—a disaster that has claimed at least 118 lives and left more than 170 people missing—the federal response has drawn sharp criticism due to both administrative delays and a conspicuous leadership vacuum at FEMA.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/11/fema/071125.FEMA_Rescue_Needs_Rescue-copy-2.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/11/fema/071125.FEMA_Rescue_Needs_Rescue-copy.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/11</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/11/fema/071125.FEMA_Rescue_Needs_Rescue-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate></item><item><title>CBS</title><link>https://tinyview.com/nick-anderson/2025/07/23</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;In his ongoing quest to transform every legal settlement into a personal stimulus package, President Donald Trump took to Truth Social this week to announce a “BIG AND IMPORTANT WIN” against CBS, 60 Minutes, and Paramount—a media trifecta he claims will not only pay him $16 million in hush-credibility but also toss in an extra $20 million in “advertising, PSAs, or similar programming.” In other words: money for… something, from… someone.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/23/cbs/072325.CBS-Logo-Trump-Hair-copy.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/23/cbs/a.072325.CBS-Logo-Trump-Hair-copy-2.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/23/cbs/b072325.CBS-Logo-Trump-Hair-copy-2.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/23</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/23/cbs/072325.CBS-Logo-Trump-Hair-copy.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Federal Overreach</title><link>https://tinyview.com/nick-anderson/2025/07/18</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;In what appears to be a nostalgic sequel to the 2020 election circus, the Trump administration is once again stirring up anxiety among state and local election officials—this time with sweeping requests for voter rolls and behind-the-scenes attempts to inspect voting machines. The Justice Department has asked at least nine states to hand over voter data, while a former aide to Rep. Lauren Boebert has been cold-calling Colorado clerks, claiming he's working with the White House on an “election integrity” project that suspiciously resembles federal meddling.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/18/federal-overreach/071625.Election_Equipment_Inspection-copy.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/18/federal-overreach/071625.Election_Equipment_Inspection-copy-2.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/18/bunker-buster/071526.Epstein_Files_Iran_Nuclear-copy-2.jpg" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/18/pbs/071725.PBS_Cuts_Big_Bird-copy.jpg" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/18</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/18/federal-overreach/071625.Election_Equipment_Inspection-copy.jpg" length="0" type="image/jpeg"/><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Cankles</title><link>https://tinyview.com/nick-anderson/2025/07/22</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;In an act of radical transparency—or perhaps just strategic vanity—the White House announced Thursday that President Donald Trump recently underwent a medical exam after noticing “mild swelling” in his lower legs, a condition known to affect, well, basically everyone over 70 who’s spent a lifetime avoiding stairs.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/22/cankles/072225.Trumps-Cankles-.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/22/cankles/072225.Trumps-Cankles-1.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/22</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/22/cankles/072225.Trumps-Cankles-.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate></item><item><title>David Gergen</title><link>https://tinyview.com/nick-anderson/2025/07/15</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;I always appreciated listening to David Gergen’s analysis when he appeared as a cable news commentator. I usually tune out most of the talking heads, but Gergen always made me stop and listen. He was a refreshing contrast to the usual bluster and posturing on TV.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/15/david-gergen/071525.David_Gergen-2.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/15/david-gergen/071525.David_Gergen-2-copy.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/15</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/15/david-gergen/071525.David_Gergen-2.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Tied Up</title><link>https://tinyview.com/nick-anderson/2025/07/21</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;A Washington Post analysis reveals that during President Donald Trump’s second term, his administration has been accused of defying or circumventing judicial rulings in more than one-third of the lawsuits it has lost. Out of 337 legal challenges to Trump administration policies, courts have ruled against the administration in 165 cases. In 57 of these—approximately 35%—plaintiffs and judges alike say the administration has engaged in actions that either directly violate court orders or intentionally obstruct judicial oversight.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/21/tied-up/072125.Courts-Tied-up-a-third.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/07/21/tied-up/072125.Courts-Tied-up-a-third-copy.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/07/21</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/07/21/tied-up/072125.Courts-Tied-up-a-third.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
