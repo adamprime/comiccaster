@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Herman - GoComics</title><link>https://www.gocomics.com/herman</link><description>Daily Herman comic strip by Jim Unger from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/herman.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 24 Jul 2025 09:20:16 +0000</lastBuildDate><ttl>1440</ttl><item><title>Herman - 2025-07-24</title><link>https://www.gocomics.com/herman/2025/07/24</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Herman - GoComics</title><link>https://www.gocomics.com/herman</link><description>Daily Herman comic strip by Jim Unger from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/herman.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 25 Jul 2025 09:19:41 +0000</lastBuildDate><ttl>1440</ttl><item><title>Herman - 2025-07-25</title><link>https://www.gocomics.com/herman/2025/07/25</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/dcda04b04002013eaa0c005056a9545d" 
+                     alt="Herman" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/25&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/07/25</guid><enclosure url="https://featureassets.gocomics.com/assets/dcda04b04002013eaa0c005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Herman - 2025-07-24</title><link>https://www.gocomics.com/herman/2025/07/24</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/da5c46704002013eaa0c005056a9545d" 
                      alt="Herman" 
@@ -71,15 +79,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/16&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/07/16</guid><enclosure url="https://featureassets.gocomics.com/assets/5510c89039a4013ea884005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Herman - 2025-07-15</title><link>https://www.gocomics.com/herman/2025/07/15</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/52f24c9039a4013ea884005056a9545d" 
-                     alt="Herman" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/07/16</guid><enclosure url="https://featureassets.gocomics.com/assets/5510c89039a4013ea884005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Herman - 2025-07-15</title><link>https://www.gocomics.com/herman/2025/07/15</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Herman" src="https://featureassets.gocomics.com/assets/52f24c9039a4013ea884005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/15&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/07/15</guid><enclosure url="https://featureassets.gocomics.com/assets/52f24c9039a4013ea884005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Herman - 2025-07-14</title><link>https://www.gocomics.com/herman/2025/07/14</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/07/15</guid><enclosure url="https://featureassets.gocomics.com/assets/52f24c9039a4013ea884005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Herman - 2025-07-14</title><link>https://www.gocomics.com/herman/2025/07/14</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Herman" src="https://featureassets.gocomics.com/assets/509f009039a4013ea884005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/14&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/07/14</guid><enclosure url="https://featureassets.gocomics.com/assets/509f009039a4013ea884005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Herman - 2025-07-13</title><link>https://www.gocomics.com/herman/2025/07/13</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -346,7 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/04/18</guid><enclosure url="https://featureassets.gocomics.com/assets/f82e1770f2ff013d99a6005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate></item><item><title>Herman - 2025-04-17</title><link>https://www.gocomics.com/herman/2025/04/17</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Herman" src="https://featureassets.gocomics.com/assets/1bb57ff0b1e50130dd6f001dd8b71c47" /&gt;
                     &lt;p&gt;Comic strip for 2025-04-17&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/04/17</guid><enclosure url="https://featureassets.gocomics.com/assets/1bb57ff0b1e50130dd6f001dd8b71c47" length="0" type="image/jpeg"/><pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate></item><item><title>Herman - 2025-04-16</title><link>https://www.gocomics.com/herman/2025/04/16</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Herman" src="https://featureassets.gocomics.com/assets/f38a2870f2ff013d99a6005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-04-16&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/04/16</guid><enclosure url="https://featureassets.gocomics.com/assets/f38a2870f2ff013d99a6005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/herman/2025/04/17</guid><enclosure url="https://featureassets.gocomics.com/assets/1bb57ff0b1e50130dd6f001dd8b71c47" length="0" type="image/jpeg"/><pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate></item></channel></rss>
