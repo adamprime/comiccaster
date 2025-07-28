@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 27 Jul 2025 09:18:10 +0000</lastBuildDate><ttl>1440</ttl><item><title>Revisiting the Fifth Avenue</title><link>https://tinyview.com/pedro-x-molina/2025/07/21</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 28 Jul 2025 09:25:11 +0000</lastBuildDate><ttl>1440</ttl><item><title>A super question</title><link>https://tinyview.com/pedro-x-molina/2025/07/16</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,68 +16,20 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;One of Trump's most famous quotes is, ""I could stand in the middle of Fifth Avenue and shoot somebody, and I wouldn't lose any voters, OK?"" Will this rude and arrogant quote finally cease to have any relevance? Judging by what's happening right now, a lot of people, including many of his supporters, seem to think so.&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Some still don't see, accept, process, or care that brutal ICE raids follow a certain profile. Perhaps they will understand what it is like to live under such anxiety when the next profile to be pursued becomes very similar to the one they see in their mirror every day.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/21/revisiting-the-fifth-avenue/E5AveTVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/16/a-super-question/STVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/21/revisiting-the-fifth-avenue/Epstein5AveTV.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/16/a-super-question/STV1.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/16/a-super-question/STV2.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/21</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/21/revisiting-the-fifth-avenue/E5AveTVC.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Dear MAGA people</title><link>https://tinyview.com/pedro-x-molina/2025/07/15</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Dear MAGA people, no matter which way you look at it, the Epstein List Fiasco leads to only one conclusion. What is that? Stop by today's cartoon and find out....&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/15/dear-maga-people/DMPTVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/15/dear-maga-people/DMPTV.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/15</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/15/dear-maga-people/DMPTVC.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate></item><item><title>It's all about the shoes</title><link>https://tinyview.com/pedro-x-molina/2025/07/23</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;They say there's nothing more comfortable than an old pair of shoes. Well, that depends on the type of shoe, why you're wearing them, and whether your inflated ego keeps telling you to wear them even though they hurt and look more ridiculous every time. The good news is that if you've outgrown your old shoes, you can always upgrade to clown shoes.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/23/it-s-all-about-the-shoes/ShoeTVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/23/it-s-all-about-the-shoes/ShoeTV.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/23</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/23/it-s-all-about-the-shoes/ShoeTVC.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate></item><item><title>The lifesaver</title><link>https://tinyview.com/pedro-x-molina/2025/07/14</link><description>
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/16</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/16/a-super-question/STVC.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate></item><item><title>The lifesaver</title><link>https://tinyview.com/pedro-x-molina/2025/07/14</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -103,7 +55,7 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/14</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/14/the-lifesaver/LifeSaverTVC.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate></item><item><title>The Epstein files</title><link>https://tinyview.com/pedro-x-molina/2025/07/17</link><description>
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/14</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/14/the-lifesaver/LifeSaverTVC.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Revisiting the Fifth Avenue</title><link>https://tinyview.com/pedro-x-molina/2025/07/21</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -120,13 +72,39 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;No matter how much Trump now tries to blame the Democrats for the fiasco with the Epstein files, the truth is that it was he himself who, for political expediency, not only appropriated but fed the conspiracy theories about it, inflating the expectations of his most fanatical base to levels unmanageable even for himself.&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;One of Trump's most famous quotes is, ""I could stand in the middle of Fifth Avenue and shoot somebody, and I wouldn't lose any voters, OK?"" Will this rude and arrogant quote finally cease to have any relevance? Judging by what's happening right now, a lot of people, including many of his supporters, seem to think so.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/17/the-epstein-files/EFilesTVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/21/revisiting-the-fifth-avenue/E5AveTVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/17/the-epstein-files/EFilesTV.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/21/revisiting-the-fifth-avenue/Epstein5AveTV.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/17</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/17/the-epstein-files/EFilesTVC.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/21</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/21/revisiting-the-fifth-avenue/E5AveTVC.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Operation Cover-up.</title><link>https://tinyview.com/pedro-x-molina/2025/07/24</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It is very easy for anyone (including the MAGA people themselves) to read into Trump's desperation to divert attention away from the Epstein files, the level of concern that such a matter generates for him. And that level is VERY high. He has thrown all kinds of bait at audiences seeking to distract them. From advocating a change of sugar in Coca Cola to suggesting the arrest of former presidents. He has tried generating hatred, suggesting more conspiracies, insulting TV stars and even his own base that demands explanations. He has even appealed to empathy by making public a personal health problem (which, for someone who constantly brags about his "great health", is no small thing), ignoring that his own fans see empathy as a weakness.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/24/operation-cover-up/CUTVC.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/24/operation-cover-up/CoverUP.jpg" alt="without-website-img" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;without-website-img&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/24</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/24/operation-cover-up/CUTVC.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
