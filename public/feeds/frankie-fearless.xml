@@ -1,2 +1,48 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Frankie Fearless - TinyView</title><link>https://tinyview.com/frankie-fearless</link><description>Daily Frankie Fearless comic strip by Thaddeus Thomas from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/frankie-fearless.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 30 Jul 2025 09:24:31 +0000</lastBuildDate><ttl>1440</ttl><item><title>Frankie Fearless - No Recent Updates</title><link>https://tinyview.com/frankie-fearless</link><description>No recent comics found for Frankie Fearless. Check back later!</description><guid isPermaLink="false">https://tinyview.com/frankie-fearless</guid><pubDate>Wed, 30 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Frankie Fearless - TinyView</title><link>https://tinyview.com/frankie-fearless</link><description>Daily Frankie Fearless comic strip by Thaddeus Thomas from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/frankie-fearless.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 31 Jul 2025 09:23:44 +0000</lastBuildDate><ttl>1440</ttl><item><title>Episode 433: Splatter Painting</title><link>https://tinyview.com/frankie-fearless/2025/07/17</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Frankie explores another, rather messy, form of art!&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/frankie-fearless/2025/07/17/episode-433-splatter-painting/splatter-painting-header.jpg" alt="Image 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 8&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/frankie-fearless/2025/07/17</guid><enclosure url="https://cdn.tinyview.com/frankie-fearless/2025/07/17/episode-433-splatter-painting/splatter-painting-header.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Episode 434: Air Conditioning</title><link>https://tinyview.com/frankie-fearless/2025/07/22</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;When I was a kid, my bedroom was the hottest in the house. Now Frankie shares a similar fate...&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/frankie-fearless/2025/07/22/episode-434-air-conditioning/Air-conditioning-header.jpg" alt="Image 9" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 9&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/frankie-fearless/2025/07/22</guid><enclosure url="https://cdn.tinyview.com/frankie-fearless/2025/07/22/episode-434-air-conditioning/Air-conditioning-header.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
