@@ -1,2 +1,48 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fowl Language - TinyView</title><link>https://tinyview.com/fowl-language</link><description>Daily Fowl Language comic strip by Brian Gordon from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/fowl-language.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 02 Aug 2025 09:18:12 +0000</lastBuildDate><ttl>1440</ttl><item><title>Fowl Language - No Recent Updates</title><link>https://tinyview.com/fowl-language</link><description>No recent comics found for Fowl Language. Check back later!</description><guid isPermaLink="false">https://tinyview.com/fowl-language</guid><pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fowl Language - TinyView</title><link>https://tinyview.com/fowl-language</link><description>Daily Fowl Language comic strip by Brian Gordon from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/fowl-language.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 03 Aug 2025 09:17:55 +0000</lastBuildDate><ttl>1440</ttl><item><title>Demanding Attention</title><link>https://tinyview.com/fowl-language/2025/07/25</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Hey guys! It's another subscriber exclusive comic! I've mentioned this before, but it's been amazing to see how many people are stepping up to become paid supporters! It's helping to keep us afloat financially, but we need more help if you're able! Thanks so much! -Brian&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/07/25/demanding-attention/demanding-attention-header.jpg" alt="Image 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 8&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/07/25</guid><enclosure url="https://cdn.tinyview.com/fowl-language/2025/07/25/demanding-attention/demanding-attention-header.jpg" length="0" type="image/jpeg"/><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Quiet Dignity</title><link>https://tinyview.com/fowl-language/2025/07/28</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;I'd just like to apologize ahead of time for the sounds and visuals this cartoon might evoke. 🤪&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/07/28/quiet-dignity/quiet-dignity-header.jpg" alt="Image 9" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 9&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/07/28</guid><enclosure url="https://cdn.tinyview.com/fowl-language/2025/07/28/quiet-dignity/quiet-dignity-header.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 28 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
