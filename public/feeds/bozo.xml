@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Bozo - GoComics</title><link>https://www.gocomics.com/bozo</link><description>Daily Bozo comic strip by Foxo Reardon from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/bozo.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 03 Aug 2025 09:15:41 +0000</lastBuildDate><ttl>1440</ttl><item><title>Bozo - 2025-08-01</title><link>https://www.gocomics.com/bozo/2025/08/01</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Bozo - GoComics</title><link>https://www.gocomics.com/bozo</link><description>Daily Bozo comic strip by Foxo Reardon from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/bozo.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 04 Aug 2025 09:25:59 +0000</lastBuildDate><ttl>1440</ttl><item><title>Bozo - 2025-08-04</title><link>https://www.gocomics.com/bozo/2025/08/04</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/b3a3a8a04d3501394916005056a9545d" 
+                     alt="Bozo" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/04&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/bozo/2025/08/04</guid><enclosure url="https://featureassets.gocomics.com/assets/b3a3a8a04d3501394916005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Bozo - 2025-08-01</title><link>https://www.gocomics.com/bozo/2025/08/01</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/54fb59204d3501394916005056a9545d" 
                      alt="Bozo" 
@@ -31,15 +39,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/28&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/bozo/2025/07/28</guid><enclosure url="https://featureassets.gocomics.com/assets/285eaea04d3501394916005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 28 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Bozo - 2025-07-25</title><link>https://www.gocomics.com/bozo/2025/07/25</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/ac8c5a704d3201394916005056a9545d" 
-                     alt="Bozo" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/bozo/2025/07/28</guid><enclosure url="https://featureassets.gocomics.com/assets/285eaea04d3501394916005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 28 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Bozo - 2025-07-25</title><link>https://www.gocomics.com/bozo/2025/07/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Bozo" src="https://featureassets.gocomics.com/assets/ac8c5a704d3201394916005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/25&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/bozo/2025/07/25</guid><enclosure url="https://featureassets.gocomics.com/assets/ac8c5a704d3201394916005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Bozo - 2025-07-24</title><link>https://www.gocomics.com/bozo/2025/07/24</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bozo/2025/07/25</guid><enclosure url="https://featureassets.gocomics.com/assets/ac8c5a704d3201394916005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Bozo - 2025-07-24</title><link>https://www.gocomics.com/bozo/2025/07/24</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Bozo" src="https://featureassets.gocomics.com/assets/016a33204d3501394916005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/24&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bozo/2025/07/24</guid><enclosure url="https://featureassets.gocomics.com/assets/016a33204d3501394916005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Bozo - 2025-07-22</title><link>https://www.gocomics.com/bozo/2025/07/22</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
