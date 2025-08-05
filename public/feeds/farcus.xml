@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Farcus - GoComics</title><link>https://www.gocomics.com/farcus</link><description>Daily Farcus comic strip by David Waisglass and Gordon Coulthart from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/farcus.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 04 Aug 2025 09:26:14 +0000</lastBuildDate><ttl>1440</ttl><item><title>Farcus - 2025-08-04</title><link>https://www.gocomics.com/farcus/2025/08/04</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Farcus - GoComics</title><link>https://www.gocomics.com/farcus</link><description>Daily Farcus comic strip by David Waisglass and Gordon Coulthart from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/farcus.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 05 Aug 2025 09:21:55 +0000</lastBuildDate><ttl>1440</ttl><item><title>Farcus - 2025-08-05</title><link>https://www.gocomics.com/farcus/2025/08/05</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/0075fc90b100013d8885005056a9545d" 
+                     alt="Farcus" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/05&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/08/05</guid><enclosure url="https://featureassets.gocomics.com/assets/0075fc90b100013d8885005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 05 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Farcus - 2025-08-04</title><link>https://www.gocomics.com/farcus/2025/08/04</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/54f20410b101013d8885005056a9545d" 
                      alt="Farcus" 
@@ -71,15 +79,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/27&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/07/27</guid><enclosure url="https://featureassets.gocomics.com/assets/f52be0c0b0ff013d8885005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Farcus - 2025-07-26</title><link>https://www.gocomics.com/farcus/2025/07/26</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/f36b8320b0ff013d8885005056a9545d" 
-                     alt="Farcus" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/07/27</guid><enclosure url="https://featureassets.gocomics.com/assets/f52be0c0b0ff013d8885005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Farcus - 2025-07-26</title><link>https://www.gocomics.com/farcus/2025/07/26</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Farcus" src="https://featureassets.gocomics.com/assets/f36b8320b0ff013d8885005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/26&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/07/26</guid><enclosure url="https://featureassets.gocomics.com/assets/f36b8320b0ff013d8885005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Farcus - 2025-07-25</title><link>https://www.gocomics.com/farcus/2025/07/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/07/26</guid><enclosure url="https://featureassets.gocomics.com/assets/f36b8320b0ff013d8885005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Farcus - 2025-07-25</title><link>https://www.gocomics.com/farcus/2025/07/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Farcus" src="https://featureassets.gocomics.com/assets/f197f2f0b0ff013d8885005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/07/25&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/07/25</guid><enclosure url="https://featureassets.gocomics.com/assets/f197f2f0b0ff013d8885005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Farcus - 2025-07-24</title><link>https://www.gocomics.com/farcus/2025/07/24</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -346,7 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/04/29</guid><enclosure url="https://featureassets.gocomics.com/assets/b9e07200b0ec013d887b005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 29 Apr 2025 00:00:00 +0000</pubDate></item><item><title>Farcus - 2025-04-27</title><link>https://www.gocomics.com/farcus/2025/04/27</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Farcus" src="https://featureassets.gocomics.com/assets/9724f9c0b0f9013d8882005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-04-27&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/04/27</guid><enclosure url="https://featureassets.gocomics.com/assets/9724f9c0b0f9013d8882005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate></item><item><title>Farcus - 2025-04-26</title><link>https://www.gocomics.com/farcus/2025/04/26</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Farcus" src="https://featureassets.gocomics.com/assets/c70c20c0b0e9013d8878005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-04-26&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/04/26</guid><enclosure url="https://featureassets.gocomics.com/assets/c70c20c0b0e9013d8878005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 26 Apr 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/farcus/2025/04/27</guid><enclosure url="https://featureassets.gocomics.com/assets/9724f9c0b0f9013d8882005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate></item></channel></rss>
