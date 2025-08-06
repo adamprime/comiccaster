@@ -1,2 +1,71 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 05 Aug 2025 09:23:46 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina - No Recent Updates</title><link>https://tinyview.com/pedro-x-molina</link><description>No recent comics found for Pedro X. Molina. Check back later!</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina</guid><pubDate>Tue, 05 Aug 2025 00:00:00 +0000</pubDate></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 06 Aug 2025 09:29:35 +0000</lastBuildDate><ttl>1440</ttl><item><title>Inmates</title><link>https://tinyview.com/pedro-x-molina/2025/08/04</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;The double standard with which inmates are treated under the current system is not only obvious, but cruel, cynical, and disgusting.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/08/04/inmates/InmatesTVC.jpg" alt="Image 10" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 10&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/08/04</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/08/04/inmates/InmatesTVC.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Operation Cover-up.</title><link>https://tinyview.com/pedro-x-molina/2025/07/24</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It is very easy for anyone (including the MAGA people themselves) to read into Trump's desperation to divert attention away from the Epstein files, the level of concern that such a matter generates for him. And that level is VERY high. He has thrown all kinds of bait at audiences seeking to distract them. From advocating a change of sugar in Coca Cola to suggesting the arrest of former presidents. He has tried generating hatred, suggesting more conspiracies, insulting TV stars and even his own base that demands explanations. He has even appealed to empathy by making public a personal health problem (which, for someone who constantly brags about his "great health", is no small thing), ignoring that his own fans see empathy as a weakness.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/24/operation-cover-up/CUTVC.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/24</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/24/operation-cover-up/CUTVC.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate></item><item><title>The Sermon</title><link>https://tinyview.com/pedro-x-molina/2025/07/31</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It is truly offensive to faith, intelligence, and even logic how some hypocrites in power commit and allow so many atrocities and then present themselves to believing voters as “Christians” with the same false smile of a hyena declaring itself vegetarian in front of a herd of deer. Those who know, care about, live, and defend what Christianity truly is should step forward and unmask such hypocrites, just as Jesus did with the merchants in the temple.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/07/31/the-sermon/TSTVC.jpg" alt="Image 9" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 9&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/07/31</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/07/31/the-sermon/TSTVC.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
