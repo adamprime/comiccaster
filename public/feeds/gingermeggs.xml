@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ginger Meggs - GoComics</title><link>https://www.gocomics.com/gingermeggs</link><description>Daily Ginger Meggs comic strip by Jason Chatfield from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/gingermeggs.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 14 Aug 2025 09:18:00 +0000</lastBuildDate><ttl>1440</ttl><item><title>Ginger Meggs - 2025-08-14</title><link>https://www.gocomics.com/gingermeggs/2025/08/14</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Ginger Meggs - GoComics</title><link>https://www.gocomics.com/gingermeggs</link><description>Daily Ginger Meggs comic strip by Jason Chatfield from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/gingermeggs.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 15 Aug 2025 09:15:53 +0000</lastBuildDate><ttl>1440</ttl><item><title>Ginger Meggs - 2025-08-15</title><link>https://www.gocomics.com/gingermeggs/2025/08/15</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/0045cb404aff013eac8a005056a9545d" 
+                     alt="Ginger Meggs" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/15&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/08/15</guid><enclosure url="https://featureassets.gocomics.com/assets/0045cb404aff013eac8a005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 15 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Ginger Meggs - 2025-08-14</title><link>https://www.gocomics.com/gingermeggs/2025/08/14</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/fdd43db04afe013eac8a005056a9545d" 
                      alt="Ginger Meggs" 
@@ -71,15 +79,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/06&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/08/06</guid><enclosure url="https://featureassets.gocomics.com/assets/ecc4a1404afe013eac8a005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Ginger Meggs - 2025-08-05</title><link>https://www.gocomics.com/gingermeggs/2025/08/05</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/ea6daf304afe013eac8a005056a9545d" 
-                     alt="Ginger Meggs" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/08/06</guid><enclosure url="https://featureassets.gocomics.com/assets/ecc4a1404afe013eac8a005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Ginger Meggs - 2025-08-05</title><link>https://www.gocomics.com/gingermeggs/2025/08/05</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Ginger Meggs" src="https://featureassets.gocomics.com/assets/ea6daf304afe013eac8a005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/05&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/08/05</guid><enclosure url="https://featureassets.gocomics.com/assets/ea6daf304afe013eac8a005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 05 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Ginger Meggs - 2025-08-04</title><link>https://www.gocomics.com/gingermeggs/2025/08/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/08/05</guid><enclosure url="https://featureassets.gocomics.com/assets/ea6daf304afe013eac8a005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 05 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Ginger Meggs - 2025-08-04</title><link>https://www.gocomics.com/gingermeggs/2025/08/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Ginger Meggs" src="https://featureassets.gocomics.com/assets/e7cde8404afe013eac8a005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/04&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/08/04</guid><enclosure url="https://featureassets.gocomics.com/assets/e7cde8404afe013eac8a005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Ginger Meggs - 2025-08-03</title><link>https://www.gocomics.com/gingermeggs/2025/08/03</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -346,7 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/05/09</guid><enclosure url="https://featureassets.gocomics.com/assets/4768abd0fee0013d9be5005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate></item><item><title>Ginger Meggs - 2025-05-08</title><link>https://www.gocomics.com/gingermeggs/2025/05/08</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Ginger Meggs" src="https://featureassets.gocomics.com/assets/454d4ad0fee0013d9be5005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-08&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/05/08</guid><enclosure url="https://featureassets.gocomics.com/assets/454d4ad0fee0013d9be5005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate></item><item><title>Ginger Meggs - 2025-05-07</title><link>https://www.gocomics.com/gingermeggs/2025/05/07</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Ginger Meggs" src="https://featureassets.gocomics.com/assets/4322cb60fee0013d9be5005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-05-07&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/05/07</guid><enclosure url="https://featureassets.gocomics.com/assets/4322cb60fee0013d9be5005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/gingermeggs/2025/05/08</guid><enclosure url="https://featureassets.gocomics.com/assets/454d4ad0fee0013d9be5005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate></item></channel></rss>
