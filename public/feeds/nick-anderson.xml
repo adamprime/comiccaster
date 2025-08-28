@@ -1,2 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 27 Aug 2025 09:18:48 +0000</lastBuildDate><ttl>1440</ttl><item><title>Nick Anderson - No Recent Updates</title><link>https://tinyview.com/nick-anderson</link><description>No recent comics found for Nick Anderson. Check back later!</description><guid isPermaLink="false">https://tinyview.com/nick-anderson</guid><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 28 Aug 2025 09:18:28 +0000</lastBuildDate><ttl>1440</ttl><item><title>Sandwich Fascists</title><link>https://tinyview.com/nick-anderson/2025/08/14</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It’s rare to see a government so eager to prove its critics right in real time. But here we are, watching the Trump administration fire a Justice Department employee, slap him with a felony, and publicly humiliate him—for the crime of calling them “fascists.” That the accusation came seconds before he allegedly threw a sandwich at a Customs and Border Protection agent is almost beside the point. The symbolism is too perfect: in today’s Washington, labeling the regime “fascist” is more scandalous than acting like one.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/08/14/sandwich-fascists/081425.Sandwich_Fascists-copy-2.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/08/14</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/08/14/sandwich-fascists/081425.Sandwich_Fascists-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 14 Aug 2025 00:00:00 +0000</pubDate></item></channel></rss>
