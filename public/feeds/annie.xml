@@ -1,21 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Annie - GoComics</title><link>https://www.gocomics.com/annie</link><description>Daily Annie comic strip by Jay Maeder and Alan Kupperberg from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/annie.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 28 Aug 2025 09:15:23 +0000</lastBuildDate><ttl>1440</ttl><item><title>Annie - 2025-08-28</title><link>https://www.gocomics.com/annie/2025/08/28</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/8596c8bc2f43102d94d7001438c0f03b" 
-                     alt="Annie" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Annie - GoComics</title><link>https://www.gocomics.com/annie</link><description>Daily Annie comic strip by Jay Maeder and Alan Kupperberg from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/annie.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 29 Aug 2025 09:15:16 +0000</lastBuildDate><ttl>1440</ttl><item><title>Annie - 2025-08-28</title><link>https://www.gocomics.com/annie/2025/08/28</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Annie" src="https://featureassets.gocomics.com/assets/8596c8bc2f43102d94d7001438c0f03b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/28&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/28</guid><enclosure url="https://featureassets.gocomics.com/assets/8596c8bc2f43102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-27</title><link>https://www.gocomics.com/annie/2025/08/27</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/6fedcb962f43102d94d7001438c0f03b" 
-                     alt="Annie" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/28</guid><enclosure url="https://featureassets.gocomics.com/assets/8596c8bc2f43102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-27</title><link>https://www.gocomics.com/annie/2025/08/27</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Annie" src="https://featureassets.gocomics.com/assets/6fedcb962f43102d94d7001438c0f03b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/27&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/27</guid><enclosure url="https://featureassets.gocomics.com/assets/6fedcb962f43102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-26</title><link>https://www.gocomics.com/annie/2025/08/26</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/27</guid><enclosure url="https://featureassets.gocomics.com/assets/6fedcb962f43102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-26</title><link>https://www.gocomics.com/annie/2025/08/26</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/863ff9462f43102d94d7001438c0f03b" 
                      alt="Annie" 
@@ -39,23 +29,13 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/24&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/24</guid><enclosure url="https://featureassets.gocomics.com/assets/c3a4707e269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Sun, 24 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-23</title><link>https://www.gocomics.com/annie/2025/08/23</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/c1c327c8269b102d94d7001438c0f03b" 
-                     alt="Annie" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/24</guid><enclosure url="https://featureassets.gocomics.com/assets/c3a4707e269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Sun, 24 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-23</title><link>https://www.gocomics.com/annie/2025/08/23</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Annie" src="https://featureassets.gocomics.com/assets/c1c327c8269b102d94d7001438c0f03b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/23&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/23</guid><enclosure url="https://featureassets.gocomics.com/assets/c1c327c8269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-22</title><link>https://www.gocomics.com/annie/2025/08/22</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/c2b6a97a269b102d94d7001438c0f03b" 
-                     alt="Annie" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/23</guid><enclosure url="https://featureassets.gocomics.com/assets/c1c327c8269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-22</title><link>https://www.gocomics.com/annie/2025/08/22</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Annie" src="https://featureassets.gocomics.com/assets/c2b6a97a269b102d94d7001438c0f03b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/22&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/22</guid><enclosure url="https://featureassets.gocomics.com/assets/c2b6a97a269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-21</title><link>https://www.gocomics.com/annie/2025/08/21</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/22</guid><enclosure url="https://featureassets.gocomics.com/assets/c2b6a97a269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-21</title><link>https://www.gocomics.com/annie/2025/08/21</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/b36f1b64269b102d94d7001438c0f03b" 
                      alt="Annie" 
@@ -63,23 +43,13 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/21&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/21</guid><enclosure url="https://featureassets.gocomics.com/assets/b36f1b64269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-20</title><link>https://www.gocomics.com/annie/2025/08/20</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/b1bf784a269b102d94d7001438c0f03b" 
-                     alt="Annie" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/21</guid><enclosure url="https://featureassets.gocomics.com/assets/b36f1b64269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-20</title><link>https://www.gocomics.com/annie/2025/08/20</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Annie" src="https://featureassets.gocomics.com/assets/b1bf784a269b102d94d7001438c0f03b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/20&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/20</guid><enclosure url="https://featureassets.gocomics.com/assets/b1bf784a269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Wed, 20 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-19</title><link>https://www.gocomics.com/annie/2025/08/19</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/b26fa440269b102d94d7001438c0f03b" 
-                     alt="Annie" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/20</guid><enclosure url="https://featureassets.gocomics.com/assets/b1bf784a269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Wed, 20 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-19</title><link>https://www.gocomics.com/annie/2025/08/19</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Annie" src="https://featureassets.gocomics.com/assets/b26fa440269b102d94d7001438c0f03b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/19&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/19</guid><enclosure url="https://featureassets.gocomics.com/assets/b26fa440269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-18</title><link>https://www.gocomics.com/annie/2025/08/18</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/19</guid><enclosure url="https://featureassets.gocomics.com/assets/b26fa440269b102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-18</title><link>https://www.gocomics.com/annie/2025/08/18</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Annie" src="https://featureassets.gocomics.com/assets/dc321f1c25db102d94d7001438c0f03b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/18&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/annie/2025/08/18</guid><enclosure url="https://featureassets.gocomics.com/assets/dc321f1c25db102d94d7001438c0f03b" length="0" type="image/jpeg"/><pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Annie - 2025-08-17</title><link>https://www.gocomics.com/annie/2025/08/17</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
