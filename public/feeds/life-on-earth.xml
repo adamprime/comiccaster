@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Life on Earth - GoComics</title><link>https://www.gocomics.com/life-on-earth</link><description>Daily Life on Earth comic strip by Ham from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/life-on-earth.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 31 Aug 2025 09:15:36 +0000</lastBuildDate><ttl>1440</ttl><item><title>Life on Earth - 2025-08-31</title><link>https://www.gocomics.com/life-on-earth/2025/08/31</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Life on Earth - GoComics</title><link>https://www.gocomics.com/life-on-earth</link><description>Daily Life on Earth comic strip by Ham from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/life-on-earth.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 01 Sep 2025 09:18:42 +0000</lastBuildDate><ttl>1440</ttl><item><title>Life on Earth - 2025-09-01</title><link>https://www.gocomics.com/life-on-earth/2025/09/01</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/44bd3a7061cd013eb039005056a9545d" 
+                     alt="Life on Earth" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/01&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/life-on-earth/2025/09/01</guid><enclosure url="https://featureassets.gocomics.com/assets/44bd3a7061cd013eb039005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Life on Earth - 2025-08-31</title><link>https://www.gocomics.com/life-on-earth/2025/08/31</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/422e5ef061cd013eb039005056a9545d" 
                      alt="Life on Earth" 
@@ -336,7 +344,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/life-on-earth/2025/05/22</guid><enclosure url="https://featureassets.gocomics.com/assets/cd3c6120dff8013d9538005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 22 May 2025 00:00:00 +0000</pubDate></item><item><title>Life on Earth - 2025-05-21</title><link>https://www.gocomics.com/life-on-earth/2025/05/21</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Life on Earth" src="https://featureassets.gocomics.com/assets/c555a500e667013d96df005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-21&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/life-on-earth/2025/05/21</guid><enclosure url="https://featureassets.gocomics.com/assets/c555a500e667013d96df005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate></item><item><title>Life on Earth - 2025-05-20</title><link>https://www.gocomics.com/life-on-earth/2025/05/20</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Life on Earth" src="https://featureassets.gocomics.com/assets/f386ccd0e664013d96df005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-05-20&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/life-on-earth/2025/05/20</guid><enclosure url="https://featureassets.gocomics.com/assets/f386ccd0e664013d96df005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/life-on-earth/2025/05/21</guid><enclosure url="https://featureassets.gocomics.com/assets/c555a500e667013d96df005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate></item></channel></rss>
