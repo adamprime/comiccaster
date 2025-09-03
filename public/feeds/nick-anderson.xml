@@ -1,28 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 02 Sep 2025 09:17:51 +0000</lastBuildDate><ttl>1440</ttl><item><title>Stop the Steal</title><link>https://tinyview.com/nick-anderson/2025/08/26</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;By any honest measure, President Trump’s latest threat to deploy the National Guard to Chicago and Baltimore isn’t about crime, safety, or order. It’s about power—raw, unrestrained federal power wielded against his political enemies.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/08/26/stop-the-steal/082625.Stop_The_Steel-copy.jpg" alt="Image 9" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 9&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/08/26</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/08/26/stop-the-steal/082625.Stop_The_Steel-copy.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Cracker Barrel</title><link>https://tinyview.com/nick-anderson/2025/08/28</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 03 Sep 2025 09:17:52 +0000</lastBuildDate><ttl>1440</ttl><item><title>Cracker Barrel</title><link>https://tinyview.com/nick-anderson/2025/08/28</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -41,8 +18,102 @@
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Only in Trump’s America could a restaurant chain famous for selling rocking chairs and hash brown casserole spark a national culture war over an old man leaning on a barrel.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/08/28/cracker-barrel/082725.Cracker_Barrel_Iwo_Jima-copy-2.jpg" alt="Image 11" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/08/28/cracker-barrel/082725.Cracker_Barrel_Iwo_Jima-copy-2.jpg" alt="Image 10" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 10&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/08/28</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/08/28/cracker-barrel/082725.Cracker_Barrel_Iwo_Jima-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate></item><item><title>National Guard</title><link>https://tinyview.com/nick-anderson/2025/08/25</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;President Trump’s latest executive order to expand the role of the National Guard in law enforcement is not a policy to make America safer. It’s a blueprint for authoritarianism dressed up in camouflage.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/08/25/national-guard/082525.Republican_Guard_Humvee-copy.jpg" alt="Image 7" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 7&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/08/25</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/08/25/national-guard/082525.Republican_Guard_Humvee-copy.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Trump’s Toy Soldiers Get Sent Packing</title><link>https://tinyview.com/nick-anderson/2025/09/02</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Pop the champagne—or at least a decent California sparkling wine—because Judge Charles Breyer just reminded America that even presidents who cosplay as kings are bound by law. His ruling that the Trump administration “willfully” broke federal law in sending National Guard troops stomping through Los Angeles this summer is a victory not just for California, but for the idea that the United States isn’t supposed to look like a banana republic with Humvees.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/02/trumps-toy-soldiers-get-sent-packing/090225.National_Guard_Cracker_Barrel_-copy-2.jpg" alt="Image 11" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 11&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/08/28</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/08/28/cracker-barrel/082725.Cracker_Barrel_Iwo_Jima-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/02</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/02/trumps-toy-soldiers-get-sent-packing/090225.National_Guard_Cracker_Barrel_-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate></item><item><title>The Smithsonian</title><link>https://tinyview.com/nick-anderson/2025/08/20</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;President Trump says the Smithsonian is “OUT OF CONTROL.” Why? Because its exhibits dare to show slavery for what it was—an atrocity at the core of our nation’s founding and development. He’s ordered his lawyers to comb through America’s museums, hunting down the “woke” parts of history he finds uncomfortable. The White House promises to “align” exhibits with the president’s sunny vision of American “Brightness.”
+
+This is not a quibble over curatorial taste. It is an attack on truth itself (shocking, right?).&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/08/20/the-smithsonian/082025.Smithsonian_Slavery_Exhibition_-copy.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/08/20</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/08/20/the-smithsonian/082025.Smithsonian_Slavery_Exhibition_-copy.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 20 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Stop the Steal</title><link>https://tinyview.com/nick-anderson/2025/08/26</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;By any honest measure, President Trump’s latest threat to deploy the National Guard to Chicago and Baltimore isn’t about crime, safety, or order. It’s about power—raw, unrestrained federal power wielded against his political enemies.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/08/26/stop-the-steal/082625.Stop_The_Steel-copy.jpg" alt="Image 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 8&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/08/26</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/08/26/stop-the-steal/082625.Stop_The_Steel-copy.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate></item></channel></rss>
