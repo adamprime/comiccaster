@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Agnes - GoComics</title><link>https://www.gocomics.com/agnes</link><description>Daily Agnes comic strip by Tony Cochran from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/agnes.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 06 Sep 2025 09:12:04 +0000</lastBuildDate><ttl>1440</ttl><item><title>Agnes - 2025-09-06</title><link>https://www.gocomics.com/agnes/2025/09/06</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Agnes - GoComics</title><link>https://www.gocomics.com/agnes</link><description>Daily Agnes comic strip by Tony Cochran from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/agnes.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 07 Sep 2025 09:12:40 +0000</lastBuildDate><ttl>1440</ttl><item><title>Agnes - 2025-09-07</title><link>https://www.gocomics.com/agnes/2025/09/07</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/df63f850568d013eae80005056a9545d" 
+                     alt="Agnes" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/07&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/09/07</guid><enclosure url="https://featureassets.gocomics.com/assets/df63f850568d013eae80005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Agnes - 2025-09-06</title><link>https://www.gocomics.com/agnes/2025/09/06</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/6c0a181064b5013eb0a2005056a9545d" 
                      alt="Agnes" 
@@ -71,15 +79,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/29&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/08/29</guid><enclosure url="https://featureassets.gocomics.com/assets/c1ef2d705434013eae27005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Agnes - 2025-08-28</title><link>https://www.gocomics.com/agnes/2025/08/28</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/37365d105441013eae28005056a9545d" 
-                     alt="Agnes" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/08/29</guid><enclosure url="https://featureassets.gocomics.com/assets/c1ef2d705434013eae27005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Agnes - 2025-08-28</title><link>https://www.gocomics.com/agnes/2025/08/28</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Agnes" src="https://featureassets.gocomics.com/assets/37365d105441013eae28005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/28&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/08/28</guid><enclosure url="https://featureassets.gocomics.com/assets/37365d105441013eae28005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Agnes - 2025-08-27</title><link>https://www.gocomics.com/agnes/2025/08/27</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/08/28</guid><enclosure url="https://featureassets.gocomics.com/assets/37365d105441013eae28005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Agnes - 2025-08-27</title><link>https://www.gocomics.com/agnes/2025/08/27</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Agnes" src="https://featureassets.gocomics.com/assets/32c85b005441013eae28005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/27&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/08/27</guid><enclosure url="https://featureassets.gocomics.com/assets/32c85b005441013eae28005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Agnes - 2025-08-26</title><link>https://www.gocomics.com/agnes/2025/08/26</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -346,7 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/06/01</guid><enclosure url="https://featureassets.gocomics.com/assets/c906dd20277c013ea421005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Agnes - 2025-05-31</title><link>https://www.gocomics.com/agnes/2025/05/31</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Agnes" src="https://featureassets.gocomics.com/assets/3831b1a0161b013ea060005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-31&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/05/31</guid><enclosure url="https://featureassets.gocomics.com/assets/3831b1a0161b013ea060005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 31 May 2025 00:00:00 +0000</pubDate></item><item><title>Agnes - 2025-05-30</title><link>https://www.gocomics.com/agnes/2025/05/30</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Agnes" src="https://featureassets.gocomics.com/assets/30a01250161b013ea060005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-05-30&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/05/30</guid><enclosure url="https://featureassets.gocomics.com/assets/30a01250161b013ea060005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/agnes/2025/05/31</guid><enclosure url="https://featureassets.gocomics.com/assets/3831b1a0161b013ea060005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 31 May 2025 00:00:00 +0000</pubDate></item></channel></rss>
