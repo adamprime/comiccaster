@@ -1,28 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fowl Language - TinyView</title><link>https://tinyview.com/fowl-language</link><description>Daily Fowl Language comic strip by Brian Gordon from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/fowl-language.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 07 Sep 2025 09:21:45 +0000</lastBuildDate><ttl>1440</ttl><item><title>Ouch-Patient Surgery</title><link>https://tinyview.com/fowl-language/2025/08/29</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Almost wasn't going to make/ post a cartoon today because I'm in a world of pain in discomfort...but you paying subscribers are what's keeping this site alive! So thank you and here's your cartoon! XO- brian&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/08/29/ouch-patient-surgery/ouch-patient-surgery-header.jpg" alt="Image 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 8&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/08/29</guid><enclosure url="https://cdn.tinyview.com/fowl-language/2025/08/29/ouch-patient-surgery/ouch-patient-surgery-header.jpg" length="0" type="image/jpeg"/><pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Pretending To Be Older</title><link>https://tinyview.com/fowl-language/2025/09/05</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fowl Language - TinyView</title><link>https://tinyview.com/fowl-language</link><description>Daily Fowl Language comic strip by Brian Gordon from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/fowl-language.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 09:25:53 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pretending To Be Older</title><link>https://tinyview.com/fowl-language/2025/09/05</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -46,50 +23,4 @@ Hope to see some of you next weekend at Michigan's WebComicon! (Webcomicon.net) 
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 11&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/09/05</guid><enclosure url="https://cdn.tinyview.com/fowl-language/2025/09/05/pretending-to-be-older/pretending-to-be-older-header.jpg" length="0" type="image/jpeg"/><pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Love Updates</title><link>https://tinyview.com/fowl-language/2025/08/27</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Current events suck more than ever, but some things remain constant...&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/08/27/love-updates/Love-updates-header.jpg" alt="Image 7" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 7&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/08/27</guid><enclosure url="https://cdn.tinyview.com/fowl-language/2025/08/27/love-updates/Love-updates-header.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate></item><item><title>Trivia</title><link>https://tinyview.com/fowl-language/2025/08/25</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Here's a trivia question: Why do I hate trivia?&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/08/25/trivia/trivia-header.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/08/25</guid><enclosure url="https://cdn.tinyview.com/fowl-language/2025/08/25/trivia/trivia-header.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/09/05</guid><enclosure url="https://cdn.tinyview.com/fowl-language/2025/09/05/pretending-to-be-older/pretending-to-be-older-header.jpg" length="0" type="image/jpeg"/><pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate></item></channel></rss>
