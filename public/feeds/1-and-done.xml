@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>1 and Done - GoComics</title><link>https://www.gocomics.com/1-and-done</link><description>Daily 1 and Done comic strip by Eric Scott from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/1-and-done.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 09:15:38 +0000</lastBuildDate><ttl>1440</ttl><item><title>1 and Done - 2025-09-08</title><link>https://www.gocomics.com/1-and-done/2025/09/08</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>1 and Done - GoComics</title><link>https://www.gocomics.com/1-and-done</link><description>Daily 1 and Done comic strip by Eric Scott from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/1-and-done.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 09 Sep 2025 09:15:47 +0000</lastBuildDate><ttl>1440</ttl><item><title>1 and Done - 2025-09-09</title><link>https://www.gocomics.com/1-and-done/2025/09/09</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/a63ca6206f44013eb258005056a9545d" 
+                     alt="1 and Done" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/09&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/1-and-done/2025/09/09</guid><enclosure url="https://featureassets.gocomics.com/assets/a63ca6206f44013eb258005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate></item><item><title>1 and Done - 2025-09-08</title><link>https://www.gocomics.com/1-and-done/2025/09/08</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/b96158006e74013eb22a005056a9545d" 
                      alt="1 and Done" 
@@ -326,7 +334,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/1-and-done/2025/04/23</guid><enclosure url="https://featureassets.gocomics.com/assets/63e446f001d3013e9c53005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate></item><item><title>1 and Done - 2025-04-22</title><link>https://www.gocomics.com/1-and-done/2025/04/22</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="1 and Done" src="https://featureassets.gocomics.com/assets/af1c9970011c013e9c27005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-04-22&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/1-and-done/2025/04/22</guid><enclosure url="https://featureassets.gocomics.com/assets/af1c9970011c013e9c27005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate></item><item><title>1 and Done - 2025-04-21</title><link>https://www.gocomics.com/1-and-done/2025/04/21</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="1 and Done" src="https://featureassets.gocomics.com/assets/1b9a9a000070013e9c1a005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-04-21&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/1-and-done/2025/04/21</guid><enclosure url="https://featureassets.gocomics.com/assets/1b9a9a000070013e9c1a005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/1-and-done/2025/04/22</guid><enclosure url="https://featureassets.gocomics.com/assets/af1c9970011c013e9c27005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate></item></channel></rss>
