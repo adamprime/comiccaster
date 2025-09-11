@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>CowTown - GoComics</title><link>https://www.gocomics.com/cowtown</link><description>Daily CowTown comic strip by Charlie Podrebarac from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/cowtown.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 09:14:20 +0000</lastBuildDate><ttl>1440</ttl><item><title>CowTown - 2025-09-10</title><link>https://www.gocomics.com/cowtown/2025/09/10</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>CowTown - GoComics</title><link>https://www.gocomics.com/cowtown</link><description>Daily CowTown comic strip by Charlie Podrebarac from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/cowtown.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 11 Sep 2025 09:15:53 +0000</lastBuildDate><ttl>1440</ttl><item><title>CowTown - 2025-09-11</title><link>https://www.gocomics.com/cowtown/2025/09/11</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/b97691606b72013eb1b1005056a9545d" 
+                     alt="CowTown" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/11&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/09/11</guid><enclosure url="https://featureassets.gocomics.com/assets/b97691606b72013eb1b1005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate></item><item><title>CowTown - 2025-09-10</title><link>https://www.gocomics.com/cowtown/2025/09/10</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/b727eee06b72013eb1b1005056a9545d" 
                      alt="CowTown" 
@@ -71,15 +79,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/02&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/09/02</guid><enclosure url="https://featureassets.gocomics.com/assets/0870e520667d013eb110005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate></item><item><title>CowTown - 2025-09-01</title><link>https://www.gocomics.com/cowtown/2025/09/01</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/03f8aa30667d013eb110005056a9545d" 
-                     alt="CowTown" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/09/02</guid><enclosure url="https://featureassets.gocomics.com/assets/0870e520667d013eb110005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate></item><item><title>CowTown - 2025-09-01</title><link>https://www.gocomics.com/cowtown/2025/09/01</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="CowTown" src="https://featureassets.gocomics.com/assets/03f8aa30667d013eb110005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/01&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/09/01</guid><enclosure url="https://featureassets.gocomics.com/assets/03f8aa30667d013eb110005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate></item><item><title>CowTown - 2025-08-31</title><link>https://www.gocomics.com/cowtown/2025/08/31</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/09/01</guid><enclosure url="https://featureassets.gocomics.com/assets/03f8aa30667d013eb110005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate></item><item><title>CowTown - 2025-08-31</title><link>https://www.gocomics.com/cowtown/2025/08/31</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="CowTown" src="https://featureassets.gocomics.com/assets/fea19d40667c013eb110005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/08/31&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/08/31</guid><enclosure url="https://featureassets.gocomics.com/assets/fea19d40667c013eb110005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate></item><item><title>CowTown - 2025-08-30</title><link>https://www.gocomics.com/cowtown/2025/08/30</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -346,7 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/06/05</guid><enclosure url="https://featureassets.gocomics.com/assets/14bd7040f92a013d9ae8005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 05 Jun 2025 00:00:00 +0000</pubDate></item><item><title>CowTown - 2025-06-04</title><link>https://www.gocomics.com/cowtown/2025/06/04</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="CowTown" src="https://featureassets.gocomics.com/assets/c7ecb0a022da013ea31b005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-04&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/06/04</guid><enclosure url="https://featureassets.gocomics.com/assets/c7ecb0a022da013ea31b005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate></item><item><title>CowTown - 2025-06-03</title><link>https://www.gocomics.com/cowtown/2025/06/03</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="CowTown" src="https://featureassets.gocomics.com/assets/c5bc4d1022da013ea31b005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-06-03&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/06/03</guid><enclosure url="https://featureassets.gocomics.com/assets/c5bc4d1022da013ea31b005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/cowtown/2025/06/04</guid><enclosure url="https://featureassets.gocomics.com/assets/c7ecb0a022da013ea31b005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
