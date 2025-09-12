@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>DeFlocked - GoComics</title><link>https://www.gocomics.com/deflocked</link><description>Daily DeFlocked comic strip by Jeff Corriveau from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/deflocked.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 11 Sep 2025 09:15:56 +0000</lastBuildDate><ttl>1440</ttl><item><title>DeFlocked - 2025-09-11</title><link>https://www.gocomics.com/deflocked/2025/09/11</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>DeFlocked - GoComics</title><link>https://www.gocomics.com/deflocked</link><description>Daily DeFlocked comic strip by Jeff Corriveau from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/deflocked.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 12 Sep 2025 09:15:07 +0000</lastBuildDate><ttl>1440</ttl><item><title>DeFlocked - 2025-09-12</title><link>https://www.gocomics.com/deflocked/2025/09/12</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/9a305ed06b20013eb193005056a9545d" 
+                     alt="DeFlocked" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/12&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/09/12</guid><enclosure url="https://featureassets.gocomics.com/assets/9a305ed06b20013eb193005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate></item><item><title>DeFlocked - 2025-09-11</title><link>https://www.gocomics.com/deflocked/2025/09/11</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/9755a7a06b20013eb193005056a9545d" 
                      alt="DeFlocked" 
@@ -71,15 +79,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/03&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/09/03</guid><enclosure url="https://featureassets.gocomics.com/assets/922c061064f8013eb0bf005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate></item><item><title>DeFlocked - 2025-09-02</title><link>https://www.gocomics.com/deflocked/2025/09/02</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/8ec081d064f8013eb0bf005056a9545d" 
-                     alt="DeFlocked" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/09/03</guid><enclosure url="https://featureassets.gocomics.com/assets/922c061064f8013eb0bf005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate></item><item><title>DeFlocked - 2025-09-02</title><link>https://www.gocomics.com/deflocked/2025/09/02</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="DeFlocked" src="https://featureassets.gocomics.com/assets/8ec081d064f8013eb0bf005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/02&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/09/02</guid><enclosure url="https://featureassets.gocomics.com/assets/8ec081d064f8013eb0bf005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate></item><item><title>DeFlocked - 2025-09-01</title><link>https://www.gocomics.com/deflocked/2025/09/01</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/09/02</guid><enclosure url="https://featureassets.gocomics.com/assets/8ec081d064f8013eb0bf005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate></item><item><title>DeFlocked - 2025-09-01</title><link>https://www.gocomics.com/deflocked/2025/09/01</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="DeFlocked" src="https://featureassets.gocomics.com/assets/8bba3fc064f8013eb0bf005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/01&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/09/01</guid><enclosure url="https://featureassets.gocomics.com/assets/8bba3fc064f8013eb0bf005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate></item><item><title>DeFlocked - 2025-08-31</title><link>https://www.gocomics.com/deflocked/2025/08/31</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -346,7 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/06/05</guid><enclosure url="https://featureassets.gocomics.com/assets/9ceb90a01dfd013ea224005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 05 Jun 2025 00:00:00 +0000</pubDate></item><item><title>DeFlocked - 2025-06-04</title><link>https://www.gocomics.com/deflocked/2025/06/04</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="DeFlocked" src="https://featureassets.gocomics.com/assets/ed95b1a0e832013d9777005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-04&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/06/04</guid><enclosure url="https://featureassets.gocomics.com/assets/ed95b1a0e832013d9777005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate></item><item><title>DeFlocked - 2025-06-03</title><link>https://www.gocomics.com/deflocked/2025/06/03</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="DeFlocked" src="https://featureassets.gocomics.com/assets/ed95b1a0e832013d9777005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-06-03&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/06/03</guid><enclosure url="https://featureassets.gocomics.com/assets/ed95b1a0e832013d9777005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/deflocked/2025/06/04</guid><enclosure url="https://featureassets.gocomics.com/assets/ed95b1a0e832013d9777005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
