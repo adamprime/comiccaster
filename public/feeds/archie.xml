@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Archie - TinyView</title><link>https://tinyview.com/archie</link><description>Daily Archie comic strip by Archie Comics from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/archie.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 13 Sep 2025 09:14:57 +0000</lastBuildDate><ttl>1440</ttl><item><title>#249 - No Money Mo Problems</title><link>https://tinyview.com/archie/2025/09/11</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Archie - TinyView</title><link>https://tinyview.com/archie</link><description>Daily Archie comic strip by Archie Comics from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/archie.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 14 Sep 2025 09:15:29 +0000</lastBuildDate><ttl>1440</ttl><item><title>#249 - No Money Mo Problems</title><link>https://tinyview.com/archie/2025/09/11</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -22,31 +22,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 11&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/archie/2025/09/11</guid><enclosure url="https://cdn.tinyview.com/archie/2025/09/11/249-no-money-mo-problems/BSA_TV_Title_Panel.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate></item><item><title>#248 - Drawn to Persevere</title><link>https://tinyview.com/archie/2025/09/04</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Never stop making your art. #BiteSizedArchie&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/archie/2025/09/04/247-just-plane-crazy/BSA_TV_Title_Panel.jpg" alt="Image 9" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 9&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/archie/2025/09/04/248-drawn-to-persevere/BSA_TV_Title_Panel.jpg" alt="Image 10" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 10&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/archie/2025/09/04</guid><enclosure url="https://cdn.tinyview.com/archie/2025/09/04/247-just-plane-crazy/BSA_TV_Title_Panel.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/archie/2025/09/11</guid><enclosure url="https://cdn.tinyview.com/archie/2025/09/11/249-no-money-mo-problems/BSA_TV_Title_Panel.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate></item></channel></rss>
