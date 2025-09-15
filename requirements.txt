@@ -11,5 +11,5 @@ pytest==8.4.1
 pytest-cov==6.2.1
 pytest-mock==3.12.0
 requests-mock==1.11.0
-feedparser==6.0.11
+feedparser==6.0.12
 pyyaml==6.0.2
