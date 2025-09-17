@@ -1,120 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 09:19:46 +0000</lastBuildDate><ttl>1440</ttl><item><title>The problems at hand</title><link>https://tinyview.com/pedro-x-molina/2025/09/02</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Inflation, the cost of living, difficult access to healthcare... These are the main problems that American citizens say they suffer from. However, all of this seems too boring to an administration that prefers to focus on celebrating cruelty towards the weakest, pushing its political vendettas, making controversial statements, putting a different sweetener in Coca-Cola, preserving old logos, and keeping the Epstein files hidden.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/09/02/the-problems-at-hand/SaferTVC.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/02</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/02/the-problems-at-hand/SaferTVC.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Setting the record straight</title><link>https://tinyview.com/pedro-x-molina/2025/09/04</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Trump and his MAGAlievers, who are prone to repeating and exaggerating ANY rumors about former President Biden's health, are now bothered by rumors about the current president's health. If you ask me, there are more serious issues that should matter to them... But they are too afraid to face them.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/09/04/setting-the-record-straight/NDeadTVC.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/04</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/04/setting-the-record-straight/NDeadTVC.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Floaties or sinkies?</title><link>https://tinyview.com/pedro-x-molina/2025/09/10</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;In addition to dealing with the dangerous anti-vaccine policies of RFK Jr., Florida children also have to deal with Ron DeSantis and his plan to eliminate the vaccine mandate in the state's schools. Once again, MAGA demonstrates its penchant for making children suffer.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/09/10/floaties-or-sinkies/FloatiesTVC.jpg" alt="Image 9" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 9&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/10</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/10/floaties-or-sinkies/FloatiesTVC.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Hidden racism</title><link>https://tinyview.com/pedro-x-molina/2025/09/09</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Imagine being treated like a criminal solely because of the color of your skin, perhaps because you work in construction, or because someone overhears you speaking a few words in another language... That is exactly what the SCOTUS conservatives are giving the green light to. They are deeming it "acceptable" for millions of citizens, even if they are completely legal, to live in fear of being exposed to one of the countless abuses committed by this administration in its hunt for undocumented migrants. This is racial discrimination. It is unfair and immoral and jeopardizes the protection guaranteed by the Fourth Amendment.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/09/09/hidden-racism/RCTVC.jpg" alt="Image 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 8&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/09</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/09/hidden-racism/RCTVC.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate></item><item><title>"Just Kill 'em"</title><link>https://tinyview.com/pedro-x-molina/2025/09/15</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Fox commentator Brian Kilmeade suggested that the solution to the problem of the mentally ill and homeless was to give them an "involuntary lethal injection" and added, "Just kill 'em." After facing backlash, Kilmeade apologized, but the question remains: Is this the kind of "Christianity" that extreme conservatives harbor deep in their hearts?&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/09/15/just-kill-em/HTVC.jpg" alt="Image 11" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 11&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/15</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/15/just-kill-em/HTVC.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate></item><item><title>May I have your attention, please?</title><link>https://tinyview.com/pedro-x-molina/2025/09/03</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 17 Sep 2025 09:18:56 +0000</lastBuildDate><ttl>1440</ttl><item><title>May I have your attention, please?</title><link>https://tinyview.com/pedro-x-molina/2025/09/03</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -140,4 +25,73 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/03</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/03/may-i-have-your-attention-please/EVictimsTVC.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/03</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/03/may-i-have-your-attention-please/EVictimsTVC.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate></item><item><title>"Just Kill 'em"</title><link>https://tinyview.com/pedro-x-molina/2025/09/15</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Fox commentator Brian Kilmeade suggested that the solution to the problem of the mentally ill and homeless was to give them an "involuntary lethal injection" and added, "Just kill 'em." After facing backlash, Kilmeade apologized, but the question remains: Is this the kind of "Christianity" that extreme conservatives harbor deep in their hearts?&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/09/15/just-kill-em/HTVC.jpg" alt="Image 10" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 10&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/15</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/15/just-kill-em/HTVC.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Ukrainians' killers</title><link>https://tinyview.com/pedro-x-molina/2025/09/16</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Everyone was shocked by the heinous murder of Iryna Zarutska, a Ukrainian refugee in the United States. Trump strongly criticized the murderer and even called for the death penalty. Meanwhile, another murderer of Ukrainians received somewhat different treatment from Trump...&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/09/16/ukrainians-killers/UKTVC.jpg" alt="Image 11" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 11&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/16</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/16/ukrainians-killers/UKTVC.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Trumpocalypse</title><link>https://tinyview.com/pedro-x-molina/2025/09/08</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;In the Trump era, it's important to distinguish what's truly important from the noise. The current president knows that by constantly provoking people, he can keep them distracted wondering about what his next outburst will be instead of organizing to confront his abuses. The only valid use of his noise is to reuse it to highlight what it seeks to silence.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/09/08/trumpocalypse/TCalypseTVC.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/09/08</guid><enclosure url="https://cdn.tinyview.com/pedro-x-molina/2025/09/08/trumpocalypse/TCalypseTVC.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate></item></channel></rss>

@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Sylvia - GoComics</title><link>https://www.gocomics.com/sylvia</link><description>Daily Sylvia comic strip by Nicole Hollander from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/sylvia.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 09:17:51 +0000</lastBuildDate><ttl>1440</ttl><item><title>Sylvia - 2025-09-16</title><link>https://www.gocomics.com/sylvia/2025/09/16</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Sylvia - GoComics</title><link>https://www.gocomics.com/sylvia</link><description>Daily Sylvia comic strip by Nicole Hollander from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/sylvia.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 17 Sep 2025 09:17:24 +0000</lastBuildDate><ttl>1440</ttl><item><title>Sylvia - 2025-09-17</title><link>https://www.gocomics.com/sylvia/2025/09/17</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/8b775100633d012ee3c300163e41dd5b" 
+                     alt="Sylvia" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/17&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/sylvia/2025/09/17</guid><enclosure url="https://featureassets.gocomics.com/assets/8b775100633d012ee3c300163e41dd5b" length="0" type="image/jpeg"/><pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Sylvia - 2025-09-16</title><link>https://www.gocomics.com/sylvia/2025/09/16</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/0ff02b10633e012ee3c300163e41dd5b" 
                      alt="Sylvia" 
@@ -336,7 +344,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/sylvia/2025/05/26</guid><enclosure url="https://featureassets.gocomics.com/assets/bd40a5e06330012ee3c300163e41dd5b" length="0" type="image/jpeg"/><pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate></item><item><title>Sylvia - 2025-05-24</title><link>https://www.gocomics.com/sylvia/2025/05/24</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Sylvia" src="https://featureassets.gocomics.com/assets/92fa7b30633e012ee3c300163e41dd5b" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-24&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/sylvia/2025/05/24</guid><enclosure url="https://featureassets.gocomics.com/assets/92fa7b30633e012ee3c300163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate></item><item><title>Sylvia - 2025-05-23</title><link>https://www.gocomics.com/sylvia/2025/05/23</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Sylvia" src="https://featureassets.gocomics.com/assets/56dd4b20633a012ee3c300163e41dd5b" /&gt;
-                    &lt;p&gt;Comic strip for 2025-05-23&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/sylvia/2025/05/23</guid><enclosure url="https://featureassets.gocomics.com/assets/56dd4b20633a012ee3c300163e41dd5b" length="0" type="image/jpeg"/><pubDate>Fri, 23 May 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/sylvia/2025/05/24</guid><enclosure url="https://featureassets.gocomics.com/assets/92fa7b30633e012ee3c300163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate></item></channel></rss>

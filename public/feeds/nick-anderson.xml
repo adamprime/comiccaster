@@ -1,51 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 09:19:32 +0000</lastBuildDate><ttl>1440</ttl><item><title>Trump’s Toy Soldiers Get Sent Packing</title><link>https://tinyview.com/nick-anderson/2025/09/02</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Pop the champagne—or at least a decent California sparkling wine—because Judge Charles Breyer just reminded America that even presidents who cosplay as kings are bound by law. His ruling that the Trump administration “willfully” broke federal law in sending National Guard troops stomping through Los Angeles this summer is a victory not just for California, but for the idea that the United States isn’t supposed to look like a banana republic with Humvees.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/02/trumps-toy-soldiers-get-sent-packing/090225.National_Guard_Cracker_Barrel_-copy-2.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/02</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/02/trumps-toy-soldiers-get-sent-packing/090225.National_Guard_Cracker_Barrel_-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate></item><item><title>The Trumpocalypse</title><link>https://tinyview.com/nick-anderson/2025/09/09</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Waiting for Trump's Justice Department to release the Epstein files? Don't hold your breath.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/09/the-trumpocalypse/090925.Epstein_Files_Apocalypse_Now-copy-2.jpg" alt="Image 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 8&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/09</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/09/the-trumpocalypse/090925.Epstein_Files_Apocalypse_Now-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Trump's Health</title><link>https://tinyview.com/nick-anderson/2025/09/03</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 17 Sep 2025 09:18:55 +0000</lastBuildDate><ttl>1440</ttl><item><title>Trump's Health</title><link>https://tinyview.com/nick-anderson/2025/09/03</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -68,53 +22,7 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/03</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/03/trump-s-health/090325.Trump_Health_AUTOPEN-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate></item><item><title>The Tyranny of Our Gun Culture</title><link>https://tinyview.com/nick-anderson/2025/09/11</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;I think we have this completely backwards. We live in a country that, at least in theory, guarantees expansive rights to free speech—speech that is nonlethal, nonviolent, and central to the functioning of a democracy.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/11/the-tyranny-of-our-gun-culture/091125.First_Amendment_Vs_Second_Amendment-copy-2.jpg" alt="Image 10" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 10&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/11</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/11/the-tyranny-of-our-gun-culture/091125.First_Amendment_Vs_Second_Amendment-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Christmas Card Photo</title><link>https://tinyview.com/nick-anderson/2025/09/15</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Despite the occasional nutcase, if you're looking for the political party that promotes violence. it's no the Democratic party.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/15/christmas-card-photo/091525.Republican_Gun_Christmas_Card-copy-2.jpg" alt="Image 11" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 11&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/15</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/15/christmas-card-photo/091525.Republican_Gun_Christmas_Card-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate></item><item><title>The Two Faces of RFK Jr.</title><link>https://tinyview.com/nick-anderson/2025/09/04</link><description>
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/03</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/03/trump-s-health/090325.Trump_Health_AUTOPEN-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate></item><item><title>The Two Faces of RFK Jr.</title><link>https://tinyview.com/nick-anderson/2025/09/04</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -133,12 +41,58 @@
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Robert F. Kennedy Jr. went before the Senate Finance Committee today and did what he has done for years: sowed doubt about vaccines, twisted himself into rhetorical knots, and contradicted his own record—all while Americans struggle with access to lifesaving shots. His tenure as Secretary of Health and Human Services is proving not just chaotic, but also dangerous.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/04/epstein-survivors/090425.Epstein_Victims_Hoax-copy-2.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/04/epstein-survivors/090425.Epstein_Victims_Hoax-copy-2.jpg" alt="Image 5" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 5&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/04/the-two-faces-of-rfk-jr/090425.RFK_jr_Contradictions-copy-2.jpg" alt="Image 7" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/04/the-two-faces-of-rfk-jr/090425.RFK_jr_Contradictions-copy-2.jpg" alt="Image 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/04</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/04/epstein-survivors/090425.Epstein_Victims_Hoax-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Mt. Rushmore</title><link>https://tinyview.com/nick-anderson/2025/09/10</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Republicans are so eager to canonize Trump that they’ve turned Congress into a cross between a fan convention and a QVC marathon. Seven months into his second term, they’re pitching everything from renaming Dulles Airport to swapping Ben Franklin for The Donald on the $100 bill—because who cares about discovering electricity when you’ve got golf courses and Truth Social posts?&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/10/mt-rushmore/091025.Trump_Mt._Rushmore-copy-2.jpg" alt="Image 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 8&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/10</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/10/mt-rushmore/091025.Trump_Mt._Rushmore-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate></item><item><title>The Trumpocalypse</title><link>https://tinyview.com/nick-anderson/2025/09/09</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Waiting for Trump's Justice Department to release the Epstein files? Don't hold your breath.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2025/09/09/the-trumpocalypse/090925.Epstein_Files_Apocalypse_Now-copy-2.jpg" alt="Image 7" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 7&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/04</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/04/epstein-survivors/090425.Epstein_Victims_Hoax-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2025/09/09</guid><enclosure url="https://cdn.tinyview.com/nick-anderson/2025/09/09/the-trumpocalypse/090925.Epstein_Files_Apocalypse_Now-copy-2.jpg" length="0" type="image/jpeg"/><pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate></item></channel></rss>
