@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Wee Pals - GoComics</title><link>https://www.gocomics.com/weepals</link><description>Daily Wee Pals comic strip by Morrie Turner from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/weepals.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 20 Sep 2025 09:16:09 +0000</lastBuildDate><ttl>1440</ttl><item><title>Wee Pals - 2025-09-20</title><link>https://www.gocomics.com/weepals/2025/09/20</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Wee Pals - GoComics</title><link>https://www.gocomics.com/weepals</link><description>Daily Wee Pals comic strip by Morrie Turner from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/weepals.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 21 Sep 2025 09:15:06 +0000</lastBuildDate><ttl>1440</ttl><item><title>Wee Pals - 2025-09-21</title><link>https://www.gocomics.com/weepals/2025/09/21</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/a3f6f4006191013eb01f005056a9545d" 
+                     alt="Wee Pals" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/21&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/09/21</guid><enclosure url="https://featureassets.gocomics.com/assets/a3f6f4006191013eb01f005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 21 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Wee Pals - 2025-09-20</title><link>https://www.gocomics.com/weepals/2025/09/20</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/d260cfb06bc4013eb1bc005056a9545d" 
                      alt="Wee Pals" 
@@ -71,15 +79,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/12&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/09/12</guid><enclosure url="https://featureassets.gocomics.com/assets/ff49f31060c5013eaff0005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Wee Pals - 2025-09-11</title><link>https://www.gocomics.com/weepals/2025/09/11</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/fd9e7cd060c5013eaff0005056a9545d" 
-                     alt="Wee Pals" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/09/12</guid><enclosure url="https://featureassets.gocomics.com/assets/ff49f31060c5013eaff0005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Wee Pals - 2025-09-11</title><link>https://www.gocomics.com/weepals/2025/09/11</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Wee Pals" src="https://featureassets.gocomics.com/assets/fd9e7cd060c5013eaff0005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/11&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/09/11</guid><enclosure url="https://featureassets.gocomics.com/assets/fd9e7cd060c5013eaff0005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Wee Pals - 2025-09-10</title><link>https://www.gocomics.com/weepals/2025/09/10</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/09/11</guid><enclosure url="https://featureassets.gocomics.com/assets/fd9e7cd060c5013eaff0005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Wee Pals - 2025-09-10</title><link>https://www.gocomics.com/weepals/2025/09/10</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Wee Pals" src="https://featureassets.gocomics.com/assets/fb9100a060c5013eaff0005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/10&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/09/10</guid><enclosure url="https://featureassets.gocomics.com/assets/fb9100a060c5013eaff0005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Wee Pals - 2025-09-09</title><link>https://www.gocomics.com/weepals/2025/09/09</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -346,7 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/06/15</guid><enclosure url="https://featureassets.gocomics.com/assets/ae44cb701ee5013ea26b005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 15 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Wee Pals - 2025-06-14</title><link>https://www.gocomics.com/weepals/2025/06/14</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Wee Pals" src="https://featureassets.gocomics.com/assets/e37b65f0f517013d9a04005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-14&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/06/14</guid><enclosure url="https://featureassets.gocomics.com/assets/e37b65f0f517013d9a04005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 14 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Wee Pals - 2025-06-13</title><link>https://www.gocomics.com/weepals/2025/06/13</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Wee Pals" src="https://featureassets.gocomics.com/assets/94c524101f01013ea275005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-06-13&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/06/13</guid><enclosure url="https://featureassets.gocomics.com/assets/94c524101f01013ea275005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/weepals/2025/06/14</guid><enclosure url="https://featureassets.gocomics.com/assets/e37b65f0f517013d9a04005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 14 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
