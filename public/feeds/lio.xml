@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lio - GoComics</title><link>https://www.gocomics.com/lio</link><description>Daily Lio comic strip by Mark Tatulli from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/lio.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 23 Sep 2025 09:17:41 +0000</lastBuildDate><ttl>1440</ttl><item><title>Lio - 2025-09-23</title><link>https://www.gocomics.com/lio/2025/09/23</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lio - GoComics</title><link>https://www.gocomics.com/lio</link><description>Daily Lio comic strip by Mark Tatulli from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/lio.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 24 Sep 2025 09:19:10 +0000</lastBuildDate><ttl>1440</ttl><item><title>Lio - 2025-09-24</title><link>https://www.gocomics.com/lio/2025/09/24</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/2ad05e7079f8013eb464005056a9545d" 
+                     alt="Lio" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/24&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/09/24</guid><enclosure url="https://featureassets.gocomics.com/assets/2ad05e7079f8013eb464005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Lio - 2025-09-23</title><link>https://www.gocomics.com/lio/2025/09/23</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/27c4ea3079f8013eb464005056a9545d" 
                      alt="Lio" 
@@ -71,15 +79,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/15&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/09/15</guid><enclosure url="https://featureassets.gocomics.com/assets/7a78904075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Lio - 2025-09-14</title><link>https://www.gocomics.com/lio/2025/09/14</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/e74e59305456013eae30005056a9545d" 
-                     alt="Lio" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/09/15</guid><enclosure url="https://featureassets.gocomics.com/assets/7a78904075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Lio - 2025-09-14</title><link>https://www.gocomics.com/lio/2025/09/14</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Lio" src="https://featureassets.gocomics.com/assets/e74e59305456013eae30005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/14&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/09/14</guid><enclosure url="https://featureassets.gocomics.com/assets/e74e59305456013eae30005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Lio - 2025-09-13</title><link>https://www.gocomics.com/lio/2025/09/13</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/09/14</guid><enclosure url="https://featureassets.gocomics.com/assets/e74e59305456013eae30005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Lio - 2025-09-13</title><link>https://www.gocomics.com/lio/2025/09/13</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Lio" src="https://featureassets.gocomics.com/assets/1feb38f06b1c013eb193005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/13&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/09/13</guid><enclosure url="https://featureassets.gocomics.com/assets/1feb38f06b1c013eb193005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Lio - 2025-09-12</title><link>https://www.gocomics.com/lio/2025/09/12</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -346,7 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/06/18</guid><enclosure url="https://featureassets.gocomics.com/assets/5460cf302941013ea49f005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 18 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Lio - 2025-06-17</title><link>https://www.gocomics.com/lio/2025/06/17</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Lio" src="https://featureassets.gocomics.com/assets/51ce14102941013ea49f005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/06/17&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/06/17</guid><enclosure url="https://featureassets.gocomics.com/assets/51ce14102941013ea49f005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Lio - 2025-06-16</title><link>https://www.gocomics.com/lio/2025/06/16</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Lio" src="https://featureassets.gocomics.com/assets/4f1c4a002941013ea49f005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-06-16&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/06/16</guid><enclosure url="https://featureassets.gocomics.com/assets/4f1c4a002941013ea49f005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/lio/2025/06/17</guid><enclosure url="https://featureassets.gocomics.com/assets/51ce14102941013ea49f005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
