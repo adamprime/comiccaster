@@ -1,5 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Bob the Squirrel - GoComics</title><link>https://www.gocomics.com/bobthesquirrel</link><description>Daily Bob the Squirrel comic strip by Frank Page from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/bobthesquirrel.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 24 Sep 2025 09:18:27 +0000</lastBuildDate><ttl>1440</ttl><item><title>Bob the Squirrel - 2025-09-23</title><link>https://www.gocomics.com/bobthesquirrel/2025/09/23</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Bob the Squirrel - GoComics</title><link>https://www.gocomics.com/bobthesquirrel</link><description>Daily Bob the Squirrel comic strip by Frank Page from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/bobthesquirrel.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 25 Sep 2025 09:16:32 +0000</lastBuildDate><ttl>1440</ttl><item><title>Bob the Squirrel - 2025-09-25</title><link>https://www.gocomics.com/bobthesquirrel/2025/09/25</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/e06f7fc07bd5013eb4ed005056a9545d" 
+                     alt="Bob the Squirrel" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/25&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/09/25</guid><enclosure url="https://featureassets.gocomics.com/assets/e06f7fc07bd5013eb4ed005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-09-24</title><link>https://www.gocomics.com/bobthesquirrel/2025/09/24</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/436987f07b7d013eb4c5005056a9545d" 
+                     alt="Bob the Squirrel" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/24&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/09/24</guid><enclosure url="https://featureassets.gocomics.com/assets/436987f07b7d013eb4c5005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-09-23</title><link>https://www.gocomics.com/bobthesquirrel/2025/09/23</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/52c517207a46013eb485005056a9545d" 
                      alt="Bob the Squirrel" 
@@ -63,15 +79,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/16&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/09/16</guid><enclosure url="https://featureassets.gocomics.com/assets/d3f3f5d074c5013eb364005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-09-15</title><link>https://www.gocomics.com/bobthesquirrel/2025/09/15</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/4776e7e073fb013eb331005056a9545d" 
-                     alt="Bob the Squirrel" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/09/16</guid><enclosure url="https://featureassets.gocomics.com/assets/d3f3f5d074c5013eb364005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-09-15</title><link>https://www.gocomics.com/bobthesquirrel/2025/09/15</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Bob the Squirrel" src="https://featureassets.gocomics.com/assets/4776e7e073fb013eb331005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/15&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/09/15</guid><enclosure url="https://featureassets.gocomics.com/assets/4776e7e073fb013eb331005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-09-14</title><link>https://www.gocomics.com/bobthesquirrel/2025/09/14</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/09/15</guid><enclosure url="https://featureassets.gocomics.com/assets/4776e7e073fb013eb331005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-09-14</title><link>https://www.gocomics.com/bobthesquirrel/2025/09/14</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Bob the Squirrel" src="https://featureassets.gocomics.com/assets/d26af1f07333013eb320005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/14&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/09/14</guid><enclosure url="https://featureassets.gocomics.com/assets/d26af1f07333013eb320005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-09-13</title><link>https://www.gocomics.com/bobthesquirrel/2025/09/13</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -338,10 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/06/14</guid><enclosure url="https://featureassets.gocomics.com/assets/b854b5402acc013ea511005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 14 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-06-13</title><link>https://www.gocomics.com/bobthesquirrel/2025/06/13</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Bob the Squirrel" src="https://featureassets.gocomics.com/assets/d46121d02a19013ea4e4005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-13&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/06/13</guid><enclosure url="https://featureassets.gocomics.com/assets/d46121d02a19013ea4e4005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-06-12</title><link>https://www.gocomics.com/bobthesquirrel/2025/06/12</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Bob the Squirrel" src="https://featureassets.gocomics.com/assets/f80d6b402954013ea4ad005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-06-12&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/06/12</guid><enclosure url="https://featureassets.gocomics.com/assets/f80d6b402954013ea4ad005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 12 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Bob the Squirrel - 2025-06-11</title><link>https://www.gocomics.com/bobthesquirrel/2025/06/11</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Bob the Squirrel" src="https://featureassets.gocomics.com/assets/12d27360288d013ea473005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-06-11&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/06/11</guid><enclosure url="https://featureassets.gocomics.com/assets/12d27360288d013ea473005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bobthesquirrel/2025/06/13</guid><enclosure url="https://featureassets.gocomics.com/assets/d46121d02a19013ea4e4005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
