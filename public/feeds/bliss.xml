@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Bliss - GoComics</title><link>https://www.gocomics.com/bliss</link><description>Daily Bliss comic strip by Harry Bliss from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/bliss.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 30 Sep 2025 09:15:23 +0000</lastBuildDate><ttl>1440</ttl><item><title>Bliss - 2025-09-30</title><link>https://www.gocomics.com/bliss/2025/09/30</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Bliss - GoComics</title><link>https://www.gocomics.com/bliss</link><description>Daily Bliss comic strip by Harry Bliss from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/bliss.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 01 Oct 2025 09:16:42 +0000</lastBuildDate><ttl>1440</ttl><item><title>Bliss - 2025-10-01</title><link>https://www.gocomics.com/bliss/2025/10/01</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/455647307ac0013eb495005056a9545d" 
+                     alt="Bliss" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/01&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/bliss/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/455647307ac0013eb495005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Bliss - 2025-09-30</title><link>https://www.gocomics.com/bliss/2025/09/30</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/1f9ab1c07abd013eb494005056a9545d" 
                      alt="Bliss" 
@@ -336,7 +344,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bliss/2025/06/09</guid><enclosure url="https://featureassets.gocomics.com/assets/cc51342022b8013ea30b005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 09 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Bliss - 2025-06-07</title><link>https://www.gocomics.com/bliss/2025/06/07</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Bliss" src="https://featureassets.gocomics.com/assets/cfce9c20f13d013d9954005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-07&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bliss/2025/06/07</guid><enclosure url="https://featureassets.gocomics.com/assets/cfce9c20f13d013d9954005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Bliss - 2025-06-06</title><link>https://www.gocomics.com/bliss/2025/06/06</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Bliss" src="https://featureassets.gocomics.com/assets/601829d01d4f013ea1f5005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-06-06&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bliss/2025/06/06</guid><enclosure url="https://featureassets.gocomics.com/assets/601829d01d4f013ea1f5005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 06 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/bliss/2025/06/07</guid><enclosure url="https://featureassets.gocomics.com/assets/cfce9c20f13d013d9954005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
