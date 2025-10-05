@@ -1,13 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fat Cats - GoComics</title><link>https://www.gocomics.com/fat-cats</link><description>Daily Fat Cats comic strip by Charlie Podrebarac from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/fat-cats.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 04 Oct 2025 09:13:54 +0000</lastBuildDate><ttl>1440</ttl><item><title>Fat Cats - 2025-10-04</title><link>https://www.gocomics.com/fat-cats/2025/10/04</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/ac9c0740812d013eb5e8005056a9545d" 
-                     alt="Fat Cats" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fat Cats - GoComics</title><link>https://www.gocomics.com/fat-cats</link><description>Daily Fat Cats comic strip by Charlie Podrebarac from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/fat-cats.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 05 Oct 2025 09:13:38 +0000</lastBuildDate><ttl>1440</ttl><item><title>Fat Cats - 2025-10-04</title><link>https://www.gocomics.com/fat-cats/2025/10/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Fat Cats" src="https://featureassets.gocomics.com/assets/ac9c0740812d013eb5e8005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/04&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/ac9c0740812d013eb5e8005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-10-03</title><link>https://www.gocomics.com/fat-cats/2025/10/03</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/ac9c0740812d013eb5e8005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-10-03</title><link>https://www.gocomics.com/fat-cats/2025/10/03</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/aa5fe320812d013eb5e8005056a9545d" 
                      alt="Fat Cats" 
@@ -39,15 +34,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/30&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/82436bb07d37013eb537005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-29</title><link>https://www.gocomics.com/fat-cats/2025/09/29</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/a58869707d39013eb537005056a9545d" 
-                     alt="Fat Cats" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/82436bb07d37013eb537005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-29</title><link>https://www.gocomics.com/fat-cats/2025/09/29</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Fat Cats" src="https://featureassets.gocomics.com/assets/a58869707d39013eb537005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/29&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/a58869707d39013eb537005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-28</title><link>https://www.gocomics.com/fat-cats/2025/09/28</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/a58869707d39013eb537005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-28</title><link>https://www.gocomics.com/fat-cats/2025/09/28</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/4f040bd07add013eb4a5005056a9545d" 
                      alt="Fat Cats" 
@@ -55,15 +45,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/28&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/28</guid><enclosure url="https://featureassets.gocomics.com/assets/4f040bd07add013eb4a5005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-27</title><link>https://www.gocomics.com/fat-cats/2025/09/27</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/9ec230307d34013eb535005056a9545d" 
-                     alt="Fat Cats" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/28</guid><enclosure url="https://featureassets.gocomics.com/assets/4f040bd07add013eb4a5005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-27</title><link>https://www.gocomics.com/fat-cats/2025/09/27</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Fat Cats" src="https://featureassets.gocomics.com/assets/9ec230307d34013eb535005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/27&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/27</guid><enclosure url="https://featureassets.gocomics.com/assets/9ec230307d34013eb535005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-26</title><link>https://www.gocomics.com/fat-cats/2025/09/26</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/27</guid><enclosure url="https://featureassets.gocomics.com/assets/9ec230307d34013eb535005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-26</title><link>https://www.gocomics.com/fat-cats/2025/09/26</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/9d0c1b607d34013eb535005056a9545d" 
                      alt="Fat Cats" 
@@ -71,15 +56,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/26&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/9d0c1b607d34013eb535005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-25</title><link>https://www.gocomics.com/fat-cats/2025/09/25</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/1881ba607ae0013eb4a6005056a9545d" 
-                     alt="Fat Cats" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/9d0c1b607d34013eb535005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-25</title><link>https://www.gocomics.com/fat-cats/2025/09/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Fat Cats" src="https://featureassets.gocomics.com/assets/1881ba607ae0013eb4a6005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/25&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/25</guid><enclosure url="https://featureassets.gocomics.com/assets/1881ba607ae0013eb4a6005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-24</title><link>https://www.gocomics.com/fat-cats/2025/09/24</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/25</guid><enclosure url="https://featureassets.gocomics.com/assets/1881ba607ae0013eb4a6005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-24</title><link>https://www.gocomics.com/fat-cats/2025/09/24</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Fat Cats" src="https://featureassets.gocomics.com/assets/4ccef9207add013eb4a5005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/24&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/fat-cats/2025/09/24</guid><enclosure url="https://featureassets.gocomics.com/assets/4ccef9207add013eb4a5005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Fat Cats - 2025-09-23</title><link>https://www.gocomics.com/fat-cats/2025/09/23</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
