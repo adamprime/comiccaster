@@ -34,9 +34,17 @@ jobs:
       - name: Install Firefox and geckodriver for GoComics scraping
         run: |
           sudo apt-get update
-          # Install Firefox ESR (Extended Support Release - more stable for CI)
-          sudo apt-get install -y firefox firefox-geckodriver xvfb
-          # Verify Firefox installation
+          # Install Firefox snap package
+          sudo apt-get install -y xvfb
+          sudo snap install firefox
+          # Download and install geckodriver
+          GECKODRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep 'tag_name' | cut -d '"' -f 4)
+          echo "Installing geckodriver $GECKODRIVER_VERSION"
+          wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz"
+          tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
+          sudo mv geckodriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/geckodriver
+          # Verify installations
           firefox --version
           geckodriver --version
           # Set display for headless operation
