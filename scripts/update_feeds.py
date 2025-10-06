@@ -143,9 +143,14 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
 
         # Handle snap-installed Firefox in CI environments
-        firefox_binary = shutil.which('firefox')
-        if firefox_binary and 'snap' in firefox_binary:
+        # Check for environment variable first (set in GitHub Actions)
+        firefox_binary = os.environ.get('FIREFOX_BINARY')
+        if not firefox_binary:
+            firefox_binary = shutil.which('firefox')
+
+        if firefox_binary:
             options.binary_location = firefox_binary
+            logging.info(f"Using Firefox binary at: {firefox_binary}")
 
         driver = webdriver.Firefox(options=options)
         driver.set_window_size(1920, 1080)

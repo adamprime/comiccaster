@@ -75,6 +75,8 @@ jobs:
       - name: Test GoComics scraping works
         run: |
           python test_github_scraping.py
+        env:
+          FIREFOX_BINARY: /snap/bin/firefox
       
       - name: Test political comics are loaded
         run: |
@@ -85,7 +87,8 @@ jobs:
           python scripts/update_feeds.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+          FIREFOX_BINARY: /snap/bin/firefox
+
       - name: Update Tinyview feeds
         run: |
           python scripts/update_tinyview_feeds.py
