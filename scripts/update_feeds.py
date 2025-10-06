@@ -27,6 +27,7 @@ import concurrent.futures
 from functools import partial
 from email.utils import parsedate_to_datetime
 from urllib.parse import urlparse
+import threading
 
 # Set up logging
 logging.basicConfig(
@@ -119,72 +120,111 @@ def scrape_comic(comic, date_str):
         return None
 
 
+# Global browser instance for reuse across scraping sessions
+_browser_instance = None
+_browser_lock = threading.Lock()
+
+def get_browser_instance():
+    """Get or create a shared browser instance for scraping."""
+    global _browser_instance
+
+    with _browser_lock:
+        if _browser_instance is None:
+            from selenium import webdriver
+            from selenium.webdriver.firefox.options import Options
+            import shutil
+
+            options = Options()
+            options.add_argument('--headless')
+            options.add_argument('--no-sandbox')
+            options.add_argument('--disable-dev-shm-usage')
+            options.set_preference("general.useragent.override",
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+
+            # Handle snap-installed Firefox in CI environments
+            firefox_binary = os.environ.get('FIREFOX_BINARY')
+            if not firefox_binary:
+                if os.path.exists('/snap/firefox/current/usr/lib/firefox/firefox'):
+                    firefox_binary = '/snap/firefox/current/usr/lib/firefox/firefox'
+                else:
+                    firefox_binary = shutil.which('firefox')
+
+            if firefox_binary:
+                options.binary_location = firefox_binary
+
+            _browser_instance = webdriver.Firefox(options=options)
+            _browser_instance.set_window_size(1920, 1080)
+            logging.info("Created shared Firefox browser instance")
+
+        return _browser_instance
+
+
+def close_browser_instance():
+    """Close the shared browser instance."""
+    global _browser_instance
+
+    with _browser_lock:
+        if _browser_instance:
+            try:
+                _browser_instance.quit()
+                logging.info("Closed shared Firefox browser instance")
+            except:
+                pass
+            _browser_instance = None
+
+
 def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[str, str]]:
     """
-    Enhanced scraping using Selenium to bypass BunnyShield CDN protection.
+    Hybrid scraping: Try HTTP first, fall back to Selenium if BunnyShield detected.
 
-    GoComics now uses BunnyShield which blocks simple HTTP requests.
-    This function uses Firefox/Selenium to execute JavaScript and bypass the challenge.
+    1. Attempts fast HTTP request first
+    2. If BunnyShield challenge detected, uses shared Selenium browser
+    3. Reuses browser instance across multiple comics for performance
     """
     try:
         url = f"https://www.gocomics.com/{comic_slug}/{date_str}"
 
-        # Use Selenium to bypass BunnyShield
-        from selenium import webdriver
-        from selenium.webdriver.firefox.options import Options
-        from selenium.webdriver.firefox.service import Service
-        import shutil
-
-        options = Options()
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-        options.set_preference("general.useragent.override",
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-
-        # Handle snap-installed Firefox in CI environments
-        # Snap Firefox requires the full internal path
-        firefox_binary = os.environ.get('FIREFOX_BINARY')
-        if not firefox_binary:
-            # Check if Firefox is installed via snap
-            if os.path.exists('/snap/firefox/current/usr/lib/firefox/firefox'):
-                firefox_binary = '/snap/firefox/current/usr/lib/firefox/firefox'
-                logging.info("Detected snap Firefox installation")
-            else:
-                firefox_binary = shutil.which('firefox')
-
-        if firefox_binary:
-            options.binary_location = firefox_binary
-            logging.info(f"Using Firefox binary at: {firefox_binary}")
-
-        driver = webdriver.Firefox(options=options)
-        driver.set_window_size(1920, 1080)
-
+        # STRATEGY 1: Try HTTP first (fast path - ~0.5s)
+        soup = None
         try:
-            logging.info(f"Fetching {url} with Selenium (bypassing BunnyShield)...")
-            driver.get(url)
+            response = requests.get(url, headers=get_headers(), timeout=10)
+            response.raise_for_status()
 
-            # Wait for BunnyShield to complete and page to load
-            import time
-            time.sleep(5)  # Give BunnyShield time to complete
-
-            page_source = driver.page_source
-            driver.quit()
-
-            # Check if we're still stuck on BunnyShield
-            if 'Establishing a secure connection' in page_source and len(page_source) < 5000:
-                logging.error(f"Failed to bypass BunnyShield for {url}")
-                return None
-
-            soup = BeautifulSoup(page_source, 'html.parser')
-
+            # Check if we got a BunnyShield challenge page
+            if 'bunny-shield' in response.text or 'Establishing a secure connection' in response.text:
+                logging.debug(f"BunnyShield detected for {comic_slug}, falling back to Selenium")
+                soup = None
+            else:
+                # Success! Process with HTTP
+                soup = BeautifulSoup(response.text, 'html.parser')
+                logging.debug(f"HTTP request succeeded for {comic_slug}")
+                # Continue with parsing below
         except Exception as e:
-            logging.error(f"Selenium error for {url}: {e}")
+            logging.debug(f"HTTP failed for {comic_slug}: {e}, trying Selenium")
+            soup = None
+
+        # STRATEGY 2: If HTTP failed or hit BunnyShield, use Selenium (slow path - ~2s with reused browser)
+        if soup is None:
+            import time
+            driver = get_browser_instance()
+
             try:
-                driver.quit()
-            except:
-                pass
-            return None
+                logging.info(f"Fetching {url} with Selenium...")
+                driver.get(url)
+                time.sleep(3)  # Reduced from 5s - most challenges complete faster
+
+                page_source = driver.page_source
+
+                # Check if still stuck on BunnyShield
+                if 'Establishing a secure connection' in page_source and len(page_source) < 5000:
+                    logging.error(f"Failed to bypass BunnyShield for {url}")
+                    return None
+
+                soup = BeautifulSoup(page_source, 'html.parser')
+
+            except Exception as e:
+                logging.error(f"Selenium error for {url}: {e}")
+                return None
         
         # Strategy 1: JSON-LD structured data with DATE MATCHING (the key!)
         # This mimics what fetchpriority="high" does - finds the comic for the specific date
@@ -945,10 +985,15 @@ def main():
                     failed += 1
             
             logger.info(f"Completed processing {len(comics)} comics: {successful} successful, {failed} failed")
-        
+
+        # Clean up browser instance
+        close_browser_instance()
+
         return 0
     except Exception as e:
         logger.error(f"Fatal error in main: {e}")
+        # Clean up browser instance on error
+        close_browser_instance()
         return 1
 
 if __name__ == "__main__":
