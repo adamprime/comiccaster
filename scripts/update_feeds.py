@@ -233,13 +233,14 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
 
                 logging.info(f"Fetching {url} with Selenium (browser #{pool_index + 1})...")
                 driver.get(url)
-                time.sleep(5)  # BunnyShield needs ~5s to complete
+                time.sleep(8)  # BunnyShield needs 8-10s to complete in CI environment
 
                 page_source = driver.page_source
 
-                # Check if still stuck on BunnyShield
-                if 'Establishing a secure connection' in page_source and len(page_source) < 5000:
-                    logging.error(f"Failed to bypass BunnyShield for {url}")
+                # Check if still stuck on BunnyShield challenge page
+                # Look for the actual challenge page indicators, not just the text
+                if len(page_source) < 5000 and ('Establishing a secure connection' in page_source or 'bunny-shield' in page_source):
+                    logging.error(f"Failed to bypass BunnyShield for {url} (page too small: {len(page_source)} bytes)")
                     return None
 
                 soup = BeautifulSoup(page_source, 'html.parser')
