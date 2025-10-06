@@ -120,16 +120,25 @@ def scrape_comic(comic, date_str):
         return None
 
 
-# Global browser instance for reuse across scraping sessions
-_browser_instance = None
-_browser_lock = threading.Lock()
+# Browser pool for parallel scraping with BunnyShield bypass
+# Using 4 browsers allows 4x parallelization while keeping memory manageable
+_browser_pool = []
+_browser_pool_size = 4
+_browser_semaphore = threading.Semaphore(_browser_pool_size)
+_browser_pool_lock = threading.Lock()
 
-def get_browser_instance():
-    """Get or create a shared browser instance for scraping."""
-    global _browser_instance
+def get_browser_from_pool():
+    """
+    Get a browser instance from the pool.
+    Uses a semaphore to limit concurrent browser usage.
+    Returns: (browser_instance, pool_index)
+    """
+    # Acquire semaphore (blocks if all browsers are in use)
+    _browser_semaphore.acquire()
 
-    with _browser_lock:
-        if _browser_instance is None:
+    with _browser_pool_lock:
+        # Initialize pool if needed
+        if len(_browser_pool) < _browser_pool_size:
             from selenium import webdriver
             from selenium.webdriver.firefox.options import Options
             import shutil
@@ -152,25 +161,34 @@ def get_browser_instance():
             if firefox_binary:
                 options.binary_location = firefox_binary
 
-            _browser_instance = webdriver.Firefox(options=options)
-            _browser_instance.set_window_size(1920, 1080)
-            logging.info("Created shared Firefox browser instance")
+            browser = webdriver.Firefox(options=options)
+            browser.set_window_size(1920, 1080)
+            _browser_pool.append(browser)
+            pool_index = len(_browser_pool) - 1
+            logging.info(f"Created browser instance #{pool_index + 1}/{_browser_pool_size}")
+        else:
+            # Find an available browser (all should be available due to semaphore)
+            # Just return the first one since semaphore ensures availability
+            pool_index = 0
+            browser = _browser_pool[pool_index]
 
-        return _browser_instance
+    return browser, pool_index
 
+def return_browser_to_pool():
+    """Release a browser back to the pool."""
+    _browser_semaphore.release()
 
-def close_browser_instance():
-    """Close the shared browser instance."""
-    global _browser_instance
-
-    with _browser_lock:
-        if _browser_instance:
+def close_browser_pool():
+    """Close all browser instances in the pool."""
+    with _browser_pool_lock:
+        for i, browser in enumerate(_browser_pool):
             try:
-                _browser_instance.quit()
-                logging.info("Closed shared Firefox browser instance")
+                browser.quit()
+                logging.info(f"Closed browser instance #{i + 1}")
             except:
                 pass
-            _browser_instance = None
+        _browser_pool.clear()
+        logging.info("Closed all browser instances")
 
 
 def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[str, str]]:
@@ -203,15 +221,19 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
             logging.debug(f"HTTP failed for {comic_slug}: {e}, trying Selenium")
             soup = None
 
-        # STRATEGY 2: If HTTP failed or hit BunnyShield, use Selenium (slow path - ~2s with reused browser)
+        # STRATEGY 2: If HTTP failed or hit BunnyShield, use Selenium (slow path - ~5s per comic)
+        # Uses browser pool for 4x parallelization
         if soup is None:
             import time
-            driver = get_browser_instance()
 
+            driver = None
             try:
-                logging.info(f"Fetching {url} with Selenium...")
+                # Get a browser from the pool (blocks if all 4 are in use)
+                driver, pool_index = get_browser_from_pool()
+
+                logging.info(f"Fetching {url} with Selenium (browser #{pool_index + 1})...")
                 driver.get(url)
-                time.sleep(3)  # Reduced from 5s - most challenges complete faster
+                time.sleep(5)  # BunnyShield needs ~5s to complete
 
                 page_source = driver.page_source
 
@@ -225,6 +247,10 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
             except Exception as e:
                 logging.error(f"Selenium error for {url}: {e}")
                 return None
+            finally:
+                # Always return browser to pool, even if there was an error
+                if driver is not None:
+                    return_browser_to_pool()
         
         # Strategy 1: JSON-LD structured data with DATE MATCHING (the key!)
         # This mimics what fetchpriority="high" does - finds the comic for the specific date
@@ -986,14 +1012,14 @@ def main():
             
             logger.info(f"Completed processing {len(comics)} comics: {successful} successful, {failed} failed")
 
-        # Clean up browser instance
-        close_browser_instance()
+        # Clean up browser pool
+        close_browser_pool()
 
         return 0
     except Exception as e:
         logger.error(f"Fatal error in main: {e}")
-        # Clean up browser instance on error
-        close_browser_instance()
+        # Clean up browser pool on error
+        close_browser_pool()
         return 1
 
 if __name__ == "__main__":

@@ -139,11 +139,11 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 
 **BunnyShield CDN Protection Bypass:**
 - **Problem**: GoComics added BunnyShield CDN protection that blocks HTTP-only requests with JavaScript challenge pages, causing all feed updates to fail
-- **Solution**: Implemented hybrid HTTP-first approach with Selenium fallback and browser reuse
+- **Solution**: Implemented hybrid HTTP-first approach with Selenium fallback and browser pool
 - **Technical Details**:
   - **Hybrid Strategy**: Try HTTP first (~0.5s), fall back to Selenium only when BunnyShield detected
-  - **Browser Reuse**: Single shared Firefox instance across all comics instead of creating new browsers
-  - **Performance**: ~4 seconds per comic, 10 minutes total for 400+ comics with 8 parallel workers
+  - **Browser Pool**: 4 Firefox instances managed with semaphore for thread-safe parallel scraping
+  - **Performance**: ~5 seconds per comic, 10-12 minutes total for 400+ comics with safe parallelization
   - **Snap Firefox Support**: Uses full internal path `/snap/firefox/current/usr/lib/firefox/firefox` for Ubuntu snap installations
   - JSON-LD parsing logic remains unchanged and still works correctly
   - Updated valid image domains to include `featureassets.gocomics.com`
@@ -151,10 +151,12 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 - **Performance Comparison**:
   - Before BunnyShield: <1s per comic (HTTP-only, but now fails)
   - Initial Selenium fix: 5-6s per comic = 40+ minutes total
-  - **After optimization: ~4s per comic = 10 minutes total** ✅
+  - Race condition fix: Serial scraping = 39 minutes total (correct but slow)
+  - **After browser pool: ~5s per comic with 4x parallelization = 10-12 minutes total** ✅
 - **Benefits**:
   - ✅ GoComics feeds working again after BunnyShield implementation
   - ✅ Maintains accurate date-based comic detection
+  - ✅ Thread-safe parallel scraping with no race conditions
   - ✅ Acceptable performance for daily updates
   - ✅ Both Firefox (GoComics) and Chrome (TinyView) supported in CI/CD
   - ✅ Automatic browser cleanup and proper resource management
