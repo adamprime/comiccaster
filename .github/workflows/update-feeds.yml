@@ -37,8 +37,8 @@ jobs:
           # Install Firefox snap package
           sudo apt-get install -y xvfb
           sudo snap install firefox
-          # Download and install geckodriver
-          GECKODRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep 'tag_name' | cut -d '"' -f 4)
+          # Download and install geckodriver (using known stable version to avoid GitHub API rate limits)
+          GECKODRIVER_VERSION="v0.35.0"
           echo "Installing geckodriver $GECKODRIVER_VERSION"
           wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz"
           tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
