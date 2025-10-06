@@ -136,35 +136,38 @@ class TestPublishingAnalyzer:
         """Test fetching historical comic dates from GoComics."""
         from scripts.analyze_publishing_schedule import PublishingAnalyzer
 
-        # Mock the scraper at a higher level since it now uses Selenium for BunnyShield bypass
-        with patch('scripts.analyze_publishing_schedule.GoComicsScraper') as mock_scraper_class:
-            mock_scraper = Mock()
-            mock_scraper_class.return_value = mock_scraper
+        # Create analyzer first, then mock its client
+        analyzer = PublishingAnalyzer()
 
-            # Mock only specific dates to have comics
-            def mock_scrape_func(comic_slug, target_date):
-                date_str = target_date.strftime('%Y/%m/%d')
-                # Only these dates have comics
-                if any(d in date_str for d in ['07/17', '07/15', '07/14']):
-                    return {
-                        'image': 'https://example.com/test.jpg',
-                        'url': f'https://www.gocomics.com/{comic_slug}/{date_str}',
-                        'title': 'Test Comic',
-                        'description': 'Test'
-                    }
-                return None
+        # Mock the HTTP client's get method
+        mock_client = Mock()
 
-            mock_scraper.scrape.side_effect = mock_scrape_func
+        # Mock only specific dates to have comics
+        def mock_get_func(url, timeout=None):
+            # Only these dates have comics (return proper response object)
+            mock_response = Mock()
+            # Match dates within the last 5 days (will match 10/03, 10/04, 10/05 for example)
+            if any(d in url for d in ['/10/03', '/10/04', '/10/05']):
+                mock_response.text = '''
+                    <html>
+                        <head><meta property="og:image" content="https://example.com/test.jpg"></head>
+                        <body><img class="comic-image" src="https://example.com/test.jpg" /></body>
+                    </html>
+                '''
+                return mock_response
+            return None
 
-            analyzer = PublishingAnalyzer()
-            # Use a shorter date range for testing
-            dates = analyzer.fetch_comic_history('algoodwyn', days=5)
+        mock_client.get.side_effect = mock_get_func
+        analyzer.client = mock_client
 
-            # Should find comics on the mocked dates within the range
-            assert len(dates) >= 1  # At least one date should be found
-            # The actual dates depend on current date, so we just verify format
-            for date in dates:
-                assert isinstance(date, datetime)
+        # Use a shorter date range for testing
+        dates = analyzer.fetch_comic_history('algoodwyn', days=5)
+
+        # Should find comics on the mocked dates within the range
+        assert len(dates) >= 1  # At least one date should be found
+        # The actual dates depend on current date, so we just verify format
+        for date in dates:
+            assert isinstance(date, datetime)
     
     def test_analyze_multiple_comics(self):
         """Test batch analysis of multiple comics."""

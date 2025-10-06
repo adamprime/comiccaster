@@ -16,6 +16,28 @@ pip install -e .
 
 # Install test dependencies
 pip install pytest pytest-cov pytest-mock
+
+# Install Selenium WebDriver for browser automation
+# Required for both GoComics (BunnyShield bypass) and TinyView scraping
+
+# macOS
+brew install --cask firefox
+# geckodriver is typically installed automatically with Firefox
+
+# Ubuntu
+sudo apt-get update
+sudo apt-get install -y xvfb
+sudo snap install firefox
+# Install geckodriver from GitHub releases
+GECKODRIVER_VERSION="v0.35.0"
+wget "https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz"
+tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
+sudo mv geckodriver /usr/local/bin/
+sudo chmod +x /usr/local/bin/geckodriver
+
+# Verify installations
+firefox --version
+geckodriver --version
 ```
 
 ## Running Tests
@@ -69,6 +91,8 @@ pytest -v -k "multi_image"
 - **`test_gocomics_scraper.py`** - GoComics scraper tests
   - JSON-LD parsing logic
   - Date matching for daily comics vs reruns
+  - Hybrid HTTP-first with Selenium fallback
+  - BunnyShield CDN protection bypass
   - Error handling for missing comics
 
 - **`test_tinyview_scraper.py`** - TinyView scraper tests (24 tests)
@@ -167,6 +191,9 @@ class TestNewFeature:
 - Mock external dependencies (network calls, file I/O)
 - Use realistic test data that matches production patterns
 - Test both success and failure scenarios
+- **Important for Selenium tests**: Mock at the scraper level, not the HTTP level
+  - Example: Use `patch('module.GoComicsScraper')` instead of `patch('requests.get')`
+  - This ensures tests work correctly with the hybrid HTTP/Selenium approach
 
 ## Continuous Integration
 
@@ -192,9 +219,15 @@ python -m cProfile -s cumulative scripts/test_tinyview_scraper.py
 ```
 
 ### Expected Performance Metrics
-- Single comic scrape: < 2 seconds
-- Full feed update (500+ comics): < 10 minutes with parallel processing
+- Single comic scrape (HTTP): < 1 second (when BunnyShield not triggered)
+- Single comic scrape (Selenium): ~4 seconds (with browser reuse)
+- Full feed update (400+ comics): ~10 minutes with 8 parallel workers and shared browser
 - RSS feed generation: < 100ms per feed
+
+**Note**: Since October 2025, GoComics uses BunnyShield CDN protection requiring Selenium for most comics. Performance optimizations include:
+- Browser instance reuse across all scraping operations
+- Hybrid HTTP-first approach (attempts fast path first)
+- 8 concurrent workers with thread-safe browser access
 
 ## Debugging Failed Tests
 
@@ -211,10 +244,19 @@ python -m cProfile -s cumulative scripts/test_tinyview_scraper.py
    # Install Firefox for headless testing
    # macOS
    brew install --cask firefox
-   
-   # Ubuntu
-   sudo apt-get install firefox firefox-geckodriver
+
+   # Ubuntu (use snap for Firefox)
+   sudo snap install firefox
+   # Install geckodriver from GitHub releases (see Prerequisites above)
+
+   # For CI environments with snap Firefox
+   export FIREFOX_BINARY=/snap/firefox/current/usr/lib/firefox/firefox
    ```
+
+   **Common Selenium Errors**:
+   - `binary is not a Firefox executable`: Set FIREFOX_BINARY environment variable to correct path
+   - `Session not created`: Ensure geckodriver version matches Firefox version
+   - `BunnyShield detected`: This is expected; the scraper automatically falls back to Selenium
 
 3. **Date-Related Test Failures**
    - Tests may fail if run at date boundaries
@@ -223,6 +265,13 @@ python -m cProfile -s cumulative scripts/test_tinyview_scraper.py
 4. **Network-Dependent Tests**
    - Mark with `@pytest.mark.network`
    - These are skipped in offline mode
+   - May fail if comic sites are down or change structure
+
+5. **BunnyShield CDN Protection**
+   - GoComics uses BunnyShield to block simple HTTP requests
+   - Tests should verify fallback to Selenium works correctly
+   - Local testing will automatically use Selenium when BunnyShield is detected
+   - Look for log messages: "BunnyShield detected, falling back to Selenium"
 
 ### Verbose Test Output
 ```bash
@@ -268,8 +317,46 @@ Before major releases, manually verify:
 ## Known Test Limitations
 
 1. **External Dependencies**: Some tests require internet access and may fail if comic sites are down
-2. **Selenium Tests**: Require Firefox/geckodriver installation
+2. **Selenium Tests**: Require Firefox/geckodriver installation and proper configuration
 3. **Time-Sensitive Tests**: Some tests may fail around midnight or month boundaries
 4. **Platform Differences**: File path tests may need adjustment for Windows
+5. **BunnyShield Protection**: GoComics now requires Selenium for all scraping, increasing test time
+6. **Browser Reuse**: Tests using the shared browser instance must handle threading properly
 
 The test suite aims for > 80% code coverage while focusing on critical paths and error handling.
+
+## Testing the BunnyShield Bypass
+
+### Local Testing
+```bash
+# Test GoComics scraping with BunnyShield bypass
+python test_github_scraping.py
+
+# This will:
+# 1. Attempt HTTP request first (fast path)
+# 2. Detect BunnyShield challenge page
+# 3. Fall back to Selenium automatically
+# 4. Verify correct comic image is retrieved
+```
+
+### CI Testing
+The GitHub Actions workflow includes a dedicated step to test BunnyShield bypass:
+```yaml
+- name: Test GoComics scraping works
+  run: |
+    python test_github_scraping.py
+  env:
+    FIREFOX_BINARY: /snap/firefox/current/usr/lib/firefox/firefox
+```
+
+### Verifying Hybrid Approach
+You can verify the hybrid HTTP/Selenium approach by checking logs:
+```bash
+# Run with verbose logging
+python scripts/update_feeds.py 2>&1 | grep -E "(HTTP request|BunnyShield|Selenium)"
+
+# Expected output:
+# "HTTP request succeeded for <comic>" - Fast path worked
+# "BunnyShield detected for <comic>, falling back to Selenium" - Fallback triggered
+# "Fetching <url> with Selenium..." - Using Selenium
+```

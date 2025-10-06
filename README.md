@@ -138,18 +138,26 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 ### Latest Changes (October 2025)
 
 **BunnyShield CDN Protection Bypass:**
-- **Problem**: GoComics added BunnyShield CDN protection that blocks HTTP-only requests with JavaScript challenge pages
-- **Solution**: Switched GoComics scraping from HTTP-only to Firefox + Selenium WebDriver
+- **Problem**: GoComics added BunnyShield CDN protection that blocks HTTP-only requests with JavaScript challenge pages, causing all feed updates to fail
+- **Solution**: Implemented hybrid HTTP-first approach with Selenium fallback and browser reuse
 - **Technical Details**:
-  - BunnyShield requires JavaScript execution to bypass challenge page
-  - Firefox ESR with geckodriver successfully bypasses the protection (~5 second wait)
+  - **Hybrid Strategy**: Try HTTP first (~0.5s), fall back to Selenium only when BunnyShield detected
+  - **Browser Reuse**: Single shared Firefox instance across all comics instead of creating new browsers
+  - **Performance**: ~4 seconds per comic, 10 minutes total for 400+ comics with 8 parallel workers
+  - **Snap Firefox Support**: Uses full internal path `/snap/firefox/current/usr/lib/firefox/firefox` for Ubuntu snap installations
   - JSON-LD parsing logic remains unchanged and still works correctly
   - Updated valid image domains to include `featureassets.gocomics.com`
   - Chrome/chromedriver retained for TinyView scraping
+- **Performance Comparison**:
+  - Before BunnyShield: <1s per comic (HTTP-only, but now fails)
+  - Initial Selenium fix: 5-6s per comic = 40+ minutes total
+  - **After optimization: ~4s per comic = 10 minutes total** ✅
 - **Benefits**:
   - ✅ GoComics feeds working again after BunnyShield implementation
   - ✅ Maintains accurate date-based comic detection
+  - ✅ Acceptable performance for daily updates
   - ✅ Both Firefox (GoComics) and Chrome (TinyView) supported in CI/CD
+  - ✅ Automatic browser cleanup and proper resource management
 
 ### Previous Improvements (June 2025)
 
