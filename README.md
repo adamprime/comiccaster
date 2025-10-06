@@ -135,6 +135,22 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 - **Content Warnings**: Political feeds include appropriate descriptions and content categories
 - **Separate OPML Files**: Generate `daily-comics.opml` or `political-cartoons.opml` based on your preferences
 
+### Latest Changes (October 2025)
+
+**BunnyShield CDN Protection Bypass:**
+- **Problem**: GoComics added BunnyShield CDN protection that blocks HTTP-only requests with JavaScript challenge pages
+- **Solution**: Switched GoComics scraping from HTTP-only to Firefox + Selenium WebDriver
+- **Technical Details**:
+  - BunnyShield requires JavaScript execution to bypass challenge page
+  - Firefox ESR with geckodriver successfully bypasses the protection (~5 second wait)
+  - JSON-LD parsing logic remains unchanged and still works correctly
+  - Updated valid image domains to include `featureassets.gocomics.com`
+  - Chrome/chromedriver retained for TinyView scraping
+- **Benefits**:
+  - ✅ GoComics feeds working again after BunnyShield implementation
+  - ✅ Maintains accurate date-based comic detection
+  - ✅ Both Firefox (GoComics) and Chrome (TinyView) supported in CI/CD
+
 ### Previous Improvements (June 2025)
 
 **Enhanced Comic Detection System:**

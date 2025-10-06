@@ -31,14 +31,25 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
       
-      - name: Install Chrome and chromedriver for Tinyview scraping
+      - name: Install Firefox and geckodriver for GoComics scraping
         run: |
           sudo apt-get update
-          # Install Chrome (more reliable in CI than Firefox)
+          # Install Firefox ESR (Extended Support Release - more stable for CI)
+          sudo apt-get install -y firefox firefox-geckodriver xvfb
+          # Verify Firefox installation
+          firefox --version
+          geckodriver --version
+          # Set display for headless operation
+          export DISPLAY=:99
+          Xvfb :99 -screen 0 1920x1080x24 > /dev/null 2>&1 &
+
+      - name: Install Chrome and chromedriver for Tinyview scraping
+        run: |
+          # Install Chrome for TinyView comics (some sites work better with Chrome)
           wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
           echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
           sudo apt-get update
-          sudo apt-get install -y google-chrome-stable xvfb
+          sudo apt-get install -y google-chrome-stable
           # Verify Chrome installation
           google-chrome --version
           which google-chrome
@@ -52,9 +63,6 @@ jobs:
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
           chromedriver --version
-          # Set display for headless operation
-          export DISPLAY=:99
-          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
       
       - name: Test GoComics scraping works
         run: |

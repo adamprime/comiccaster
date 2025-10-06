@@ -120,12 +120,54 @@ def scrape_comic(comic, date_str):
 
 
 def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[str, str]]:
-    """Enhanced HTTP scraping that mimics Selenium's detection strategies."""
+    """
+    Enhanced scraping using Selenium to bypass BunnyShield CDN protection.
+
+    GoComics now uses BunnyShield which blocks simple HTTP requests.
+    This function uses Firefox/Selenium to execute JavaScript and bypass the challenge.
+    """
     try:
         url = f"https://www.gocomics.com/{comic_slug}/{date_str}"
-        response = requests.get(url, headers=get_headers(), timeout=10)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # Use Selenium to bypass BunnyShield
+        from selenium import webdriver
+        from selenium.webdriver.firefox.options import Options
+
+        options = Options()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.set_preference("general.useragent.override",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+
+        driver = webdriver.Firefox(options=options)
+        driver.set_window_size(1920, 1080)
+
+        try:
+            logging.info(f"Fetching {url} with Selenium (bypassing BunnyShield)...")
+            driver.get(url)
+
+            # Wait for BunnyShield to complete and page to load
+            import time
+            time.sleep(5)  # Give BunnyShield time to complete
+
+            page_source = driver.page_source
+            driver.quit()
+
+            # Check if we're still stuck on BunnyShield
+            if 'Establishing a secure connection' in page_source and len(page_source) < 5000:
+                logging.error(f"Failed to bypass BunnyShield for {url}")
+                return None
+
+            soup = BeautifulSoup(page_source, 'html.parser')
+
+        except Exception as e:
+            logging.error(f"Selenium error for {url}: {e}")
+            try:
+                driver.quit()
+            except:
+                pass
+            return None
         
         # Strategy 1: JSON-LD structured data with DATE MATCHING (the key!)
         # This mimics what fetchpriority="high" does - finds the comic for the specific date
@@ -139,12 +181,18 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
             try:
                 if script.string and "ImageObject" in script.string:
                     data = json.loads(script.string)
-                    if (data.get("@type") == "ImageObject" and 
+                    if (data.get("@type") == "ImageObject" and
                         data.get("contentUrl")):
                         content_url = data.get("contentUrl")
                         parsed_url = urlparse(content_url)
-                        if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
-                            
+                        # Check for valid GoComics image domains
+                        valid_domains = ['gocomics.com', 'featureassets.gocomics.com', 'assets.amuniversal.com']
+                        is_valid_domain = any(
+                            parsed_url.hostname == domain or parsed_url.hostname.endswith('.' + domain)
+                            for domain in valid_domains
+                        )
+
+                        if parsed_url.hostname and is_valid_domain:
                             # CHECK IF THE NAME MATCHES OUR TARGET DATE
                             name = data.get("name", "")
                             if target_date_formatted in name:

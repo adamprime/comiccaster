@@ -96,14 +96,14 @@ Daily updates run automatically via GitHub Actions at 9 AM UTC.
 
 ## Important Implementation Details
 
-1. **Comic Detection**: 
-   - GoComics: Distinguishes between daily comics and "best of" reruns using date-matching in JSON-LD data
+1. **Comic Detection**:
+   - GoComics: Uses Firefox + Selenium to bypass BunnyShield CDN protection, then distinguishes between daily comics and "best of" reruns using date-matching in JSON-LD data
    - TinyView: Visits comic main page, finds date-specific strip links, then scrapes each strip page
 2. **Error Handling**: Graceful fallbacks when comics are unavailable or structure changes
-3. **Performance**: 
+3. **Performance**:
    - Concurrent scraping with ThreadPoolExecutor (8 workers)
-   - GoComics: HTTP-only approach for speed
-   - TinyView: Selenium WebDriver for dynamic content
+   - GoComics: Firefox + Selenium to bypass BunnyShield (adds ~5 seconds per comic)
+   - TinyView: Chrome + Selenium WebDriver for dynamic content
 4. **Feed Format**: Standard RSS 2.0 with proper content encoding and metadata
 5. **Multi-strip Support**: TinyView comics can have multiple strips per day, all included in feed
 6. **Update Frequency**:

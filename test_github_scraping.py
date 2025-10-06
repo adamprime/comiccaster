@@ -38,8 +38,8 @@ def test_single_comic():
             image_url = result.get("image", "")
             if image_url:
                 parsed_url = urlparse(image_url)
-                # GoComics uses assets.amuniversal.com domain for images
-                valid_domains = ['assets.amuniversal.com', 'assets.gocomics.com']
+                # GoComics uses multiple domains for images
+                valid_domains = ['assets.amuniversal.com', 'assets.gocomics.com', 'featureassets.gocomics.com']
                 if parsed_url.hostname and any(domain in parsed_url.hostname for domain in valid_domains):
                     print(f'✅ Image URL is from valid domain: {parsed_url.hostname}')
                     return True
