@@ -132,6 +132,8 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
         # Use Selenium to bypass BunnyShield
         from selenium import webdriver
         from selenium.webdriver.firefox.options import Options
+        from selenium.webdriver.firefox.service import Service
+        import shutil
 
         options = Options()
         options.add_argument('--headless')
@@ -139,6 +141,11 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
         options.add_argument('--disable-dev-shm-usage')
         options.set_preference("general.useragent.override",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+
+        # Handle snap-installed Firefox in CI environments
+        firefox_binary = shutil.which('firefox')
+        if firefox_binary and 'snap' in firefox_binary:
+            options.binary_location = firefox_binary
 
         driver = webdriver.Firefox(options=options)
         driver.set_window_size(1920, 1080)
