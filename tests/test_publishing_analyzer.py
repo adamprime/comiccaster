@@ -135,26 +135,31 @@ class TestPublishingAnalyzer:
     def test_fetch_comic_history(self):
         """Test fetching historical comic dates from GoComics."""
         from scripts.analyze_publishing_schedule import PublishingAnalyzer
-        
-        with patch('comiccaster.http_client.requests.Session.get') as mock_get:
+
+        # Mock the scraper at a higher level since it now uses Selenium for BunnyShield bypass
+        with patch('scripts.analyze_publishing_schedule.GoComicsScraper') as mock_scraper_class:
+            mock_scraper = Mock()
+            mock_scraper_class.return_value = mock_scraper
+
             # Mock only specific dates to have comics
-            def mock_response_func(url, *args, **kwargs):
-                mock_resp = Mock()
+            def mock_scrape_func(comic_slug, target_date):
+                date_str = target_date.strftime('%Y/%m/%d')
                 # Only these dates have comics
-                if any(date in url for date in ['2025/07/17', '2025/07/15', '2025/07/14']):
-                    mock_resp.status_code = 200
-                    mock_resp.text = '<img class="comic-image" src="test.jpg">'
-                else:
-                    mock_resp.status_code = 404
-                    mock_resp.text = 'No comic found'
-                return mock_resp
-            
-            mock_get.side_effect = mock_response_func
-            
+                if any(d in date_str for d in ['07/17', '07/15', '07/14']):
+                    return {
+                        'image': 'https://example.com/test.jpg',
+                        'url': f'https://www.gocomics.com/{comic_slug}/{date_str}',
+                        'title': 'Test Comic',
+                        'description': 'Test'
+                    }
+                return None
+
+            mock_scraper.scrape.side_effect = mock_scrape_func
+
             analyzer = PublishingAnalyzer()
             # Use a shorter date range for testing
             dates = analyzer.fetch_comic_history('algoodwyn', days=5)
-            
+
             # Should find comics on the mocked dates within the range
             assert len(dates) >= 1  # At least one date should be found
             # The actual dates depend on current date, so we just verify format
