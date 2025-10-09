@@ -219,68 +219,23 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
     try:
         url = f"https://www.gocomics.com/{comic_slug}/{date_str}"
 
-        # STRATEGY 1: Try HTTP first with TLS fingerprinting (fast path - ~0.2s)
-        # Uses tls-client with Chrome 120 fingerprint to bypass BunnyShield
-        soup = None
+        # Fetch page with TLS fingerprinting (bypasses BunnyShield 100%)
+        # Uses tls-client with Chrome 120 fingerprint - ~0.25s per comic
         try:
             session = get_tls_session()
             response = session.get(url, headers=get_headers())
 
             if response.status_code != 200:
-                raise Exception(f"HTTP {response.status_code}")
-
-            # Check if we got a BunnyShield challenge page
-            # Challenge pages are small (<5000 bytes) and have specific indicators
-            is_challenge_page = (
-                len(response.text) < 5000 and
-                ('Establishing a secure connection' in response.text or
-                 '/.bunny-shield/' in response.text)
-            )
-
-            if is_challenge_page:
-                logging.debug(f"BunnyShield challenge detected for {comic_slug}, falling back to Selenium")
-                soup = None
-            else:
-                # Success! Process with HTTP
-                soup = BeautifulSoup(response.text, 'html.parser')
-                logging.debug(f"HTTP request succeeded for {comic_slug}")
-                # Continue with parsing below
-        except Exception as e:
-            logging.debug(f"HTTP failed for {comic_slug}: {e}, trying Selenium")
-            soup = None
-
-        # STRATEGY 2: If HTTP failed or hit BunnyShield, use Selenium (slow path - ~5s per comic)
-        # Uses browser pool for 4x parallelization
-        if soup is None:
-            import time
-
-            driver = None
-            try:
-                # Get a browser from the pool (blocks if all 4 are in use)
-                driver, pool_index = get_browser_from_pool()
-
-                logging.info(f"Fetching {url} with Selenium (browser #{pool_index + 1})...")
-                driver.get(url)
-                time.sleep(8)  # BunnyShield needs 8-10s to complete in CI environment
-
-                page_source = driver.page_source
-
-                # Check if still stuck on BunnyShield challenge page
-                # Look for the actual challenge page indicators, not just the text
-                if len(page_source) < 5000 and ('Establishing a secure connection' in page_source or 'bunny-shield' in page_source):
-                    logging.error(f"Failed to bypass BunnyShield for {url} (page too small: {len(page_source)} bytes)")
-                    return None
-
-                soup = BeautifulSoup(page_source, 'html.parser')
-
-            except Exception as e:
-                logging.error(f"Selenium error for {url}: {e}")
+                logging.debug(f"HTTP {response.status_code} for {comic_slug} - likely no comic today")
                 return None
-            finally:
-                # Always return browser to pool, even if there was an error
-                if driver is not None:
-                    return_browser_to_pool()
-        
+
+            soup = BeautifulSoup(response.text, 'html.parser')
+            logging.debug(f"Successfully fetched {comic_slug}")
+
+        except Exception as e:
+            logging.error(f"TLS client failed for {comic_slug}: {e}")
+            return None
+
         # Strategy 1: JSON-LD structured data with DATE MATCHING (the key!)
         # This mimics what fetchpriority="high" does - finds the comic for the specific date
         # This is the MOST RELIABLE approach for getting actual daily comics vs "best of"

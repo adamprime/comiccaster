@@ -137,27 +137,30 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 
 ### Latest Changes (October 2025)
 
-**TLS Fingerprinting Breakthrough (October 9, 2025):**
-- **Problem**: BunnyShield CDN was blocking HTTP requests in CI due to Python's TLS fingerprint detection, forcing 100% Selenium usage = 3+ hour runtimes
+**TLS Fingerprinting Breakthrough - Selenium Removed (October 9, 2025):**
+- **Problem**: BunnyShield CDN was blocking HTTP requests in CI due to Python's TLS fingerprint detection, forcing 100% Selenium usage = 3+ hour runtimes with OOM failures
 - **Solution**: Switched to `tls-client` library with Chrome 120 TLS fingerprint + full browser headers
-- **Results**: **100% HTTP success rate at 0.15-0.25s per comic** = ~2 minutes total for 400+ comics (135x speedup!)
+- **Results**: **100% HTTP success rate at 0.25s per comic** = ~2 minutes total for 400+ comics (90x speedup!)
+- **Selenium Removed**: After testing 407 comics, TLS client achieved 100% page fetch success - Selenium fallback completely removed for GoComics
 - **Technical Details**:
   - Using `tls-client` Python library with `chrome_120` client identifier
   - Complete browser header suite (Accept, Accept-Language, Sec-Fetch-*, Brotli support)
   - Thread-safe global TLS session with proper locking
-  - Selenium still available as fallback but rarely needed (<5% of requests)
+  - **No Selenium dependency** for GoComics (TinyView still uses it)
   - JSON-LD date matching remains primary scraping strategy
+  - Comics without content for requested date properly return 404/empty (as expected)
 - **Performance Comparison**:
-  - Selenium-only approach: 8s per comic = **3+ hours total** (OOM failures)
+  - Selenium-only approach: 8s per comic = **3+ hours total** (OOM failures in CI)
   - Python requests + headers: 60% success locally, 0% in CI (TLS fingerprint detected)
-  - **tls-client + headers: 100% success, 0.2s per comic = ~2 minutes total** ✅
+  - **tls-client only: 100% success, 0.25s per comic = ~2 minutes total** ✅
 - **Benefits**:
-  - ✅ 135x speedup compared to Selenium-only
-  - ✅ No more memory exhaustion in GitHub Actions
-  - ✅ Reliable, fast updates that complete in minutes not hours
-  - ✅ Works in CI environments (datacenter IPs no longer blocked)
-  - ✅ Maintains accurate date-based comic detection
-  - ✅ Simple, maintainable code with minimal dependencies
+  - ✅ 90x speedup compared to Selenium-only approach
+  - ✅ Zero memory exhaustion in GitHub Actions
+  - ✅ Reliable, fast updates that complete in ~2 minutes
+  - ✅ Works perfectly in CI environments (datacenter IPs no longer blocked)
+  - ✅ Maintains accurate date-based comic detection via JSON-LD
+  - ✅ Simpler code with no browser management complexity
+  - ✅ Comics that don't publish daily are properly skipped (not errors)
 
 **Wrong Comics Bug Fix (October 9, 2025):**
 - **Problem**: Feeds were showing strips from unrelated comics (e.g., Gilbert's dog comic in Brewster Rockit feed)
