@@ -301,100 +301,21 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
                 logging.warning(f"Error parsing JSON-LD: {e}")
         
         logging.warning(f"No JSON-LD entry found matching date: {target_date_formatted}")
-        
-        # Strategy 2: Look for comic strip classes (fallback)
-        comic_strip_selectors = [
-            'img.Comic_comic__image__6e_Fw',  # Main comic image class
-            'img.Comic_comic__image_isStrip__eCtT2',  # Strip format comics  
-            'img.Comic_comic__image_isSkinny__NZ2aF'  # Vertical/skinny format comics
-        ]
-        
-        for selector in comic_strip_selectors:
-            comic_imgs = soup.select(selector)
-            if comic_imgs:
-                # Apply enhanced selection logic
-                best_img = select_best_comic_image_http(comic_imgs)
-                if best_img:
-                    img_src = best_img.get('src', '')
-                    if img_src:
-                        parsed_url = urlparse(img_src)
-                        if parsed_url.hostname and (parsed_url.hostname == 'gocomics.com' or parsed_url.hostname.endswith('.gocomics.com')):
-                            logging.info(f"Found comic using selector: {selector}")
-                            return {
-                                'image': img_src,
-                                'url': url,
-                                'title': soup.find('title').get_text() if soup.find('title') else '',
-                                'description': f'Comic strip for {date_str}'
-                            }
-        
-        # Strategy 3: JavaScript regex extraction
-        scripts = soup.find_all("script")
-        for script in scripts:
-            if (script.string and 
-                "featureassets.gocomics.com/assets" in script.string and 
-                "url" in script.string):
-                try:
-                    matches = re.findall(
-                        r'"url"\s*:\s*"(https://featureassets\.gocomics\.com/assets/[^"]+)"', 
-                        script.string
-                    )
-                    if matches:
-                        logging.info("Found comic image URL in JavaScript data")
-                        return {
-                            'image': matches[0],
-                            'url': url,
-                            'title': soup.find('title').get_text() if soup.find('title') else '',
-                            'description': f'Comic strip for {date_str}'
-                        }
-                except Exception as e:
-                    logging.warning(f"Error extracting URL from JavaScript: {e}")
-        
-        # Strategy 4: og:image fallback
-        og_image = soup.find('meta', property='og:image')
-        if og_image:
-            img_url = og_image.get('content', '')
-            if img_url:
-                logging.info("Using og:image as fallback")
-                return {
-                    'image': img_url,
-                    'url': url,
-                    'title': soup.find('title').get_text() if soup.find('title') else '',
-                    'description': f'Comic strip for {date_str}'
-                }
-        
-        logging.error(f"No comic image found for {url}")
+
+        # CRITICAL: Do NOT fall back to undated scraping methods!
+        # GoComics pages contain multiple comic images (recommendations, "best of" reruns, etc.)
+        # If we can't find a comic with the exact date in JSON-LD, we should return None
+        # rather than grab a random/wrong comic from the page.
+        #
+        # This prevents the bug where feeds show strips from unrelated comics.
+        # Better to skip a day than to show the wrong comic.
+
+        logging.error(f"No comic image found for {url} with date {target_date_formatted}")
         return None
         
     except Exception as e:
         logging.error(f"Error in enhanced HTTP scraping: {e}")
         return None
-
-
-def select_best_comic_image_http(comic_imgs: list) -> Optional:
-    """Select the best comic image from multiple candidates (HTTP version)."""
-    if not comic_imgs:
-        return None
-    
-    if len(comic_imgs) == 1:
-        return comic_imgs[0]
-    
-    logging.info(f"Found {len(comic_imgs)} comic images, selecting best one...")
-    
-    # Look for images with srcset (responsive images - good indicator)
-    for img in comic_imgs:
-        if img.get('srcset'):
-            logging.info("Selected comic with srcset (responsive image)")
-            return img
-    
-    # Look for Next.js optimized images
-    for img in comic_imgs:
-        if img.get('data-nimg'):
-            logging.info("Selected Next.js optimized image")
-            return img
-    
-    # Fallback: return the first image
-    logging.info("Using first comic image as fallback")
-    return comic_imgs[0]
 
 
 def get_headers():
