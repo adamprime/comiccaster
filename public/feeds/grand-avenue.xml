@@ -1,85 +1,50 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Grand Avenue - GoComics</title><link>https://www.gocomics.com/grand-avenue</link><description>Daily Grand Avenue comic strip by Mike Thompson from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/grand-avenue.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 05 Oct 2025 09:14:13 +0000</lastBuildDate><ttl>1440</ttl><item><title>Grand Avenue - 2025-10-05</title><link>https://www.gocomics.com/grand-avenue/2025/10/05</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Grand Avenue - GoComics</title><link>https://www.gocomics.com/grand-avenue</link><description>Daily Grand Avenue comic strip by Mike Thompson from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/grand-avenue.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 09 Oct 2025 17:12:21 +0000</lastBuildDate><ttl>1440</ttl><item><title>Grand Avenue - 2025-10-05</title><link>https://www.gocomics.com/grand-avenue/2025/10/05</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/b115c8b064f8013eb0bf005056a9545d" 
+                &lt;img src="https://featureassets.gocomics.com/assets/4bc7b6307acb013eb49b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
                      alt="Grand Avenue" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/05&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/b115c8b064f8013eb0bf005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-10-04</title><link>https://www.gocomics.com/grand-avenue/2025/10/04</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/4f1ff2c07acb013eb49b005056a9545d" 
-                     alt="Grand Avenue" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/4bc7b6307acb013eb49b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-10-04</title><link>https://www.gocomics.com/grand-avenue/2025/10/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Grand Avenue" src="https://featureassets.gocomics.com/assets/4f1ff2c07acb013eb49b005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/04&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/4f1ff2c07acb013eb49b005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-10-03</title><link>https://www.gocomics.com/grand-avenue/2025/10/03</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/4f1ff2c07acb013eb49b005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-10-03</title><link>https://www.gocomics.com/grand-avenue/2025/10/03</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/404fa5607ac9013eb499005056a9545d" 
+                &lt;img src="https://featureassets.gocomics.com/assets/00e77160f310013d99b1005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
                      alt="Grand Avenue" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/03&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/404fa5607ac9013eb499005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-10-02</title><link>https://www.gocomics.com/grand-avenue/2025/10/02</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/4c3acfd07acd013eb49b005056a9545d" 
-                     alt="Grand Avenue" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/00e77160f310013d99b1005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-10-02</title><link>https://www.gocomics.com/grand-avenue/2025/10/02</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Grand Avenue" src="https://featureassets.gocomics.com/assets/4c3acfd07acd013eb49b005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/02&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/4c3acfd07acd013eb49b005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-10-01</title><link>https://www.gocomics.com/grand-avenue/2025/10/01</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/4bc7b6307acb013eb49b005056a9545d" 
-                     alt="Grand Avenue" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/4c3acfd07acd013eb49b005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-10-01</title><link>https://www.gocomics.com/grand-avenue/2025/10/01</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Grand Avenue" src="https://featureassets.gocomics.com/assets/4bc7b6307acb013eb49b005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/01&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/4bc7b6307acb013eb49b005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-30</title><link>https://www.gocomics.com/grand-avenue/2025/09/30</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/4bc7b6307acb013eb49b005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-30</title><link>https://www.gocomics.com/grand-avenue/2025/09/30</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/4825c7e07acb013eb49b005056a9545d" 
+                &lt;img src="https://featureassets.gocomics.com/assets/4c3acfd07acd013eb49b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
                      alt="Grand Avenue" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/30&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/4825c7e07acb013eb49b005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-29</title><link>https://www.gocomics.com/grand-avenue/2025/09/29</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/4536b5d07acb013eb49b005056a9545d" 
-                     alt="Grand Avenue" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/4c3acfd07acd013eb49b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-29</title><link>https://www.gocomics.com/grand-avenue/2025/09/29</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Grand Avenue" src="https://featureassets.gocomics.com/assets/4536b5d07acb013eb49b005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/29&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/4536b5d07acb013eb49b005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-28</title><link>https://www.gocomics.com/grand-avenue/2025/09/28</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/687936d05f5a013eaf8d005056a9545d" 
-                     alt="Grand Avenue" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/4536b5d07acb013eb49b005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-28</title><link>https://www.gocomics.com/grand-avenue/2025/09/28</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Grand Avenue" src="https://featureassets.gocomics.com/assets/687936d05f5a013eaf8d005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/28&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/28</guid><enclosure url="https://featureassets.gocomics.com/assets/687936d05f5a013eaf8d005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-27</title><link>https://www.gocomics.com/grand-avenue/2025/09/27</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/74c08c00754b013eb37b005056a9545d" 
-                     alt="Grand Avenue" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/28</guid><enclosure url="https://featureassets.gocomics.com/assets/687936d05f5a013eaf8d005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-27</title><link>https://www.gocomics.com/grand-avenue/2025/09/27</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Grand Avenue" src="https://featureassets.gocomics.com/assets/74c08c00754b013eb37b005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/27&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/27</guid><enclosure url="https://featureassets.gocomics.com/assets/74c08c00754b013eb37b005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-26</title><link>https://www.gocomics.com/grand-avenue/2025/09/26</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/71d53950754b013eb37b005056a9545d" 
-                     alt="Grand Avenue" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/27</guid><enclosure url="https://featureassets.gocomics.com/assets/74c08c00754b013eb37b005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-26</title><link>https://www.gocomics.com/grand-avenue/2025/09/26</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Grand Avenue" src="https://featureassets.gocomics.com/assets/71d53950754b013eb37b005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/26&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/71d53950754b013eb37b005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-25</title><link>https://www.gocomics.com/grand-avenue/2025/09/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/71d53950754b013eb37b005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-25</title><link>https://www.gocomics.com/grand-avenue/2025/09/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Grand Avenue" src="https://featureassets.gocomics.com/assets/5aed2bb07544013eb378005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/25&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/grand-avenue/2025/09/25</guid><enclosure url="https://featureassets.gocomics.com/assets/5aed2bb07544013eb378005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Grand Avenue - 2025-09-24</title><link>https://www.gocomics.com/grand-avenue/2025/09/24</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
