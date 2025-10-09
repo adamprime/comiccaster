@@ -209,8 +209,15 @@ def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[
             response.raise_for_status()
 
             # Check if we got a BunnyShield challenge page
-            if 'bunny-shield' in response.text or 'Establishing a secure connection' in response.text:
-                logging.debug(f"BunnyShield detected for {comic_slug}, falling back to Selenium")
+            # Challenge pages are small (<5000 bytes) and have specific indicators
+            is_challenge_page = (
+                len(response.text) < 5000 and
+                ('Establishing a secure connection' in response.text or
+                 '/.bunny-shield/' in response.text)
+            )
+
+            if is_challenge_page:
+                logging.debug(f"BunnyShield challenge detected for {comic_slug}, falling back to Selenium")
                 soup = None
             else:
                 # Success! Process with HTTP
@@ -391,9 +398,25 @@ def select_best_comic_image_http(comic_imgs: list) -> Optional:
 
 
 def get_headers():
-    """Get browser-like headers for HTTP requests."""
+    """
+    Get full browser-like headers for HTTP requests.
+
+    BunnyShield checks for complete browser header signatures, not just User-Agent.
+    Including all these headers allows HTTP requests to bypass BunnyShield challenge.
+    """
     return {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Accept-Encoding": "gzip, deflate, br",
+        "DNT": "1",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1",
+        "Cache-Control": "max-age=0"
     }
 
 def process_comic_date(comic_info: Dict[str, str], date: datetime) -> Optional[Dict[str, any]]:

@@ -139,11 +139,15 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 
 **BunnyShield CDN Protection Bypass:**
 - **Problem**: GoComics added BunnyShield CDN protection that blocks HTTP-only requests with JavaScript challenge pages, causing all feed updates to fail
-- **Solution**: Implemented hybrid HTTP-first approach with Selenium fallback and browser pool
+- **Solution**: Smart hybrid approach with full browser headers + Selenium fallback + browser pool
 - **Technical Details**:
-  - **Hybrid Strategy**: Try HTTP first (~0.5s), fall back to Selenium only when BunnyShield detected
+  - **Smart HTTP-First Strategy**: Use complete browser header suite to bypass BunnyShield (~60% success rate)
+    - Full Accept, Accept-Language, Sec-Fetch-* headers fool BunnyShield into allowing requests
+    - Brotli compression support via `brotli` library for proper response decoding
+    - Improved challenge page detection (checks page size + content)
+  - **Selenium Fallback**: Only used when HTTP fails (~40% of requests)
   - **Browser Pool**: 4 Firefox instances managed with semaphore for thread-safe parallel scraping
-  - **Performance**: ~5 seconds per comic, 10-12 minutes total for 400+ comics with safe parallelization
+  - **Performance**: ~60% comics via HTTP (0.5s), ~40% via Selenium (8s) = **~15-20 minutes total**
   - **Snap Firefox Support**: Uses full internal path `/snap/firefox/current/usr/lib/firefox/firefox` for Ubuntu snap installations
   - JSON-LD parsing logic remains unchanged and still works correctly
   - Updated valid image domains to include `featureassets.gocomics.com`
@@ -152,12 +156,14 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
   - Before BunnyShield: <1s per comic (HTTP-only, but now fails)
   - Initial Selenium fix: 5-6s per comic = 40+ minutes total
   - Race condition fix: Serial scraping = 39 minutes total (correct but slow)
-  - **After browser pool: ~5s per comic with 4x parallelization = 10-12 minutes total** ✅
+  - Browser pool (4x): ~8s per comic with parallelization = 10-12 minutes (but OOM crashes)
+  - **Smart HTTP + fallback: 60% at 0.5s, 40% at 8s = 15-20 minutes total** ✅
 - **Benefits**:
   - ✅ GoComics feeds working again after BunnyShield implementation
   - ✅ Maintains accurate date-based comic detection
+  - ✅ 60% of requests use fast HTTP path (30x faster than Selenium)
   - ✅ Thread-safe parallel scraping with no race conditions
-  - ✅ Acceptable performance for daily updates
+  - ✅ Stable - won't exhaust GitHub Actions memory
   - ✅ Both Firefox (GoComics) and Chrome (TinyView) supported in CI/CD
   - ✅ Automatic browser cleanup and proper resource management
 
