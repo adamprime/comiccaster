@@ -1,5 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Dinosaur Comics - GoComics</title><link>https://www.gocomics.com/dinosaur-comics</link><description>Daily Dinosaur Comics comic strip by Ryan North from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/dinosaur-comics.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 05 Oct 2025 09:13:24 +0000</lastBuildDate><ttl>1440</ttl><item><title>Dinosaur Comics - 2025-10-03</title><link>https://www.gocomics.com/dinosaur-comics/2025/10/03</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Dinosaur Comics - GoComics</title><link>https://www.gocomics.com/dinosaur-comics</link><description>Daily Dinosaur Comics comic strip by Ryan North from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/dinosaur-comics.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 10 Oct 2025 09:16:42 +0000</lastBuildDate><ttl>1440</ttl><item><title>Dinosaur Comics - 2025-10-09</title><link>https://www.gocomics.com/dinosaur-comics/2025/10/09</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/46895550d8f1013d93dc005056a9545d" 
+                     alt="Dinosaur Comics" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/09&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/10/09</guid><enclosure url="https://featureassets.gocomics.com/assets/46895550d8f1013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-10-06</title><link>https://www.gocomics.com/dinosaur-comics/2025/10/06</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/db438490d8ee013d93dc005056a9545d" 
+                     alt="Dinosaur Comics" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/06&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/10/06</guid><enclosure url="https://featureassets.gocomics.com/assets/db438490d8ee013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-10-03</title><link>https://www.gocomics.com/dinosaur-comics/2025/10/03</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/3e439fa0d8f2013d93dc005056a9545d" 
                      alt="Dinosaur Comics" 
@@ -7,15 +23,10 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/03&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/3e439fa0d8f2013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-10-02</title><link>https://www.gocomics.com/dinosaur-comics/2025/10/02</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/15b95820d8f2013d93dc005056a9545d" 
-                     alt="Dinosaur Comics" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/3e439fa0d8f2013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-10-02</title><link>https://www.gocomics.com/dinosaur-comics/2025/10/02</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dinosaur Comics" src="https://featureassets.gocomics.com/assets/15b95820d8f2013d93dc005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/02&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/15b95820d8f2013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-10-01</title><link>https://www.gocomics.com/dinosaur-comics/2025/10/01</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/15b95820d8f2013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-10-01</title><link>https://www.gocomics.com/dinosaur-comics/2025/10/01</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/52f402e0d8f1013d93dc005056a9545d" 
                      alt="Dinosaur Comics" 
@@ -23,31 +34,16 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/01&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/52f402e0d8f1013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-09-30</title><link>https://www.gocomics.com/dinosaur-comics/2025/09/30</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/705ef630d8f2013d93dc005056a9545d" 
-                     alt="Dinosaur Comics" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/52f402e0d8f1013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-09-30</title><link>https://www.gocomics.com/dinosaur-comics/2025/09/30</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dinosaur Comics" src="https://featureassets.gocomics.com/assets/705ef630d8f2013d93dc005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/30&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/705ef630d8f2013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-09-29</title><link>https://www.gocomics.com/dinosaur-comics/2025/09/29</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/0eca7840d8f2013d93dc005056a9545d" 
-                     alt="Dinosaur Comics" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/705ef630d8f2013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-09-29</title><link>https://www.gocomics.com/dinosaur-comics/2025/09/29</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dinosaur Comics" src="https://featureassets.gocomics.com/assets/0eca7840d8f2013d93dc005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/29&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/0eca7840d8f2013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-09-26</title><link>https://www.gocomics.com/dinosaur-comics/2025/09/26</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/34da4f00d8ef013d93dc005056a9545d" 
-                     alt="Dinosaur Comics" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/0eca7840d8f2013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-09-26</title><link>https://www.gocomics.com/dinosaur-comics/2025/09/26</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dinosaur Comics" src="https://featureassets.gocomics.com/assets/34da4f00d8ef013d93dc005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/26&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/34da4f00d8ef013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-09-25</title><link>https://www.gocomics.com/dinosaur-comics/2025/09/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/34da4f00d8ef013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-09-25</title><link>https://www.gocomics.com/dinosaur-comics/2025/09/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Dinosaur Comics" src="https://featureassets.gocomics.com/assets/5234cf40d8f2013d93dc005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/25&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/09/25</guid><enclosure url="https://featureassets.gocomics.com/assets/5234cf40d8f2013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-09-24</title><link>https://www.gocomics.com/dinosaur-comics/2025/09/24</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -323,10 +319,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/05/22</guid><enclosure url="https://featureassets.gocomics.com/assets/826fef60d8ef013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 22 May 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-05-21</title><link>https://www.gocomics.com/dinosaur-comics/2025/05/21</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Dinosaur Comics" src="https://featureassets.gocomics.com/assets/92db9790d8ee013d93dc005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-05-21&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/05/21</guid><enclosure url="https://featureassets.gocomics.com/assets/92db9790d8ee013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-05-20</title><link>https://www.gocomics.com/dinosaur-comics/2025/05/20</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Dinosaur Comics" src="https://featureassets.gocomics.com/assets/49997be0d8ee013d93dc005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-05-20&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/05/20</guid><enclosure url="https://featureassets.gocomics.com/assets/49997be0d8ee013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate></item><item><title>Dinosaur Comics - 2025-05-19</title><link>https://www.gocomics.com/dinosaur-comics/2025/05/19</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Dinosaur Comics" src="https://featureassets.gocomics.com/assets/b22ffb50d8f0013d93dc005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-05-19&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/05/19</guid><enclosure url="https://featureassets.gocomics.com/assets/b22ffb50d8f0013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dinosaur-comics/2025/05/21</guid><enclosure url="https://featureassets.gocomics.com/assets/92db9790d8ee013d93dc005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate></item></channel></rss>

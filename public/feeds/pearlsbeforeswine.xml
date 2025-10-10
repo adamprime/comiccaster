@@ -1,33 +1,59 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pearls Before Swine - GoComics</title><link>https://www.gocomics.com/pearlsbeforeswine</link><description>Daily Pearls Before Swine comic strip by Stephan Pastis from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/pearlsbeforeswine.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 09 Oct 2025 17:52:19 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pearls Before Swine - 2025-10-07</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/07</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pearls Before Swine - GoComics</title><link>https://www.gocomics.com/pearlsbeforeswine</link><description>Daily Pearls Before Swine comic strip by Stephan Pastis from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/pearlsbeforeswine.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 10 Oct 2025 09:17:18 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pearls Before Swine - 2025-10-10</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/10</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/f24417108038013eb59f005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
+                &lt;img src="https://featureassets.gocomics.com/assets/9c2842208038013eb59f005056a9545d" 
                      alt="Pearls Before Swine" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
-                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/07&lt;/p&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/10&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/07</guid><enclosure url="https://featureassets.gocomics.com/assets/f24417108038013eb59f005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-05</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/05</link><description>
+            </description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/10</guid><enclosure url="https://featureassets.gocomics.com/assets/9c2842208038013eb59f005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-08</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/08</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/ba4482907b84013eb4c5005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
+                &lt;img src="https://featureassets.gocomics.com/assets/5eb5c3008036013eb59f005056a9545d" 
+                     alt="Pearls Before Swine" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/08&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/08</guid><enclosure url="https://featureassets.gocomics.com/assets/5eb5c3008036013eb59f005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-07</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/07</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Pearls Before Swine" src="https://featureassets.gocomics.com/assets/f24417108038013eb59f005056a9545d?optimizer=image&amp;amp;width=2800&amp;amp;quality=85" style="height: auto; display: block; margin: 0 auto;" /&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/07&lt;/p&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/07</guid><enclosure url="https://featureassets.gocomics.com/assets/f24417108038013eb59f005056a9545d?optimizer=image&amp;amp;width=2800&amp;amp;quality=85" length="0" type="image/jpeg"/><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-05</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/05</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/1456f0e0668b013eb111005056a9545d" 
                      alt="Pearls Before Swine" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/05&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/ba4482907b84013eb4c5005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-04</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/1456f0e0668b013eb111005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-04</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Pearls Before Swine" src="https://featureassets.gocomics.com/assets/cf525ab079f3013eb462005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/04&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/cf525ab079f3013eb462005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-03</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/03</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="Pearls Before Swine" src="https://featureassets.gocomics.com/assets/ccaa1c5079f3013eb462005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/cf525ab079f3013eb462005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-03</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/03</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/ccaa1c5079f3013eb462005056a9545d" 
+                     alt="Pearls Before Swine" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/03&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/ccaa1c5079f3013eb462005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-02</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/02</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="Pearls Before Swine" src="https://featureassets.gocomics.com/assets/ca1971c079f3013eb462005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/ccaa1c5079f3013eb462005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-02</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/02</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/ca1971c079f3013eb462005056a9545d" 
+                     alt="Pearls Before Swine" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/02&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/ca1971c079f3013eb462005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-01</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/01</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="Pearls Before Swine" src="https://featureassets.gocomics.com/assets/2aceaee079f2013eb462005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/ca1971c079f3013eb462005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-10-01</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/10/01</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/2aceaee079f2013eb462005056a9545d" 
+                     alt="Pearls Before Swine" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/01&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/2aceaee079f2013eb462005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-09-30</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/09/30</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/2aceaee079f2013eb462005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-09-30</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/09/30</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Pearls Before Swine" src="https://featureassets.gocomics.com/assets/c773516079f3013eb462005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/30&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/c773516079f3013eb462005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-09-29</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/09/29</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -303,10 +329,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/07/02</guid><enclosure url="https://featureassets.gocomics.com/assets/b6d499b03264013ea69a005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-07-01</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/07/01</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Pearls Before Swine" src="https://featureassets.gocomics.com/assets/b43d8bf03264013ea69a005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/07/01&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/07/01</guid><enclosure url="https://featureassets.gocomics.com/assets/b43d8bf03264013ea69a005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-06-30</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/06/30</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Pearls Before Swine" src="https://featureassets.gocomics.com/assets/ffd4e6a03263013ea69a005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/30&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/06/30</guid><enclosure url="https://featureassets.gocomics.com/assets/ffd4e6a03263013ea69a005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Pearls Before Swine - 2025-06-29</title><link>https://www.gocomics.com/pearlsbeforeswine/2025/06/29</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Pearls Before Swine" src="https://featureassets.gocomics.com/assets/4842bfb01880013ea0fe005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/29&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/06/29</guid><enclosure url="https://featureassets.gocomics.com/assets/4842bfb01880013ea0fe005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/pearlsbeforeswine/2025/07/01</guid><enclosure url="https://featureassets.gocomics.com/assets/b43d8bf03264013ea69a005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>

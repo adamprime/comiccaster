@@ -1,30 +1,56 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Flo and Friends - GoComics</title><link>https://www.gocomics.com/floandfriends</link><description>Daily Flo and Friends comic strip by Jenny Campbell from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/floandfriends.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 09 Oct 2025 17:00:57 +0000</lastBuildDate><ttl>1440</ttl><item><title>Flo and Friends - 2025-10-09</title><link>https://www.gocomics.com/floandfriends/2025/10/09</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/6ad58bb08110013eb5db005056a9545d" 
-                     alt="Flo and Friends" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Flo and Friends - GoComics</title><link>https://www.gocomics.com/floandfriends</link><description>Daily Flo and Friends comic strip by Jenny Campbell from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/floandfriends.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 10 Oct 2025 09:16:46 +0000</lastBuildDate><ttl>1440</ttl><item><title>Flo and Friends - 2025-10-09</title><link>https://www.gocomics.com/floandfriends/2025/10/09</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Flo and Friends" src="https://featureassets.gocomics.com/assets/6ad58bb08110013eb5db005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/09&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/09</guid><enclosure url="https://featureassets.gocomics.com/assets/6ad58bb08110013eb5db005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-08</title><link>https://www.gocomics.com/floandfriends/2025/10/08</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/09</guid><enclosure url="https://featureassets.gocomics.com/assets/6ad58bb08110013eb5db005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-08</title><link>https://www.gocomics.com/floandfriends/2025/10/08</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/6ad58bb08110013eb5db005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
+                &lt;img src="https://featureassets.gocomics.com/assets/ef64565081c4013eb600005056a9545d" 
                      alt="Flo and Friends" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/08&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/08</guid><enclosure url="https://featureassets.gocomics.com/assets/6ad58bb08110013eb5db005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-04</title><link>https://www.gocomics.com/floandfriends/2025/10/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="Flo and Friends" src="https://featureassets.gocomics.com/assets/b7f09c007856013eb436005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/08</guid><enclosure url="https://featureassets.gocomics.com/assets/ef64565081c4013eb600005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-07</title><link>https://www.gocomics.com/floandfriends/2025/10/07</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/ec748af081c4013eb600005056a9545d" 
+                     alt="Flo and Friends" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/07&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/07</guid><enclosure url="https://featureassets.gocomics.com/assets/ec748af081c4013eb600005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-05</title><link>https://www.gocomics.com/floandfriends/2025/10/05</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/1c82b6f072dd013eb31b005056a9545d" 
+                     alt="Flo and Friends" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/05&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/1c82b6f072dd013eb31b005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-04</title><link>https://www.gocomics.com/floandfriends/2025/10/04</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/b7f09c007856013eb436005056a9545d" 
+                     alt="Flo and Friends" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/04&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/b7f09c007856013eb436005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-03</title><link>https://www.gocomics.com/floandfriends/2025/10/03</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="Flo and Friends" src="https://featureassets.gocomics.com/assets/b4dc08d07856013eb436005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/b7f09c007856013eb436005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-03</title><link>https://www.gocomics.com/floandfriends/2025/10/03</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/b4dc08d07856013eb436005056a9545d" 
+                     alt="Flo and Friends" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/03&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/b4dc08d07856013eb436005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-02</title><link>https://www.gocomics.com/floandfriends/2025/10/02</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="Flo and Friends" src="https://featureassets.gocomics.com/assets/c34ba9407857013eb436005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/b4dc08d07856013eb436005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-02</title><link>https://www.gocomics.com/floandfriends/2025/10/02</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/c34ba9407857013eb436005056a9545d" 
+                     alt="Flo and Friends" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/02&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/c34ba9407857013eb436005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-01</title><link>https://www.gocomics.com/floandfriends/2025/10/01</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/c34ba9407857013eb436005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-10-01</title><link>https://www.gocomics.com/floandfriends/2025/10/01</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Flo and Friends" src="https://featureassets.gocomics.com/assets/b22029e07856013eb436005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/01&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/b22029e07856013eb436005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-09-30</title><link>https://www.gocomics.com/floandfriends/2025/09/30</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -303,10 +329,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/07/02</guid><enclosure url="https://featureassets.gocomics.com/assets/0bf072e030d6013ea66d005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-07-01</title><link>https://www.gocomics.com/floandfriends/2025/07/01</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Flo and Friends" src="https://featureassets.gocomics.com/assets/08d197f030d6013ea66d005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/07/01&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/07/01</guid><enclosure url="https://featureassets.gocomics.com/assets/08d197f030d6013ea66d005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-06-30</title><link>https://www.gocomics.com/floandfriends/2025/06/30</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Flo and Friends" src="https://featureassets.gocomics.com/assets/0626ad2030d6013ea66d005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/30&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/06/30</guid><enclosure url="https://featureassets.gocomics.com/assets/0626ad2030d6013ea66d005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Flo and Friends - 2025-06-29</title><link>https://www.gocomics.com/floandfriends/2025/06/29</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Flo and Friends" src="https://featureassets.gocomics.com/assets/a62137c022db013ea31b005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/29&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/06/29</guid><enclosure url="https://featureassets.gocomics.com/assets/a62137c022db013ea31b005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/floandfriends/2025/07/01</guid><enclosure url="https://featureassets.gocomics.com/assets/08d197f030d6013ea66d005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>

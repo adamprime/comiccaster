@@ -1,36 +1,85 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>The Barn - GoComics</title><link>https://www.gocomics.com/thebarn</link><description>Daily The Barn comic strip by Ralph Hagen from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/thebarn.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 09 Oct 2025 16:30:50 +0000</lastBuildDate><ttl>1440</ttl><item><title>The Barn - 2025-10-09</title><link>https://www.gocomics.com/thebarn/2025/10/09</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>The Barn - GoComics</title><link>https://www.gocomics.com/thebarn</link><description>Daily The Barn comic strip by Ralph Hagen from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/thebarn.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 10 Oct 2025 09:16:24 +0000</lastBuildDate><ttl>1440</ttl><item><title>The Barn - 2025-10-10</title><link>https://www.gocomics.com/thebarn/2025/10/10</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/5f60b1807f12013eb56a005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
+                &lt;img src="https://featureassets.gocomics.com/assets/f6cac7e04935013eabfd005056a9545d" 
+                     alt="The Barn" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/10&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/10</guid><enclosure url="https://featureassets.gocomics.com/assets/f6cac7e04935013eabfd005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-09</title><link>https://www.gocomics.com/thebarn/2025/10/09</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/7ceabbf04930013eabfb005056a9545d" 
                      alt="The Barn" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/09&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/09</guid><enclosure url="https://featureassets.gocomics.com/assets/5f60b1807f12013eb56a005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-08</title><link>https://www.gocomics.com/thebarn/2025/10/08</link><description>
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/09</guid><enclosure url="https://featureassets.gocomics.com/assets/7ceabbf04930013eabfb005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-08</title><link>https://www.gocomics.com/thebarn/2025/10/08</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/59e13b107f12013eb56a005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
+                &lt;img src="https://featureassets.gocomics.com/assets/7a4ab9c04930013eabfb005056a9545d" 
                      alt="The Barn" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/08&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/08</guid><enclosure url="https://featureassets.gocomics.com/assets/59e13b107f12013eb56a005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-05</title><link>https://www.gocomics.com/thebarn/2025/10/05</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/0a15deb06ba5013eb1b8005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/08</guid><enclosure url="https://featureassets.gocomics.com/assets/7a4ab9c04930013eabfb005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-07</title><link>https://www.gocomics.com/thebarn/2025/10/07</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/b8c4c2b04934013eabfd005056a9545d" 
+                     alt="The Barn" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/07&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/07</guid><enclosure url="https://featureassets.gocomics.com/assets/b8c4c2b04934013eabfd005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-06</title><link>https://www.gocomics.com/thebarn/2025/10/06</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/b40caf904934013eabfd005056a9545d" 
+                     alt="The Barn" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/06&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/06</guid><enclosure url="https://featureassets.gocomics.com/assets/b40caf904934013eabfd005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-05</title><link>https://www.gocomics.com/thebarn/2025/10/05</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/0a15deb06ba5013eb1b8005056a9545d" 
+                     alt="The Barn" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/05&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/0a15deb06ba5013eb1b8005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-04</title><link>https://www.gocomics.com/thebarn/2025/10/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/effacca0447d013eaafa005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/0a15deb06ba5013eb1b8005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-04</title><link>https://www.gocomics.com/thebarn/2025/10/04</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/effacca0447d013eaafa005056a9545d" 
+                     alt="The Barn" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/04&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/effacca0447d013eaafa005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-03</title><link>https://www.gocomics.com/thebarn/2025/10/03</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/eaf6a060447d013eaafa005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/effacca0447d013eaafa005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-03</title><link>https://www.gocomics.com/thebarn/2025/10/03</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/eaf6a060447d013eaafa005056a9545d" 
+                     alt="The Barn" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/03&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/eaf6a060447d013eaafa005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-02</title><link>https://www.gocomics.com/thebarn/2025/10/02</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/e6972df0447d013eaafa005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/eaf6a060447d013eaafa005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-02</title><link>https://www.gocomics.com/thebarn/2025/10/02</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/e6972df0447d013eaafa005056a9545d" 
+                     alt="The Barn" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/02&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/e6972df0447d013eaafa005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-01</title><link>https://www.gocomics.com/thebarn/2025/10/01</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/e216ea10447d013eaafa005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/e6972df0447d013eaafa005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-10-01</title><link>https://www.gocomics.com/thebarn/2025/10/01</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/e216ea10447d013eaafa005056a9545d" 
+                     alt="The Barn" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/01&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/e216ea10447d013eaafa005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-09-30</title><link>https://www.gocomics.com/thebarn/2025/09/30</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/e216ea10447d013eaafa005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-09-30</title><link>https://www.gocomics.com/thebarn/2025/09/30</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/dd518580447d013eaafa005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/30&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/dd518580447d013eaafa005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-09-29</title><link>https://www.gocomics.com/thebarn/2025/09/29</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -300,13 +349,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/07/04</guid><enclosure url="https://featureassets.gocomics.com/assets/fda5d3c025e8013ea3ed005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-07-03</title><link>https://www.gocomics.com/thebarn/2025/07/03</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/f8b9e88025e8013ea3ed005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/07/03&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/07/03</guid><enclosure url="https://featureassets.gocomics.com/assets/f8b9e88025e8013ea3ed005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-07-02</title><link>https://www.gocomics.com/thebarn/2025/07/02</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/f5f0ee1025e8013ea3ed005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/07/02&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/07/02</guid><enclosure url="https://featureassets.gocomics.com/assets/f5f0ee1025e8013ea3ed005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-07-01</title><link>https://www.gocomics.com/thebarn/2025/07/01</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/f0ead03025e8013ea3ed005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/07/01&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/07/01</guid><enclosure url="https://featureassets.gocomics.com/assets/f0ead03025e8013ea3ed005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate></item><item><title>The Barn - 2025-06-30</title><link>https://www.gocomics.com/thebarn/2025/06/30</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="The Barn" src="https://featureassets.gocomics.com/assets/ec9815f025e8013ea3ed005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/30&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/06/30</guid><enclosure url="https://featureassets.gocomics.com/assets/ec9815f025e8013ea3ed005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/thebarn/2025/07/03</guid><enclosure url="https://featureassets.gocomics.com/assets/f8b9e88025e8013ea3ed005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>

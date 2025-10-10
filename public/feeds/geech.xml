@@ -1,21 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Geech - GoComics</title><link>https://www.gocomics.com/geech</link><description>Daily Geech comic strip by Jerry Bittle from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/geech.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 05 Oct 2025 09:14:13 +0000</lastBuildDate><ttl>1440</ttl><item><title>Geech - 2025-10-05</title><link>https://www.gocomics.com/geech/2025/10/05</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Geech - GoComics</title><link>https://www.gocomics.com/geech</link><description>Daily Geech comic strip by Jerry Bittle from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/geech.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 10 Oct 2025 09:16:53 +0000</lastBuildDate><ttl>1440</ttl><item><title>Geech - 2025-10-10</title><link>https://www.gocomics.com/geech/2025/10/10</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/a53f458099f8012e2f8200163e41dd5b" 
+                &lt;img src="https://featureassets.gocomics.com/assets/f83b960099f8012e2f8200163e41dd5b" 
                      alt="Geech" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/10&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/10/10</guid><enclosure url="https://featureassets.gocomics.com/assets/f83b960099f8012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-10-09</title><link>https://www.gocomics.com/geech/2025/10/09</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/fc77bf2099f9012e2f8200163e41dd5b" 
+                     alt="Geech" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/09&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/10/09</guid><enclosure url="https://featureassets.gocomics.com/assets/fc77bf2099f9012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-10-08</title><link>https://www.gocomics.com/geech/2025/10/08</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/22c6ad6099fb012e2f8200163e41dd5b" 
+                     alt="Geech" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/08&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/10/08</guid><enclosure url="https://featureassets.gocomics.com/assets/22c6ad6099fb012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-10-07</title><link>https://www.gocomics.com/geech/2025/10/07</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/c3a19a2099f3012e2f8200163e41dd5b" 
+                     alt="Geech" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/07&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/10/07</guid><enclosure url="https://featureassets.gocomics.com/assets/c3a19a2099f3012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-10-06</title><link>https://www.gocomics.com/geech/2025/10/06</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/03f6a6d099f9012e2f8200163e41dd5b" 
+                     alt="Geech" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/06&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/10/06</guid><enclosure url="https://featureassets.gocomics.com/assets/03f6a6d099f9012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-10-05</title><link>https://www.gocomics.com/geech/2025/10/05</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/a53f458099f8012e2f8200163e41dd5b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/05&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/a53f458099f8012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-10-04</title><link>https://www.gocomics.com/geech/2025/10/04</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/9b9a852099f8012e2f8200163e41dd5b" 
-                     alt="Geech" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/a53f458099f8012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-10-04</title><link>https://www.gocomics.com/geech/2025/10/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/9b9a852099f8012e2f8200163e41dd5b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/04&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/9b9a852099f8012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-10-03</title><link>https://www.gocomics.com/geech/2025/10/03</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/9b9a852099f8012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-10-03</title><link>https://www.gocomics.com/geech/2025/10/03</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/4eb58d6099f9012e2f8200163e41dd5b" 
                      alt="Geech" 
@@ -45,31 +75,16 @@
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/37d30c7099f4012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-29</title><link>https://www.gocomics.com/geech/2025/09/29</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/31f31ad099f9012e2f8200163e41dd5b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/29&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/31f31ad099f9012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-28</title><link>https://www.gocomics.com/geech/2025/09/28</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/02a1299099f9012e2f8200163e41dd5b" 
-                     alt="Geech" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/31f31ad099f9012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-28</title><link>https://www.gocomics.com/geech/2025/09/28</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/02a1299099f9012e2f8200163e41dd5b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/28&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/28</guid><enclosure url="https://featureassets.gocomics.com/assets/02a1299099f9012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-27</title><link>https://www.gocomics.com/geech/2025/09/27</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/1f72926099fa012e2f8200163e41dd5b" 
-                     alt="Geech" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/28</guid><enclosure url="https://featureassets.gocomics.com/assets/02a1299099f9012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-27</title><link>https://www.gocomics.com/geech/2025/09/27</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/1f72926099fa012e2f8200163e41dd5b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/27&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/27</guid><enclosure url="https://featureassets.gocomics.com/assets/1f72926099fa012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-26</title><link>https://www.gocomics.com/geech/2025/09/26</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/6024149099f8012e2f8200163e41dd5b" 
-                     alt="Geech" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/27</guid><enclosure url="https://featureassets.gocomics.com/assets/1f72926099fa012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-26</title><link>https://www.gocomics.com/geech/2025/09/26</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/6024149099f8012e2f8200163e41dd5b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/26&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/6024149099f8012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-25</title><link>https://www.gocomics.com/geech/2025/09/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/6024149099f8012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-25</title><link>https://www.gocomics.com/geech/2025/09/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/773a249099f9012e2f8200163e41dd5b" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/25&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/09/25</guid><enclosure url="https://featureassets.gocomics.com/assets/773a249099f9012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-09-24</title><link>https://www.gocomics.com/geech/2025/09/24</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -324,19 +339,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/07/04</guid><enclosure url="https://featureassets.gocomics.com/assets/377bad1099f1012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-07-03</title><link>https://www.gocomics.com/geech/2025/07/03</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/81a8356099f2012e2f8200163e41dd5b" /&gt;
                     &lt;p&gt;Comic strip for 2025/07/03&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/07/03</guid><enclosure url="https://featureassets.gocomics.com/assets/81a8356099f2012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-07-02</title><link>https://www.gocomics.com/geech/2025/07/02</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/fb59132099f0012e2f8200163e41dd5b" /&gt;
-                    &lt;p&gt;Comic strip for 2025/07/02&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/07/02</guid><enclosure url="https://featureassets.gocomics.com/assets/fb59132099f0012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-07-01</title><link>https://www.gocomics.com/geech/2025/07/01</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/be76fe509878012f2fe400163e41dd5b" /&gt;
-                    &lt;p&gt;Comic strip for 2025/07/01&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/07/01</guid><enclosure url="https://featureassets.gocomics.com/assets/be76fe509878012f2fe400163e41dd5b" length="0" type="image/jpeg"/><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-06-30</title><link>https://www.gocomics.com/geech/2025/06/30</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/6f80636099f1012e2f8200163e41dd5b" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/30&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/06/30</guid><enclosure url="https://featureassets.gocomics.com/assets/6f80636099f1012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-06-29</title><link>https://www.gocomics.com/geech/2025/06/29</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/3079feb099f2012e2f8200163e41dd5b" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/29&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/06/29</guid><enclosure url="https://featureassets.gocomics.com/assets/3079feb099f2012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Geech - 2025-06-28</title><link>https://www.gocomics.com/geech/2025/06/28</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Geech" src="https://featureassets.gocomics.com/assets/3b73b2c099f2012e2f8200163e41dd5b" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/28&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/06/28</guid><enclosure url="https://featureassets.gocomics.com/assets/3b73b2c099f2012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Sat, 28 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/geech/2025/07/03</guid><enclosure url="https://featureassets.gocomics.com/assets/81a8356099f2012e2f8200163e41dd5b" length="0" type="image/jpeg"/><pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>

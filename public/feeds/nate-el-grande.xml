@@ -1,51 +1,62 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nate el Grande - GoComics</title><link>https://www.gocomics.com/nate-el-grande</link><description>Daily Nate el Grande comic strip by Lincoln Peirce from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/nate-el-grande.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 09 Oct 2025 17:42:17 +0000</lastBuildDate><ttl>1440</ttl><item><title>Nate el Grande - 2025-10-07</title><link>https://www.gocomics.com/nate-el-grande/2025/10/07</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nate el Grande - GoComics</title><link>https://www.gocomics.com/nate-el-grande</link><description>Daily Nate el Grande comic strip by Lincoln Peirce from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/nate-el-grande.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 10 Oct 2025 09:17:14 +0000</lastBuildDate><ttl>1440</ttl><item><title>Nate el Grande - 2025-10-09</title><link>https://www.gocomics.com/nate-el-grande/2025/10/09</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/b2e5ea6098b8013d81b4005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
+                &lt;img src="https://featureassets.gocomics.com/assets/7ee3c4008113013eb5db005056a9545d" 
+                     alt="Nate el Grande" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/09&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/09</guid><enclosure url="https://featureassets.gocomics.com/assets/7ee3c4008113013eb5db005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-07</title><link>https://www.gocomics.com/nate-el-grande/2025/10/07</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/799fe2608113013eb5db005056a9545d" 
                      alt="Nate el Grande" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/07&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/07</guid><enclosure url="https://featureassets.gocomics.com/assets/b2e5ea6098b8013d81b4005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-05</title><link>https://www.gocomics.com/nate-el-grande/2025/10/05</link><description>
+            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/07</guid><enclosure url="https://featureassets.gocomics.com/assets/799fe2608113013eb5db005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-06</title><link>https://www.gocomics.com/nate-el-grande/2025/10/06</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/9ebb87b07ba2013eb4d3005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
+                &lt;img src="https://featureassets.gocomics.com/assets/77160ff08113013eb5db005056a9545d" 
                      alt="Nate el Grande" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
-                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/05&lt;/p&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/06&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/9ebb87b07ba2013eb4d3005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-04</title><link>https://www.gocomics.com/nate-el-grande/2025/10/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img alt="Nate el Grande" src="https://featureassets.gocomics.com/assets/a494f0907ba2013eb4d3005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
-                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/04&lt;/p&gt;
-            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/a494f0907ba2013eb4d3005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-03</title><link>https://www.gocomics.com/nate-el-grande/2025/10/03</link><description>
+            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/06</guid><enclosure url="https://featureassets.gocomics.com/assets/77160ff08113013eb5db005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-05</title><link>https://www.gocomics.com/nate-el-grande/2025/10/05</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Nate el Grande" src="https://featureassets.gocomics.com/assets/9ebb87b07ba2013eb4d3005056a9545d?optimizer=image&amp;amp;width=2800&amp;amp;quality=85" style="height: auto; display: block; margin: 0 auto;" /&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/05&lt;/p&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/9ebb87b07ba2013eb4d3005056a9545d?optimizer=image&amp;amp;width=2800&amp;amp;quality=85" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-04</title><link>https://www.gocomics.com/nate-el-grande/2025/10/04</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/98c494407ba2013eb4d3005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
+                &lt;img src="https://featureassets.gocomics.com/assets/a494f0907ba2013eb4d3005056a9545d" 
+                     alt="Nate el Grande" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/04&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/a494f0907ba2013eb4d3005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-03</title><link>https://www.gocomics.com/nate-el-grande/2025/10/03</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/a1ae4d107ba2013eb4d3005056a9545d" 
                      alt="Nate el Grande" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/03&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/98c494407ba2013eb4d3005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-02</title><link>https://www.gocomics.com/nate-el-grande/2025/10/02</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/a1ae4d107ba2013eb4d3005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-02</title><link>https://www.gocomics.com/nate-el-grande/2025/10/02</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Nate el Grande" src="https://featureassets.gocomics.com/assets/9ebb87b07ba2013eb4d3005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/02&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/02</guid><enclosure url="https://featureassets.gocomics.com/assets/9ebb87b07ba2013eb4d3005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-10-01</title><link>https://www.gocomics.com/nate-el-grande/2025/10/01</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/799fe2608113013eb5db005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
+                &lt;img src="https://featureassets.gocomics.com/assets/9be3b9007ba2013eb4d3005056a9545d" 
                      alt="Nate el Grande" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/01&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/799fe2608113013eb5db005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-09-30</title><link>https://www.gocomics.com/nate-el-grande/2025/09/30</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/a494f0907ba2013eb4d3005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" 
-                     alt="Nate el Grande" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/9be3b9007ba2013eb4d3005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-09-30</title><link>https://www.gocomics.com/nate-el-grande/2025/09/30</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Nate el Grande" src="https://featureassets.gocomics.com/assets/a494f0907ba2013eb4d3005056a9545d?optimizer=image&amp;amp;width=2800&amp;amp;quality=85" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/30&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/a494f0907ba2013eb4d3005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-09-29</title><link>https://www.gocomics.com/nate-el-grande/2025/09/29</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/a494f0907ba2013eb4d3005056a9545d?optimizer=image&amp;amp;width=2800&amp;amp;quality=85" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-09-29</title><link>https://www.gocomics.com/nate-el-grande/2025/09/29</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Nate el Grande" src="https://featureassets.gocomics.com/assets/95d367f07ba2013eb4d3005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/29&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/95d367f07ba2013eb4d3005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-09-27</title><link>https://www.gocomics.com/nate-el-grande/2025/09/27</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -318,10 +329,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/06/17</guid><enclosure url="https://featureassets.gocomics.com/assets/ac60b3502920013ea48c005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-06-16</title><link>https://www.gocomics.com/nate-el-grande/2025/06/16</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Nate el Grande" src="https://featureassets.gocomics.com/assets/a98fb6002920013ea48c005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025-06-16&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/06/16</guid><enclosure url="https://featureassets.gocomics.com/assets/a98fb6002920013ea48c005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-06-14</title><link>https://www.gocomics.com/nate-el-grande/2025/06/14</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Nate el Grande" src="https://featureassets.gocomics.com/assets/c6225c60238e013ea34f005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-06-14&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/06/14</guid><enclosure url="https://featureassets.gocomics.com/assets/c6225c60238e013ea34f005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 14 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Nate el Grande - 2025-06-13</title><link>https://www.gocomics.com/nate-el-grande/2025/06/13</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Nate el Grande" src="https://featureassets.gocomics.com/assets/c39d5120238e013ea34f005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025-06-13&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/06/13</guid><enclosure url="https://featureassets.gocomics.com/assets/c39d5120238e013ea34f005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/nate-el-grande/2025/06/16</guid><enclosure url="https://featureassets.gocomics.com/assets/a98fb6002920013ea48c005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>

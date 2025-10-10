@@ -1,29 +1,46 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Dog Eat Doug - GoComics</title><link>https://www.gocomics.com/dogeatdoug</link><description>Daily Dog Eat Doug comic strip by Brian Anderson from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/dogeatdoug.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 05 Oct 2025 09:13:23 +0000</lastBuildDate><ttl>1440</ttl><item><title>Dog Eat Doug - 2025-10-05</title><link>https://www.gocomics.com/dogeatdoug/2025/10/05</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Dog Eat Doug - GoComics</title><link>https://www.gocomics.com/dogeatdoug</link><description>Daily Dog Eat Doug comic strip by Brian Anderson from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/dogeatdoug.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 10 Oct 2025 09:16:42 +0000</lastBuildDate><ttl>1440</ttl><item><title>Dog Eat Doug - 2025-10-10</title><link>https://www.gocomics.com/dogeatdoug/2025/10/10</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/d72cb1906ba7013eb1b8005056a9545d" 
+                &lt;img src="https://featureassets.gocomics.com/assets/6ab791d075fd013eb3a2005056a9545d" 
                      alt="Dog Eat Doug" 
                      style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
                      loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/10&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/10</guid><enclosure url="https://featureassets.gocomics.com/assets/6ab791d075fd013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-09</title><link>https://www.gocomics.com/dogeatdoug/2025/10/09</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/66676d3075fd013eb3a2005056a9545d" 
+                     alt="Dog Eat Doug" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/09&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/09</guid><enclosure url="https://featureassets.gocomics.com/assets/66676d3075fd013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-08</title><link>https://www.gocomics.com/dogeatdoug/2025/10/08</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/6165ce4075fd013eb3a2005056a9545d" 
+                     alt="Dog Eat Doug" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/08&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/08</guid><enclosure url="https://featureassets.gocomics.com/assets/6165ce4075fd013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-06</title><link>https://www.gocomics.com/dogeatdoug/2025/10/06</link><description>
+            &lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img src="https://featureassets.gocomics.com/assets/587cc4f075fd013eb3a2005056a9545d" 
+                     alt="Dog Eat Doug" 
+                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                     loading="lazy"&gt;
+                &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/06&lt;/p&gt;
+            &lt;/div&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/06</guid><enclosure url="https://featureassets.gocomics.com/assets/587cc4f075fd013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-05</title><link>https://www.gocomics.com/dogeatdoug/2025/10/05</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/d72cb1906ba7013eb1b8005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/05&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/d72cb1906ba7013eb1b8005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-04</title><link>https://www.gocomics.com/dogeatdoug/2025/10/04</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/2d23b18075fb013eb3a2005056a9545d" 
-                     alt="Dog Eat Doug" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/05</guid><enclosure url="https://featureassets.gocomics.com/assets/d72cb1906ba7013eb1b8005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-04</title><link>https://www.gocomics.com/dogeatdoug/2025/10/04</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/2d23b18075fb013eb3a2005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/04&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/2d23b18075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-03</title><link>https://www.gocomics.com/dogeatdoug/2025/10/03</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/27d4a9d075fb013eb3a2005056a9545d" 
-                     alt="Dog Eat Doug" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/04</guid><enclosure url="https://featureassets.gocomics.com/assets/2d23b18075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-03</title><link>https://www.gocomics.com/dogeatdoug/2025/10/03</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/27d4a9d075fb013eb3a2005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/03&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/27d4a9d075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-02</title><link>https://www.gocomics.com/dogeatdoug/2025/10/02</link><description>
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/03</guid><enclosure url="https://featureassets.gocomics.com/assets/27d4a9d075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-10-02</title><link>https://www.gocomics.com/dogeatdoug/2025/10/02</link><description>
             &lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img src="https://featureassets.gocomics.com/assets/23094d1075fb013eb3a2005056a9545d" 
                      alt="Dog Eat Doug" 
@@ -39,47 +56,22 @@
                      loading="lazy"&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/10/01&lt;/p&gt;
             &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/1daf4aa075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-30</title><link>https://www.gocomics.com/dogeatdoug/2025/09/30</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/194958c075fb013eb3a2005056a9545d" 
-                     alt="Dog Eat Doug" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/10/01</guid><enclosure url="https://featureassets.gocomics.com/assets/1daf4aa075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-30</title><link>https://www.gocomics.com/dogeatdoug/2025/09/30</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/194958c075fb013eb3a2005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/30&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/194958c075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-29</title><link>https://www.gocomics.com/dogeatdoug/2025/09/29</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/146aae0075fb013eb3a2005056a9545d" 
-                     alt="Dog Eat Doug" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/30</guid><enclosure url="https://featureassets.gocomics.com/assets/194958c075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-29</title><link>https://www.gocomics.com/dogeatdoug/2025/09/29</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/146aae0075fb013eb3a2005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/29&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/146aae0075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-28</title><link>https://www.gocomics.com/dogeatdoug/2025/09/28</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/2e4851706711013eb121005056a9545d" 
-                     alt="Dog Eat Doug" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/29</guid><enclosure url="https://featureassets.gocomics.com/assets/146aae0075fb013eb3a2005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-28</title><link>https://www.gocomics.com/dogeatdoug/2025/09/28</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/2e4851706711013eb121005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/28&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/28</guid><enclosure url="https://featureassets.gocomics.com/assets/2e4851706711013eb121005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-27</title><link>https://www.gocomics.com/dogeatdoug/2025/09/27</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/e25872a06d5a013eb213005056a9545d" 
-                     alt="Dog Eat Doug" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/28</guid><enclosure url="https://featureassets.gocomics.com/assets/2e4851706711013eb121005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-27</title><link>https://www.gocomics.com/dogeatdoug/2025/09/27</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/e25872a06d5a013eb213005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/27&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/27</guid><enclosure url="https://featureassets.gocomics.com/assets/e25872a06d5a013eb213005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-26</title><link>https://www.gocomics.com/dogeatdoug/2025/09/26</link><description>
-            &lt;div style="text-align: center; margin: 10px 0;"&gt;
-                &lt;img src="https://featureassets.gocomics.com/assets/dd76b6d06d5a013eb213005056a9545d" 
-                     alt="Dog Eat Doug" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/27</guid><enclosure url="https://featureassets.gocomics.com/assets/e25872a06d5a013eb213005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-26</title><link>https://www.gocomics.com/dogeatdoug/2025/09/26</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+                &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/dd76b6d06d5a013eb213005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/26&lt;/p&gt;
-            &lt;/div&gt;
-            </description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/dd76b6d06d5a013eb213005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-25</title><link>https://www.gocomics.com/dogeatdoug/2025/09/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
+            &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/26</guid><enclosure url="https://featureassets.gocomics.com/assets/dd76b6d06d5a013eb213005056a9545d" length="0" type="image/jpeg"/><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-25</title><link>https://www.gocomics.com/dogeatdoug/2025/09/25</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
                 &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/d8b1b9906d5a013eb213005056a9545d" style="height: auto; display: block; margin: 0 auto;" /&gt;
                 &lt;p style="margin-top: 15px;"&gt;Comic strip for 2025/09/25&lt;/p&gt;
             &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/09/25</guid><enclosure url="https://featureassets.gocomics.com/assets/d8b1b9906d5a013eb213005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-09-24</title><link>https://www.gocomics.com/dogeatdoug/2025/09/24</link><description>&lt;div style="text-align: center; margin: 10px 0;"&gt;
@@ -337,16 +329,4 @@
                 &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/07/03</guid><enclosure url="https://featureassets.gocomics.com/assets/91d222c0230d013ea32d005056a9545d" length="0" type="image/jpeg"/><pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-07-02</title><link>https://www.gocomics.com/dogeatdoug/2025/07/02</link><description>&lt;div style="text-align: center;"&gt;
                     &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/8f9587c0230d013ea32d005056a9545d" /&gt;
                     &lt;p&gt;Comic strip for 2025/07/02&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/07/02</guid><enclosure url="https://featureassets.gocomics.com/assets/8f9587c0230d013ea32d005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-07-01</title><link>https://www.gocomics.com/dogeatdoug/2025/07/01</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/8d372ec0230d013ea32d005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/07/01&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/07/01</guid><enclosure url="https://featureassets.gocomics.com/assets/8d372ec0230d013ea32d005056a9545d" length="0" type="image/jpeg"/><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-06-30</title><link>https://www.gocomics.com/dogeatdoug/2025/06/30</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/88aff930230d013ea32d005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/30&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/06/30</guid><enclosure url="https://featureassets.gocomics.com/assets/88aff930230d013ea32d005056a9545d" length="0" type="image/jpeg"/><pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-06-29</title><link>https://www.gocomics.com/dogeatdoug/2025/06/29</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/3f23ac801fad013ea297005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/29&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/06/29</guid><enclosure url="https://featureassets.gocomics.com/assets/3f23ac801fad013ea297005056a9545d" length="0" type="image/jpeg"/><pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate></item><item><title>Dog Eat Doug - 2025-06-28</title><link>https://www.gocomics.com/dogeatdoug/2025/06/28</link><description>&lt;div style="text-align: center;"&gt;
-                    &lt;img alt="Dog Eat Doug" src="https://featureassets.gocomics.com/assets/83721c60230d013ea32d005056a9545d" /&gt;
-                    &lt;p&gt;Comic strip for 2025/06/28&lt;/p&gt;
-                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/06/28</guid><enclosure url="https://featureassets.gocomics.com/assets/83721c60230d013ea32d005056a9545d" length="0" type="image/jpeg"/><pubDate>Sat, 28 Jun 2025 00:00:00 +0000</pubDate></item></channel></rss>
+                &lt;/div&gt;</description><guid isPermaLink="false">https://www.gocomics.com/dogeatdoug/2025/07/02</guid><enclosure url="https://featureassets.gocomics.com/assets/8f9587c0230d013ea32d005056a9545d" length="0" type="image/jpeg"/><pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate></item></channel></rss>
