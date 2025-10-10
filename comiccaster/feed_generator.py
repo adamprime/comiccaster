@@ -110,18 +110,17 @@ class ComicFeedGenerator:
         return fg
     
     def _create_single_image_content(self, image_url: str, description: str, comic_info: Dict[str, str]) -> str:
-        """Create HTML content for single image comics (backward compatibility)."""
-        if '<img' not in description:
-            return f"""
-            <div style="text-align: center; margin: 10px 0;">
-                <img src="{image_url}" 
-                     alt="{comic_info.get('name', 'Comic')}" 
-                     style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
-                     loading="lazy">
-                {f'<p style="margin-top: 15px;">{description}</p>' if description else ''}
-            </div>
-            """
-        return description
+        """Create text-only description (image is provided via enclosure tag).
+
+        This prevents duplicate images in RSS readers like Thunderbird that display
+        both the description <img> tag and the <enclosure> media.
+        See: https://github.com/adamprime/comiccaster/issues/68
+        """
+        # Return text-only description - image will be displayed via enclosure tag
+        if description and '<img' not in description:
+            return description
+        # If no text description, return comic name and date
+        return f"Comic strip for {comic_info.get('name', 'Unknown')}"
     
     def _create_multi_image_content(self, images: List[Dict[str, str]], description: str, comic_info: Dict[str, str]) -> str:
         """Create HTML content for multi-image comics with responsive gallery layout."""
