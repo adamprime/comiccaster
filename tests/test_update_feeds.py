@@ -88,8 +88,10 @@ class TestRegenerateFeed:
         # Verify newest entries are first
         first_entry_title = feed.entries[0].title
         assert "Test Comic - " in first_entry_title
-        # Extract date from title and verify it's the newest
-        date_str = first_entry_title.split(" - ")[1]
+        # Extract date from title (format: "Test Comic - Sun 2025-10-12")
+        # Title now includes day of week, so we need to extract the date part
+        title_parts = first_entry_title.split(" - ")[1]  # Gets "Sun 2025-10-12"
+        date_str = title_parts.split(" ")[1]  # Gets "2025-10-12"
         assert date_str == new_entries[-1]['pub_date'].strftime("%Y-%m-%d")
     
     def test_regenerate_feed_at_limit(self, temp_feed_dir, comic_info, monkeypatch):
@@ -226,8 +228,10 @@ class TestRegenerateFeed:
         # Extract dates from entries and verify they're in descending order
         dates = []
         for entry in feed.entries:
-            # Parse date from title
-            date_str = entry.title.split(" - ")[1]
+            # Parse date from title (format: "Comic - Sun 2025-10-12")
+            # Title now includes day of week, so extract just the date part
+            title_parts = entry.title.split(" - ")[1]  # Gets "Sun 2025-10-12"
+            date_str = title_parts.split(" ")[1]  # Gets "2025-10-12"
             dates.append(date_str)
         
         # Verify dates are in descending order (newest first)
