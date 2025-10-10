@@ -262,12 +262,16 @@ class ComicFeedGenerator:
     def create_entry(self, comic_info, metadata):
         """Create a feed entry from comic metadata with multi-image support."""
         entry = FeedEntry()
-        
+
         # Parse the publication date
         pub_date = self.parse_date_with_timezone(metadata.get('pub_date', ''))
-        
-        # Create title with the correct date format
-        title = metadata.get('title', f"{comic_info['name']} - {pub_date.strftime('%Y-%m-%d')}")
+
+        # Always generate title with day-of-week and date format
+        # Format: "Comic Name - Mon 2025-10-10"
+        # This allows users to filter feeds by day of week in their RSS readers
+        day_of_week = pub_date.strftime('%a')  # Abbreviated day name (Mon, Tue, Wed, etc.)
+        date_str = pub_date.strftime('%Y-%m-%d')
+        title = f"{comic_info['name']} - {day_of_week} {date_str}"
         entry.title(title)
         
         # Set the entry URL

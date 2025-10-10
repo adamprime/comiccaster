@@ -22,6 +22,7 @@ ComicCaster is a web application that generates RSS feeds for comics from GoComi
 - **Feed Preview**: Check comic content before subscribing
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 - **Search and Filter**: Quickly find comics by name or category
+- **Day-of-Week Filtering**: Feed titles include day abbreviations (Mon, Tue, Wed, etc.) allowing users to filter by specific days in their RSS reader (e.g., show only Sunday comics)
 
 ### Technical Features
 - **Modular Scraper System**: Extensible architecture with base scraper class and source-specific implementations
