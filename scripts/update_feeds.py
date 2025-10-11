@@ -98,14 +98,19 @@ def scrape_comic(comic, date_str):
             # Convert YYYY-MM-DD to YYYY/MM/DD for scraper
             target_date = datetime.strptime(date_str, '%Y-%m-%d').date()
             scraper_date_str = target_date.strftime('%Y/%m/%d')
-        
+
         # Use enhanced HTTP scraping (mimics Selenium logic without browser)
         metadata = scrape_comic_enhanced_http(comic['slug'], scraper_date_str)
-        
+
         if metadata:
+            # Create title with day-of-week to match feed_generator format
+            # This prevents unnecessary rewrites on every feed generation
+            day_of_week = target_date.strftime('%a')  # Mon, Tue, Wed, etc.
+            date_formatted = target_date.strftime('%Y-%m-%d')
+
             # Convert to format expected by feed updater
             return {
-                'title': f"{comic['name']} - {target_date.strftime('%Y-%m-%d')}",
+                'title': f"{comic['name']} - {day_of_week} {date_formatted}",
                 'url': metadata.get('url', f"https://www.gocomics.com/{comic['slug']}/{scraper_date_str}"),
                 'image': metadata.get('image', ''),
                 'pub_date': target_date.strftime('%Y-%m-%d'),

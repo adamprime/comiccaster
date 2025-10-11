@@ -138,6 +138,17 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 
 ### Latest Changes (October 2025)
 
+**Title Format Consistency Fix (October 11, 2025):**
+- **Problem**: Feed titles were being rewritten on every update, causing Git to see changes to ALL entries (not just new ones)
+- **Root Cause**: `scrape_comic()` created titles without day-of-week ("Garfield - 2025-10-11"), but `feed_generator.create_entry()` added it ("Garfield - Fri 2025-10-11"), rewriting every title during feed generation
+- **Solution**: Updated `scrape_comic()` to include day-of-week in titles, matching the `feed_generator` format
+- **Result**: Git commits now only show actual new comic entries, not unnecessary rewrites of existing entries
+- **Benefits**:
+  - ✅ Cleaner Git commit history showing only real changes
+  - ✅ Faster feed updates (no unnecessary processing of unchanged entries)
+  - ✅ Easier to debug feed update issues
+  - ✅ Reduced repository churn
+
 **TLS Fingerprinting Breakthrough - Selenium Removed (October 9, 2025):**
 - **Problem**: BunnyShield CDN was blocking HTTP requests in CI due to Python's TLS fingerprint detection, forcing 100% Selenium usage = 3+ hour runtimes with OOM failures
 - **Solution**: Switched to `tls-client` library with Chrome 120 TLS fingerprint + full browser headers

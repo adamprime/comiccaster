@@ -326,6 +326,20 @@ Before major releases, manually verify:
 
 The test suite aims for > 80% code coverage while focusing on critical paths and error handling.
 
+## Testing Title Format Consistency (October 2025)
+
+**Why This Matters**: When `scrape_comic()` and `feed_generator.create_entry()` produce different title formats, Git sees every feed entry as changed (even if only the title format changed). This caused massive unnecessary commits.
+
+**Solution**: The `TestTitleFormatConsistency` test class ensures both functions produce identical titles with day-of-week format:
+```python
+# Both produce: "Comic Name - Sat 2025-10-11"
+# Not: "Comic Name - 2025-10-11" → "Comic Name - Sat 2025-10-11"
+```
+
+**Tests**:
+- `test_title_format_matches_feed_generator`: Verifies `scrape_comic()` output matches `feed_generator` output
+- `test_title_format_consistency_across_dates`: Tests all days of week (Mon-Sun) for correct abbreviations
+
 ## Testing the TLS Client BunnyShield Bypass
 
 ### Local Testing
