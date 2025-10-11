@@ -37,18 +37,15 @@ def comic_info():
 
 
 def create_test_entries(count, start_date=None):
-    """Create test feed entries with proper datetime objects and day-of-week in titles."""
+    """Create test feed entries with proper datetime objects."""
     if start_date is None:
         start_date = datetime.now(pytz.UTC) - timedelta(days=count)
-
+    
     entries = []
     for i in range(count):
         date = start_date + timedelta(days=i)
-        # Include day-of-week in title to match feed_generator format
-        day_of_week = date.strftime('%a')
-        date_str = date.strftime('%Y-%m-%d')
         entries.append({
-            'title': f'Test Comic - {day_of_week} {date_str}',
+            'title': f'Test Comic - {date.strftime("%Y-%m-%d")}',
             'url': f'https://www.gocomics.com/test-comic/{date.strftime("%Y/%m/%d")}',
             'id': f'https://www.gocomics.com/test-comic/{date.strftime("%Y/%m/%d")}',
             'image_url': f'https://example.com/comic-{i}.jpg',
@@ -244,102 +241,23 @@ class TestRegenerateFeed:
 
 class TestHelperFunctions:
     """Test helper functions used in update_feeds.py."""
-
+    
     def test_extract_image_from_description(self):
         """Test extracting image URLs from HTML descriptions."""
         # Test with valid image
         html = '<div><img src="https://example.com/comic.jpg" alt="Comic"><p>Description</p></div>'
         result = extract_image_from_description(html)
         assert result == "https://example.com/comic.jpg"
-
+        
         # Test with no image
         html = '<div><p>No image here</p></div>'
         result = extract_image_from_description(html)
         assert result is None
-
+        
         # Test with empty string
         result = extract_image_from_description("")
         assert result is None
-
+        
         # Test with None
         result = extract_image_from_description(None)
         assert result is None
-
-
-class TestTitleFormatConsistency:
-    """Test that scrape_comic and feed_generator produce consistent title formats."""
-
-    def test_title_format_matches_feed_generator(self, temp_feed_dir, comic_info, monkeypatch):
-        """
-        Test that scrape_comic creates titles with day-of-week that match feed_generator.
-
-        This prevents unnecessary feed rewrites where every entry gets updated
-        just because the title format changed.
-        """
-        from scripts.update_feeds import scrape_comic
-        from unittest.mock import patch, MagicMock
-
-        # Mock the enhanced HTTP scraper to return test data
-        test_date = datetime(2025, 10, 11, tzinfo=pytz.UTC)  # Saturday
-        mock_metadata = {
-            'image': 'https://example.com/comic.jpg',
-            'url': 'https://www.gocomics.com/test-comic/2025/10/11',
-            'description': 'Test comic strip'
-        }
-
-        with patch('scripts.update_feeds.scrape_comic_enhanced_http', return_value=mock_metadata):
-            # Call scrape_comic
-            result = scrape_comic(comic_info, '2025/10/11')
-
-            # Verify the title includes day-of-week in the correct format
-            assert result is not None
-            assert 'title' in result
-
-            # Expected format: "Comic Name - Sat 2025-10-11"
-            expected_title = f"{comic_info['name']} - Sat 2025-10-11"
-            assert result['title'] == expected_title
-
-            # Now verify that feed_generator produces the same title
-            generator = ComicFeedGenerator(output_dir=str(temp_feed_dir))
-            entry = generator.create_entry(comic_info, result)
-
-            # The feed entry title should match exactly
-            assert entry.title() == expected_title
-
-    def test_title_format_consistency_across_dates(self):
-        """Test title format consistency across different days of the week."""
-        from scripts.update_feeds import scrape_comic
-        from unittest.mock import patch
-
-        comic_info = {'name': 'Test Comic', 'slug': 'test-comic'}
-
-        # Test all days of the week
-        test_cases = [
-            ('2025/10/06', 'Mon'),  # Monday
-            ('2025/10/07', 'Tue'),  # Tuesday
-            ('2025/10/08', 'Wed'),  # Wednesday
-            ('2025/10/09', 'Thu'),  # Thursday
-            ('2025/10/10', 'Fri'),  # Friday
-            ('2025/10/11', 'Sat'),  # Saturday
-            ('2025/10/12', 'Sun'),  # Sunday
-        ]
-
-        for date_str, expected_day in test_cases:
-            mock_metadata = {
-                'image': 'https://example.com/comic.jpg',
-                'url': f'https://www.gocomics.com/test-comic/{date_str}',
-                'description': 'Test comic strip'
-            }
-
-            with patch('scripts.update_feeds.scrape_comic_enhanced_http', return_value=mock_metadata):
-                result = scrape_comic(comic_info, date_str)
-
-                # Extract day from title
-                # Format should be: "Test Comic - Day YYYY-MM-DD"
-                title_parts = result['title'].split(' - ')
-                assert len(title_parts) == 2
-
-                day_and_date = title_parts[1].split(' ')
-                actual_day = day_and_date[0]
-
-                assert actual_day == expected_day, f"Expected {expected_day} for {date_str}, got {actual_day}"

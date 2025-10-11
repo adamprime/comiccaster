@@ -142,20 +142,12 @@ class TestPublishingAnalyzer:
         # Mock the HTTP client's get method
         mock_client = Mock()
 
-        # Generate dynamic date strings for the last 5 days
-        today = datetime.now()
-        mock_dates = []
-        for i in range(5):
-            date = today - timedelta(days=i)
-            # Format as /MM/DD to match URL patterns
-            mock_dates.append(date.strftime('/%m/%d'))
-
-        # Mock only specific dates to have comics (use the first 3 dates)
+        # Mock only specific dates to have comics
         def mock_get_func(url, timeout=None):
             # Only these dates have comics (return proper response object)
             mock_response = Mock()
-            # Match dates within the mocked range
-            if any(d in url for d in mock_dates[:3]):
+            # Match dates within the last 5 days (will match 10/03, 10/04, 10/05 for example)
+            if any(d in url for d in ['/10/03', '/10/04', '/10/05']):
                 mock_response.text = '''
                     <html>
                         <head><meta property="og:image" content="https://example.com/test.jpg"></head>
