@@ -105,7 +105,6 @@ pytest -v -k "multi_image"
   - Single image backward compatibility
   - Feed metadata generation
   - Date parsing and timezone handling
-  - Day-of-week in entry titles (Mon, Tue, Wed, etc.)
 
 - **`test_multi_image_rss.py`** - Multi-image RSS support tests
   - Multiple panel comic handling

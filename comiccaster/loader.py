@@ -20,6 +20,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from datetime import datetime
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Set up logging
 logging.basicConfig(
@@ -52,8 +53,6 @@ class ComicsLoader:
     def setup_driver(self):
         """Set up the Selenium WebDriver with Chrome in headless mode."""
         if os.environ.get('USE_WEBDRIVER_MANAGER', 'false').lower() == 'true':
-            # Import only when needed to avoid dependency requirement
-            from webdriver_manager.chrome import ChromeDriverManager
             self.driver = webdriver.Chrome(
                 service=Service(ChromeDriverManager().install()),
                 options=self.chrome_options
