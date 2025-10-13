@@ -89,12 +89,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FIREFOX_BINARY: /snap/firefox/current/usr/lib/firefox/firefox
 
-      - name: Update Tinyview feeds
-        run: |
-          python scripts/update_tinyview_feeds.py
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DISPLAY: :99
+      # TEMPORARILY DISABLED: TinyView scraper disabled while troubleshooting GoComics issues
+      # - name: Update Tinyview feeds
+      #   run: |
+      #     python scripts/update_tinyview_feeds.py
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     DISPLAY: :99
       
       - name: Commit and push updated feeds
         run: |
