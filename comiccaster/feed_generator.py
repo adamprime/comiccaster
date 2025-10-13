@@ -110,17 +110,21 @@ class ComicFeedGenerator:
         return fg
     
     def _create_single_image_content(self, image_url: str, description: str, comic_info: Dict[str, str]) -> str:
-        """Create text-only description (image is provided via enclosure tag).
+        """Create HTML content with embedded image in description.
 
-        This prevents duplicate images in RSS readers like Thunderbird that display
-        both the description <img> tag and the <enclosure> media.
-        See: https://github.com/adamprime/comiccaster/issues/68
+        RSS best practice: Images should be in the <description> as HTML <img> tags.
+        The <enclosure> tag is supplementary metadata, not the primary display method.
+        Most RSS readers render description HTML but ignore enclosures.
         """
-        # Return text-only description - image will be displayed via enclosure tag
+        # Create image HTML with proper styling and accessibility
+        img_html = f'<img src="{image_url}" alt="{comic_info.get("name", "Comic strip")}" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" loading="lazy">'
+
+        # Add text description if present
         if description and '<img' not in description:
-            return description
-        # If no text description, return comic name and date
-        return f"Comic strip for {comic_info.get('name', 'Unknown')}"
+            return f'{img_html}<p style="margin-top: 10px; font-style: italic;">{description}</p>'
+
+        # If description already has image or no description, just return image
+        return img_html
     
     def _create_multi_image_content(self, images: List[Dict[str, str]], description: str, comic_info: Dict[str, str]) -> str:
         """Create HTML content for multi-image comics with responsive gallery layout."""
@@ -281,16 +285,16 @@ class ComicFeedGenerator:
         if images and isinstance(images, list):
             # Multi-image comic
             description = self._create_multi_image_content(images, description, comic_info)
-            
-            # Add enclosure for the first image (RSS standard practice)
-            if images and images[0].get('url'):
-                entry.enclosure(images[0]['url'], 0, 'image/jpeg')
+
+            # Don't add enclosure - causes duplicate images in some RSS readers (issue #28)
+            # Images are now embedded in description HTML per RSS best practices
         else:
             # Backward compatibility: single image format
             image_url = metadata.get('image_url', metadata.get('image', ''))
             if image_url:
                 description = self._create_single_image_content(image_url, description, comic_info)
-                entry.enclosure(image_url, 0, 'image/jpeg')
+                # Don't add enclosure - causes duplicate images in some RSS readers (issue #28)
+                # Images are now embedded in description HTML per RSS best practices
         
         entry.description(description)
         
