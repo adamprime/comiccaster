@@ -211,7 +211,7 @@
             feed.items.forEach(item => {
                 const entry = document.createElement('article');
                 entry.className = 'entry';
-                
+
                 const date = new Date(item.pubDate);
                 const formattedDate = date.toLocaleDateString('en-US', {
                     weekday: 'long',
@@ -219,14 +219,35 @@
                     month: 'long',
                     day: 'numeric'
                 });
-                
+
+                // Build content with images from enclosures
+                let content = item.description || '';
+
+                // Add images from enclosures if they exist and aren't already in description
+                if (item.enclosures && item.enclosures.length > 0) {
+                    const imageEnclosures = item.enclosures.filter(enc =>
+                        enc.type && enc.type.startsWith('image/')
+                    );
+
+                    if (imageEnclosures.length > 0) {
+                        const imageHtml = imageEnclosures.map(enc =>
+                            `<img src="${enc.url}" alt="Comic strip" loading="lazy">`
+                        ).join('');
+
+                        // Only add images if they're not already in the description
+                        if (!content.includes('<img')) {
+                            content = imageHtml + content;
+                        }
+                    }
+                }
+
                 entry.innerHTML = `
                     <div class="entry-date">${formattedDate}</div>
                     <h3 class="entry-title">${item.title}</h3>
-                    <div class="entry-content">${item.description}</div>
+                    <div class="entry-content">${content}</div>
                     <a href="${item.link}" target="_blank" class="entry-link">View on GoComics →</a>
                 `;
-                
+
                 entries.appendChild(entry);
             });
             

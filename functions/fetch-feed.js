@@ -40,7 +40,8 @@ exports.handler = async function(event, context) {
                 title: item.title,
                 description: item.content || item.description,
                 link: item.link,
-                pubDate: item.pubDate || item.isoDate
+                pubDate: item.pubDate || item.isoDate,
+                enclosures: item.enclosures || []
             }))
         };
 
