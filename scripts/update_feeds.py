@@ -480,14 +480,27 @@ def regenerate_feed(comic_info: Dict[str, str], new_entries: List[Dict[str, any]
 
                     # Store existing entry data in a format similar to new_entries
                     # Ensure all necessary fields for generate_feed are present
+                    # IMPORTANT: Extract image_url from enclosures OR description for backward compatibility
+                    description_text = entry.get('summary', entry.get('description', ''))
+                    image_url = extract_image_from_description(description_text)
+
+                    # Also check enclosures for image (old format)
+                    if not image_url and hasattr(entry, 'enclosures') and entry.enclosures:
+                        for enclosure in entry.enclosures:
+                            if enclosure.get('type', '').startswith('image/'):
+                                url = enclosure.get('href', '')
+                                # Skip social media preview images
+                                if 'GC_Social_FB' not in url and 'staging-assets' not in url:
+                                    image_url = url
+                                    break
+
                     entry_data = {
                         'title': entry.get('title', ''),
                         'url': entry.get('link', ''), # Link is often the unique URL
                         'id': entry_id,
                         'pub_date': pub_date,
-                        'description': entry.get('summary', entry.get('description', '')),
-                        # Attempt to extract image_url if structured in description
-                        'image_url': extract_image_from_description(entry.get('summary', entry.get('description', ''))),
+                        'description': description_text,
+                        'image_url': image_url,  # This will be used by feed_generator to create new format
                     }
                     # Only add if we have a valid ID
                     all_entries[entry_id] = entry_data
