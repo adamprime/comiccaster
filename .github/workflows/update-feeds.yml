@@ -31,52 +31,53 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
       
-      - name: Install Firefox and geckodriver for GoComics scraping
-        run: |
-          sudo apt-get update
-          # Install Firefox snap package
-          sudo apt-get install -y xvfb
-          sudo snap install firefox
-          # Download and install geckodriver (using known stable version to avoid GitHub API rate limits)
-          GECKODRIVER_VERSION="v0.35.0"
-          echo "Installing geckodriver $GECKODRIVER_VERSION"
-          wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz"
-          tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
-          sudo mv geckodriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/geckodriver
-          # Verify installations
-          firefox --version
-          geckodriver --version
-          # Set display for headless operation
-          export DISPLAY=:99
-          Xvfb :99 -screen 0 1920x1080x24 > /dev/null 2>&1 &
+      # TEMPORARILY DISABLED: Firefox only needed if using Selenium fallback
+      # GoComics now uses TLS client with Chrome 120 fingerprint (100% success, no browser needed)
+      # - name: Install Firefox and geckodriver for GoComics scraping
+      #   run: |
+      #     sudo apt-get update
+      #     # Install Firefox snap package
+      #     sudo apt-get install -y xvfb
+      #     sudo snap install firefox
+      #     # Download and install geckodriver (using known stable version to avoid GitHub API rate limits)
+      #     GECKODRIVER_VERSION="v0.35.0"
+      #     echo "Installing geckodriver $GECKODRIVER_VERSION"
+      #     wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz"
+      #     tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
+      #     sudo mv geckodriver /usr/local/bin/
+      #     sudo chmod +x /usr/local/bin/geckodriver
+      #     # Verify installations
+      #     firefox --version
+      #     geckodriver --version
+      #     # Set display for headless operation
+      #     export DISPLAY=:99
+      #     Xvfb :99 -screen 0 1920x1080x24 > /dev/null 2>&1 &
 
-      - name: Install Chrome and chromedriver for Tinyview scraping
-        run: |
-          # Install Chrome for TinyView comics (some sites work better with Chrome)
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          # Verify Chrome installation
-          google-chrome --version
-          which google-chrome
-          # Install chromedriver using Chrome for Testing
-          # Get the latest stable version
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
-          CHROMEDRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_${CHROME_VERSION%%.*}")
-          echo "Installing ChromeDriver version: $CHROMEDRIVER_VERSION for Chrome: $CHROME_VERSION"
-          wget -q "https://storage.googleapis.com/chrome-for-testing-public/${CHROMEDRIVER_VERSION}/linux64/chromedriver-linux64.zip"
-          unzip chromedriver-linux64.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
-          chromedriver --version
+      # TEMPORARILY DISABLED: Chrome only needed for TinyView scraping
+      # - name: Install Chrome and chromedriver for Tinyview scraping
+      #   run: |
+      #     # Install Chrome for TinyView comics (some sites work better with Chrome)
+      #     wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+      #     echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+      #     sudo apt-get update
+      #     sudo apt-get install -y google-chrome-stable
+      #     # Verify Chrome installation
+      #     google-chrome --version
+      #     which google-chrome
+      #     # Install chromedriver using Chrome for Testing
+      #     # Get the latest stable version
+      #     CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+      #     CHROMEDRIVER_VERSION=$(curl -s "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_${CHROME_VERSION%%.*}")
+      #     echo "Installing ChromeDriver version: $CHROMEDRIVER_VERSION for Chrome: $CHROME_VERSION"
+      #     wget -q "https://storage.googleapis.com/chrome-for-testing-public/${CHROMEDRIVER_VERSION}/linux64/chromedriver-linux64.zip"
+      #     unzip chromedriver-linux64.zip
+      #     sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
+      #     sudo chmod +x /usr/local/bin/chromedriver
+      #     chromedriver --version
       
       - name: Test GoComics scraping works
         run: |
           python test_github_scraping.py
-        env:
-          FIREFOX_BINARY: /snap/firefox/current/usr/lib/firefox/firefox
       
       - name: Test political comics are loaded
         run: |
@@ -87,7 +88,6 @@ jobs:
           python scripts/update_feeds.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FIREFOX_BINARY: /snap/firefox/current/usr/lib/firefox/firefox
 
       # TEMPORARILY DISABLED: TinyView scraper disabled while troubleshooting GoComics issues
       # - name: Update Tinyview feeds
