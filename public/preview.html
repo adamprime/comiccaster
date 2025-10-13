@@ -212,8 +212,16 @@
                 const entry = document.createElement('article');
                 entry.className = 'entry';
 
+                // Parse the date and extract year, month, day in UTC to avoid timezone shifting
                 const date = new Date(item.pubDate);
-                const formattedDate = date.toLocaleDateString('en-US', {
+                const year = date.getUTCFullYear();
+                const month = date.getUTCMonth();
+                const day = date.getUTCDate();
+
+                // Create a new date with just the date components (no time) for display
+                // This ensures the calendar date matches the comic's publication date
+                const displayDate = new Date(year, month, day);
+                const formattedDate = displayDate.toLocaleDateString('en-US', {
                     weekday: 'long',
                     year: 'numeric',
                     month: 'long',
