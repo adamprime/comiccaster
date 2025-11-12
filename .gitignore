@@ -34,8 +34,27 @@ ENV/
 tokens/
 config/config.json
 .env
+.env.*
+!.env.example
 debug_*.html
 *.log
+
+# Sensitive configuration (use environment variables instead)
+custom_pages_config.json
+*_secrets.json
+*.pkl
+.gocomics_cookies.pkl
+GITHUB_SECRETS_SETUP.md
+SECURITY_SETUP_COMPLETE.md
+AUTHENTICATED_SCRAPING_SUMMARY.md
+CUSTOM_PAGE_SETUP.md
+
+# Test outputs with potentially sensitive data
+/tmp/*.json
+test_*.json
+comics_*.json
+daily_*.json
+extracted_*.json
 
 # Local Netlify folder
 .netlify
