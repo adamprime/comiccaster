@@ -19,10 +19,15 @@ jobs:
         run: |
           pip install selenium beautifulsoup4
           
-      - name: Install Chrome and ChromeDriver
+      - name: Setup Chrome and ChromeDriver
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+          
+      - name: Verify Chrome installation
         run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser chromium-chromedriver
+          which google-chrome || which chromium-browser
+          google-chrome --version || chromium-browser --version
           
       - name: Test authenticated scraper
         env:
