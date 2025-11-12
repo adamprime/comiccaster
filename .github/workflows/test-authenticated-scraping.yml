@@ -1,0 +1,56 @@
+name: Test Authenticated Scraping
+
+on:
+  workflow_dispatch:  # Manual trigger for testing
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install selenium beautifulsoup4
+          
+      - name: Install Chrome and ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser chromium-chromedriver
+          
+      - name: Test authenticated scraper
+        env:
+          GOCOMICS_EMAIL: ${{ secrets.GOCOMICS_EMAIL }}
+          GOCOMICS_PASSWORD: ${{ secrets.GOCOMICS_PASSWORD }}
+          CUSTOM_PAGE_1: ${{ secrets.CUSTOM_PAGE_1 }}
+          CUSTOM_PAGE_2: ${{ secrets.CUSTOM_PAGE_2 }}
+          CUSTOM_PAGE_3: ${{ secrets.CUSTOM_PAGE_3 }}
+          CUSTOM_PAGE_4: ${{ secrets.CUSTOM_PAGE_4 }}
+          CUSTOM_PAGE_5: ${{ secrets.CUSTOM_PAGE_5 }}
+          CUSTOM_PAGE_6: ${{ secrets.CUSTOM_PAGE_6 }}
+        run: |
+          python authenticated_scraper_secure.py --date 2024-11-12 --output-dir /tmp
+          
+      - name: Verify output
+        run: |
+          if [ -f /tmp/comics_2024-11-12.json ]; then
+            echo "✅ Comics extracted successfully"
+            python -c "import json; data=json.load(open('/tmp/comics_2024-11-12.json')); print(f'Extracted {len(data)} comics')"
+          else
+            echo "❌ No output file created"
+            exit 1
+          fi
+          
+      - name: Upload comics data as artifact
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: comics-data
+          path: /tmp/comics_*.json
+          retention-days: 1
