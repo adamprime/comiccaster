@@ -76,7 +76,7 @@ echo "✅ Data file created: $DATA_FILE"
 echo ""
 echo "Committing and pushing Comics Kingdom data..."
 git add data/comicskingdom_*.json
-git add data/comicskingdom_cookies.pkl 2>/dev/null || true  # Add cookies if updated
+# Note: Cookies are NOT added to git (they're in .gitignore for security)
 
 # Check if there are changes to commit
 if git diff --cached --quiet; then
