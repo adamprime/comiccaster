@@ -28,9 +28,20 @@ def load_scraped_data(date_str: str = None) -> Dict[str, Dict]:
     
     data_file = Path('data') / f'comicskingdom_{date_str}.json'
     
+    # If today's data doesn't exist, find the most recent data file
     if not data_file.exists():
-        print(f"⚠️  No scraped data found for {date_str}")
-        return {}
+        print(f"⚠️  No scraped data found for {date_str}, looking for most recent...")
+        data_dir = Path('data')
+        data_files = sorted(data_dir.glob('comicskingdom_*.json'), reverse=True)
+        
+        if not data_files:
+            print(f"❌ No Comics Kingdom data files found in data/")
+            return {}
+        
+        data_file = data_files[0]
+        # Extract date from filename
+        date_from_file = data_file.stem.replace('comicskingdom_', '')
+        print(f"ℹ️  Using most recent data from {date_from_file}")
     
     with open(data_file, 'r') as f:
         comics = json.load(f)
@@ -42,7 +53,7 @@ def load_scraped_data(date_str: str = None) -> Dict[str, Dict]:
         if slug:
             indexed[slug] = comic
     
-    print(f"✅ Loaded {len(indexed)} comics from scraped data")
+    print(f"✅ Loaded {len(indexed)} comics from {data_file.name}")
     return indexed
 
 

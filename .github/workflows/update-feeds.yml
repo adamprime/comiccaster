@@ -51,31 +51,29 @@ jobs:
           # Run GoComics authenticated scraper
           python authenticated_scraper_secure.py --output-dir ./data
       
-      - name: Scrape Comics Kingdom with authenticated access
-        continue-on-error: true
-        env:
-          COMICSKINGDOM_USERNAME: ${{ secrets.COMICSKINGDOM_USERNAME }}
-          COMICSKINGDOM_PASSWORD: ${{ secrets.COMICSKINGDOM_PASSWORD }}
-          COMICSKINGDOM_COOKIES: ${{ secrets.COMICSKINGDOM_COOKIES }}
+      # Comics Kingdom scraping now happens locally on Mac (runs at 12:30 AM)
+      # This workflow uses the data files pushed by the local script
+      - name: Check for Comics Kingdom data
         run: |
-          # Decode cookies from base64
-          echo "$COMICSKINGDOM_COOKIES" | base64 -d > data/comicskingdom_cookies.pkl
-          
-          # Run Comics Kingdom scraper (uses saved cookies, no reCAPTCHA!)
-          # If this times out, the workflow will continue with GoComics feeds
-          timeout 300 python comicskingdom_scraper_secure.py --output-dir ./data || echo "⚠️  Comics Kingdom scraping failed or timed out, continuing with GoComics..."
+          if ls data/comicskingdom_*.json 1> /dev/null 2>&1; then
+            LATEST_FILE=$(ls -t data/comicskingdom_*.json | head -1)
+            echo "✅ Found Comics Kingdom data: $LATEST_FILE"
+          else
+            echo "ℹ️  No Comics Kingdom data found - feeds will be GoComics only"
+          fi
           
       - name: Generate RSS feeds from scraped data
         run: |
           # Generate GoComics feeds
           python scripts/update_feeds.py
           
-          # Generate Comics Kingdom feeds (skip if no data)
-          if [ -f data/comicskingdom_*.json ]; then
-            echo "Generating Comics Kingdom feeds..."
+          # Generate Comics Kingdom feeds from locally-scraped data (if available)
+          if ls data/comicskingdom_*.json 1> /dev/null 2>&1; then
+            echo "Generating Comics Kingdom feeds from local data..."
             python scripts/generate_comicskingdom_feeds.py
           else
-            echo "⚠️  No Comics Kingdom data found, skipping feed generation"
+            echo "ℹ️  No Comics Kingdom data found, skipping Comics Kingdom feeds"
+            echo "   (Run local_comicskingdom_update.sh on your Mac to scrape and push data)"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.comiccaster.comicskingdom</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/adam/coding/rss-comics/scripts/local_comicskingdom_update.sh</string>
+    </array>
+    
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>0</integer>
+        <key>Minute</key>
+        <integer>30</integer>
+    </dict>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/adam/coding/rss-comics/logs/comicskingdom_launchd.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/adam/coding/rss-comics/logs/comicskingdom_launchd.error.log</string>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/adam/coding/rss-comics</string>
+    
+    <key>RunAtLoad</key>
+    <false/>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+</dict>
+</plist>
