@@ -305,6 +305,9 @@ def authenticate_with_cookie_persistence(driver, config):
     """Authenticate using saved cookies or manual login."""
     cookie_file = config['cookie_file']
     
+    # Check if running in CI environment
+    is_ci = os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true'
+    
     # Check cookie age
     if cookie_file.exists():
         cookie_age_days = (datetime.now() - datetime.fromtimestamp(
@@ -317,6 +320,12 @@ def authenticate_with_cookie_persistence(driver, config):
     
     # Try to load existing cookies
     if load_cookies(driver, cookie_file):
+        if is_ci:
+            # In CI, skip verification to avoid timeout issues
+            print("✅ Running in CI - trusting saved cookies without verification")
+            return True
+        
+        # Check if cookies are still valid (local only)
         print("🔍 Checking if cookies are still valid...")
         
         if is_authenticated(driver):
@@ -326,6 +335,12 @@ def authenticate_with_cookie_persistence(driver, config):
             print("⚠️  Saved cookies are expired or invalid")
     
     # Need to login manually
+    # Manual login only works locally, not in CI
+    if is_ci:
+        print("❌ Authentication failed in CI environment")
+        print("Cookies may be expired. Run re-authentication locally and update GitHub Secret.")
+        return False
+    
     print("\n🔐 Manual login required")
     print("You'll need to solve the reCAPTCHA (this happens every ~60 days)")
     
