@@ -60,7 +60,24 @@ def setup_driver(show_browser=False):
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1920,1080')
     
+    # Anti-bot detection
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
+    
     driver = webdriver.Chrome(options=options)
+    
+    # Set page load strategy and timeouts
+    driver.set_page_load_timeout(30)
+    driver.set_script_timeout(30)
+    driver.implicitly_wait(10)
+    
+    # Remove webdriver property
+    driver.execute_cdp_cmd('Network.setUserAgentOverride', {
+        "userAgent": 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    })
+    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+    
     return driver
 
 
@@ -83,8 +100,13 @@ def load_cookies(driver, cookie_file):
             cookies = pickle.load(f)
         
         # Navigate to site first (required before adding cookies)
-        driver.get("https://comicskingdom.com")
-        time.sleep(1)
+        print("🌐 Navigating to Comics Kingdom to load cookies...")
+        try:
+            driver.get("https://comicskingdom.com")
+            time.sleep(2)
+        except Exception as nav_error:
+            print(f"⚠️  Navigation warning: {nav_error}")
+            # Continue anyway - cookies might still work
         
         # Add all cookies
         for cookie in cookies:
