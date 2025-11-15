@@ -52,6 +52,7 @@ jobs:
           python authenticated_scraper_secure.py --output-dir ./data
       
       - name: Scrape Comics Kingdom with authenticated access
+        continue-on-error: true
         env:
           COMICSKINGDOM_USERNAME: ${{ secrets.COMICSKINGDOM_USERNAME }}
           COMICSKINGDOM_PASSWORD: ${{ secrets.COMICSKINGDOM_PASSWORD }}
@@ -61,15 +62,21 @@ jobs:
           echo "$COMICSKINGDOM_COOKIES" | base64 -d > data/comicskingdom_cookies.pkl
           
           # Run Comics Kingdom scraper (uses saved cookies, no reCAPTCHA!)
-          python comicskingdom_scraper_secure.py --output-dir ./data
+          # If this times out, the workflow will continue with GoComics feeds
+          timeout 300 python comicskingdom_scraper_secure.py --output-dir ./data || echo "⚠️  Comics Kingdom scraping failed or timed out, continuing with GoComics..."
           
       - name: Generate RSS feeds from scraped data
         run: |
           # Generate GoComics feeds
           python scripts/update_feeds.py
           
-          # Generate Comics Kingdom feeds
-          python scripts/generate_comicskingdom_feeds.py
+          # Generate Comics Kingdom feeds (skip if no data)
+          if [ -f data/comicskingdom_*.json ]; then
+            echo "Generating Comics Kingdom feeds..."
+            python scripts/generate_comicskingdom_feeds.py
+          else
+            echo "⚠️  No Comics Kingdom data found, skipping feed generation"
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
