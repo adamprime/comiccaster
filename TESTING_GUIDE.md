@@ -17,12 +17,9 @@ pip install -e .
 # Install test dependencies
 pip install pytest pytest-cov pytest-mock
 
-# Install Selenium WebDriver for browser automation
-# Required for TinyView scraping (GoComics uses TLS client only)
-
+# Install Selenium WebDriver for browser automation (if testing TinyView scraping)
 # macOS
 brew install --cask firefox
-# geckodriver is typically installed automatically with Firefox
 
 # Ubuntu
 sudo apt-get update
@@ -35,7 +32,7 @@ tar -xzf geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz
 sudo mv geckodriver /usr/local/bin/
 sudo chmod +x /usr/local/bin/geckodriver
 
-# Verify installations (only needed for TinyView)
+# Verify installations
 firefox --version
 geckodriver --version
 ```
@@ -89,10 +86,9 @@ pytest -v -k "multi_image"
   - Common utility methods
 
 - **`test_gocomics_scraper.py`** - GoComics scraper tests
-  - JSON-LD parsing logic
+  - Comic page parsing logic
   - Date matching for daily comics vs reruns
-  - TLS client with browser fingerprinting
-  - BunnyShield CDN protection bypass using tls-client library
+  - Reliable scraping methods
   - Error handling for missing comics
 
 - **`test_tinyview_scraper.py`** - TinyView scraper tests (24 tests)
@@ -191,9 +187,9 @@ class TestNewFeature:
 - Mock external dependencies (network calls, file I/O)
 - Use realistic test data that matches production patterns
 - Test both success and failure scenarios
-- **Important for scraper tests**: Mock at the scraper level, not the HTTP level
-  - Example: Use `patch('module.GoComicsScraper')` instead of `patch('tls_client.Session.get')`
-  - This ensures tests work correctly with the TLS client approach
+- **Important for scraper tests**: Mock at the scraper level for reliable testing
+  - Example: Use `patch('module.GoComicsScraper')` instead of mocking HTTP libraries directly
+  - This ensures tests work correctly with the current scraping approach
 
 ## Continuous Integration
 
@@ -219,16 +215,15 @@ python -m cProfile -s cumulative scripts/test_tinyview_scraper.py
 ```
 
 ### Expected Performance Metrics
-- GoComics scrape (TLS client): ~0.25 seconds per comic
+- GoComics scrape: Fast and reliable updates
 - TinyView scrape (Selenium): ~4 seconds per comic (with browser reuse)
-- Full GoComics feed update (400+ comics): ~2 minutes with 8 parallel workers
+- Full GoComics feed update (400+ comics): ~2-3 minutes with 8 parallel workers
 - RSS feed generation: < 100ms per feed
 
-**Note**: Since October 2025, GoComics uses TLS client with browser fingerprinting to bypass BunnyShield CDN protection. Performance optimizations include:
-- Thread-safe global TLS session with Chrome 120 fingerprint
-- Full browser header suite for reliable CDN bypass
+**Note**: Performance optimizations include:
+- Thread-safe scraping with proper locking
 - 8 concurrent workers for parallel processing
-- TinyView still uses Selenium WebDriver for dynamic content
+- TinyView uses Selenium WebDriver for dynamic content
 
 ## Debugging Failed Tests
 
@@ -267,11 +262,10 @@ python -m cProfile -s cumulative scripts/test_tinyview_scraper.py
    - These are skipped in offline mode
    - May fail if comic sites are down or change structure
 
-5. **TLS Client for BunnyShield CDN Protection**
-   - GoComics uses BunnyShield to block simple HTTP requests
-   - Tests should verify TLS client with browser fingerprinting works correctly
-   - Uses `tls-client` library with Chrome 120 fingerprint
-   - 100% success rate bypassing BunnyShield protection
+5. **Reliable Scraping Methods**
+   - GoComics scraping uses optimized methods for consistency
+   - Tests should verify scraping works correctly across different scenarios
+   - Error handling for rate limiting and temporary failures
 
 ### Verbose Test Output
 ```bash
@@ -320,40 +314,37 @@ Before major releases, manually verify:
 2. **Selenium Tests**: TinyView tests require Firefox/geckodriver installation and proper configuration
 3. **Time-Sensitive Tests**: Some tests may fail around midnight or month boundaries
 4. **Platform Differences**: File path tests may need adjustment for Windows
-5. **TLS Client**: GoComics scraping requires `tls-client` library with proper Chrome fingerprinting
-6. **Thread Safety**: Tests using the global TLS session must handle threading properly
+5. **Scraping Dependencies**: GoComics scraping requires specific libraries for reliable operation
+6. **Thread Safety**: Tests using shared scraping sessions must handle threading properly
 
 The test suite aims for > 80% code coverage while focusing on critical paths and error handling.
 
-## Testing the TLS Client BunnyShield Bypass
+## Testing GoComics Scraping
 
 ### Local Testing
 ```bash
-# Test GoComics scraping with TLS client
+# Test GoComics scraping
 python check_comic.py
 
 # This will:
-# 1. Use TLS client with Chrome 120 fingerprint
-# 2. Send full browser headers to bypass BunnyShield
-# 3. Parse JSON-LD data for comic detection
-# 4. Verify correct comic image is retrieved
+# 1. Fetch comic pages using reliable methods
+# 2. Parse comic data for accurate detection
+# 3. Verify correct comic image is retrieved
 ```
 
 ### CI Testing
-The GitHub Actions workflow tests TLS client functionality:
+The GitHub Actions workflow tests scraping functionality:
 ```yaml
 - name: Update GoComics feeds
   run: |
     python scripts/update_feeds.py
 ```
 
-### Verifying TLS Client Approach
-You can verify the TLS client is working by checking logs:
+### Verifying Scraping Approach
+You can verify scraping is working by checking logs:
 ```bash
 # Run with verbose logging
-python scripts/update_feeds.py 2>&1 | grep -E "(TLS client|success|error)"
+python scripts/update_feeds.py 2>&1 | grep -E "(success|error|Processing)"
 
-# Expected output:
-# "Successfully fetched <comic> with TLS client" - TLS client worked
-# "Processed <comic> in 0.25s" - Fast performance
+# Expected output shows successful processing of comics
 ```

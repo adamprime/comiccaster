@@ -39,6 +39,28 @@ config/config.json
 debug_*.html
 *.log
 
+# Local test and debug files (not for repo)
+analyze_*.py
+check_gocomics_*.py
+debug_*.py
+extract_*.py
+test_actual_*.py
+test_comics_kingdom_*.py
+test_curl_*.py
+test_current_day_*.py
+test_custom_*.py
+test_date_*.py
+test_detailed_*.py
+test_garfield_*.py
+test_no_*.py
+test_oct11_*.py
+test_seattle_*.py
+test_single_*.py
+test_tls_*.py
+test_todays_*.py
+garfield_page.html
+seattle_times_*.html
+
 # Sensitive configuration (use environment variables instead)
 custom_pages_config.json
 *_secrets.json

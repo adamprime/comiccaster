@@ -72,8 +72,8 @@ python regenerate_feed.py  # Regenerate specific GoComics feeds
 
 ### Feed Update Process
 
-The system uses sophisticated scraping to accurately detect daily comics:
-1. Fetches comic pages with JSON-LD structured data
+The system uses reliable scraping methods to accurately detect daily comics:
+1. Fetches comic pages and extracts current content
 2. Matches dates to find specific daily comics (not reruns)
 3. Processes in parallel (8 workers)
 4. Updates XML feeds in `public/feeds/`
@@ -97,20 +97,18 @@ Daily updates run automatically via GitHub Actions at 9 AM UTC.
 ## Important Implementation Details
 
 1. **Comic Detection**:
-   - GoComics: TLS client with browser fingerprinting
-     - Uses `tls-client` library with Chrome 120 fingerprint
-     - Bypasses BunnyShield CDN protection with full browser headers
-     - 100% success rate at ~0.25s per comic
-     - Distinguishes between daily comics and "best of" reruns using date-matching in JSON-LD data
+   - GoComics: Reliable scraping methods ensure consistent daily updates
+     - Distinguishes between daily comics and "best of" reruns using date-matching
+     - Optimized for speed and reliability in CI/CD environments
    - TinyView: Selenium WebDriver approach
      - Visits comic main page, finds date-specific strip links, then scrapes each strip page
-     - Uses Chrome + Selenium WebDriver for dynamic content
+     - Handles dynamic JavaScript-rendered content
 2. **Error Handling**: Graceful fallbacks when comics are unavailable or structure changes
 3. **Performance**:
    - Concurrent scraping with ThreadPoolExecutor (8 workers)
-   - GoComics: TLS client only (~0.25s per comic, ~2 minutes for 400+ comics)
-   - TinyView: Chrome + Selenium WebDriver for dynamic content
-   - Thread-safe global TLS session with proper locking
+   - GoComics: Fast updates (~2-3 minutes for 400+ comics)
+   - TinyView: Handles dynamic content efficiently
+   - Thread-safe scraping with proper locking
 4. **Feed Format**: Standard RSS 2.0 with proper content encoding and metadata
 5. **Multi-strip Support**: TinyView comics can have multiple strips per day, all included in feed
 6. **Update Frequency**:

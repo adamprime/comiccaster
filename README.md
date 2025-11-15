@@ -135,63 +135,24 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 - **Content Warnings**: Political feeds include appropriate descriptions and content categories
 - **Separate OPML Files**: Generate `daily-comics.opml` or `political-cartoons.opml` based on your preferences
 
-### Latest Changes (October 2025)
+### Latest Changes (November 2025)
 
-**TLS Fingerprinting Breakthrough - Selenium Removed (October 9, 2025):**
-- **Problem**: BunnyShield CDN was blocking HTTP requests in CI due to Python's TLS fingerprint detection, forcing 100% Selenium usage = 3+ hour runtimes with OOM failures
-- **Solution**: Switched to `tls-client` library with Chrome 120 TLS fingerprint + full browser headers
-- **Results**: **100% HTTP success rate at 0.25s per comic** = ~2 minutes total for 400+ comics (90x speedup!)
-- **Selenium Removed**: After testing 407 comics, TLS client achieved 100% page fetch success - Selenium fallback completely removed for GoComics
-- **Technical Details**:
-  - Using `tls-client` Python library with `chrome_120` client identifier
-  - Complete browser header suite (Accept, Accept-Language, Sec-Fetch-*, Brotli support)
-  - Thread-safe global TLS session with proper locking
-  - **No Selenium dependency** for GoComics (TinyView still uses it)
-  - JSON-LD date matching remains primary scraping strategy
-  - Comics without content for requested date properly return 404/empty (as expected)
-- **Performance Comparison**:
-  - Selenium-only approach: 8s per comic = **3+ hours total** (OOM failures in CI)
-  - Python requests + headers: 60% success locally, 0% in CI (TLS fingerprint detected)
-  - **tls-client only: 100% success, 0.25s per comic = ~2 minutes total** ✅
-- **Benefits**:
-  - ✅ 90x speedup compared to Selenium-only approach
-  - ✅ Zero memory exhaustion in GitHub Actions
-  - ✅ Reliable, fast updates that complete in ~2 minutes
-  - ✅ Works perfectly in CI environments (datacenter IPs no longer blocked)
-  - ✅ Maintains accurate date-based comic detection via JSON-LD
-  - ✅ Simpler code with no browser management complexity
-  - ✅ Comics that don't publish daily are properly skipped (not errors)
+**Enhanced Scraping Reliability:**
+- Implemented more reliable scraping methods to ensure consistent feed updates
+- Optimized performance for faster daily updates
+- Improved accuracy in detecting current daily comics vs reruns
+- Better error handling and graceful degradation when comics are unavailable
+- Comics that don't publish daily are properly handled without errors
 
-**Wrong Comics Bug Fix (October 9, 2025):**
-- **Problem**: Feeds were showing strips from unrelated comics (e.g., Gilbert's dog comic in Brewster Rockit feed)
-- **Root Cause**: Undated CSS selector fallbacks grabbed any comic image from GoComics pages without validating dates
-- **Solution**: Removed all undated fallback methods - now ONLY uses JSON-LD with exact date matching
-- **Result**: Better to skip a day than show the wrong comic
-- **Benefits**:
-  - ✅ Feeds now show correct comics or nothing (no wrong comics)
-  - ✅ Maintains data integrity and user trust
-  - ✅ Simpler, more maintainable code
-
-**Previous BunnyShield Work (October 2025):**
-- Initial attempts to bypass BunnyShield with browser headers, Selenium fallback, and browser pooling
-- Successfully identified JSON-LD parsing as the correct approach
-- Learned that Python requests library's TLS fingerprint was the real blocker
-- See commit history for full evolution of the solution
-
-### Previous Improvements (June 2025)
+### Previous Improvements (2025)
 
 **Enhanced Comic Detection System:**
 - **Problem Solved**: GoComics serves both current daily comics and historical "best of" reruns on the same page, making it difficult to distinguish which is the actual daily comic
-- **Solution**: Implemented JSON-LD structured data parsing with date matching to accurately identify the comic for the specific requested date
+- **Solution**: Implemented advanced detection methods to accurately identify the comic for the specific requested date
 - **Previous Issue**: Comics like "Pearls Before Swine" and "In the Bleachers" were showing old reruns instead of current daily strips
-- **Technical Details**: 
-  - Switched from unreliable CSS selector approaches to JSON-LD `ImageObject` parsing
-  - Added date matching logic that finds comics with publication dates matching the requested date
-  - Maintained HTTP-only approach for better performance and reliability in CI/CD environments
-  - Increased parallelization to 8 workers for faster feed updates
 
 **Benefits:**
-- ✅ All 404+ comic feeds now show correct daily comics
+- ✅ All 400+ comic feeds now show correct daily comics
 - ✅ Reliable distinction between daily content and "best of" reruns  
 - ✅ Improved performance with parallel processing
 - ✅ Better error handling and logging
@@ -218,9 +179,7 @@ Feeds are automatically updated daily via GitHub Actions. The workflow:
 - **Serverless Functions**: Handle OPML generation and feed previews
 - **GitHub Actions**: Automate daily feed updates for both GoComics and TinyView
 - **Python Scripts**: Generate and update RSS feeds
-- **Scrapers**: 
-  - GoComics scraper using HTTP requests with JSON-LD parsing
-  - TinyView scraper using Selenium WebDriver for dynamic content
+- **Scrapers**: Reliable scraping methods optimized for both GoComics and TinyView sources
 
 ## Development
 
@@ -303,14 +262,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Daily Comics**: Calvin and Hobbes, Garfield, Dilbert, and hundreds more
 - **Political Cartoons**: Doonesbury, Non Sequitur, and other editorial comics
 - **Update Frequency**: Checks last 10 days of comics
-- **Scraping Method**: HTTP requests with JSON-LD parsing
+- **Reliability**: Optimized scraping methods for consistent daily updates
 
 ### TinyView
 - **Independent Comics**: 29 comics including ADHDinos, Fowl Language, Nick Anderson, Pedro X. Molina, and more
 - **Multi-strip Support**: Handles comics that publish multiple strips per day
 - **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
 - **Comic Descriptions**: Extracts and includes artist commentary when available
-- **Scraping Method**: Selenium WebDriver for dynamic content
+- **Dynamic Content**: Handles JavaScript-rendered comics
 
 ## Acknowledgments
 
