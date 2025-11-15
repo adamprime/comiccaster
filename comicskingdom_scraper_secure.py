@@ -52,7 +52,7 @@ def load_config_from_env():
 
 
 def setup_driver(show_browser=False):
-    """Setup Chrome driver."""
+    """Setup Chrome driver with timeouts for CI stability."""
     options = Options()
     if not show_browser:
         options.add_argument('--headless=new')
@@ -60,7 +60,19 @@ def setup_driver(show_browser=False):
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1920,1080')
     
+    # Additional options for CI stability
+    options.add_argument('--disable-extensions')
+    options.add_argument('--disable-software-rasterizer')
+    
+    print("🌐 Initializing Chrome WebDriver...")
     driver = webdriver.Chrome(options=options)
+    
+    # Set aggressive timeouts for CI environments
+    driver.set_page_load_timeout(60)  # Max 60 seconds to load a page
+    driver.set_script_timeout(30)      # Max 30 seconds for scripts
+    driver.implicitly_wait(10)         # Max 10 seconds for elements
+    
+    print("✅ Chrome WebDriver initialized")
     return driver
 
 
