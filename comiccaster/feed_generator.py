@@ -57,7 +57,8 @@ class ComicFeedGenerator:
         source_display = {
             'gocomics-daily': 'GoComics',
             'gocomics-political': 'GoComics Political',
-            'tinyview': 'TinyView'
+            'tinyview': 'TinyView',
+            'comicskingdom': 'Comics Kingdom'
         }.get(source, 'GoComics')
         
         # Set feed metadata

@@ -1,0 +1,94 @@
+name: Test Comics Kingdom Scraper
+
+# Manual test workflow for Comics Kingdom
+# Use this to test the scraper without running full feed update
+
+on:
+  workflow_dispatch:  # Manual trigger only
+
+permissions:
+  contents: read
+
+jobs:
+  test-comicskingdom:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+          pip install selenium beautifulsoup4
+      
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+      
+      - name: Test Comics Kingdom authentication
+        env:
+          COMICSKINGDOM_USERNAME: ${{ secrets.COMICSKINGDOM_USERNAME }}
+          COMICSKINGDOM_PASSWORD: ${{ secrets.COMICSKINGDOM_PASSWORD }}
+          COMICSKINGDOM_COOKIES: ${{ secrets.COMICSKINGDOM_COOKIES }}
+        run: |
+          # Verify secrets are set
+          if [ -z "$COMICSKINGDOM_USERNAME" ]; then
+            echo "❌ COMICSKINGDOM_USERNAME not set"
+            exit 1
+          fi
+          
+          if [ -z "$COMICSKINGDOM_PASSWORD" ]; then
+            echo "❌ COMICSKINGDOM_PASSWORD not set"
+            exit 1
+          fi
+          
+          if [ -z "$COMICSKINGDOM_COOKIES" ]; then
+            echo "❌ COMICSKINGDOM_COOKIES not set"
+            exit 1
+          fi
+          
+          echo "✅ All Comics Kingdom secrets are configured"
+          
+          # Decode cookies
+          mkdir -p data
+          echo "$COMICSKINGDOM_COOKIES" | base64 -d > data/comicskingdom_cookies.pkl
+          
+          echo "✅ Cookies decoded successfully"
+          ls -lh data/comicskingdom_cookies.pkl
+      
+      - name: Run Comics Kingdom scraper
+        env:
+          COMICSKINGDOM_USERNAME: ${{ secrets.COMICSKINGDOM_USERNAME }}
+          COMICSKINGDOM_PASSWORD: ${{ secrets.COMICSKINGDOM_PASSWORD }}
+        run: |
+          # Run scraper
+          python comicskingdom_scraper_secure.py --output-dir ./data
+          
+          # Show results
+          echo ""
+          echo "=========================================="
+          echo "Results:"
+          echo "=========================================="
+          ls -lh data/comicskingdom_*.json
+          
+          # Show first few comics
+          echo ""
+          echo "Sample comics extracted:"
+          python -c "import json; data=json.load(open([f for f in __import__('os').listdir('data') if f.startswith('comicskingdom_') and f.endswith('.json')][0])); print(f'Total: {len(data)} comics'); [print(f'  - {c[\"name\"]}') for c in data[:5]]"
+      
+      - name: Upload results as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: comicskingdom-test-results
+          path: data/comicskingdom_*.json
+          retention-days: 7

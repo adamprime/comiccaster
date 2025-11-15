@@ -513,7 +513,15 @@
                 
                 comics.forEach(comic => {
                     const row = document.createElement('tr');
-                    const sourceUrl = source === 'tinyview' ? comic.url : `https://www.gocomics.com/${comic.slug}`;
+                    // Determine source URL based on comic source field
+                    let sourceUrl;
+                    if (comic.source === 'comicskingdom') {
+                        sourceUrl = `https://comicskingdom.com/${comic.slug}`;
+                    } else if (source === 'tinyview' || comic.source === 'tinyview') {
+                        sourceUrl = comic.url;
+                    } else {
+                        sourceUrl = `https://www.gocomics.com/${comic.slug}`;
+                    }
                     
                     // Use different feed paths for different sources
                     const feedPath = source === 'tinyview' ? `/feeds/${comic.slug}.xml` : `/rss/${comic.slug}`;

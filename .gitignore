@@ -46,6 +46,7 @@ debug_*.py
 extract_*.py
 test_actual_*.py
 test_comics_kingdom_*.py
+test_comicskingdom_*.py
 test_curl_*.py
 test_current_day_*.py
 test_custom_*.py
@@ -60,6 +61,8 @@ test_tls_*.py
 test_todays_*.py
 garfield_page.html
 seattle_times_*.html
+comicskingdom_*.html
+comicskingdom_*.json
 
 # Sensitive configuration (use environment variables instead)
 custom_pages_config.json
@@ -70,6 +73,9 @@ GITHUB_SECRETS_SETUP.md
 SECURITY_SETUP_COMPLETE.md
 AUTHENTICATED_SCRAPING_SUMMARY.md
 CUSTOM_PAGE_SETUP.md
+
+# Local setup scripts with credentials (use template versions instead)
+SETUP_COMICSKINGDOM_AUTH_LOCAL.sh
 
 # Test outputs with potentially sensitive data
 /tmp/*.json
