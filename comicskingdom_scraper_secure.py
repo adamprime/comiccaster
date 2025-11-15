@@ -234,13 +234,15 @@ def extract_comics_from_favorites(driver, date_str):
     driver.get("https://comicskingdom.com/favorites")
     time.sleep(5)
     
-    # Scroll to load lazy images
+    # Scroll to load lazy images (increased for full catalog of ~136 comics)
     print("Scrolling to load all images...")
-    for i in range(3):
+    for i in range(8):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(2)
+        print(f"  Scroll {i+1}/8 complete")
     driver.execute_script("window.scrollTo(0, 0);")
     time.sleep(2)
+    print("  Scrolled back to top")
     
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     
