@@ -112,7 +112,8 @@
     "image_urls": [
       "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/11/Y2tTaXggQ2hpeC1FTkctNTYzMDY5Mw.jpg",
       "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/11/Y2tTaXggQ2hpeC1FTkctNTYzMDY5Nw.jpg",
-      "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/11/Y2tTaXggQ2hpeC1FTkctNTYzMDY5OQ.jpg"
+      "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/11/Y2tTaXggQ2hpeC1FTkctNTYzMDY5OQ.jpg",
+      "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2000/08/BannerWithSixChix-500x500.jpg"
     ]
   },
   {
@@ -127,57 +128,43 @@
     ]
   },
   {
-    "name": "Vintage",
-    "slug": "vintage",
-    "image_url": "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2011/01/Buz_Sawyer_bw.19510604-500x500.gif",
+    "name": "Nunca Falta Alguien Asi",
+    "slug": "nunca-falta-alguien-asi",
+    "image_url": "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2013/11/Theyll_Do_sp_qs.20160228-500x500.png",
     "date": "2025-11-15",
-    "url": "https://comicskingdom.com/vintage/buz-sawyer/1960-12-31",
+    "url": "https://comicskingdom.com/nunca-falta-alguien-asi/2025-11-09",
     "source": "comicskingdom"
   },
   {
-    "name": "Working Cats",
-    "slug": "working-cats",
+    "name": "?Post_Type=Ck_Comic&P=7389405",
+    "slug": "?post_type=ck_comic&p=7389405",
+    "image_url": "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2024/12/TBD_sq.png",
     "date": "2025-11-15",
-    "url": "https://comicskingdom.com/working-cats/2025-11-12",
-    "source": "comicskingdom",
-    "image_urls": [
-      "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2024/05/FeatureImage-500x500.jpg",
-      "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2024/05/FeatureCharacter.png"
-    ]
-  },
-  {
-    "name": "Rosebuds",
-    "slug": "rosebuds",
-    "date": "2025-11-15",
-    "url": "https://comicskingdom.com/rosebuds/2025-11-15",
-    "source": "comicskingdom",
-    "image_urls": [
-      "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2024/03/ComicsKingdomIcon.png",
-      "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2024/03/Character-Image2.png"
-    ]
-  },
-  {
-    "name": "Curtis",
-    "slug": "curtis",
-    "image_url": "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2011/01/Curtis_qs.20160228-500x500.gif",
-    "date": "2025-11-15",
-    "url": "https://comicskingdom.com/curtis/2025-11-15",
+    "url": "https://comicskingdom.com/?post_type=ck_comic&p=7389405",
     "source": "comicskingdom"
   },
   {
-    "name": "Principe Valiente",
-    "slug": "principe-valiente",
-    "image_url": "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2013/11/Prince_Valiant_sp_hs.20160228-500x500.png",
+    "name": "Marvin",
+    "slug": "marvin",
+    "image_url": "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2011/01/Marvin_qs.20160228-500x500.png",
     "date": "2025-11-15",
-    "url": "https://comicskingdom.com/principe-valiente/2024-02-11",
+    "url": "https://comicskingdom.com/marvin/2025-11-15",
     "source": "comicskingdom"
   },
   {
-    "name": "Katzenjammer Kids",
-    "slug": "katzenjammer-kids",
-    "image_url": "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2011/01/Katzenjammer_Kids_ts.20160228-500x500.png",
+    "name": "Rae The Doe",
+    "slug": "rae-the-doe",
+    "image_url": "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2020/06/rae_sample-scaled-500x500.jpg",
     "date": "2025-11-15",
-    "url": "https://comicskingdom.com/katzenjammer-kids/2025-11-09",
+    "url": "https://comicskingdom.com/rae-the-doe/2025-11-15",
+    "source": "comicskingdom"
+  },
+  {
+    "name": "Daniel El Travieso",
+    "slug": "daniel-el-travieso",
+    "image_url": "https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2013/11/Dennis_The_Menace_sp_qs.20160228-500x500.png",
+    "date": "2025-11-15",
+    "url": "https://comicskingdom.com/daniel-el-travieso/2025-11-15",
     "source": "comicskingdom"
   }
 ]
