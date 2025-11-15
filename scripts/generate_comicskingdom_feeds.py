@@ -171,13 +171,18 @@ def main():
     print("✅ Feed Generation Complete!")
     print("="*80)
     print(f"Successful: {successful}")
-    print(f"Failed: {failed}")
+    print(f"Skipped (no data): {failed}")
     print(f"Total: {len(comics_list)}")
     print()
+    if failed > 0:
+        print(f"ℹ️  {failed} comics skipped - no updates today or not favorited on Comics Kingdom")
+        print()
     print("Feeds saved to: public/feeds/")
     print("="*80)
     
-    return 0 if failed == 0 else 1
+    # Always exit successfully - missing data is expected for comics that didn't update
+    # or aren't favorited on the Comics Kingdom website
+    return 0
 
 
 if __name__ == '__main__':

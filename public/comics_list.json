@@ -549,7 +549,8 @@
     "url": "https://www.gocomics.com/broomhilda",
     "slug": "broomhilda",
     "position": 69,
-    "is_updated": true
+    "is_updated": true,
+    "source": "comicskingdom"
   },
   {
     "name": "The Buckets",
@@ -957,7 +958,8 @@
     "url": "https://www.gocomics.com/edge-city",
     "slug": "edge-city",
     "position": 120,
-    "is_updated": true
+    "is_updated": true,
+    "source": "comicskingdom"
   },
   {
     "name": "Eek!",
@@ -1101,14 +1103,6 @@
     "url": "https://www.gocomics.com/four-eyes",
     "slug": "four-eyes",
     "position": 138,
-    "is_updated": false
-  },
-  {
-    "name": "Fowl Language",
-    "author": "Brian Gordon",
-    "url": "https://www.gocomics.com/fowl-language",
-    "slug": "fowl-language",
-    "position": 139,
     "is_updated": false
   },
   {
@@ -2413,7 +2407,8 @@
     "url": "https://www.gocomics.com/pluggers",
     "slug": "pluggers",
     "position": 302,
-    "is_updated": true
+    "is_updated": true,
+    "source": "comicskingdom"
   },
   {
     "name": "Pooch Cafe",
@@ -2661,7 +2656,8 @@
     "url": "https://www.gocomics.com/shoe",
     "slug": "shoe",
     "position": 333,
-    "is_updated": true
+    "is_updated": true,
+    "source": "comicskingdom"
   },
   {
     "name": "Sketchshark Comics",
@@ -3013,7 +3009,8 @@
     "url": "https://www.gocomics.com/wannabe",
     "slug": "wannabe",
     "position": 377,
-    "is_updated": true
+    "is_updated": true,
+    "source": "comicskingdom"
   },
   {
     "name": "Warped",
@@ -3374,5 +3371,813 @@
     "position": 420,
     "is_updated": false,
     "source": "comicskingdom"
+  },
+  {
+    "name": "Alice",
+    "slug": "alice",
+    "url": "https://comicskingdom.com/alice",
+    "source": "comicskingdom",
+    "position": 421,
+    "is_updated": false
+  },
+  {
+    "name": "Amber Waves",
+    "slug": "amber-waves",
+    "url": "https://comicskingdom.com/amber-waves",
+    "source": "comicskingdom",
+    "position": 422,
+    "is_updated": false
+  },
+  {
+    "name": "Arctic Circle",
+    "slug": "arctic-circle",
+    "url": "https://comicskingdom.com/arctic-circle",
+    "source": "comicskingdom",
+    "position": 423,
+    "is_updated": false
+  },
+  {
+    "name": "Barney Google And Snuffy Smith (Spanish)",
+    "slug": "tapon",
+    "url": "https://comicskingdom.com/tapon",
+    "source": "comicskingdom",
+    "position": 424,
+    "is_updated": false
+  },
+  {
+    "name": "Beetle Bailey",
+    "slug": "beetle-bailey-1",
+    "url": "https://comicskingdom.com/beetle-bailey-1",
+    "source": "comicskingdom",
+    "position": 425,
+    "is_updated": false
+  },
+  {
+    "name": "Beetle Bailey (Spanish)",
+    "slug": "beto-el-recluta",
+    "url": "https://comicskingdom.com/beto-el-recluta",
+    "source": "comicskingdom",
+    "position": 426,
+    "is_updated": false
+  },
+  {
+    "name": "Between Friends",
+    "slug": "between-friends",
+    "url": "https://comicskingdom.com/between-friends",
+    "source": "comicskingdom",
+    "position": 427,
+    "is_updated": false
+  },
+  {
+    "name": "Beware of Toddler",
+    "slug": "beware-of-toddler",
+    "url": "https://comicskingdom.com/beware-of-toddler",
+    "source": "comicskingdom",
+    "position": 428,
+    "is_updated": false
+  },
+  {
+    "name": "Bizarro",
+    "slug": "bizarro",
+    "url": "https://comicskingdom.com/bizarro",
+    "source": "comicskingdom",
+    "position": 429,
+    "is_updated": false
+  },
+  {
+    "name": "Blondie",
+    "slug": "blondie",
+    "url": "https://comicskingdom.com/blondie",
+    "source": "comicskingdom",
+    "position": 430,
+    "is_updated": false
+  },
+  {
+    "name": "Blondie (Spanish)",
+    "slug": "pepita",
+    "url": "https://comicskingdom.com/pepita",
+    "source": "comicskingdom",
+    "position": 431,
+    "is_updated": false
+  },
+  {
+    "name": "Break of Day",
+    "slug": "break-of-day",
+    "url": "https://comicskingdom.com/break-of-day",
+    "source": "comicskingdom",
+    "position": 432,
+    "is_updated": false
+  },
+  {
+    "name": "Bringing Up Father (Spanish)",
+    "slug": "educando-a-papa",
+    "url": "https://comicskingdom.com/educando-a-papa",
+    "source": "comicskingdom",
+    "position": 433,
+    "is_updated": false
+  },
+  {
+    "name": "Carpe Diem",
+    "slug": "carpe-diem",
+    "url": "https://comicskingdom.com/carpe-diem",
+    "source": "comicskingdom",
+    "position": 434,
+    "is_updated": false
+  },
+  {
+    "name": "Comiclicious",
+    "slug": "comiclicious",
+    "url": "https://comicskingdom.com/comiclicious",
+    "source": "comicskingdom",
+    "position": 435,
+    "is_updated": false
+  },
+  {
+    "name": "Crock (Spanish)",
+    "slug": "crock-spanish",
+    "url": "https://comicskingdom.com/crock-spanish",
+    "source": "comicskingdom",
+    "position": 436,
+    "is_updated": false
+  },
+  {
+    "name": "Curtis",
+    "slug": "curtis",
+    "url": "https://comicskingdom.com/curtis",
+    "source": "comicskingdom",
+    "position": 437,
+    "is_updated": false
+  },
+  {
+    "name": "Dennis The Menace",
+    "slug": "dennis-the-menace",
+    "url": "https://comicskingdom.com/dennis-the-menace",
+    "source": "comicskingdom",
+    "position": 438,
+    "is_updated": false
+  },
+  {
+    "name": "Dennis The Menace (Spanish)",
+    "slug": "daniel-el-travieso",
+    "url": "https://comicskingdom.com/daniel-el-travieso",
+    "source": "comicskingdom",
+    "position": 439,
+    "is_updated": false
+  },
+  {
+    "name": "Dick Tracy",
+    "slug": "dick-tracy",
+    "url": "https://comicskingdom.com/dick-tracy",
+    "source": "comicskingdom",
+    "position": 440,
+    "is_updated": false
+  },
+  {
+    "name": "Dumplings",
+    "slug": "dumplings",
+    "url": "https://comicskingdom.com/dumplings",
+    "source": "comicskingdom",
+    "position": 441,
+    "is_updated": false
+  },
+  {
+    "name": "Dustin",
+    "slug": "dustin",
+    "url": "https://comicskingdom.com/dustin",
+    "source": "comicskingdom",
+    "position": 442,
+    "is_updated": false
+  },
+  {
+    "name": "Eye Lie Popeye",
+    "slug": "eye-lie-popeye",
+    "url": "https://comicskingdom.com/eye-lie-popeye",
+    "source": "comicskingdom",
+    "position": 443,
+    "is_updated": false
+  },
+  {
+    "name": "The Family Circus",
+    "slug": "family-circus",
+    "url": "https://comicskingdom.com/family-circus",
+    "source": "comicskingdom",
+    "position": 444,
+    "is_updated": false
+  },
+  {
+    "name": "The Family Circus (Spanish)",
+    "slug": "circulo-familiar",
+    "url": "https://comicskingdom.com/circulo-familiar",
+    "source": "comicskingdom",
+    "position": 445,
+    "is_updated": false
+  },
+  {
+    "name": "Flash Forward",
+    "slug": "flash-forward",
+    "url": "https://comicskingdom.com/flash-forward",
+    "source": "comicskingdom",
+    "position": 446,
+    "is_updated": false
+  },
+  {
+    "name": "Flash Gordon",
+    "slug": "flash-gordon",
+    "url": "https://comicskingdom.com/flash-gordon",
+    "source": "comicskingdom",
+    "position": 447,
+    "is_updated": false
+  },
+  {
+    "name": "Gearhead Gertie",
+    "slug": "gearhead-gertie",
+    "url": "https://comicskingdom.com/gearhead-gertie",
+    "source": "comicskingdom",
+    "position": 448,
+    "is_updated": false
+  },
+  {
+    "name": "Goomer",
+    "slug": "goomer",
+    "url": "https://comicskingdom.com/goomer",
+    "source": "comicskingdom",
+    "position": 449,
+    "is_updated": false
+  },
+  {
+    "name": "Goomer (Spanish)",
+    "slug": "goomer-spanish",
+    "url": "https://comicskingdom.com/goomer-spanish",
+    "source": "comicskingdom",
+    "position": 450,
+    "is_updated": false
+  },
+  {
+    "name": "Hagar The Horrible",
+    "slug": "hagar-the-horrible",
+    "url": "https://comicskingdom.com/hagar-the-horrible",
+    "source": "comicskingdom",
+    "position": 451,
+    "is_updated": false
+  },
+  {
+    "name": "Hagar The Horrible (Spanish)",
+    "slug": "olafo",
+    "url": "https://comicskingdom.com/olafo",
+    "source": "comicskingdom",
+    "position": 452,
+    "is_updated": false
+  },
+  {
+    "name": "Hi and Lois",
+    "slug": "hi-and-lois",
+    "url": "https://comicskingdom.com/hi-and-lois",
+    "source": "comicskingdom",
+    "position": 453,
+    "is_updated": false
+  },
+  {
+    "name": "Insanity Streak",
+    "slug": "insanity-streak",
+    "url": "https://comicskingdom.com/insanity-streak",
+    "source": "comicskingdom",
+    "position": 454,
+    "is_updated": false
+  },
+  {
+    "name": "Intelligent Life",
+    "slug": "intelligent",
+    "url": "https://comicskingdom.com/intelligent",
+    "source": "comicskingdom",
+    "position": 455,
+    "is_updated": false
+  },
+  {
+    "name": "John Branch",
+    "slug": "?post_type=ck_comic&p=7389789",
+    "url": "https://comicskingdom.com/?post_type=ck_comic&p=7389789",
+    "source": "comicskingdom",
+    "position": 456,
+    "is_updated": false
+  },
+  {
+    "name": "Judge Parker",
+    "slug": "judge-parker",
+    "url": "https://comicskingdom.com/judge-parker",
+    "source": "comicskingdom",
+    "position": 457,
+    "is_updated": false
+  },
+  {
+    "name": "Katzenjammer Kids",
+    "slug": "katzenjammer-kids",
+    "url": "https://comicskingdom.com/katzenjammer-kids",
+    "source": "comicskingdom",
+    "position": 458,
+    "is_updated": false
+  },
+  {
+    "name": "Katzenjammer Kids (Spanish)",
+    "slug": "maldades-de-dos-pilluelos",
+    "url": "https://comicskingdom.com/maldades-de-dos-pilluelos",
+    "source": "comicskingdom",
+    "position": 459,
+    "is_updated": false
+  },
+  {
+    "name": "Kevin and Kell",
+    "slug": "kevin-and-kell",
+    "url": "https://comicskingdom.com/kevin-and-kell",
+    "source": "comicskingdom",
+    "position": 460,
+    "is_updated": false
+  },
+  {
+    "name": "Kirk Walters",
+    "slug": "?post_type=ck_comic&p=7389798",
+    "url": "https://comicskingdom.com/?post_type=ck_comic&p=7389798",
+    "source": "comicskingdom",
+    "position": 461,
+    "is_updated": false
+  },
+  {
+    "name": "Lalo Y Lola (Spanish)",
+    "slug": "lalo-y-lola",
+    "url": "https://comicskingdom.com/lalo-y-lola",
+    "source": "comicskingdom",
+    "position": 462,
+    "is_updated": false
+  },
+  {
+    "name": "Legalization Nation",
+    "slug": "legalization-nation",
+    "url": "https://comicskingdom.com/legalization-nation",
+    "source": "comicskingdom",
+    "position": 463,
+    "is_updated": false
+  },
+  {
+    "name": "Macanudo",
+    "slug": "macanudo",
+    "url": "https://comicskingdom.com/macanudo",
+    "source": "comicskingdom",
+    "position": 464,
+    "is_updated": false
+  },
+  {
+    "name": "Macanudo (Spanish)",
+    "slug": "macanudo-spanish",
+    "url": "https://comicskingdom.com/macanudo-spanish",
+    "source": "comicskingdom",
+    "position": 465,
+    "is_updated": false
+  },
+  {
+    "name": "Mandrake The Magician (Spanish)",
+    "slug": "mandrake-the-magician-spanish",
+    "url": "https://comicskingdom.com/mandrake-the-magician-spanish",
+    "source": "comicskingdom",
+    "position": 466,
+    "is_updated": false
+  },
+  {
+    "name": "Mark Trail",
+    "slug": "mark-trail",
+    "url": "https://comicskingdom.com/mark-trail",
+    "source": "comicskingdom",
+    "position": 467,
+    "is_updated": false
+  },
+  {
+    "name": "Mark Trail (Spanish)",
+    "slug": "mark-trail-spanish",
+    "url": "https://comicskingdom.com/mark-trail-spanish",
+    "source": "comicskingdom",
+    "position": 468,
+    "is_updated": false
+  },
+  {
+    "name": "Marvin",
+    "slug": "marvin",
+    "url": "https://comicskingdom.com/marvin",
+    "source": "comicskingdom",
+    "position": 469,
+    "is_updated": false
+  },
+  {
+    "name": "Marvin (Spanish)",
+    "slug": "marvin-spanish",
+    "url": "https://comicskingdom.com/marvin-spanish",
+    "source": "comicskingdom",
+    "position": 470,
+    "is_updated": false
+  },
+  {
+    "name": "Mary Worth",
+    "slug": "mary-worth",
+    "url": "https://comicskingdom.com/mary-worth",
+    "source": "comicskingdom",
+    "position": 471,
+    "is_updated": false
+  },
+  {
+    "name": "Mary Worth (Spanish)",
+    "slug": "maria-de-oro",
+    "url": "https://comicskingdom.com/maria-de-oro",
+    "source": "comicskingdom",
+    "position": 472,
+    "is_updated": false
+  },
+  {
+    "name": "Mazetoons",
+    "slug": "mazetoons",
+    "url": "https://comicskingdom.com/mazetoons",
+    "source": "comicskingdom",
+    "position": 473,
+    "is_updated": false
+  },
+  {
+    "name": "Moose And Molly (Spanish)",
+    "slug": "quintin",
+    "url": "https://comicskingdom.com/quintin",
+    "source": "comicskingdom",
+    "position": 474,
+    "is_updated": false
+  },
+  {
+    "name": "Mostly Gravy",
+    "slug": "mostly-gravy",
+    "url": "https://comicskingdom.com/mostly-gravy",
+    "source": "comicskingdom",
+    "position": 475,
+    "is_updated": false
+  },
+  {
+    "name": "Mr. Abernathy (Spanish)",
+    "slug": "don-abundio",
+    "url": "https://comicskingdom.com/don-abundio",
+    "source": "comicskingdom",
+    "position": 476,
+    "is_updated": false
+  },
+  {
+    "name": "Mutts",
+    "slug": "mutts",
+    "url": "https://comicskingdom.com/mutts",
+    "source": "comicskingdom",
+    "position": 477,
+    "is_updated": false
+  },
+  {
+    "name": "Mutts (Spanish)",
+    "slug": "motas",
+    "url": "https://comicskingdom.com/motas",
+    "source": "comicskingdom",
+    "position": 478,
+    "is_updated": false
+  },
+  {
+    "name": "Never Been Deader",
+    "slug": "never-been-deader",
+    "url": "https://comicskingdom.com/never-been-deader",
+    "source": "comicskingdom",
+    "position": 479,
+    "is_updated": false
+  },
+  {
+    "name": "New Tricks",
+    "slug": "new-tricks",
+    "url": "https://comicskingdom.com/new-tricks",
+    "source": "comicskingdom",
+    "position": 480,
+    "is_updated": false
+  },
+  {
+    "name": "Nibbles and Scratch",
+    "slug": "nibbles-scratch",
+    "url": "https://comicskingdom.com/nibbles-scratch",
+    "source": "comicskingdom",
+    "position": 481,
+    "is_updated": false
+  },
+  {
+    "name": "Oddly Enough",
+    "slug": "?post_type=ck_comic&p=7389972",
+    "url": "https://comicskingdom.com/?post_type=ck_comic&p=7389972",
+    "source": "comicskingdom",
+    "position": 482,
+    "is_updated": false
+  },
+  {
+    "name": "Olive & Popeye",
+    "slug": "olive-popeye",
+    "url": "https://comicskingdom.com/olive-popeye",
+    "source": "comicskingdom",
+    "position": 483,
+    "is_updated": false
+  },
+  {
+    "name": "On The Fastrack",
+    "slug": "on-the-fastrack",
+    "url": "https://comicskingdom.com/on-the-fastrack",
+    "source": "comicskingdom",
+    "position": 484,
+    "is_updated": false
+  },
+  {
+    "name": "The Pajama Diaries",
+    "slug": "pajama-diaries",
+    "url": "https://comicskingdom.com/pajama-diaries",
+    "source": "comicskingdom",
+    "position": 485,
+    "is_updated": false
+  },
+  {
+    "name": "Palurdeando (Spanish)",
+    "slug": "palurdeando-spanish",
+    "url": "https://comicskingdom.com/palurdeando-spanish",
+    "source": "comicskingdom",
+    "position": 486,
+    "is_updated": false
+  },
+  {
+    "name": "Pardon My Planet",
+    "slug": "pardon-my-planet",
+    "url": "https://comicskingdom.com/pardon-my-planet",
+    "source": "comicskingdom",
+    "position": 487,
+    "is_updated": false
+  },
+  {
+    "name": "The Phantom",
+    "slug": "phantom",
+    "url": "https://comicskingdom.com/phantom",
+    "source": "comicskingdom",
+    "position": 488,
+    "is_updated": false
+  },
+  {
+    "name": "The Phantom (Spanish)",
+    "slug": "el-fantasma",
+    "url": "https://comicskingdom.com/el-fantasma",
+    "source": "comicskingdom",
+    "position": 489,
+    "is_updated": false
+  },
+  {
+    "name": "Phantom 2040: A New Shadow",
+    "slug": "phantom-2040-a-new-shadow",
+    "url": "https://comicskingdom.com/phantom-2040-a-new-shadow",
+    "source": "comicskingdom",
+    "position": 490,
+    "is_updated": false
+  },
+  {
+    "name": "The Planet Syndicate",
+    "slug": "the-planet-syndicate",
+    "url": "https://comicskingdom.com/the-planet-syndicate",
+    "source": "comicskingdom",
+    "position": 491,
+    "is_updated": false
+  },
+  {
+    "name": "Popeye",
+    "slug": "popeye",
+    "url": "https://comicskingdom.com/popeye",
+    "source": "comicskingdom",
+    "position": 492,
+    "is_updated": false
+  },
+  {
+    "name": "Popeye (Spanish)",
+    "slug": "popeye-spanish",
+    "url": "https://comicskingdom.com/popeye-spanish",
+    "source": "comicskingdom",
+    "position": 493,
+    "is_updated": false
+  },
+  {
+    "name": "Popeye\u2019s Cartoon Club",
+    "slug": "popeyes-cartoon-club",
+    "url": "https://comicskingdom.com/popeyes-cartoon-club",
+    "source": "comicskingdom",
+    "position": 494,
+    "is_updated": false
+  },
+  {
+    "name": "Prince Valiant",
+    "slug": "prince-valiant",
+    "url": "https://comicskingdom.com/prince-valiant",
+    "source": "comicskingdom",
+    "position": 495,
+    "is_updated": false
+  },
+  {
+    "name": "Principe Valiente (Spanish)",
+    "slug": "principe-valiente",
+    "url": "https://comicskingdom.com/principe-valiente",
+    "source": "comicskingdom",
+    "position": 496,
+    "is_updated": false
+  },
+  {
+    "name": "Pros & Cons",
+    "slug": "pros-cons",
+    "url": "https://comicskingdom.com/pros-cons",
+    "source": "comicskingdom",
+    "position": 497,
+    "is_updated": false
+  },
+  {
+    "name": "Rae The Doe",
+    "slug": "rae-the-doe",
+    "url": "https://comicskingdom.com/rae-the-doe",
+    "source": "comicskingdom",
+    "position": 498,
+    "is_updated": false
+  },
+  {
+    "name": "Rex Morgan M.D. (Spanish)",
+    "slug": "rex-morgan-md-spanish",
+    "url": "https://comicskingdom.com/rex-morgan-md-spanish",
+    "source": "comicskingdom",
+    "position": 499,
+    "is_updated": false
+  },
+  {
+    "name": "Rhymes with Orange",
+    "slug": "rhymes-with-orange",
+    "url": "https://comicskingdom.com/rhymes-with-orange",
+    "source": "comicskingdom",
+    "position": 500,
+    "is_updated": false
+  },
+  {
+    "name": "Rosebuds",
+    "slug": "rosebuds",
+    "url": "https://comicskingdom.com/rosebuds",
+    "source": "comicskingdom",
+    "position": 501,
+    "is_updated": false
+  },
+  {
+    "name": "Safe Havens",
+    "slug": "safe-havens",
+    "url": "https://comicskingdom.com/safe-havens",
+    "source": "comicskingdom",
+    "position": 502,
+    "is_updated": false
+  },
+  {
+    "name": "The Saga of Brann Bjornson",
+    "slug": "the-saga-of-brann-bjornson",
+    "url": "https://comicskingdom.com/the-saga-of-brann-bjornson",
+    "source": "comicskingdom",
+    "position": 503,
+    "is_updated": false
+  },
+  {
+    "name": "Sales",
+    "slug": "sales",
+    "url": "https://comicskingdom.com/sales",
+    "source": "comicskingdom",
+    "position": 504,
+    "is_updated": false
+  },
+  {
+    "name": "Sally Forth",
+    "slug": "sally-forth",
+    "url": "https://comicskingdom.com/sally-forth",
+    "source": "comicskingdom",
+    "position": 505,
+    "is_updated": false
+  },
+  {
+    "name": "Sam And Silo",
+    "slug": "sam-and-silo",
+    "url": "https://comicskingdom.com/sam-and-silo",
+    "source": "comicskingdom",
+    "position": 506,
+    "is_updated": false
+  },
+  {
+    "name": "Sam And Silo (Spanish)",
+    "slug": "soso-y-siso",
+    "url": "https://comicskingdom.com/soso-y-siso",
+    "source": "comicskingdom",
+    "position": 507,
+    "is_updated": false
+  },
+  {
+    "name": "Slylock Fox",
+    "slug": "slylock-fox-and-comics-for-kids",
+    "url": "https://comicskingdom.com/slylock-fox-and-comics-for-kids",
+    "source": "comicskingdom",
+    "position": 508,
+    "is_updated": false
+  },
+  {
+    "name": "Slylock Fox (Spanish)",
+    "slug": "solo-para-ninos",
+    "url": "https://comicskingdom.com/solo-para-ninos",
+    "source": "comicskingdom",
+    "position": 509,
+    "is_updated": false
+  },
+  {
+    "name": "Suburban Fairy Tales",
+    "slug": "suburban-fairy-tales",
+    "url": "https://comicskingdom.com/suburban-fairy-tales",
+    "source": "comicskingdom",
+    "position": 510,
+    "is_updated": false
+  },
+  {
+    "name": "Take it from the Tinkersons",
+    "slug": "take-it-from-the-tinkersons",
+    "url": "https://comicskingdom.com/take-it-from-the-tinkersons",
+    "source": "comicskingdom",
+    "position": 511,
+    "is_updated": false
+  },
+  {
+    "name": "TBD (Toons By Dan)",
+    "slug": "?post_type=ck_comic&p=7389405",
+    "url": "https://comicskingdom.com/?post_type=ck_comic&p=7389405",
+    "source": "comicskingdom",
+    "position": 512,
+    "is_updated": false
+  },
+  {
+    "name": "They\u2019ll Do It Every Time (Spanish)",
+    "slug": "nunca-falta-alguien-asi",
+    "url": "https://comicskingdom.com/nunca-falta-alguien-asi",
+    "source": "comicskingdom",
+    "position": 513,
+    "is_updated": false
+  },
+  {
+    "name": "Tiger (Spanish)",
+    "slug": "tigrillo",
+    "url": "https://comicskingdom.com/tigrillo",
+    "source": "comicskingdom",
+    "position": 514,
+    "is_updated": false
+  },
+  {
+    "name": "Tina\u2019s Groove",
+    "slug": "tina-s-groove",
+    "url": "https://comicskingdom.com/tina-s-groove",
+    "source": "comicskingdom",
+    "position": 515,
+    "is_updated": false
+  },
+  {
+    "name": "A Toda Velocidad (Spanish)",
+    "slug": "a-toda-velocidad",
+    "url": "https://comicskingdom.com/a-toda-velocidad",
+    "source": "comicskingdom",
+    "position": 516,
+    "is_updated": false
+  },
+  {
+    "name": "Willy Black",
+    "slug": "willy-black",
+    "url": "https://comicskingdom.com/willy-black",
+    "source": "comicskingdom",
+    "position": 517,
+    "is_updated": false
+  },
+  {
+    "name": "Willy Black (Spanish)",
+    "slug": "willy-black-spanish",
+    "url": "https://comicskingdom.com/willy-black-spanish",
+    "source": "comicskingdom",
+    "position": 518,
+    "is_updated": false
+  },
+  {
+    "name": "Working Cats",
+    "slug": "working-cats",
+    "url": "https://comicskingdom.com/working-cats",
+    "source": "comicskingdom",
+    "position": 519,
+    "is_updated": false
+  },
+  {
+    "name": "Zippy The Pinhead",
+    "slug": "zippy-the-pinhead",
+    "url": "https://comicskingdom.com/zippy-the-pinhead",
+    "source": "comicskingdom",
+    "position": 520,
+    "is_updated": false
+  },
+  {
+    "name": "Zits",
+    "slug": "zits",
+    "url": "https://comicskingdom.com/zits",
+    "source": "comicskingdom",
+    "position": 521,
+    "is_updated": false
   }
 ]

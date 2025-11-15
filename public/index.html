@@ -486,9 +486,10 @@
                 fetch('/tinyview_comics_list.json').then(r => r.json()).catch(() => []) // Fallback to empty array if file doesn't exist yet
             ])
             .then(([daily, political, tinyview]) => {
-                dailyComics = daily;
-                politicalComics = political;
-                tinyviewComics = tinyview;
+                // Sort all comics alphabetically by name
+                dailyComics = daily.sort((a, b) => a.name.localeCompare(b.name));
+                politicalComics = political.sort((a, b) => a.name.localeCompare(b.name));
+                tinyviewComics = tinyview.sort((a, b) => a.name.localeCompare(b.name));
                 
                 // Populate tables and lists
                 populateComicsTable(dailyComics, 'comics-table-body', 'gocomics');

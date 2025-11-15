@@ -50,7 +50,7 @@ git pull origin main || {
     echo "⚠️  Warning: Could not pull latest changes (working offline or conflicts?)"
 }
 
-# Run Comics Kingdom scraper
+# Run Comics Kingdom scraper (gets all favorited comics from favorites page)
 echo ""
 echo "Running Comics Kingdom scraper..."
 DATE_STR=$(date +%Y-%m-%d)

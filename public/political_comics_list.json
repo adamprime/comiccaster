@@ -651,5 +651,185 @@
     "position": 63,
     "is_political": true,
     "publishing_frequency": null
+  },
+  {
+    "name": "Action",
+    "slug": "genre",
+    "url": "https://comicskingdom.com/genre",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 64,
+    "is_updated": false
+  },
+  {
+    "name": "All comics",
+    "slug": "comics",
+    "url": "https://comicskingdom.com/comics",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 65,
+    "is_updated": false
+  },
+  {
+    "name": "The Brilliant Mind Of Edison Lee",
+    "slug": "brilliant-mind-of-edison-lee",
+    "url": "https://comicskingdom.com/brilliant-mind-of-edison-lee",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 66,
+    "is_updated": false
+  },
+  {
+    "name": "John Hambrock",
+    "slug": "creator",
+    "url": "https://comicskingdom.com/creator",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 67,
+    "is_updated": false
+  },
+  {
+    "name": "News",
+    "slug": "blog",
+    "url": "https://comicskingdom.com/blog",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 68,
+    "is_updated": false
+  },
+  {
+    "name": "Log in",
+    "slug": "login",
+    "url": "https://comicskingdom.com/login",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 69,
+    "is_updated": false
+  },
+  {
+    "name": "David M. Hitch",
+    "slug": "david-m-hitch",
+    "url": "https://comicskingdom.com/david-m-hitch",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 70,
+    "is_updated": false
+  },
+  {
+    "name": "Ed Gamble",
+    "slug": "ed-gamble",
+    "url": "https://comicskingdom.com/ed-gamble",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 71,
+    "is_updated": false
+  },
+  {
+    "name": "Jimmy Margulies",
+    "slug": "jimmy-margulies",
+    "url": "https://comicskingdom.com/jimmy-margulies",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 72,
+    "is_updated": false
+  },
+  {
+    "name": "Lee Judge",
+    "slug": "lee-judge",
+    "url": "https://comicskingdom.com/lee-judge",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 73,
+    "is_updated": false
+  },
+  {
+    "name": "Mallard Fillmore",
+    "slug": "mallard-fillmore",
+    "url": "https://comicskingdom.com/mallard-fillmore",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 74,
+    "is_updated": false
+  },
+  {
+    "name": "Mike Shelton",
+    "slug": "mike-shelton",
+    "url": "https://comicskingdom.com/mike-shelton",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 75,
+    "is_updated": false
+  },
+  {
+    "name": "Mike Smith",
+    "slug": "mike-smith",
+    "url": "https://comicskingdom.com/mike-smith",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 76,
+    "is_updated": false
+  },
+  {
+    "name": "About",
+    "slug": "about",
+    "url": "https://comicskingdom.com/about",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 77,
+    "is_updated": false
+  },
+  {
+    "name": "Privacy Policy",
+    "slug": "privacy-policy",
+    "url": "https://comicskingdom.com/privacy-policy",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 78,
+    "is_updated": false
+  },
+  {
+    "name": "DAA Industry Opt Out",
+    "slug": "privacy-policy#daa",
+    "url": "https://comicskingdom.com/privacy-policy#daa",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 79,
+    "is_updated": false
+  },
+  {
+    "name": "CA Notice at Collection",
+    "slug": "privacy-policy#california",
+    "url": "https://comicskingdom.com/privacy-policy#california",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 80,
+    "is_updated": false
+  },
+  {
+    "name": "Your CA Privacy Rights/Shine the Light",
+    "slug": "privacy-policy#shine",
+    "url": "https://comicskingdom.com/privacy-policy#shine",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 81,
+    "is_updated": false
+  },
+  {
+    "name": "Terms of Use",
+    "slug": "terms",
+    "url": "https://comicskingdom.com/terms",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 82,
+    "is_updated": false
+  },
+  {
+    "name": "Publish Your Comics With Us!",
+    "slug": "submit-your-comics",
+    "url": "https://comicskingdom.com/submit-your-comics",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 83,
+    "is_updated": false
   }
 ]
