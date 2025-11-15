@@ -62,12 +62,12 @@ test_todays_*.py
 garfield_page.html
 seattle_times_*.html
 comicskingdom_*.html
-comicskingdom_*.json
+# Note: comicskingdom_*.json is tracked in git (needed for GitHub Actions)
 
 # Sensitive configuration (use environment variables instead)
 custom_pages_config.json
 *_secrets.json
-*.pkl
+*.pkl  # Keep cookies out of git (sensitive)
 .gocomics_cookies.pkl
 GITHUB_SECRETS_SETUP.md
 SECURITY_SETUP_COMPLETE.md
