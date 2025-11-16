@@ -52,9 +52,9 @@ git pull origin main || {
 
 # Run Comics Kingdom scraper (gets all favorited comics from favorites page)
 echo ""
-echo "Running Comics Kingdom scraper..."
+echo "Running Comics Kingdom scraper (individual pages)..."
 DATE_STR=$(date +%Y-%m-%d)
-python comicskingdom_scraper_secure.py --date "$DATE_STR" --output-dir data
+python comicskingdom_scraper_individual.py --date "$DATE_STR" --output-dir data
 
 if [ $? -eq 0 ]; then
     echo "✅ Comics Kingdom scraping completed successfully"
