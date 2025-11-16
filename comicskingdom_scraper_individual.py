@@ -185,16 +185,28 @@ def scrape_comic_page(driver, comic_slug, date_str, debug=False):
         
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         
-        # Find comic strip images
-        images = soup.find_all('img')
+        # Find comic strip images - look in the main comic reader container
+        # Comics Kingdom uses specific containers for today's comic:
+        # - .comic-reader-item or .ck-multiple-panel-reader contains today's panels
+        # - Parent containers may have archive/navigation images
+        
         image_urls = []
         
-        # Extract date parts for flexible matching
-        year, month, day = date_str.split('-')
-        date_patterns = [
-            f'{year}/{month}',  # 2025/11
-            f'{year}-{month}',  # 2025-11
-        ]
+        # Try to find the comic reader container first
+        comic_container = soup.find('div', class_=lambda x: x and ('comic-reader-item' in x or 'ck-multiple-panel-reader' in x))
+        
+        if not comic_container:
+            # Fallback: look for any container with class containing "comic" or "reader"
+            comic_container = soup.find('div', class_=lambda x: x and any(keyword in x.lower() for keyword in ['comic', 'reader', 'strip']))
+        
+        if not comic_container:
+            # Last resort: use entire page
+            if debug:
+                print(f"    ⚠️  Could not find comic container, using entire page")
+            comic_container = soup
+        
+        # Find all images within the comic container
+        images = comic_container.find_all('img')
         
         for img in images:
             src = img.get('src', '')
@@ -211,12 +223,10 @@ def scrape_comic_page(driver, comic_slug, date_str, debug=False):
                     import urllib.parse
                     actual_url = urllib.parse.unquote(match.group(1))
             
-            # Check if image has today's date
-            if any(pattern in actual_url for pattern in date_patterns):
-                image_urls.append(actual_url)
-            elif debug:
-                print(f"    Found image but no date match:")
-                print(f"      {actual_url}")
+            image_urls.append(actual_url)
+        
+        if debug and image_urls:
+            print(f"    Found {len(image_urls)} image(s) in comic container")
         
         if not image_urls:
             if debug:
