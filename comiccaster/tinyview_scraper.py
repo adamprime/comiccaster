@@ -349,9 +349,24 @@ class TinyviewScraper(BaseScraper):
         
         for img in all_imgs:
             src = img.get('src', '')
+            
+            # Decode Next.js optimized images
+            # Format: /_next/image?url=https%3A%2F%2Fcdn.tinyview.com%2F...&w=1080&q=100
+            actual_url = src
+            if '/_next/image?url=' in src:
+                try:
+                    from urllib.parse import parse_qs, unquote
+                    parsed = urlparse(src)
+                    query_params = parse_qs(parsed.query)
+                    if 'url' in query_params:
+                        actual_url = unquote(query_params['url'][0])
+                except:
+                    # If decoding fails, use original URL
+                    pass
+            
             # Parse URL to check hostname properly (prevent substring matching attacks)
             try:
-                parsed_url = urlparse(src)
+                parsed_url = urlparse(actual_url)
                 if parsed_url.hostname == 'cdn.tinyview.com':
                     # Filter out generic Tinyview images (promotional, UI elements, etc.)
                     path_lower = parsed_url.path.lower()
@@ -379,16 +394,21 @@ class TinyviewScraper(BaseScraper):
                             
                             # Check if the URL contains the date path (more flexible)
                             if date_path in parsed_url.path:
+                                # Skip banner images - they're not the actual comic panels
+                                if '/banner.jpg' in parsed_url.path:
+                                    logger.debug(f"Skipping banner image: {actual_url}")
+                                    continue
+                                
                                 # This image is in the correct date directory
-                                if src not in seen_urls:
-                                    seen_urls.add(src)
+                                if actual_url not in seen_urls:
+                                    seen_urls.add(actual_url)
                                     image_data = {
-                                        'url': src,
+                                        'url': actual_url,
                                         'alt': img.get('alt', ''),
                                         'title': img.get('title', '')
                                     }
                                     images.append(image_data)
-                                    logger.info(f"Found comic image for date {date}: {src}")
+                                    logger.info(f"Found comic image for date {date}: {actual_url}")
                                 else:
                                     logger.debug(f"Skipping duplicate image: {src}")
                             else:

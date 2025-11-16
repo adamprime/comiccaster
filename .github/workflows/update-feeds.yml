@@ -75,16 +75,21 @@ jobs:
             echo "ℹ️  No Comics Kingdom data found, skipping Comics Kingdom feeds"
             echo "   (Run local_comicskingdom_update.sh on your Mac to scrape and push data)"
           fi
+          
+          # Generate TinyView feeds from locally-scraped data (if available)
+          if ls data/tinyview_*.json 1> /dev/null 2>&1; then
+            echo "Generating TinyView feeds from local data..."
+            python scripts/generate_tinyview_feeds_from_data.py
+          else
+            echo "ℹ️  No TinyView data found, skipping TinyView feeds"
+            echo "   (Run local_tinyview_update.sh on your Mac to scrape and push data)"
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # TEMPORARILY DISABLED: TinyView scraper disabled while troubleshooting GoComics issues
-      # - name: Update Tinyview feeds
-      #   run: |
-      #     python scripts/update_tinyview_feeds.py
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     DISPLAY: :99
+      # TinyView feeds now generated from locally-scraped data (like Comics Kingdom)
+      # Local scraping happens at 12:35 AM daily via local_tinyview_update.sh
+      # This workflow reads the data files and generates feeds
       
       - name: Commit and push updated feeds
         run: |

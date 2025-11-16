@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.comiccaster.tinyview</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>REPLACE_WITH_PROJECT_PATH/scripts/local_tinyview_update.sh</string>
+    </array>
+    
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>0</integer>
+        <key>Minute</key>
+        <integer>35</integer>
+    </dict>
+    
+    <key>StandardOutPath</key>
+    <string>REPLACE_WITH_PROJECT_PATH/logs/tinyview_launchd.out</string>
+    
+    <key>StandardErrorPath</key>
+    <string>REPLACE_WITH_PROJECT_PATH/logs/tinyview_launchd.err</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+    
+    <key>RunAtLoad</key>
+    <false/>
+    
+    <key>Nice</key>
+    <integer>1</integer>
+</dict>
+</plist>
