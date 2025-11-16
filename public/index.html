@@ -178,7 +178,7 @@
         }
 
         /* Search inputs */
-        #comicSearch, #customFeedSearch, #politicalComicSearch, #politicalFeedSearch, #tinyviewComicSearch, #tinyviewFeedSearch {
+        #comicSearch, #customFeedSearch, #politicalComicSearch, #politicalFeedSearch, #spanishComicSearch, #spanishFeedSearch, #tinyviewComicSearch, #tinyviewFeedSearch {
             width: 100%;
             padding: 0.5rem;
             margin-bottom: 1rem;
@@ -354,6 +354,7 @@
                 <div class="tabs">
                     <button class="tab-button active" data-tab="daily">📰 Daily Comics</button>
                     <button class="tab-button" data-tab="political">🏛️ Political Cartoons</button>
+                    <button class="tab-button" data-tab="spanish">🇪🇸 Spanish Comics</button>
                     <button class="tab-button" data-tab="tinyview">📱 TinyView</button>
                 </div>
                 <div class="tab-content active" id="daily-tab">
@@ -390,6 +391,23 @@
                         </table>
                     </div>
                 </div>
+                <div class="tab-content" id="spanish-tab">
+                    <input type="text" id="spanishComicSearch" placeholder="Search Spanish comics...">
+                    <div class="table-container">
+                        <table class="table" id="spanish-comics-table">
+                            <thead>
+                                <tr>
+                                    <th>Comic</th>
+                                    <th>📡 RSS Link</th>
+                                    <th>🔗 Original Page</th>
+                                </tr>
+                            </thead>
+                            <tbody id="spanish-comics-table-body">
+                                <!-- Spanish comic rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 <div class="tab-content" id="tinyview-tab">
                     <input type="text" id="tinyviewComicSearch" placeholder="Search TinyView comics...">
                     <div class="table-container">
@@ -419,6 +437,7 @@
                 <div class="tabs">
                     <button class="tab-button opml-tab active" data-tab="daily-opml">📰 Daily Comics</button>
                     <button class="tab-button opml-tab" data-tab="political-opml">🏛️ Political Cartoons</button>
+                    <button class="tab-button opml-tab" data-tab="spanish-opml">🇪🇸 Spanish Comics</button>
                     <button class="tab-button opml-tab" data-tab="tinyview-opml">📱 TinyView</button>
                 </div>
                 <div class="tab-content opml-content active" id="daily-opml-tab">
@@ -445,6 +464,19 @@
                     
                     <div id="political-success-message" class="success-message">
                         <p>✅ Your OPML file is ready! <a href="#" id="political-download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the political cartoons!</p>
+                    </div>
+                </div>
+                <div class="tab-content opml-content" id="spanish-opml-tab">
+                    <input type="text" id="spanishFeedSearch" placeholder="Search Spanish comics by name...">
+                    <div class="comic-list" id="spanish-comics-list">
+                        <!-- Spanish comics checkboxes will be populated dynamically -->
+                    </div>
+
+                    <button class="btn btn-primary" id="generateSpanishOPMLBtn">📄 Generate Spanish Comics OPML</button>
+                    <button class="btn btn-secondary" id="resetSpanishSelectionBtn">❌ Clear Selection</button>
+                    
+                    <div id="spanish-success-message" class="success-message">
+                        <p>✅ Your OPML file is ready! <a href="#" id="spanish-download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the Spanish comics!</p>
                     </div>
                 </div>
                 <div class="tab-content opml-content" id="tinyview-opml-tab">
@@ -477,26 +509,31 @@
         document.addEventListener('DOMContentLoaded', function() {
             let dailyComics = [];
             let politicalComics = [];
+            let spanishComics = [];
             let tinyviewComics = [];
             
-            // Load all three types of comics data
+            // Load all four types of comics data
             Promise.all([
                 fetch('/comics_list.json').then(r => r.json()),
                 fetch('/political_comics_list.json').then(r => r.json()),
+                fetch('/spanish_comics_list.json').then(r => r.json()).catch(() => []), // Fallback to empty array if file doesn't exist yet
                 fetch('/tinyview_comics_list.json').then(r => r.json()).catch(() => []) // Fallback to empty array if file doesn't exist yet
             ])
-            .then(([daily, political, tinyview]) => {
+            .then(([daily, political, spanish, tinyview]) => {
                 // Sort all comics alphabetically by name
                 dailyComics = daily.sort((a, b) => a.name.localeCompare(b.name));
                 politicalComics = political.sort((a, b) => a.name.localeCompare(b.name));
+                spanishComics = spanish.sort((a, b) => a.name.localeCompare(b.name));
                 tinyviewComics = tinyview.sort((a, b) => a.name.localeCompare(b.name));
                 
                 // Populate tables and lists
                 populateComicsTable(dailyComics, 'comics-table-body', 'gocomics');
                 populateComicsTable(politicalComics, 'political-comics-table-body', 'gocomics');
+                populateComicsTable(spanishComics, 'spanish-comics-table-body', 'gocomics');
                 populateComicsTable(tinyviewComics, 'tinyview-comics-table-body', 'tinyview');
                 populateComicsList(dailyComics, 'comics-list');
                 populateComicsList(politicalComics, 'political-comics-list');
+                populateComicsList(spanishComics, 'spanish-comics-list');
                 populateComicsList(tinyviewComics, 'tinyview-comics-list');
                 
                 // Setup functionality
@@ -665,6 +702,40 @@
                     });
                 });
                 
+                // Spanish comic table search
+                const spanishComicSearch = document.getElementById('spanishComicSearch');
+                const spanishTableRows = document.querySelectorAll('#spanish-comics-table-body tr');
+                
+                spanishComicSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    spanishTableRows.forEach(row => {
+                        const name = row.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+                
+                // Spanish comic list search
+                const spanishFeedSearch = document.getElementById('spanishFeedSearch');
+                const spanishCheckboxItems = document.querySelectorAll('#spanish-comics-list .form-check');
+                
+                spanishFeedSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    spanishCheckboxItems.forEach(item => {
+                        const name = item.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+                
                 // Tinyview comic table search
                 const tinyviewComicSearch = document.getElementById('tinyviewComicSearch');
                 const tinyviewTableRows = document.querySelectorAll('#tinyview-comics-table-body tr');
@@ -801,6 +872,57 @@
                         checkbox.checked = false;
                     });
                     politicalSuccessMessage.style.display = 'none';
+                });
+                
+                // Spanish comics OPML
+                const generateSpanishBtn = document.getElementById('generateSpanishOPMLBtn');
+                const resetSpanishBtn = document.getElementById('resetSpanishSelectionBtn');
+                const spanishSuccessMessage = document.getElementById('spanish-success-message');
+                const spanishDownloadLink = document.getElementById('spanish-download-link');
+                
+                generateSpanishBtn.addEventListener('click', function() {
+                    const selectedComics = [];
+                    document.querySelectorAll('#spanish-comics-list .form-check-input:checked').forEach(checkbox => {
+                        selectedComics.push(checkbox.value);
+                    });
+                    
+                    if (selectedComics.length === 0) {
+                        alert('Please select at least one Spanish comic.');
+                        return;
+                    }
+                    
+                    fetch('/.netlify/functions/generate-opml', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ comics: selectedComics, type: 'spanish' }),
+                    })
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        spanishDownloadLink.href = url;
+                        spanishDownloadLink.download = 'spanish-comics.opml';
+                        spanishSuccessMessage.style.display = 'block';
+                        
+                        // Set up the download link
+                        spanishDownloadLink.addEventListener('click', function(e) {
+                            setTimeout(() => {
+                                URL.revokeObjectURL(url);
+                            }, 100);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error generating OPML:', error);
+                        alert('There was an error generating your OPML file. Please try again.');
+                    });
+                });
+                
+                resetSpanishBtn.addEventListener('click', function() {
+                    document.querySelectorAll('#spanish-comics-list .form-check-input:checked').forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    spanishSuccessMessage.style.display = 'none';
                 });
                 
                 // Tinyview comics OPML

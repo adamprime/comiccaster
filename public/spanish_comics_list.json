@@ -1,0 +1,428 @@
+[
+  {
+    "name": "A Toda Velocidad (Spanish)",
+    "slug": "a-toda-velocidad",
+    "url": "https://comicskingdom.com/a-toda-velocidad",
+    "source": "comicskingdom",
+    "position": 516,
+    "is_updated": false
+  },
+  {
+    "name": "Baldo en Espa\u00f1ol",
+    "author": "Hector D. Cant\u00fa and Carlos Castellanos",
+    "url": "https://www.gocomics.com/baldoespanol",
+    "slug": "baldoespanol",
+    "position": 31,
+    "is_updated": true
+  },
+  {
+    "name": "Barney Google And Snuffy Smith (Spanish)",
+    "slug": "tapon",
+    "url": "https://comicskingdom.com/tapon",
+    "source": "comicskingdom",
+    "position": 424,
+    "is_updated": false
+  },
+  {
+    "name": "Beetle Bailey (Spanish)",
+    "slug": "beto-el-recluta",
+    "url": "https://comicskingdom.com/beto-el-recluta",
+    "source": "comicskingdom",
+    "position": 426,
+    "is_updated": false
+  },
+  {
+    "name": "Benitin y Eneas",
+    "author": "Pierre S. De Beaumont",
+    "url": "https://www.gocomics.com/muttandjeffespanol",
+    "slug": "muttandjeffespanol",
+    "position": 42,
+    "is_updated": false
+  },
+  {
+    "name": "Blondie (Spanish)",
+    "slug": "pepita",
+    "url": "https://comicskingdom.com/pepita",
+    "source": "comicskingdom",
+    "position": 431,
+    "is_updated": false
+  },
+  {
+    "name": "Bringing Up Father (Spanish)",
+    "slug": "educando-a-papa",
+    "url": "https://comicskingdom.com/educando-a-papa",
+    "source": "comicskingdom",
+    "position": 433,
+    "is_updated": false
+  },
+  {
+    "name": "Calvin and Hobbes en Espa\u00f1ol",
+    "author": "Bill Watterson",
+    "url": "https://www.gocomics.com/calvinandhobbesespanol",
+    "slug": "calvinandhobbesespanol",
+    "position": 75,
+    "is_updated": true
+  },
+  {
+    "name": "Crock (Spanish)",
+    "slug": "crock-spanish",
+    "url": "https://comicskingdom.com/crock-spanish",
+    "source": "comicskingdom",
+    "position": 436,
+    "is_updated": false
+  },
+  {
+    "name": "Dennis The Menace (Spanish)",
+    "slug": "daniel-el-travieso",
+    "url": "https://comicskingdom.com/daniel-el-travieso",
+    "source": "comicskingdom",
+    "position": 439,
+    "is_updated": false
+  },
+  {
+    "name": "FoxTrot en Espa\u00f1ol",
+    "author": "Bill Amend",
+    "url": "https://www.gocomics.com/foxtrotespanol",
+    "slug": "foxtrotespanol",
+    "position": 142,
+    "is_updated": true
+  },
+  {
+    "name": "Fred Basset en Espa\u00f1ol",
+    "author": "Alex Graham",
+    "url": "https://www.gocomics.com/fredbassetespanol",
+    "slug": "fredbassetespanol",
+    "position": 147,
+    "is_updated": true
+  },
+  {
+    "name": "Garfield en Espa\u00f1ol",
+    "author": "Jim Davis",
+    "url": "https://www.gocomics.com/garfieldespanol",
+    "slug": "garfieldespanol",
+    "position": 155,
+    "is_updated": false
+  },
+  {
+    "name": "Ginger Meggs en Espa\u00f1ol",
+    "author": "Jason Chatfield",
+    "url": "https://www.gocomics.com/gingermeggs-espanol",
+    "slug": "gingermeggs-espanol",
+    "position": 164,
+    "is_updated": true
+  },
+  {
+    "name": "Goomer (Spanish)",
+    "slug": "goomer-spanish",
+    "url": "https://comicskingdom.com/goomer-spanish",
+    "source": "comicskingdom",
+    "position": 450,
+    "is_updated": false
+  },
+  {
+    "name": "Hagar The Horrible (Spanish)",
+    "slug": "olafo",
+    "url": "https://comicskingdom.com/olafo",
+    "source": "comicskingdom",
+    "position": 452,
+    "is_updated": false
+  },
+  {
+    "name": "Heathcliff en Espa\u00f1ol",
+    "author": "George Gately",
+    "url": "https://www.gocomics.com/heathcliffespanol",
+    "slug": "heathcliffespanol",
+    "position": 178,
+    "is_updated": false
+  },
+  {
+    "name": "Jeremias",
+    "slug": "jeremias",
+    "url": "https://comicskingdom.com/jeremias/2025-11-15",
+    "author": "",
+    "position": 418,
+    "is_updated": false,
+    "source": "comicskingdom"
+  },
+  {
+    "name": "Katzenjammer Kids (Spanish)",
+    "slug": "maldades-de-dos-pilluelos",
+    "url": "https://comicskingdom.com/maldades-de-dos-pilluelos",
+    "source": "comicskingdom",
+    "position": 459,
+    "is_updated": false
+  },
+  {
+    "name": "La Cucaracha en Espa\u00f1ol",
+    "author": "Lalo Alcaraz",
+    "url": "https://www.gocomics.com/la-cucaracha-en-espanol",
+    "slug": "la-cucaracha-en-espanol",
+    "position": 208,
+    "is_updated": false
+  },
+  {
+    "name": "Lalo Y Lola (Spanish)",
+    "slug": "lalo-y-lola",
+    "url": "https://comicskingdom.com/lalo-y-lola",
+    "source": "comicskingdom",
+    "position": 462,
+    "is_updated": false
+  },
+  {
+    "name": "Las Hermanas Stone",
+    "author": "Jan Eliot",
+    "url": "https://www.gocomics.com/stonesoup_espanol",
+    "slug": "stonesoup_espanol",
+    "position": 210,
+    "is_updated": true
+  },
+  {
+    "name": "Lio en Espa\u00f1ol",
+    "author": "Mark Tatulli",
+    "url": "https://www.gocomics.com/lioespanol",
+    "slug": "lioespanol",
+    "position": 219,
+    "is_updated": false
+  },
+  {
+    "name": "Lola en Espa\u00f1ol",
+    "author": "Todd Clark",
+    "url": "https://www.gocomics.com/lola-en-espanol",
+    "slug": "lola-en-espanol",
+    "position": 226,
+    "is_updated": true
+  },
+  {
+    "name": "Luann en Espa\u00f1ol",
+    "author": "Greg Evans",
+    "url": "https://www.gocomics.com/luannspanish",
+    "slug": "luannspanish",
+    "position": 234,
+    "is_updated": true
+  },
+  {
+    "name": "Macanudo",
+    "slug": "macanudo",
+    "url": "https://comicskingdom.com/macanudo",
+    "source": "comicskingdom",
+    "position": 464,
+    "is_updated": false
+  },
+  {
+    "name": "Macanudo (Spanish)",
+    "slug": "macanudo-spanish",
+    "url": "https://comicskingdom.com/macanudo-spanish",
+    "source": "comicskingdom",
+    "position": 465,
+    "is_updated": false
+  },
+  {
+    "name": "Mandrake The Magician (Spanish)",
+    "slug": "mandrake-the-magician-spanish",
+    "url": "https://comicskingdom.com/mandrake-the-magician-spanish",
+    "source": "comicskingdom",
+    "position": 466,
+    "is_updated": false
+  },
+  {
+    "name": "Mark Trail (Spanish)",
+    "slug": "mark-trail-spanish",
+    "url": "https://comicskingdom.com/mark-trail-spanish",
+    "source": "comicskingdom",
+    "position": 468,
+    "is_updated": false
+  },
+  {
+    "name": "Marvin (Spanish)",
+    "slug": "marvin-spanish",
+    "url": "https://comicskingdom.com/marvin-spanish",
+    "source": "comicskingdom",
+    "position": 470,
+    "is_updated": false
+  },
+  {
+    "name": "Mary Worth (Spanish)",
+    "slug": "maria-de-oro",
+    "url": "https://comicskingdom.com/maria-de-oro",
+    "source": "comicskingdom",
+    "position": 472,
+    "is_updated": false
+  },
+  {
+    "name": "Moose And Molly (Spanish)",
+    "slug": "quintin",
+    "url": "https://comicskingdom.com/quintin",
+    "source": "comicskingdom",
+    "position": 474,
+    "is_updated": false
+  },
+  {
+    "name": "Mr. Abernathy (Spanish)",
+    "slug": "don-abundio",
+    "url": "https://comicskingdom.com/don-abundio",
+    "source": "comicskingdom",
+    "position": 476,
+    "is_updated": false
+  },
+  {
+    "name": "Mutts (Spanish)",
+    "slug": "motas",
+    "url": "https://comicskingdom.com/motas",
+    "source": "comicskingdom",
+    "position": 478,
+    "is_updated": false
+  },
+  {
+    "name": "Overboard en Espa\u00f1ol",
+    "author": "Chip Dunham",
+    "url": "https://www.gocomics.com/overboardespanol",
+    "slug": "overboardespanol",
+    "position": 287,
+    "is_updated": true
+  },
+  {
+    "name": "Palurdeando",
+    "slug": "palurdeando",
+    "url": "https://comicskingdom.com/palurdeando/2025-11-15",
+    "author": "",
+    "position": 419,
+    "is_updated": false,
+    "source": "comicskingdom"
+  },
+  {
+    "name": "Palurdeando (Spanish)",
+    "slug": "palurdeando-spanish",
+    "url": "https://comicskingdom.com/palurdeando-spanish",
+    "source": "comicskingdom",
+    "position": 486,
+    "is_updated": false
+  },
+  {
+    "name": "Peanuts en Espa\u00f1ol",
+    "author": "Charles Schulz",
+    "url": "https://www.gocomics.com/peanuts-espanol",
+    "slug": "peanuts-espanol",
+    "position": 292,
+    "is_updated": true
+  },
+  {
+    "name": "Popeye (Spanish)",
+    "slug": "popeye-spanish",
+    "url": "https://comicskingdom.com/popeye-spanish",
+    "source": "comicskingdom",
+    "position": 493,
+    "is_updated": false
+  },
+  {
+    "name": "Principe Valiente (Spanish)",
+    "slug": "principe-valiente",
+    "url": "https://comicskingdom.com/principe-valiente",
+    "source": "comicskingdom",
+    "position": 496,
+    "is_updated": false
+  },
+  {
+    "name": "Rex Morgan M.D. (Spanish)",
+    "slug": "rex-morgan-md-spanish",
+    "url": "https://comicskingdom.com/rex-morgan-md-spanish",
+    "source": "comicskingdom",
+    "position": 499,
+    "is_updated": false
+  },
+  {
+    "name": "Ripley\u2019s \u00a1Aunque Usted no lo Crea!",
+    "author": "John Graziano",
+    "url": "https://www.gocomics.com/ripleys-en-espanol",
+    "slug": "ripleys-en-espanol",
+    "position": 320,
+    "is_updated": false
+  },
+  {
+    "name": "Sam And Silo (Spanish)",
+    "slug": "soso-y-siso",
+    "url": "https://comicskingdom.com/soso-y-siso",
+    "source": "comicskingdom",
+    "position": 507,
+    "is_updated": false
+  },
+  {
+    "name": "Slylock Fox (Spanish)",
+    "slug": "solo-para-ninos",
+    "url": "https://comicskingdom.com/solo-para-ninos",
+    "source": "comicskingdom",
+    "position": 509,
+    "is_updated": false
+  },
+  {
+    "name": "Tarz\u00e1n en Espa\u00f1ol",
+    "author": "Edgar Rice Burroughs",
+    "url": "https://www.gocomics.com/tarzan-en-espanol",
+    "slug": "tarzan-en-espanol",
+    "position": 353,
+    "is_updated": false
+  },
+  {
+    "name": "The Family Circus (Spanish)",
+    "slug": "circulo-familiar",
+    "url": "https://comicskingdom.com/circulo-familiar",
+    "source": "comicskingdom",
+    "position": 445,
+    "is_updated": false
+  },
+  {
+    "name": "The Phantom (Spanish)",
+    "slug": "el-fantasma",
+    "url": "https://comicskingdom.com/el-fantasma",
+    "source": "comicskingdom",
+    "position": 489,
+    "is_updated": false
+  },
+  {
+    "name": "They\u2019ll Do It Every Time (Spanish)",
+    "slug": "nunca-falta-alguien-asi",
+    "url": "https://comicskingdom.com/nunca-falta-alguien-asi",
+    "source": "comicskingdom",
+    "position": 513,
+    "is_updated": false
+  },
+  {
+    "name": "Tiger (Spanish)",
+    "slug": "tigrillo",
+    "url": "https://comicskingdom.com/tigrillo",
+    "source": "comicskingdom",
+    "position": 514,
+    "is_updated": false
+  },
+  {
+    "name": "Willy Black (Spanish)",
+    "slug": "willy-black-spanish",
+    "url": "https://comicskingdom.com/willy-black-spanish",
+    "source": "comicskingdom",
+    "position": 518,
+    "is_updated": false
+  },
+  {
+    "name": "Wizard of Id en Espa\u00f1ol",
+    "author": "Parker and Hart",
+    "url": "https://www.gocomics.com/wizardofidespanol",
+    "slug": "wizardofidespanol",
+    "position": 388,
+    "is_updated": false
+  },
+  {
+    "name": "WuMo en Espa\u00f1ol",
+    "author": "Wulff & Morgenthaler",
+    "url": "https://www.gocomics.com/wumoespanol",
+    "slug": "wumoespanol",
+    "position": 397,
+    "is_updated": false
+  },
+  {
+    "name": "Ziggy en Espa\u00f1ol",
+    "author": "Tom Wilson & Tom II",
+    "url": "https://www.gocomics.com/ziggyespanol",
+    "slug": "ziggyespanol",
+    "position": 404,
+    "is_updated": true
+  }
+]
