@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Marvin - Comics Kingdom</title><link>https://comicskingdom.com/marvin</link><description>Daily Marvin comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/marvin.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 16 Nov 2025 09:16:15 +0000</lastBuildDate><ttl>1440</ttl><item><title>Marvin - 2025-11-15</title><link>https://comicskingdom.com/marvin/2025-11-15</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Marvin - Comics Kingdom</title><link>https://comicskingdom.com/marvin</link><description>Daily Marvin comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/marvin.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 16 Nov 2025 14:09:50 +0000</lastBuildDate><ttl>1440</ttl><item><title>Marvin - 2025-11-16</title><link>https://comicskingdom.com/marvin/2025-11-16</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,15 +16,10 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2025-11-15&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2025-11-16&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/11/Y2tNYXJ2aW4tRU5HLTU2MzEyODc.jpg" alt="Marvin - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/11/Y2tNYXJ2aW4tRU5HLTU2MzEyODM.jpg" alt="Marvin - Panel 2" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/11/Y2tNYXJ2aW4tRU5HLTU2MzEyOTE.jpg" alt="Marvin - Panel 3" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/11/Y2tNYXJ2aW4tRU5HLTU1ODQxNzc.jpg" alt="Marvin" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Marvin&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/marvin/2025-11-15</guid><pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/marvin/2025-11-16</guid><pubDate>Sun, 16 Nov 2025 00:00:00 +0000</pubDate></item></channel></rss>
