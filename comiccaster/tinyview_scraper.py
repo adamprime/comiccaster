@@ -292,8 +292,30 @@ class TinyviewScraper(BaseScraper):
                         lambda driver: len(driver.find_elements(By.CSS_SELECTOR, 
                             f'img[src*="cdn.tinyview.com/{comic_slug}/{date}"]')) > 0
                     )
-                    # Additional wait to ensure all panels are loaded
-                    time.sleep(1)
+                    
+                    # Wait for all lazy-loaded panels to appear
+                    # Some comics load panels progressively, so we need to wait until no new images appear
+                    previous_count = 0
+                    stable_count = 0
+                    max_wait_iterations = 10  # Max 10 seconds additional wait
+                    
+                    for _ in range(max_wait_iterations):
+                        current_count = len(self.driver.find_elements(By.CSS_SELECTOR, 
+                            f'img[src*="cdn.tinyview.com/{comic_slug}/{date}"]'))
+                        
+                        if current_count == previous_count:
+                            stable_count += 1
+                            # If count is stable for 2 iterations, we're done
+                            if stable_count >= 2:
+                                logger.debug(f"Image count stable at {current_count} for {strip_url}")
+                                break
+                        else:
+                            stable_count = 0  # Reset if count changed
+                            logger.debug(f"Found {current_count} images (was {previous_count}) for {strip_url}")
+                        
+                        previous_count = current_count
+                        time.sleep(1)
+                    
                 except:
                     # If wait fails, continue anyway - some comics might not have dynamic loading
                     logger.debug(f"Dynamic content wait timed out for {strip_url}")

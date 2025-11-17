@@ -132,6 +132,10 @@ def generate_feed_for_comic(comic_info: Dict, scraped_data: Dict[str, List[Dict]
         print(f"  ⚠️  No valid entries for {slug}")
         return False
     
+    # Sort entries by date (oldest first) because feedgen reverses the order
+    # This results in newest first in the RSS output
+    entries.sort(key=lambda x: x['pub_date'], reverse=False)
+    
     # Generate/update feed with ALL entries (multiple days)
     try:
         success = generator.generate_feed(comic_info, entries)
