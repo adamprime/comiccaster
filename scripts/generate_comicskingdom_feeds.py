@@ -117,6 +117,10 @@ def generate_feed_for_comic(comic_info: Dict, scraped_data: Dict[str, List[Dict]
             # Skip entries with no images
             continue
         
+        # Skip if images list is empty (weekly comics on non-update days)
+        if not images:
+            continue
+        
         # Create feed entry from scraped data
         entry = {
             'title': f"{comic_info['name']} - {scraped_comic['date']}",

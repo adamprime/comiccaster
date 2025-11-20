@@ -106,6 +106,10 @@ def generate_feed_for_comic(comic_slug, comic_entries, comic_metadata):
         # Convert entries to feed format
         feed_entries = []
         for entry in comic_entries:
+            # Skip entries with no images (weekly comics on non-update days)
+            if not entry.get('images') or len(entry['images']) == 0:
+                continue
+            
             feed_entry = {
                 'title': entry.get('name', f"{comic_info['name']} - {entry['date']}"),
                 'url': entry['url'],
