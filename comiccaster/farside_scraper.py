@@ -238,62 +238,151 @@ class FarsideScraper(BaseScraper):
         }
     
     def scrape_new_stuff(self) -> Optional[Dict[str, Any]]:
-        """Scrape new releases from the 'New Stuff' section.
+        """Scrape new releases from the 'New Stuff' section by navigating through arrows.
+        
+        The New Stuff page shows one comic at a time with navigation arrows.
+        We need to click through to discover all available comics.
         
         Returns:
             Dictionary with new comics or None
         """
-        html_content = self.fetch_comic_page('farside-new', '')
-        if not html_content:
+        try:
+            from selenium import webdriver
+            from selenium.webdriver.chrome.options import Options
+            from selenium.webdriver.common.by import By
+            from selenium.webdriver.support.ui import WebDriverWait
+            from selenium.webdriver.support import expected_conditions as EC
+            from selenium.common.exceptions import TimeoutException, NoSuchElementException
+            
+            # Set up headless Chrome
+            chrome_options = Options()
+            chrome_options.add_argument('--headless=new')
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            chrome_options.add_argument('--disable-gpu')
+            
+            driver = webdriver.Chrome(options=chrome_options)
+            
+            try:
+                # Start at the New Stuff page
+                driver.get(f"{self.base_url}/new-stuff")
+                
+                # Wait for page to load and possible redirect
+                import time
+                time.sleep(2)
+                
+                # Check if we were redirected to a specific comic
+                initial_url = driver.current_url
+                logger.info(f"Initial URL after loading /new-stuff: {initial_url}")
+                
+                # If still on /new-stuff (no redirect), try to find a "view" or "enter" button
+                if initial_url.endswith('/new-stuff'):
+                    logger.info("Page didn't redirect, looking for entry link...")
+                    try:
+                        # Look for a link or button to enter the New Stuff section
+                        entry_link = driver.find_element(By.CSS_SELECTOR, "a[href*='/new-stuff/']")
+                        entry_link.click()
+                        time.sleep(2)
+                        logger.info(f"Clicked entry link, now at: {driver.current_url}")
+                    except NoSuchElementException:
+                        logger.warning("Could not find entry link to New Stuff comics")
+                
+                comics = []
+                seen_ids = set()
+                max_clicks = 50  # Safety limit to prevent infinite loops
+                clicks = 0
+                
+                while clicks < max_clicks:
+                    # Get current URL to extract comic ID
+                    current_url = driver.current_url
+                    match = re.search(r'/new-stuff/(\d+)/([^/]+)', current_url)
+                    
+                    if match:
+                        comic_id = match.group(1)
+                        comic_slug = match.group(2)
+                        
+                        # Only add if we haven't seen this ID
+                        if comic_id not in seen_ids:
+                            seen_ids.add(comic_id)
+                            comics.append({
+                                'id': comic_id,
+                                'url': current_url,
+                                'slug': comic_slug
+                            })
+                            logger.info(f"Found New Stuff comic {comic_id}: {comic_slug}")
+                    
+                    # Try to find and click the "next" arrow button
+                    # The Far Side uses .js-next class for the next arrow
+                    try:
+                        # Try The Far Side specific selector first, then fallbacks
+                        next_button = None
+                        selectors = [
+                            ".js-next",  # The Far Side specific
+                            "[data-carousel-action*='next']",
+                            "button[aria-label*='next']",
+                            "button[aria-label*='Next']",
+                            "a[aria-label*='next']",
+                            "a[aria-label*='Next']",
+                            ".next-arrow",
+                            ".arrow-next",
+                            "button.next"
+                        ]
+                        
+                        for selector in selectors:
+                            try:
+                                next_button = driver.find_element(By.CSS_SELECTOR, selector)
+                                if next_button and next_button.is_displayed():
+                                    logger.info(f"Found next button with selector: {selector}")
+                                    break
+                            except NoSuchElementException:
+                                continue
+                        
+                        if not next_button:
+                            logger.info("No more next buttons found, reached end of New Stuff")
+                            break
+                        
+                        # Click the next button
+                        next_button.click()
+                        
+                        # Wait a bit for navigation
+                        import time
+                        time.sleep(1)
+                        
+                        # Check if URL changed
+                        new_url = driver.current_url
+                        if new_url == current_url:
+                            logger.info("URL didn't change, likely at the end")
+                            break
+                        
+                    except (NoSuchElementException, TimeoutException) as e:
+                        logger.info(f"Reached end of New Stuff comics: {e}")
+                        break
+                    
+                    clicks += 1
+                
+                logger.info(f"Found {len(comics)} unique New Stuff comics after {clicks} clicks")
+                
+                return {
+                    'slug': 'farside-new',
+                    'source': 'farside-new',
+                    'url': f"{self.base_url}/new-stuff",
+                    'comics': comics,
+                    'published_date': datetime.now(),
+                    'title': "The Far Side - New Stuff",
+                    'image_count': len(comics)
+                }
+                
+            finally:
+                driver.quit()
+                
+        except ImportError:
+            logger.error("Selenium is required for New Stuff scraping. Install with: pip install selenium")
             return None
-        
-        soup = BeautifulSoup(html_content, 'html.parser')
-        
-        # Find all comic links in the New Stuff archive
-        # The page shows a grid of all new comics
-        comic_links = []
-        
-        # Look for links that match the pattern /new-stuff/{id}/{slug}
-        all_links = soup.find_all('a', href=True)
-        for link in all_links:
-            href = link['href']
-            if '/new-stuff/' in href and href.count('/') >= 4:
-                # Extract the comic ID
-                match = re.search(r'/new-stuff/(\d+)/', href)
-                if match:
-                    comic_id = match.group(1)
-                    full_url = urljoin(self.base_url, href)
-                    comic_links.append({
-                        'id': comic_id,
-                        'url': full_url,
-                        'slug': href.split('/')[-1] if href.split('/')[-1] else 'untitled'
-                    })
-        
-        if not comic_links:
-            logger.warning("No New Stuff comics found")
+        except Exception as e:
+            logger.error(f"Error scraping New Stuff with Selenium: {e}")
+            import traceback
+            traceback.print_exc()
             return None
-        
-        # Remove duplicates (same ID)
-        seen_ids = set()
-        unique_comics = []
-        for comic in comic_links:
-            if comic['id'] not in seen_ids:
-                seen_ids.add(comic['id'])
-                unique_comics.append(comic)
-        
-        logger.info(f"Found {len(unique_comics)} unique New Stuff comics")
-        
-        # For now, return the list of available comics
-        # A separate process will determine which are "new"
-        return {
-            'slug': 'farside-new',
-            'source': 'farside-new',
-            'url': f"{self.base_url}/new-stuff",
-            'comics': unique_comics,
-            'published_date': datetime.now(),
-            'title': "The Far Side - New Stuff",
-            'image_count': len(unique_comics)
-        }
     
     def scrape_new_stuff_detail(self, comic_url: str) -> Optional[Dict[str, Any]]:
         """Scrape a single New Stuff comic detail page.

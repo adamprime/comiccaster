@@ -161,30 +161,41 @@ def update_new_stuff():
     all_comics = result['comics']
     logger.info(f"Found {len(all_comics)} total New Stuff comics")
     
-    # Find new comics (ID > last_known_id)
-    new_comics = [c for c in all_comics if int(c['id']) > last_known_id]
+    # Check if this is the initial population (last_known_id == 0 or feed doesn't exist)
+    feed_path = Path('public/feeds/farside-new.xml')
+    is_initial_population = (last_known_id == 0) or (not feed_path.exists())
     
-    if new_comics:
-        logger.info(f"🎉 Found {len(new_comics)} NEW comics!")
+    if is_initial_population:
+        # Initial population: Add the most recent 10 comics to seed the feed
+        logger.info("📝 Initial population: Adding recent New Stuff comics to feed")
+        comics_to_detail = sorted(all_comics, key=lambda c: int(c['id']), reverse=True)[:10]
+        logger.info(f"Will add {len(comics_to_detail)} recent comics to populate feed")
+    else:
+        # Normal operation: Only add NEW comics (ID > last_known_id)
+        new_comics = [c for c in all_comics if int(c['id']) > last_known_id]
         
-        # Scrape details for each new comic
-        detailed_comics = []
-        for comic in new_comics:
-            logger.info(f"Fetching details for comic {comic['id']}...")
-            detail = scraper.scrape_new_stuff_detail(comic['url'])
-            if detail:
-                detailed_comics.append(detail)
-        
-        # Update last known ID
+        if new_comics:
+            logger.info(f"🎉 Found {len(new_comics)} NEW comics!")
+            comics_to_detail = new_comics
+        else:
+            logger.info("No new comics found since last check")
+            comics_to_detail = []
+    
+    # Scrape details for selected comics
+    detailed_comics = []
+    for comic in comics_to_detail:
+        logger.info(f"Fetching details for comic {comic['id']}...")
+        detail = scraper.scrape_new_stuff_detail(comic['url'])
+        if detail:
+            detailed_comics.append(detail)
+    
+    # Update last known ID
+    if all_comics:
         max_id = max(int(c['id']) for c in all_comics)
         last_id_file.parent.mkdir(parents=True, exist_ok=True)
         with open(last_id_file, 'w') as f:
             f.write(str(max_id))
         logger.info(f"Updated last known ID to: {max_id}")
-        
-    else:
-        logger.info("No new comics found")
-        detailed_comics = []
     
     # Create comic_info dict
     comic_info = {
@@ -196,19 +207,27 @@ def update_new_stuff():
     }
     
     # Generate feed entries
+    # Use different dates for each comic to avoid duplicates (feed generator dedupes by date)
+    from datetime import timedelta
+    base_time = datetime.now()
+    
     entries = []
-    for comic in detailed_comics:
+    for i, comic in enumerate(detailed_comics):
         # Build description with image and caption
         description = f'<img src="{comic["image_url"]}" alt="{comic["title"]}" style="max-width: 100%; height: auto;"/>'
         if comic['caption']:
             description += f'<p style="margin-top: 10px;">{comic["caption"]}</p>'
         description += '<p style="margin-top: 15px; font-size: 0.9em;"><a href="https://www.thefarside.com/new-stuff">See all new work</a> | © Gary Larson</p>'
         
+        # Give each comic a unique DATE (1 day apart) to avoid duplicates
+        # Feed generator deduplicates by date, not datetime
+        pub_time = base_time - timedelta(days=i)
+        
         entries.append({
             'title': f"The Far Side - New Stuff: {comic['title']}",
             'url': comic['url'],
             'description': description,  # Already contains full HTML with image and caption
-            'pub_date': datetime.now().strftime('%a, %d %b %Y %H:%M:%S %z')
+            'pub_date': pub_time.strftime('%a, %d %b %Y %H:%M:%S %z')
             # Note: Don't include 'image_url' - it would cause description to be rebuilt
         })
     
