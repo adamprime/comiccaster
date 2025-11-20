@@ -103,7 +103,7 @@ class TestScraperFactory:
         
         sources = ScraperFactory.get_supported_sources()
         
-        expected_sources = ['gocomics-daily', 'gocomics-political', 'tinyview', 'gocomics']  # 'gocomics' for backward compatibility
+        expected_sources = ['gocomics-daily', 'gocomics-political', 'tinyview', 'gocomics', 'farside-daily', 'farside-new']
         assert set(sources) == set(expected_sources)
     
     def test_factory_supports_source_checking(self):
@@ -115,6 +115,8 @@ class TestScraperFactory:
         assert ScraperFactory.is_supported('gocomics-political')
         assert ScraperFactory.is_supported('tinyview')
         assert ScraperFactory.is_supported('gocomics')  # Backward compatibility
+        assert ScraperFactory.is_supported('farside-daily')
+        assert ScraperFactory.is_supported('farside-new')
         
         # Invalid sources
         assert not ScraperFactory.is_supported('invalid-source')
