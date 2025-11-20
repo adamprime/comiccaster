@@ -31,7 +31,8 @@ exports.handler = async (event, context) => {
     // Security: Only allow Far Side image URLs
     const allowedDomains = [
       'thefarside.com',
-      'siteassets.thefarside.com'
+      'siteassets.thefarside.com',
+      'featureassets.amuniversal.com'  // Far Side images are hosted here
     ];
     
     const isAllowed = allowedDomains.some(domain => imageUrl.includes(domain));
