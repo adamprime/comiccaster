@@ -403,13 +403,24 @@ class FarsideScraper(BaseScraper):
             comic_id = match.group(1) if match else 'unknown'
             
             # Find the main comic image
-            img_tag = soup.find('img', class_='img-fluid') or soup.find('img')
-            if not img_tag:
-                logger.warning(f"No image found for {comic_url}")
-                return None
+            # Look for img tags with data-src containing actual image URLs (not data: URIs)
+            img_tags = soup.find_all('img')
+            image_url = None
             
-            image_url = img_tag.get('src') or img_tag.get('data-src')
+            for img_tag in img_tags:
+                data_src = img_tag.get('data-src', '')
+                # Skip placeholder data URIs and find actual image URLs
+                if data_src and 'featureassets.amuniversal.com' in data_src:
+                    image_url = data_src
+                    break
+                # Fallback to src if it's a real URL
+                src = img_tag.get('src', '')
+                if src and not src.startswith('data:') and 'featureassets.amuniversal.com' in src:
+                    image_url = src
+                    break
+            
             if not image_url:
+                logger.warning(f"No valid image URL found for {comic_url}")
                 return None
             
             # Make absolute URL
