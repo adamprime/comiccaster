@@ -398,29 +398,50 @@ class FarsideScraper(BaseScraper):
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
             
-            # Extract comic ID from URL
-            match = re.search(r'/new-stuff/(\d+)/', comic_url)
-            comic_id = match.group(1) if match else 'unknown'
+            # Extract comic ID and path from URL
+            match = re.search(r'/new-stuff/(\d+)/([^/]+)', comic_url)
+            if match:
+                comic_id = match.group(1)
+                comic_slug = match.group(2)
+                comic_path = f"/new-stuff/{comic_id}/{comic_slug}"
+            else:
+                logger.warning(f"Could not parse comic ID from URL: {comic_url}")
+                return None
             
-            # Find the main comic image
-            # Look for img tags with data-src containing actual image URLs (not data: URIs)
-            img_tags = soup.find_all('img')
-            image_url = None
+            # The New Stuff page uses a carousel showing multiple comics
+            # We need to find the slide with matching data-path attribute
+            slides = soup.find_all('div', class_='swiper-slide')
             
-            for img_tag in img_tags:
-                data_src = img_tag.get('data-src', '')
-                # Skip placeholder data URIs and find actual image URLs
-                if data_src and 'featureassets.amuniversal.com' in data_src:
-                    image_url = data_src
+            target_slide = None
+            for slide in slides:
+                data_path = slide.get('data-path', '')
+                if data_path == comic_path:
+                    target_slide = slide
+                    logger.info(f"Found matching slide for {comic_path}")
                     break
-                # Fallback to src if it's a real URL
-                src = img_tag.get('src', '')
-                if src and not src.startswith('data:') and 'featureassets.amuniversal.com' in src:
-                    image_url = src
-                    break
+            
+            if not target_slide:
+                logger.warning(f"Could not find slide for {comic_path}")
+                return None
+            
+            # Find the image within this specific slide
+            img_tag = target_slide.find('img', class_='js-slider-image')
+            if not img_tag:
+                logger.warning(f"No image found in slide for {comic_path}")
+                return None
+            
+            # Get image URL from data-src attribute
+            image_url = img_tag.get('data-src', '')
+            if not image_url or not image_url.startswith('http'):
+                # Fallback to src if data-src is empty
+                image_url = img_tag.get('src', '')
+                # Skip data: URIs
+                if image_url.startswith('data:'):
+                    logger.warning(f"Only found placeholder image for {comic_path}")
+                    return None
             
             if not image_url:
-                logger.warning(f"No valid image URL found for {comic_url}")
+                logger.warning(f"No valid image URL found for {comic_path}")
                 return None
             
             # Make absolute URL
@@ -429,18 +450,11 @@ class FarsideScraper(BaseScraper):
             elif image_url.startswith('/'):
                 image_url = urljoin(self.base_url, image_url)
             
-            # Get title and caption
-            title_elem = soup.find('h1') or soup.find('h2')
-            title = title_elem.get_text(strip=True) if title_elem else f"Comic {comic_id}"
-            
+            # Get caption from alt text
             caption = img_tag.get('alt', '')
             
-            # Look for additional text/description
-            caption_elem = soup.find('div', class_='card-text') or soup.find('p')
-            if caption_elem:
-                caption_text = caption_elem.get_text(strip=True)
-                if caption_text and len(caption_text) > len(caption):
-                    caption = caption_text
+            # Get title - use the comic slug, cleaned up
+            title = comic_slug.replace('-', ' ').title()
             
             proxied_image_url = self.transform_image_url(image_url)
             
@@ -455,6 +469,8 @@ class FarsideScraper(BaseScraper):
             
         except Exception as e:
             logger.error(f"Error scraping New Stuff detail page {comic_url}: {e}")
+            import traceback
+            traceback.print_exc()
             return None
     
     def _extract_daily_images(self, html_content: str) -> List[Dict[str, str]]:
@@ -498,9 +514,8 @@ class FarsideScraper(BaseScraper):
         # URL encode the original URL
         encoded_url = quote(original_url, safe='')
         
-        # Return proxy URL
-        # Note: This will be relative to the feed domain
-        return f"/.netlify/functions/proxy-farside-image?url={encoded_url}"
+        # Return absolute proxy URL (required for RSS readers)
+        return f"https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url={encoded_url}"
     
     def _create_title_from_caption(self, caption: str, comic_id: str) -> str:
         """Create a short title from caption text.
