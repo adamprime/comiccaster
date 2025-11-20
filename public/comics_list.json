@@ -4179,5 +4179,23 @@
     "source": "comicskingdom",
     "position": 521,
     "is_updated": false
+  },
+  {
+    "name": "The Far Side - Daily Dose",
+    "author": "Gary Larson",
+    "url": "https://www.thefarside.com/",
+    "slug": "farside-daily",
+    "source": "farside-daily",
+    "position": 522,
+    "is_updated": true
+  },
+  {
+    "name": "The Far Side - New Stuff",
+    "author": "Gary Larson",
+    "url": "https://www.thefarside.com/new-stuff",
+    "slug": "farside-new",
+    "source": "farside-new",
+    "position": 523,
+    "is_updated": true
   }
 ]

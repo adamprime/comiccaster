@@ -84,6 +84,10 @@ jobs:
             echo "ℹ️  No TinyView data found, skipping TinyView feeds"
             echo "   (Run local_tinyview_update.sh on your Mac to scrape and push data)"
           fi
+          
+          # Generate The Far Side feeds (scrapes directly)
+          echo "Generating The Far Side feeds..."
+          python scripts/update_farside_feeds.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
