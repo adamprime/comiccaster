@@ -90,12 +90,16 @@ def update_daily_dose():
         # Add minutes to ensure each entry has a unique timestamp
         pub_time = base_time.replace(hour=8, minute=i, second=0, microsecond=0)
         
+        # Create consistent, date-based title (ISO format)
+        date_formatted = pub_time.strftime('%Y-%m-%d')
+        title = f"The Far Side - {date_formatted} #{i+1}"
+        
         entries.append({
-            'title': comic['title'],
+            'title': title,
             'url': comic['url'],
-            'description': description,
-            'pub_date': pub_time.strftime('%a, %d %b %Y %H:%M:%S %z'),
-            'image_url': comic['image_url']
+            'description': description,  # Already contains full HTML with image and caption
+            'pub_date': pub_time.strftime('%a, %d %b %Y %H:%M:%S %z')
+            # Note: Don't include 'image_url' - it would cause description to be rebuilt
         })
     
     # Generate and save feed
@@ -203,9 +207,9 @@ def update_new_stuff():
         entries.append({
             'title': f"The Far Side - New Stuff: {comic['title']}",
             'url': comic['url'],
-            'description': description,
-            'pub_date': datetime.now().strftime('%a, %d %b %Y %H:%M:%S %z'),
-            'image_url': comic['image_url']
+            'description': description,  # Already contains full HTML with image and caption
+            'pub_date': datetime.now().strftime('%a, %d %b %Y %H:%M:%S %z')
+            # Note: Don't include 'image_url' - it would cause description to be rebuilt
         })
     
     # Generate and save feed
