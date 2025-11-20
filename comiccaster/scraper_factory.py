@@ -13,6 +13,7 @@ import threading
 from .base_scraper import BaseScraper
 from .gocomics_scraper import GoComicsScraper
 from .tinyview_scraper import TinyviewScraper
+from .farside_scraper import FarsideScraper
 
 logger = logging.getLogger(__name__)
 
@@ -33,7 +34,9 @@ class ScraperFactory:
         'gocomics-daily': {'class': GoComicsScraper, 'args': {'source_type': 'gocomics-daily'}},
         'gocomics-political': {'class': GoComicsScraper, 'args': {'source_type': 'gocomics-political'}},
         'tinyview': {'class': TinyviewScraper, 'args': {}},
-        'gocomics': {'class': GoComicsScraper, 'args': {'source_type': 'gocomics-daily'}}  # Backward compatibility
+        'gocomics': {'class': GoComicsScraper, 'args': {'source_type': 'gocomics-daily'}},  # Backward compatibility
+        'farside-daily': {'class': FarsideScraper, 'args': {'source_type': 'farside-daily'}},
+        'farside-new': {'class': FarsideScraper, 'args': {'source_type': 'farside-new'}}
     }
     
     @classmethod

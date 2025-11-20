@@ -1,0 +1,22 @@
+[
+  {
+    "name": "The Far Side - Daily Dose",
+    "slug": "farside-daily",
+    "author": "Gary Larson",
+    "url": "https://www.thefarside.com/",
+    "source": "farside-daily",
+    "description": "Five rotating classic Far Side comics, updated daily at midnight Pacific time. Each day features a new selection from Gary Larson's iconic single-panel cartoons.",
+    "position": 1,
+    "is_updated": true
+  },
+  {
+    "name": "The Far Side - New Stuff",
+    "slug": "farside-new",
+    "author": "Gary Larson",
+    "url": "https://www.thefarside.com/new-stuff",
+    "source": "farside-new",
+    "description": "New digital artwork by Gary Larson, created since his return to cartooning. Updates are sporadic - new comics appear when Gary creates them (typically weeks or months between releases).",
+    "position": 2,
+    "is_updated": false
+  }
+]
