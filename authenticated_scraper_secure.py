@@ -11,6 +11,7 @@ import re
 import argparse
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlparse
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -111,12 +112,14 @@ def login(driver, email, password):
         
         time.sleep(5)
         
-        # Verify login success
-        if 'gocomics.com' in driver.current_url:
+        # Verify login success - properly validate the domain
+        parsed_url = urlparse(driver.current_url)
+        # Check that hostname is gocomics.com or a subdomain of gocomics.com
+        if parsed_url.netloc == 'gocomics.com' or parsed_url.netloc.endswith('.gocomics.com'):
             print("✅ Login successful")
             return True
         else:
-            print("❌ Login may have failed")
+            print(f"❌ Login may have failed - unexpected URL: {driver.current_url}")
             return False
             
     except Exception as e:
@@ -144,6 +147,14 @@ def extract_comics_from_page(driver, page_url, date_str):
     
     for img in all_imgs:
         src = img.get('src', '')
+        if not src:
+            continue
+        
+        # Parse URL to safely check domain
+        try:
+            parsed_src = urlparse(src)
+        except Exception:
+            continue
         
         # Extract comic names from badge images
         if 'Badge' in src and 'Global_Feature_Badge' in src:
@@ -152,8 +163,9 @@ def extract_comics_from_page(driver, page_url, date_str):
                 name_part = match.group(1).replace('_', ' ')
                 badges.append({'name': name_part})
         
-        # Extract comic strip images
-        elif 'featureassets.gocomics.com' in src and 'Badge' not in src:
+        # Extract comic strip images - properly validate domain
+        elif (parsed_src.netloc == 'featureassets.gocomics.com' or 
+              parsed_src.netloc.endswith('.gocomics.com')) and 'Badge' not in src:
             strips.append({'image_url': src})
     
     # Match badges to strips

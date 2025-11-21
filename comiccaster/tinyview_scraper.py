@@ -243,7 +243,7 @@ class TinyviewScraper(BaseScraper):
         
         return []
 
-    def fetch_comic_page(self, comic_slug: str, date: str) -> Optional[str]:
+    def fetch_comic_page(self, comic_slug: str, date: str) -> Optional[tuple]:
         """
         Fetch a specific comic page using Selenium with retry logic and error handling.
         
@@ -252,7 +252,7 @@ class TinyviewScraper(BaseScraper):
             date (str): The date in YYYY/MM/DD format.
             
         Returns:
-            Optional[str]: The page HTML content, or None if fetching fails.
+            Optional[tuple]: A tuple of (html_content, comic_url), or None if fetching fails.
         """
         # For backward compatibility, we'll use the new method to find the comic
         # and then fetch the specific one that matches the date
@@ -320,8 +320,8 @@ class TinyviewScraper(BaseScraper):
                     # If wait fails, continue anyway - some comics might not have dynamic loading
                     logger.debug(f"Dynamic content wait timed out for {strip_url}")
                 
-                # Return the page content
-                return self.driver.page_source
+                # Return the page content and the actual URL with title slug
+                return (self.driver.page_source, strip_url)
                 
             except TimeoutException as e:
                 logger.warning(f"Timeout on attempt {attempt + 1}/{self.max_retries} for {strip_url}: {e}")
@@ -547,10 +547,13 @@ class TinyviewScraper(BaseScraper):
                 return None
             
             # Fetch the comic page
-            html_content = self.fetch_comic_page(comic_slug, date)
-            if not html_content:
+            fetch_result = self.fetch_comic_page(comic_slug, date)
+            if not fetch_result:
                 logger.warning(f"No HTML content retrieved for {comic_slug} on {date}")
                 return None
+            
+            # Unpack the HTML content and the actual comic URL
+            html_content, strip_url = fetch_result
             
             # Extract images
             images = self.extract_images(html_content, comic_slug, date)
@@ -560,10 +563,6 @@ class TinyviewScraper(BaseScraper):
             
             # Extract metadata
             metadata = self.extract_metadata(html_content, comic_slug, date)
-            
-            # Get the actual strip URL from the fetch process
-            # Since we may have multiple strips, use the comic's main page as the URL
-            strip_url = f"{self.base_url}/{comic_slug}/{date}"
             
             # Build the result with all required fields
             result = {

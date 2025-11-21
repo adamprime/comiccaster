@@ -69,7 +69,9 @@ class TestTinyviewScraperStory21:
         
         scraper = TinyviewScraper()
         
-        with patch.object(scraper, 'fetch_comic_page', return_value=mock_html):
+        # Mock return value should be (html, url) tuple
+        mock_url = 'https://tinyview.com/nick-anderson/2025/01/17/federal-overreach'
+        with patch.object(scraper, 'fetch_comic_page', return_value=(mock_html, mock_url)):
             result = scraper.scrape_comic('nick-anderson', '2025/01/17')
             
             # Verify result structure
@@ -273,7 +275,9 @@ class TestTinyviewScraperStory21:
         </html>
         '''
         
-        with patch.object(scraper, 'fetch_comic_page', return_value=mock_html):
+        # Mock return value should be (html, url) tuple
+        mock_url = 'https://tinyview.com/test-comic/2025/01/17/strip-title'
+        with patch.object(scraper, 'fetch_comic_page', return_value=(mock_html, mock_url)):
             result = scraper.scrape_comic('test-comic', '2025/01/17')
             
             # Verify standardized output structure
@@ -322,7 +326,9 @@ class TestTinyviewScraperStory22:
         
         scraper = TinyviewScraper()
         
-        with patch.object(scraper, 'fetch_comic_page', return_value=mock_html):
+        # Mock return value should be (html, url) tuple
+        mock_url = 'https://tinyview.com/adhdinos/2025/01/15/multi-panel'
+        with patch.object(scraper, 'fetch_comic_page', return_value=(mock_html, mock_url)):
             result = scraper.scrape_comic('adhdinos', '2025/01/15')
             
             # Verify multi-image result
@@ -512,7 +518,9 @@ class TestTinyviewScraperStory23:
         </html>
         '''
         
-        with patch.object(scraper, 'fetch_comic_page', return_value=empty_html):
+        # Mock return value should be (html, url) tuple
+        mock_url = 'https://tinyview.com/test-comic/2025/01/17/empty'
+        with patch.object(scraper, 'fetch_comic_page', return_value=(empty_html, mock_url)):
             result = scraper.scrape_comic('test-comic', '2025/01/17')
             
             # Should return None when no CDN images found
@@ -654,7 +662,9 @@ class TestTinyviewScraperStory23:
         
         test_html = '<html><img src="https://cdn.tinyview.com/test.jpg"></html>'
         
-        with patch.object(scraper, 'fetch_comic_page', return_value=test_html):
+        # Mock return value should be (html, url) tuple
+        mock_url = 'https://tinyview.com/test-comic/2025/01/17/test'
+        with patch.object(scraper, 'fetch_comic_page', return_value=(test_html, mock_url)):
             # Test various invalid date formats
             invalid_dates = ['invalid', '2025-13-45', '2025/13/45', '', None]
             
@@ -679,7 +689,9 @@ class TestTinyviewScraperStory23:
         with patch('comiccaster.tinyview_scraper.logger') as mock_logger:
             mock_html = '<html><img src="https://cdn.tinyview.com/test-comic/2025/01/17/strip/test.jpg"></html>'
             
-            with patch.object(scraper, 'fetch_comic_page', return_value=mock_html):
+            # Mock return value should be (html, url) tuple
+            mock_url = 'https://tinyview.com/test-comic/2025/01/17/strip'
+            with patch.object(scraper, 'fetch_comic_page', return_value=(mock_html, mock_url)):
                 result = scraper.scrape_comic('test-comic', '2025/01/17')
                 
                 # Should log image findings

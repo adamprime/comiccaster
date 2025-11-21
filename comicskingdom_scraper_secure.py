@@ -12,6 +12,7 @@ import argparse
 import pickle
 from datetime import datetime, timedelta
 from pathlib import Path
+from urllib.parse import urlparse
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -257,8 +258,19 @@ def extract_comics_from_favorites(driver, date_str):
         src = img.get('src', '')
         alt = img.get('alt', '')
         
-        # Filter for actual comic strip images
-        if 'wp.comicskingdom.com' in src and 'placeholder' not in src:
+        if not src:
+            continue
+        
+        # Parse URL to safely check domain
+        try:
+            parsed_src = urlparse(src)
+        except Exception:
+            continue
+        
+        # Filter for actual comic strip images - properly validate domain
+        if ((parsed_src.netloc == 'wp.comicskingdom.com' or 
+             parsed_src.netloc.endswith('.comicskingdom.com')) and 
+            'placeholder' not in src):
             # Try to extract comic info from nearby links or alt text
             parent = img.parent
             
