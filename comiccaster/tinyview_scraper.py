@@ -507,13 +507,18 @@ class TinyviewScraper(BaseScraper):
         if og_description:
             metadata['description'] = og_description.get('content', '')
         
-        # Look for the Tinyview comic description in the comments div
-        comments_div = soup.find('div', class_='comments')
-        if comments_div and comments_div.get_text(strip=True):
-            description_text = comments_div.get_text(strip=True)
-            # Override with this more specific description if found
-            metadata['description'] = description_text
-            logger.info(f"Found comic description: {description_text[:100]}...")
+        # Look for the Tinyview comic description in the comments paragraph
+        # It's typically <p class="comments mt-3">
+        # There might be multiple <p class="comments"> - skip the CTA box
+        comments_paragraphs = soup.find_all('p', class_='comments')
+        for comments_p in comments_paragraphs:
+            description_text = comments_p.get_text(strip=True)
+            # Skip if it's the CTA text about email alerts
+            if description_text and 'Beat the algorithm' not in description_text:
+                # Override with this more specific description if found
+                metadata['description'] = description_text
+                logger.info(f"Found comic description: {description_text[:100]}...")
+                break  # Use the first non-CTA description we find
         
         # Parse date
         try:
