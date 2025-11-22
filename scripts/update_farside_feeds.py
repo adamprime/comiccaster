@@ -13,6 +13,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
+import pytz
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -52,8 +53,10 @@ def update_daily_dose():
     scraper = ScraperFactory.get_scraper('farside-daily')
     feed_gen = ComicFeedGenerator(output_dir='public/feeds')
     
-    # Get today's date
-    date_str = datetime.now().strftime('%Y/%m/%d')
+    # Get today's date in US/Eastern timezone (comics publish on Eastern time)
+    eastern = pytz.timezone('US/Eastern')
+    now_eastern = datetime.now(eastern)
+    date_str = now_eastern.strftime('%Y/%m/%d')
     
     # Scrape today's Daily Dose
     logger.info(f"Scraping Daily Dose for {date_str}...")
@@ -78,7 +81,8 @@ def update_daily_dose():
     # Generate feed entries
     # For Daily Dose, we create individual feed items for each of the 5 comics
     # Give each comic a slightly different time to avoid deduplication
-    base_time = datetime.now()
+    eastern = pytz.timezone('US/Eastern')
+    base_time = now_eastern  # Use the Eastern time we calculated earlier
     entries = []
     for i, comic in enumerate(comics):
         # Build description with image and caption
@@ -88,6 +92,7 @@ def update_daily_dose():
         description += '<p style="margin-top: 15px; font-size: 0.9em;"><a href="https://www.thefarside.com/">Visit The Far Side</a> | © Gary Larson</p>'
         
         # Add minutes to ensure each entry has a unique timestamp
+        # Publish at 8am Eastern Time to match other comics
         pub_time = base_time.replace(hour=8, minute=i, second=0, microsecond=0)
         
         # Create consistent, date-based title (ISO format)
@@ -209,7 +214,8 @@ def update_new_stuff():
     # Generate feed entries
     # Use different dates for each comic to avoid duplicates (feed generator dedupes by date)
     from datetime import timedelta
-    base_time = datetime.now()
+    eastern = pytz.timezone('US/Eastern')
+    base_time = datetime.now(eastern)  # Use Eastern timezone
     
     entries = []
     for i, comic in enumerate(detailed_comics):

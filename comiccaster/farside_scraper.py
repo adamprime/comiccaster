@@ -15,6 +15,7 @@ from typing import Dict, List, Optional, Any
 from urllib.parse import urljoin, quote
 import requests
 from bs4 import BeautifulSoup
+import pytz
 
 from .base_scraper import BaseScraper
 
@@ -152,13 +153,17 @@ class FarsideScraper(BaseScraper):
         logger.info(f"Scraped {len(comics)} comics from Daily Dose")
         
         # Return as a composite result
+        # Use US/Eastern timezone to match other comics (GoComics, etc.)
+        eastern = pytz.timezone('US/Eastern')
+        now_eastern = datetime.now(eastern)
+        
         return {
             'slug': 'farside-daily',
             'date': date.replace('/', '-'),
             'source': 'farside-daily',
             'url': self.base_url,
             'comics': comics,
-            'published_date': datetime.now(),
+            'published_date': now_eastern,
             'title': f"The Far Side - Daily Dose ({date.replace('/', '-')})",
             'image_count': len(comics)
         }
@@ -362,12 +367,16 @@ class FarsideScraper(BaseScraper):
                 
                 logger.info(f"Found {len(comics)} unique New Stuff comics after {clicks} clicks")
                 
+                # Use US/Eastern timezone to match other comics (GoComics, etc.)
+                eastern = pytz.timezone('US/Eastern')
+                now_eastern = datetime.now(eastern)
+                
                 return {
                     'slug': 'farside-new',
                     'source': 'farside-new',
                     'url': f"{self.base_url}/new-stuff",
                     'comics': comics,
-                    'published_date': datetime.now(),
+                    'published_date': now_eastern,
                     'title': "The Far Side - New Stuff",
                     'image_count': len(comics)
                 }
