@@ -61,6 +61,11 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
     STASH_NEEDED=true
 fi
 
+# Clean up git refs to prevent lock errors
+log "Cleaning up git references..."
+git fetch --all --prune 2>/dev/null || log_warning "Could not fetch (working offline?)"
+git gc --prune=now 2>/dev/null || log_warning "Could not run gc"
+
 # Pull latest changes FIRST (before scraping)
 log "Pulling latest changes from GitHub..."
 if git pull --rebase origin main; then

@@ -43,6 +43,12 @@ else
     exit 1
 fi
 
+# Clean up git refs to prevent lock errors
+echo ""
+echo "Cleaning up git references..."
+git fetch --all --prune 2>/dev/null || echo "⚠️  Warning: Could not fetch (working offline?)"
+git gc --prune=now 2>/dev/null || echo "⚠️  Warning: Could not run gc"
+
 # Pull latest changes first (in case of conflicts)
 echo ""
 echo "Pulling latest changes from GitHub..."
