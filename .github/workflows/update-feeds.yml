@@ -5,7 +5,7 @@ name: Update Comic Feeds
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Run at 9 AM UTC daily (4 AM EST / 5 AM EDT)
+    - cron: '30 9 * * *'  # Run at 9:30 AM UTC daily (3:30 AM CST / 4:30 AM EST)
   workflow_dispatch:  # Allow manual triggering
 
 permissions:
