@@ -11,7 +11,8 @@ import sys
 import os
 import json
 import logging
-from datetime import datetime
+import time
+from datetime import datetime, timedelta
 from pathlib import Path
 import pytz
 
@@ -108,23 +109,79 @@ def update_daily_dose():
         })
     
     # Generate and save feed
-    # We need to bypass the generate_feed method's date-based deduplication
-    # since we have 5 comics on the same day
+    # Load existing feed and append new entries
     try:
-        # Create feed
+        feed_path = Path('public/feeds') / f"{comic_info['slug']}.xml"
+        
+        # Create feed generator
         fg = feed_gen.create_feed(comic_info)
         
-        # Add each entry directly
+        # Load existing entries if feed exists
+        existing_entries = []
+        existing_dates = set()  # Track dates we already have
+        
+        if feed_path.exists():
+            try:
+                import feedparser
+                existing_feed = feedparser.parse(str(feed_path))
+                logger.info(f"Found existing feed with {len(existing_feed.entries)} entries")
+                
+                for entry in existing_feed.entries:
+                    try:
+                        # Get publication date
+                        if hasattr(entry, 'published_parsed'):
+                            pub_date = datetime.fromtimestamp(time.mktime(entry.published_parsed))
+                            if pub_date.tzinfo is None:
+                                pub_date = pytz.UTC.localize(pub_date)
+                        else:
+                            pub_date = datetime.now(pytz.UTC)
+                        
+                        # Store entry
+                        existing_entries.append({
+                            'entry': entry,
+                            'date': pub_date
+                        })
+                        # Track the date (just the date part, not time)
+                        existing_dates.add(pub_date.date())
+                    except Exception as e:
+                        logger.error(f"Error processing existing entry: {e}")
+                        continue
+                        
+            except Exception as e:
+                logger.error(f"Error loading existing feed: {e}")
+        
+        # Check if we already have comics for today
+        today_date = now_eastern.date()
+        if today_date in existing_dates:
+            logger.info(f"Today's comics ({today_date}) already exist in feed, skipping")
+            return True
+        
+        # Add today's new entries
+        logger.info(f"Adding {len(entries)} new entries for {today_date}")
         for entry_data in entries:
             fe = feed_gen.create_entry(comic_info, entry_data)
             fg.add_entry(fe)
         
+        # Add existing entries (limit to last 30 days = 150 comics max)
+        # Sort by date descending
+        existing_entries.sort(key=lambda x: x['date'], reverse=True)
+        
+        # Keep only entries from last 30 days
+        cutoff_date = datetime.now(pytz.UTC) - timedelta(days=30)
+        kept_count = 0
+        for entry_data in existing_entries:
+            if entry_data['date'] >= cutoff_date and kept_count < 145:  # 145 + 5 new = 150 max
+                fg.add_entry(entry_data['entry'])
+                kept_count += 1
+        
+        logger.info(f"Kept {kept_count} historical entries (last 30 days)")
+        
         # Save feed
-        feed_path = Path('public/feeds') / f"{comic_info['slug']}.xml"
         feed_path.parent.mkdir(parents=True, exist_ok=True)
         fg.rss_file(str(feed_path))
         
-        logger.info(f"✅ Successfully generated feed with {len(entries)} items: {feed_path}")
+        total_entries = len(entries) + kept_count
+        logger.info(f"✅ Successfully generated feed with {total_entries} total items: {feed_path}")
         return True
         
     except Exception as e:
