@@ -78,12 +78,17 @@ class FarsideScraper(BaseScraper):
         
         Args:
             comic_slug: The comic slug
-            date: Date string (not used for Far Side, but required by interface)
+            date: Date string in YYYY/MM/DD format - used to construct dated URL
             
         Returns:
             HTML content as string or None
         """
-        url = self.base_url if self.source_type == 'farside-daily' else f"{self.base_url}/new-stuff"
+        # For daily dose, use the dated URL: https://www.thefarside.com/2025/11/23
+        # For new stuff, use the archive page
+        if self.source_type == 'farside-daily':
+            url = f"{self.base_url}/{date}"
+        else:
+            url = f"{self.base_url}/new-stuff"
         
         for attempt in range(self.max_retries):
             try:

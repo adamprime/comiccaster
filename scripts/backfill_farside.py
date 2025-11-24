@@ -107,9 +107,10 @@ def backfill_days(num_days=10):
     # Create new feed
     fg = feed_gen.create_feed(comic_info)
     
-    # Add new entries first (newest to oldest for RSS convention)
+    # Add new entries newest to oldest for proper RSS order
     all_new_entries.sort(key=lambda x: x['date'], reverse=True)
     for entry_data in all_new_entries:
+        # Reverse the individual day's comics so #5 appears before #1
         fe = feed_gen.create_entry(comic_info, entry_data)
         fg.add_entry(fe)
     

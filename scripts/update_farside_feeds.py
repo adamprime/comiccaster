@@ -57,18 +57,38 @@ def update_daily_dose():
     # Get today's date in US/Eastern timezone (comics publish on Eastern time)
     eastern = pytz.timezone('US/Eastern')
     now_eastern = datetime.now(eastern)
-    date_str = now_eastern.strftime('%Y/%m/%d')
     
-    # Scrape today's Daily Dose
-    logger.info(f"Scraping Daily Dose for {date_str}...")
-    result = scraper.scrape_daily_dose(date_str)
+    # The Far Side only keeps the last 3 days available (today + 2 days back)
+    # Older dates redirect to today's page
+    logger.info("Scraping last 3 days of Daily Dose comics...")
     
-    if not result or 'comics' not in result:
-        logger.error("Failed to scrape Daily Dose")
+    all_comics = []
+    for days_ago in range(2, -1, -1):  # 2 days ago, yesterday, today
+        target_date = now_eastern - timedelta(days=days_ago)
+        date_str = target_date.strftime('%Y/%m/%d')
+        
+        logger.info(f"  Scraping {date_str}...")
+        result = scraper.scrape_daily_dose(date_str)
+        
+        if not result or 'comics' not in result:
+            logger.warning(f"  Failed to scrape {date_str}")
+            continue
+        
+        comics = result['comics']
+        logger.info(f"  Found {len(comics)} comics for {date_str}")
+        
+        # Add date info to each comic
+        for comic in comics:
+            comic['target_date'] = target_date
+            comic['date_str'] = date_str
+        
+        all_comics.extend(comics)
+    
+    if not all_comics:
+        logger.error("Failed to scrape any comics")
         return False
     
-    comics = result['comics']
-    logger.info(f"Successfully scraped {len(comics)} comics from Daily Dose")
+    logger.info(f"Successfully scraped {len(all_comics)} total comics from last 3 days")
     
     # Create comic_info dict (metadata about the comic/feed)
     comic_info = {
@@ -79,115 +99,38 @@ def update_daily_dose():
         'source': 'farside-daily'
     }
     
-    # Generate feed entries
-    # For Daily Dose, we create individual feed items for each of the 5 comics
-    # Give each comic a slightly different time to avoid deduplication
-    eastern = pytz.timezone('US/Eastern')
-    base_time = now_eastern  # Use the Eastern time we calculated earlier
+    # Prepare all comics as entries for the feed generator
     entries = []
-    for i, comic in enumerate(comics):
-        # Build description with image and caption
-        description = f'<img src="{comic["image_url"]}" alt="The Far Side comic" style="max-width: 100%; height: auto;"/>'
-        if comic['caption']:
-            description += f'<p style="margin-top: 10px; font-style: italic;">{comic["caption"]}</p>'
-        description += '<p style="margin-top: 15px; font-size: 0.9em;"><a href="https://www.thefarside.com/">Visit The Far Side</a> | © Gary Larson</p>'
-        
-        # Add minutes to ensure each entry has a unique timestamp
-        # Publish at 8am Eastern Time to match other comics
-        pub_time = base_time.replace(hour=8, minute=i, second=0, microsecond=0)
-        
-        # Create consistent, date-based title (ISO format)
-        date_formatted = pub_time.strftime('%Y-%m-%d')
-        title = f"The Far Side - {date_formatted} #{i+1}"
-        
-        entries.append({
-            'title': title,
-            'url': comic['url'],
-            'description': description,  # Already contains full HTML with image and caption
-            'pub_date': pub_time.strftime('%a, %d %b %Y %H:%M:%S %z')
-            # Note: Don't include 'image_url' - it would cause description to be rebuilt
-        })
+    for i, comic in enumerate(all_comics):
+        try:
+            # Build description with image and caption
+            description = f'<img src="{comic["image_url"]}" alt="The Far Side comic" style="max-width: 100%; height: auto;"/>'
+            if comic['caption']:
+                description += f'<p style="margin-top: 10px; font-style: italic;">{comic["caption"]}</p>'
+            description += '<p style="margin-top: 15px; font-size: 0.9em;"><a href="https://www.thefarside.com/">Visit The Far Side</a> | © Gary Larson</p>'
+            
+            # Use 8am Eastern Time + minutes based on position
+            pub_time = comic['target_date'].replace(hour=8, minute=i, second=0, microsecond=0)
+            date_formatted = pub_time.strftime('%Y-%m-%d')
+            
+            # Create metadata for this comic
+            entries.append({
+                'title': f"The Far Side - {date_formatted} #{(i % 5) + 1}",
+                'url': comic['url'],
+                'description': description,
+                'pub_date': pub_time.strftime('%a, %d %b %Y %H:%M:%S %z'),
+                'image_url': comic['image_url']
+            })
+        except Exception as e:
+            logger.error(f"Error preparing comic: {e}")
+            continue
     
-    # Generate and save feed
-    # Load existing feed and append new entries
-    try:
-        feed_path = Path('public/feeds') / f"{comic_info['slug']}.xml"
-        
-        # Create feed generator
-        fg = feed_gen.create_feed(comic_info)
-        
-        # Load existing entries if feed exists
-        existing_entries = []
-        existing_dates = set()  # Track dates we already have
-        
-        if feed_path.exists():
-            try:
-                import feedparser
-                existing_feed = feedparser.parse(str(feed_path))
-                logger.info(f"Found existing feed with {len(existing_feed.entries)} entries")
-                
-                for entry in existing_feed.entries:
-                    try:
-                        # Get publication date
-                        if hasattr(entry, 'published_parsed'):
-                            pub_date = datetime.fromtimestamp(time.mktime(entry.published_parsed))
-                            if pub_date.tzinfo is None:
-                                pub_date = pytz.UTC.localize(pub_date)
-                        else:
-                            pub_date = datetime.now(pytz.UTC)
-                        
-                        # Store entry
-                        existing_entries.append({
-                            'entry': entry,
-                            'date': pub_date
-                        })
-                        # Track the date (just the date part, not time)
-                        existing_dates.add(pub_date.date())
-                    except Exception as e:
-                        logger.error(f"Error processing existing entry: {e}")
-                        continue
-                        
-            except Exception as e:
-                logger.error(f"Error loading existing feed: {e}")
-        
-        # Check if we already have comics for today
-        today_date = now_eastern.date()
-        if today_date in existing_dates:
-            logger.info(f"Today's comics ({today_date}) already exist in feed, skipping")
-            return True
-        
-        # Add today's new entries
-        logger.info(f"Adding {len(entries)} new entries for {today_date}")
-        for entry_data in entries:
-            fe = feed_gen.create_entry(comic_info, entry_data)
-            fg.add_entry(fe)
-        
-        # Add existing entries (limit to last 30 days = 150 comics max)
-        # Sort by date descending
-        existing_entries.sort(key=lambda x: x['date'], reverse=True)
-        
-        # Keep only entries from last 30 days
-        cutoff_date = datetime.now(pytz.UTC) - timedelta(days=30)
-        kept_count = 0
-        for entry_data in existing_entries:
-            if entry_data['date'] >= cutoff_date and kept_count < 145:  # 145 + 5 new = 150 max
-                fg.add_entry(entry_data['entry'])
-                kept_count += 1
-        
-        logger.info(f"Kept {kept_count} historical entries (last 30 days)")
-        
-        # Save feed
-        feed_path.parent.mkdir(parents=True, exist_ok=True)
-        fg.rss_file(str(feed_path))
-        
-        total_entries = len(entries) + kept_count
-        logger.info(f"✅ Successfully generated feed with {total_entries} total items: {feed_path}")
+    # Use generate_feed which handles multiple entries at once
+    if feed_gen.generate_feed(comic_info, entries):
+        logger.info(f"✅ Successfully generated feed with {len(entries)} comics")
         return True
-        
-    except Exception as e:
-        logger.error(f"Failed to generate feed: {e}")
-        import traceback
-        traceback.print_exc()
+    else:
+        logger.error("Failed to generate feed")
         return False
 
 
