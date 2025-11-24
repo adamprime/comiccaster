@@ -86,15 +86,38 @@ else
 
 Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>"
     
-    git push origin main
+    # Push with retry logic in case of race conditions with GitHub Actions
+    echo "Pushing to GitHub..."
+    MAX_RETRIES=3
+    RETRY_COUNT=0
     
-    if [ $? -eq 0 ]; then
-        echo "✅ Successfully pushed Comics Kingdom data to GitHub"
-        echo "   GitHub Actions will now generate feeds automatically"
-    else
-        echo "❌ Failed to push to GitHub"
-        exit 1
-    fi
+    while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+        if git push origin main; then
+            echo "✅ Successfully pushed Comics Kingdom data to GitHub"
+            echo "   GitHub Actions will now generate feeds automatically"
+            break
+        else
+            RETRY_COUNT=$((RETRY_COUNT + 1))
+            
+            if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⚠️  Push failed (attempt $RETRY_COUNT/$MAX_RETRIES)"
+                echo "   Pulling latest changes and retrying..."
+                
+                # Pull with rebase to incorporate remote changes
+                git pull --rebase origin main
+                
+                if [ $? -ne 0 ]; then
+                    echo "❌ Failed to pull and rebase changes"
+                    exit 1
+                fi
+                
+                sleep 2
+            else
+                echo "❌ Failed to push after $MAX_RETRIES attempts"
+                exit 1
+            fi
+        fi
+    done
 fi
 
 echo ""
