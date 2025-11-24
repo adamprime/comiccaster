@@ -105,7 +105,7 @@ def update_daily_dose():
         try:
             # Build description with image and caption
             description = f'<img src="{comic["image_url"]}" alt="The Far Side comic" style="max-width: 100%; height: auto;"/>'
-            if comic['caption']:
+            if comic.get('caption'):
                 description += f'<p style="margin-top: 10px; font-style: italic;">{comic["caption"]}</p>'
             description += '<p style="margin-top: 15px; font-size: 0.9em;"><a href="https://www.thefarside.com/">Visit The Far Side</a> | © Gary Larson</p>'
             
@@ -114,12 +114,13 @@ def update_daily_dose():
             date_formatted = pub_time.strftime('%Y-%m-%d')
             
             # Create metadata for this comic
+            # NOTE: Don't include 'image_url' - it causes description to be rebuilt
+            # We already built the description with image + caption above
             entries.append({
                 'title': f"The Far Side - {date_formatted} #{(i % 5) + 1}",
                 'url': comic['url'],
                 'description': description,
-                'pub_date': pub_time.strftime('%a, %d %b %Y %H:%M:%S %z'),
-                'image_url': comic['image_url']
+                'pub_date': pub_time.strftime('%a, %d %b %Y %H:%M:%S %z')
             })
         except Exception as e:
             logger.error(f"Error preparing comic: {e}")

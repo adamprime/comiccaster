@@ -222,17 +222,13 @@ class FarsideScraper(BaseScraper):
         elif not image_url.startswith('http'):
             image_url = urljoin(self.base_url, image_url)
         
-        # Get caption/alt text
-        caption = img_tag.get('alt', '')
-        
-        # Find figcaption for additional caption text
+        # Get caption ONLY from figcaption element (not from alt text)
+        # Alt text often contains OCR'd text from within the comic image itself
         figcaption = card.find('figcaption', class_='figure-caption')
-        caption_text = ''
+        caption = ''
         if figcaption:
-            caption_text = figcaption.get_text(strip=True)
-        
-        # Combine captions
-        full_caption = caption_text if caption_text else caption
+            # Use separator=' ' to preserve spaces around inline elements like <i> or <em>
+            caption = figcaption.get_text(separator=' ', strip=True)
         
         # Transform image URL to use our proxy
         proxied_image_url = self.transform_image_url(image_url)
@@ -243,8 +239,8 @@ class FarsideScraper(BaseScraper):
             'url': f"{self.base_url}/{date}/{container.get('data-position', '0')}",  # Use permalink with actual date
             'image_url': proxied_image_url,
             'original_image_url': image_url,
-            'caption': full_caption,
-            'title': self._create_title_from_caption(full_caption, data_id)
+            'caption': caption,
+            'title': self._create_title_from_caption(caption, data_id)
         }
     
     def scrape_new_stuff(self) -> Optional[Dict[str, Any]]:
