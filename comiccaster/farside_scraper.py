@@ -235,7 +235,7 @@ class FarsideScraper(BaseScraper):
         return {
             'id': data_id,
             'date': date.replace('/', '-'),
-            'url': f"{self.base_url}/2025/11/20/{container.get('data-position', '0')}",  # Use permalink
+            'url': f"{self.base_url}/{date}/{container.get('data-position', '0')}",  # Use permalink with actual date
             'image_url': proxied_image_url,
             'original_image_url': image_url,
             'caption': full_caption,
