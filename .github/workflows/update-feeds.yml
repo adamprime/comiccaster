@@ -2,11 +2,15 @@ name: Update Comic Feeds
 
 # This workflow updates ALL comics daily to ensure we never miss new content
 # Smart updates were disabled as comics have irregular publishing schedules
+# 
+# NOTE: Automatic schedule disabled 2025-11-26 - now runs locally at 3:00 AM CST
+# Kept as emergency backup - trigger manually if needed (travel, Mac issues, etc.)
 
 on:
-  schedule:
-    - cron: '30 9 * * *'  # Run at 9:30 AM UTC daily (3:30 AM CST / 4:30 AM EST)
-  workflow_dispatch:  # Allow manual triggering
+  # Disabled: Now runs locally at 3:00 AM CST via local_master_update.sh
+  # schedule:
+  #   - cron: '30 9 * * *'  # Run at 9:30 AM UTC daily (3:30 AM CST / 4:30 AM EST)
+  workflow_dispatch:  # Manual trigger for emergencies
 
 permissions:
   contents: write
