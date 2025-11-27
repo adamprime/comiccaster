@@ -364,6 +364,7 @@
                             <thead>
                                 <tr>
                                     <th>Comic</th>
+                                    <th>Source</th>
                                     <th>📡 RSS Link</th>
                                     <th>🔗 Original Page</th>
                                 </tr>
@@ -520,17 +521,21 @@
                 fetch('/tinyview_comics_list.json').then(r => r.json()).catch(() => []) // Fallback to empty array if file doesn't exist yet
             ])
             .then(([daily, political, spanish, tinyview]) => {
+                // Combine daily comics from all sources (GoComics + TinyView)
+                // This includes Comics Kingdom and Far Side which are in the daily list with source tags
+                const allDailyComics = [...daily, ...tinyview].sort((a, b) => a.name.localeCompare(b.name));
+                
                 // Sort all comics alphabetically by name
-                dailyComics = daily.sort((a, b) => a.name.localeCompare(b.name));
+                dailyComics = allDailyComics;
                 politicalComics = political.sort((a, b) => a.name.localeCompare(b.name));
                 spanishComics = spanish.sort((a, b) => a.name.localeCompare(b.name));
                 tinyviewComics = tinyview.sort((a, b) => a.name.localeCompare(b.name));
                 
-                // Populate tables and lists
-                populateComicsTable(dailyComics, 'comics-table-body', 'gocomics');
-                populateComicsTable(politicalComics, 'political-comics-table-body', 'gocomics');
-                populateComicsTable(spanishComics, 'spanish-comics-table-body', 'gocomics');
-                populateComicsTable(tinyviewComics, 'tinyview-comics-table-body', 'tinyview');
+                // Populate tables and lists (all with Source column for consistency)
+                populateComicsTable(dailyComics, 'comics-table-body', 'all', true);
+                populateComicsTable(politicalComics, 'political-comics-table-body', 'all', true);
+                populateComicsTable(spanishComics, 'spanish-comics-table-body', 'all', true);
+                populateComicsTable(tinyviewComics, 'tinyview-comics-table-body', 'tinyview', true);
                 populateComicsList(dailyComics, 'comics-list');
                 populateComicsList(politicalComics, 'political-comics-list');
                 populateComicsList(spanishComics, 'spanish-comics-list');
@@ -545,28 +550,44 @@
                 console.error('Error fetching comics:', error);
             });
             
-            function populateComicsTable(comics, tableBodyId, source = 'gocomics') {
+            function populateComicsTable(comics, tableBodyId, source = 'gocomics', showSource = false) {
                 const tableBody = document.getElementById(tableBodyId);
                 tableBody.innerHTML = '';
                 
                 comics.forEach(comic => {
                     const row = document.createElement('tr');
-                    // Determine source URL based on comic source field
+                    
+                    // Determine source display name and URL
+                    let sourceName = 'GoComics';
                     let sourceUrl;
+                    let feedPath;
+                    
                     if (comic.source === 'comicskingdom') {
+                        sourceName = 'Comics Kingdom';
                         sourceUrl = `https://comicskingdom.com/${comic.slug}`;
-                    } else if (source === 'tinyview' || comic.source === 'tinyview') {
+                        feedPath = `/feeds/${comic.slug}.xml`;
+                    } else if (comic.source === 'tinyview') {
+                        sourceName = 'TinyView';
                         sourceUrl = comic.url;
+                        feedPath = `/feeds/${comic.slug}.xml`;
+                    } else if (comic.source === 'farside') {
+                        sourceName = 'Far Side';
+                        sourceUrl = comic.url || 'https://www.thefarside.com/';
+                        feedPath = `/feeds/${comic.slug}.xml`;
                     } else {
+                        sourceName = 'GoComics';
                         sourceUrl = `https://www.gocomics.com/${comic.slug}`;
+                        feedPath = `/rss/${comic.slug}`;
                     }
                     
-                    // Use different feed paths for different sources
-                    const feedPath = source === 'tinyview' ? `/feeds/${comic.slug}.xml` : `/rss/${comic.slug}`;
                     const feedUrl = `https://comiccaster.xyz${feedPath}`;
+                    
+                    // Build row HTML with optional source column
+                    const sourceColumn = showSource ? `<td>${sourceName}</td>` : '';
                     
                     row.innerHTML = `
                         <td>${comic.name}</td>
+                        ${sourceColumn}
                         <td>
                             <div class="feed-url">
                                 <span class="copy-icon" onclick="copyToClipboard(this)" data-url="${feedUrl}">📋</span>
@@ -597,11 +618,26 @@
                         prefix = 'political';
                     } else if (listId === 'tinyview-comics-list') {
                         prefix = 'tinyview';
+                    } else if (listId === 'spanish-comics-list') {
+                        prefix = 'spanish';
                     }
+                    
+                    // Determine source name for display
+                    let sourceName = '';
+                    if (comic.source === 'comicskingdom') {
+                        sourceName = ' <span style="color: #888; font-size: 0.85em;">(Comics Kingdom)</span>';
+                    } else if (comic.source === 'tinyview') {
+                        sourceName = ' <span style="color: #888; font-size: 0.85em;">(TinyView)</span>';
+                    } else if (comic.source === 'farside') {
+                        sourceName = ' <span style="color: #888; font-size: 0.85em;">(Far Side)</span>';
+                    } else {
+                        sourceName = ' <span style="color: #888; font-size: 0.85em;">(GoComics)</span>';
+                    }
+                    
                     checkboxItem.innerHTML = `
                         <input class="form-check-input" type="checkbox" value="${comic.slug}" id="${prefix}-${comic.slug}">
                         <label class="form-check-label" for="${prefix}-${comic.slug}">
-                            ${comic.name}
+                            ${comic.name}${sourceName}
                         </label>
                     `;
                     comicsList.appendChild(checkboxItem);
