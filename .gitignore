@@ -93,8 +93,5 @@ package-lock.json
 .DS_Store
 Thumbs.db
 
-# Generated content
-/public/feeds/
-
 # Git worktrees
 worktrees/

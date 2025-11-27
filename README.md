@@ -12,9 +12,9 @@ ComicCaster is a web application that generates RSS feeds for comics from GoComi
 
 ### Advanced Features
 - **Multi-Image RSS Support**: Full support for comics that publish multiple images/panels per day
-- **Accurate Daily Comic Detection**: Distinguishes between current daily comics and "best of" reruns using JSON-LD parsing
+- **Accurate Daily Comic Detection**: Distinguishes between current daily comics and "best of" reruns
 - **Smart Update Scheduling**: Optimizes feed updates based on comic publishing patterns (daily, weekly, irregular)
-- **Parallel Processing**: Uses 8 concurrent workers for efficient feed generation
+- **Parallel Processing**: Efficient concurrent feed generation
 - **Feed Health Monitoring**: Automated canary system detects and alerts on stale feeds
 
 ### User Interface
@@ -24,8 +24,7 @@ ComicCaster is a web application that generates RSS feeds for comics from GoComi
 - **Search and Filter**: Quickly find comics by name or category
 
 ### Technical Features
-- **Modular Scraper System**: Extensible architecture with base scraper class and source-specific implementations
-- **Granular Source Tracking**: Each comic tracked with specific source field for proper scraper selection
+- **Modular Architecture**: Extensible system supporting multiple comic sources
 - **Error Resilience**: Graceful handling of missing comics, site changes, and network issues
 - **Comprehensive Logging**: Detailed logs for debugging and monitoring
 
@@ -76,110 +75,43 @@ The Flask app will be available at `http://localhost:5001`
 ```
 comiccaster/
 ├── comiccaster/           # Main Python package
-│   ├── base_scraper.py    # Abstract base class for all scrapers
-│   ├── gocomics_scraper.py # GoComics HTTP scraper with JSON-LD parsing
-│   ├── tinyview_scraper.py # TinyView Selenium-based scraper
-│   ├── scraper_factory.py  # Factory pattern for scraper selection
-│   ├── feed_generator.py   # RSS feed generation with multi-image support
+│   ├── feed_generator.py   # RSS feed generation
 │   ├── loader.py          # Comic configuration management
 │   └── web_interface.py   # Flask web application
 ├── public/               # Static files served by Netlify
-│   ├── index.html       # Main application page with tabbed interface
+│   ├── index.html       # Main application page
 │   ├── feeds/           # Pre-generated RSS feed files
-│   └── comics_list.json # Comic metadata with source information
+│   └── comics_list.json # Comic metadata
 ├── functions/           # Netlify serverless functions
 │   ├── generate-opml.js # OPML bundle generation
 │   └── fetch-feed.js    # Feed preview functionality
 ├── scripts/             # Utility and update scripts
-│   ├── update_feeds.py  # Daily feed update orchestrator
-│   └── test_gocomics_regression.py # Regression testing
 ├── tests/               # Test suite
-│   ├── test_base_scraper.py    # Base scraper tests
-│   ├── test_tinyview_scraper.py # TinyView scraper tests
-│   ├── test_multi_image_rss.py  # Multi-image RSS tests
-│   └── test_scraper_factory.py  # Factory pattern tests
-├── docs/                # Documentation
-│   └── specifications/  # Project specifications and design docs
-└── legacy_scripts/      # Historical scripts for reference
+└── docs/                # Documentation
 ```
 
 ## Feed Updates
 
-Feeds are automatically updated daily via GitHub Actions. The workflow:
-1. Runs the enhanced update script to fetch latest comics using JSON-LD date matching
-2. Ensures accurate detection of daily comics vs "best of" reruns
+Feeds are updated daily and committed to the repository. The workflow:
+1. Runs update scripts to fetch latest comics from each source
+2. Detects and includes only current daily comics (not reruns)
 3. Commits updated feed files to the repository
-4. Triggers a new Netlify deployment
-5. **Validates feed freshness** using canary monitoring (new!)
+4. Netlify automatically deploys when changes are pushed
+5. Canary monitoring validates feed freshness
 
-### Recent Improvements (July 2025)
+### Key Features
 
-**TinyView Integration:**
-- **New Platform**: Added support for 29 independent comics from TinyView.com
-- **Multi-Strip Comics**: Full support for comics that publish multiple strips per day
-- **Selenium Scraping**: Implemented Selenium WebDriver to handle TinyView's dynamic content
-- **Smart Date Matching**: Advanced logic to extract comics from specific dates across complex URL structures
-- **Description Extraction**: Captures artist commentary and descriptions when available
-
-**Architectural Improvements:**
-- **Scraper Factory Pattern**: Modular system for managing different comic sources
-- **Base Scraper Class**: Standardized interface for all scrapers with shared functionality
-- **Multi-Image RSS**: Enhanced feed generator supports comics with multiple images per entry
-- **Source Field**: Each comic now has a granular source field (gocomics-daily, gocomics-political, tinyview)
-- **Comprehensive Testing**: Added 100+ tests covering all new functionality
-
-**Political Comics Integration:**
-- **New Feature**: Added support for 63+ political editorial cartoons from GoComics
-- **Tabbed Interface**: Separate tabs for daily comics and political cartoons for better organization
-- **Smart Updates**: Comics are updated based on their publishing frequency (daily, weekly, irregular)
-- **Content Warnings**: Political feeds include appropriate descriptions and content categories
-- **Separate OPML Files**: Generate `daily-comics.opml` or `political-cartoons.opml` based on your preferences
-
-### Latest Changes (November 2025)
-
-**Enhanced Scraping Reliability:**
-- Implemented more reliable scraping methods to ensure consistent feed updates
-- Optimized performance for faster daily updates
-- Improved accuracy in detecting current daily comics vs reruns
-- Better error handling and graceful degradation when comics are unavailable
-- Comics that don't publish daily are properly handled without errors
-
-### Previous Improvements (2025)
-
-**Enhanced Comic Detection System:**
-- **Problem Solved**: GoComics serves both current daily comics and historical "best of" reruns on the same page, making it difficult to distinguish which is the actual daily comic
-- **Solution**: Implemented advanced detection methods to accurately identify the comic for the specific requested date
-- **Previous Issue**: Comics like "Pearls Before Swine" and "In the Bleachers" were showing old reruns instead of current daily strips
-
-**Benefits:**
-- ✅ All 400+ comic feeds now show correct daily comics
-- ✅ Reliable distinction between daily content and "best of" reruns  
-- ✅ Improved performance with parallel processing
-- ✅ Better error handling and logging
-- ✅ GitHub Actions workflow optimized for stability
-
-### Feed Health Monitoring (July 2025)
-
-**Automated Feed Validation System:**
-- **Problem Solved**: Feed generation bugs could go unnoticed for days, resulting in stale feeds
-- **Solution**: Implemented canary monitoring using 15 reliable daily comics as health indicators
-- **How it works**:
-  - After each daily update, a validation script checks if canary feeds have entries within 3 days
-  - If any canary feeds are stale, the system automatically creates a GitHub issue with details
-  - Canary comics include: Garfield, Pearls Before Swine, Doonesbury, Calvin and Hobbes, and 11 others
-- **Benefits**:
-  - ✅ Proactive detection of feed update failures
-  - ✅ Automated alerting via GitHub issues
-  - ✅ Detailed diagnostics for troubleshooting
-  - ✅ Prevents multi-day outages from going unnoticed
+- **Multi-Source Support**: Comics from GoComics (daily + political) and TinyView
+- **Accurate Detection**: Distinguishes current daily comics from reruns
+- **Multi-Image Support**: Handles comics with multiple panels per day
+- **Feed Health Monitoring**: Canary system alerts on stale feeds
+- **Resilient Updates**: Graceful handling of missing comics and site changes
 
 ## Technical Components
 
 - **Static Site**: Served by Netlify
 - **Serverless Functions**: Handle OPML generation and feed previews
-- **GitHub Actions**: Automate daily feed updates for both GoComics and TinyView
 - **Python Scripts**: Generate and update RSS feeds
-- **Scrapers**: Reliable scraping methods optimized for both GoComics and TinyView sources
 
 ## Development
 
@@ -200,13 +132,6 @@ pip install -e .  # Install package in development mode
 
 # Install test dependencies
 pip install pytest pytest-cov pytest-mock
-
-# For TinyView development (requires Firefox)
-# macOS
-brew install --cask firefox
-
-# Ubuntu
-sudo apt-get install firefox firefox-geckodriver
 ```
 
 ### Running Tests
@@ -259,17 +184,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Supported Comic Sources
 
 ### GoComics
-- **Daily Comics**: Calvin and Hobbes, Garfield, Dilbert, and hundreds more
+- **Daily Comics**: Calvin and Hobbes, Garfield, and hundreds more
 - **Political Cartoons**: Doonesbury, Non Sequitur, and other editorial comics
-- **Update Frequency**: Checks last 10 days of comics
-- **Reliability**: Optimized scraping methods for consistent daily updates
 
 ### TinyView
-- **Independent Comics**: 29 comics including ADHDinos, Fowl Language, Nick Anderson, Pedro X. Molina, and more
+- **Independent Comics**: 29 comics including ADHDinos, Fowl Language, and more
 - **Multi-strip Support**: Handles comics that publish multiple strips per day
-- **Update Frequency**: Checks last 15 days of comics (accommodates less frequent updates)
-- **Comic Descriptions**: Extracts and includes artist commentary when available
-- **Dynamic Content**: Handles JavaScript-rendered comics
 
 ## Acknowledgments
 
