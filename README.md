@@ -1,12 +1,12 @@
 # ComicCaster
 
-ComicCaster is a web application that generates RSS feeds for comics from GoComics.com and TinyView.com. It provides a unified interface to subscribe to your favorite comics through RSS, supporting both traditional daily comics and independent web comics.
+ComicCaster is a web application that generates RSS feeds for comics from multiple sources including GoComics, TinyView, Comics Kingdom, and The Far Side. It provides a unified interface to subscribe to your favorite comics through RSS.
 
 ## Features
 
 ### Core Functionality
-- **500+ Comics Available**: Access to 400+ GoComics daily strips, 60+ political cartoons, and 29 TinyView independent comics
-- **Multi-Source Architecture**: Unified interface for comics from different platforms using a modular scraper system
+- **500+ Comics Available**: Access to comics from GoComics, Comics Kingdom, TinyView, and The Far Side
+- **Multi-Source Architecture**: Unified interface for comics from different platforms
 - **RSS Feed Generation**: Standard RSS 2.0 feeds compatible with all major feed readers
 - **OPML Bundle Creation**: Generate custom bundles of comics for easy import into feed readers
 
@@ -101,7 +101,7 @@ Feeds are updated daily and committed to the repository. The workflow:
 
 ### Key Features
 
-- **Multi-Source Support**: Comics from GoComics (daily + political) and TinyView
+- **Multi-Source Support**: Comics from GoComics, Comics Kingdom, TinyView, and The Far Side
 - **Accurate Detection**: Distinguishes current daily comics from reruns
 - **Multi-Image Support**: Handles comics with multiple panels per day
 - **Feed Health Monitoring**: Canary system alerts on stale feeds
@@ -187,12 +187,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Daily Comics**: Calvin and Hobbes, Garfield, and hundreds more
 - **Political Cartoons**: Doonesbury, Non Sequitur, and other editorial comics
 
+### Comics Kingdom
+- **Classic and Modern Comics**: Zits, Beetle Bailey, Mutts, and more
+
 ### TinyView
-- **Independent Comics**: 29 comics including ADHDinos, Fowl Language, and more
+- **Independent Comics**: ADHDinos, Fowl Language, and more
 - **Multi-strip Support**: Handles comics that publish multiple strips per day
+
+### The Far Side
+- **Daily Far Side**: Gary Larson's classic comic
 
 ## Acknowledgments
 
-- Thanks to GoComics and TinyView for providing the comic content
+- Thanks to GoComics, Comics Kingdom, TinyView, and The Far Side for providing comic content
 - Built with Netlify Functions and GitHub Actions 
 - Inspired by ComicsRSS.com
