@@ -23,6 +23,9 @@ fi
 # Activate virtual environment
 source "$REPO_DIR/venv/bin/activate"
 
+# Install comiccaster package in editable mode (if not already installed)
+pip install -e "$REPO_DIR" > /dev/null 2>&1 || true
+
 # Clean git refs
 echo ""
 echo "Cleaning up git references..."
@@ -106,7 +109,7 @@ fi
 echo ""
 echo "=== Phase 3: Committing and Pushing ==="
 
-git add data/*.json public/feeds/*.xml
+git add -f data/*.json public/feeds/*.xml
 
 if git diff --staged --quiet; then
     echo "ℹ️  No changes to commit"
