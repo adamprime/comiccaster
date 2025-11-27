@@ -53,7 +53,7 @@ jobs:
           CUSTOM_PAGE_6: ${{ secrets.CUSTOM_PAGE_6 }}
         run: |
           # Run GoComics authenticated scraper
-          python authenticated_scraper_secure.py --output-dir ./data
+          python scripts/authenticated_scraper_secure.py --output-dir ./data
       
       # Comics Kingdom scraping now happens locally on Mac (runs at 12:30 AM)
       # This workflow uses the data files pushed by the local script

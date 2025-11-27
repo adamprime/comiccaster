@@ -71,7 +71,7 @@ jobs:
           COMICSKINGDOM_PASSWORD: ${{ secrets.COMICSKINGDOM_PASSWORD }}
         run: |
           # Run scraper
-          python comicskingdom_scraper_secure.py --output-dir ./data
+          python scripts/comicskingdom_scraper_secure.py --output-dir ./data
           
           # Show results
           echo ""

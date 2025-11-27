@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Archie - TinyView</title><link>https://tinyview.com/archie</link><description>Daily Archie comic strip by Archie Comics from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/archie.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 21 Nov 2025 09:18:44 +0000</lastBuildDate><ttl>1440</ttl><item><title>Archie</title><link>https://tinyview.com/archie/2025/11/20/259-bros-before-ufos</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Archie - TinyView</title><link>https://tinyview.com/archie</link><description>Daily Archie comic strip by Archie Comics from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/archie.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 27 Nov 2025 17:05:44 +0000</lastBuildDate><ttl>1440</ttl><item><title>Archie</title><link>https://tinyview.com/archie/2025/11/27/260-this-joke-again</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,26 +16,26 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;This one is for the boys. #BiteSizedArchie&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It's been five years, so we're allowed to recycle jokes. #BiteSizedArchie&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_TV_Title_Panel.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_TV_Title_Panel.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_01.jpg" alt="https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_01.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_01.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_01.jpg" alt="https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_01.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_01.jpg&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_02.jpg" alt="https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_02.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_02.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_02.jpg" alt="https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_02.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_02.jpg&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_03.jpg" alt="https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_03.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_03.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_03.jpg" alt="https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_03.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_03.jpg&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_04.jpg" alt="https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_04.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/archie/2025/11/20/259-bros-before-ufos/BSA_259_04.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_04.jpg" alt="https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_04.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/archie/2025/11/27/260-this-joke-again/BSA_260_04.jpg&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/archie/2025/11/20/259-bros-before-ufos</guid><pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/archie/2025/11/27/260-this-joke-again</guid><pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate></item></channel></rss>

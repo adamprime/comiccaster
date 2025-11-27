@@ -40,7 +40,7 @@ DATE_STR=$(date +%Y-%m-%d)
 
 echo ""
 echo "[1/4] Scraping GoComics (authenticated)..."
-python authenticated_scraper_secure.py --output-dir ./data
+python scripts/authenticated_scraper_secure.py --output-dir ./data
 if [ $? -ne 0 ]; then
     echo "❌ GoComics scraping failed"
     osascript -e 'display notification "GoComics scraping failed" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
@@ -49,7 +49,7 @@ fi
 
 echo ""
 echo "[2/4] Scraping Comics Kingdom..."
-python comicskingdom_scraper_individual.py --date "$DATE_STR" --output-dir data
+python scripts/comicskingdom_scraper_individual.py --date "$DATE_STR" --output-dir data
 if [ $? -ne 0 ]; then
     echo "❌ Comics Kingdom scraping failed"
     osascript -e 'display notification "Comics Kingdom scraping failed" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
@@ -58,7 +58,7 @@ fi
 
 echo ""
 echo "[3/4] Scraping TinyView..."
-python tinyview_scraper_local_authenticated.py --date "$DATE_STR" --days-back 15
+python scripts/tinyview_scraper_local_authenticated.py --date "$DATE_STR" --days-back 15
 if [ $? -ne 0 ]; then
     echo "❌ TinyView scraping failed"
     osascript -e 'display notification "TinyView scraping failed" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true

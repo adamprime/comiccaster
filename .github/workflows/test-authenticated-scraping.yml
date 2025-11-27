@@ -42,7 +42,7 @@ jobs:
           CUSTOM_PAGE_5: ${{ secrets.CUSTOM_PAGE_5 }}
           CUSTOM_PAGE_6: ${{ secrets.CUSTOM_PAGE_6 }}
         run: |
-          python authenticated_scraper_secure.py --date 2024-11-12 --output-dir /tmp
+          python scripts/authenticated_scraper_secure.py --date 2024-11-12 --output-dir /tmp
           
       - name: Verify output
         run: |
