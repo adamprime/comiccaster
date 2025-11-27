@@ -49,6 +49,28 @@
             margin: 0;
         }
 
+        .header-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .header-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .header-nav a:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+            text-decoration: none;
+        }
+
         /* Card styling */
         .card {
             background: var(--background-color);
@@ -336,12 +358,22 @@
         <header class="header">
             <h1>ComicCaster</h1>
             <p>Read your favorite comics as an RSS feed</p>
+            <nav class="header-nav">
+                <a href="https://dispatch.comiccaster.xyz">📰 Dispatch Blog</a>
+                <a href="https://dispatch.comiccaster.xyz/getting-started/">📖 Guides</a>
+                <a href="https://feedback.comiccaster.xyz">💬 Feedback</a>
+            </nav>
         </header>
 
         <div class="card">
             <div class="card-header">
                 <h2>🎉 Welcome to ComicCaster</h2>
                 <p>Turn your daily comics into a feed you'll actually keep up with.</p>
+            </div>
+            <div class="card-body" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="https://dispatch.comiccaster.xyz/getting-started/" class="btn btn-primary">🚀 Get Started</a>
+                <a href="https://dispatch.comiccaster.xyz/guides/what-is-rss/" class="btn btn-secondary">🤔 What's RSS?</a>
+                <a href="https://dispatch.comiccaster.xyz/blog/" class="btn btn-secondary">📰 Latest Updates</a>
             </div>
         </div>
 
