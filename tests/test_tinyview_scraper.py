@@ -4,7 +4,7 @@ Following TDD principles - these tests are written before implementation enhance
 """
 
 import pytest
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from unittest.mock import Mock, patch, MagicMock
 from selenium.common.exceptions import TimeoutException
 
@@ -163,7 +163,7 @@ class TestTinyviewScraperStory21:
             
             # Use today's date to ensure comics are within the date range
             today = datetime.now()
-            yesterday = today.replace(day=today.day-1)
+            yesterday = today - timedelta(days=1)
             
             # Main page with comic links using dates within range
             main_page_html = f'''<html>
