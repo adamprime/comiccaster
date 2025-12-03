@@ -37,6 +37,13 @@ class TestTabbedInterface:
         with open(opml_path, 'r') as f:
             return f.read()
     
+    @pytest.fixture
+    def css_content(self, project_root):
+        """Load the comic-theme.css content."""
+        css_path = project_root / 'public' / 'css' / 'comic-theme.css'
+        with open(css_path, 'r') as f:
+            return f.read()
+    
     def test_political_comics_list_exists(self, project_root):
         """Test that political_comics_list.json exists in public directory."""
         file_path = project_root / 'public' / 'political_comics_list.json'
@@ -68,13 +75,13 @@ class TestTabbedInterface:
         assert 'id="daily-opml-tab"' in index_html_content, "Should have daily OPML tab content"
         assert 'id="political-opml-tab"' in index_html_content, "Should have political OPML tab content"
     
-    def test_css_tab_styling(self, index_html_content):
-        """Test that CSS includes tab styling."""
-        assert '.tabs {' in index_html_content, "Should have tabs container styling"
-        assert '.tab-button {' in index_html_content, "Should have tab button styling"
-        assert '.tab-button.active {' in index_html_content, "Should have active tab styling"
-        assert '.tab-content {' in index_html_content, "Should have tab content styling"
-        assert '.tab-content.active {' in index_html_content, "Should have active tab content styling"
+    def test_css_tab_styling(self, css_content):
+        """Test that CSS includes tab styling (in external stylesheet)."""
+        assert '.tabs {' in css_content, "Should have tabs container styling"
+        assert '.tab-button {' in css_content, "Should have tab button styling"
+        assert '.tab-button.active {' in css_content, "Should have active tab styling"
+        assert '.tab-content {' in css_content, "Should have tab content styling"
+        assert '.tab-content.active {' in css_content, "Should have active tab content styling"
     
     def test_javascript_tab_functionality(self, index_html_content):
         """Test that JavaScript includes tab switching functionality."""
