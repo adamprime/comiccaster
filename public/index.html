@@ -9,345 +9,7 @@
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
     
-    <style>
-        :root {
-            --background-color: #1a1a1a;
-            --text-color: #ffffff;
-            --border-color: #333333;
-            --accent-color: #e91e63;
-            --link-color: #3b82f6;
-            --button-color: #0066cc;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.5;
-            margin: 0;
-            padding: 20px;
-            background: var(--background-color);
-            color: var(--text-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #888;
-            margin: 0;
-        }
-
-        .header-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .header-nav a {
-            color: #3b82f6;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-        }
-
-        .header-nav a:hover {
-            background-color: rgba(59, 130, 246, 0.1);
-            text-decoration: none;
-        }
-
-        /* Card styling */
-        .card {
-            background: var(--background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-
-        .card-header {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .card-header h2 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .card-header p {
-            margin: 0.5rem 0 0 0;
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        .card-body {
-            padding: 1rem;
-        }
-
-        /* Fixed height table with scrolling */
-        .table-container {
-            height: 400px;
-            overflow-y: scroll; 
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .table thead {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .table th {
-            background-color: var(--background-color);
-            border-bottom: 2px solid var(--border-color);
-            padding: 0.75rem;
-            font-weight: 600;
-            text-align: left;
-        }
-
-        .table td {
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        /* URL styling */
-        .feed-url {
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            max-width: 100%;
-            gap: 8px;
-        }
-        
-        .url-text {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            color: var(--link-color);
-            cursor: pointer;
-        }
-        
-        .url-text:hover {
-            text-decoration: underline;
-        }
-        
-        .copy-icon {
-            margin-right: 8px;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-            flex-shrink: 0;
-        }
-        
-        .copy-icon:hover {
-            opacity: 1;
-        }
-
-        .preview-link {
-            color: var(--link-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-        
-        .preview-link:hover {
-            opacity: 1;
-            text-decoration: none;
-        }
-
-        /* Comic list for OPML section */
-        .comic-list {
-            height: 300px;
-            overflow-y: scroll;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-        }
-
-        .form-check {
-            margin-bottom: 0.5rem;
-        }
-
-        .form-check-input {
-            margin-right: 0.5rem;
-        }
-
-        /* Search inputs */
-        #comicSearch, #customFeedSearch, #politicalComicSearch, #politicalFeedSearch, #spanishComicSearch, #spanishFeedSearch, #tinyviewComicSearch, #tinyviewFeedSearch {
-            width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background: #333;
-            color: #fff;
-        }
-
-        /* Tab styling */
-        .tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .tab-button {
-            padding: 0.75rem 1.5rem;
-            background: transparent;
-            border: none;
-            color: #888;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            border-bottom: 3px solid transparent;
-            margin-bottom: -2px;
-        }
-
-        .tab-button:hover {
-            color: #fff;
-        }
-
-        .tab-button.active {
-            color: #fff;
-            border-bottom-color: var(--accent-color);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .help-text {
-            padding: 1rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        /* Button styling */
-        .btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            font-weight: 500;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            border: none;
-        }
-
-        .btn-primary {
-            background-color: #0066cc;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #0052a3;
-        }
-
-        .btn-secondary {
-            background-color: #666;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #555;
-        }
-        
-        /* Success message */
-        .success-message {
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 4px;
-        }
-
-        a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #999;
-        }
-
-        @media (max-width: 768px) {
-            .table-container {
-                height: 300px;
-            }
-            
-            .comic-list {
-                height: 200px;
-            }
-        }
-        
-        /* Notification banner */
-        .notification-banner {
-            background-color: #fbbf24;
-            color: #1a1a1a;
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        
-        .notification-banner a {
-            color: #0066cc;
-            font-weight: 600;
-        }
-        
-        .notification-banner a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/comic-theme.css">
 </head>
 <body>
     <!-- Notification banner - uncomment when needed -->
@@ -396,9 +58,8 @@
                             <thead>
                                 <tr>
                                     <th>Comic</th>
-                                    <th>Source</th>
+                                    <th>🔗 Source</th>
                                     <th>📡 RSS Link</th>
-                                    <th>🔗 Original Page</th>
                                 </tr>
                             </thead>
                             <tbody id="comics-table-body">
@@ -414,8 +75,8 @@
                             <thead>
                                 <tr>
                                     <th>Comic</th>
+                                    <th>🔗 Source</th>
                                     <th>📡 RSS Link</th>
-                                    <th>🔗 Original Page</th>
                                 </tr>
                             </thead>
                             <tbody id="political-comics-table-body">
@@ -431,8 +92,8 @@
                             <thead>
                                 <tr>
                                     <th>Comic</th>
+                                    <th>🔗 Source</th>
                                     <th>📡 RSS Link</th>
-                                    <th>🔗 Original Page</th>
                                 </tr>
                             </thead>
                             <tbody id="spanish-comics-table-body">
@@ -448,8 +109,8 @@
                             <thead>
                                 <tr>
                                     <th>Comic</th>
+                                    <th>🔗 Source</th>
                                     <th>📡 RSS Link</th>
-                                    <th>🔗 Original Page</th>
                                 </tr>
                             </thead>
                             <tbody id="tinyview-comics-table-body">
@@ -564,10 +225,10 @@
                 tinyviewComics = tinyview.sort((a, b) => a.name.localeCompare(b.name));
                 
                 // Populate tables and lists (all with Source column for consistency)
-                populateComicsTable(dailyComics, 'comics-table-body', 'all', true);
-                populateComicsTable(politicalComics, 'political-comics-table-body', 'all', true);
-                populateComicsTable(spanishComics, 'spanish-comics-table-body', 'all', true);
-                populateComicsTable(tinyviewComics, 'tinyview-comics-table-body', 'tinyview', true);
+                populateComicsTable(dailyComics, 'comics-table-body', 'all');
+                populateComicsTable(politicalComics, 'political-comics-table-body', 'all');
+                populateComicsTable(spanishComics, 'spanish-comics-table-body', 'all');
+                populateComicsTable(tinyviewComics, 'tinyview-comics-table-body', 'tinyview');
                 populateComicsList(dailyComics, 'comics-list');
                 populateComicsList(politicalComics, 'political-comics-list');
                 populateComicsList(spanishComics, 'spanish-comics-list');
@@ -582,7 +243,7 @@
                 console.error('Error fetching comics:', error);
             });
             
-            function populateComicsTable(comics, tableBodyId, source = 'gocomics', showSource = false) {
+            function populateComicsTable(comics, tableBodyId, source = 'gocomics') {
                 const tableBody = document.getElementById(tableBodyId);
                 tableBody.innerHTML = '';
                 
@@ -614,12 +275,9 @@
                     
                     const feedUrl = `https://comiccaster.xyz${feedPath}`;
                     
-                    // Build row HTML with optional source column
-                    const sourceColumn = showSource ? `<td>${sourceName}</td>` : '';
-                    
                     row.innerHTML = `
                         <td>${comic.name}</td>
-                        ${sourceColumn}
+                        <td><a href="${sourceUrl}" target="_blank">🔗 ${sourceName}</a></td>
                         <td>
                             <div class="feed-url">
                                 <span class="copy-icon" onclick="copyToClipboard(this)" data-url="${feedUrl}">📋</span>
@@ -629,7 +287,6 @@
                                 <a href="/preview.html?url=${feedUrl}" class="preview-link" target="_blank">👁️ Preview</a>
                             </div>
                         </td>
-                        <td><a href="${sourceUrl}" target="_blank">🔗 Source</a></td>
                     `;
                     row.dataset.name = comic.name.toLowerCase();
                     row.dataset.source = source;
@@ -657,13 +314,13 @@
                     // Determine source name for display
                     let sourceName = '';
                     if (comic.source === 'comicskingdom') {
-                        sourceName = ' <span style="color: #888; font-size: 0.85em;">(Comics Kingdom)</span>';
+                        sourceName = ' <span class="source-tag">(Comics Kingdom)</span>';
                     } else if (comic.source === 'tinyview') {
-                        sourceName = ' <span style="color: #888; font-size: 0.85em;">(TinyView)</span>';
+                        sourceName = ' <span class="source-tag">(TinyView)</span>';
                     } else if (comic.source === 'farside') {
-                        sourceName = ' <span style="color: #888; font-size: 0.85em;">(Far Side)</span>';
+                        sourceName = ' <span class="source-tag">(Far Side)</span>';
                     } else {
-                        sourceName = ' <span style="color: #888; font-size: 0.85em;">(GoComics)</span>';
+                        sourceName = ' <span class="source-tag">(GoComics)</span>';
                     }
                     
                     checkboxItem.innerHTML = `

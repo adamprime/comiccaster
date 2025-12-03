@@ -1,0 +1,459 @@
+/* ComicCaster "The Daily Dispatch" Theme */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap');
+
+:root {
+    /* Color Palette */
+    --paper-bg: #f4f1ea;
+    --ink-black: #1a1a1a;
+    --panel-border: #000000;
+    --accent-red: #e63946;
+    --accent-blue: #457b9d;
+    --accent-yellow: #f1fa8c;
+    --panel-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+    
+    /* Fonts */
+    --font-headline: 'Bangers', cursive;
+    --font-body: 'Lora', serif;
+    --font-comic: 'Comic Neue', cursive;
+    
+    /* Dark Mode Overrides */
+    --dm-bg: #2b2b2b;
+    --dm-panel: #3a3a3a;
+    --dm-text: #e0e0e0;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--paper-bg);
+    color: var(--ink-black);
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 3px solid var(--ink-black);
+    position: relative;
+}
+
+.header::after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid var(--ink-black);
+    margin-top: 4px;
+}
+
+.header h1 {
+    font-family: var(--font-headline);
+    font-size: 4rem;
+    letter-spacing: 2px;
+    margin: 0;
+    color: var(--ink-black);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.header p {
+    font-family: var(--font-comic);
+    font-size: 1.4rem;
+    color: #555;
+    margin: 0.5rem 0 1.5rem 0;
+    font-style: italic;
+}
+
+/* Navigation */
+.header-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    font-family: var(--font-headline);
+}
+
+.header-nav a {
+    color: var(--ink-black);
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.header-nav a:hover {
+    border: 2px solid var(--ink-black);
+    background-color: #fff;
+    transform: rotate(-2deg);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+/* Card / Panel Styling */
+.card {
+    background: #fff;
+    border: 3px solid var(--panel-border);
+    border-radius: 0; /* Square corners for comic panels */
+    margin-bottom: 3rem;
+    box-shadow: var(--panel-shadow);
+    position: relative;
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 3px solid var(--panel-border);
+    background-color: #fff;
+}
+
+.card-header h2 {
+    font-family: var(--font-headline);
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.card-header p {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.1rem;
+    color: #666;
+    font-family: var(--font-body);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Table Styling */
+.table-container {
+    height: 400px;
+    overflow-y: scroll; 
+    border: 2px solid var(--panel-border);
+    background: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-comic);
+}
+
+.table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.table th {
+    background-color: #eee;
+    border-bottom: 2px solid var(--panel-border);
+    padding: 1rem;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    font-family: var(--font-headline);
+    letter-spacing: 1px;
+}
+
+.table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.1rem;
+}
+
+.table tr:hover td {
+    background-color: #fffde7; /* Light yellow highlight */
+}
+
+/* Links & URLs */
+.feed-url {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.url-text {
+    color: var(--accent-blue);
+    font-family: monospace;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.copy-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Forms & Inputs */
+input[type="text"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--panel-border);
+    border-radius: 0;
+    font-family: var(--font-comic);
+    font-size: 1.1rem;
+    background: #fff;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 4px 4px 0 var(--accent-blue);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0; /* Attached to content */
+    position: relative;
+    top: 3px; /* Overlap border */
+    z-index: 1;
+    padding-left: 1rem;
+}
+
+.tab-button {
+    padding: 0.5rem 1.5rem;
+    background: #eee;
+    border: 2px solid var(--panel-border);
+    border-bottom: none;
+    font-family: var(--font-headline);
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.2s;
+}
+
+.tab-button.active {
+    background: #fff;
+    padding-top: 0.8rem; /* Pop up effect */
+    margin-top: -0.3rem;
+    border-bottom: 3px solid #fff; /* Hide border below */
+}
+
+.tab-content {
+    display: none;
+    border: 2px solid var(--panel-border);
+    padding: 1.5rem;
+    background: #fff;
+    margin-top: 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Comic List for OPML */
+.comic-list {
+    height: 300px;
+    overflow-y: scroll;
+    border: 2px solid var(--panel-border);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background: #f9f9f9;
+}
+
+.form-check {
+    margin-bottom: 0.5rem;
+    font-family: var(--font-comic);
+    font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-headline);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border: 2px solid var(--panel-border);
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+    background-color: var(--accent-red);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #d32f2f;
+}
+
+.btn-secondary {
+    background-color: #fff;
+    color: var(--ink-black);
+}
+
+.btn-secondary:hover {
+    background-color: #eee;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px dashed #ccc;
+    color: #666;
+    font-family: var(--font-comic);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--dm-bg);
+        color: var(--dm-text);
+        background-image: none;
+    }
+
+    .header h1 {
+        color: #fff;
+        text-shadow: 3px 3px 0 #000;
+    }
+    
+    .header p { color: #ccc; }
+    .header::after { border-color: #555; }
+    .header { border-bottom-color: #555; }
+    .header-nav a { color: #ccc; }
+    .header-nav a:hover { background-color: var(--dm-panel); color: #fff; border-color: #fff; }
+
+    .card {
+        background: var(--dm-panel);
+        border-color: #000;
+        box-shadow: 4px 4px 0 #111;
+    }
+
+    .card-header {
+        background-color: #444;
+        border-bottom-color: #000;
+    }
+    
+    .card-header p { color: #aaa; }
+
+    .table-container, .comic-list {
+        background: #222;
+        border-color: #000;
+    }
+    
+    .table th {
+        background-color: #333;
+        color: #fff;
+        border-bottom-color: #000;
+    }
+    
+    .table td {
+        border-bottom-color: #444;
+        color: #ddd;
+    }
+    
+    .table tr:hover td {
+        background-color: #333;
+    }
+    
+    input[type="text"] {
+        background: #222;
+        border-color: #555;
+        color: #fff;
+    }
+    
+    .tab-button {
+        background: #333;
+        border-color: #000;
+        color: #aaa;
+    }
+    
+    .tab-button.active {
+        background: var(--dm-panel);
+        color: #fff;
+        border-bottom-color: var(--dm-panel);
+    }
+    
+    .tab-content {
+        background: var(--dm-panel);
+        border-color: #000;
+    }
+    
+    .btn-secondary {
+        background-color: #444;
+        color: #fff;
+        border-color: #000;
+    }
+    
+    .btn-secondary:hover {
+        background-color: #555;
+    }
+}
+
+/* Notification Banner */
+.notification-banner {
+    background-color: var(--accent-yellow);
+    color: var(--ink-black);
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: var(--font-comic);
+    font-size: 1.1rem;
+    border-bottom: 2px solid var(--ink-black);
+}
+
+.notification-banner a {
+    color: var(--accent-blue);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Source Tag */
+.source-tag {
+    color: #666;
+    font-size: 0.85em;
+    font-family: var(--font-body);
+    font-style: italic;
+}
+
+@media (prefers-color-scheme: dark) {
+    .source-tag {
+        color: #aaa;
+    }
+}
