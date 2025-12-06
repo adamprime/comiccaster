@@ -9,6 +9,7 @@ import os
 import json
 import logging
 from datetime import datetime, timedelta
+import pytz
 from pathlib import Path
 from typing import Dict, List
 
@@ -110,10 +111,17 @@ def generate_feed_for_comic(comic_slug, comic_entries, comic_metadata):
             if not entry.get('images') or len(entry['images']) == 0:
                 continue
             
+            # Parse date and set time to 23:59:59 so TinyView comics sort at top of their day
+            # This ensures they appear just before the next day's Comics Kingdom/GoComics entries
+            date_str = entry['date'].replace('/', '-')
+            pub_datetime = datetime.strptime(date_str, '%Y-%m-%d').replace(
+                hour=23, minute=59, second=59, tzinfo=pytz.UTC
+            )
+            
             feed_entry = {
                 'title': entry.get('name', f"{comic_info['name']} - {entry['date']}"),
                 'url': entry['url'],
-                'pub_date': entry['date'].replace('/', '-'),
+                'pub_date': pub_datetime,
                 'description': entry.get('description', ''),
                 'image_url': entry['images'][0]['url'] if entry['images'] else '',
                 'images': entry['images']
