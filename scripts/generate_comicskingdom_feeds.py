@@ -95,11 +95,18 @@ def generate_feed_for_comic(comic_info: Dict, scraped_data: Dict[str, List[Dict]
     # Get all entries for this comic (from multiple days)
     comic_entries = scraped_data[slug]
     
-    # Create feed entries for each day
+    # Sort entries by date (oldest first) so we keep the first occurrence of each image
+    comic_entries_sorted = sorted(comic_entries, key=lambda x: x.get('date', ''))
+    
+    # Create feed entries for each day, deduplicating by image URL
     entries = []
-    for scraped_comic in comic_entries:
+    seen_image_urls = set()  # Track unique images to avoid duplicates for weekly comics
+    
+    for scraped_comic in comic_entries_sorted:
         # Handle both single and multiple images per day
         images = []
+        image_urls_for_entry = []
+        
         if 'image_urls' in scraped_comic:
             # Multiple images
             for i, url in enumerate(scraped_comic['image_urls']):
@@ -107,12 +114,14 @@ def generate_feed_for_comic(comic_info: Dict, scraped_data: Dict[str, List[Dict]
                     'url': url,
                     'alt': f"{comic_info['name']} - Panel {i+1}"
                 })
+                image_urls_for_entry.append(url)
         elif 'image_url' in scraped_comic:
             # Single image
             images.append({
                 'url': scraped_comic['image_url'],
                 'alt': comic_info['name']
             })
+            image_urls_for_entry.append(scraped_comic['image_url'])
         else:
             # Skip entries with no images
             continue
@@ -120,6 +129,14 @@ def generate_feed_for_comic(comic_info: Dict, scraped_data: Dict[str, List[Dict]
         # Skip if images list is empty (weekly comics on non-update days)
         if not images:
             continue
+        
+        # Create a signature from all image URLs for this entry
+        image_signature = tuple(sorted(image_urls_for_entry))
+        
+        # Skip if we've already seen this exact set of images (handles weekly comics)
+        if image_signature in seen_image_urls:
+            continue
+        seen_image_urls.add(image_signature)
         
         # Create feed entry from scraped data
         entry = {
