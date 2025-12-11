@@ -125,7 +125,7 @@ log "Starting authenticated TinyView scraper..."
 log "Using persistent Chrome profile for authentication"
 log "This may take 5-10 minutes for 29 comics..."
 
-if python3 tinyview_scraper_local_authenticated.py --date "$DATE" --days-back 15 2>&1 | tee -a "$LOG_FILE"; then
+if python3 scripts/tinyview_scraper_local_authenticated.py --date "$DATE" --days-back 15 2>&1 | tee -a "$LOG_FILE"; then
     log "✅ TinyView scraping completed successfully"
 else
     log_error "❌ TinyView scraping failed"

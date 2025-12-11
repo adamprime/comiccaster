@@ -72,8 +72,20 @@ def load_existing_data(data_dir='data'):
     return existing_data
 
 
-def scrape_comic_with_scraper(scraper, comic_slug, comic_name, days_back=15, existing_dates=None):
-    """Scrape a single comic using the authenticated TinyviewScraper."""
+def scrape_comic_with_scraper(scraper, comic_slug, comic_name, days_back=15, existing_dates=None, feed_slug=None):
+    """Scrape a single comic using the authenticated TinyviewScraper.
+    
+    Args:
+        scraper: TinyviewScraper instance
+        comic_slug: The TinyView URL path slug (used for scraping)
+        comic_name: Display name of the comic
+        days_back: How many days to look back
+        existing_dates: Set of dates already scraped
+        feed_slug: The slug to use in output data (for feed generation). Defaults to comic_slug.
+    """
+    if feed_slug is None:
+        feed_slug = comic_slug
+    
     try:
         print(f"  Fetching recent comics...")
         recent_comics = scraper.get_recent_comics(comic_slug, days_back=days_back)
@@ -110,7 +122,7 @@ def scrape_comic_with_scraper(scraper, comic_slug, comic_name, days_back=15, exi
                     # Convert to serializable format matching Comics Kingdom pattern
                     comic_json = {
                         'name': comic_name,
-                        'slug': comic_slug,
+                        'slug': feed_slug,  # Use feed_slug for output (may differ from TinyView URL path)
                         'date': result['date'].replace('/', '-'),  # Convert to YYYY-MM-DD
                         'url': result['url'],
                         'source': 'tinyview',
@@ -172,14 +184,22 @@ def scrape_all_comics_authenticated(comics, date_str, days_back=15, existing_dat
         for i, comic in enumerate(comics, 1):
             slug = comic['slug']
             name = comic['name']
+            # Extract the actual TinyView URL path from the comic's URL
+            # This handles cases where slug differs from URL (e.g., fowl-language-tinyview vs fowl-language)
+            comic_url = comic.get('url', '')
+            if comic_url:
+                from urllib.parse import urlparse
+                tinyview_slug = urlparse(comic_url).path.strip('/')
+            else:
+                tinyview_slug = slug
             
-            print(f"[{i}/{len(comics)}] Scraping {name} ({slug})...")
+            print(f"[{i}/{len(comics)}] Scraping {name} ({tinyview_slug})...")
             
             try:
-                # Get existing dates for this comic
+                # Get existing dates for this comic (use original slug for data tracking)
                 existing_dates = existing_data.get(slug, set()) if existing_data else set()
                 
-                results = scrape_comic_with_scraper(scraper, slug, name, days_back, existing_dates)
+                results = scrape_comic_with_scraper(scraper, tinyview_slug, name, days_back, existing_dates, feed_slug=slug)
                 
                 if results:
                     all_results.extend(results)
