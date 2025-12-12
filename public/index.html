@@ -282,6 +282,10 @@
                         sourceName = 'Far Side';
                         sourceUrl = comic.url || 'https://www.thefarside.com/';
                         feedPath = `/feeds/${comic.slug}.xml`;
+                    } else if (comic.source === 'newyorker') {
+                        sourceName = 'The New Yorker';
+                        sourceUrl = comic.url || 'https://www.newyorker.com/cartoons/daily-cartoon';
+                        feedPath = `/feeds/${comic.slug}.xml`;
                     } else {
                         sourceName = 'GoComics';
                         sourceUrl = `https://www.gocomics.com/${comic.slug}`;
@@ -334,6 +338,8 @@
                         sourceName = ' <span class="source-tag">(TinyView)</span>';
                     } else if (comic.source === 'farside') {
                         sourceName = ' <span class="source-tag">(Far Side)</span>';
+                    } else if (comic.source === 'newyorker') {
+                        sourceName = ' <span class="source-tag">(The New Yorker)</span>';
                     } else {
                         sourceName = ' <span class="source-tag">(GoComics)</span>';
                     }

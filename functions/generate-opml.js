@@ -145,18 +145,32 @@ function generateOPML(comics, type = 'daily') {
         slugToName[comic.slug] = comic.name;
     });
     
+    // Create a mapping of slugs to comic data (name and source)
+    const slugToComic = {};
+    comicsList.forEach(comic => {
+        slugToComic[comic.slug] = comic;
+    });
+    
     const feeds = comics.map(slug => {
-        // Use the comic name from comics_list.json if available, otherwise format the slug
-        let comicName = slugToName[slug];
-        if (!comicName) {
-            comicName = slug.replace(/-/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase());
+        // Use the comic data from comics_list.json if available
+        const comic = slugToComic[slug];
+        let comicName = comic ? comic.name : slug.replace(/-/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase());
+        
+        // Determine feed URL based on source
+        // GoComics uses /rss/{slug}, others use /feeds/{slug}.xml
+        let feedUrl;
+        if (comic && (comic.source === 'comicskingdom' || comic.source === 'tinyview' || 
+                      comic.source === 'farside' || comic.source === 'newyorker')) {
+            feedUrl = `${baseUrl}/feeds/${slug}.xml`;
+        } else {
+            feedUrl = `${baseUrl}/rss/${slug}`;
         }
             
         return `            <outline 
                 type="rss" 
                 text="${comicName}"
                 title="${comicName}"
-                xmlUrl="${baseUrl}/rss/${slug}"
+                xmlUrl="${feedUrl}"
             />`;
     }).join('\n');
 
