@@ -39,7 +39,7 @@ echo "=== Phase 1: Scraping All Sources ==="
 DATE_STR=$(date +%Y-%m-%d)
 
 echo ""
-echo "[1/4] Scraping GoComics (authenticated)..."
+echo "[1/5] Scraping GoComics (authenticated)..."
 python scripts/authenticated_scraper_secure.py --output-dir ./data
 if [ $? -ne 0 ]; then
     echo "❌ GoComics scraping failed"
@@ -48,7 +48,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "[2/4] Scraping Comics Kingdom..."
+echo "[2/5] Scraping Comics Kingdom..."
 python scripts/comicskingdom_scraper_individual.py --date "$DATE_STR" --output-dir data
 if [ $? -ne 0 ]; then
     echo "❌ Comics Kingdom scraping failed"
@@ -57,7 +57,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "[3/4] Scraping TinyView..."
+echo "[3/5] Scraping TinyView..."
 python scripts/tinyview_scraper_local_authenticated.py --date "$DATE_STR" --days-back 15
 if [ $? -ne 0 ]; then
     echo "❌ TinyView scraping failed"
@@ -66,11 +66,20 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "[4/4] Scraping Far Side..."
+echo "[4/5] Scraping Far Side..."
 python scripts/update_farside_feeds.py
 if [ $? -ne 0 ]; then
     echo "❌ Far Side scraping failed"
     osascript -e 'display notification "Far Side scraping failed" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
+    exit 1
+fi
+
+echo ""
+echo "[5/5] Scraping New Yorker Daily Cartoon..."
+python scripts/update_newyorker_feeds.py
+if [ $? -ne 0 ]; then
+    echo "❌ New Yorker scraping failed"
+    osascript -e 'display notification "New Yorker scraping failed" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
     exit 1
 fi
 
