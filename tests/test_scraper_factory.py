@@ -103,7 +103,7 @@ class TestScraperFactory:
         
         sources = ScraperFactory.get_supported_sources()
         
-        expected_sources = ['gocomics-daily', 'gocomics-political', 'tinyview', 'gocomics', 'farside-daily', 'farside-new']
+        expected_sources = ['gocomics-daily', 'gocomics-political', 'tinyview', 'gocomics', 'farside-daily', 'farside-new', 'newyorker']
         assert set(sources) == set(expected_sources)
     
     def test_factory_supports_source_checking(self):

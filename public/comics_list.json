@@ -4197,5 +4197,13 @@
     "source": "farside-new",
     "position": 523,
     "is_updated": true
+  },
+  {
+    "name": "Daily Cartoon",
+    "slug": "newyorker-daily-cartoon",
+    "author": "The New Yorker",
+    "url": "https://www.newyorker.com/cartoons/daily-cartoon",
+    "source": "newyorker",
+    "position": 524
   }
 ]

@@ -58,7 +58,8 @@ class ComicFeedGenerator:
             'gocomics-daily': 'GoComics',
             'gocomics-political': 'GoComics Political',
             'tinyview': 'TinyView',
-            'comicskingdom': 'Comics Kingdom'
+            'comicskingdom': 'Comics Kingdom',
+            'newyorker': 'The New Yorker'
         }.get(source, 'GoComics')
         
         # Set feed metadata
