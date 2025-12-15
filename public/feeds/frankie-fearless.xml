@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Frankie Fearless - TinyView</title><link>https://tinyview.com/frankie-fearless</link><description>Daily Frankie Fearless comic strip by Thaddeus Thomas from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/frankie-fearless.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 10 Dec 2025 09:22:10 +0000</lastBuildDate><ttl>1440</ttl><item><title>Frankie Fearless</title><link>https://tinyview.com/frankie-fearless/2025/12/08/episode-469-done-with-work</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Frankie Fearless - TinyView</title><link>https://tinyview.com/frankie-fearless</link><description>Daily Frankie Fearless comic strip by Thaddeus Thomas from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/frankie-fearless.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 15 Dec 2025 13:25:01 +0000</lastBuildDate><ttl>1440</ttl><item><title>Frankie Fearless</title><link>https://tinyview.com/frankie-fearless/2025/12/10/episode-470-lost-glasses</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,19 +16,19 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Frankie's dad is celebrating getting some work done
-(As am I!) and yet the celebration may be short lived (for both of us).&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;This was going to be a Fowl Language comic since it's autobiographical, but unlike me my duck doesn't wear glasses.
+Though come to think of it, now neither of us do...&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/frankie-fearless/2025/12/08/episode-469-done-with-work/Done-with-work-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/frankie-fearless/2025/12/10/episode-470-lost-glasses/lost-glasses-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/frankie-fearless/2025/12/08/episode-469-done-with-work/Done-with-work-1.jpg" alt="https://cdn.tinyview.com/frankie-fearless/2025/12/08/episode-469-done-with-work/Done-with-work-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/frankie-fearless/2025/12/08/episode-469-done-with-work/Done-with-work-1.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/frankie-fearless/2025/12/10/episode-470-lost-glasses/lost-glasses-1.jpg" alt="https://cdn.tinyview.com/frankie-fearless/2025/12/10/episode-470-lost-glasses/lost-glasses-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/frankie-fearless/2025/12/10/episode-470-lost-glasses/lost-glasses-1.jpg&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/frankie-fearless/2025/12/08/episode-469-done-with-work/Done-with-work-2.jpg" alt="https://cdn.tinyview.com/frankie-fearless/2025/12/08/episode-469-done-with-work/Done-with-work-2.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/frankie-fearless/2025/12/08/episode-469-done-with-work/Done-with-work-2.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/frankie-fearless/2025/12/10/episode-470-lost-glasses/lost-glasses-2.jpg" alt="https://cdn.tinyview.com/frankie-fearless/2025/12/10/episode-470-lost-glasses/lost-glasses-2.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/frankie-fearless/2025/12/10/episode-470-lost-glasses/lost-glasses-2.jpg&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/frankie-fearless/2025/12/08/episode-469-done-with-work</guid><pubDate>Mon, 08 Dec 2025 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/frankie-fearless/2025/12/10/episode-470-lost-glasses</guid><pubDate>Wed, 10 Dec 2025 23:59:59 +0000</pubDate></item></channel></rss>

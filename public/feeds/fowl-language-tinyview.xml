@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fowl Language (TinyView) - TinyView</title><link>https://tinyview.com/fowl-language</link><description>Daily Fowl Language (TinyView) comic strip by Brian Gordon from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/fowl-language-tinyview.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 11 Dec 2025 16:47:55 +0000</lastBuildDate><ttl>1440</ttl><item><title>Fowl Language (TinyView)</title><link>https://tinyview.com/fowl-language/2025/11/28/thankful-for-kids</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fowl Language (TinyView) - TinyView</title><link>https://tinyview.com/fowl-language</link><description>Daily Fowl Language (TinyView) comic strip by Brian Gordon from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/fowl-language-tinyview.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 15 Dec 2025 13:25:01 +0000</lastBuildDate><ttl>1440</ttl><item><title>Fowl Language (TinyView)</title><link>https://tinyview.com/fowl-language/2025/12/11/updated-christmas-classic</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,175 +16,16 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It's a paid subscriber exclusive, guys! And this one is about being thankful. Know who else I'm thankful for? YOU guys. I've been killing myself with other freelance to make ends meet, but Tinyview and your support is what keeps the lights on. So a massive thank you to everyone who's subscribed! And if you haven't, but have considered, now is the perfect time to help us survive these crazy times. 
-As always, so much love to one and all!
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Hey guys! It's another exclusive cartoon for paying Tinyview subscribers! Had fun writing this admittedly dark parody, so I hope you guys like it! And if you haven't subscribed yet, today's the perfect time to jump in! It's definitely helping me to keep the christmas lights on. 
+Much love and holiday cheer! 🎄❤️
 -brian&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/11/28/thankful-for-kids/thankful-for-kids-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/11/updated-christmas-classic/updated-xmas-classic-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/11/28/thankful-for-kids/thankful-for-kids-1.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/11/28/thankful-for-kids/thankful-for-kids-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/11/28/thankful-for-kids/thankful-for-kids-1.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/11/updated-christmas-classic/updated-xmas-classic-1.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/11/updated-christmas-classic/updated-xmas-classic-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/11/updated-christmas-classic/updated-xmas-classic-1.jpg&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/11/28/thankful-for-kids</guid><pubDate>Fri, 28 Nov 2025 23:59:59 +0000</pubDate></item><item><title>Fowl Language (TinyView)</title><link>https://tinyview.com/fowl-language/2025/12/01/chivalry</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It's nice knowing that we're imparting these values in our kids. At least somewhat..&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/01/chivalry/chivalry-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/01/chivalry/chivalry-1.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/01/chivalry/chivalry-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/01/chivalry/chivalry-1.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/01/chivalry/chivalry-2.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/01/chivalry/chivalry-2.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/01/chivalry/chivalry-2.jpg&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/12/01/chivalry</guid><pubDate>Mon, 01 Dec 2025 23:59:59 +0000</pubDate></item><item><title>Fowl Language (TinyView)</title><link>https://tinyview.com/fowl-language/2025/12/03/talking-to-a-teen</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;If you've only got young kids and you're wondering what you're in for during the teen years, I can help you find out TODAY!&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-1.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-1.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-2.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-2.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-2.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-3.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-3.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-3.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-4.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-4.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/03/talking-to-a-teen/talking-to-a-teen-4.jpg&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/12/03/talking-to-a-teen</guid><pubDate>Wed, 03 Dec 2025 23:59:59 +0000</pubDate></item><item><title>Fowl Language (TinyView)</title><link>https://tinyview.com/fowl-language/2025/12/05/xmas-list</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It's another premium-member comic! This one's about the changing wants and challenges of the kids' Christmas lists. Thanks to all who have signed up to support me and the site, it's a huge help, especially this time of year. And please consider signing up if you're able. Only 5 bucks a month to keep the laughs coming. ❤️&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/05/xmas-list/xmas-list-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/05/xmas-list/xmas-list-1.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/05/xmas-list/xmas-list-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/05/xmas-list/xmas-list-1.jpg&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/12/05/xmas-list</guid><pubDate>Fri, 05 Dec 2025 23:59:59 +0000</pubDate></item><item><title>Fowl Language (TinyView)</title><link>https://tinyview.com/fowl-language/2025/12/08/can-t-believe-their-age</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;This happens every year with all of my kids. I know it's a cliche. (Hell, I know I'M a cliche.) But it's still true!&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/08/can-t-believe-their-age/cant-believe-their-age-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/08/can-t-believe-their-age/cant-believe-their-age-1.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/08/can-t-believe-their-age/cant-believe-their-age-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/08/can-t-believe-their-age/cant-believe-their-age-1.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/08/can-t-believe-their-age/cant-believe-their-age-2.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/08/can-t-believe-their-age/cant-believe-their-age-2.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/08/can-t-believe-their-age/cant-believe-their-age-2.jpg&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/12/08/can-t-believe-their-age</guid><pubDate>Mon, 08 Dec 2025 23:59:59 +0000</pubDate></item><item><title>Fowl Language (TinyView)</title><link>https://tinyview.com/fowl-language/2025/12/09/easy-home-improvement</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Need to fix something in your house? I've written an easy two-step guide to virtually any home repair based on personal experience.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/09/easy-home-improvement/easy-home-improvement-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/09/easy-home-improvement/easy-home-improvement-1.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/09/easy-home-improvement/easy-home-improvement-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/09/easy-home-improvement/easy-home-improvement-1.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2025/12/09/easy-home-improvement/easy-home-improvement-2.jpg" alt="https://cdn.tinyview.com/fowl-language/2025/12/09/easy-home-improvement/easy-home-improvement-2.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2025/12/09/easy-home-improvement/easy-home-improvement-2.jpg&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/12/09/easy-home-improvement</guid><pubDate>Tue, 09 Dec 2025 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2025/12/11/updated-christmas-classic</guid><pubDate>Thu, 11 Dec 2025 23:59:59 +0000</pubDate></item></channel></rss>
