@@ -393,31 +393,29 @@ class ComicFeedGenerator:
             
             # Create a list to store entries with parsed dates
             entries_with_dates = []
-            seen_dates = {}  # Track entries by date to prevent duplicates
+            seen_ids = set()  # Track entries by unique ID/URL to prevent duplicates
             
             # Process entries and parse their dates
             for metadata in entries:
                 try:
                     # Parse the publication date
                     pub_date = self.parse_date_with_timezone(metadata.get('pub_date', ''))
-                    date_str = pub_date.strftime('%Y-%m-%d')
                     
-                    # Skip if we already have a more recent entry for this date
-                    if date_str in seen_dates:
-                        existing_date = seen_dates[date_str]['pub_date']
-                        if pub_date <= existing_date:
-                            logger.debug(f"Skipping duplicate entry for {date_str}")
-                            continue
+                    # Get unique identifier for this entry (URL or id)
+                    entry_id = metadata.get('id', metadata.get('url', ''))
+                    
+                    # Skip if we already have this exact entry
+                    if entry_id and entry_id in seen_ids:
+                        logger.debug(f"Skipping duplicate entry: {entry_id}")
+                        continue
                     
                     # Store the entry with its date
                     entries_with_dates.append({
                         'metadata': metadata,
                         'pub_date': pub_date
                     })
-                    seen_dates[date_str] = {
-                        'metadata': metadata,
-                        'pub_date': pub_date
-                    }
+                    if entry_id:
+                        seen_ids.add(entry_id)
                 except Exception as e:
                     logger.error(f"Error processing entry: {e}")
                     continue
