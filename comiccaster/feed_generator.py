@@ -420,9 +420,13 @@ class ComicFeedGenerator:
                     logger.error(f"Error processing entry: {e}")
                     continue
             
-            # Add entries to feed (iterating over the potentially pre-sorted list)
+            # Sort entries by date ascending (oldest first) because feedgen prepends entries.
+            # This results in newest-first order in the final RSS output.
+            entries_with_dates.sort(key=lambda x: x['pub_date'])
+            
+            # Add entries to feed
             feed_entry_count = 0
-            for entry_data in entries_with_dates: # Iterate over the list as received
+            for entry_data in entries_with_dates:
                 try:
                     # Create entry with the metadata
                     fe = self.create_entry(comic_info, entry_data['metadata'])
