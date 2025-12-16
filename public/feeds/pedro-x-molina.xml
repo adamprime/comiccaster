@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 15 Dec 2025 13:25:01 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2025/12/09/dear-santa</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 16 Dec 2025 09:14:29 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,41 +16,30 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;There is something that the sooner we understand it, the better: the more political noise this administration generates, the more serious is what it wants to distract us from...&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;The tragic murder of Rob Reiner and his wife, Michele Singer Reiner, the most recent shooting at Brown University, and the reactions of the US president to these events make very clear a problem that demands the attention of all Americans...&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/09/dear-santa/DearSTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/EvindenceTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/09/dear-santa/DearSTV.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2025/12/09/dear-santa/DearSTV.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2025/12/09/dear-santa/DearSTV.jpg&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/12/09/dear-santa</guid><pubDate>Tue, 09 Dec 2025 23:59:59 +0000</pubDate></item><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2025/12/10/trump-s-peace-prize</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;The “peace” prize commissioned by FIFA and tailored to Trump's liking has been the subject of worldwide ridicule. And it's not just because FIFA, an organization better known internationally for its corruption and manipulation of a sport that, incidentally, causes the most division and violence around the world, has no experience or authority in terms of peace, but also because the recipient doesn't either.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/10/trump-s-peace-prize/TPPTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi1.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi1.jpg&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/10/trump-s-peace-prize/TPPTV.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2025/12/10/trump-s-peace-prize/TPPTV.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2025/12/10/trump-s-peace-prize/TPPTV.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi2.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi2.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi2.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi3.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi3.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi3.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi4.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi4.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi4.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi5.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi5.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room/Evi5.jpg&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/12/10/trump-s-peace-prize</guid><pubDate>Wed, 10 Dec 2025 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2025/12/14/in-the-evidence-room</guid><pubDate>Sun, 14 Dec 2025 23:59:59 +0000</pubDate></item></channel></rss>
