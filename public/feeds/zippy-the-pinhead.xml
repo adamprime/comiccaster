@@ -1,5 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Zippy The Pinhead - Comics Kingdom</title><link>https://comicskingdom.com/zippy-the-pinhead</link><description>Daily Zippy The Pinhead comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/zippy-the-pinhead.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 23 Dec 2025 09:31:01 +0000</lastBuildDate><ttl>1440</ttl><item><title>Zippy The Pinhead - 2025-12-23</title><link>https://comicskingdom.com/zippy-the-pinhead/2025-12-23</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Zippy The Pinhead - Comics Kingdom</title><link>https://comicskingdom.com/zippy-the-pinhead</link><description>Daily Zippy The Pinhead comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/zippy-the-pinhead.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 24 Dec 2025 09:15:14 +0000</lastBuildDate><ttl>1440</ttl><item><title>Zippy The Pinhead - 2025-12-24</title><link>https://comicskingdom.com/zippy-the-pinhead/2025-12-24</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2025-12-24&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/12/Y2taaXBweSBUaGUgUGluaGVhZC1FTkctNTc1NTU3MQ.jpg" alt="Zippy The Pinhead - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/12/Y2taaXBweSBUaGUgUGluaGVhZC1FTkctNTc1NTU3Mw.jpg" alt="Zippy The Pinhead - Panel 2" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/12/Y2taaXBweSBUaGUgUGluaGVhZC1FTkctNTc1NTU3Nw.jpg" alt="Zippy The Pinhead - Panel 3" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/zippy-the-pinhead/2025-12-24</guid><pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate></item><item><title>Zippy The Pinhead - 2025-12-23</title><link>https://comicskingdom.com/zippy-the-pinhead/2025-12-23</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -236,27 +264,4 @@
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/12/Y2taaXBweSBUaGUgUGluaGVhZC1FTkctNTczMzUzMw.jpg" alt="Zippy The Pinhead - Panel 3" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/zippy-the-pinhead/2025-12-15</guid><pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate></item><item><title>Zippy The Pinhead - 2025-12-14</title><link>https://comicskingdom.com/zippy-the-pinhead/2025-12-14</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2025-12-14&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/12/Y2taaXBweSBUaGUgUGluaGVhZC1FTkctNTY2NTQ3NQ.jpg" alt="Zippy The Pinhead" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Zippy The Pinhead&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/zippy-the-pinhead/2025-12-14</guid><pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/zippy-the-pinhead/2025-12-15</guid><pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate></item></channel></rss>
