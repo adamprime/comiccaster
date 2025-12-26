@@ -26,6 +26,17 @@ source "$REPO_DIR/venv/bin/activate"
 # Install comiccaster package in editable mode (if not already installed)
 pip install -e "$REPO_DIR" > /dev/null 2>&1 || true
 
+# Load SSH key from Keychain (required for LaunchD which runs without GUI session)
+ssh-add --apple-use-keychain ~/.ssh/id_rsa 2>/dev/null || true
+
+# Verify GitHub SSH access before proceeding
+if ! ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"; then
+    echo "❌ GitHub SSH authentication failed - check SSH key and keychain"
+    osascript -e 'display notification "SSH auth failed - check keychain" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
+    exit 1
+fi
+echo "✅ GitHub SSH authentication verified"
+
 # Clean git refs
 echo ""
 echo "Cleaning up git references..."
