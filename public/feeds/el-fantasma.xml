@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>The Phantom (Spanish) - Comics Kingdom</title><link>https://comicskingdom.com/el-fantasma</link><description>Daily The Phantom (Spanish) comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/el-fantasma.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 27 Dec 2025 09:14:48 +0000</lastBuildDate><ttl>1440</ttl><item><title>The Phantom (Spanish) - 2025-12-27</title><link>https://comicskingdom.com/el-fantasma/2025-12-27</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>The Phantom (Spanish) - Comics Kingdom</title><link>https://comicskingdom.com/el-fantasma</link><description>Daily The Phantom (Spanish) comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/el-fantasma.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 28 Dec 2025 09:13:49 +0000</lastBuildDate><ttl>1440</ttl><item><title>The Phantom (Spanish) - 2025-12-28</title><link>https://comicskingdom.com/el-fantasma/2025-12-28</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2025-12-28&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/12/Y2tUaGUgUGhhbnRvbSAoU3BhbmlzaCktU1BBLTU3NTA0ODc.jpg" alt="The Phantom (Spanish)" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;The Phantom (Spanish)&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/el-fantasma/2025-12-28</guid><pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate></item><item><title>The Phantom (Spanish) - 2025-12-27</title><link>https://comicskingdom.com/el-fantasma/2025-12-27</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -206,27 +229,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;The Phantom (Spanish)&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/el-fantasma/2025-12-19</guid><pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate></item><item><title>The Phantom (Spanish) - 2025-12-18</title><link>https://comicskingdom.com/el-fantasma/2025-12-18</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2025-12-18&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/12/Y2tUaGUgUGhhbnRvbSAoU3BhbmlzaCktU1BBLTU3MTIxMzE.jpg" alt="The Phantom (Spanish)" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;The Phantom (Spanish)&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/el-fantasma/2025-12-18</guid><pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/el-fantasma/2025-12-19</guid><pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate></item></channel></rss>
