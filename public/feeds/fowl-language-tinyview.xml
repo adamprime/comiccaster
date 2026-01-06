@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fowl Language (TinyView) - TinyView</title><link>https://tinyview.com/fowl-language</link><description>Daily Fowl Language (TinyView) comic strip by Brian Gordon from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/fowl-language-tinyview.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 03 Jan 2026 09:26:17 +0000</lastBuildDate><ttl>1440</ttl><item><title>Fowl Language (TinyView)</title><link>https://tinyview.com/fowl-language/2026/01/01/scrolling</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Fowl Language (TinyView) - TinyView</title><link>https://tinyview.com/fowl-language</link><description>Daily Fowl Language (TinyView) comic strip by Brian Gordon from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/fowl-language-tinyview.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 06 Jan 2026 09:28:36 +0000</lastBuildDate><ttl>1440</ttl><item><title>Fowl Language (TinyView)</title><link>https://tinyview.com/fowl-language/2026/01/04/generation-slap</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,14 +16,22 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It's a friday exclusive for paid subscribers! This one's about scrolling, which is something I'm trying to cut back on (outside of Tinyview, of course 🤪). Please consider upping to a paid subscription if you can to help support my work!&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;As the joke goes, if you understand today's comic, you also may be due for a routine colonoscopy.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2026/01/01/scrolling/scrolling-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-header.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/fowl-language/2026/01/01/scrolling/scrolling-1.jpg" alt="https://cdn.tinyview.com/fowl-language/2026/01/01/scrolling/scrolling-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2026/01/01/scrolling/scrolling-1.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-1.jpg" alt="https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-1.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-1.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-2.jpg" alt="https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-2.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-2.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-3.jpg" alt="https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-3.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/fowl-language/2026/01/04/generation-slap/Generation-slap-3.jpg&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2026/01/01/scrolling</guid><pubDate>Thu, 01 Jan 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/fowl-language/2026/01/04/generation-slap</guid><pubDate>Sun, 04 Jan 2026 23:59:59 +0000</pubDate></item></channel></rss>
