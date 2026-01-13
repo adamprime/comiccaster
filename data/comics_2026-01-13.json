@@ -24,6 +24,14 @@
     "category": "political"
   },
   {
+    "name": "Gary Varvel",
+    "slug": "gary-varvel",
+    "image_url": "https://featureassets.gocomics.com/assets/c0adc1b0d2bc013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-01-13",
+    "url": "https://www.gocomics.com/gary-varvel/2026/01/13",
+    "category": "political"
+  },
+  {
     "name": "Doonesbury",
     "slug": "doonesbury",
     "image_url": "https://featureassets.gocomics.com/assets/9a9e8fa0cd3c013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -45,6 +53,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/6ec317d0d24e013ebbb4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-01-13",
     "url": "https://www.gocomics.com/clay-bennett/2026/01/13",
+    "category": "political"
+  },
+  {
+    "name": "Chip Bok",
+    "slug": "chip-bok",
+    "image_url": "https://featureassets.gocomics.com/assets/f506cea0d2bd013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-01-13",
+    "url": "https://www.gocomics.com/chip-bok/2026/01/13",
     "category": "political"
   },
   {
@@ -2232,11 +2248,11 @@
     "category": "daily"
   },
   {
-    "name": "Tom The Dancing Bug",
-    "slug": "tom-the-dancing-bug",
+    "name": "Academia Waltz",
+    "slug": "academia-waltz",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-01-13",
-    "url": "https://www.gocomics.com/tom-the-dancing-bug/2026/01/13",
+    "url": "https://www.gocomics.com/academia-waltz/2026/01/13",
     "category": "daily"
   }
 ]
