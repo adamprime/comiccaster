@@ -1,6 +1,38 @@
 {
-  "scraped_at": "2026-01-14T09:20:00.189700+00:00",
+  "scraped_at": "2026-01-14T20:13:42.846393+00:00",
   "cartoons": [
+    {
+      "url": "https://www.newyorker.com/cartoons/daily-cartoon/wednesday-january-14th-series-finale",
+      "source": "newyorker",
+      "image_url": "https://media.newyorker.com/cartoons/6967b61de05265b28a01d9b2/master/w_1600%2Cc_limit/A61669.jpg",
+      "image_alt": "Two people sit on a couch watching television.",
+      "caption": "\"Is this the series finale of America, or do you think they\u2019ll release another episode?\"",
+      "author": "Benjamin Slyngstad",
+      "title": "Daily Cartoon: Wednesday, January 14th",
+      "date": "2026-01-14",
+      "humor_links": [
+        {
+          "title": "I am a Tinder guy holding a fish and I will provide for you.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/i-am-a-tinder-guy-holding-a-fish-and-i-will-provide-for-you"
+        },
+        {
+          "title": "I thought I would accomplish a lot more today and also by the time I was thirty-five.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/i-thought-i-would-have-accomplished-a-lot-more-today-and-also-by-the-time-i-was-thirty-five"
+        },
+        {
+          "title": "Circumstances in which I will not pet your dog.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/circumstances-in-which-i-will-not-pet-your-dog"
+        },
+        {
+          "title": "Fake pandemic introvert vs. real introvert.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/fake-pandemic-introvert-vs-real-introvert"
+        },
+        {
+          "title": "Things you could have done instead of checking your phone.",
+          "url": "https://www.newyorker.com/sections/humor/things-you-couldve-done-instead-of-checking-your-phone"
+        }
+      ]
+    },
     {
       "url": "https://www.newyorker.com/cartoons/daily-cartoon/tuesday-january-13th-best-books-of-2025",
       "source": "newyorker",
@@ -274,42 +306,6 @@
       "author": "Lia Strasser and Bizzy Coy",
       "title": "Daily Cartoon: Thursday, January 1st",
       "date": "2026-01-01",
-      "humor_links": [
-        {
-          "title": "Starter packs for things you will start but never finish.",
-          "url": "https://www.newyorker.com/humor/shouts-murmurs/starter-packs-for-things-you-will-start-but-never-finish"
-        },
-        {
-          "title": "I\u2019m the woman who ruined the workplace.",
-          "url": "https://www.newyorker.com/humor/shouts-murmurs/did-women-really-ruin-the-workplace"
-        },
-        {
-          "title": "My cat is Gen Z.",
-          "url": "https://www.newyorker.com/humor/shouts-murmurs/my-cat-is-gen-z"
-        },
-        {
-          "title": "I, a performatively feminist male, will be touring internationally.",
-          "url": "https://www.newyorker.com/humor/shouts-murmurs/i-a-performatively-feminist-male-will-be-touring-internationally"
-        },
-        {
-          "title": "Automatic-reply text messages.",
-          "url": "https://www.newyorker.com/humor/shouts-murmurs/automatic-reply-text-messages"
-        },
-        {
-          "title": "Lesser-known celebrity-owned alcohol brands.",
-          "url": "https://www.newyorker.com/humor/shouts-murmurs/lesser-known-celebrity-owned-alcohol-brands"
-        }
-      ]
-    },
-    {
-      "url": "https://www.newyorker.com/cartoons/daily-cartoon/wednesday-december-31st-champagne-toast",
-      "source": "newyorker",
-      "image_url": "https://media.newyorker.com/cartoons/6942d331cd2701eb86520624/master/w_1600%2Cc_limit/A61635.jpg",
-      "image_alt": "Two champagne glasses are talking to each other.",
-      "caption": "\"Here\u2019s to another year of not getting broken in the dishwasher.\"",
-      "author": "Nathan Cooper",
-      "title": "Daily Cartoon: Wednesday, December 31st",
-      "date": "2025-12-31",
       "humor_links": [
         {
           "title": "Starter packs for things you will start but never finish.",
