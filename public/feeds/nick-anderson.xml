@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 14 Jan 2026 20:17:22 +0000</lastBuildDate><ttl>1440</ttl><item><title>Nick Anderson</title><link>https://tinyview.com/nick-anderson/2026/01/13/supreme-leaders</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 15 Jan 2026 09:20:49 +0000</lastBuildDate><ttl>1440</ttl><item><title>Nick Anderson</title><link>https://tinyview.com/nick-anderson/2026/01/12/by-the-neck</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,14 +16,41 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;In Trump’s worldview, protest is not a democratic right; it is a political weapon. When dissent harms his adversaries abroad, he calls it courage. When dissent challenges his power at home, he calls it criminality. Democracy is not a value to be defended consistently. It is a prop, deployed when convenient and discarded when it isn’t.&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;The criminal investigation of Jerome Powell by the Trump Justice Department is not about construction overruns, fiscal prudence, or accountability. It is about power, and how far a president is willing to go to bend independent institutions to his will.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/01/13/supreme-leaders/011426.Supreme_Leaders_-copy-2.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/01/12/by-the-neck/011326.Federal_Reserve_Independence-copy-2.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/01/13/supreme-leaders/011426.Supreme_Leaders_-copy.jpg" alt="https://cdn.tinyview.com/nick-anderson/2026/01/13/supreme-leaders/011426.Supreme_Leaders_-copy.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/nick-anderson/2026/01/13/supreme-leaders/011426.Supreme_Leaders_-copy.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/01/12/by-the-neck/011326.Federal_Reserve_Independence-copy.jpg" alt="https://cdn.tinyview.com/nick-anderson/2026/01/12/by-the-neck/011326.Federal_Reserve_Independence-copy.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/nick-anderson/2026/01/12/by-the-neck/011326.Federal_Reserve_Independence-copy.jpg&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2026/01/13/supreme-leaders</guid><pubDate>Tue, 13 Jan 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2026/01/12/by-the-neck</guid><pubDate>Mon, 12 Jan 2026 23:59:59 +0000</pubDate></item><item><title>Nick Anderson</title><link>https://tinyview.com/nick-anderson/2026/01/11/don-t-tread-on-me</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Donald Trump likes to drape himself in the language of American greatness. Flags, slogans, capital letters. But strip away the branding and the grievance-fueled rallies, and the truth emerges: Trump is not restoring America’s ideals. He’s trampling every one of them.&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/01/11/don-t-tread-on-me/011226._Dont_Tread_On_Me_MAGA-copy-2.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/01/11/don-t-tread-on-me/011226._Dont_Tread_On_Me_MAGA-copy.jpg" alt="https://cdn.tinyview.com/nick-anderson/2026/01/11/don-t-tread-on-me/011226._Dont_Tread_On_Me_MAGA-copy.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/nick-anderson/2026/01/11/don-t-tread-on-me/011226._Dont_Tread_On_Me_MAGA-copy.jpg&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2026/01/11/don-t-tread-on-me</guid><pubDate>Sun, 11 Jan 2026 23:59:59 +0000</pubDate></item></channel></rss>

@@ -1,5 +1,30 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Rex Morgan M D - Comics Kingdom</title><link>https://comicskingdom.com/rex-morgan-m-d</link><description>Daily Rex Morgan M D comic strip by  from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/rex-morgan-m-d.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 14 Jan 2026 20:17:22 +0000</lastBuildDate><ttl>1440</ttl><item><title>Rex Morgan M D - 2026-01-14</title><link>https://comicskingdom.com/rex-morgan-m-d/2026-01-14</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Rex Morgan M D - Comics Kingdom</title><link>https://comicskingdom.com/rex-morgan-m-d</link><description>Daily Rex Morgan M D comic strip by  from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/rex-morgan-m-d.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 15 Jan 2026 09:20:49 +0000</lastBuildDate><ttl>1440</ttl><item><title>Rex Morgan M D - 2026-01-15</title><link>https://comicskingdom.com/rex-morgan-m-d/2026-01-15</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-01-15&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/01/Y2tSZXggTW9yZ2FuIE0uRC4tRU5HLTU4MTIyOTE.jpg" alt="Rex Morgan M D - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/01/Y2tSZXggTW9yZ2FuIE0uRC4tRU5HLTU4MTIyOTM.jpg" alt="Rex Morgan M D - Panel 2" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/rex-morgan-m-d/2026-01-15</guid><pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate></item><item><title>Rex Morgan M D - 2026-01-14</title><link>https://comicskingdom.com/rex-morgan-m-d/2026-01-14</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -222,29 +247,4 @@
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/01/Y2tSZXggTW9yZ2FuIE0uRC4tRU5HLTU3OTEzNzk.jpg" alt="Rex Morgan M D - Panel 2" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/rex-morgan-m-d/2026-01-06</guid><pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate></item><item><title>Rex Morgan M D - 2026-01-05</title><link>https://comicskingdom.com/rex-morgan-m-d/2026-01-05</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-01-05&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/01/Y2tSZXggTW9yZ2FuIE0uRC4tRU5HLTU3OTEzNzM.jpg" alt="Rex Morgan M D - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/01/Y2tSZXggTW9yZ2FuIE0uRC4tRU5HLTU3OTEzNzc.jpg" alt="Rex Morgan M D - Panel 2" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/rex-morgan-m-d/2026-01-05</guid><pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/rex-morgan-m-d/2026-01-06</guid><pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>
