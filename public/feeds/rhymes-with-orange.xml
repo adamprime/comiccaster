@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Rhymes with Orange - Comics Kingdom</title><link>https://comicskingdom.com/rhymes-with-orange</link><description>Daily Rhymes with Orange comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/rhymes-with-orange.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 21 Jan 2026 09:20:55 +0000</lastBuildDate><ttl>1440</ttl><item><title>Rhymes with Orange - 2026-01-21</title><link>https://comicskingdom.com/rhymes-with-orange/2026-01-21</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Rhymes with Orange - Comics Kingdom</title><link>https://comicskingdom.com/rhymes-with-orange</link><description>Daily Rhymes with Orange comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/rhymes-with-orange.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 22 Jan 2026 09:18:17 +0000</lastBuildDate><ttl>1440</ttl><item><title>Rhymes with Orange - 2026-01-22</title><link>https://comicskingdom.com/rhymes-with-orange/2026-01-22</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-01-22&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/01/Y2tSaHltZXMgd2l0aCBPcmFuZ2UtRU5HLTU4MTQ0MzE.jpg" alt="Rhymes with Orange" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Rhymes with Orange&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/rhymes-with-orange/2026-01-22</guid><pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate></item><item><title>Rhymes with Orange - 2026-01-21</title><link>https://comicskingdom.com/rhymes-with-orange/2026-01-21</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -206,27 +229,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Rhymes with Orange&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/rhymes-with-orange/2026-01-13</guid><pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate></item><item><title>Rhymes with Orange - 2026-01-12</title><link>https://comicskingdom.com/rhymes-with-orange/2026-01-12</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-01-12&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/01/Y2tSaHltZXMgd2l0aCBPcmFuZ2UtRU5HLTU3OTU4NzE.jpg" alt="Rhymes with Orange" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Rhymes with Orange&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/rhymes-with-orange/2026-01-12</guid><pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/rhymes-with-orange/2026-01-13</guid><pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>
