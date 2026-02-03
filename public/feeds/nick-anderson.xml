@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 29 Jan 2026 09:18:34 +0000</lastBuildDate><ttl>1440</ttl><item><title>Nick Anderson</title><link>https://tinyview.com/nick-anderson/2026/01/27/turning-points</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 03 Feb 2026 09:18:22 +0000</lastBuildDate><ttl>1440</ttl><item><title>Nick Anderson</title><link>https://tinyview.com/nick-anderson/2026/02/01/blockbuster</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,14 +16,18 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;With the tragic shooting of Alex Pretti on Saturday, and with the continued resistance of Minnesotans, it feels like the ground has shifted under the Trump administration and their brutal tactics against undocumented immigrants, and anyone who gets in their way.&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;“Melania” is officially a “blockbuster,” if your definition of blockbuster is spending $75 million to make $7 million and then yelling about it in all caps.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/01/27/turning-points/012826.Turning_Point_Battle_Civil_War-copy-2.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/02/01/blockbuster/020226.Melania_Movie_-copy-2.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/01/27/turning-points/012826.Turning_Point_Battle_Civil_War-copy.jpg" alt="https://cdn.tinyview.com/nick-anderson/2026/01/27/turning-points/012826.Turning_Point_Battle_Civil_War-copy.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/nick-anderson/2026/01/27/turning-points/012826.Turning_Point_Battle_Civil_War-copy.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/02/01/blockbuster/020226.Melania_Movie_-copy.jpg" alt="https://cdn.tinyview.com/nick-anderson/2026/02/01/blockbuster/020226.Melania_Movie_-copy.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/nick-anderson/2026/02/01/blockbuster/020226.Melania_Movie_-copy.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/02/01/groundhog-day/020226.Groundhog_Day-copy-2.jpg" alt="Image 10" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Image 10&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2026/01/27/turning-points</guid><pubDate>Tue, 27 Jan 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2026/02/01/blockbuster</guid><pubDate>Sun, 01 Feb 2026 23:59:59 +0000</pubDate></item></channel></rss>
