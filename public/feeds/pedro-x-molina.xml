@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 06 Feb 2026 09:18:23 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 10 Feb 2026 09:18:36 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2026/02/08/a-moral-document</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,42 +16,14 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;In any successful company, a candidate's resume is analyzed before they are allowed to do a particular job to see if they are capable, responsible, and reliable. This scrutiny should be even more thorough when considering not a company, but the future of an entire nation.&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Tell me where you put your money and your time, and I'll tell you where your heart is. It's as simple as that.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/08/a-moral-document/BBudgetTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR01.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR01.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR01.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR02.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR02.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR02.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR03.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR03.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR03.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR04.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR04.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR04.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR05.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR05.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR05.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR06.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR06.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR06.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR07.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR07.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR07.jpg&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR08.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR08.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right/YKnowR08.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/08/a-moral-document/BBudgetTV.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/08/a-moral-document/BBudgetTV.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/08/a-moral-document/BBudgetTV.jpg&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2026/02/04/you-do-know-right</guid><pubDate>Wed, 04 Feb 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2026/02/08/a-moral-document</guid><pubDate>Sun, 08 Feb 2026 23:59:59 +0000</pubDate></item></channel></rss>
