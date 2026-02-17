@@ -1,5 +1,111 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Phantom 2040: A New Shadow - Comics Kingdom</title><link>https://comicskingdom.com/phantom-2040-a-new-shadow</link><description>Daily Phantom 2040: A New Shadow comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/phantom-2040-a-new-shadow.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 16 Feb 2026 09:21:00 +0000</lastBuildDate><ttl>1440</ttl><item><title>Phantom 2040: A New Shadow - 2026-02-09</title><link>https://comicskingdom.com/phantom-2040-a-new-shadow/2026-02-09</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Phantom 2040: A New Shadow - Comics Kingdom</title><link>https://comicskingdom.com/phantom-2040-a-new-shadow</link><description>Daily Phantom 2040: A New Shadow comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/phantom-2040-a-new-shadow.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 17 Feb 2026 09:21:38 +0000</lastBuildDate><ttl>1440</ttl><item><title>Phantom 2040: A New Shadow - 2026-02-11</title><link>https://comicskingdom.com/phantom-2040-a-new-shadow/2026-02-11</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-11&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMxMw.jpg" alt="Phantom 2040: A New Shadow - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyNQ.jpg" alt="Phantom 2040: A New Shadow - Panel 2" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyMw.jpg" alt="Phantom 2040: A New Shadow - Panel 3" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyMQ.jpg" alt="Phantom 2040: A New Shadow - Panel 4" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMxOQ.jpg" alt="Phantom 2040: A New Shadow - Panel 5" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyNw.jpg" alt="Phantom 2040: A New Shadow - Panel 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyOQ.jpg" alt="Phantom 2040: A New Shadow - Panel 7" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzMQ.jpg" alt="Phantom 2040: A New Shadow - Panel 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzOQ.jpg" alt="Phantom 2040: A New Shadow - Panel 9" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzMw.jpg" alt="Phantom 2040: A New Shadow - Panel 10" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzNQ.jpg" alt="Phantom 2040: A New Shadow - Panel 11" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzNw.jpg" alt="Phantom 2040: A New Shadow - Panel 12" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0MQ.jpg" alt="Phantom 2040: A New Shadow - Panel 13" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0Mw.jpg" alt="Phantom 2040: A New Shadow - Panel 14" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0NQ.jpg" alt="Phantom 2040: A New Shadow - Panel 15" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1MQ.jpg" alt="Phantom 2040: A New Shadow - Panel 16" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0OQ.jpg" alt="Phantom 2040: A New Shadow - Panel 17" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1Mw.jpg" alt="Phantom 2040: A New Shadow - Panel 18" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0Nw.jpg" alt="Phantom 2040: A New Shadow - Panel 19" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1NQ.jpg" alt="Phantom 2040: A New Shadow - Panel 20" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1Nw.jpg" alt="Phantom 2040: A New Shadow - Panel 21" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1OQ.jpg" alt="Phantom 2040: A New Shadow - Panel 22" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM2Mw.jpg" alt="Phantom 2040: A New Shadow - Panel 23" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM2Nw.jpg" alt="Phantom 2040: A New Shadow - Panel 24" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM2MQ.jpg" alt="Phantom 2040: A New Shadow - Panel 25" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM3MQ.jpg" alt="Phantom 2040: A New Shadow - Panel 26" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM2OQ.jpg" alt="Phantom 2040: A New Shadow - Panel 27" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM4Mw.jpg" alt="Phantom 2040: A New Shadow - Panel 28" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM3Nw.jpg" alt="Phantom 2040: A New Shadow - Panel 29" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/phantom-2040-a-new-shadow/2026-02-11</guid><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Phantom 2040: A New Shadow - 2026-02-09</title><link>https://comicskingdom.com/phantom-2040-a-new-shadow/2026-02-09</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -151,110 +257,4 @@
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/09/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTUwNjcyOQ.jpg" alt="Phantom 2040: A New Shadow - Panel 36" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/phantom-2040-a-new-shadow/2026-02-08</guid><pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Phantom 2040: A New Shadow - 2026-02-07</title><link>https://comicskingdom.com/phantom-2040-a-new-shadow/2026-02-07</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-07&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMxMw.jpg" alt="Phantom 2040: A New Shadow - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyNQ.jpg" alt="Phantom 2040: A New Shadow - Panel 2" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyMw.jpg" alt="Phantom 2040: A New Shadow - Panel 3" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyMQ.jpg" alt="Phantom 2040: A New Shadow - Panel 4" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMxOQ.jpg" alt="Phantom 2040: A New Shadow - Panel 5" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyNw.jpg" alt="Phantom 2040: A New Shadow - Panel 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMyOQ.jpg" alt="Phantom 2040: A New Shadow - Panel 7" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzMQ.jpg" alt="Phantom 2040: A New Shadow - Panel 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzOQ.jpg" alt="Phantom 2040: A New Shadow - Panel 9" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzMw.jpg" alt="Phantom 2040: A New Shadow - Panel 10" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzNQ.jpg" alt="Phantom 2040: A New Shadow - Panel 11" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzMzNw.jpg" alt="Phantom 2040: A New Shadow - Panel 12" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0MQ.jpg" alt="Phantom 2040: A New Shadow - Panel 13" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0Mw.jpg" alt="Phantom 2040: A New Shadow - Panel 14" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0NQ.jpg" alt="Phantom 2040: A New Shadow - Panel 15" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1MQ.jpg" alt="Phantom 2040: A New Shadow - Panel 16" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0OQ.jpg" alt="Phantom 2040: A New Shadow - Panel 17" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1Mw.jpg" alt="Phantom 2040: A New Shadow - Panel 18" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM0Nw.jpg" alt="Phantom 2040: A New Shadow - Panel 19" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1NQ.jpg" alt="Phantom 2040: A New Shadow - Panel 20" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1Nw.jpg" alt="Phantom 2040: A New Shadow - Panel 21" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM1OQ.jpg" alt="Phantom 2040: A New Shadow - Panel 22" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM2Mw.jpg" alt="Phantom 2040: A New Shadow - Panel 23" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM2Nw.jpg" alt="Phantom 2040: A New Shadow - Panel 24" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM2MQ.jpg" alt="Phantom 2040: A New Shadow - Panel 25" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM3MQ.jpg" alt="Phantom 2040: A New Shadow - Panel 26" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM2OQ.jpg" alt="Phantom 2040: A New Shadow - Panel 27" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM4Mw.jpg" alt="Phantom 2040: A New Shadow - Panel 28" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tQaGFudG9tIDIwNDA6IEEgTmV3IFNoYWRvdy1FTkctNTg5NzM3Nw.jpg" alt="Phantom 2040: A New Shadow - Panel 29" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/phantom-2040-a-new-shadow/2026-02-07</guid><pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/phantom-2040-a-new-shadow/2026-02-08</guid><pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
