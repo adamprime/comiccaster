@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Sam And Silo (Spanish) - Comics Kingdom</title><link>https://comicskingdom.com/soso-y-siso</link><description>Daily Sam And Silo (Spanish) comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/soso-y-siso.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 17 Feb 2026 09:21:38 +0000</lastBuildDate><ttl>1440</ttl><item><title>Sam And Silo (Spanish) - 2026-02-17</title><link>https://comicskingdom.com/soso-y-siso/2026-02-17</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Sam And Silo (Spanish) - Comics Kingdom</title><link>https://comicskingdom.com/soso-y-siso</link><description>Daily Sam And Silo (Spanish) comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/soso-y-siso.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 18 Feb 2026 09:21:51 +0000</lastBuildDate><ttl>1440</ttl><item><title>Sam And Silo (Spanish) - 2026-02-18</title><link>https://comicskingdom.com/soso-y-siso/2026-02-18</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-18&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tTYW0gQW5kIFNpbG8gKFNwYW5pc2gpLVNQQS01ODg5OTE1.jpg" alt="Sam And Silo (Spanish)" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Sam And Silo (Spanish)&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/soso-y-siso/2026-02-18</guid><pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Sam And Silo (Spanish) - 2026-02-17</title><link>https://comicskingdom.com/soso-y-siso/2026-02-17</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -183,27 +206,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Sam And Silo (Spanish)&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/soso-y-siso/2026-02-09</guid><pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Sam And Silo (Spanish) - 2026-02-08</title><link>https://comicskingdom.com/soso-y-siso/2026-02-08</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-08&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tTYW0gQW5kIFNpbG8gKFNwYW5pc2gpLVNQQS01ODQ5MDQ1.jpg" alt="Sam And Silo (Spanish)" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Sam And Silo (Spanish)&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/soso-y-siso/2026-02-08</guid><pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/soso-y-siso/2026-02-09</guid><pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
