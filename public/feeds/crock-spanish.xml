@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Crock (Spanish) - Comics Kingdom</title><link>https://comicskingdom.com/crock-spanish</link><description>Daily Crock (Spanish) comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/crock-spanish.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 18 Feb 2026 09:21:51 +0000</lastBuildDate><ttl>1440</ttl><item><title>Crock (Spanish) - 2026-02-18</title><link>https://comicskingdom.com/crock-spanish/2026-02-18</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Crock (Spanish) - Comics Kingdom</title><link>https://comicskingdom.com/crock-spanish</link><description>Daily Crock (Spanish) comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/crock-spanish.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 19 Feb 2026 09:21:39 +0000</lastBuildDate><ttl>1440</ttl><item><title>Crock (Spanish) - 2026-02-19</title><link>https://comicskingdom.com/crock-spanish/2026-02-19</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-19&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tDcm9jayAoU3BhbmlzaCktU1BBLTU4ODk0Mzk.jpg" alt="Crock (Spanish)" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Crock (Spanish)&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/crock-spanish/2026-02-19</guid><pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Crock (Spanish) - 2026-02-18</title><link>https://comicskingdom.com/crock-spanish/2026-02-18</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -206,27 +229,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Crock (Spanish)&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/crock-spanish/2026-02-10</guid><pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Crock (Spanish) - 2026-02-09</title><link>https://comicskingdom.com/crock-spanish/2026-02-09</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-09&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/02/Y2tDcm9jayAoU3BhbmlzaCktU1BBLTU4NzExMDc.jpg" alt="Crock (Spanish)" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Crock (Spanish)&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/crock-spanish/2026-02-09</guid><pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/crock-spanish/2026-02-10</guid><pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
