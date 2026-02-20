@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 19 Feb 2026 09:21:40 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2026/02/17/those-ideas</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 20 Feb 2026 09:22:17 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,14 +16,34 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Some people are afraid of everything they cannot control. The current GOP (or does it no longer make sense to call it that instead of MAGA?) feels this way about women, which is why they are always trying to control their minds, bodies, and voices.&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;It seems that justice is beginning to react to the revelations in the Epstein files... But not where we would all expect it to...&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/17/those-ideas/MAGAGOPVWomenTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/JepTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/17/those-ideas/MAGAGOPVWomenTV.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/17/those-ideas/MAGAGOPVWomenTV.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/17/those-ideas/MAGAGOPVWomenTV.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep01.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep01.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep01.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep02.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep02.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep02.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep03.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep03.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep03.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep04.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep04.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep04.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep05.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep05.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep05.jpg&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep06.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep06.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal/Jep06.jpg&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2026/02/17/those-ideas</guid><pubDate>Tue, 17 Feb 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2026/02/18/justice-versus-the-epstein-scandal</guid><pubDate>Wed, 18 Feb 2026 23:59:59 +0000</pubDate></item></channel></rss>
