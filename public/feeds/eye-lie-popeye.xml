@@ -1,5 +1,48 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Eye Lie Popeye - Comics Kingdom</title><link>https://comicskingdom.com/eye-lie-popeye</link><description>Daily Eye Lie Popeye comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/eye-lie-popeye.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 20 Feb 2026 09:22:17 +0000</lastBuildDate><ttl>1440</ttl><item><title>Eye Lie Popeye - 2026-02-13</title><link>https://comicskingdom.com/eye-lie-popeye/2026-02-13</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Eye Lie Popeye - Comics Kingdom</title><link>https://comicskingdom.com/eye-lie-popeye</link><description>Daily Eye Lie Popeye comic strip by Unknown Author from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/eye-lie-popeye.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 21 Feb 2026 09:37:39 +0000</lastBuildDate><ttl>1440</ttl><item><title>Eye Lie Popeye - 2026-02-21</title><link>https://comicskingdom.com/eye-lie-popeye/2026-02-21</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-21&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTMzMzkzNw.jpg" alt="Eye Lie Popeye - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTMzMzk0MQ.jpg" alt="Eye Lie Popeye - Panel 2" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTMzMzkzOQ.jpg" alt="Eye Lie Popeye - Panel 3" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTMzMzk0Mw.jpg" alt="Eye Lie Popeye - Panel 4" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTMzMzk0NQ.jpg" alt="Eye Lie Popeye - Panel 5" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTMzMzk0Nw.jpg" alt="Eye Lie Popeye - Panel 6" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTMzMzk0OQ.jpg" alt="Eye Lie Popeye - Panel 7" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTMzMzk1MQ.jpg" alt="Eye Lie Popeye - Panel 8" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/eye-lie-popeye/2026-02-21</guid><pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Eye Lie Popeye - 2026-02-13</title><link>https://comicskingdom.com/eye-lie-popeye/2026-02-13</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -54,7 +97,7 @@
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTEwMDk2OQ-751x578.jpg" alt="Eye Lie Popeye - Panel 12" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/eye-lie-popeye/2026-02-13</guid><pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Eye Lie Popeye - 2026-02-11</title><link>https://comicskingdom.com/eye-lie-popeye/2026-02-11</link><description>
+</description><guid isPermaLink="false">https://comicskingdom.com/eye-lie-popeye/2026-02-13</guid><pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Eye Lie Popeye - 2026-02-12</title><link>https://comicskingdom.com/eye-lie-popeye/2026-02-12</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -71,7 +114,7 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-11&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-12&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTM3Mzc3Nw.jpg" alt="Eye Lie Popeye - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
     &lt;/div&gt;
@@ -100,4 +143,4 @@
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2025/08/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNTM3Mzc5NQ.jpg" alt="Eye Lie Popeye - Panel 9" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/eye-lie-popeye/2026-02-11</guid><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/eye-lie-popeye/2026-02-12</guid><pubDate>Thu, 12 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
