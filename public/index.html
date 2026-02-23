@@ -257,6 +257,13 @@
             .catch(error => {
                 console.error('Error fetching comics:', error);
             });
+
+            function getDisplayComicName(comic) {
+                if (comic.source === 'tinyview' && comic.slug === 'archie') {
+                    return 'Archie (TinyView)';
+                }
+                return comic.name;
+            }
             
             function populateComicsTable(comics, tableBodyId, source = 'gocomics') {
                 const tableBody = document.getElementById(tableBodyId);
@@ -264,6 +271,7 @@
                 
                 comics.forEach(comic => {
                     const row = document.createElement('tr');
+                    const displayName = getDisplayComicName(comic);
                     
                     // Determine source display name and URL
                     let sourceName = 'GoComics';
@@ -283,6 +291,11 @@
                         sourceName = 'TinyView';
                         sourceUrl = comic.url;
                         feedPath = `/feeds/${comic.slug}.xml`;
+                    } else if (comic.source === 'creators') {
+                        sourceName = 'Creators';
+                        const creatorsSlug = comic.source_slug || comic.slug;
+                        sourceUrl = comic.url || `https://www.creators.com/read/${creatorsSlug}`;
+                        feedPath = `/feeds/${comic.slug}.xml`;
                     } else if (comic.source === 'farside') {
                         sourceName = 'Far Side';
                         sourceUrl = comic.url || 'https://www.thefarside.com/';
@@ -300,7 +313,7 @@
                     const feedUrl = `https://comiccaster.xyz${feedPath}`;
                     
                     row.innerHTML = `
-                        <td>${comic.name}</td>
+                        <td>${displayName}</td>
                         <td><a href="${sourceUrl}" target="_blank">🔗 ${sourceName}</a></td>
                         <td>
                             <div class="feed-url">
@@ -312,7 +325,7 @@
                             </div>
                         </td>
                     `;
-                    row.dataset.name = comic.name.toLowerCase();
+                    row.dataset.name = displayName.toLowerCase();
                     row.dataset.source = source;
                     tableBody.appendChild(row);
                 });
@@ -325,7 +338,8 @@
                 comics.forEach(comic => {
                     const checkboxItem = document.createElement('div');
                     checkboxItem.className = 'form-check';
-                    checkboxItem.dataset.name = comic.name.toLowerCase();
+                    const displayName = getDisplayComicName(comic);
+                    checkboxItem.dataset.name = displayName.toLowerCase();
                     let prefix = 'comic';
                     if (listId === 'political-comics-list') {
                         prefix = 'political';
@@ -343,6 +357,8 @@
                             : ' <span class="source-tag">(Comics Kingdom)</span>';
                     } else if (comic.source === 'tinyview') {
                         sourceName = ' <span class="source-tag">(TinyView)</span>';
+                    } else if (comic.source === 'creators') {
+                        sourceName = ' <span class="source-tag">(Creators)</span>';
                     } else if (comic.source === 'farside') {
                         sourceName = ' <span class="source-tag">(Far Side)</span>';
                     } else if (comic.source === 'newyorker') {
@@ -354,7 +370,7 @@
                     checkboxItem.innerHTML = `
                         <input class="form-check-input" type="checkbox" value="${comic.slug}" id="${prefix}-${comic.slug}">
                         <label class="form-check-label" for="${prefix}-${comic.slug}">
-                            ${comic.name}${sourceName}
+                            ${displayName}${sourceName}
                         </label>
                     `;
                     comicsList.appendChild(checkboxItem);

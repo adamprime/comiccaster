@@ -160,7 +160,8 @@ function generateOPML(comics, type = 'daily') {
         // GoComics uses /rss/{slug}, others use /feeds/{slug}.xml
         let feedUrl;
         if (comic && (comic.source === 'comicskingdom' || comic.source === 'tinyview' || 
-                      comic.source === 'farside' || comic.source === 'newyorker')) {
+                      comic.source === 'farside' || comic.source === 'newyorker' ||
+                      comic.source === 'creators')) {
             feedUrl = `${baseUrl}/feeds/${slug}.xml`;
         } else {
             feedUrl = `${baseUrl}/rss/${slug}`;

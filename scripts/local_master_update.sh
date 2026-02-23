@@ -99,7 +99,7 @@ echo ""
 echo "=== Phase 2: Generating All Feeds ==="
 
 echo ""
-echo "[1/3] Generating GoComics feeds..."
+echo "[1/4] Generating GoComics feeds..."
 python scripts/update_feeds.py
 if [ $? -ne 0 ]; then
     echo "❌ GoComics feed generation failed"
@@ -108,7 +108,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "[2/3] Generating Comics Kingdom feeds..."
+echo "[2/4] Generating Comics Kingdom feeds..."
 python scripts/generate_comicskingdom_feeds.py
 if [ $? -ne 0 ]; then
     echo "❌ Comics Kingdom feed generation failed"
@@ -117,11 +117,20 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "[3/3] Generating TinyView feeds..."
+echo "[3/4] Generating TinyView feeds..."
 python scripts/generate_tinyview_feeds_from_data.py
 if [ $? -ne 0 ]; then
     echo "❌ TinyView feed generation failed"
     osascript -e 'display notification "TinyView feed generation failed" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
+    exit 1
+fi
+
+echo ""
+echo "[4/4] Generating Creators feeds..."
+python scripts/generate_creators_feeds.py
+if [ $? -ne 0 ]; then
+    echo "❌ Creators feed generation failed"
+    osascript -e 'display notification "Creators feed generation failed" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
     exit 1
 fi
 

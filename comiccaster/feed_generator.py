@@ -59,6 +59,7 @@ class ComicFeedGenerator:
             'gocomics-political': 'GoComics Political',
             'tinyview': 'TinyView',
             'comicskingdom': 'Comics Kingdom',
+            'creators': 'Creators',
             'newyorker': 'The New Yorker'
         }.get(source, 'GoComics')
         

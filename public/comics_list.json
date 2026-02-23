@@ -4502,5 +4502,15 @@
     "source_variant": "vintage",
     "position": 557,
     "is_updated": false
+  },
+  {
+    "name": "Archie",
+    "author": "Archie Comics",
+    "url": "https://www.creators.com/read/archie",
+    "slug": "creators-archie",
+    "position": 558,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "archie"
   }
 ]
