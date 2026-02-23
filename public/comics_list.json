@@ -4512,5 +4512,86 @@
     "is_updated": false,
     "source": "creators",
     "source_slug": "archie"
+  },
+  {
+    "name": "Archie Spanish",
+    "url": "https://www.creators.com/read/archie-spanish",
+    "slug": "archie-spanish",
+    "position": 559,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "archie-spanish"
+  },
+  {
+    "name": "Caption It!",
+    "url": "https://www.creators.com/read/caption-it",
+    "slug": "caption-it",
+    "position": 560,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "caption-it"
+  },
+  {
+    "name": "Flo & Friends",
+    "url": "https://www.creators.com/read/flo-and-friends",
+    "slug": "flo-and-friends",
+    "position": 561,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "flo-and-friends"
+  },
+  {
+    "name": "Heathcliff Spanish",
+    "url": "https://www.creators.com/read/heathcliff-spanish",
+    "slug": "heathcliff-spanish",
+    "position": 562,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "heathcliff-spanish"
+  },
+  {
+    "name": "Humor Me",
+    "url": "https://www.creators.com/read/humor-me",
+    "slug": "humor-me",
+    "position": 563,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "humor-me"
+  },
+  {
+    "name": "Rugrats",
+    "url": "https://www.creators.com/read/rugrats",
+    "slug": "rugrats",
+    "position": 564,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "rugrats"
+  },
+  {
+    "name": "Shrimp and Grits",
+    "url": "https://www.creators.com/read/shrimp-and-grits",
+    "slug": "shrimp-and-grits",
+    "position": 565,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "shrimp-and-grits"
+  },
+  {
+    "name": "Spectickles",
+    "url": "https://www.creators.com/read/spectickles",
+    "slug": "spectickles",
+    "position": 566,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "spectickles"
+  },
+  {
+    "name": "Wizard of Id Spanish",
+    "url": "https://www.creators.com/read/wizard-of-id-spanish",
+    "slug": "wizard-of-id-spanish",
+    "position": 567,
+    "is_updated": false,
+    "source": "creators",
+    "source_slug": "wizard-of-id-spanish"
   }
 ]
