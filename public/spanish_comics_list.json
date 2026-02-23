@@ -424,5 +424,32 @@
     "slug": "ziggyespanol",
     "position": 404,
     "is_updated": true
+  },
+  {
+    "name": "Archie Spanish",
+    "slug": "archie-spanish",
+    "url": "https://www.creators.com/read/archie-spanish",
+    "source": "creators",
+    "position": 559,
+    "is_updated": false,
+    "source_slug": "archie-spanish"
+  },
+  {
+    "name": "Heathcliff Spanish",
+    "slug": "heathcliff-spanish",
+    "url": "https://www.creators.com/read/heathcliff-spanish",
+    "source": "creators",
+    "position": 562,
+    "is_updated": false,
+    "source_slug": "heathcliff-spanish"
+  },
+  {
+    "name": "Wizard of Id Spanish",
+    "slug": "wizard-of-id-spanish",
+    "url": "https://www.creators.com/read/wizard-of-id-spanish",
+    "source": "creators",
+    "position": 567,
+    "is_updated": false,
+    "source_slug": "wizard-of-id-spanish"
   }
 ]
