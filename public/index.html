@@ -271,8 +271,13 @@
                     let feedPath;
                     
                     if (comic.source === 'comicskingdom') {
-                        sourceName = 'Comics Kingdom';
-                        sourceUrl = `https://comicskingdom.com/${comic.slug}`;
+                        const comicsKingdomUrl = (comic.url && comic.url.includes('comicskingdom.com'))
+                            ? comic.url
+                            : `https://comicskingdom.com/${comic.slug}`;
+                        sourceName = comic.source_variant === 'vintage'
+                            ? 'Comics Kingdom (Vintage)'
+                            : 'Comics Kingdom';
+                        sourceUrl = comicsKingdomUrl;
                         feedPath = `/feeds/${comic.slug}.xml`;
                     } else if (comic.source === 'tinyview') {
                         sourceName = 'TinyView';
@@ -333,7 +338,9 @@
                     // Determine source name for display
                     let sourceName = '';
                     if (comic.source === 'comicskingdom') {
-                        sourceName = ' <span class="source-tag">(Comics Kingdom)</span>';
+                        sourceName = comic.source_variant === 'vintage'
+                            ? ' <span class="source-tag">(Comics Kingdom · Vintage)</span>'
+                            : ' <span class="source-tag">(Comics Kingdom)</span>';
                     } else if (comic.source === 'tinyview') {
                         sourceName = ' <span class="source-tag">(TinyView)</span>';
                     } else if (comic.source === 'farside') {

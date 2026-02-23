@@ -10,15 +10,97 @@ This script:
 
 import json
 import sys
+import html
+import re
 from pathlib import Path
 from datetime import datetime
 import pytz
 from typing import List, Dict
+import requests
 
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from comiccaster.feed_generator import ComicFeedGenerator
+
+
+def extract_live_comicskingdom_entries(comic_info: Dict, limit: int = 30) -> List[Dict]:
+    """Fetch live entries for a Comics Kingdom comic from page bootstrap JSON."""
+    slug = comic_info['slug']
+    base_path = f"/vintage/{slug}" if comic_info.get('source_variant') == 'vintage' else f"/{slug}"
+    url = f"https://comicskingdom.com{base_path}"
+
+    try:
+        response = requests.get(
+            url,
+            headers={'User-Agent': 'Mozilla/5.0'},
+            timeout=30,
+        )
+        response.raise_for_status()
+    except Exception as e:
+        print(f"  ⚠️  Live fetch failed for {slug}: {e}")
+        return []
+
+    match = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', response.text, re.S)
+    if not match:
+        return []
+
+    try:
+        next_data = json.loads(match.group(1))
+    except Exception:
+        return []
+
+    fallback = next_data.get('props', {}).get('pageProps', {}).get('fallback', {})
+    posts = []
+
+    for value in fallback.values():
+        result = value.get('result') if isinstance(value, dict) else None
+        if isinstance(result, list) and result and isinstance(result[0], dict) and 'date' in result[0]:
+            posts = result
+            break
+
+    entries = []
+    seen_ids = set()
+
+    for post in posts[:limit]:
+        post_date = (post.get('date') or '')[:10]
+        if not post_date:
+            continue
+
+        assets = post.get('assets') or {}
+        image_url = (
+            (assets.get('single') or {}).get('url')
+            or (assets.get('featured') or {}).get('url')
+        )
+        if not image_url:
+            continue
+
+        post_url = post.get('link') or f"https://comicskingdom.com{base_path}/{post_date}"
+        entry_id = post_url
+        if entry_id in seen_ids:
+            continue
+        seen_ids.add(entry_id)
+
+        title_raw = (post.get('title') or {}).get('rendered') if isinstance(post.get('title'), dict) else None
+        title_text = html.unescape(re.sub(r'<[^>]+>', '', title_raw or '')).strip()
+        title = title_text or f"{comic_info['name']} - {post_date}"
+
+        try:
+            pub_date = datetime.strptime(post_date, '%Y-%m-%d').replace(tzinfo=pytz.UTC)
+        except ValueError:
+            continue
+
+        entries.append({
+            'title': title,
+            'url': post_url,
+            'images': [{'url': image_url, 'alt': comic_info['name']}],
+            'pub_date': pub_date,
+            'description': f"Comic strip for {post_date}",
+            'id': entry_id,
+        })
+
+    entries.sort(key=lambda x: x['pub_date'])
+    return entries
 
 
 def load_scraped_data(days_back: int = 10) -> Dict[str, List[Dict]]:
@@ -89,8 +171,21 @@ def generate_feed_for_comic(comic_info: Dict, scraped_data: Dict[str, List[Dict]
     
     # Check if we have scraped data for this comic
     if slug not in scraped_data:
-        print(f"  ⚠️  No scraped data for {slug}")
-        return False
+        live_entries = extract_live_comicskingdom_entries(comic_info)
+        if not live_entries:
+            print(f"  ⚠️  No scraped data for {slug}")
+            return False
+
+        try:
+            success = generator.generate_feed(comic_info, live_entries)
+            if success:
+                print(f"  ✅ {comic_info['name']} ({len(live_entries)} live entries)")
+                return True
+            print(f"  ❌ Failed: {comic_info['name']}")
+            return False
+        except Exception as e:
+            print(f"  ❌ Error generating live feed for {comic_info['name']}: {e}")
+            return False
     
     # Get all entries for this comic (from multiple days)
     comic_entries = scraped_data[slug]
