@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "feedgen>=0.9.0",
-        "flask>=2.0.0",
+        "flask>=3.1.3",
         "requests>=2.32.0",
         "beautifulsoup4>=4.9.0",
         "pytz>=2021.1",
