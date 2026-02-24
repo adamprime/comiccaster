@@ -1,0 +1,990 @@
+{
+  "generated_at": "2026-02-23T17:24:56.315784Z",
+  "summary": {
+    "total_creators_comics": 62,
+    "overlap_or_collision": 34,
+    "eligible_unique_active": 9
+  },
+  "comics": [
+    {
+      "slug": "agnes",
+      "name": "Agnes",
+      "source_url": "https://www.creators.com/read/agnes",
+      "section": "all",
+      "feature_id": "155",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": true,
+      "name_overlap": true,
+      "recommended_slug": "creators-agnes",
+      "eligible": false
+    },
+    {
+      "slug": "andy-capp",
+      "name": "Andy Capp",
+      "source_url": "https://www.creators.com/read/andy-capp",
+      "section": "all",
+      "feature_id": "168",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "andy-capp",
+      "eligible": false
+    },
+    {
+      "slug": "archie",
+      "name": "Archie",
+      "source_url": "https://www.creators.com/read/archie",
+      "section": "all",
+      "feature_id": "174",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": true,
+      "name_overlap": true,
+      "recommended_slug": "creators-archie",
+      "eligible": false
+    },
+    {
+      "slug": "archie-spanish",
+      "name": "Archie Spanish",
+      "source_url": "https://www.creators.com/read/archie-spanish",
+      "section": "all",
+      "feature_id": "594",
+      "release_counts": {
+        "2026": 54,
+        "2025": 345
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "archie-spanish",
+      "eligible": true
+    },
+    {
+      "slug": "ask-shagg",
+      "name": "Ask Shagg",
+      "source_url": "https://www.creators.com/read/ask-shagg",
+      "section": "archive",
+      "feature_id": "162",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "ask-shagg",
+      "eligible": false
+    },
+    {
+      "slug": "bc",
+      "name": "B.C.",
+      "source_url": "https://www.creators.com/read/bc",
+      "section": "all",
+      "feature_id": "147",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": true,
+      "name_overlap": true,
+      "recommended_slug": "creators-bc",
+      "eligible": false
+    },
+    {
+      "slug": "bc-spanish",
+      "name": "B.C. in Spanish",
+      "source_url": "https://www.creators.com/read/bc-spanish",
+      "section": "archive",
+      "feature_id": null,
+      "release_counts": {},
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "bc-spanish",
+      "eligible": false
+    },
+    {
+      "slug": "ballard-street",
+      "name": "Ballard Street",
+      "source_url": "https://www.creators.com/read/ballard-street",
+      "section": "archive",
+      "feature_id": "169",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "ballard-street",
+      "eligible": false
+    },
+    {
+      "slug": "cafe-con-leche",
+      "name": "Cafe con Leche",
+      "source_url": "https://www.creators.com/read/cafe-con-leche",
+      "section": "archive",
+      "feature_id": "180",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "cafe-con-leche",
+      "eligible": false
+    },
+    {
+      "slug": "caption-it",
+      "name": "Caption It!",
+      "source_url": "https://www.creators.com/read/caption-it",
+      "section": "all",
+      "feature_id": "1107",
+      "release_counts": {
+        "2026": 8,
+        "2025": 52
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "caption-it",
+      "eligible": true
+    },
+    {
+      "slug": "chuckle-bros",
+      "name": "Chuckle Bros",
+      "source_url": "https://www.creators.com/read/chuckle-bros",
+      "section": "archive",
+      "feature_id": "182",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "chuckle-bros",
+      "eligible": false
+    },
+    {
+      "slug": "daddys-home",
+      "name": "Daddy's Home",
+      "source_url": "https://www.creators.com/read/daddys-home",
+      "section": "all",
+      "feature_id": "184",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "daddys-home",
+      "eligible": false
+    },
+    {
+      "slug": "diamond-lil",
+      "name": "Diamond Lil",
+      "source_url": "https://www.creators.com/read/diamond-lil",
+      "section": "all",
+      "feature_id": "190",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "diamond-lil",
+      "eligible": false
+    },
+    {
+      "slug": "dog-eat-doug",
+      "name": "Dog Eat Doug",
+      "source_url": "https://www.creators.com/read/dog-eat-doug",
+      "section": "all",
+      "feature_id": "154",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "dog-eat-doug",
+      "eligible": false
+    },
+    {
+      "slug": "dogs-of-c-kennel",
+      "name": "Dogs of C-Kennel",
+      "source_url": "https://www.creators.com/read/dogs-of-c-kennel",
+      "section": "all",
+      "feature_id": "179",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "dogs-of-c-kennel",
+      "eligible": false
+    },
+    {
+      "slug": "donald-duck",
+      "name": "Donald Duck",
+      "source_url": "https://www.creators.com/read/donald-duck",
+      "section": "archive",
+      "feature_id": "195",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "donald-duck",
+      "eligible": false
+    },
+    {
+      "slug": "doodles",
+      "name": "Doodles",
+      "source_url": "https://www.creators.com/read/doodles",
+      "section": "all",
+      "feature_id": "173",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "doodles",
+      "eligible": false
+    },
+    {
+      "slug": "flare",
+      "name": "Flare",
+      "source_url": "https://www.creators.com/read/flare",
+      "section": "archive",
+      "feature_id": "189",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "flare",
+      "eligible": false
+    },
+    {
+      "slug": "flight-deck",
+      "name": "Flight Deck",
+      "source_url": "https://www.creators.com/read/flight-deck",
+      "section": "archive",
+      "feature_id": "150",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "flight-deck",
+      "eligible": false
+    },
+    {
+      "slug": "flo-and-friends",
+      "name": "Flo & Friends",
+      "source_url": "https://www.creators.com/read/flo-and-friends",
+      "section": "all",
+      "feature_id": "159",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "flo-and-friends",
+      "eligible": true
+    },
+    {
+      "slug": "for-heavens-sake",
+      "name": "For Heaven's Sake",
+      "source_url": "https://www.creators.com/read/for-heavens-sake",
+      "section": "all",
+      "feature_id": "175",
+      "release_counts": {
+        "2026": 8,
+        "2025": 52
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "for-heavens-sake",
+      "eligible": false
+    },
+    {
+      "slug": "free-range",
+      "name": "Free Range",
+      "source_url": "https://www.creators.com/read/free-range",
+      "section": "all",
+      "feature_id": "181",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "free-range",
+      "eligible": false
+    },
+    {
+      "slug": "girls-and-sports",
+      "name": "Girls & Sports",
+      "source_url": "https://www.creators.com/read/girls-and-sports",
+      "section": "archive",
+      "feature_id": "157",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "girls-and-sports",
+      "eligible": false
+    },
+    {
+      "slug": "girls-sports-spanish",
+      "name": "Girls & Sports in Spanish",
+      "source_url": "https://www.creators.com/read/girls-sports-spanish",
+      "section": "archive",
+      "feature_id": null,
+      "release_counts": {},
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "girls-sports-spanish",
+      "eligible": false
+    },
+    {
+      "slug": "heathcliff",
+      "name": "Heathcliff",
+      "source_url": "https://www.creators.com/read/heathcliff",
+      "section": "all",
+      "feature_id": "158",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": true,
+      "name_overlap": true,
+      "recommended_slug": "creators-heathcliff",
+      "eligible": false
+    },
+    {
+      "slug": "heathcliff-spanish",
+      "name": "Heathcliff Spanish",
+      "source_url": "https://www.creators.com/read/heathcliff-spanish",
+      "section": "all",
+      "feature_id": "596",
+      "release_counts": {
+        "2026": 46,
+        "2025": 301
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "heathcliff-spanish",
+      "eligible": true
+    },
+    {
+      "slug": "herb-and-jamaal",
+      "name": "Herb and Jamaal",
+      "source_url": "https://www.creators.com/read/herb-and-jamaal",
+      "section": "all",
+      "feature_id": "178",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "herb-and-jamaal",
+      "eligible": false
+    },
+    {
+      "slug": "stay-at-home-dad",
+      "name": "Home Office",
+      "source_url": "https://www.creators.com/read/stay-at-home-dad",
+      "section": "archive",
+      "feature_id": "192",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "stay-at-home-dad",
+      "eligible": false
+    },
+    {
+      "slug": "hope-and-death",
+      "name": "Hope & Death",
+      "source_url": "https://www.creators.com/read/hope-and-death",
+      "section": "archive",
+      "feature_id": "191",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "hope-and-death",
+      "eligible": false
+    },
+    {
+      "slug": "humor-me",
+      "name": "Humor Me",
+      "source_url": "https://www.creators.com/read/humor-me",
+      "section": "all",
+      "feature_id": "1141",
+      "release_counts": {
+        "2026": 8,
+        "2025": 51
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "humor-me",
+      "eligible": true
+    },
+    {
+      "slug": "liberty-meadows",
+      "name": "Liberty Meadows",
+      "source_url": "https://www.creators.com/read/liberty-meadows",
+      "section": "all",
+      "feature_id": "153",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "liberty-meadows",
+      "eligible": false
+    },
+    {
+      "slug": "long-story-short",
+      "name": "Long Story Short",
+      "source_url": "https://www.creators.com/read/long-story-short",
+      "section": "archive",
+      "feature_id": "194",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": true,
+      "name_overlap": true,
+      "recommended_slug": "creators-long-story-short",
+      "eligible": false
+    },
+    {
+      "slug": "mickey-mouse",
+      "name": "Mickey Mouse",
+      "source_url": "https://www.creators.com/read/mickey-mouse",
+      "section": "archive",
+      "feature_id": "196",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "mickey-mouse",
+      "eligible": false
+    },
+    {
+      "slug": "momma",
+      "name": "Momma",
+      "source_url": "https://www.creators.com/read/momma",
+      "section": "all",
+      "feature_id": "164",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": true,
+      "name_overlap": true,
+      "recommended_slug": "creators-momma",
+      "eligible": false
+    },
+    {
+      "slug": "natural-selection",
+      "name": "Natural Selection",
+      "source_url": "https://www.creators.com/read/natural-selection",
+      "section": "archive",
+      "feature_id": "167",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "natural-selection",
+      "eligible": false
+    },
+    {
+      "slug": "nest-heads",
+      "name": "Nest Heads",
+      "source_url": "https://www.creators.com/read/nest-heads",
+      "section": "archive",
+      "feature_id": "187",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "nest-heads",
+      "eligible": false
+    },
+    {
+      "slug": "off-center",
+      "name": "Off Center",
+      "source_url": "https://www.creators.com/read/off-center",
+      "section": "archive",
+      "feature_id": "193",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "off-center",
+      "eligible": false
+    },
+    {
+      "slug": "on-a-claire-day",
+      "name": "On a Claire Day",
+      "source_url": "https://www.creators.com/read/on-a-claire-day",
+      "section": "archive",
+      "feature_id": "161",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "on-a-claire-day",
+      "eligible": false
+    },
+    {
+      "slug": "one-big-happy",
+      "name": "One Big Happy\u00ae",
+      "source_url": "https://www.creators.com/read/one-big-happy",
+      "section": "all",
+      "feature_id": "151",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "one-big-happy",
+      "eligible": false
+    },
+    {
+      "slug": "rubes",
+      "name": "Rubes\u00ae",
+      "source_url": "https://www.creators.com/read/rubes",
+      "section": "all",
+      "feature_id": "170",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": true,
+      "name_overlap": true,
+      "recommended_slug": "creators-rubes",
+      "eligible": false
+    },
+    {
+      "slug": "rugrats",
+      "name": "Rugrats",
+      "source_url": "https://www.creators.com/read/rugrats",
+      "section": "all",
+      "feature_id": "171",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "rugrats",
+      "eligible": true
+    },
+    {
+      "slug": "rugrats-spanish",
+      "name": "Rugrats Spanish",
+      "source_url": "https://www.creators.com/read/rugrats-spanish",
+      "section": "archive",
+      "feature_id": "597",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "rugrats-spanish",
+      "eligible": false
+    },
+    {
+      "slug": "scary-gary",
+      "name": "Scary Gary",
+      "source_url": "https://www.creators.com/read/scary-gary",
+      "section": "all",
+      "feature_id": "186",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "scary-gary",
+      "eligible": false
+    },
+    {
+      "slug": "shrimp-and-grits",
+      "name": "Shrimp and Grits",
+      "source_url": "https://www.creators.com/read/shrimp-and-grits",
+      "section": "all",
+      "feature_id": "1149",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "shrimp-and-grits",
+      "eligible": true
+    },
+    {
+      "slug": "spectickles",
+      "name": "Spectickles",
+      "source_url": "https://www.creators.com/read/spectickles",
+      "section": "all",
+      "feature_id": "933",
+      "release_counts": {
+        "2026": 46,
+        "2025": 313
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "spectickles",
+      "eligible": true
+    },
+    {
+      "slug": "speed-bump",
+      "name": "Speed Bump",
+      "source_url": "https://www.creators.com/read/speed-bump",
+      "section": "all",
+      "feature_id": "148",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "speed-bump",
+      "eligible": false
+    },
+    {
+      "slug": "state-of-the-union",
+      "name": "State of the Union",
+      "source_url": "https://www.creators.com/read/state-of-the-union",
+      "section": "archive",
+      "feature_id": "177",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "state-of-the-union",
+      "eligible": false
+    },
+    {
+      "slug": "strange-brew",
+      "name": "Strange Brew",
+      "source_url": "https://www.creators.com/read/strange-brew",
+      "section": "all",
+      "feature_id": "152",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "strange-brew",
+      "eligible": false
+    },
+    {
+      "slug": "the-barn",
+      "name": "The Barn",
+      "source_url": "https://www.creators.com/read/the-barn",
+      "section": "all",
+      "feature_id": "188",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "the-barn",
+      "eligible": false
+    },
+    {
+      "slug": "dinette-set",
+      "name": "The Dinette Set",
+      "source_url": "https://www.creators.com/read/dinette-set",
+      "section": "archive",
+      "feature_id": "160",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "dinette-set",
+      "eligible": false
+    },
+    {
+      "slug": "the-meaning-of-lila",
+      "name": "The Meaning of Lila",
+      "source_url": "https://www.creators.com/read/the-meaning-of-lila",
+      "section": "all",
+      "feature_id": "166",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "the-meaning-of-lila",
+      "eligible": false
+    },
+    {
+      "slug": "the-other-coast",
+      "name": "The Other Coast",
+      "source_url": "https://www.creators.com/read/the-other-coast",
+      "section": "all",
+      "feature_id": "165",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "the-other-coast",
+      "eligible": false
+    },
+    {
+      "slug": "the-quigmans",
+      "name": "The Quigmans",
+      "source_url": "https://www.creators.com/read/the-quigmans",
+      "section": "archive",
+      "feature_id": "185",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "the-quigmans",
+      "eligible": false
+    },
+    {
+      "slug": "thin-lines",
+      "name": "Thin Lines",
+      "source_url": "https://www.creators.com/read/thin-lines",
+      "section": "archive",
+      "feature_id": "183",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "thin-lines",
+      "eligible": false
+    },
+    {
+      "slug": "thomas-sowell-spanish",
+      "name": "Thomas Sowell - Spanish",
+      "source_url": "https://www.creators.com/read/thomas-sowell-spanish",
+      "section": "archive",
+      "feature_id": null,
+      "release_counts": {},
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "thomas-sowell-spanish",
+      "eligible": false
+    },
+    {
+      "slug": "wee-pals",
+      "name": "Wee Pals",
+      "source_url": "https://www.creators.com/read/wee-pals",
+      "section": "all",
+      "feature_id": "176",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "wee-pals",
+      "eligible": false
+    },
+    {
+      "slug": "winnie-the-pooh",
+      "name": "Winnie the Pooh",
+      "source_url": "https://www.creators.com/read/winnie-the-pooh",
+      "section": "archive",
+      "feature_id": "172",
+      "release_counts": {
+        "2026": 0,
+        "2025": 0
+      },
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "winnie-the-pooh",
+      "eligible": false
+    },
+    {
+      "slug": "winnie-the-pooh-spanish",
+      "name": "Winnie the Pooh in Spanish",
+      "source_url": "https://www.creators.com/read/winnie-the-pooh-spanish",
+      "section": "archive",
+      "feature_id": null,
+      "release_counts": {},
+      "active_recently": false,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "winnie-the-pooh-spanish",
+      "eligible": false
+    },
+    {
+      "slug": "wizard-of-id",
+      "name": "Wizard of Id",
+      "source_url": "https://www.creators.com/read/wizard-of-id",
+      "section": "all",
+      "feature_id": "149",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "wizard-of-id",
+      "eligible": false
+    },
+    {
+      "slug": "wizard-of-id-spanish",
+      "name": "Wizard of Id Spanish",
+      "source_url": "https://www.creators.com/read/wizard-of-id-spanish",
+      "section": "all",
+      "feature_id": "590",
+      "release_counts": {
+        "2026": 46,
+        "2025": 307
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": false,
+      "recommended_slug": "wizard-of-id-spanish",
+      "eligible": true
+    },
+    {
+      "slug": "working-it-out",
+      "name": "Working it Out",
+      "source_url": "https://www.creators.com/read/working-it-out",
+      "section": "all",
+      "feature_id": "163",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "working-it-out",
+      "eligible": false
+    },
+    {
+      "slug": "zack-hill",
+      "name": "Zack Hill",
+      "source_url": "https://www.creators.com/read/zack-hill",
+      "section": "all",
+      "feature_id": "156",
+      "release_counts": {
+        "2026": 54,
+        "2025": 365
+      },
+      "active_recently": true,
+      "slug_collision": false,
+      "name_overlap": true,
+      "recommended_slug": "zack-hill",
+      "eligible": false
+    }
+  ]
+}
