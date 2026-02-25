@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Archie - Creators</title><link>https://www.creators.com/read/archie</link><description>Daily Archie comic strip by Archie Comics from Creators</description><atom:link href="https://comiccaster.xyz/feeds/creators-archie.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 24 Feb 2026 10:30:39 +0000</lastBuildDate><ttl>1440</ttl><item><title>Archie for Feb 24, 2026</title><link>https://www.creators.com/read/archie/02/26/408983</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Archie - Creators</title><link>https://www.creators.com/read/archie</link><description>Daily Archie comic strip by Archie Comics from Creators</description><atom:link href="https://comiccaster.xyz/feeds/creators-archie.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 25 Feb 2026 10:30:04 +0000</lastBuildDate><ttl>1440</ttl><item><title>Archie for Feb 25, 2026</title><link>https://www.creators.com/read/archie/02/26/408981</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-25&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.alphacomedy.com/34/2026/02_25_26_0b3f0b98812b4cbcbf91d927287f8159.jpg" alt="Archie" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Archie&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/archie/02/26/408981</guid><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Archie for Feb 24, 2026</title><link>https://www.creators.com/read/archie/02/26/408983</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -528,27 +551,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Archie&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/archie/02/26/408697</guid><pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Archie for Feb 01, 2026</title><link>https://www.creators.com/read/archie/02/26/407813</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-01&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.alphacomedy.com/34/2026/02_01_26_6416fb1fdb55c1d528d92a05d2f98007.jpg" alt="Archie" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Archie&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/archie/02/26/407813</guid><pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://www.creators.com/read/archie/02/26/408697</guid><pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>
