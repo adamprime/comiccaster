@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Wizard of Id Spanish - Creators</title><link>https://www.creators.com/read/wizard-of-id-spanish</link><description>Daily Wizard of Id Spanish comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/wizard-of-id-spanish.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 27 Feb 2026 14:21:47 +0000</lastBuildDate><ttl>1440</ttl><item><title>Wizard of Id Spanish for Feb 27, 2026</title><link>https://www.creators.com/read/wizard-of-id-spanish/02/26/410766</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Wizard of Id Spanish - Creators</title><link>https://www.creators.com/read/wizard-of-id-spanish</link><description>Daily Wizard of Id Spanish comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/wizard-of-id-spanish.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 28 Feb 2026 09:18:27 +0000</lastBuildDate><ttl>1440</ttl><item><title>Wizard of Id Spanish for Feb 28, 2026</title><link>https://www.creators.com/read/wizard-of-id-spanish/02/26/410764</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-02-28&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.alphacomedy.com/47/2026/02_28_26_20003510bed5456266a977ab072b64a1.jpg" alt="Wizard of Id Spanish" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Wizard of Id Spanish&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/wizard-of-id-spanish/02/26/410764</guid><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Wizard of Id Spanish for Feb 27, 2026</title><link>https://www.creators.com/read/wizard-of-id-spanish/02/26/410766</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -528,27 +551,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Wizard of Id Spanish&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/wizard-of-id-spanish/02/26/409507</guid><pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate></item><item><title>Wizard of Id Spanish for Jan 31, 2026</title><link>https://www.creators.com/read/wizard-of-id-spanish/01/26/409007</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-01-31&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.alphacomedy.com/47/2026/01_31_26_1c3e5fdeb2101d59195e7f021b1f6f10.jpg" alt="Wizard of Id Spanish" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Wizard of Id Spanish&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/wizard-of-id-spanish/01/26/409007</guid><pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://www.creators.com/read/wizard-of-id-spanish/02/26/409507</guid><pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate></item></channel></rss>

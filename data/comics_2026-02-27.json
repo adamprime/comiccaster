@@ -32,6 +32,14 @@
     "category": "political"
   },
   {
+    "name": "Mike Luckovich",
+    "slug": "mike-luckovich",
+    "image_url": "https://featureassets.gocomics.com/assets/b8b03f10f61a013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-02-27",
+    "url": "https://www.gocomics.com/mike-luckovich/2026/02/27",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michael-ramirez",
     "image_url": "https://featureassets.gocomics.com/assets/336ec060f558013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1920,6 +1928,14 @@
     "category": "daily"
   },
   {
+    "name": "Wide Open",
+    "slug": "wide-open",
+    "image_url": "https://featureassets.gocomics.com/assets/7bd3c090f60f013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-02-27",
+    "url": "https://www.gocomics.com/wide-open/2026/02/27",
+    "category": "daily"
+  },
+  {
     "name": "Wee Pals",
     "slug": "wee-pals",
     "image_url": "https://featureassets.gocomics.com/assets/25c27cc0d83f013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -2344,19 +2360,19 @@
     "category": "daily"
   },
   {
-    "name": "Half Full",
-    "slug": "half-full",
+    "name": "Adam Home",
+    "slug": "adam-home",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/bluesky_d1ea109817.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-02-27",
-    "url": "https://www.gocomics.com/half-full/2026/02/27",
+    "url": "https://www.gocomics.com/adam-home/2026/02/27",
     "category": "daily"
   },
   {
-    "name": "Real Life Adventures",
-    "slug": "real-life-adventures",
+    "name": "Lio",
+    "slug": "lio",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-02-27",
-    "url": "https://www.gocomics.com/real-life-adventures/2026/02/27",
+    "url": "https://www.gocomics.com/lio/2026/02/27",
     "category": "daily"
   }
 ]
