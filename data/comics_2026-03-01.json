@@ -24,6 +24,14 @@
     "category": "political"
   },
   {
+    "name": "John Deering",
+    "slug": "john-deering",
+    "image_url": "https://featureassets.gocomics.com/assets/947213a0f7ad013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-01",
+    "url": "https://www.gocomics.com/john-deering/2026/03/01",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeff-stahler",
     "image_url": "https://featureassets.gocomics.com/assets/0e6abb40f652013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1912,11 +1920,11 @@
     "category": "daily"
   },
   {
-    "name": "Invisible Bread",
-    "slug": "invisible-bread",
+    "name": "Thatababy 2026",
+    "slug": "thatababy-2026",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-01",
-    "url": "https://www.gocomics.com/invisible-bread/2026/03/01",
+    "url": "https://www.gocomics.com/thatababy-2026/2026/03/01",
     "category": "daily"
   }
 ]
