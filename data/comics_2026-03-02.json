@@ -32,6 +32,14 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/f010f170f88c013ebdbf005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-02",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/03/02",
+    "category": "political"
+  },
+  {
     "name": "Gary Varvel",
     "slug": "gary-varvel",
     "image_url": "https://featureassets.gocomics.com/assets/461dc920f875013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -45,6 +53,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/82690730ef0b013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-03-02",
     "url": "https://www.gocomics.com/doonesbury/2026/03/02",
+    "category": "political"
+  },
+  {
+    "name": "Dana Summers",
+    "slug": "dana-summers",
+    "image_url": "https://featureassets.gocomics.com/assets/ea88f480f88c013ebdbf005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-02",
+    "url": "https://www.gocomics.com/dana-summers/2026/03/02",
     "category": "political"
   },
   {
@@ -1424,6 +1440,14 @@
     "category": "daily"
   },
   {
+    "name": "Our Super Adventure",
+    "slug": "our-super-adventure",
+    "image_url": "https://featureassets.gocomics.com/assets/f52b8e10f88b013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-02",
+    "url": "https://www.gocomics.com/our-super-adventure/2026/03/02",
+    "category": "daily"
+  },
+  {
     "name": "The Other Coast",
     "slug": "the-other-coast",
     "image_url": "https://featureassets.gocomics.com/assets/fb211190d5e3013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1936,11 +1960,11 @@
     "category": "daily"
   },
   {
-    "name": "Our Super Adventure",
-    "slug": "our-super-adventure",
+    "name": "Origins of the Sunday Comics",
+    "slug": "origins-of-the-sunday-comics",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-02",
-    "url": "https://www.gocomics.com/our-super-adventure/2026/03/02",
+    "url": "https://www.gocomics.com/origins-of-the-sunday-comics/2026/03/02",
     "category": "daily"
   },
   {
@@ -2432,27 +2456,27 @@
     "category": "daily"
   },
   {
-    "name": "The Flying Mc Coys",
-    "slug": "the-flying-mc-coys",
+    "name": "Saturday Morning Breakfast Cereal",
+    "slug": "saturday-morning-breakfast-cereal",
     "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icont_Tik_Tok_7714b5ebc0.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-02",
-    "url": "https://www.gocomics.com/the-flying-mc-coys/2026/03/02",
+    "url": "https://www.gocomics.com/saturday-morning-breakfast-cereal/2026/03/02",
     "category": "daily"
   },
   {
-    "name": "Brevity",
-    "slug": "brevity",
+    "name": "Scenes from a Multiverse",
+    "slug": "scenes-from-a-multiverse",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/bluesky_d1ea109817.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-02",
-    "url": "https://www.gocomics.com/brevity/2026/03/02",
+    "url": "https://www.gocomics.com/scenes-from-a-multiverse/2026/03/02",
     "category": "daily"
   },
   {
-    "name": "The Argyle Sweater",
-    "slug": "the-argyle-sweater",
+    "name": "Wordmark",
+    "slug": "wordmark",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-02",
-    "url": "https://www.gocomics.com/the-argyle-sweater/2026/03/02",
+    "url": "https://www.gocomics.com/wordmark/2026/03/02",
     "category": "daily"
   }
 ]
