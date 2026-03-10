@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 06 Mar 2026 09:28:45 +0000</lastBuildDate><ttl>1440</ttl><item><title>Nick Anderson</title><link>https://tinyview.com/nick-anderson/2026/03/04/kristi-noem-and-her-blankie</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Nick Anderson - TinyView</title><link>https://tinyview.com/nick-anderson</link><description>Daily Nick Anderson comic strip by Nick Anderson from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/nick-anderson.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 10 Mar 2026 08:28:46 +0000</lastBuildDate><ttl>1440</ttl><item><title>Nick Anderson</title><link>https://tinyview.com/nick-anderson/2026/03/08/the-dow</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -16,14 +16,16 @@
         }
         &lt;/style&gt;
         &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Good Riddance!&lt;/p&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Global stock markets fell sharply as oil prices surged amid the escalating conflict with Iran, increasing fears of energy supply disruptions. U.S. markets dropped at the opening bell, following losses the previous week, while European and Asian markets also tumbled, especially in energy-dependent economies like Japan, South Korea, and Taiwan.
+
+Oil prices climbed above $100 a barrel for the first time in nearly four years after Middle Eastern producers reduced output and the war raised concerns about shipments through the Strait of Hormuz. The spike in energy costs pushed bond yields higher as investors worried about renewed inflation.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/03/04/kristi-noem-and-her-blankie/030526.Kristi_Noem_Out_Dogs-copy-2.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/03/08/the-dow/030926.Uncle_Sam_Pam_Bondi_The_Dow_-copy.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/03/04/kristi-noem-and-her-blankie/030526.Kristi_Noem_Out_Dogs-copy.jpg" alt="https://cdn.tinyview.com/nick-anderson/2026/03/04/kristi-noem-and-her-blankie/030526.Kristi_Noem_Out_Dogs-copy.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/nick-anderson/2026/03/04/kristi-noem-and-her-blankie/030526.Kristi_Noem_Out_Dogs-copy.jpg&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/nick-anderson/2026/03/08/the-dow/030926.Uncle_Sam_Pam_Bondi_The_Dow_-copy-2.jpg" alt="https://cdn.tinyview.com/nick-anderson/2026/03/08/the-dow/030926.Uncle_Sam_Pam_Bondi_The_Dow_-copy-2.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;https://cdn.tinyview.com/nick-anderson/2026/03/08/the-dow/030926.Uncle_Sam_Pam_Bondi_The_Dow_-copy-2.jpg&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2026/03/04/kristi-noem-and-her-blankie</guid><pubDate>Wed, 04 Mar 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/nick-anderson/2026/03/08/the-dow</guid><pubDate>Sun, 08 Mar 2026 23:59:59 +0000</pubDate></item></channel></rss>
