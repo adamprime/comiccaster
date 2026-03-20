@@ -1,6 +1,42 @@
 {
-  "scraped_at": "2026-03-20T14:49:36.785110+00:00",
+  "scraped_at": "2026-03-20T16:33:42.839594+00:00",
   "cartoons": [
+    {
+      "url": "https://www.newyorker.com/cartoons/daily-cartoon/friday-march-20th-march-madness-spring",
+      "source": "newyorker",
+      "image_url": "https://media.newyorker.com/cartoons/69bd569e1d7f0658321e7966/master/w_1600%2Cc_limit/A61834.jpg",
+      "image_alt": "A man looks flummoxed over an \u201cIs Winter Over\u201d March Madness bracket thats between \u201cYes\u201d and \u201cNo.\u201d",
+      "caption": "",
+      "author": "Drew Dernavich",
+      "title": "Daily Cartoon: Friday, March 20th",
+      "date": "2026-03-20",
+      "humor_links": [
+        {
+          "title": "How to be a mysterious woman who is also in bed by 9:30 P.M.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/how-to-be-a-mysterious-woman-who-is-also-in-bed-by-930-pm"
+        },
+        {
+          "title": "I\u2019ll have kids in a few years, when I\u2019m successful and wealthy and my life is finally perfect.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/ill-have-kids-in-a-few-years-when-im-successful-and-wealthy-and-my-life-is-finally-perfect"
+        },
+        {
+          "title": "I am a Tinder guy holding a fish, and I will provide for you.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/i-am-a-tinder-guy-holding-a-fish-and-i-will-provide-for-you"
+        },
+        {
+          "title": "The most effective group-chat-ending texts.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/the-most-effective-group-chat-ending-texts"
+        },
+        {
+          "title": "Common anatomies of disappointing men.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/common-anatomies-of-disappointing-men"
+        },
+        {
+          "title": "Behold, I have returned from a hike.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/behold-i-have-returned-from-a-hike"
+        }
+      ]
+    },
     {
       "url": "https://www.newyorker.com/cartoons/daily-cartoon/thursday-march-19th-mission-impossible-trump",
       "source": "newyorker",
@@ -298,42 +334,6 @@
       "author": "Jonathan Rosen",
       "title": "Daily Cartoon: Tuesday, March 10th",
       "date": "2026-03-10",
-      "humor_links": [
-        {
-          "title": "How to be a mysterious woman who is also in bed by 9:30 P.M.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/how-to-be-a-mysterious-woman-who-is-also-in-bed-by-930-pm"
-        },
-        {
-          "title": "I\u2019ll have kids in a few years, when I\u2019m successful and wealthy and my life is finally perfect.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/ill-have-kids-in-a-few-years-when-im-successful-and-wealthy-and-my-life-is-finally-perfect"
-        },
-        {
-          "title": "I am a Tinder guy holding a fish, and I will provide for you.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/i-am-a-tinder-guy-holding-a-fish-and-i-will-provide-for-you"
-        },
-        {
-          "title": "The most effective group-chat-ending texts.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/the-most-effective-group-chat-ending-texts"
-        },
-        {
-          "title": "Common anatomies of disappointing men.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/common-anatomies-of-disappointing-men"
-        },
-        {
-          "title": "Behold, I have returned from a hike.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/behold-i-have-returned-from-a-hike"
-        }
-      ]
-    },
-    {
-      "url": "https://www.newyorker.com/cartoons/daily-cartoon/monday-march-9th-serious-cat-videos",
-      "source": "newyorker",
-      "image_url": "https://media.newyorker.com/cartoons/69aec9346d46bb99a2ac9b09/master/w_1600%2Cc_limit/A61796.jpg",
-      "image_alt": "Two people sit on a couch looking at an iPad with a cat on it.",
-      "caption": "\"I searched \u2018funny cat videos,\u2019 but things are so bad that they\u2019re all making serious ones.\"",
-      "author": "Paul Noth",
-      "title": "Daily Cartoon: Monday, March 9th",
-      "date": "2026-03-09",
       "humor_links": [
         {
           "title": "How to be a mysterious woman who is also in bed by 9:30 P.M.",
