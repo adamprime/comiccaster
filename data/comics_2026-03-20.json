@@ -24,6 +24,14 @@
     "category": "political"
   },
   {
+    "name": "Lisa Benson",
+    "slug": "lisa-benson",
+    "image_url": "https://featureassets.gocomics.com/assets/18b22f3006a9013fbeab005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-20",
+    "url": "https://www.gocomics.com/lisa-benson/2026/03/20",
+    "category": "political"
+  },
+  {
     "name": "Gary Varvel",
     "slug": "gary-varvel",
     "image_url": "https://featureassets.gocomics.com/assets/f4727c8005fc013fbe3b005056a9545d?optimizer=image&width=2800&quality=85",
@@ -136,9 +144,17 @@
     "category": "daily"
   },
   {
+    "name": "Cow Town",
+    "slug": "cow-town",
+    "image_url": "https://featureassets.gocomics.com/assets/74e46170fa1e013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-20",
+    "url": "https://www.gocomics.com/cow-town/2026/03/20",
+    "category": "daily"
+  },
+  {
     "name": "Cow and Boy Classics",
     "slug": "cow-and-boy-classics",
-    "image_url": "https://featureassets.gocomics.com/assets/74e46170fa1e013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "image_url": "https://featureassets.gocomics.com/assets/8c913f5006ac013fbe3b005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/cow-and-boy-classics/2026/03/20",
     "category": "daily"
@@ -640,17 +656,9 @@
     "category": "daily"
   },
   {
-    "name": "Cow Town",
-    "slug": "cow-town",
-    "image_url": "https://featureassets.gocomics.com/assets/a33a6b4005e8013fbe3b005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-03-20",
-    "url": "https://www.gocomics.com/cow-town/2026/03/20",
-    "category": "daily"
-  },
-  {
     "name": "Comic Strip That Has a Finale Every Day The",
     "slug": "comic-strip-that-has-a-finale-every-day-the",
-    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icon_Facebook_a03502eee9.svg?optimizer=image&width=2800&quality=75",
+    "image_url": "https://featureassets.gocomics.com/assets/a33a6b4005e8013fbe3b005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/comic-strip-that-has-a-finale-every-day-the/2026/03/20",
     "category": "daily"
@@ -658,7 +666,7 @@
   {
     "name": "Claw",
     "slug": "claw",
-    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icon_Instagram_76186b3435.svg?optimizer=image&width=2800&quality=75",
+    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icon_Facebook_a03502eee9.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/claw/2026/03/20",
     "category": "daily"
@@ -666,7 +674,7 @@
   {
     "name": "The City",
     "slug": "the-city",
-    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icont_Tik_Tok_7714b5ebc0.svg?optimizer=image&width=2800&quality=75",
+    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icon_Instagram_76186b3435.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/the-city/2026/03/20",
     "category": "daily"
@@ -674,7 +682,7 @@
   {
     "name": "Chuck Draws Things",
     "slug": "chuck-draws-things",
-    "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/bluesky_d1ea109817.svg?optimizer=image&width=2800&quality=75",
+    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icont_Tik_Tok_7714b5ebc0.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/chuck-draws-things/2026/03/20",
     "category": "daily"
@@ -682,9 +690,17 @@
   {
     "name": "Cheer Up Emo Kid",
     "slug": "cheer-up-emo-kid",
-    "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
+    "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/bluesky_d1ea109817.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/cheer-up-emo-kid/2026/03/20",
+    "category": "daily"
+  },
+  {
+    "name": "C est La Vie",
+    "slug": "c-est-la-vie",
+    "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
+    "date": "2026-03-20",
+    "url": "https://www.gocomics.com/c-est-la-vie/2026/03/20",
     "category": "daily"
   },
   {
@@ -693,6 +709,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/935e06d0fe0b013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/jumpstart/2026/03/20",
+    "category": "daily"
+  },
+  {
+    "name": "Jim Benton Cartoons",
+    "slug": "jim-benton-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/786f5f1006a4013fbe3b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-20",
+    "url": "https://www.gocomics.com/jim-benton-cartoons/2026/03/20",
     "category": "daily"
   },
   {
@@ -1200,17 +1224,9 @@
     "category": "daily"
   },
   {
-    "name": "Jim Benton Cartoons",
-    "slug": "jim-benton-cartoons",
-    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icon_Instagram_76186b3435.svg?optimizer=image&width=2800&quality=75",
-    "date": "2026-03-20",
-    "url": "https://www.gocomics.com/jim-benton-cartoons/2026/03/20",
-    "category": "daily"
-  },
-  {
     "name": "Jake Likes Onions",
     "slug": "jake-likes-onions",
-    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icont_Tik_Tok_7714b5ebc0.svg?optimizer=image&width=2800&quality=75",
+    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icon_Instagram_76186b3435.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/jake-likes-onions/2026/03/20",
     "category": "daily"
@@ -1218,7 +1234,7 @@
   {
     "name": "Invisible Bread",
     "slug": "invisible-bread",
-    "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/bluesky_d1ea109817.svg?optimizer=image&width=2800&quality=75",
+    "image_url": "https://gocomicscmsassets.gocomics.com/staging-assets/assets/Icont_Tik_Tok_7714b5ebc0.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/invisible-bread/2026/03/20",
     "category": "daily"
@@ -1226,9 +1242,17 @@
   {
     "name": "In The Sticks",
     "slug": "in-the-sticks",
-    "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
+    "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/bluesky_d1ea109817.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/in-the-sticks/2026/03/20",
+    "category": "daily"
+  },
+  {
+    "name": "Imogen Quest",
+    "slug": "imogen-quest",
+    "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
+    "date": "2026-03-20",
+    "url": "https://www.gocomics.com/imogen-quest/2026/03/20",
     "category": "daily"
   },
   {
@@ -1365,6 +1389,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/bc265c10fed1013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-03-20",
     "url": "https://www.gocomics.com/non-sequitur/2026/03/20",
+    "category": "daily"
+  },
+  {
+    "name": "Next Door Neighbors",
+    "slug": "next-door-neighbors",
+    "image_url": "https://featureassets.gocomics.com/assets/09401e4006a6013fbe3b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-20",
+    "url": "https://www.gocomics.com/next-door-neighbors/2026/03/20",
     "category": "daily"
   },
   {
@@ -1840,6 +1872,14 @@
     "category": "daily"
   },
   {
+    "name": "Win Lose Drew",
+    "slug": "win-lose-drew",
+    "image_url": "https://featureassets.gocomics.com/assets/73046a2006ae013fbe3b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-20",
+    "url": "https://www.gocomics.com/win-lose-drew/2026/03/20",
+    "category": "daily"
+  },
+  {
     "name": "Wide Open",
     "slug": "wide-open",
     "image_url": "https://featureassets.gocomics.com/assets/f9b344d00683013fbe3b005056a9545d?optimizer=image&width=2800&quality=85",
@@ -2280,11 +2320,11 @@
     "category": "daily"
   },
   {
-    "name": "Grand Adventure",
-    "slug": "grand-adventure",
+    "name": "Lio",
+    "slug": "lio",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-20",
-    "url": "https://www.gocomics.com/grand-adventure/2026/03/20",
+    "url": "https://www.gocomics.com/lio/2026/03/20",
     "category": "daily"
   }
 ]
