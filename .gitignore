@@ -89,9 +89,18 @@ extracted_*.json
 node_modules/
 package-lock.json
 
+# Logs and temp files
+logs/
+temp/
+htmlcov/
+.coverage
+
 # OS specific
 .DS_Store
 Thumbs.db
 
 # Git worktrees
 worktrees/
+
+# Misc session artifacts
+spec-*.md
