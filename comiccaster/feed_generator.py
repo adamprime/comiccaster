@@ -169,7 +169,8 @@ class ComicFeedGenerator:
             gallery_html += f'loading="lazy">\n'
             
             # Add panel description if available in alt text (for screen readers)
-            if alt_text and alt_text != f"{comic_info.get('name', 'Comic')} - Panel {i+1}":
+            # Skip if alt text is just a URL (e.g. TinyView sets alt=src URL)
+            if alt_text and alt_text != f"{comic_info.get('name', 'Comic')} - Panel {i+1}" and not alt_text.startswith(('http://', 'https://')):
                 gallery_html += f'        <div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;">{alt_text}</div>\n'
             
             gallery_html += f'    </div>\n'
