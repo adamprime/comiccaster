@@ -4593,5 +4593,14 @@
     "is_updated": false,
     "source": "creators",
     "source_slug": "wizard-of-id-spanish"
+  },
+  {
+    "name": "Mallard Fillmore",
+    "author": "Bruce Tinsley",
+    "url": "https://comicskingdom.com/mallard-fillmore",
+    "slug": "mallard-fillmore",
+    "position": 567,
+    "is_updated": true,
+    "source": "comicskingdom"
   }
 ]
