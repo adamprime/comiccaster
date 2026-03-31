@@ -35,7 +35,7 @@
 #   status = 200
 
 [build.environment]
-  PYTHON_VERSION = "3.9"
+  PYTHON_VERSION = "3.12"
   # Add environment variables for the feed generator
   MAX_WORKERS = "10"
   REQUEST_TIMEOUT = "10"
