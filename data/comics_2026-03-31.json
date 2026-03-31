@@ -8,6 +8,22 @@
     "category": "political"
   },
   {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/56ebe8000f4e013fbf0e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-31",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/03/31",
+    "category": "political"
+  },
+  {
+    "name": "Mike Lester",
+    "slug": "mike-lester",
+    "image_url": "https://featureassets.gocomics.com/assets/9fdd90100f4f013fbec7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-31",
+    "url": "https://www.gocomics.com/mike-lester/2026/03/31",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michael-ramirez",
     "image_url": "https://featureassets.gocomics.com/assets/78019d900e1a013fbec7005056a9545d?optimizer=image&width=2800&quality=85",
@@ -21,6 +37,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/10eb75300f48013fbf0c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-03-31",
     "url": "https://www.gocomics.com/joey-weatherford/2026/03/31",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Stahler",
+    "slug": "jeff-stahler",
+    "image_url": "https://featureassets.gocomics.com/assets/a6d53dd00f4e013fbec7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-31",
+    "url": "https://www.gocomics.com/jeff-stahler/2026/03/31",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeff-danziger",
+    "image_url": "https://featureassets.gocomics.com/assets/ea712b500f4d013fbf0d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-31",
+    "url": "https://www.gocomics.com/jeff-danziger/2026/03/31",
     "category": "political"
   },
   {
@@ -2232,11 +2264,11 @@
     "category": "daily"
   },
   {
-    "name": "Adam Home",
-    "slug": "adam-home",
+    "name": "Half Full",
+    "slug": "half-full",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-31",
-    "url": "https://www.gocomics.com/adam-home/2026/03/31",
+    "url": "https://www.gocomics.com/half-full/2026/03/31",
     "category": "daily"
   }
 ]
