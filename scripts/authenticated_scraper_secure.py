@@ -160,16 +160,25 @@ def _extract_comic_slug_from_link(href):
     return slug if slug else None
 
 
+def _is_asset_host(url):
+    """Return True if url is hosted on the expected GoComics asset domain."""
+    try:
+        netloc = urlparse(url).netloc
+        return netloc == 'featureassets.gocomics.com'
+    except Exception:
+        return False
+
+
 def _get_image_src(img):
     """Extract the best image URL from an img tag, checking src and srcset."""
     src = img.get('src', '')
-    if src and 'featureassets.gocomics.com' in src:
+    if src and _is_asset_host(src):
         return src
 
     srcset = img.get('srcset', '')
-    if srcset and 'featureassets.gocomics.com' in srcset:
-        # Pick the highest-resolution entry from the srcset
-        entries = [e.strip().split() for e in srcset.split(',') if 'featureassets' in e]
+    if srcset:
+        entries = [e.strip().split() for e in srcset.split(',')
+                   if e.strip() and _is_asset_host(e.strip().split()[0])]
         if entries:
             return entries[-1][0]
 
@@ -239,15 +248,9 @@ def extract_comics_from_page(driver, page_url, date_str):
         strip_url = None
         for img in container.find_all('img'):
             src = _get_image_src(img)
-            if src and 'featureassets.gocomics.com' in src and 'Badge' not in src:
-                try:
-                    parsed_src = urlparse(src)
-                    if (parsed_src.netloc == 'featureassets.gocomics.com'
-                            or parsed_src.netloc.endswith('.gocomics.com')):
-                        strip_url = src
-                        break
-                except Exception:
-                    continue
+            if src and _is_asset_host(src) and 'Badge' not in src:
+                strip_url = src
+                break
 
         if not strip_url:
             no_strip_count += 1

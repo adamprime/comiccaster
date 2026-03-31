@@ -281,7 +281,7 @@
                     if (comic.source === 'comicskingdom') {
                         let comicsKingdomUrl = `https://comicskingdom.com/${comic.slug}`;
                         try {
-                            if (comic.url && new URL(comic.url).hostname.endsWith('comicskingdom.com')) {
+                            if (comic.url && new URL(comic.url).hostname === 'comicskingdom.com') {
                                 comicsKingdomUrl = comic.url;
                             }
                         } catch (e) { /* invalid URL, use default */ }
