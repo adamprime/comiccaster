@@ -711,15 +711,19 @@ def should_regenerate_feed(comic_info):
     return False
 
 def process_comic(comic):
-    """Process a single comic."""
+    """Process a single comic. Returns 'updated', 'skipped', or 'failed'."""
     try:
         logger.info(f"Processing {comic['name']}")
-        update_feed(comic)
-        logger.info(f"Successfully updated feed for {comic['name']} with new content")
-        return True
+        result = update_feed(comic)
+        if result:
+            logger.info(f"Successfully updated feed for {comic['name']} with new content")
+            return 'updated'
+        else:
+            logger.info(f"No new content for {comic['name']} - feed unchanged")
+            return 'skipped'
     except Exception as e:
         logger.error(f"Error processing {comic['name']}: {e}")
-        return False
+        return 'failed'
 
 def load_political_comics_list():
     """Load the list of political comics from political_comics_list.json."""
@@ -895,8 +899,7 @@ def update_feeds_smart():
 def update_comic_feed(comic: Dict[str, any]) -> bool:
     """Update a single comic feed (wrapper for existing update_feed function)."""
     try:
-        update_feed(comic)
-        return True
+        return bool(update_feed(comic))
     except Exception as e:
         logger.error(f"Error updating feed for {comic['name']}: {e}")
         return False
@@ -931,20 +934,24 @@ def main():
             future_to_comic = {executor.submit(process_comic, comic): comic for comic in comics}
             
             # Process results as they complete
-            successful = 0
+            updated = 0
+            skipped = 0
             failed = 0
             for future in concurrent.futures.as_completed(future_to_comic):
                 comic = future_to_comic[future]
                 try:
-                    if future.result():
-                        successful += 1
+                    result = future.result()
+                    if result == 'updated':
+                        updated += 1
+                    elif result == 'skipped':
+                        skipped += 1
                     else:
                         failed += 1
                 except Exception as e:
                     logger.error(f"Error processing {comic['name']}: {e}")
                     failed += 1
             
-            logger.info(f"Completed processing {len(comics)} comics: {successful} successful, {failed} failed")
+            logger.info(f"Completed processing {len(comics)} comics: {updated} updated, {skipped} skipped (no new content), {failed} failed")
 
         # Clean up browser pool
         close_browser_pool()
