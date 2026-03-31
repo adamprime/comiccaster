@@ -279,9 +279,12 @@
                     let feedPath;
                     
                     if (comic.source === 'comicskingdom') {
-                        const comicsKingdomUrl = (comic.url && comic.url.includes('comicskingdom.com'))
-                            ? comic.url
-                            : `https://comicskingdom.com/${comic.slug}`;
+                        let comicsKingdomUrl = `https://comicskingdom.com/${comic.slug}`;
+                        try {
+                            if (comic.url && new URL(comic.url).hostname.endsWith('comicskingdom.com')) {
+                                comicsKingdomUrl = comic.url;
+                            }
+                        } catch (e) { /* invalid URL, use default */ }
                         sourceName = comic.source_variant === 'vintage'
                             ? 'Comics Kingdom (Vintage)'
                             : 'Comics Kingdom';
