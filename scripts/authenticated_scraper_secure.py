@@ -21,6 +21,12 @@ from bs4 import BeautifulSoup
 import time
 
 
+# CSS class patterns used to locate elements on profile pages.
+_COMIC_CONTAINER_SELECTOR = '[class*="ComicViewer"]'
+_COMIC_CONTAINER_RE = re.compile(r'ComicViewer')
+_NOT_ISSUED_RE = re.compile(r'FeaturesNotIssued')
+
+
 def get_required_env_var(name):
     """Get required environment variable or exit with error."""
     value = os.environ.get(name)
@@ -127,69 +133,191 @@ def login(driver, email, password):
         return False
 
 
+def _extract_comic_slug_from_link(href):
+    """Extract a comic slug from a link href, handling both absolute and relative URLs.
+
+    Returns the slug string, or None if the link isn't a comic page.
+    """
+    parsed = urlparse(href)
+
+    is_absolute_gc = (
+        parsed.netloc in ('www.gocomics.com', 'gocomics.com')
+        or parsed.netloc.endswith('.gocomics.com')
+    )
+    is_relative = (
+        not parsed.netloc
+        and href.startswith('/')
+        and not href.startswith('//')
+    )
+
+    if not is_absolute_gc and not is_relative:
+        return None
+
+    if '/profile/' in href or '/_next/' in href or href.startswith('/api/'):
+        return None
+
+    slug = parsed.path.strip('/')
+    return slug if slug else None
+
+
+def _get_image_src(img):
+    """Extract the best image URL from an img tag, checking src and srcset."""
+    src = img.get('src', '')
+    if src and 'featureassets.gocomics.com' in src:
+        return src
+
+    srcset = img.get('srcset', '')
+    if srcset and 'featureassets.gocomics.com' in srcset:
+        # Pick the highest-resolution entry from the srcset
+        entries = [e.strip().split() for e in srcset.split(',') if 'featureassets' in e]
+        if entries:
+            return entries[-1][0]
+
+    return src
+
+
+def _get_badge_name(img):
+    """Extract the badge display name from a badge image's src or srcset."""
+    for attr in ('src', 'srcset'):
+        val = img.get(attr, '')
+        if 'Badge' in val and 'Global_Feature_Badge' in val:
+            match = re.search(r'Badge_([^_]+(?:_[^_]+)*?)_600', val)
+            if match:
+                return match.group(1).replace('_', ' ')
+    return None
+
+
 def extract_comics_from_page(driver, page_url, date_str):
-    """Extract comics from a custom page."""
+    """Extract comics from a custom/profile page.
+
+    Pairs each comic's badge, strip image, and canonical link by finding
+    them within the same container element on the page.
+    """
     print(f"\nScraping: {page_url}")
     driver.get(page_url)
     time.sleep(5)
-    
+
+    # Wait for comic containers to render before scrolling.
+    try:
+        WebDriverWait(driver, 15).until(
+            lambda d: d.find_elements(By.CSS_SELECTOR, _COMIC_CONTAINER_SELECTOR)
+        )
+    except Exception:
+        print("  ⚠️  Comic containers not found after waiting")
+
     # Scroll to load lazy images
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(2)
+    time.sleep(3)
     driver.execute_script("window.scrollTo(0, 0);")
     time.sleep(1)
-    
+
     soup = BeautifulSoup(driver.page_source, 'html.parser')
-    all_imgs = soup.find_all('img')
-    
-    badges = []
-    strips = []
-    
-    for img in all_imgs:
-        src = img.get('src', '')
-        if not src:
-            continue
-        
-        # Parse URL to safely check domain
-        try:
-            parsed_src = urlparse(src)
-        except Exception:
-            continue
-        
-        # Extract comic names from badge images
-        if 'Badge' in src and 'Global_Feature_Badge' in src:
-            match = re.search(r'Badge_([^_]+(?:_[^_]+)*?)_600', src)
-            if match:
-                name_part = match.group(1).replace('_', ' ')
-                badges.append({'name': name_part})
-        
-        # Extract comic strip images - properly validate domain
-        elif (parsed_src.netloc == 'featureassets.gocomics.com' or 
-              parsed_src.netloc.endswith('.gocomics.com')) and 'Badge' not in src:
-            strips.append({'image_url': src})
-    
-    # Match badges to strips
+
+    containers = soup.find_all('div', class_=_COMIC_CONTAINER_RE)
+
+    if not containers:
+        debug_file = Path(f'/tmp/gocomics_debug_{date_str}.html')
+        debug_file.write_text(driver.page_source)
+        print(f"  ⚠️  No comic containers found. Page source saved to {debug_file}")
     comics = []
-    match_count = min(len(badges), len(strips))
-    
-    for i in range(match_count):
-        badge = badges[i]
-        strip = strips[i]
-        
-        slug = badge['name'].lower().replace(' ', '-').replace('.', '')
-        slug = re.sub(r'[^a-z0-9\-]', '', slug)
-        slug = re.sub(r'\-+', '-', slug).strip('-')
-        
+    no_link_count = 0
+    no_strip_count = 0
+
+    for container in containers:
+        # 1. Find the canonical GoComics link inside this container.
+        # Links may be absolute (browser-saved HTML) or relative (Selenium).
+        slug = None
+        for link in container.find_all('a', href=True):
+            slug = _extract_comic_slug_from_link(link['href'])
+            if slug:
+                break
+        if not slug:
+            no_link_count += 1
+            continue
+
+        # 2. Find the strip image inside this container
+        strip_url = None
+        for img in container.find_all('img'):
+            src = _get_image_src(img)
+            if src and 'featureassets.gocomics.com' in src and 'Badge' not in src:
+                try:
+                    parsed_src = urlparse(src)
+                    if (parsed_src.netloc == 'featureassets.gocomics.com'
+                            or parsed_src.netloc.endswith('.gocomics.com')):
+                        strip_url = src
+                        break
+                except Exception:
+                    continue
+
+        if not strip_url:
+            no_strip_count += 1
+            continue
+
+        # 3. Extract a display name from the badge (nice-to-have, not used for slug)
+        badge_name = None
+        for img in container.find_all('img'):
+            badge_name = _get_badge_name(img)
+            if badge_name:
+                break
+
+        display_name = badge_name or slug.replace('-', ' ').title()
+
         comics.append({
-            'name': badge['name'],
+            'name': display_name,
             'slug': slug,
-            'image_url': strip['image_url'],
+            'image_url': strip_url,
             'date': date_str,
             'url': f"https://www.gocomics.com/{slug}/{date_str.replace('-', '/')}",
         })
-    
-    print(f"  Extracted {len(comics)} comics")
-    return comics
+
+    # Deduplicate within this page (responsive layout may render each comic
+    # in multiple containers, e.g. desktop + mobile variants).
+    seen = set()
+    unique_comics = []
+    for comic in comics:
+        if comic['slug'] not in seen:
+            seen.add(comic['slug'])
+            unique_comics.append(comic)
+
+    responsive_dupes = len(comics) - len(unique_comics)
+
+
+
+    # --- Validation: cross-check extraction against page metadata ---
+    # The page lists updated comics in the main section and non-updated
+    # comics in a separate section at the bottom.
+    not_issued_sections = soup.find_all('div', class_=_NOT_ISSUED_RE)
+    not_issued_slugs = set()
+    for section in not_issued_sections:
+        for link in section.find_all('a', href=True):
+            slug_val = _extract_comic_slug_from_link(link['href'])
+            if slug_val:
+                not_issued_slugs.add(slug_val)
+
+    # Count updated comics from containers that have a GoComics link
+    # (includes those without a strip image — they still "updated").
+    expected_updated = set()
+    for container in containers:
+        for link in container.find_all('a', href=True):
+            slug_val = _extract_comic_slug_from_link(link['href'])
+            if slug_val:
+                if slug_val not in not_issued_slugs:
+                    expected_updated.add(slug_val)
+                break
+
+    extracted_slugs = {c['slug'] for c in unique_comics}
+    missed = expected_updated - extracted_slugs
+
+    print(f"  Extracted {len(unique_comics)} comics"
+          + (f" ({responsive_dupes} responsive duplicates removed)" if responsive_dupes else ""))
+    print(f"  Page reports: {len(expected_updated)} updated, {len(not_issued_slugs)} not updated today")
+
+    if missed:
+        print(f"  ⚠️  {len(missed)} updated comics not extracted: {', '.join(sorted(missed))}")
+    elif expected_updated:
+        print(f"  ✅ Extraction matches page — all {len(expected_updated)} updated comics captured")
+
+    return unique_comics
 
 
 def main():
@@ -238,6 +366,24 @@ def main():
             
             all_comics.extend(comics)
         
+        # Deduplicate across pages — the same comic may appear on multiple
+        # profile pages. Keep the first occurrence.
+        seen_slugs = set()
+        deduped_comics = []
+        cross_page_dupes = 0
+        for comic in all_comics:
+            slug = comic.get('slug')
+            if slug in seen_slugs:
+                cross_page_dupes += 1
+                continue
+            seen_slugs.add(slug)
+            deduped_comics.append(comic)
+
+        if cross_page_dupes:
+            print(f"\n⚠️  Removed {cross_page_dupes} cross-page duplicate entries")
+
+        all_comics = deduped_comics
+
         # Save results
         output_file = output_dir / f'comics_{date_str}.json'
         with open(output_file, 'w') as f:

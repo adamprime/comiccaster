@@ -52,7 +52,9 @@ def load_scraped_data(days_back: int = 10) -> Dict[str, List[Dict]]:
     logger.info(f"Loading GoComics data from {len(files_to_load)} day(s)...")
 
     indexed: Dict[str, List[Dict]] = {}
+    seen_slug_dates: set = set()
     total_loaded = 0
+    duplicates_skipped = 0
 
     for data_file in files_to_load:
         date_from_file = data_file.stem.replace('comics_', '')
@@ -63,15 +65,33 @@ def load_scraped_data(days_back: int = 10) -> Dict[str, List[Dict]]:
 
             for comic in comics:
                 slug = comic.get('slug')
-                if slug:
-                    if slug not in indexed:
-                        indexed[slug] = []
-                    indexed[slug].append(comic)
-                    total_loaded += 1
+                date = comic.get('date', date_from_file)
+                if not slug:
+                    continue
+
+                key = (slug, date)
+                if key in seen_slug_dates:
+                    duplicates_skipped += 1
+                    logger.debug(
+                        f"Skipping duplicate entry for {slug} on {date}"
+                    )
+                    continue
+                seen_slug_dates.add(key)
+
+                if slug not in indexed:
+                    indexed[slug] = []
+                indexed[slug].append(comic)
+                total_loaded += 1
 
             logger.info(f"  {date_from_file}: {len(comics)} comics")
         except Exception as e:
             logger.warning(f"Error loading {data_file.name}: {e}")
+
+    if duplicates_skipped:
+        logger.warning(
+            f"Skipped {duplicates_skipped} duplicate slug/date entries "
+            f"(likely Spanish/English overlap in scraped data)"
+        )
 
     logger.info(f"Loaded {total_loaded} total entries for {len(indexed)} unique comics")
     return indexed

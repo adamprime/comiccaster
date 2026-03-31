@@ -121,6 +121,65 @@ class TestLoadScrapedData:
         # Should still load valid files
         assert 'garfield' in result
 
+    def test_deduplicates_by_slug_and_date(self, tmp_path, monkeypatch):
+        """Duplicate slug+date entries (e.g. Spanish/English overlap) are
+        deduplicated at load time, keeping only the first occurrence."""
+        data_dir = tmp_path / 'data'
+        data_dir.mkdir()
+        monkeypatch.chdir(tmp_path)
+
+        day_data = [
+            {
+                'name': 'Garfield',
+                'slug': 'garfield',
+                'image_url': 'https://example.com/garfield-english.jpg',
+                'date': '2026-03-31',
+                'url': 'https://www.gocomics.com/garfield/2026/03/31',
+            },
+            {
+                'name': 'Garfield',
+                'slug': 'garfield',
+                'image_url': 'https://example.com/garfield-spanish.jpg',
+                'date': '2026-03-31',
+                'url': 'https://www.gocomics.com/garfield/2026/03/31',
+            },
+        ]
+        (data_dir / 'comics_2026-03-31.json').write_text(json.dumps(day_data))
+
+        result = load_scraped_data(days_back=10)
+
+        assert len(result['garfield']) == 1
+        assert result['garfield'][0]['image_url'] == 'https://example.com/garfield-english.jpg'
+
+    def test_dedup_allows_same_slug_different_dates(self, tmp_path, monkeypatch):
+        """Same slug on different dates should NOT be deduplicated."""
+        data_dir = tmp_path / 'data'
+        data_dir.mkdir()
+        monkeypatch.chdir(tmp_path)
+
+        day1 = [
+            {
+                'slug': 'garfield',
+                'image_url': 'https://example.com/g-0330.jpg',
+                'date': '2026-03-30',
+                'url': 'https://www.gocomics.com/garfield/2026/03/30',
+            },
+        ]
+        day2 = [
+            {
+                'slug': 'garfield',
+                'image_url': 'https://example.com/g-0331.jpg',
+                'date': '2026-03-31',
+                'url': 'https://www.gocomics.com/garfield/2026/03/31',
+            },
+        ]
+        (data_dir / 'comics_2026-03-30.json').write_text(json.dumps(day1))
+        (data_dir / 'comics_2026-03-31.json').write_text(json.dumps(day2))
+
+        result = load_scraped_data(days_back=10)
+
+        assert len(result['garfield']) == 2
+
 
 class TestGenerateFeedForComic:
     def test_generates_feed(self):
