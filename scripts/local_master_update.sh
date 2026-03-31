@@ -117,8 +117,8 @@ echo ""
 echo "=== Phase 2: Generating All Feeds ==="
 
 echo ""
-echo "[1/4] Generating GoComics feeds..."
-if python scripts/update_feeds.py; then
+echo "[1/4] Generating GoComics feeds (from scraped data)..."
+if python scripts/generate_gocomics_feeds.py; then
     echo "✅ GoComics feed generation succeeded"
 else
     echo "❌ GoComics feed generation failed"

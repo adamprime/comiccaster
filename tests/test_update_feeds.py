@@ -12,7 +12,7 @@ import sys
 # Add the scripts directory to the path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from scripts.update_feeds import regenerate_feed, extract_image_from_description
+from scripts.update_feeds import regenerate_feed, extract_image_from_description, process_comic
 from comiccaster.feed_generator import ComicFeedGenerator
 import feedparser
 
@@ -257,3 +257,29 @@ class TestHelperFunctions:
         # Test with None
         result = extract_image_from_description(None)
         assert result is None
+
+
+class TestProcessComicReporting:
+    """Test that process_comic accurately reports update results."""
+
+    @pytest.fixture
+    def comic(self):
+        return {'name': 'Test Comic', 'slug': 'test-comic', 'url': 'https://www.gocomics.com/test-comic'}
+
+    def test_returns_updated_on_success(self, comic):
+        with pytest.MonkeyPatch.context() as m:
+            m.setattr('scripts.update_feeds.update_feed', lambda c, **kw: True)
+            assert process_comic(comic) == 'updated'
+
+    def test_returns_skipped_when_no_new_content(self, comic):
+        with pytest.MonkeyPatch.context() as m:
+            m.setattr('scripts.update_feeds.update_feed', lambda c, **kw: False)
+            assert process_comic(comic) == 'skipped'
+
+    def test_returns_failed_on_exception(self, comic):
+        def raise_error(c, **kw):
+            raise RuntimeError("scrape failed")
+
+        with pytest.MonkeyPatch.context() as m:
+            m.setattr('scripts.update_feeds.update_feed', raise_error)
+            assert process_comic(comic) == 'failed'
