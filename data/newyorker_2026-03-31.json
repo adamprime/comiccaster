@@ -1,6 +1,42 @@
 {
-  "scraped_at": "2026-03-31T08:21:26.791617+00:00",
+  "scraped_at": "2026-03-31T16:26:38.290563+00:00",
   "cartoons": [
+    {
+      "url": "https://www.newyorker.com/cartoons/daily-cartoon/tuesday-march-31st-dinner-party-gasoline",
+      "source": "newyorker",
+      "image_url": "https://media.newyorker.com/cartoons/69cbd76c465d8573a49d0853/master/w_1600%2Cc_limit/A61852.jpg",
+      "image_alt": "A couple greets another couple at the door with a bottle of wine.",
+      "caption": "\"Oh, wow! A bottle of gasoline!\"",
+      "author": "Adam Douglas Thompson",
+      "title": "Daily Cartoon: Tuesday, March 31st",
+      "date": "2026-03-31",
+      "humor_links": [
+        {
+          "title": "How to find your best selfie angle.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/finding-your-best-selfie-angle"
+        },
+        {
+          "title": "Why I am not like other tourists.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/why-i-am-not-like-other-tourists"
+        },
+        {
+          "title": "The complete guide to manipulating me.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/the-complete-guide-to-manipulating-me"
+        },
+        {
+          "title": "How to survive a vibe shift.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/how-to-survive-a-vibe-shift"
+        },
+        {
+          "title": "Update: your flight has been cancelled.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/update-your-flight-has-been-cancelled"
+        },
+        {
+          "title": "What happens before you wake up.",
+          "url": "https://www.newyorker.com/humor/daily-shouts/what-happens-before-you-wake-up"
+        }
+      ]
+    },
     {
       "url": "https://www.newyorker.com/cartoons/daily-cartoon/monday-march-30th-inflation-slow-steady",
       "source": "newyorker",
@@ -298,42 +334,6 @@
       "author": "Enrico Pinto",
       "title": "Daily Cartoon: Wednesday, March 18th",
       "date": "2026-03-18",
-      "humor_links": [
-        {
-          "title": "How to be a mysterious woman who is also in bed by 9:30 P.M.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/how-to-be-a-mysterious-woman-who-is-also-in-bed-by-930-pm"
-        },
-        {
-          "title": "I\u2019ll have kids in a few years, when I\u2019m successful and wealthy and my life is finally perfect.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/ill-have-kids-in-a-few-years-when-im-successful-and-wealthy-and-my-life-is-finally-perfect"
-        },
-        {
-          "title": "I am a Tinder guy holding a fish, and I will provide for you.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/i-am-a-tinder-guy-holding-a-fish-and-i-will-provide-for-you"
-        },
-        {
-          "title": "The most effective group-chat-ending texts.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/the-most-effective-group-chat-ending-texts"
-        },
-        {
-          "title": "Common anatomies of disappointing men.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/common-anatomies-of-disappointing-men"
-        },
-        {
-          "title": "Behold, I have returned from a hike.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/behold-i-have-returned-from-a-hike"
-        }
-      ]
-    },
-    {
-      "url": "https://www.newyorker.com/cartoons/daily-cartoon/tuesday-march-17th-irish-setters",
-      "source": "newyorker",
-      "image_url": "https://media.newyorker.com/cartoons/69b95a792f45ad5efbb10c58/master/w_1600%2Cc_limit/A61817.jpg",
-      "image_alt": "Two two dogs have intertwined their leashes into a Celtic knot. Their owner says \u201dTheyre Irish setters.\u201d",
-      "caption": "",
-      "author": "The New Yorker",
-      "title": "Daily Cartoon: Tuesday, March 17th",
-      "date": "2026-03-17",
       "humor_links": [
         {
           "title": "How to be a mysterious woman who is also in bed by 9:30 P.M.",

@@ -16,6 +16,14 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/10eb75300f48013fbf0c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-31",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/03/31",
+    "category": "political"
+  },
+  {
     "name": "Gary Varvel",
     "slug": "gary-varvel",
     "image_url": "https://featureassets.gocomics.com/assets/0ab3dca00e44013fbec7005056a9545d?optimizer=image&width=2800&quality=85",
@@ -29,6 +37,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/d003b8a009cc013fbec7005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-03-31",
     "url": "https://www.gocomics.com/doonesbury/2026/03/31",
+    "category": "political"
+  },
+  {
+    "name": "Dana Summers",
+    "slug": "dana-summers",
+    "image_url": "https://featureassets.gocomics.com/assets/0e4488d00f48013fbf0c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-31",
+    "url": "https://www.gocomics.com/dana-summers/2026/03/31",
     "category": "political"
   },
   {
@@ -1880,6 +1896,14 @@
     "category": "daily"
   },
   {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/2894a0300f2c013fbec7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-03-31",
+    "url": "https://www.gocomics.com/tavicat/2026/03/31",
+    "category": "daily"
+  },
+  {
     "name": "Tarzan",
     "slug": "tarzan",
     "image_url": "https://featureassets.gocomics.com/assets/fdf462900e7501312708001dd8b71c47?optimizer=image&width=2800&quality=85",
@@ -2208,11 +2232,11 @@
     "category": "daily"
   },
   {
-    "name": "Life on Earth",
-    "slug": "life-on-earth",
+    "name": "Adam Home",
+    "slug": "adam-home",
     "image_url": "https://gocomicscmsassets.gocomics.com/assets/assets/youtube_f4b1121097.svg?optimizer=image&width=2800&quality=75",
     "date": "2026-03-31",
-    "url": "https://www.gocomics.com/life-on-earth/2026/03/31",
+    "url": "https://www.gocomics.com/adam-home/2026/03/31",
     "category": "daily"
   }
 ]

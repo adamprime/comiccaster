@@ -1,2 +1,186 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Bloom County Continues - GoComics</title><link>https://www.gocomics.com/bloom-county</link><description>Daily Bloom County Continues comic strip by Berkeley Breathed</description><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 08 Apr 2025 17:23:01 +0000</lastBuildDate><item><title>bloom-county - 2025-04-08</title><link>https://www.gocomics.com/bloom-county</link><description>&lt;div style="text-align: center;"&gt;&lt;img src="https://featureassets.gocomics.com/assets/560dd7a045a4013636cf005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Bloom County Continues" style="max-width: 100%;"&gt;&lt;p&gt;Latest bloom-county comic strip&lt;/p&gt;&lt;/div&gt;</description><pubDate>Tue, 08 Apr 2025 12:23:01 -0400</pubDate></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Bloom County Continues - GoComics</title><link>https://www.gocomics.com/bloom-county</link><description>Daily Bloom County Continues comic strip by Berkeley Breathed from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/bloom-county.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 31 Mar 2026 16:26:38 +0000</lastBuildDate><ttl>1440</ttl><item><title>Bloom County Continues - 2026-03-31</title><link>https://www.gocomics.com/bloom-county/2026/03/31</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-31&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/351439ec2124102d94d7001438c0f03b?optimizer=image&amp;width=2800&amp;quality=85" alt="Bloom County Continues" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Bloom County Continues&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/bloom-county/2026/03/31</guid><pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Bloom County Continues - 2026-03-30</title><link>https://www.gocomics.com/bloom-county/2026/03/30</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-30&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/a288ea900ddc013fbec7005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Bloom County Continues" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Bloom County Continues&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/bloom-county/2026/03/30</guid><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Bloom County Continues - 2026-03-28</title><link>https://www.gocomics.com/bloom-county/2026/03/28</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-28&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/30a907582123102d94d7001438c0f03b?optimizer=image&amp;width=2800&amp;quality=85" alt="Bloom County Continues" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Bloom County Continues&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/bloom-county/2026/03/28</guid><pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Bloom County Continues - 2026-03-27</title><link>https://www.gocomics.com/bloom-county/2026/03/27</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-27&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/51daf9f00adf013fbec7005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Bloom County Continues" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Bloom County Continues&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/bloom-county/2026/03/27</guid><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Bloom County Continues - 2026-03-26</title><link>https://www.gocomics.com/bloom-county/2026/03/26</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-26&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/148d1d2e2129102d94d7001438c0f03b?optimizer=image&amp;width=2800&amp;quality=85" alt="Bloom County Continues" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Bloom County Continues&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/bloom-county/2026/03/26</guid><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Bloom County Continues - 2026-03-25</title><link>https://www.gocomics.com/bloom-county/2026/03/25</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-25&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/36f97ea00941013fbe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Bloom County Continues" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Bloom County Continues&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/bloom-county/2026/03/25</guid><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Bloom County Continues - 2026-03-24</title><link>https://www.gocomics.com/bloom-county/2026/03/24</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-24&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/76fc50a62129102d94d7001438c0f03b?optimizer=image&amp;width=2800&amp;quality=85" alt="Bloom County Continues" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Bloom County Continues&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/bloom-county/2026/03/24</guid><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Bloom County Continues - 2026-03-23</title><link>https://www.gocomics.com/bloom-county/2026/03/23</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-23&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/9667fb00086f013fbe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Bloom County Continues" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Bloom County Continues&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/bloom-county/2026/03/23</guid><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate></item></channel></rss>
