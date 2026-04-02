@@ -1,16 +1,16 @@
 # Project Status
-<!-- Updated: 2026-03-31 by Adam -->
+<!-- Updated: 2026-04-02 by Adam -->
 
 ## Project Overview
 ComicCaster is a hybrid Python + Netlify application that aggregates comics from GoComics, Comics Kingdom, TinyView, and The Far Side, then generates standards-compliant RSS feeds and OPML bundles so readers can subscribe in any feed reader.
 
 
 ## Current State
-Project is stable. GoComics scraper fully rewritten to use container-based extraction with href-derived slugs, fixing Spanish/English contamination and recovering 142 previously-dropped comics. All feeds cleaned and backfilled. All CodeQL security alerts resolved.
+Project is stable. Standardized comic strip sizing/alignment in RSS feeds (#105). Cleaned up stale remote branches. Claude Code agent orchestration workflow (red-orchestrator + claude bot) tested successfully for the first time.
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-03-31 (evening)
-**Last Session Summary:** Fixed Spanish strip contamination in English feeds (#103, #104), rewrote scraper slug extraction, cleaned historical data, backfilled all feeds, fixed 4 CodeQL URL sanitization alerts.
+**Last Session:** 2026-04-02
+**Last Session Summary:** Reviewed and merged Claude Code's fix for inconsistent comic strip sizing/alignment (#105). Cleaned up 2 stale remote branches. 209 tests passing.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -23,6 +23,7 @@ Project is stable. GoComics scraper fully rewritten to use container-based extra
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled
 - All CodeQL security alerts resolved (proper URL domain validation)
+- Consistent comic strip sizing (max-width: 700px) and centering across all sources (#105)
 
 ## What's In Progress
 <!-- Active work items. Update every session. -->
@@ -34,9 +35,9 @@ Project is stable. GoComics scraper fully rewritten to use container-based extra
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
 
-1. Monitor tonight's 3 AM automated run to confirm GoComics fix works in production
-2. Clean up stale git stashes (18 accumulated)
-3. Continue monitoring automated feed updates for breakages
+1. Clean up stale git stashes (18 accumulated)
+2. Continue monitoring automated feed updates for breakages
+3. Address remaining ~155 GoComics comics not on profile pages
 
 ## Open Decisions
 <!-- Architectural or product decisions that haven't been made yet. -->
@@ -56,7 +57,7 @@ Project is stable. GoComics scraper fully rewritten to use container-based extra
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) -- 181 tests, requires Python >=3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) -- 209 tests, requires Python >=3.10
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
 
@@ -68,6 +69,17 @@ GoComics feed generation follows the same data-driven pattern as Comics Kingdom 
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-04-02
+- **Goal:** Review and merge Claude Code's fix for comic strip sizing/alignment (#105), clean up remote branches
+- **Accomplished:**
+  - Reviewed issue #105 (user-reported inconsistent strip sizing and alignment in RSS readers)
+  - Reviewed Claude Code's fix on `claude/issue-105-20260402-2158` -- wraps all comic images in centering div with max-width: 700px in `feed_generator.py`, adds 2 new tests
+  - All 209 tests passing; merged into main
+  - Deleted stale remote branches: `fix/gocomics-feed-generation` (already merged), `feature/v1.1-political-comics-epic-2` (work already in main via other PRs)
+  - First successful use of red-orchestrator + Claude Code agent orchestration workflow
+- **Didn't finish:** Nothing left outstanding
+- **Discovered:** Agent orchestration (red-orchestrator dispatching to Claude Code) works end-to-end for straightforward fixes
 
 ### 2026-03-31 (evening)
 - **Goal:** Fix Spanish strips appearing in English feeds (#103), fix FoxTrot contamination (#104), resolve CodeQL alerts
