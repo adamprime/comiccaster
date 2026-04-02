@@ -59,17 +59,39 @@ def test_create_feed(feed_generator, comic_info):
 def test_create_entry(feed_generator, comic_info, metadata):
     """Test creating a feed entry."""
     fe = feed_generator.create_entry(comic_info, metadata)
-    
+
     # Create a properly configured feed generator for testing
     fg = feed_generator.create_feed(comic_info)
     fg.add_entry(fe)
     feed_str = fg.rss_str(pretty=True).decode('utf-8')
-    
+
     assert metadata['title'] in feed_str
     assert metadata['url'] in feed_str
     assert metadata['image'] in feed_str
     assert metadata['description'] in feed_str
     assert '2024-04-06' in feed_str
+
+
+def test_single_image_centering_wrapper(feed_generator, comic_info):
+    """Test that single images are wrapped in a centering div with max-width."""
+    content = feed_generator._create_single_image_content(
+        'https://example.com/comic.jpg', '', comic_info
+    )
+    assert 'max-width: 700px' in content
+    assert 'text-align: center' in content
+    assert 'margin: 0 auto' in content
+    assert 'https://example.com/comic.jpg' in content
+
+
+def test_multi_image_centering_wrapper(feed_generator, comic_info):
+    """Test that multi-image gallery div has consistent max-width centering."""
+    images = [
+        {'url': 'https://example.com/panel1.jpg', 'alt': 'Panel 1'},
+        {'url': 'https://example.com/panel2.jpg', 'alt': 'Panel 2'},
+    ]
+    content = feed_generator._create_multi_image_content(images, '', comic_info)
+    assert 'max-width: 700px' in content
+    assert 'margin: 10px auto' in content
 
 def test_create_entry_minimal_metadata(feed_generator, comic_info):
     """Test creating a feed entry with minimal metadata."""
