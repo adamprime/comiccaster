@@ -119,8 +119,14 @@ class ComicFeedGenerator:
         The <enclosure> tag is supplementary metadata, not the primary display method.
         Most RSS readers render description HTML but ignore enclosures.
         """
-        # Create image HTML with proper styling and accessibility
-        img_html = f'<img src="{image_url}" alt="{comic_info.get("name", "Comic strip")}" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" loading="lazy">'
+        # Wrap image in a centering div with a consistent max-width so all comics
+        # render at the same size regardless of source image dimensions.
+        img_html = (
+            f'<div style="text-align: center; max-width: 700px; margin: 0 auto;">'
+            f'<img src="{image_url}" alt="{comic_info.get("name", "Comic strip")}" '
+            f'style="max-width: 100%; height: auto; display: block; margin: 0 auto;" loading="lazy">'
+            f'</div>'
+        )
 
         # Add text description if present
         if description and '<img' not in description:
@@ -135,7 +141,8 @@ class ComicFeedGenerator:
             return description
         
         # Start building the gallery HTML
-        gallery_html = '<div class="comic-gallery" style="text-align: center; margin: 10px 0;">\n'
+        # max-width: 700px ensures consistent sizing across all comic sources
+        gallery_html = '<div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;">\n'
         
         # Add description at the top if present
         if description:
