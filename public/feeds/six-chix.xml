@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Six Chix - Comics Kingdom</title><link>https://comicskingdom.com/six-chix</link><description>Daily Six Chix comic strip by  from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/six-chix.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 02 Apr 2026 08:20:16 +0000</lastBuildDate><ttl>1440</ttl><item><title>Six Chix - 2026-04-02</title><link>https://comicskingdom.com/six-chix/2026-04-02</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Six Chix - Comics Kingdom</title><link>https://comicskingdom.com/six-chix</link><description>Daily Six Chix comic strip by  from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/six-chix.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 03 Apr 2026 08:21:02 +0000</lastBuildDate><ttl>1440</ttl><item><title>Six Chix - 2026-04-03</title><link>https://comicskingdom.com/six-chix/2026-04-03</link><description>
         &lt;style&gt;
         .comic-gallery { 
             max-width: 100%; 
@@ -15,7 +15,30 @@
             .panel-description { font-size: 0.8em; }
         }
         &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-03&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/04/Y2tTaXggQ2hpeC1FTkctNjA0MTQ1OQ.jpg" alt="Six Chix" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Six Chix&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/six-chix/2026-04-03</guid><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Six Chix - 2026-04-02</title><link>https://comicskingdom.com/six-chix/2026-04-02</link><description>
+        &lt;style&gt;
+        .comic-gallery { 
+            max-width: 100%; 
+            overflow-x: hidden; 
+        }
+        .comic-panel img { 
+            max-width: 100% !important; 
+            height: auto !important; 
+        }
+        @media (max-width: 600px) {
+            .comic-gallery { margin: 5px 0; }
+            .comic-panel { margin: 10px 0; }
+            .panel-description { font-size: 0.8em; }
+        }
+        &lt;/style&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-02&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/04/Y2tTaXggQ2hpeC1FTkctNjA0Mzk0Nw.jpg" alt="Six Chix - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
@@ -40,7 +63,7 @@
             .panel-description { font-size: 0.8em; }
         }
         &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-01&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/04/Y2tTaXggQ2hpeC1FTkctNjA0MTQ2MQ.jpg" alt="Six Chix" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
@@ -63,7 +86,7 @@
             .panel-description { font-size: 0.8em; }
         }
         &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-31&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/03/Y2tTaXggQ2hpeC1FTkctNjA0MTQ1MQ.jpg" alt="Six Chix" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
@@ -86,7 +109,7 @@
             .panel-description { font-size: 0.8em; }
         }
         &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-30&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/03/Y2tTaXggQ2hpeC1FTkctNjA0MzkyMQ.jpg" alt="Six Chix - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
@@ -111,7 +134,7 @@
             .panel-description { font-size: 0.8em; }
         }
         &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-29&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/03/Y2tTaXggQ2hpeC1FTkctNTk3MzAwNQ.jpg" alt="Six Chix" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
@@ -134,7 +157,7 @@
             .panel-description { font-size: 0.8em; }
         }
         &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-28&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/03/Y2tTaXggQ2hpeC1FTkctNjAyMjQxOQ.jpg" alt="Six Chix - Panel 1" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
@@ -162,7 +185,7 @@
             .panel-description { font-size: 0.8em; }
         }
         &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-27&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/03/Y2tTaXggQ2hpeC1FTkctNjAwNTg4Mw.jpg" alt="Six Chix" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
@@ -185,7 +208,7 @@
             .panel-description { font-size: 0.8em; }
         }
         &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-26&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/03/Y2tTaXggQ2hpeC1FTkctNjAwNDk1MQ.jpg" alt="Six Chix" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
@@ -208,34 +231,11 @@
             .panel-description { font-size: 0.8em; }
         }
         &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
+        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-25&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/03/Y2tTaXggQ2hpeC1FTkctNjAwNDk1Mw.jpg" alt="Six Chix" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Six Chix&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/six-chix/2026-03-25</guid><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Six Chix - 2026-03-24</title><link>https://comicskingdom.com/six-chix/2026-03-24</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; margin: 10px 0;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-24&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/03/Y2tTaXggQ2hpeC1FTkctNjAwNDk1NQ.jpg" alt="Six Chix" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Six Chix&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/six-chix/2026-03-24</guid><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/six-chix/2026-03-25</guid><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate></item></channel></rss>
