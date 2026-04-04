@@ -1,550 +1,166 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Shrimp and Grits - Creators</title><link>https://www.creators.com/read/shrimp-and-grits</link><description>Daily Shrimp and Grits comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/shrimp-and-grits.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 04 Apr 2026 11:32:13 +0000</lastBuildDate><ttl>1440</ttl><item><title>Shrimp and Grits for Apr 04, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/04/26/411950</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Shrimp and Grits - Creators</title><link>https://www.creators.com/read/shrimp-and-grits</link><description>Daily Shrimp and Grits comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/shrimp-and-grits.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 04 Apr 2026 19:30:19 +0000</lastBuildDate><ttl>1440</ttl><item><title>Shrimp and Grits for Apr 04, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/04/26/411950</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-04&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/04_04_26_5ead6d0a22eb6da6307b5cdebca57996.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/04/26/411950</guid><pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Apr 03, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/04/26/411952</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/04/26/411950</guid><pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Apr 03, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/04/26/411952</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-03&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/04_03_26_a90250bab533d9c2c5d714063897810b.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/04/26/411952</guid><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Apr 02, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/04/26/411942</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/04/26/411952</guid><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Apr 02, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/04/26/411942</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-02&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/04_02_26_c4fb58bdf8de9ffffc1d9c74f18dd4c3.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/04/26/411942</guid><pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Apr 01, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/04/26/411949</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/04/26/411942</guid><pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Apr 01, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/04/26/411949</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-01&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/04_01_26_ddf478f4cbd3990b11c39a7249d807bc.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/04/26/411949</guid><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 31, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411956</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/04/26/411949</guid><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 31, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411956</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-31&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_31_26_76594a48c01010bcb0cda3b2de85e7dd.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411956</guid><pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 30, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411941</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411956</guid><pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 30, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411941</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-30&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_30_26_056341dd25bc3ea24f6a4c4252b2bb11.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411941</guid><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 29, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411162</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411941</guid><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 29, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411162</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-29&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_29_26_c44dc937d41fe9630f4fcc38e6893d1d.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411162</guid><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 28, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411948</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411162</guid><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 28, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411948</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-28&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_28_26_6a4692acc78ec5a7da54104b543a8ab1.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411948</guid><pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 27, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411951</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411948</guid><pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 27, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411951</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-27&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_27_26_76e887913f24dca7074fe011fbf790c1.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411951</guid><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 26, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411955</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411951</guid><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 26, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411955</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-26&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_26_26_7d01f6a37d0963e19ca319d469b065b1.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411955</guid><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 25, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411946</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411955</guid><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 25, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411946</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-25&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_25_26_6c14230a2e4c18e414830efe15cd925e.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411946</guid><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 24, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411953</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411946</guid><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 24, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411953</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-24&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_24_26_c61b58b84d13a5044d6fcf12ff12133f.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411953</guid><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 23, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411947</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411953</guid><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 23, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/411947</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-23&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_23_26_14d26bbd2150bc026fa60b5273566400.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411947</guid><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 22, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410780</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/411947</guid><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 22, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410780</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-22&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_22_26_c71b1e4f71562d4670478a6036414ba0.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410780</guid><pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 21, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410566</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410780</guid><pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 21, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410566</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-21&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_21_26_b2a31ce4f5a9b2fbb2a4ce4701925193.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410566</guid><pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 20, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410546</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410566</guid><pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 20, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410546</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-20&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_20_26_d57c3075912c2875a10f3d1b5aac27d6.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410546</guid><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 19, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410564</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410546</guid><pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 19, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410564</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-19&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_19_26_ca5eca01c000cd1927514cef81c1a64d.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410564</guid><pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 18, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410569</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410564</guid><pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 18, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410569</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-18&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_18_26_513ce2121ba0109524fae57f4b22d69a.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410569</guid><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 17, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410570</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410569</guid><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 17, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410570</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-17&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_17_26_8bc9518a4a8834aff9c51f95e91a9433.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410570</guid><pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 16, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410551</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410570</guid><pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 16, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410551</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-16&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_16_26_d3d976e507270665ab67daa41ae4f83c.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410551</guid><pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 15, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410429</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410551</guid><pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 15, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410429</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-15&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_15_26_1d4884cc1cf31a6875df33e0a275b661.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410429</guid><pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 14, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410561</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410429</guid><pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 14, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410561</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-14&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_14_26_e17ad2f5b8d6b92608bb616db95254f6.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410561</guid><pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 13, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410563</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410561</guid><pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 13, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410563</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-13&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_13_26_43fa1038a22125006a961e33fd88ed30.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Shrimp and Grits&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410563</guid><pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 12, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410554</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/shrimp-and-grits/03/26/410563</guid><pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Shrimp and Grits for Mar 12, 2026</title><link>https://www.creators.com/read/shrimp-and-grits/03/26/410554</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-12&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/59/2026/03_12_26_d6e55908b015f50a1ebfd4b0c2d0ab6f.jpg" alt="Shrimp and Grits" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;

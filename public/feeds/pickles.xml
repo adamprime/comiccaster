@@ -1,228 +1,68 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pickles - GoComics</title><link>https://www.gocomics.com/pickles</link><description>Daily Pickles comic strip by Brian Crane from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/pickles.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 04 Apr 2026 11:31:20 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pickles - 2026-04-04</title><link>https://www.gocomics.com/pickles/2026/04/04</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pickles - GoComics</title><link>https://www.gocomics.com/pickles</link><description>Daily Pickles comic strip by Brian Crane from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/pickles.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 04 Apr 2026 19:29:25 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pickles - 2026-04-04</title><link>https://www.gocomics.com/pickles/2026/04/04</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-04&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/fde61380047d013fbe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Pickles&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/04/04</guid><pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-04-03</title><link>https://www.gocomics.com/pickles/2026/04/03</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/04/04</guid><pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-04-03</title><link>https://www.gocomics.com/pickles/2026/04/03</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-03&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/fb19fb80047d013fbe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Pickles&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/04/03</guid><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-04-02</title><link>https://www.gocomics.com/pickles/2026/04/02</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/04/03</guid><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-04-02</title><link>https://www.gocomics.com/pickles/2026/04/02</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-02&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/f841d810047d013fbe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Pickles&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/04/02</guid><pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-04-01</title><link>https://www.gocomics.com/pickles/2026/04/01</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/04/02</guid><pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-04-01</title><link>https://www.gocomics.com/pickles/2026/04/01</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-01&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/f51e56a0047d013fbe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Pickles&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/04/01</guid><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-31</title><link>https://www.gocomics.com/pickles/2026/03/31</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/04/01</guid><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-31</title><link>https://www.gocomics.com/pickles/2026/03/31</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-31&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/f2294b60047d013fbe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Pickles&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/31</guid><pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-30</title><link>https://www.gocomics.com/pickles/2026/03/30</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/31</guid><pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-30</title><link>https://www.gocomics.com/pickles/2026/03/30</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-30&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/ef4965d0047d013fbe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Pickles&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/30</guid><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-29</title><link>https://www.gocomics.com/pickles/2026/03/29</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/30</guid><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-29</title><link>https://www.gocomics.com/pickles/2026/03/29</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-29&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/46a4af80ef32013ebadd005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Pickles&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/29</guid><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-28</title><link>https://www.gocomics.com/pickles/2026/03/28</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/29</guid><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-28</title><link>https://www.gocomics.com/pickles/2026/03/28</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-28&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/34a41bd0ff9e013ebe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Pickles&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/28</guid><pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-27</title><link>https://www.gocomics.com/pickles/2026/03/27</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/28</guid><pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-27</title><link>https://www.gocomics.com/pickles/2026/03/27</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-27&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/3180afd0ff9e013ebe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Pickles&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/27</guid><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-26</title><link>https://www.gocomics.com/pickles/2026/03/26</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/pickles/2026/03/27</guid><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Pickles - 2026-03-26</title><link>https://www.gocomics.com/pickles/2026/03/26</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-26&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/2eec5bf0ff9e013ebe3b005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Pickles" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
