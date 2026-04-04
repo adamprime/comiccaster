@@ -165,14 +165,22 @@ else
 
 Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>"
 
-    # Push with simple retry
+    # Push with simple retry (60s timeout per attempt, kills entire process tree)
     PUSH_OK=false
     for i in {1..3}; do
-        if git push origin main; then
+        # Run git push in a subshell so we can track and kill all descendants
+        ( exec git push origin main ) &
+        PUSH_PID=$!
+        # Watchdog: kill push + all its children after 60 seconds
+        ( sleep 60 && pkill -TERM -P $PUSH_PID 2>/dev/null; kill -TERM $PUSH_PID 2>/dev/null; sleep 2; pkill -KILL -P $PUSH_PID 2>/dev/null; kill -KILL $PUSH_PID 2>/dev/null ) &
+        TIMER_PID=$!
+        if wait $PUSH_PID 2>/dev/null; then
+            kill $TIMER_PID 2>/dev/null; wait $TIMER_PID 2>/dev/null
             echo "✅ Successfully pushed all updates"
             PUSH_OK=true
             break
         else
+            kill $TIMER_PID 2>/dev/null; wait $TIMER_PID 2>/dev/null
             echo "⚠️  Push failed (attempt $i/3)"
             if [ $i -lt 3 ]; then
                 git pull --rebase origin main
