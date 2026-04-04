@@ -184,26 +184,7 @@ class ComicFeedGenerator:
         
         gallery_html += '</div>\n'
         
-        # Add responsive CSS for better mobile experience
-        responsive_css = """
-        <style>
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        </style>
-        """ + gallery_html
-        
-        return responsive_css
+        return gallery_html
     
     def create_feed_object(self, comic_info: Dict[str, str]) -> FeedGenerator:
         """

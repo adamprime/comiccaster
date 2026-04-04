@@ -84,7 +84,7 @@ def test_single_image_centering_wrapper(feed_generator, comic_info):
 
 
 def test_multi_image_centering_wrapper(feed_generator, comic_info):
-    """Test that multi-image gallery div has consistent max-width centering."""
+    """Test that multi-image gallery div has consistent max-width centering and no style block."""
     images = [
         {'url': 'https://example.com/panel1.jpg', 'alt': 'Panel 1'},
         {'url': 'https://example.com/panel2.jpg', 'alt': 'Panel 2'},
@@ -92,6 +92,7 @@ def test_multi_image_centering_wrapper(feed_generator, comic_info):
     content = feed_generator._create_multi_image_content(images, '', comic_info)
     assert 'max-width: 700px' in content
     assert 'margin: 10px auto' in content
+    assert '<style>' not in content, "RSS feeds should use inline styles only, not <style> blocks"
 
 def test_create_entry_minimal_metadata(feed_generator, comic_info):
     """Test creating a feed entry with minimal metadata."""
