@@ -79,8 +79,20 @@ def test_single_image_centering_wrapper(feed_generator, comic_info):
     )
     assert 'max-width: 700px' in content
     assert 'text-align: center' in content
-    assert 'margin: 0 auto' in content
     assert 'https://example.com/comic.jpg' in content
+
+
+def test_single_image_no_display_block(feed_generator, comic_info):
+    """Images must NOT have display:block -- litehtml renders img as inline-block
+    by default, which lets text-align:center on the parent div do the centering.
+    display:block breaks this in litehtml (RSS Guard's renderer)."""
+    content = feed_generator._create_single_image_content(
+        'https://example.com/comic.jpg', '', comic_info
+    )
+    assert 'display: block' not in content, (
+        "display:block on <img> breaks centering in litehtml-based readers (RSS Guard). "
+        "Images should remain inline-block so text-align:center on the parent works."
+    )
 
 
 def test_multi_image_centering_wrapper(feed_generator, comic_info):
@@ -93,6 +105,29 @@ def test_multi_image_centering_wrapper(feed_generator, comic_info):
     assert 'max-width: 700px' in content
     assert 'margin: 10px auto' in content
     assert '<style>' not in content, "RSS feeds should use inline styles only, not <style> blocks"
+
+
+def test_multi_image_no_display_block(feed_generator, comic_info):
+    """Multi-image panels must NOT have display:block on img tags -- same litehtml
+    compatibility reason as single images."""
+    images = [
+        {'url': 'https://example.com/panel1.jpg', 'alt': 'Panel 1'},
+        {'url': 'https://example.com/panel2.jpg', 'alt': 'Panel 2'},
+    ]
+    content = feed_generator._create_multi_image_content(images, '', comic_info)
+    assert 'display: block' not in content, (
+        "display:block on <img> breaks centering in litehtml-based readers (RSS Guard). "
+        "Images should remain inline-block so text-align:center on the parent works."
+    )
+
+
+def test_multi_image_text_align_center(feed_generator, comic_info):
+    """The gallery wrapper must use text-align:center for litehtml compatibility."""
+    images = [
+        {'url': 'https://example.com/panel1.jpg', 'alt': 'Panel 1'},
+    ]
+    content = feed_generator._create_multi_image_content(images, '', comic_info)
+    assert 'text-align: center' in content
 
 def test_create_entry_minimal_metadata(feed_generator, comic_info):
     """Test creating a feed entry with minimal metadata."""

@@ -124,7 +124,7 @@ class ComicFeedGenerator:
         img_html = (
             f'<div style="text-align: center; max-width: 700px; margin: 0 auto;">'
             f'<img src="{image_url}" alt="{comic_info.get("name", "Comic strip")}" '
-            f'style="max-width: 100%; height: auto; display: block; margin: 0 auto;" loading="lazy">'
+            f'style="max-width: 100%; height: auto;" loading="lazy">'
             f'</div>'
         )
 
@@ -160,11 +160,7 @@ class ComicFeedGenerator:
             # Create image with responsive design and accessibility
             img_style = (
                 "max-width: 100%; "
-                "height: auto; "
-                "display: block; "
-                "margin: 10px auto; "
-                "border-radius: 4px; "
-                "box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+                "height: auto;"
             )
             
             gallery_html += f'    <div class="comic-panel" style="margin: 15px 0;">\n'
