@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Caption It! - Creators</title><link>https://www.creators.com/read/caption-it</link><description>Daily Caption It! comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/caption-it.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 04 Apr 2026 21:46:26 +0000</lastBuildDate><ttl>1440</ttl><item><title>Caption It! for Mar 29, 2026</title><link>https://www.creators.com/read/caption-it/03/26/411145</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Caption It! - Creators</title><link>https://www.creators.com/read/caption-it</link><description>Daily Caption It! comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/caption-it.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 05 Apr 2026 08:19:57 +0000</lastBuildDate><ttl>1440</ttl><item><title>Caption It! for Apr 05, 2026</title><link>https://www.creators.com/read/caption-it/04/26/411516</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-05&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.alphacomedy.com/53/2026/04_05_26_3ffd99cca01236af578ea79fd96d5be4.jpg" alt="Caption It!" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Caption It!&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/caption-it/04/26/411516</guid><pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Caption It! for Mar 29, 2026</title><link>https://www.creators.com/read/caption-it/03/26/411145</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-29&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/53/2026/03_29_26_c7eabf5fb14f289ad85bdd7d9a174f9b.jpg" alt="Caption It!" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -160,11 +167,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Caption It!&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/caption-it/10/25/402016</guid><pubDate>Sun, 26 Oct 2025 00:00:00 +0000</pubDate></item><item><title>Caption It! for Oct 19, 2025</title><link>https://www.creators.com/read/caption-it/10/25/401572</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2025-10-19&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.alphacomedy.com/53/2025/10_19_25_94a65c0f058ce16463e1ef4ebeafe830.jpg" alt="Caption It!" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Caption It!&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/caption-it/10/25/401572</guid><pubDate>Sun, 19 Oct 2025 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://www.creators.com/read/caption-it/10/25/402016</guid><pubDate>Sun, 26 Oct 2025 00:00:00 +0000</pubDate></item></channel></rss>
