@@ -1,34 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 03 Apr 2026 08:21:02 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2026/04/01/keeping-up-with-the-noems</link><description>
-        &lt;style&gt;
-        .comic-gallery { 
-            max-width: 100%; 
-            overflow-x: hidden; 
-        }
-        .comic-panel img { 
-            max-width: 100% !important; 
-            height: auto !important; 
-        }
-        @media (max-width: 600px) {
-            .comic-gallery { margin: 5px 0; }
-            .comic-panel { margin: 10px 0; }
-            .panel-description { font-size: 0.8em; }
-        }
-        &lt;/style&gt;
-        &lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Family life, which includes life as a couple, should be private, and that privacy should be respected. That said, if you devote yourself to forcing your “correct” way of life onto other people—by lying, persecuting, harming, and tearing apart other families in the name of a “perfection” that not even your own family observes—don’t expect such hypocrisy to go unnoticed.&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 07 Apr 2026 08:21:01 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2026/04/05/shedding</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Let’s be clear: Pam Bondi’s firing wasn’t because she was evil at her job; it was because she wasn’t evil enough for her boss. Or because she had already outlived her usefulness as a puppet. But no matter who comes next, the underlying problems will continue: the weaponization of the DOJ for the current president’s personal vendettas, the cover-up of the Epstein files… Everything will stay the same—if not get worse—unless pressure from the public and other branches of government grows strong enough to stop it.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/04/01/keeping-up-with-the-noems/NoemsTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/04/05/shedding/SheddingTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto;" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/04/01/keeping-up-with-the-noems/TheNoems01.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/04/01/keeping-up-with-the-noems/TheNoems01.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/04/01/keeping-up-with-the-noems/TheNoems02.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/04/01/keeping-up-with-the-noems/TheNoems02.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/04/01/keeping-up-with-the-noems/TheNoems03.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/04/01/keeping-up-with-the-noems/TheNoems03.jpg" style="max-width: 100%; height: auto; display: block; margin: 10px auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/04/05/shedding/SheddingTV.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/04/05/shedding/SheddingTV.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2026/04/01/keeping-up-with-the-noems</guid><pubDate>Wed, 01 Apr 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2026/04/05/shedding</guid><pubDate>Sun, 05 Apr 2026 23:59:59 +0000</pubDate></item></channel></rss>
