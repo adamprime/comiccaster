@@ -110,3 +110,4 @@ public/feeds/*.backup
 
 # Misc session artifacts
 spec-*.md
+scripts/generate_test_feed.py
