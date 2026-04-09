@@ -10,12 +10,13 @@ Project is stable. Fixed Comics Kingdom scraper breakage caused by upstream site
 
 **Phase:** Maintenance (active)
 **Last Session:** 2026-04-09
-**Last Session Summary:** Rewrote Comics Kingdom extraction logic to handle redesigned page structure. 102 comics extracted successfully. 212 tests passing.
+**Last Session Summary:** Housekeeping session: cleared 19 stale git stashes, cleaned up .gitignore, merged 3 Dependabot PRs (pytest 9.0.2, python-dotenv 1.2.2, selenium 4.41.0), corrected backlog items.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
 
 - Daily multi-source RSS feed generation and publishing workflow
+- Daily automated feed monitoring via agent
 - GoComics scraper extracts 257 comics from profile pages using href-based slug extraction (correctly separates Spanish/English versions)
 - GoComics feeds generated from Phase 1 scraped data (no per-comic HTTP requests)
 - 312 GoComics feeds updating daily (up from 115 before scraper fix)
@@ -36,9 +37,7 @@ Project is stable. Fixed Comics Kingdom scraper breakage caused by upstream site
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
 
-1. Clean up stale git stashes (18 accumulated)
-2. Continue monitoring automated feed updates for breakages
-3. Address remaining ~155 GoComics comics not on profile pages
+1. Investigate issue #91 (GoComics strips don't save to read-later platforms)
 
 ## Open Decisions
 <!-- Architectural or product decisions that haven't been made yet. -->
@@ -51,7 +50,7 @@ Project is stable. Fixed Comics Kingdom scraper breakage caused by upstream site
 ## Known Issues
 <!-- Bugs, tech debt, or things that are broken but not urgent. -->
 
-- ~155 of 467 GoComics catalog comics are not captured by the profile page scraper (comics not on any of the 6 profile pages). These comics don't get daily updates via the new pipeline. The backfill script can recover them individually.
+- GoComics strips don't save to read-later platforms like Pocket/Instapaper (#91) -- approach TBD
 - Old data files (pre-March 31) have been cleaned but contain fewer entries (~100/day vs 257) since only ~115 comics had matching slugs under the old badge-based extraction.
 
 ## Environment & Setup
@@ -70,6 +69,17 @@ GoComics feed generation follows the same data-driven pattern as Comics Kingdom 
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-04-09 (evening)
+- **Goal:** Housekeeping and dependency updates
+- **Accomplished:**
+  - Cleared all 19 stale git stashes (all superseded by current main)
+  - Cleaned up .gitignore: removed .coverage from tracking, added patterns for cookie files in data/, diagnostics, backup feeds, test preview dir
+  - Committed docs scaffolding .gitkeep files (brainstorms, decisions, plans, solutions)
+  - Reviewed and merged 3 Dependabot PRs: pytest 8.4.2->9.0.2, python-dotenv 1.2.1->1.2.2, selenium 4.36.0->4.41.0
+  - Corrected STATUS.md: removed inaccurate "~155 missing GoComics" item (not all comics post daily), noted feed monitoring is handled by agent
+- **Didn't finish:** Nothing left outstanding
+- **Discovered:** The ~155 "missing" GoComics comics were not actually missing -- many comics simply don't post every day
 
 ### 2026-04-09
 - **Goal:** Fix Comics Kingdom scraper breakage (upstream site redesign)
