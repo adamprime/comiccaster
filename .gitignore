@@ -68,7 +68,7 @@ comicskingdom_*.html
 custom_pages_config.json
 *_secrets.json
 *.pkl  # Keep cookies out of git (sensitive)
-.gocomics_cookies.pkl
+data/*.pkl
 GITHUB_SECRETS_SETUP.md
 SECURITY_SETUP_COMPLETE.md
 AUTHENTICATED_SCRAPING_SUMMARY.md
@@ -101,6 +101,12 @@ Thumbs.db
 
 # Git worktrees
 worktrees/
+
+# Diagnostics and ephemeral data
+data/ck_diagnostics/
+data/comicskingdom_*.json
+test_feeds_preview/
+public/feeds/*.backup
 
 # Misc session artifacts
 spec-*.md
