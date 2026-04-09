@@ -1,234 +1,190 @@
 [
   {
-    "name": "Fowl Language (TinyView)",
-    "slug": "fowl-language-tinyview",
-    "date": "2026-04-07",
-    "url": "https://tinyview.com/fowl-language/2026/04/07/staying-positive",
+    "name": "Archie",
+    "slug": "archie",
+    "date": "2026-04-08",
+    "url": "https://tinyview.com/archie/2026/04/08/279-rejection-therapy",
     "source": "tinyview",
     "images": [
       {
-        "url": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-header.jpg",
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_TV_Title_Panel.jpg",
         "alt": "Cover Image",
         "title": ""
       },
       {
-        "url": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-1.jpg",
-        "alt": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-1.jpg",
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_01.jpg",
+        "alt": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_01.jpg",
         "title": ""
       },
       {
-        "url": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-2.jpg",
-        "alt": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-2.jpg",
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_02.jpg",
+        "alt": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_02.jpg",
         "title": ""
       },
       {
-        "url": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-bonus.jpg",
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_03.jpg",
+        "alt": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_03.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_04.jpg",
+        "alt": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_04.jpg",
+        "title": ""
+      }
+    ],
+    "image_urls": [
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_TV_Title_Panel.jpg",
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_01.jpg",
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_02.jpg",
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_03.jpg",
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_04.jpg"
+    ],
+    "image_count": 5,
+    "description": "Three guys fighting over lil' ole' me??? #BiteSizedArchie",
+    "title": "#279 - Rejection Therapy"
+  },
+  {
+    "name": "Archie",
+    "slug": "archie",
+    "date": "2026-04-08",
+    "url": "https://tinyview.com/archie/2026/04/08/279-rejection-therapy",
+    "source": "tinyview",
+    "images": [
+      {
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_TV_Title_Panel.jpg",
+        "alt": "Cover Image",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_01.jpg",
+        "alt": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_01.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_02.jpg",
+        "alt": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_02.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_03.jpg",
+        "alt": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_03.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_04.jpg",
+        "alt": "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_04.jpg",
+        "title": ""
+      }
+    ],
+    "image_urls": [
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_TV_Title_Panel.jpg",
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_01.jpg",
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_02.jpg",
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_03.jpg",
+      "https://cdn.tinyview.com/archie/2026/04/08/279-rejection-therapy/BSA_279_04.jpg"
+    ],
+    "image_count": 5,
+    "description": "Three guys fighting over lil' ole' me??? #BiteSizedArchie",
+    "title": "#279 - Rejection Therapy"
+  },
+  {
+    "name": "Deogie!",
+    "slug": "deogie",
+    "date": "2026-04-08",
+    "url": "https://tinyview.com/deogie/2026/04/08/clean-mouths",
+    "source": "tinyview",
+    "images": [
+      {
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/Deogie-Banner-3.jpg",
+        "alt": "Cover Image",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0003_Layer-381.jpg",
+        "alt": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0003_Layer-381.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0002_Layer-386.jpg",
+        "alt": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0002_Layer-386.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0001_Layer-387.jpg",
+        "alt": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0001_Layer-387.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0000_Layer-388.jpg",
+        "alt": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0000_Layer-388.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/Bonus-Panel-3.jpg",
         "alt": "bonus-panel-image",
         "title": ""
       }
     ],
     "image_urls": [
-      "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-header.jpg",
-      "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-1.jpg",
-      "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-2.jpg",
-      "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-bonus.jpg"
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/Deogie-Banner-3.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0003_Layer-381.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0002_Layer-386.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0001_Layer-387.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0000_Layer-388.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/Bonus-Panel-3.jpg"
     ],
-    "image_count": 4,
-    "description": "Hey, remember yesterday, when things were looking potentially catastrophic? Well, every mushroom cloud has a silver lining\u2014 or at least that's how my brain tried to cope with what was going on...",
-    "title": "Staying Positive"
+    "image_count": 6,
+    "description": "humans... more like.... peeyooomans!",
+    "title": "Clean Mouths"
   },
   {
-    "name": "Fowl Language (TinyView)",
-    "slug": "fowl-language-tinyview",
-    "date": "2026-04-07",
-    "url": "https://tinyview.com/fowl-language/2026/04/07/staying-positive",
+    "name": "Deogie!",
+    "slug": "deogie",
+    "date": "2026-04-08",
+    "url": "https://tinyview.com/deogie/2026/04/08/clean-mouths",
     "source": "tinyview",
     "images": [
       {
-        "url": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-header.jpg",
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/Deogie-Banner-3.jpg",
         "alt": "Cover Image",
         "title": ""
       },
       {
-        "url": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-1.jpg",
-        "alt": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-1.jpg",
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0003_Layer-381.jpg",
+        "alt": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0003_Layer-381.jpg",
         "title": ""
       },
       {
-        "url": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-2.jpg",
-        "alt": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-2.jpg",
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0002_Layer-386.jpg",
+        "alt": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0002_Layer-386.jpg",
         "title": ""
       },
       {
-        "url": "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-bonus.jpg",
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0001_Layer-387.jpg",
+        "alt": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0001_Layer-387.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0000_Layer-388.jpg",
+        "alt": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0000_Layer-388.jpg",
+        "title": ""
+      },
+      {
+        "url": "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/Bonus-Panel-3.jpg",
         "alt": "bonus-panel-image",
         "title": ""
       }
     ],
     "image_urls": [
-      "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-header.jpg",
-      "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-1.jpg",
-      "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-2.jpg",
-      "https://cdn.tinyview.com/fowl-language/2026/04/07/staying-positive/staying-positive-bonus.jpg"
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/Deogie-Banner-3.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0003_Layer-381.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0002_Layer-386.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0001_Layer-387.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/_0002s_0000_Layer-388.jpg",
+      "https://cdn.tinyview.com/deogie/2026/04/08/clean-mouths/Bonus-Panel-3.jpg"
     ],
-    "image_count": 4,
-    "description": "Hey, remember yesterday, when things were looking potentially catastrophic? Well, every mushroom cloud has a silver lining\u2014 or at least that's how my brain tried to cope with what was going on...",
-    "title": "Staying Positive"
-  },
-  {
-    "name": "Nick Anderson",
-    "slug": "nick-anderson",
-    "date": "2026-04-07",
-    "url": "https://tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt",
-    "source": "tinyview",
-    "images": [
-      {
-        "url": "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy-2.jpg",
-        "alt": "Cover Image",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy.jpg",
-        "alt": "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy.jpg",
-        "title": ""
-      }
-    ],
-    "image_urls": [
-      "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy-2.jpg",
-      "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy.jpg"
-    ],
-    "image_count": 2,
-    "description": "Let\u2019s be honest about what happened this week: the United States didn\u2019t end a war with Iran. It bought two weeks of slightly reduced chaos, declared victory, and hoped nobody would read the fine print. They should read the fine print.",
-    "title": "The Ceasefire That Isn\u2019t"
-  },
-  {
-    "name": "Nick Anderson",
-    "slug": "nick-anderson",
-    "date": "2026-04-07",
-    "url": "https://tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt",
-    "source": "tinyview",
-    "images": [
-      {
-        "url": "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy-2.jpg",
-        "alt": "Cover Image",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy.jpg",
-        "alt": "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy.jpg",
-        "title": ""
-      }
-    ],
-    "image_urls": [
-      "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy-2.jpg",
-      "https://cdn.tinyview.com/nick-anderson/2026/04/07/the-ceasefire-that-isnt/040726.Rescue_From_Iran_-copy.jpg"
-    ],
-    "image_count": 2,
-    "description": "Let\u2019s be honest about what happened this week: the United States didn\u2019t end a war with Iran. It bought two weeks of slightly reduced chaos, declared victory, and hoped nobody would read the fine print. They should read the fine print.",
-    "title": "The Ceasefire That Isn\u2019t"
-  },
-  {
-    "name": "Pedro X. Molina",
-    "slug": "pedro-x-molina",
-    "date": "2026-04-07",
-    "url": "https://tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations",
-    "source": "tinyview",
-    "images": [
-      {
-        "url": "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTVC.jpg",
-        "alt": "Cover Image",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTV.jpg",
-        "alt": "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTV.jpg",
-        "title": ""
-      }
-    ],
-    "image_urls": [
-      "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTVC.jpg",
-      "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTV.jpg"
-    ],
-    "image_count": 2,
-    "description": "All things considered, there is one specific renovation at the White House that would be worth doing right now...",
-    "title": "White House renovations"
-  },
-  {
-    "name": "Pedro X. Molina",
-    "slug": "pedro-x-molina",
-    "date": "2026-04-07",
-    "url": "https://tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations",
-    "source": "tinyview",
-    "images": [
-      {
-        "url": "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTVC.jpg",
-        "alt": "Cover Image",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTV.jpg",
-        "alt": "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTV.jpg",
-        "title": ""
-      }
-    ],
-    "image_urls": [
-      "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTVC.jpg",
-      "https://cdn.tinyview.com/pedro-x-molina/2026/04/07/white-house-renovations/WHRenovationsTV.jpg"
-    ],
-    "image_count": 2,
-    "description": "All things considered, there is one specific renovation at the White House that would be worth doing right now...",
-    "title": "White House renovations"
-  },
-  {
-    "name": "Rob Rogers",
-    "slug": "rob-rogers",
-    "date": "2026-04-07",
-    "url": "https://tinyview.com/rob-rogers/2026/04/07/dark-side",
-    "source": "tinyview",
-    "images": [
-      {
-        "url": "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/Rogers_Header_260409.jpg",
-        "alt": "Cover Image",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/20260409_Dark_Side.jpg",
-        "alt": "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/20260409_Dark_Side.jpg",
-        "title": ""
-      }
-    ],
-    "image_urls": [
-      "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/Rogers_Header_260409.jpg",
-      "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/20260409_Dark_Side.jpg"
-    ],
-    "image_count": 2,
-    "description": "The remarkable journey of Artemis II is an inspiration and a reminder of the collective optimism and wonder we experienced during the moon landing in 1969. The divisive and insanely chaotic flight of our president is a tragic reminder of how far away from those days we are.",
-    "title": "Dark Side"
-  },
-  {
-    "name": "Rob Rogers",
-    "slug": "rob-rogers",
-    "date": "2026-04-07",
-    "url": "https://tinyview.com/rob-rogers/2026/04/07/dark-side",
-    "source": "tinyview",
-    "images": [
-      {
-        "url": "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/Rogers_Header_260409.jpg",
-        "alt": "Cover Image",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/20260409_Dark_Side.jpg",
-        "alt": "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/20260409_Dark_Side.jpg",
-        "title": ""
-      }
-    ],
-    "image_urls": [
-      "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/Rogers_Header_260409.jpg",
-      "https://cdn.tinyview.com/rob-rogers/2026/04/07/dark-side/20260409_Dark_Side.jpg"
-    ],
-    "image_count": 2,
-    "description": "The remarkable journey of Artemis II is an inspiration and a reminder of the collective optimism and wonder we experienced during the moon landing in 1969. The divisive and insanely chaotic flight of our president is a tragic reminder of how far away from those days we are.",
-    "title": "Dark Side"
+    "image_count": 6,
+    "description": "humans... more like.... peeyooomans!",
+    "title": "Clean Mouths"
   }
 ]

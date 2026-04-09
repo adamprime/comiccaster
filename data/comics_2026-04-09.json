@@ -32,6 +32,14 @@
     "category": "political"
   },
   {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/133046501640013fbf5d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-04-09",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/04/09",
+    "category": "political"
+  },
+  {
     "name": "Drew Sheneman",
     "slug": "drewsheneman",
     "image_url": "https://featureassets.gocomics.com/assets/eabfa88015d1013fbf7a005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1725,6 +1733,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/deccdc60155f013fbf5d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-04-09",
     "url": "https://www.gocomics.com/ten-cats/2026/04/09",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/78efe560163e013fbf5d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-04-09",
+    "url": "https://www.gocomics.com/tavicat/2026/04/09",
     "category": "daily"
   },
   {
