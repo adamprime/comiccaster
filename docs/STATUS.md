@@ -1,16 +1,16 @@
 # Project Status
-<!-- Updated: 2026-04-02 by Adam -->
+<!-- Updated: 2026-04-09 by Adam -->
 
 ## Project Overview
 ComicCaster is a hybrid Python + Netlify application that aggregates comics from GoComics, Comics Kingdom, TinyView, and The Far Side, then generates standards-compliant RSS feeds and OPML bundles so readers can subscribe in any feed reader.
 
 
 ## Current State
-Project is stable. Standardized comic strip sizing/alignment in RSS feeds (#105). Cleaned up stale remote branches. Claude Code agent orchestration workflow (red-orchestrator + claude bot) tested successfully for the first time.
+Project is stable. Fixed Comics Kingdom scraper breakage caused by upstream site redesign. All other sources unaffected.
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-04-02
-**Last Session Summary:** Reviewed and merged Claude Code's fix for inconsistent comic strip sizing/alignment (#105). Cleaned up 2 stale remote branches. 209 tests passing.
+**Last Session:** 2026-04-09
+**Last Session Summary:** Rewrote Comics Kingdom extraction logic to handle redesigned page structure. 102 comics extracted successfully. 212 tests passing.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -24,13 +24,14 @@ Project is stable. Standardized comic strip sizing/alignment in RSS feeds (#105)
 - Security policy and private vulnerability reporting enabled
 - All CodeQL security alerts resolved (proper URL domain validation)
 - Consistent comic strip sizing (max-width: 700px) and centering across all sources (#105)
+- Comics Kingdom scraper adapted to current site structure (data-attribute-based extraction, lazy image handling)
 
 ## What's In Progress
 <!-- Active work items. Update every session. -->
 
 | Item | Status | Branch | Notes |
 |------|--------|--------|-------|
-| No active work | Complete | main | All items from 2026-03-31 evening session merged |
+| CK scraper fix | Complete | main | Adapted to upstream site redesign |
 
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
@@ -57,7 +58,7 @@ Project is stable. Standardized comic strip sizing/alignment in RSS feeds (#105)
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) -- 209 tests, requires Python >=3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) -- 212 tests, requires Python >=3.10
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
 
@@ -69,6 +70,22 @@ GoComics feed generation follows the same data-driven pattern as Comics Kingdom 
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-04-09
+- **Goal:** Fix Comics Kingdom scraper breakage (upstream site redesign)
+- **Accomplished:**
+  - Diagnosed CK extraction failure: upstream redesigned their favorites page (new component structure, image proxy, paginated loading)
+  - Rewrote extraction to use structured data attributes instead of generic element traversal
+  - Added paginated content loading (click-to-expand) to capture full favorites list
+  - Fixed lazy image loading by forcing eager load via JS before parsing
+  - Handled slug normalization for vintage comics to match existing catalog
+  - Added diagnostic snapshot on zero-extraction failures (screenshot + HTML)
+  - Added popup/interstitial dismissal
+  - Created `scripts/diagnose_ck_page.py` diagnostic tool
+  - 102 comics extracted successfully (was 0), 144 images loaded, all slugs match catalog
+  - 212 tests passing, no regressions
+- **Didn't finish:** Nothing left outstanding
+- **Discovered:** CK now uses a vertical reader layout with paginated loading instead of a grid; images are proxied through a CDN layer; structured data attributes on reader items are more reliable than element traversal
 
 ### 2026-04-02
 - **Goal:** Review and merge Claude Code's fix for comic strip sizing/alignment (#105), clean up remote branches

@@ -226,115 +226,312 @@ def login_with_manual_recaptcha(driver, username, password):
         return False
 
 
+def _click_load_more(driver, max_clicks=20):
+    """Click 'Load more comics' button until all comics are loaded."""
+    from selenium.webdriver.common.by import By
+
+    clicks = 0
+    for i in range(max_clicks):
+        try:
+            # Scroll to bottom first so the button is in viewport
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(2)
+
+            # Try multiple selectors - the button has id="after-reader"
+            btn = None
+            for selector in [
+                "#after-reader",
+                ".ck-loadmore-button",
+                ".ck-panel-reader__load-more-button",
+                "button[aria-label='Load more comics']",
+            ]:
+                elements = driver.find_elements(By.CSS_SELECTOR, selector)
+                for el in elements:
+                    if el.is_displayed():
+                        btn = el
+                        break
+                if btn:
+                    break
+
+            if not btn:
+                # Also try by text content as last resort
+                elements = driver.find_elements(
+                    By.XPATH, "//button[contains(text(), 'Load more')]"
+                )
+                for el in elements:
+                    if el.is_displayed():
+                        btn = el
+                        break
+
+            if not btn:
+                break
+
+            # Scroll the button into view and click
+            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", btn)
+            time.sleep(1)
+            driver.execute_script("arguments[0].click();", btn)
+            clicks += 1
+            time.sleep(3)
+
+        except Exception as e:
+            print(f"  ⚠️  Load more click error: {e}")
+            break
+
+    print(f"  Clicked 'Load more' {clicks} time(s)")
+
+
+def _decode_nextjs_image_url(src):
+    """Extract the real image URL from a Next.js /_next/image proxy URL."""
+    if '/_next/image' in src or 'url=' in src:
+        match = re.search(r'url=([^&]+)', src)
+        if match:
+            import urllib.parse
+            decoded = urllib.parse.unquote(match.group(1))
+            if decoded.startswith('/'):
+                decoded = 'https://comicskingdom.com' + decoded
+            return decoded
+    return src
+
+
+def _save_diagnostic_snapshot(driver, output_dir, label):
+    """Save a screenshot and HTML snapshot for debugging extraction failures."""
+    diag_dir = Path(output_dir) / 'ck_diagnostics'
+    diag_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    prefix = f"{timestamp}_{label}"
+
+    try:
+        driver.save_screenshot(str(diag_dir / f"{prefix}.png"))
+        with open(diag_dir / f"{prefix}.html", 'w', encoding='utf-8') as f:
+            f.write(driver.page_source)
+        print(f"  Diagnostic snapshot saved to {diag_dir}/{prefix}.*")
+    except Exception as e:
+        print(f"  ⚠️  Could not save diagnostic snapshot: {e}")
+
+
 def extract_comics_from_favorites(driver, date_str):
     """Extract all comics from the favorites page."""
     print(f"\n{'='*80}")
     print(f"Extracting comics from favorites page for {date_str}")
     print("="*80)
-    
+
     driver.get("https://comicskingdom.com/favorites")
     time.sleep(5)
-    
-    # Scroll to load lazy images (increased for full catalog of ~136 comics)
-    print("Scrolling to load all images...")
-    for i in range(8):
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(2)
-        print(f"  Scroll {i+1}/8 complete")
+
+    # Try to dismiss any popups/interstitials
+    try:
+        from selenium.webdriver.common.by import By
+        for selector in [
+            "button[class*='close']", "[aria-label*='close']",
+            "[aria-label*='Close']", "button[class*='dismiss']",
+        ]:
+            for el in driver.find_elements(By.CSS_SELECTOR, selector):
+                if el.is_displayed():
+                    el.click()
+                    time.sleep(1)
+    except Exception:
+        pass
+
+    # Click "Load more comics" to load full favorites list
+    print("Loading all comics...")
+    _click_load_more(driver)
+
+    # Force all lazy images to load by removing loading="lazy" and triggering loads
+    print("Forcing lazy image load...")
+    driver.execute_script("""
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            img.loading = 'eager';
+            if (!img.complete) {
+                // Re-trigger load by resetting src
+                const src = img.src;
+                img.src = '';
+                img.src = src;
+            }
+        });
+    """)
+
+    # Scroll through the page to ensure all images enter viewport at least briefly
+    page_height = driver.execute_script("return document.body.scrollHeight")
+    viewport = driver.execute_script("return window.innerHeight")
+    position = 0
+    while position < page_height:
+        position += viewport
+        driver.execute_script(f"window.scrollTo(0, {position});")
+        time.sleep(0.5)
+        page_height = driver.execute_script("return document.body.scrollHeight")
     driver.execute_script("window.scrollTo(0, 0);")
-    time.sleep(2)
-    print("  Scrolled back to top")
-    
+
+    # Wait for images to finish loading
+    print("Waiting for images to load...")
+    for attempt in range(10):
+        loaded = driver.execute_script("""
+            const imgs = document.querySelectorAll('[data-comic-item] img');
+            return [imgs.length, [...imgs].filter(i => i.complete && i.naturalHeight > 0).length];
+        """)
+        total_imgs, complete_imgs = loaded
+        if complete_imgs >= total_imgs and total_imgs > 0:
+            break
+        time.sleep(2)
+    print(f"  {complete_imgs}/{total_imgs} images loaded")
+
     soup = BeautifulSoup(driver.page_source, 'html.parser')
-    
-    # Find all comic strip images
+
+    # Primary extraction: use data-comic-item attributes (new CK DOM, 2026+)
+    comic_items = soup.find_all(attrs={'data-comic-item': 'true'})
+    print(f"Found {len(comic_items)} comic reader items")
+
     comics = []
-    
-    # Look for images with Comics Kingdom URLs
-    images = soup.find_all('img')
-    print(f"Found {len(images)} images total")
-    
-    for img in images:
-        src = img.get('src', '')
-        alt = img.get('alt', '')
-        
-        if not src:
+    if comic_items:
+        comics = _extract_via_data_attributes(comic_items, date_str)
+    else:
+        # Fallback: legacy extraction via img domain filtering
+        print("  Falling back to legacy image-based extraction...")
+        comics = _extract_via_image_scan(soup, date_str)
+
+    if not comics:
+        print("⚠️  Zero comics extracted — saving diagnostic snapshot")
+        _save_diagnostic_snapshot(driver, 'data', 'zero_extraction')
+        print(f"  Page URL: {driver.current_url}")
+        print(f"  Page title: {driver.title}")
+        print(f"  Total <img> tags: {len(soup.find_all('img'))}")
+
+    print(f"✅ Extracted {len(comics)} comics from favorites page")
+
+    if comics:
+        print("\nSample comics:")
+        for comic in comics[:5]:
+            print(f"  - {comic['name']} ({comic['slug']})")
+
+    return comics
+
+
+def _extract_via_data_attributes(comic_items, date_str):
+    """Extract comics using data-comic-item elements and their data-* attributes."""
+    unique_comics = {}
+
+    for item in comic_items:
+        data_link = item.get('data-link', '')
+        feature_name = item.get('data-feature-name', '')
+        author = item.get('data-comic-author', '')
+        published_date = item.get('data-published-date', date_str)
+
+        if not data_link:
             continue
-        
-        # Parse URL to safely check domain
+
+        # Extract slug from data-link (e.g. https://wp.comicskingdom.com/rosebuds/2026-04-09)
+        # Vintage comics use a path like vintage/bringing-up-father/2026-04-09;
+        # the catalog slug is the sub-slug (bringing-up-father), not the prefix.
         try:
-            parsed_src = urlparse(src)
+            link_path = urlparse(data_link).path.strip('/')
+            parts = link_path.split('/')
+            # Strip date segments and the "vintage" URL grouping prefix
+            slug_parts = [p for p in parts
+                          if not re.match(r'^\d{4}-\d{2}-\d{2}$', p)
+                          and p != 'vintage']
+            comic_slug = '-'.join(slug_parts) if slug_parts else ''
         except Exception:
             continue
-        
-        # Filter for actual comic strip images - properly validate domain
-        if ((parsed_src.netloc == 'wp.comicskingdom.com' or 
-             parsed_src.netloc.endswith('.comicskingdom.com')) and 
-            'placeholder' not in src):
-            # Try to extract comic info from nearby links or alt text
+
+        if not comic_slug or comic_slug in unique_comics:
+            continue
+
+        # Collect all comic strip images inside this item
+        image_urls = []
+        for img in item.find_all('img'):
+            src = img.get('src', '')
+            if not src or 'placeholder' in src:
+                continue
+            actual_url = _decode_nextjs_image_url(src)
+            # Only include actual comic images from the uploads directory
+            if 'comicskingdom-redesign-uploads-production' in actual_url:
+                image_urls.append(actual_url)
+
+        comic_name = feature_name or comic_slug.replace('-', ' ').title()
+        comic_url = f"https://comicskingdom.com/{comic_slug}/{published_date}"
+
+        entry = {
+            'name': comic_name,
+            'slug': comic_slug,
+            'date': published_date,
+            'url': comic_url,
+            'source': 'comicskingdom',
+        }
+
+        if len(image_urls) == 1:
+            entry['image_url'] = image_urls[0]
+        elif len(image_urls) > 1:
+            entry['image_urls'] = image_urls
+        else:
+            # Comic item exists but images haven't loaded; include it anyway
+            # so downstream feed generation can try the direct URL
+            entry['image_url'] = ''
+
+        unique_comics[comic_slug] = entry
+
+    return [c for c in unique_comics.values() if c.get('image_url') or c.get('image_urls')]
+
+
+def _extract_via_image_scan(soup, date_str):
+    """Legacy fallback: extract comics by scanning all img tags for CK domains."""
+    comics = []
+    images = soup.find_all('img')
+    print(f"  Found {len(images)} images total")
+
+    for img in images:
+        src = img.get('src', '')
+        if not src:
+            continue
+
+        # Decode Next.js proxy URLs first
+        actual_url = _decode_nextjs_image_url(src)
+
+        try:
+            parsed_src = urlparse(actual_url)
+        except Exception:
+            continue
+
+        if ((parsed_src.netloc == 'wp.comicskingdom.com' or
+             parsed_src.netloc.endswith('.comicskingdom.com')) and
+            'placeholder' not in actual_url and
+            'comicskingdom-redesign-uploads-production' in actual_url):
+
             parent = img.parent
-            
-            # Look for link to comic page
             comic_link = None
-            for _ in range(5):  # Search up to 5 levels
+            for _ in range(5):
                 if parent:
                     link = parent.find('a', href=True)
                     if link and link['href'].startswith('/'):
                         comic_link = link['href']
                         break
                     parent = parent.parent
-            
+
             if comic_link:
-                # Parse comic slug from link like /beetle-bailey-1/2025-11-15
                 parts = comic_link.strip('/').split('/')
                 if len(parts) >= 1:
                     comic_slug = parts[0]
-                    
-                    # Clean up slug and generate name
                     comic_name = comic_slug.replace('-', ' ').title()
-                    
-                    # Get the actual image URL (remove Next.js optimization)
-                    if 'url=' in src:
-                        # Extract the actual URL from Next.js image optimization
-                        match = re.search(r'url=([^&]+)', src)
-                        if match:
-                            import urllib.parse
-                            actual_url = urllib.parse.unquote(match.group(1))
-                            src = actual_url
-                    
+
                     comics.append({
                         'name': comic_name,
                         'slug': comic_slug,
-                        'image_url': src,
+                        'image_url': actual_url,
                         'date': date_str,
                         'url': f"https://comicskingdom.com{comic_link}",
                         'source': 'comicskingdom'
                     })
-    
-    # Group images by slug (some comics have multiple panels per day)
+
+    # Deduplicate by slug, grouping multiple images
     unique_comics = {}
     for comic in comics:
         slug = comic['slug']
         if slug in unique_comics:
-            # Comic already exists - add this image to the list
             if 'image_urls' not in unique_comics[slug]:
-                # Convert single image_url to list
                 unique_comics[slug]['image_urls'] = [unique_comics[slug].pop('image_url')]
             unique_comics[slug]['image_urls'].append(comic['image_url'])
         else:
-            # First time seeing this comic
             unique_comics[slug] = comic
-    
-    comics = list(unique_comics.values())
-    
-    print(f"✅ Extracted {len(comics)} comics from favorites page")
-    
-    if comics:
-        print("\nSample comics:")
-        for comic in comics[:5]:
-            print(f"  - {comic['name']} ({comic['slug']})")
-    
-    return comics
+
+    return list(unique_comics.values())
 
 
 def authenticate_with_cookie_persistence(driver, config):
