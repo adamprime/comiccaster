@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lost Sheep - GoComics</title><link>https://www.gocomics.com/lostsheep</link><description>Daily Lost Sheep comic strip by Dan Thompson from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/lostsheep.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 10 Apr 2026 08:21:03 +0000</lastBuildDate><ttl>1440</ttl><item><title>Lost Sheep - 2026-04-10</title><link>https://www.gocomics.com/lostsheep/2026/04/10</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lost Sheep - GoComics</title><link>https://www.gocomics.com/lostsheep</link><description>Daily Lost Sheep comic strip by Dan Thompson from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/lostsheep.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 11 Apr 2026 08:20:56 +0000</lastBuildDate><ttl>1440</ttl><item><title>Lost Sheep - 2026-04-11</title><link>https://www.gocomics.com/lostsheep/2026/04/11</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-11&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/4fe0a1a0e7fe013ebadd005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Lost Sheep" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Lost Sheep&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/lostsheep/2026/04/11</guid><pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Lost Sheep - 2026-04-10</title><link>https://www.gocomics.com/lostsheep/2026/04/10</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-10&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/4e2530a0e7fe013ebadd005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Lost Sheep" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -62,11 +69,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Lost Sheep&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/lostsheep/2026/04/02</guid><pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Lost Sheep - 2026-04-01</title><link>https://www.gocomics.com/lostsheep/2026/04/01</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-01&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://featureassets.gocomics.com/assets/0a6e64b0e7fb013ebadd005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Lost Sheep" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Lost Sheep&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/lostsheep/2026/04/01</guid><pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://www.gocomics.com/lostsheep/2026/04/02</guid><pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate></item></channel></rss>
