@@ -104,7 +104,6 @@ worktrees/
 
 # Diagnostics and ephemeral data
 data/ck_diagnostics/
-data/comicskingdom_*.json
 test_feeds_preview/
 public/feeds/*.backup
 
