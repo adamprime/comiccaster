@@ -86,7 +86,7 @@ fi
 
 echo ""
 echo "[3/5] Scraping TinyView..."
-if python scripts/tinyview_scraper_local_authenticated.py --date "$DATE_STR" --days-back 15; then
+if python scripts/tinyview_scraper_local_authenticated.py --date "$DATE_STR" --days-back 90; then
     echo "✅ TinyView scraping succeeded"
 else
     echo "❌ TinyView scraping failed"

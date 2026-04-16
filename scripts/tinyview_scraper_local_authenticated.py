@@ -228,8 +228,8 @@ def main():
         description='Scrape TinyView comics with authentication and save to JSON'
     )
     parser.add_argument('--date', help='Date in YYYY-MM-DD format (defaults to today)')
-    parser.add_argument('--days-back', type=int, default=15, 
-                       help='Number of days to look back (default: 15)')
+    parser.add_argument('--days-back', type=int, default=90,
+                       help='Number of days to look back (default: 90)')
     parser.add_argument('--output-dir', default='data', 
                        help='Output directory for JSON files (default: data)')
     

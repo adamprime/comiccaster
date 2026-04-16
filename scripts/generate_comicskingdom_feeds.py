@@ -103,11 +103,11 @@ def extract_live_comicskingdom_entries(comic_info: Dict, limit: int = 30) -> Lis
     return entries
 
 
-def load_scraped_data(days_back: int = 10) -> Dict[str, List[Dict]]:
+def load_scraped_data(days_back: int = 90) -> Dict[str, List[Dict]]:
     """Load scraped Comics Kingdom data from multiple days and group by slug.
-    
+
     Args:
-        days_back: Number of days to load (default 10, like GoComics)
+        days_back: Number of days to load (default 90)
     
     Returns:
         Dict mapping slug -> list of comic entries (newest first)

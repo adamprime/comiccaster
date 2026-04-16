@@ -31,7 +31,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def load_scraped_data(days_back: int = 10) -> Dict[str, List[Dict]]:
+def load_scraped_data(days_back: int = 90) -> Dict[str, List[Dict]]:
     """Load scraped GoComics data from multiple days and group by slug.
 
     Args:

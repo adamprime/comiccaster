@@ -128,7 +128,7 @@ class TinyviewScraper(BaseScraper):
             self.driver.quit()
             self.driver = None
     
-    def get_recent_comics(self, comic_slug: str, days_back: int = 15) -> List[Dict[str, str]]:
+    def get_recent_comics(self, comic_slug: str, days_back: int = 90) -> List[Dict[str, str]]:
         """
         Get all recent comics from the last N days by parsing the comic's main page.
         
