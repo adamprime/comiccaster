@@ -219,9 +219,11 @@ check_scrape_output "Creators"       "data/creators_$DATE_STR.json"
 
 # Phase 3: Commit and push everything that succeeded.
 # Recovery on push rejection: save same-day scrape JSONs to a staging dir, reset
-# to origin/main, restore the JSONs, re-run data-driven generators, and push
-# once. Deliberately avoids git pull --rebase against generated XML artifacts,
-# which explodes into hundreds of conflicts (see 2026-04-17 incident).
+# to origin/main, restore the JSONs, re-run all data-driven generators, and
+# push once. All six sources are data-driven, so recovery is a full
+# regeneration — no source gets stale on recovery. Deliberately avoids git
+# pull --rebase against generated XML artifacts, which explodes into hundreds
+# of conflicts (see 2026-04-17 incident).
 echo ""
 echo "=== Phase 3: Committing and Pushing ==="
 
@@ -260,13 +262,22 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
 
         # Save today's scrape data files. These are authoritative pipeline inputs
         # and the one piece of state we cannot recreate without re-scraping.
+        # Far Side daily scrapes the site's 3-day serving window each run, so we
+        # preserve all three target-date snapshots our scrape produced.
         STAGING=$(mktemp -d)
         echo "📦 Staging same-day scrape data to $STAGING"
+        FS_YESTERDAY=$(date -v-1d +%Y-%m-%d 2>/dev/null || python3 -c "from datetime import date, timedelta; print((date.today()-timedelta(days=1)).isoformat())")
+        FS_DAYBEFORE=$(date -v-2d +%Y-%m-%d 2>/dev/null || python3 -c "from datetime import date, timedelta; print((date.today()-timedelta(days=2)).isoformat())")
         for f in \
             "data/comics_$DATE_STR.json" \
             "data/comicskingdom_$DATE_STR.json" \
             "data/tinyview_$DATE_STR.json" \
-            "data/newyorker_$DATE_STR.json"; do
+            "data/newyorker_$DATE_STR.json" \
+            "data/farside_daily_$DATE_STR.json" \
+            "data/farside_daily_$FS_YESTERDAY.json" \
+            "data/farside_daily_$FS_DAYBEFORE.json" \
+            "data/farside_new_$DATE_STR.json" \
+            "data/creators_$DATE_STR.json"; do
             if [ -f "$f" ]; then
                 cp -p "$f" "$STAGING/"
                 echo "  saved $(basename "$f")"
@@ -285,13 +296,16 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
             echo "  restored $(basename "$f")"
         done
 
-        # Regenerate data-driven feeds. New Yorker, Far Side, and Creators are
-        # not regenerated here — their feeds stay at origin state until the
-        # 3a/3b/3c refactors make them data-driven.
+        # Regenerate every feed from restored data. All six sources are now
+        # data-driven (see 3a/3b/3c refactors), so recovery produces
+        # byte-identical output to a clean run from the same scrape data.
         echo "🔧 Regenerating feeds from restored scrape data"
-        python scripts/generate_gocomics_feeds.py         || FAILURES+=("GoComics regen in recovery")
-        python scripts/generate_comicskingdom_feeds.py    || FAILURES+=("Comics Kingdom regen in recovery")
+        python scripts/generate_gocomics_feeds.py           || FAILURES+=("GoComics regen in recovery")
+        python scripts/generate_comicskingdom_feeds.py      || FAILURES+=("Comics Kingdom regen in recovery")
         python scripts/generate_tinyview_feeds_from_data.py || FAILURES+=("TinyView regen in recovery")
+        python scripts/generate_newyorker_feeds.py          || FAILURES+=("New Yorker regen in recovery")
+        python scripts/generate_farside_feeds.py            || FAILURES+=("Far Side regen in recovery")
+        python scripts/generate_creators_feeds.py           || FAILURES+=("Creators regen in recovery")
 
         git add -f data/*.json public/feeds/*.xml
         if git diff --staged --quiet; then
