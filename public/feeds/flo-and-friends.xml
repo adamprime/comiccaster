@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Flo &amp; Friends - Creators</title><link>https://www.creators.com/read/flo-and-friends</link><description>Daily Flo &amp; Friends comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/flo-and-friends.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 16 Apr 2026 08:24:48 +0000</lastBuildDate><ttl>1440</ttl><item><title>Flo &amp; Friends for Apr 16, 2026</title><link>https://www.creators.com/read/flo-and-friends/04/26/413449</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Flo &amp; Friends - Creators</title><link>https://www.creators.com/read/flo-and-friends</link><description>Daily Flo &amp; Friends comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/flo-and-friends.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 17 Apr 2026 08:13:37 +0000</lastBuildDate><ttl>1440</ttl><item><title>Flo &amp; Friends for Apr 17, 2026</title><link>https://www.creators.com/read/flo-and-friends/04/26/413457</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-17&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.alphacomedy.com/20/2026/04_17_26_3d24128fee59bfbe909351701a1f5728.jpg" alt="Flo &amp; Friends" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Flo &amp; Friends&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/flo-and-friends/04/26/413457</guid><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Flo &amp; Friends for Apr 16, 2026</title><link>https://www.creators.com/read/flo-and-friends/04/26/413449</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-16&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/20/2026/04_16_26_a66641bd768634fb97207f2274d8c420.jpg" alt="Flo &amp; Friends" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -160,11 +167,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Flo &amp; Friends&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/flo-and-friends/03/26/412133</guid><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate></item><item><title>Flo &amp; Friends for Mar 24, 2026</title><link>https://www.creators.com/read/flo-and-friends/03/26/412127</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-03-24&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.alphacomedy.com/20/2026/03_24_26_9dcec4fc51bc3ec08be7f4400c77ae20.jpg" alt="Flo &amp; Friends" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Flo &amp; Friends&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/flo-and-friends/03/26/412127</guid><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://www.creators.com/read/flo-and-friends/03/26/412133</guid><pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate></item></channel></rss>

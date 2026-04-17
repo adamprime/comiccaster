@@ -6,11 +6,11 @@ ComicCaster is a hybrid Python + Netlify application that aggregates comics from
 
 
 ## Current State
-Project is stable. Fixed Comics Kingdom scraper breakage caused by upstream site redesign. All other sources unaffected.
+Project is stable overall, but Comics Kingdom automation had a transient failure on 2026-04-16 that required manual recovery. Root cause was not the 90/100-day feed-history expansion; the CK scraper initially failed after a Chrome / automation environment problem and stale live browser auth, but manual reauth plus a visible-browser rerun succeeded.
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-04-09
-**Last Session Summary:** Housekeeping session: cleared 19 stale git stashes, cleaned up .gitignore, merged 3 Dependabot PRs (pytest 9.0.2, python-dotenv 1.2.2, selenium 4.41.0), corrected backlog items.
+**Last Session:** 2026-04-16
+**Last Session Summary:** Recovered same-day Comics Kingdom scrape/feed generation after morning partial failure; confirmed CK raw JSON should remain git-tracked like GoComics and TinyView, and fixed an incorrect `.gitignore` rule introduced during Apr 9 cleanup.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -32,7 +32,7 @@ Project is stable. Fixed Comics Kingdom scraper breakage caused by upstream site
 
 | Item | Status | Branch | Notes |
 |------|--------|--------|-------|
-| CK scraper fix | Complete | main | Adapted to upstream site redesign |
+| CK automation stability | Monitoring | main | 2026-04-16 manual run succeeded after reboot + reauth; need to watch next scheduled run to confirm unattended stability |
 
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
@@ -52,6 +52,7 @@ Project is stable. Fixed Comics Kingdom scraper breakage caused by upstream site
 
 - GoComics strips don't save to read-later platforms like Pocket/Instapaper (#91) -- approach TBD
 - Old data files (pre-March 31) have been cleaned but contain fewer entries (~100/day vs 257) since only ~115 comics had matching slugs under the old badge-based extraction.
+- CK unattended browser automation needs monitoring after 2026-04-16. Morning run failed during CK scraping even though manual visible-browser rerun succeeded after reboot + reauth.
 
 ## Environment & Setup
 <!-- How to run this project. Critical for fresh agent sessions. -->
@@ -66,9 +67,34 @@ Hybrid architecture: Python package (`comiccaster/`) handles scraping and feed g
 
 GoComics feed generation follows the same data-driven pattern as Comics Kingdom and TinyView: Phase 1 collects data to `data/comics_YYYY-MM-DD.json`, then `scripts/generate_gocomics_feeds.py` reads that data and generates feeds. A separate `scripts/backfill_gocomics_feeds.py` exists for manual recovery.
 
+**Important data-tracking note (confirmed 2026-04-16):** raw source JSON files are part of the intended architecture for all major sources, not ephemeral diagnostics:
+- GoComics → `data/comics_YYYY-MM-DD.json` (git tracked)
+- TinyView → `data/tinyview_YYYY-MM-DD.json` (git tracked)
+- Comics Kingdom → `data/comicskingdom_YYYY-MM-DD.json` (should be git tracked)
+
+An Apr 9 `.gitignore` cleanup accidentally added `data/comicskingdom_*.json` under "Diagnostics and ephemeral data," which conflicted with:
+- existing tracked CK history
+- feed generation behavior (`generate_comicskingdom_feeds.py` loads multiple day files)
+- local automation docs / GitHub Actions assumptions
+
+This was corrected on 2026-04-16. Do **not** treat CK daily JSON as disposable scratch data.
+
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-04-16
+- **Goal:** Recover same-day Comics Kingdom freshness after morning partial failure and understand repo/data-model implications before committing anything
+- **Accomplished:**
+  - Investigated morning master update failure and confirmed CK scrape failed while downstream feed generation still succeeded from previously tracked raw JSON
+  - Diagnosed first failure as Chrome / ChromeDriver mismatch warning, then discovered manual visible-browser rerun worked after reboot + reauth
+  - Manually reran `scripts/comicskingdom_scraper_individual.py` successfully for all 153 comics and regenerated CK feeds
+  - Confirmed CK feed XML files were actually updated before commit
+  - Researched repo structure before committing: verified GoComics, TinyView, and historical CK raw JSON are all git-tracked and are part of the feed-generation architecture
+  - Traced contradictory `.gitignore` rule to Apr 9 cleanup commit `dc6cb2a3041ecca9efefedcb61a31d0ad1944178`, where CK JSON was mistakenly reclassified as ephemeral diagnostics
+  - Pushed recovery commit `6b8ff12fc` (manual CK scrape recovery) and follow-up commit `f1d7a0680` (remove incorrect CK JSON ignore rule)
+- **Didn't finish:** Root-cause unattended CK browser instability remains only partially understood; next scheduled run should be watched closely
+- **Discovered:** The 90/100-day feed-history expansion was not the cause of the morning failure. CK raw JSON is durable pipeline input, not throwaway diagnostics. Manual reauth in a live browser session can restore CK scraping when unattended automation wedges.
 
 ### 2026-04-09 (evening)
 - **Goal:** Housekeeping and dependency updates
