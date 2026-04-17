@@ -1,131 +1,127 @@
-# Local Automation (Mac Mini)
+# Local Automation
 
-This document describes how ComicCaster's daily feed pipeline runs in production — on a dedicated Mac Mini, scheduled by LaunchD, scraping all sources locally and pushing updates straight to `main` for Netlify to deploy.
+ComicCaster's daily feed pipeline runs on a dedicated always-on host, not in CI. All scrapers, all feed generators, and the commit/push step run together on that host; Netlify picks up the push and deploys.
 
-An earlier hybrid design split scraping between a laptop (Comics Kingdom only) and GitHub Actions (everything else). That design was retired 2025-11-26. The GitHub Actions update workflows (`.github/workflows/update-feeds.yml`, `update-feeds-smart.yml`) still exist but have their `schedule` triggers commented out — they're emergency-only manual fallbacks now.
+An earlier hybrid design split scraping between a laptop (one source) and GitHub Actions (the rest). That was retired 2025-11-26. The GitHub Actions feed workflows still exist (`.github/workflows/update-feeds.yml`, `update-feeds-smart.yml`) with their schedules commented out — they're a manual fallback if the local host is unavailable.
 
 ## Pipeline at a glance
 
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│  Mac Mini (openclaw user), 3:05 AM CST daily, LaunchD-triggered  │
-│                                                                  │
-│  Phase 1 — scrape 6 sources (sequential, fail-soft)              │
-│    1. GoComics            (authenticated, Selenium)              │
-│    2. Comics Kingdom      (authenticated, Selenium, visible      │
-│                            browser — anti-bot blocks headless)   │
-│    3. TinyView            (authenticated, 90-day window)         │
-│    4. Far Side            (Selenium for New Stuff archive)       │
-│    5. New Yorker                                                 │
-│    6. Creators Syndicate                                         │
-│                                                                  │
-│  Phase 2 — generate feeds from scraped JSON (sequential)         │
-│    GoComics / Comics Kingdom / TinyView / New Yorker /           │
-│    Far Side / Creators → public/feeds/*.xml                      │
-│                                                                  │
-│  Invariant guard: each successful scrape must have written its   │
-│  dated JSON file. Missing file → logged failure.                 │
-│                                                                  │
-│  Phase 3 — commit and push                                       │
-│    git add data/*.json public/feeds/*.xml                        │
-│    git commit                                                    │
-│    git push (60s watchdog)                                       │
-│      on rejection → save JSONs / fetch / reset --hard            │
-│                     origin/main / restore JSONs /                │
-│                     regenerate all feeds / commit / push once    │
-└──────────────────────────┬───────────────────────────────────────┘
-                           ▼
-               ┌─────────────────────────┐
-               │  Netlify (auto-deploy)  │
-               │  on push to main        │
-               └─────────────────────────┘
+┌────────────────────────────────────────────────────────────────┐
+│  Local host, daily overnight run (LaunchAgent)                 │
+│                                                                │
+│  Phase 1 — scrape 6 sources (sequential, fail-soft)            │
+│    GoComics, Comics Kingdom, TinyView, Far Side,               │
+│    New Yorker, Creators Syndicate                              │
+│                                                                │
+│  Phase 2 — generate feeds from scraped JSON                    │
+│    one script per source, all network-free                     │
+│                                                                │
+│  Invariant guard: each successful scrape must have written     │
+│  its dated JSON file. Missing file → logged failure.           │
+│                                                                │
+│  Phase 3 — commit and push (with recovery on rejection)        │
+│    save JSONs / fetch / reset --hard origin/main / restore     │
+│    JSONs / regenerate feeds / commit / push once               │
+└────────────────────────────┬───────────────────────────────────┘
+                             ▼
+                ┌─────────────────────────┐
+                │  Netlify (auto-deploy)  │
+                │  on push to main        │
+                └─────────────────────────┘
 ```
 
 ## Files
 
 | Path | Purpose |
 |---|---|
-| `scripts/mini_master_update.sh` | **Production entrypoint.** Sets host-specific env (PATH, deploy key, CK `--show-browser`), execs the tracked master update |
+| `scripts/mini_master_update.sh` | Production entrypoint — sets host-specific environment, execs the tracked master update |
 | `scripts/local_master_update.sh` | Tracked master update — all pipeline logic lives here |
-| `scripts/scrape_*.py`, `scripts/authenticated_scraper_secure.py`, `scripts/comicskingdom_scraper_individual.py`, `scripts/tinyview_scraper_local_authenticated.py` | Per-source scrapers, all write to `data/*.json` |
-| `scripts/generate_*_feeds.py`, `scripts/generate_gocomics_feeds.py`, `scripts/generate_tinyview_feeds_from_data.py` | Per-source generators, all write to `public/feeds/*.xml` |
-| `scripts/reauth_comicskingdom.py` | Manual CK cookie refresh (see below) |
-| `scripts/SETUP_COMICSKINGDOM_AUTH.sh` | First-time CK auth setup helper |
-| `~/Library/LaunchAgents/com.comiccaster.master.plist` | LaunchD job — triggers `mini_master_update.sh` at 03:05 |
-| `~/Library/LaunchAgents/com.openclaw.caffeinate.plist` | Keeps the Mini from sleeping (`caffeinate -s` with KeepAlive) |
-| `data/*.json` | Scraped source data — tracked in git as pipeline inputs |
+| `scripts/scrape_*.py` and per-source authenticated scrapers | Phase 1 scrapers; each writes to `data/*.json` |
+| `scripts/generate_*.py` | Phase 2 generators; each reads `data/*.json` and writes to `public/feeds/*.xml` |
+| `scripts/reauth_comicskingdom.py` | Manual Comics Kingdom session refresh |
+| `data/*.json` | Per-source scraped data — tracked in git as pipeline inputs |
 | `data/farside_new_last_id.txt` | Cursor for Far Side "New Stuff" dedup |
-| `data/comicskingdom_cookies.pkl` | CK session cookies (git-ignored) |
-| `.env` | Credentials: `GOCOMICS_EMAIL`, `GOCOMICS_PASSWORD`, `COMICSKINGDOM_USERNAME`, `COMICSKINGDOM_PASSWORD`, `COMICSKINGDOM_COOKIE_FILE` |
-| `logs/master_update.log` | Daily run log (rotated at 10MB) |
-| `logs/launchd_stdout.log`, `launchd_stderr.log` | LaunchD-captured output |
+| `.env` | Per-source credentials (see below) |
+| `logs/master_update.log` | Daily run log, rotated at 10MB |
 
-## Host requirements (Mac Mini)
+## Host requirements
 
-These are load-bearing — the pipeline won't run without them:
+These are the load-bearing assumptions the pipeline relies on. Detailed provisioning steps live in operator-only notes, not this public doc.
 
-- **Active GUI session, auto-login enabled.** Comics Kingdom's anti-bot blocks headless Chrome, so the CK scraper uses `--show-browser`, which requires a real display.
-- **`com.openclaw.caffeinate.plist` loaded** so the Mini never sleeps before the 3:05 AM run.
-- **ChromeDriver at `~/bin/chromedriver`**, Chrome from Google's standard installer. Versions must match (Chrome 147 + ChromeDriver 147, etc.).
-- **Deploy key at `~/.ssh/comiccaster_deploy`** with push access to the repo. Loaded per-run via `GIT_SSH_COMMAND` — not via ssh-agent, so no keychain prompt.
-- **`.env` at repo root** with CK + GoComics credentials.
-- **Python venv at `./venv/`**, `pip install -r requirements.txt` + `pip install -e .`.
+- An always-on host with an active interactive user session (not a headless server). One source requires a real browser session to scrape; the rest tolerate headless.
+- ChromeDriver installed and on `PATH`, version-matched to Chrome.
+- Git push authenticated via a deploy key wired into `GIT_SSH_COMMAND` by the wrapper script. Not ssh-agent — avoids any keychain prompt at overnight runtime.
+- The system must not sleep before the run; a separate LaunchAgent handles that.
+- A Python venv at `./venv/` with `requirements.txt` installed and the package in editable mode (`pip install -e .`).
 
-## Environment a typical dev doesn't need
+## Credentials
 
-If you're running the pipeline on a laptop for development (not on the Mini), none of the host-specific wrapper logic applies:
+`.env` at the repo root, git-ignored. Variables consumed by the scrapers:
+
+- `GOCOMICS_EMAIL`, `GOCOMICS_PASSWORD`
+- `COMICSKINGDOM_USERNAME`, `COMICSKINGDOM_PASSWORD`, `COMICSKINGDOM_COOKIE_FILE`
+
+The Comics Kingdom cookie file is a binary pickle produced on first-time auth via `scripts/SETUP_COMICSKINGDOM_AUTH.sh` + `scripts/reauth_comicskingdom.py`. It expires roughly every 60 days and must be refreshed manually.
+
+## Dev mode (not on the production host)
+
+If you're running the pipeline on a laptop for development:
 
 ```bash
 source venv/bin/activate
 bash scripts/local_master_update.sh
 ```
 
-The CK scraper will run headless (no `CK_SCRAPER_EXTRA_ARGS`), which is fine for development. Whether CK anti-bot lets you through depends on the site's mood.
+Nothing in `mini_master_update.sh`'s host-specific environment is applied, so every scraper runs with defaults. One source may fail in this mode depending on upstream conditions; that's expected.
 
 ## Daily flow
 
-1. **03:05:00** — LaunchD fires `mini_master_update.sh`, which exports `PATH`, `GIT_SSH_COMMAND`, `CK_SCRAPER_EXTRA_ARGS=--show-browser`, then execs `local_master_update.sh`.
-2. **03:05:01–03:05:05** — SSH auth check against GitHub. If it fails, the run aborts cleanly (notification).
-3. **03:05:05–03:30** — Phase 1 scrape. CK is the longest; a real Chrome window opens and closes.
-4. **03:30–03:32** — Phase 2 generation (fast, no network).
-5. **03:32** — Invariant guard verifies every successful scrape wrote its dated JSON.
-6. **03:32–03:33** — Phase 3 commit + push. Usually first-try. Push recovery (see below) only engages on rejection.
-7. **Netlify** — detects push within ~30s, rebuilds and deploys.
+1. LaunchAgent fires the wrapper script overnight.
+2. The wrapper exports `PATH`, `GIT_SSH_COMMAND`, and `CK_SCRAPER_EXTRA_ARGS`, then `exec`s the tracked master update.
+3. SSH auth check against GitHub. On failure, the run aborts cleanly and sends a notification.
+4. Phase 1 scrape (the long part — Comics Kingdom dominates runtime).
+5. Phase 2 feed generation (fast, no network).
+6. Invariant guard verifies every successful scrape wrote its dated JSON file.
+7. Phase 3 commit + push. If the first push is accepted, we're done.
+8. Netlify detects the push and deploys within ~30 seconds.
 
 ## Push-conflict recovery
 
-If the push is rejected (typically because another commit landed on `main` between the pipeline's pull at Phase 1 and its push at Phase 3):
+If the push is rejected (another commit landed on `main` between the pipeline's fetch and its push):
 
 1. Save today's scrape JSONs to a `mktemp` staging directory.
-2. `git fetch origin && git reset --hard origin/main` — pick up whatever landed.
+2. `git fetch origin && git reset --hard origin/main`.
 3. Copy the saved JSONs back into `data/`.
-4. Re-run every feed generator (all six are network-free when fed from data).
+4. Re-run every feed generator. All are network-free when fed from data.
 5. Commit the regenerated feeds, push once.
 
-No `git pull --rebase`. That strategy explodes into hundreds of add/add + content conflicts across generated feed XMLs — we hit that on 2026-04-17 and it published a merge commit with unresolved `<<<<<<<` markers in several JSONs. If the recovery push also fails, the pipeline bails; tomorrow's run retries.
+We do **not** use `git pull --rebase`. That strategy explodes into hundreds of conflicts across generated feed XMLs — we hit that on 2026-04-17 and it published a merge commit with unresolved conflict markers inside several JSONs. If the recovery push also fails, the pipeline bails and the next scheduled run retries.
 
 ## Monitoring
 
-Real-time tail during a manual invocation:
+Real-time during a manual run:
 
 ```bash
 tail -f logs/master_update.log
 ```
 
-The final line tells you the outcome:
+The final line of every run reports the outcome:
 
 ```
 ComicCaster Master Update Complete (ALL SUCCESS) - <timestamp>
 ```
+
 or
+
 ```
 ComicCaster Master Update Complete with FAILURES - <timestamp>
 Failed steps: <comma-separated list>
 ```
 
-macOS notifications fire on both outcomes (`osascript` in `local_master_update.sh`).
+macOS notifications fire on both outcomes (see `osascript` in `local_master_update.sh`).
 
-Netlify deploys are at https://app.netlify.com/sites/comiccaster/deploys (assuming you have access).
+Netlify deploys: https://app.netlify.com/sites/comiccaster/deploys (maintainer access required).
 
 ## Common operations
 
@@ -135,20 +131,20 @@ Netlify deploys are at https://app.netlify.com/sites/comiccaster/deploys (assumi
 bash scripts/mini_master_update.sh
 ```
 
-This is a real production run: it scrapes sites, commits, and pushes. Do it during the day if you want to validate a change to the pipeline before the next 3 AM run.
+This is a real production run: it scrapes, commits, and pushes. Use it to validate a pipeline change before the next overnight cycle.
 
-### CK cookies expired (every ~60 days)
+### Comics Kingdom session expired
 
-CK uses a reCAPTCHA login flow; cookies eventually expire. If `[2/6] Scraping Comics Kingdom` starts failing consistently:
+If `Scraping Comics Kingdom` starts failing consistently, refresh the session:
 
 ```bash
 source venv/bin/activate
 python scripts/reauth_comicskingdom.py
 ```
 
-A browser opens. Solve the reCAPTCHA, log in, let it finish. Fresh cookies land at `data/comicskingdom_cookies.pkl`. Next run will use them.
+A browser will open; complete the login flow. Fresh session state is saved automatically. Next run picks it up.
 
-### LaunchD job unloaded / not firing
+### LaunchAgent not firing
 
 ```bash
 launchctl list | grep comiccaster.master
@@ -158,7 +154,7 @@ launchctl load   ~/Library/LaunchAgents/com.comiccaster.master.plist
 
 ### Inspect a failed run
 
-Most useful log sections (search within `logs/master_update.log`):
+Useful sections to grep in `logs/master_update.log`:
 
 - `=== Phase 1:` — scrape progress
 - `=== Verifying scrape invariants ===` — per-source data file check
@@ -167,16 +163,7 @@ Most useful log sections (search within `logs/master_update.log`):
 
 ## What not to do
 
-- **Don't `git pull` with a merge strategy on the Mini manually.** The same conflict explosion that killed the automation on 2026-04-17 will bite you. Use `git fetch && git reset --hard origin/main` if you need to sync.
-- **Don't edit `data/*.json` by hand to "fix" a feed.** The data files are authoritative pipeline inputs; the generators overwrite feeds from them each run. Fix the scraper if data is wrong.
-- **Don't `launchctl load` the plist with `RunAtLoad` set to true.** We want strict 3:05 AM cadence, not a re-run every reboot.
-- **Don't turn off `caffeinate`.** The Mini will sleep, miss the 3 AM window, and feeds will stall.
-
-## Uninstalling
-
-```bash
-launchctl unload ~/Library/LaunchAgents/com.comiccaster.master.plist
-rm              ~/Library/LaunchAgents/com.comiccaster.master.plist
-```
-
-The `com.openclaw.caffeinate.plist` is shared with other automation; don't unload it unless you know nothing else relies on it.
+- **Don't manually `git pull` with the merge strategy on the host.** The same conflict explosion that broke the automation on 2026-04-17 will bite you. Use `git fetch && git reset --hard origin/main` to sync.
+- **Don't hand-edit `data/*.json` to "fix" a feed.** The data files are authoritative pipeline inputs; generators overwrite feeds from them each run. Fix the scraper if the data is wrong.
+- **Don't set `RunAtLoad` to true on the master LaunchAgent.** We want the overnight cadence, not a re-run every reboot.
+- **Don't disable the host's anti-sleep setup.** The host will miss its overnight window and feeds will stall.

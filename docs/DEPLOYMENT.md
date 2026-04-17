@@ -11,14 +11,14 @@ ComicCaster is a static site plus daily-generated RSS feed files, served by Netl
 | Static site (`public/`) | Netlify | The landing page, comic list UI, OPML builder UI |
 | Serverless functions (`functions/`) | Netlify | `generate-opml.js` (builds OPML bundles on demand), `fetch-feed.js` (feed preview) |
 | Feed files (`public/feeds/*.xml`) | Netlify (served as static assets) | Pre-generated RSS per comic |
-| Feed update pipeline | Mac Mini, daily 3:05 AM CST | Scrapes sources, generates feeds, commits + pushes to `main` |
+| Feed update pipeline | Dedicated always-on host, overnight daily | Scrapes sources, generates feeds, commits + pushes to `main` |
 | Source data (`data/*.json`) | Git (tracked) | Authoritative pipeline inputs — each scraper writes one per run |
 
 Feed updates are the only thing that happens on a schedule. Every other change is operator-initiated: a push to `main` triggers a Netlify build + deploy.
 
 ## Deploy flow
 
-1. Mac Mini scrapes and generates feeds (see [LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md))
+1. The update host scrapes and generates feeds overnight (see [LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md))
 2. Master update script commits `data/*.json` + `public/feeds/*.xml` to `main` and pushes
 3. Netlify webhook fires on push, runs `netlify build` with `public/` as the publish directory
 4. Deploy lands at `comiccaster.xyz` (custom domain) within ~30 seconds
@@ -29,8 +29,8 @@ No deploy step is manual under normal operation. Feed changes ride the same push
 
 1. **Netlify site**: connect to the GitHub repo; publish directory is `public/`; functions directory is `functions/` (configured via `netlify.toml`). Set env var `NODE_VERSION=14` (newer is fine; pinned for historical reproducibility).
 2. **Domain**: point DNS at Netlify per their instructions.
-3. **GitHub Actions** for feed updates (`.github/workflows/update-feeds.yml`, `update-feeds-smart.yml`) are intentionally **disabled** — their `schedule:` triggers are commented out. They remain as `workflow_dispatch` fallbacks if the Mini is unavailable (travel, hardware failure, etc.). Don't re-enable without confirming the local pipeline is also off; otherwise both will race to push feed updates.
-4. **Mac Mini update pipeline**: install ChromeDriver at `~/bin/`, create the deploy key, populate `.env`, load the two LaunchAgents (`com.comiccaster.master.plist` and `com.openclaw.caffeinate.plist`). Detailed steps in [LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md).
+3. **GitHub Actions** for feed updates (`.github/workflows/update-feeds.yml`, `update-feeds-smart.yml`) are intentionally **disabled** — their `schedule:` triggers are commented out. They remain as `workflow_dispatch` fallbacks if the local host is unavailable (travel, hardware failure, etc.). Don't re-enable without confirming the local pipeline is also off; otherwise both will race to push feed updates.
+4. **Local update pipeline**: install ChromeDriver, configure a repo deploy key, populate `.env`, and load the LaunchAgents that run the scheduled update and keep the host awake. See [LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) for the operational overview; detailed provisioning steps are kept in operator-only notes.
 
 ## Disabled / unused paths
 
@@ -48,8 +48,8 @@ This reverts what's served without touching the Git history. If the root cause w
 
 ## Monitoring
 
-- Netlify build status: https://app.netlify.com/sites/comiccaster/deploys
-- Mini pipeline logs: `logs/master_update.log` on the Mini
+- Netlify build status: https://app.netlify.com/sites/comiccaster/deploys (maintainer access)
+- Pipeline logs: `logs/master_update.log` on the update host
 - Issues / vulnerability reports: [SECURITY.md](../SECURITY.md)
 
 ## Supported comic sources

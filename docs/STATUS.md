@@ -1,38 +1,38 @@
 # Project Status
-<!-- Updated: 2026-04-09 by Adam -->
+<!-- Updated: 2026-04-17 by Adam -->
 
 ## Project Overview
-ComicCaster is a hybrid Python + Netlify application that aggregates comics from GoComics, Comics Kingdom, TinyView, and The Far Side, then generates standards-compliant RSS feeds and OPML bundles so readers can subscribe in any feed reader.
-
+ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, and Creators Syndicate into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation; Netlify serves the static site and feed files.
 
 ## Current State
-Project is stable overall, but Comics Kingdom automation had a transient failure on 2026-04-16 that required manual recovery. Root cause was not the 90/100-day feed-history expansion; the CK scraper initially failed after a Chrome / automation environment problem and stale live browser auth, but manual reauth plus a visible-browser rerun succeeded.
+Stable. Daily automation is healthier than it was 24 hours ago: all six sources now follow a uniform scrape-to-data / generate-from-data architecture, push-conflict recovery no longer uses `git pull --rebase` (the strategy that broke the 2026-04-17 overnight run), and an invariant guard catches silent scrape regressions before they reach published feeds. Waiting on tomorrow's scheduled overnight run as the first unattended end-to-end validation.
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-04-16
-**Last Session Summary:** Recovered same-day Comics Kingdom scrape/feed generation after morning partial failure; confirmed CK raw JSON should remain git-tracked like GoComics and TinyView, and fixed an incorrect `.gitignore` rule introduced during Apr 9 cleanup.
+**Last Session:** 2026-04-17
+**Last Session Summary:** Closed the automation gaps exposed by the 2026-04-17 overnight incident. Brought the production entrypoint under version control, refactored the three remaining sources (New Yorker, Far Side, Creators) into scrape-and-generate splits, replaced the push-conflict recovery path with save / reset / regenerate, added an invariant guard, and rewrote the automation and deployment docs.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
 
 - Daily multi-source RSS feed generation and publishing workflow
-- Daily automated feed monitoring via agent
-- GoComics scraper extracts 257 comics from profile pages using href-based slug extraction (correctly separates Spanish/English versions)
-- GoComics feeds generated from Phase 1 scraped data (no per-comic HTTP requests)
-- 312 GoComics feeds updating daily (up from 115 before scraper fix)
-- Manual backfill script available for feed recovery (`scripts/backfill_gocomics_feeds.py`)
+- All six sources use a uniform scrape-to-data / generate-from-data architecture (`scripts/scrape_*.py` → `data/<src>_$DATE.json` → `scripts/generate_*.py` → `public/feeds/*.xml`)
+- Production entrypoint is tracked in git (`scripts/mini_master_update.sh`) — no more untracked wrappers patching the master script at runtime
+- Push-conflict recovery uses save / fetch / reset / regenerate (no `git pull --rebase` against generated XMLs)
+- Invariant guard between Phase 2 and Phase 3 catches silent scrape regressions (scrape reports success but its dated JSON is missing)
+- 229-test suite passing (31 new tests covering Far Side and Creators generator logic)
+- 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, and 10 Creators feeds updating daily
 - Static site + Netlify functions deployment flow
-- Security policy and private vulnerability reporting enabled
-- All CodeQL security alerts resolved (proper URL domain validation)
+- Security policy and private vulnerability reporting enabled; all CodeQL alerts resolved
 - Consistent comic strip sizing (max-width: 700px) and centering across all sources (#105)
-- Comics Kingdom scraper adapted to current site structure (data-attribute-based extraction, lazy image handling)
+- Manual backfill script available for GoComics feed recovery (`scripts/backfill_gocomics_feeds.py`)
+- Daily automated feed monitoring via agent
 
 ## What's In Progress
 <!-- Active work items. Update every session. -->
 
 | Item | Status | Branch | Notes |
 |------|--------|--------|-------|
-| CK automation stability | Monitoring | main | 2026-04-16 manual run succeeded after reboot + reauth; need to watch next scheduled run to confirm unattended stability |
+| Automation hardening | Monitoring | main | 2026-04-17 rewrote wrapper/tracking, push-recovery, scrape/generate splits. Next scheduled overnight run is the first unattended validation. |
 
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
@@ -50,38 +50,61 @@ Project is stable overall, but Comics Kingdom automation had a transient failure
 ## Known Issues
 <!-- Bugs, tech debt, or things that are broken but not urgent. -->
 
-- GoComics strips don't save to read-later platforms like Pocket/Instapaper (#91) -- approach TBD
-- Old data files (pre-March 31) have been cleaned but contain fewer entries (~100/day vs 257) since only ~115 comics had matching slugs under the old badge-based extraction.
-- CK unattended browser automation needs monitoring after 2026-04-16. Morning run failed during CK scraping even though manual visible-browser rerun succeeded after reboot + reauth.
+- GoComics strips don't save to read-later platforms like Pocket/Instapaper (#91) — approach TBD.
+- Old data files (pre-March 31) have fewer entries (~100/day vs 257) than current runs; only ~115 comics matched slugs under the old extraction approach.
+- A handful of tests in `test_comic_config.py`, `test_loader.py`, and `test_web_interface.py` fail at collection time due to a missing `webdriver_manager` dependency in the current venv. Pre-existing and unrelated to the 2026-04-17 work; 229 other tests pass.
+- A couple of tests still produce side-effect writes at the repo root (`feeds/clayjones.xml`, `data/last_update_times.json`) when the suite runs. Worth cleaning up at some point so developers don't have to revert them before committing.
 
 ## Environment & Setup
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) -- 212 tests, requires Python >=3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 229 passing, a few pre-existing collection errors (see Known Issues), requires Python ≥3.10
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
+**Production pipeline:** see [docs/LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) and [docs/DEPLOYMENT.md](DEPLOYMENT.md)
 
 ## Architecture Notes
-Hybrid architecture: Python package (`comiccaster/`) handles scraping and feed generation, Netlify static hosting serves `public/`, and serverless functions in `functions/` support OPML generation and feed preview.
+Python package (`comiccaster/`) provides the feed generator and scraper base classes. Source-specific scrapers and generators live in `scripts/`. Netlify serves `public/` as static files; `functions/` holds the OPML-generation and feed-preview serverless functions.
 
-GoComics feed generation follows the same data-driven pattern as Comics Kingdom and TinyView: Phase 1 collects data to `data/comics_YYYY-MM-DD.json`, then `scripts/generate_gocomics_feeds.py` reads that data and generates feeds. A separate `scripts/backfill_gocomics_feeds.py` exists for manual recovery.
+The daily pipeline is three phases, orchestrated by `scripts/local_master_update.sh`:
 
-**Important data-tracking note (confirmed 2026-04-16):** raw source JSON files are part of the intended architecture for all major sources, not ephemeral diagnostics:
-- GoComics → `data/comics_YYYY-MM-DD.json` (git tracked)
-- TinyView → `data/tinyview_YYYY-MM-DD.json` (git tracked)
-- Comics Kingdom → `data/comicskingdom_YYYY-MM-DD.json` (should be git tracked)
+- **Phase 1 — scrape.** Each source has a dedicated scraper that writes `data/<source>_YYYY-MM-DD.json`.
+- **Phase 2 — generate.** Each source has a dedicated generator that reads the latest JSON and writes `public/feeds/*.xml`. All generators are network-free.
+- **Phase 3 — commit and push.** If the push is rejected, recovery saves today's JSONs, resets to `origin/main`, restores them, and regenerates all feeds. No `git pull --rebase`.
 
-An Apr 9 `.gitignore` cleanup accidentally added `data/comicskingdom_*.json` under "Diagnostics and ephemeral data," which conflicted with:
-- existing tracked CK history
-- feed generation behavior (`generate_comicskingdom_feeds.py` loads multiple day files)
-- local automation docs / GitHub Actions assumptions
+All scrape outputs are tracked in git as pipeline inputs:
 
-This was corrected on 2026-04-16. Do **not** treat CK daily JSON as disposable scratch data.
+- GoComics → `data/comics_YYYY-MM-DD.json`
+- Comics Kingdom → `data/comicskingdom_YYYY-MM-DD.json`
+- TinyView → `data/tinyview_YYYY-MM-DD.json`
+- New Yorker → `data/newyorker_YYYY-MM-DD.json`
+- Far Side → `data/farside_daily_YYYY-MM-DD.json` (per target date) and `data/farside_new_YYYY-MM-DD.json`
+- Creators → `data/creators_YYYY-MM-DD.json`
+
+Do not treat these as disposable scratch data. An Apr 9 `.gitignore` cleanup accidentally moved CK JSONs under "ephemeral diagnostics," which contributed to the 2026-04-17 incident chain; corrected the same day.
+
+Between Phase 2 and Phase 3, an invariant guard checks that every successful scrape wrote its dated JSON. A missing file when the scraper returned success is a silent contract violation and is logged as a failure.
 
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-04-17
+- **Goal:** Close the automation gaps exposed by the 2026-04-17 overnight incident (Comics Kingdom feeds missing from the published commit; several source JSONs pushed to `main` with unresolved merge conflict markers). Bring the production entrypoint under version control and replace the push-recovery strategy.
+- **Accomplished:**
+  - Recovered Comics Kingdom feeds for 2026-04-17 (and fixed 2026-04-16 JSON corruption on `main`) from a dangling local commit (`96f12e820`, `0cbe22e8a`).
+  - Brought the update host's wrapper script into git as a minimal env-setter and parametrized the Comics Kingdom invocation so the tracked master script no longer needs runtime text-patching (`f761a9221`).
+  - Replaced Phase 3's `git pull --rebase` retry with a save / fetch / reset / regenerate recovery path; added an invariant guard between Phase 2 and Phase 3 (`cead50ac5`).
+  - Refactored New Yorker (`062c396d3`), Far Side (`12a735a48`), and Creators (`94c30bff4`) into scrape-to-data / generate-from-data splits. Each split preserves pre-refactor feed output byte-identically; validated by baseline diffs and 31 new unit tests on the pure builder functions.
+  - Extended the recovery path to regenerate all six sources from data (`f812c4c18`); recovery now produces byte-identical feeds to a clean run.
+  - Rewrote `docs/LOCAL_AUTOMATION_README.md` and `docs/DEPLOYMENT.md` (`ba2a91824`) to describe the current architecture (retired hybrid GHA references).
+- **Validation:**
+  - 229 tests passing (+31 from this session).
+  - Live end-to-end production run at midday succeeded on first push with the new wrapper and reset-on-start policy.
+  - Push-conflict recovery validated in a sandbox clone with a divergent origin: first push rejected, staging / reset / restore / regenerate / push-once all worked as designed, divergent commit preserved.
+- **Didn't finish:** First unattended overnight run under the new architecture is the next scheduled validation point.
+- **Discovered:** The original "CK failed to scrape at 3 AM" story was wrong — the overnight run's CK scrape did succeed; a downstream merge commit landed an unresolved conflict state onto `main`. The 2026-04-16 debug commands inadvertently pushed conflict markers into two other source JSONs in addition to CK's. Investigating the git reflog showed the overnight commit with fresh CK data (`7f76d7adc`) was never reachable from `main` — it was a dangling commit, still recoverable.
 
 ### 2026-04-16
 - **Goal:** Recover same-day Comics Kingdom freshness after morning partial failure and understand repo/data-model implications before committing anything
