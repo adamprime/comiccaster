@@ -54,12 +54,20 @@ if ! ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"; then
 fi
 echo "✅ GitHub SSH authentication verified"
 
-# Clean git refs
+# Sync local main with origin.
+# Policy: local main must exactly match origin/main at the start of each run.
+# Any uncommitted work or divergent local commits will be discarded — this is
+# deliberate. Recovery from push conflicts also uses reset+regenerate rather
+# than merge/rebase (see Phase 3).
 echo ""
-echo "Cleaning up git references..."
-git fetch --all --prune 2>/dev/null || true
-git gc --prune=now 2>/dev/null || true
-git pull origin main || true
+echo "Syncing local main with origin..."
+if git fetch --all --prune; then
+    git reset --hard origin/main
+    git gc --prune=now 2>/dev/null || true
+else
+    echo "⚠️  git fetch failed; proceeding with current local state"
+    FAILURES+=("git fetch at start")
+fi
 
 # Phase 1: Scrape all sources (sequential for reliability)
 echo ""
@@ -77,7 +85,10 @@ fi
 
 echo ""
 echo "[2/5] Scraping Comics Kingdom..."
-if python scripts/comicskingdom_scraper_individual.py --date "$DATE_STR" --output-dir data; then
+# CK_SCRAPER_EXTRA_ARGS lets host-specific wrappers inject flags (e.g. the
+# Mini sets --show-browser because upstream anti-bot blocks headless Chrome).
+# Intentionally unquoted for word-splitting; supports single-token args.
+if python scripts/comicskingdom_scraper_individual.py ${CK_SCRAPER_EXTRA_ARGS:-} --date "$DATE_STR" --output-dir data; then
     echo "✅ Comics Kingdom scraping succeeded"
 else
     echo "❌ Comics Kingdom scraping failed"
