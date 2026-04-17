@@ -1,6 +1,38 @@
 {
-  "scraped_at": "2026-04-17T08:13:10.561649+00:00",
+  "scraped_at": "2026-04-17T17:50:27.495186+00:00",
   "cartoons": [
+    {
+      "url": "https://www.newyorker.com/cartoons/daily-cartoon/friday-april-17th-wind-in-your-leg-hair",
+      "source": "newyorker",
+      "image_url": "https://media.newyorker.com/cartoons/69e2350d4effa0a8ba0b9fe0/master/w_1600%2Cc_limit/A61909.jpg",
+      "image_alt": "A woman wearing shorts and sandals walks happily as a breeze ruffles her leg hair.",
+      "caption": "",
+      "author": "Polly Adams",
+      "title": "Daily Cartoon: Friday, April 17th",
+      "date": "2026-04-17",
+      "humor_links": [
+        {
+          "title": "Potential slogans for J. D. Vance\u2019s 2028 Presidential campaign.",
+          "url": "https://www.newyorker.com/humor/shouts-murmurs/potential-slogans-for-j-d-vances-2028-presidential-campaign"
+        },
+        {
+          "title": "Starter packs for things you will start but never finish.",
+          "url": "https://www.newyorker.com/humor/shouts-murmurs/starter-packs-for-things-you-will-start-but-never-finish"
+        },
+        {
+          "title": "A day in my highly optimized, convenient life.",
+          "url": "https://www.newyorker.com/humor/shouts-murmurs/a-day-in-my-highly-optimized-convenient-life"
+        },
+        {
+          "title": "When to go to the hospital for childbirth.",
+          "url": "https://www.newyorker.com/humor/shouts-murmurs/when-to-go-to-the-hospital-for-childbirth"
+        },
+        {
+          "title": "I, a performatively feminist male, will be touring internationally.",
+          "url": "https://www.newyorker.com/humor/shouts-murmurs/i-a-performatively-feminist-male-will-be-touring-internationally"
+        }
+      ]
+    },
     {
       "url": "https://www.newyorker.com/cartoons/daily-cartoon/thursday-april-16th-the-pitt",
       "source": "newyorker",
@@ -286,42 +318,6 @@
         {
           "title": "I, a performatively feminist male, will be touring internationally.",
           "url": "https://www.newyorker.com/humor/shouts-murmurs/i-a-performatively-feminist-male-will-be-touring-internationally"
-        }
-      ]
-    },
-    {
-      "url": "https://www.newyorker.com/cartoons/daily-cartoon/friday-april-3rd-marshmallow-peeps-park",
-      "source": "newyorker",
-      "image_url": "https://media.newyorker.com/cartoons/69cfd3b17b24054bbd55364c/master/w_1600%2Cc_limit/A61868.jpg",
-      "image_alt": "A woman sits on a bench and feeds yellow marshmallow Peeps on the ground.",
-      "caption": "",
-      "author": "Mary Lawton",
-      "title": "Daily Cartoon: Friday, April 3rd",
-      "date": "2026-04-03",
-      "humor_links": [
-        {
-          "title": "How to find your best selfie angle.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/finding-your-best-selfie-angle"
-        },
-        {
-          "title": "Why I am not like other tourists.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/why-i-am-not-like-other-tourists"
-        },
-        {
-          "title": "The complete guide to manipulating me.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/the-complete-guide-to-manipulating-me"
-        },
-        {
-          "title": "How to survive a vibe shift.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/how-to-survive-a-vibe-shift"
-        },
-        {
-          "title": "Update: your flight has been cancelled.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/update-your-flight-has-been-cancelled"
-        },
-        {
-          "title": "What happens before you wake up.",
-          "url": "https://www.newyorker.com/humor/daily-shouts/what-happens-before-you-wake-up"
         }
       ]
     }
