@@ -163,9 +163,55 @@ else
     FAILURES+=("Creators feed generation")
 fi
 
-# Phase 3: Commit and push everything that succeeded
+# Invariant guard: if a scraper reported success, its daily data file must exist.
+# Catches silent regressions where a scraper exits 0 but skipped writing output.
+# Violations surface as additional FAILURES entries; the pipeline still commits
+# and pushes whatever did succeed.
+echo ""
+echo "=== Verifying scrape invariants ==="
+check_scrape_output() {
+    local source="$1" file="$2"
+    # Skip the check if this source's scraping was already reported as failed.
+    if [ ${#FAILURES[@]} -gt 0 ] && printf '%s\n' "${FAILURES[@]}" | grep -qxF "$source scraping"; then
+        return 0
+    fi
+    if [ ! -f "$file" ]; then
+        echo "❌ Invariant violation: $source scrape reported success but $file is missing"
+        FAILURES+=("$source invariant ($(basename "$file") missing)")
+    else
+        echo "✅ $source: $(basename "$file") present"
+    fi
+}
+check_scrape_output "GoComics"       "data/comics_$DATE_STR.json"
+check_scrape_output "Comics Kingdom" "data/comicskingdom_$DATE_STR.json"
+check_scrape_output "TinyView"       "data/tinyview_$DATE_STR.json"
+check_scrape_output "New Yorker"     "data/newyorker_$DATE_STR.json"
+# Far Side and Creators don't yet produce dated JSONs — will after 3b/3c refactors.
+
+# Phase 3: Commit and push everything that succeeded.
+# Recovery on push rejection: save same-day scrape JSONs to a staging dir, reset
+# to origin/main, restore the JSONs, re-run data-driven generators, and push
+# once. Deliberately avoids git pull --rebase against generated XML artifacts,
+# which explodes into hundreds of conflicts (see 2026-04-17 incident).
 echo ""
 echo "=== Phase 3: Committing and Pushing ==="
+
+# push_with_watchdog: attempts `git push origin main` with a 60s timeout that
+# kills the push and all its descendants. Returns 0 on success, nonzero on
+# failure (rejection, timeout, network error).
+push_with_watchdog() {
+    ( exec git push origin main ) &
+    local PUSH_PID=$!
+    ( sleep 60 && pkill -TERM -P $PUSH_PID 2>/dev/null; kill -TERM $PUSH_PID 2>/dev/null; sleep 2; pkill -KILL -P $PUSH_PID 2>/dev/null; kill -KILL $PUSH_PID 2>/dev/null ) &
+    local TIMER_PID=$!
+    if wait $PUSH_PID 2>/dev/null; then
+        kill $TIMER_PID 2>/dev/null; wait $TIMER_PID 2>/dev/null
+        return 0
+    else
+        kill $TIMER_PID 2>/dev/null; wait $TIMER_PID 2>/dev/null
+        return 1
+    fi
+}
 
 git add -f data/*.json public/feeds/*.xml
 
@@ -176,32 +222,69 @@ else
 
 Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>"
 
-    # Push with simple retry (60s timeout per attempt, kills entire process tree)
     PUSH_OK=false
-    for i in {1..3}; do
-        # Run git push in a subshell so we can track and kill all descendants
-        ( exec git push origin main ) &
-        PUSH_PID=$!
-        # Watchdog: kill push + all its children after 60 seconds
-        ( sleep 60 && pkill -TERM -P $PUSH_PID 2>/dev/null; kill -TERM $PUSH_PID 2>/dev/null; sleep 2; pkill -KILL -P $PUSH_PID 2>/dev/null; kill -KILL $PUSH_PID 2>/dev/null ) &
-        TIMER_PID=$!
-        if wait $PUSH_PID 2>/dev/null; then
-            kill $TIMER_PID 2>/dev/null; wait $TIMER_PID 2>/dev/null
-            echo "✅ Successfully pushed all updates"
+    if push_with_watchdog; then
+        echo "✅ Successfully pushed all updates"
+        PUSH_OK=true
+    else
+        echo "⚠️  First push attempt failed. Engaging reset-regenerate recovery..."
+
+        # Save today's scrape data files. These are authoritative pipeline inputs
+        # and the one piece of state we cannot recreate without re-scraping.
+        STAGING=$(mktemp -d)
+        echo "📦 Staging same-day scrape data to $STAGING"
+        for f in \
+            "data/comics_$DATE_STR.json" \
+            "data/comicskingdom_$DATE_STR.json" \
+            "data/tinyview_$DATE_STR.json" \
+            "data/newyorker_$DATE_STR.json"; do
+            if [ -f "$f" ]; then
+                cp -p "$f" "$STAGING/"
+                echo "  saved $(basename "$f")"
+            fi
+        done
+
+        # Pick up whatever landed on origin.
+        git fetch origin
+        git reset --hard origin/main
+
+        # Restore saved scrape data on top of the reset state.
+        echo "📦 Restoring saved scrape data"
+        for f in "$STAGING"/*.json; do
+            [ -f "$f" ] || continue
+            cp -p "$f" "data/$(basename "$f")"
+            echo "  restored $(basename "$f")"
+        done
+
+        # Regenerate data-driven feeds. New Yorker, Far Side, and Creators are
+        # not regenerated here — their feeds stay at origin state until the
+        # 3a/3b/3c refactors make them data-driven.
+        echo "🔧 Regenerating feeds from restored scrape data"
+        python scripts/generate_gocomics_feeds.py         || FAILURES+=("GoComics regen in recovery")
+        python scripts/generate_comicskingdom_feeds.py    || FAILURES+=("Comics Kingdom regen in recovery")
+        python scripts/generate_tinyview_feeds_from_data.py || FAILURES+=("TinyView regen in recovery")
+
+        git add -f data/*.json public/feeds/*.xml
+        if git diff --staged --quiet; then
+            echo "ℹ️  No changes after regeneration; nothing more to push"
             PUSH_OK=true
-            break
         else
-            kill $TIMER_PID 2>/dev/null; wait $TIMER_PID 2>/dev/null
-            echo "⚠️  Push failed (attempt $i/3)"
-            if [ $i -lt 3 ]; then
-                git pull --rebase origin main
-                sleep 2
+            git commit -m "Update comic feeds for $DATE_STR (recovery after push conflict)
+
+Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>"
+
+            if push_with_watchdog; then
+                echo "✅ Successfully pushed recovery commit"
+                PUSH_OK=true
+            else
+                echo "❌ Recovery push also failed. Bailing; tomorrow's run will retry."
             fi
         fi
-    done
+
+        rm -rf "$STAGING"
+    fi
 
     if [ "$PUSH_OK" = false ]; then
-        echo "❌ Failed to push after 3 attempts"
         FAILURES+=("Git push")
     fi
 fi
