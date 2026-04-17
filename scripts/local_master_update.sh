@@ -106,7 +106,7 @@ fi
 
 echo ""
 echo "[4/5] Scraping Far Side..."
-if python scripts/update_farside_feeds.py; then
+if python scripts/scrape_farside.py; then
     echo "✅ Far Side scraping succeeded"
 else
     echo "❌ Far Side scraping failed"
@@ -128,7 +128,7 @@ echo ""
 echo "=== Phase 2: Generating All Feeds ==="
 
 echo ""
-echo "[1/4] Generating GoComics feeds (from scraped data)..."
+echo "[1/6] Generating GoComics feeds (from scraped data)..."
 if python scripts/generate_gocomics_feeds.py; then
     echo "✅ GoComics feed generation succeeded"
 else
@@ -137,7 +137,7 @@ else
 fi
 
 echo ""
-echo "[2/4] Generating Comics Kingdom feeds..."
+echo "[2/6] Generating Comics Kingdom feeds..."
 if python scripts/generate_comicskingdom_feeds.py; then
     echo "✅ Comics Kingdom feed generation succeeded"
 else
@@ -146,7 +146,7 @@ else
 fi
 
 echo ""
-echo "[3/5] Generating TinyView feeds..."
+echo "[3/6] Generating TinyView feeds..."
 if python scripts/generate_tinyview_feeds_from_data.py; then
     echo "✅ TinyView feed generation succeeded"
 else
@@ -155,7 +155,7 @@ else
 fi
 
 echo ""
-echo "[4/5] Generating New Yorker feed..."
+echo "[4/6] Generating New Yorker feed..."
 if python scripts/generate_newyorker_feeds.py; then
     echo "✅ New Yorker feed generation succeeded"
 else
@@ -164,7 +164,16 @@ else
 fi
 
 echo ""
-echo "[5/5] Generating Creators feeds..."
+echo "[5/6] Generating Far Side feeds..."
+if python scripts/generate_farside_feeds.py; then
+    echo "✅ Far Side feed generation succeeded"
+else
+    echo "❌ Far Side feed generation failed"
+    FAILURES+=("Far Side feed generation")
+fi
+
+echo ""
+echo "[6/6] Generating Creators feeds..."
 if python scripts/generate_creators_feeds.py; then
     echo "✅ Creators feed generation succeeded"
 else
@@ -195,7 +204,9 @@ check_scrape_output "GoComics"       "data/comics_$DATE_STR.json"
 check_scrape_output "Comics Kingdom" "data/comicskingdom_$DATE_STR.json"
 check_scrape_output "TinyView"       "data/tinyview_$DATE_STR.json"
 check_scrape_output "New Yorker"     "data/newyorker_$DATE_STR.json"
-# Far Side and Creators don't yet produce dated JSONs — will after 3b/3c refactors.
+check_scrape_output "Far Side"       "data/farside_daily_$DATE_STR.json"
+check_scrape_output "Far Side"       "data/farside_new_$DATE_STR.json"
+# Creators doesn't yet produce a dated JSON — will after the 3c refactor.
 
 # Phase 3: Commit and push everything that succeeded.
 # Recovery on push rejection: save same-day scrape JSONs to a staging dir, reset
