@@ -115,7 +115,7 @@ fi
 
 echo ""
 echo "[5/5] Scraping New Yorker Daily Cartoon..."
-if python scripts/update_newyorker_feeds.py; then
+if python scripts/scrape_newyorker.py; then
     echo "✅ New Yorker scraping succeeded"
 else
     echo "❌ New Yorker scraping failed"
@@ -146,7 +146,7 @@ else
 fi
 
 echo ""
-echo "[3/4] Generating TinyView feeds..."
+echo "[3/5] Generating TinyView feeds..."
 if python scripts/generate_tinyview_feeds_from_data.py; then
     echo "✅ TinyView feed generation succeeded"
 else
@@ -155,7 +155,16 @@ else
 fi
 
 echo ""
-echo "[4/4] Generating Creators feeds..."
+echo "[4/5] Generating New Yorker feed..."
+if python scripts/generate_newyorker_feeds.py; then
+    echo "✅ New Yorker feed generation succeeded"
+else
+    echo "❌ New Yorker feed generation failed"
+    FAILURES+=("New Yorker feed generation")
+fi
+
+echo ""
+echo "[5/5] Generating Creators feeds..."
 if python scripts/generate_creators_feeds.py; then
     echo "✅ Creators feed generation succeeded"
 else
