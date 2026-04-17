@@ -75,7 +75,7 @@ echo "=== Phase 1: Scraping All Sources ==="
 DATE_STR=$(date +%Y-%m-%d)
 
 echo ""
-echo "[1/5] Scraping GoComics (authenticated)..."
+echo "[1/6] Scraping GoComics (authenticated)..."
 if python scripts/authenticated_scraper_secure.py --output-dir ./data; then
     echo "✅ GoComics scraping succeeded"
 else
@@ -84,7 +84,7 @@ else
 fi
 
 echo ""
-echo "[2/5] Scraping Comics Kingdom..."
+echo "[2/6] Scraping Comics Kingdom..."
 # CK_SCRAPER_EXTRA_ARGS lets host-specific wrappers inject flags (e.g. the
 # Mini sets --show-browser because upstream anti-bot blocks headless Chrome).
 # Intentionally unquoted for word-splitting; supports single-token args.
@@ -96,7 +96,7 @@ else
 fi
 
 echo ""
-echo "[3/5] Scraping TinyView..."
+echo "[3/6] Scraping TinyView..."
 if python scripts/tinyview_scraper_local_authenticated.py --date "$DATE_STR" --days-back 90; then
     echo "✅ TinyView scraping succeeded"
 else
@@ -105,7 +105,7 @@ else
 fi
 
 echo ""
-echo "[4/5] Scraping Far Side..."
+echo "[4/6] Scraping Far Side..."
 if python scripts/scrape_farside.py; then
     echo "✅ Far Side scraping succeeded"
 else
@@ -114,12 +114,21 @@ else
 fi
 
 echo ""
-echo "[5/5] Scraping New Yorker Daily Cartoon..."
+echo "[5/6] Scraping New Yorker Daily Cartoon..."
 if python scripts/scrape_newyorker.py; then
     echo "✅ New Yorker scraping succeeded"
 else
     echo "❌ New Yorker scraping failed"
     FAILURES+=("New Yorker scraping")
+fi
+
+echo ""
+echo "[6/6] Scraping Creators Syndicate..."
+if python scripts/scrape_creators.py; then
+    echo "✅ Creators scraping succeeded"
+else
+    echo "❌ Creators scraping failed"
+    FAILURES+=("Creators scraping")
 fi
 
 # Phase 2: Generate all feeds from scraped data
@@ -206,7 +215,7 @@ check_scrape_output "TinyView"       "data/tinyview_$DATE_STR.json"
 check_scrape_output "New Yorker"     "data/newyorker_$DATE_STR.json"
 check_scrape_output "Far Side"       "data/farside_daily_$DATE_STR.json"
 check_scrape_output "Far Side"       "data/farside_new_$DATE_STR.json"
-# Creators doesn't yet produce a dated JSON — will after the 3c refactor.
+check_scrape_output "Creators"       "data/creators_$DATE_STR.json"
 
 # Phase 3: Commit and push everything that succeeded.
 # Recovery on push rejection: save same-day scrape JSONs to a staging dir, reset

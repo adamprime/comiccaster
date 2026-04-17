@@ -1,170 +1,138 @@
 #!/usr/bin/env python3
-"""Generate RSS feeds for Creators comics listed in the catalog."""
+"""Generate RSS feeds for Creators Syndicate comics from scraped data.
+
+Reads the most recent data/creators_*.json snapshot (produced by
+scripts/scrape_creators.py) and the live public/comics_list.json catalog,
+joining by slug. Writes one feed per Creators comic to public/feeds/.
+
+Network-free: no scraping happens here. Safe to call during push-recovery
+after reset to origin/main.
+"""
 
 import json
+import logging
+import os
+import re
 import sys
-import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 
 import pytz
-import requests
-from bs4 import BeautifulSoup
 
-# Add parent directory to path
-sys.path.insert(0, str(Path(__file__).parent.parent))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from comiccaster.feed_generator import ComicFeedGenerator
+from comiccaster.feed_generator import ComicFeedGenerator  # noqa: E402
 
-
-USER_AGENT = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/124.0.0.0 Safari/537.36"
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
 )
-REQUEST_TIMEOUT = 30
-MAX_RETRIES = 3
+logger = logging.getLogger(__name__)
+
+CATALOG_PATH = Path("public/comics_list.json")
+DATA_DIR = Path("data")
+OUTPUT_DIR = "public/feeds"
 MAX_ENTRIES_PER_FEED = 30
 
-
-def request_with_retry(url: str) -> Optional[requests.Response]:
-    headers = {"User-Agent": USER_AGENT}
-    for attempt in range(MAX_RETRIES):
-        try:
-            response = requests.get(url, headers=headers, timeout=REQUEST_TIMEOUT)
-            response.raise_for_status()
-            return response
-        except Exception:
-            if attempt == MAX_RETRIES - 1:
-                return None
-            time.sleep(1.5 * (attempt + 1))
-    return None
+_SNAPSHOT_DATE_RE = re.compile(r'^creators_(\d{4}-\d{2}-\d{2})\.json$')
 
 
-def load_creators_comics() -> List[Dict]:
-    comics_file = Path("public/comics_list.json")
-    with open(comics_file, "r", encoding="utf-8") as f:
+def find_latest_snapshot(data_dir=DATA_DIR):
+    """Return the most recent data/creators_YYYY-MM-DD.json path, or None.
+
+    Filters out non-date-shaped files (e.g., the pre-existing
+    creators_discovery_report.json) so the selection is unambiguous.
+    """
+    candidates = []
+    for p in Path(data_dir).glob('creators_*.json'):
+        m = _SNAPSHOT_DATE_RE.match(p.name)
+        if m:
+            candidates.append((m.group(1), p))
+    if not candidates:
+        return None
+    candidates.sort()
+    return candidates[-1][1]
+
+
+def load_catalog():
+    """Return list of Creators comic_info dicts from the live catalog."""
+    with open(CATALOG_PATH, encoding="utf-8") as f:
         all_comics = json.load(f)
-    creators = [comic for comic in all_comics if comic.get("source") == "creators"]
-    print(f"✅ Found {len(creators)} Creators comics in catalog")
+    creators = [c for c in all_comics if c.get("source") == "creators"]
     return creators
 
 
-def get_creators_slug(comic_info: Dict) -> str:
-    if comic_info.get("source_slug"):
-        return comic_info["source_slug"]
-    slug = comic_info.get("slug", "")
-    if slug.startswith("creators-"):
-        return slug.replace("creators-", "", 1)
-    return slug
+def build_entries_for_comic(comic_info, releases):
+    """Given comic_info and the scraped raw releases list, return feed entries.
 
-
-def resolve_feature_id(comic_info: Dict) -> Tuple[Optional[str], Optional[str]]:
-    creators_slug = get_creators_slug(comic_info)
-    read_url = comic_info.get("url") or f"https://www.creators.com/read/{creators_slug}"
-    response = request_with_retry(read_url)
-    if not response:
-        return None, read_url
-
-    soup = BeautifulSoup(response.text, "html.parser")
-    body = soup.find("body")
-    feature_id = body.get("data-feature-id") if body else None
-    return feature_id, read_url
-
-
-def fetch_releases(feature_id: str, comic_info: Dict, limit: int = MAX_ENTRIES_PER_FEED) -> List[Dict]:
-    entries: List[Dict] = []
-    seen_urls = set()
-    page = 0
-
-    while len(entries) < limit:
-        api_url = f"https://www.creators.com/api/features/releases/{feature_id}/{page}"
-        response = request_with_retry(api_url)
-        if not response:
-            break
-
-        payload = response.json()
-        releases = payload.get("releases") if isinstance(payload, dict) else None
-        if not releases:
-            break
-
-        for release in releases:
-            release_date = (release.get("release_date") or "")[:10]
-            image_url = release.get("full") or release.get("thumb")
-            entry_url = release.get("formatted_url")
-
-            if not release_date or not image_url or not entry_url:
-                continue
-
-            if entry_url in seen_urls:
-                continue
-            seen_urls.add(entry_url)
-
-            try:
-                pub_date = datetime.strptime(release_date, "%Y-%m-%d").replace(tzinfo=pytz.UTC)
-            except ValueError:
-                continue
-
-            entries.append({
-                "title": release.get("title") or f"{comic_info['name']} - {release_date}",
-                "url": entry_url,
-                "images": [{"url": image_url, "alt": comic_info.get("name", "Comic")}],
-                "pub_date": pub_date,
-                "description": f"Comic strip for {release_date}",
-                "id": entry_url,
-            })
-
-            if len(entries) >= limit:
-                break
-
-        if len(releases) < 4:
-            break
-
-        page += 1
-
+    Output shape and ordering match what the pre-refactor combined script
+    produced: entries sorted ascending by pub_date (UTC from release_date),
+    title falls back to "{comic name} - {release_date}" when the release has
+    no title, description is a short date stub, images has a single entry
+    with the `full` URL falling back to `thumb` — all preserved for feed-XML
+    stability across the refactor.
+    """
+    entries = []
+    for release in releases[:MAX_ENTRIES_PER_FEED]:
+        release_date = release.get("release_date")
+        image_url = release.get("full") or release.get("thumb")
+        entry_url = release.get("formatted_url")
+        if not release_date or not image_url or not entry_url:
+            continue
+        try:
+            pub_date = datetime.strptime(release_date, "%Y-%m-%d").replace(tzinfo=pytz.UTC)
+        except ValueError:
+            continue
+        entries.append({
+            "title": release.get("title") or f"{comic_info['name']} - {release_date}",
+            "url": entry_url,
+            "images": [{"url": image_url, "alt": comic_info.get("name", "Comic")}],
+            "pub_date": pub_date,
+            "description": f"Comic strip for {release_date}",
+            "id": entry_url,
+        })
     entries.sort(key=lambda x: x["pub_date"])
     return entries
 
 
-def generate_feed_for_comic(comic_info: Dict, generator: ComicFeedGenerator) -> bool:
-    feature_id, read_url = resolve_feature_id(comic_info)
-    if not feature_id:
-        print(f"  ⚠️  Could not resolve feature id for {comic_info['slug']} ({read_url})")
-        return False
-
-    entries = fetch_releases(feature_id, comic_info)
-    if not entries:
-        print(f"  ⚠️  No entries found for {comic_info['name']}")
-        return False
-
-    success = generator.generate_feed(comic_info, entries)
-    if success:
-        print(f"  ✅ {comic_info['name']} ({len(entries)} entries)")
-    else:
-        print(f"  ❌ Failed: {comic_info['name']}")
-    return success
-
-
-def main() -> int:
+def main():
     print("=" * 80)
     print("Creators Feed Generator")
     print("=" * 80)
-    print()
 
-    comics_list = load_creators_comics()
-    if not comics_list:
-        print("ℹ️  No Creators comics in catalog")
+    snapshot_path = find_latest_snapshot()
+    if not snapshot_path:
+        logger.warning("No data/creators_*.json snapshot found; nothing to generate")
         return 0
+    logger.info(f"Reading data from {snapshot_path}")
+    with open(snapshot_path) as f:
+        snapshot = json.load(f)
 
-    generator = ComicFeedGenerator(base_url="https://www.creators.com", output_dir="public/feeds")
+    catalog = load_catalog()
+    catalog_by_slug = {c["slug"]: c for c in catalog}
+    logger.info(f"✅ Found {len(catalog)} Creators comics in catalog")
+
+    generator = ComicFeedGenerator(base_url="https://www.creators.com", output_dir=OUTPUT_DIR)
 
     successful = 0
     failed = 0
-    for comic in comics_list:
-        if generate_feed_for_comic(comic, generator):
+    for comic_data in snapshot.get("comics", []):
+        slug = comic_data.get("slug")
+        comic_info = catalog_by_slug.get(slug)
+        if not comic_info:
+            logger.warning(f"  ⚠️  Scraped comic {slug} no longer in catalog; skipping")
+            failed += 1
+            continue
+        entries = build_entries_for_comic(comic_info, comic_data.get("releases", []))
+        if not entries:
+            print(f"  ⚠️  No entries for {comic_info['name']}")
+            failed += 1
+            continue
+        if generator.generate_feed(comic_info, entries):
+            print(f"  ✅ {comic_info['name']} ({len(entries)} entries)")
             successful += 1
         else:
+            print(f"  ❌ Failed: {comic_info['name']}")
             failed += 1
 
     print()
@@ -173,7 +141,7 @@ def main() -> int:
     print("=" * 80)
     print(f"Successful: {successful}")
     print(f"Failed: {failed}")
-    print(f"Total: {len(comics_list)}")
+    print(f"Total: {len(snapshot.get('comics', []))}")
     print("Feeds saved to: public/feeds/")
     return 0 if successful > 0 else 1
 
