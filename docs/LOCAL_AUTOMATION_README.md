@@ -1,221 +1,182 @@
-# Local Comics Kingdom Automation
+# Local Automation (Mac Mini)
 
-This document explains the hybrid automation setup for ComicCaster, where Comics Kingdom scraping happens locally and GoComics scraping happens in GitHub Actions.
+This document describes how ComicCaster's daily feed pipeline runs in production — on a dedicated Mac Mini, scheduled by LaunchD, scraping all sources locally and pushing updates straight to `main` for Netlify to deploy.
 
-## Architecture
+An earlier hybrid design split scraping between a laptop (Comics Kingdom only) and GitHub Actions (everything else). That design was retired 2025-11-26. The GitHub Actions update workflows (`.github/workflows/update-feeds.yml`, `update-feeds-smart.yml`) still exist but have their `schedule` triggers commented out — they're emergency-only manual fallbacks now.
+
+## Pipeline at a glance
 
 ```
-┌─────────────────────────────────────┐
-│   YOUR MAC (12:30 AM daily)         │
-│                                      │
-│  1. Scrape Comics Kingdom            │
-│  2. Save to data/ directory          │
-│  3. Git commit + push                │
-└──────────────┬──────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────┐
-│   GITHUB ACTIONS (9 AM UTC = 1-2AM) │
-│                                      │
-│  1. Scrape GoComics                  │
-│  2. Read Comics Kingdom data         │
-│  3. Generate ALL feeds               │
-│  4. Commit + push feeds              │
-└──────────────┬──────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────┐
-│   NETLIFY (Auto-deploy)              │
-│                                      │
-│  Deploy updated feeds                │
-└─────────────────────────────────────┘
-```
-
-## Why This Approach?
-
-- **Comics Kingdom**: Works perfectly on Mac (authentication, reCAPTCHA), struggles in CI
-- **GoComics**: Works perfectly in GitHub Actions (fast, reliable, no auth issues)
-- **No Server Costs**: Uses existing infrastructure (your Mac + GitHub Actions)
-- **Automated**: Runs daily without manual intervention once set up
-
-## Setup
-
-### 1. Install Local Automation
-
-```bash
-# Make sure you're in the repository directory
-cd /path/to/rss-comics
-
-# Install the launchd agent (runs daily at 12:30 AM)
-./scripts/install_local_automation.sh
-```
-
-This will:
-- Copy the launchd plist to `~/Library/LaunchAgents/`
-- Load the agent so it runs daily
-- Create log directories
-
-### 2. Verify Environment Variables
-
-Make sure you have a `.env` file in the repository root with:
-
-```bash
-COMICSKINGDOM_USERNAME="your_username"
-COMICSKINGDOM_PASSWORD="your_password"
-COMICSKINGDOM_COOKIE_FILE="/path/to/rss-comics/data/comicskingdom_cookies.pkl"
-```
-
-### 3. Test the Local Script
-
-Before relying on automation, test manually:
-
-```bash
-./scripts/local_comicskingdom_update.sh
-```
-
-This should:
-1. Scrape Comics Kingdom
-2. Save data to `data/comicskingdom_YYYY-MM-DD.json`
-3. Commit and push to GitHub
-4. Trigger GitHub Actions automatically
-
-### 4. Verify GitHub Actions
-
-After the local script runs and pushes, GitHub Actions should:
-1. Automatically trigger (webhook from your push)
-2. Scrape GoComics
-3. Find your Comics Kingdom data
-4. Generate all feeds
-5. Deploy to Netlify
-
-## Daily Workflow
-
-Once set up, the automation runs automatically:
-
-**12:30 AM** (your Mac):
-- Local script wakes up
-- Scrapes Comics Kingdom
-- Commits and pushes data
-
-**~1:00 AM** (GitHub Actions):
-- Triggered by your push OR scheduled run at 9 AM UTC
-- Scrapes GoComics  
-- Generates all feeds (GoComics + Comics Kingdom)
-- Commits and pushes feeds
-
-**~1:05 AM** (Netlify):
-- Triggered by GitHub Actions push
-- Deploys updated feeds
-- Live at comiccaster.netlify.app
-
-## Monitoring
-
-### Check Local Automation Status
-
-```bash
-# See if agent is loaded
-launchctl list | grep comicskingdom
-
-# View recent logs
-tail -50 ~/coding/rss-comics/logs/comicskingdom_local.log
-
-# View launchd logs
-tail -50 ~/coding/rss-comics/logs/comicskingdom_launchd.log
-```
-
-### Manually Trigger Local Script
-
-```bash
-cd ~/coding/rss-comics
-./scripts/local_comicskingdom_update.sh
-```
-
-### Check GitHub Actions
-
-Visit: https://github.com/adamprime/comiccaster/actions
-
-### Check Netlify Deployment
-
-Visit: https://app.netlify.com/sites/comiccaster/deploys
-
-## Troubleshooting
-
-### Local Script Not Running
-
-```bash
-# Check if agent is loaded
-launchctl list | grep comicskingdom
-
-# Reload agent
-launchctl unload ~/Library/LaunchAgents/com.comiccaster.comicskingdom.plist
-launchctl load ~/Library/LaunchAgents/com.comiccaster.comicskingdom.plist
-
-# Check logs for errors
-tail -100 ~/coding/rss-comics/logs/comicskingdom_local.log
-```
-
-### Comics Kingdom Cookies Expired
-
-If cookies expire (every ~60 days):
-
-```bash
-cd ~/coding/rss-comics
-source venv/bin/activate
-python scripts/reauth_comicskingdom.py
-```
-
-This will:
-1. Open a browser window
-2. Wait for you to solve reCAPTCHA and login
-3. Save fresh cookies
-4. Next run will use new cookies
-
-### GitHub Actions Not Finding Comics Kingdom Data
-
-Check that data files are committed:
-
-```bash
-git ls-files data/comicskingdom_*.json
-```
-
-If missing:
-
-```bash
-git add data/comicskingdom_*.json
-git commit -m "Add Comics Kingdom data"
-git push
-```
-
-## Uninstalling
-
-To remove the local automation:
-
-```bash
-# Unload the agent
-launchctl unload ~/Library/LaunchAgents/com.comiccaster.comicskingdom.plist
-
-# Remove the plist file
-rm ~/Library/LaunchAgents/com.comiccaster.comicskingdom.plist
-
-# Optionally remove log files
-rm -rf ~/coding/rss-comics/logs/
+┌──────────────────────────────────────────────────────────────────┐
+│  Mac Mini (openclaw user), 3:05 AM CST daily, LaunchD-triggered  │
+│                                                                  │
+│  Phase 1 — scrape 6 sources (sequential, fail-soft)              │
+│    1. GoComics            (authenticated, Selenium)              │
+│    2. Comics Kingdom      (authenticated, Selenium, visible      │
+│                            browser — anti-bot blocks headless)   │
+│    3. TinyView            (authenticated, 90-day window)         │
+│    4. Far Side            (Selenium for New Stuff archive)       │
+│    5. New Yorker                                                 │
+│    6. Creators Syndicate                                         │
+│                                                                  │
+│  Phase 2 — generate feeds from scraped JSON (sequential)         │
+│    GoComics / Comics Kingdom / TinyView / New Yorker /           │
+│    Far Side / Creators → public/feeds/*.xml                      │
+│                                                                  │
+│  Invariant guard: each successful scrape must have written its   │
+│  dated JSON file. Missing file → logged failure.                 │
+│                                                                  │
+│  Phase 3 — commit and push                                       │
+│    git add data/*.json public/feeds/*.xml                        │
+│    git commit                                                    │
+│    git push (60s watchdog)                                       │
+│      on rejection → save JSONs / fetch / reset --hard            │
+│                     origin/main / restore JSONs /                │
+│                     regenerate all feeds / commit / push once    │
+└──────────────────────────┬───────────────────────────────────────┘
+                           ▼
+               ┌─────────────────────────┐
+               │  Netlify (auto-deploy)  │
+               │  on push to main        │
+               └─────────────────────────┘
 ```
 
 ## Files
 
-- `scripts/local_comicskingdom_update.sh` - Main local scraping script
-- `scripts/install_local_automation.sh` - Installer for launchd agent
-- `scripts/com.comiccaster.comicskingdom.plist` - launchd configuration
-- `scripts/generate_comicskingdom_feeds.py` - Feed generator (runs in GitHub Actions)
-- `.github/workflows/update-feeds.yml` - GitHub Actions workflow
-- `data/comicskingdom_*.json` - Scraped data files (git tracked)
-- `data/comicskingdom_cookies.pkl` - Authentication cookies (git ignored)
+| Path | Purpose |
+|---|---|
+| `scripts/mini_master_update.sh` | **Production entrypoint.** Sets host-specific env (PATH, deploy key, CK `--show-browser`), execs the tracked master update |
+| `scripts/local_master_update.sh` | Tracked master update — all pipeline logic lives here |
+| `scripts/scrape_*.py`, `scripts/authenticated_scraper_secure.py`, `scripts/comicskingdom_scraper_individual.py`, `scripts/tinyview_scraper_local_authenticated.py` | Per-source scrapers, all write to `data/*.json` |
+| `scripts/generate_*_feeds.py`, `scripts/generate_gocomics_feeds.py`, `scripts/generate_tinyview_feeds_from_data.py` | Per-source generators, all write to `public/feeds/*.xml` |
+| `scripts/reauth_comicskingdom.py` | Manual CK cookie refresh (see below) |
+| `scripts/SETUP_COMICSKINGDOM_AUTH.sh` | First-time CK auth setup helper |
+| `~/Library/LaunchAgents/com.comiccaster.master.plist` | LaunchD job — triggers `mini_master_update.sh` at 03:05 |
+| `~/Library/LaunchAgents/com.openclaw.caffeinate.plist` | Keeps the Mini from sleeping (`caffeinate -s` with KeepAlive) |
+| `data/*.json` | Scraped source data — tracked in git as pipeline inputs |
+| `data/farside_new_last_id.txt` | Cursor for Far Side "New Stuff" dedup |
+| `data/comicskingdom_cookies.pkl` | CK session cookies (git-ignored) |
+| `.env` | Credentials: `GOCOMICS_EMAIL`, `GOCOMICS_PASSWORD`, `COMICSKINGDOM_USERNAME`, `COMICSKINGDOM_PASSWORD`, `COMICSKINGDOM_COOKIE_FILE` |
+| `logs/master_update.log` | Daily run log (rotated at 10MB) |
+| `logs/launchd_stdout.log`, `launchd_stderr.log` | LaunchD-captured output |
 
-## Notes
+## Host requirements (Mac Mini)
 
-- **Mac Must Be On**: Your Mac needs to be running (not shut down) at 12:30 AM for the script to run
-  - Sleep is OK - launchd will wake it
-  - Shutdown/power off will prevent the script from running
-- **Network Required**: Needs internet connection to scrape and push to GitHub
-- **Timing**: Local script runs 30 minutes before GitHub Actions to ensure data is available
-- **Fallback**: If local script doesn't run, GitHub Actions will still update GoComics feeds
+These are load-bearing — the pipeline won't run without them:
+
+- **Active GUI session, auto-login enabled.** Comics Kingdom's anti-bot blocks headless Chrome, so the CK scraper uses `--show-browser`, which requires a real display.
+- **`com.openclaw.caffeinate.plist` loaded** so the Mini never sleeps before the 3:05 AM run.
+- **ChromeDriver at `~/bin/chromedriver`**, Chrome from Google's standard installer. Versions must match (Chrome 147 + ChromeDriver 147, etc.).
+- **Deploy key at `~/.ssh/comiccaster_deploy`** with push access to the repo. Loaded per-run via `GIT_SSH_COMMAND` — not via ssh-agent, so no keychain prompt.
+- **`.env` at repo root** with CK + GoComics credentials.
+- **Python venv at `./venv/`**, `pip install -r requirements.txt` + `pip install -e .`.
+
+## Environment a typical dev doesn't need
+
+If you're running the pipeline on a laptop for development (not on the Mini), none of the host-specific wrapper logic applies:
+
+```bash
+source venv/bin/activate
+bash scripts/local_master_update.sh
+```
+
+The CK scraper will run headless (no `CK_SCRAPER_EXTRA_ARGS`), which is fine for development. Whether CK anti-bot lets you through depends on the site's mood.
+
+## Daily flow
+
+1. **03:05:00** — LaunchD fires `mini_master_update.sh`, which exports `PATH`, `GIT_SSH_COMMAND`, `CK_SCRAPER_EXTRA_ARGS=--show-browser`, then execs `local_master_update.sh`.
+2. **03:05:01–03:05:05** — SSH auth check against GitHub. If it fails, the run aborts cleanly (notification).
+3. **03:05:05–03:30** — Phase 1 scrape. CK is the longest; a real Chrome window opens and closes.
+4. **03:30–03:32** — Phase 2 generation (fast, no network).
+5. **03:32** — Invariant guard verifies every successful scrape wrote its dated JSON.
+6. **03:32–03:33** — Phase 3 commit + push. Usually first-try. Push recovery (see below) only engages on rejection.
+7. **Netlify** — detects push within ~30s, rebuilds and deploys.
+
+## Push-conflict recovery
+
+If the push is rejected (typically because another commit landed on `main` between the pipeline's pull at Phase 1 and its push at Phase 3):
+
+1. Save today's scrape JSONs to a `mktemp` staging directory.
+2. `git fetch origin && git reset --hard origin/main` — pick up whatever landed.
+3. Copy the saved JSONs back into `data/`.
+4. Re-run every feed generator (all six are network-free when fed from data).
+5. Commit the regenerated feeds, push once.
+
+No `git pull --rebase`. That strategy explodes into hundreds of add/add + content conflicts across generated feed XMLs — we hit that on 2026-04-17 and it published a merge commit with unresolved `<<<<<<<` markers in several JSONs. If the recovery push also fails, the pipeline bails; tomorrow's run retries.
+
+## Monitoring
+
+Real-time tail during a manual invocation:
+
+```bash
+tail -f logs/master_update.log
+```
+
+The final line tells you the outcome:
+
+```
+ComicCaster Master Update Complete (ALL SUCCESS) - <timestamp>
+```
+or
+```
+ComicCaster Master Update Complete with FAILURES - <timestamp>
+Failed steps: <comma-separated list>
+```
+
+macOS notifications fire on both outcomes (`osascript` in `local_master_update.sh`).
+
+Netlify deploys are at https://app.netlify.com/sites/comiccaster/deploys (assuming you have access).
+
+## Common operations
+
+### Run on demand
+
+```bash
+bash scripts/mini_master_update.sh
+```
+
+This is a real production run: it scrapes sites, commits, and pushes. Do it during the day if you want to validate a change to the pipeline before the next 3 AM run.
+
+### CK cookies expired (every ~60 days)
+
+CK uses a reCAPTCHA login flow; cookies eventually expire. If `[2/6] Scraping Comics Kingdom` starts failing consistently:
+
+```bash
+source venv/bin/activate
+python scripts/reauth_comicskingdom.py
+```
+
+A browser opens. Solve the reCAPTCHA, log in, let it finish. Fresh cookies land at `data/comicskingdom_cookies.pkl`. Next run will use them.
+
+### LaunchD job unloaded / not firing
+
+```bash
+launchctl list | grep comiccaster.master
+launchctl unload ~/Library/LaunchAgents/com.comiccaster.master.plist
+launchctl load   ~/Library/LaunchAgents/com.comiccaster.master.plist
+```
+
+### Inspect a failed run
+
+Most useful log sections (search within `logs/master_update.log`):
+
+- `=== Phase 1:` — scrape progress
+- `=== Verifying scrape invariants ===` — per-source data file check
+- `=== Phase 3:` — commit + push
+- `Engaging reset-regenerate recovery` — push-conflict recovery kicked in
+
+## What not to do
+
+- **Don't `git pull` with a merge strategy on the Mini manually.** The same conflict explosion that killed the automation on 2026-04-17 will bite you. Use `git fetch && git reset --hard origin/main` if you need to sync.
+- **Don't edit `data/*.json` by hand to "fix" a feed.** The data files are authoritative pipeline inputs; the generators overwrite feeds from them each run. Fix the scraper if data is wrong.
+- **Don't `launchctl load` the plist with `RunAtLoad` set to true.** We want strict 3:05 AM cadence, not a re-run every reboot.
+- **Don't turn off `caffeinate`.** The Mini will sleep, miss the 3 AM window, and feeds will stall.
+
+## Uninstalling
+
+```bash
+launchctl unload ~/Library/LaunchAgents/com.comiccaster.master.plist
+rm              ~/Library/LaunchAgents/com.comiccaster.master.plist
+```
+
+The `com.openclaw.caffeinate.plist` is shared with other automation; don't unload it unless you know nothing else relies on it.
