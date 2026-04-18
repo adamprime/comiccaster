@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-04-16",
+  "scraped_at": "2026-04-18T08:11:40.726922+00:00",
+  "comics": [
+    {
+      "id": "22095",
+      "date": "2026-04-16",
+      "url": "https://www.thefarside.com/2026/04/16/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe417a240d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e417a240d7410137c8a6005056a9545d",
+      "caption": "\u201cYes, they\u2019re all fools, gentlemen \u2026 but the question remains, \u2018What kind of fools are they?\u2019\u201d",
+      "title": "\u201cYes, they\u2019re all fools, gentlemen \u2026 but the question rem..."
+    },
+    {
+      "id": "22096",
+      "date": "2026-04-16",
+      "url": "https://www.thefarside.com/2026/04/16/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fca7b3b80dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ca7b3b80dcc90137caaf005056a9545d",
+      "caption": "When vultures dream",
+      "title": "When vultures dream"
+    },
+    {
+      "id": "22097",
+      "date": "2026-04-16",
+      "url": "https://www.thefarside.com/2026/04/16/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa1ba7980e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a1ba7980e6f80137ce50005056a9545d",
+      "caption": "Until finally being replaced by its more popular and deadly cousin, the Bowie spoon was often used to settle disputes in the Old West.",
+      "title": "Until finally being replaced by its more popular and dead..."
+    },
+    {
+      "id": "22098",
+      "date": "2026-04-16",
+      "url": "https://www.thefarside.com/2026/04/16/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb8b41c60e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b8b41c60e92e0137cf47005056a9545d",
+      "caption": "Where the respective worlds of boating and herpetology converge.",
+      "title": "Where the respective worlds of boating and herpetology co..."
+    },
+    {
+      "id": "22099",
+      "date": "2026-04-16",
+      "url": "https://www.thefarside.com/2026/04/16/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc3e1ee80cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c3e1ee80cdd40137c56b005056a9545d",
+      "caption": "\u201cNow I remember, Helen! \u2026 That\u2019s the old peasant woman who said she\u2019d put a curse on me if I snapped her!\u201d",
+      "title": "\u201cNow I remember, Helen! \u2026 That\u2019s the old peasant woman wh..."
+    }
+  ]
+}

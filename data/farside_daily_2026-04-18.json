@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-04-18",
+  "scraped_at": "2026-04-18T08:11:40.890757+00:00",
+  "comics": [
+    {
+      "id": "22105",
+      "date": "2026-04-18",
+      "url": "https://www.thefarside.com/2026/04/18/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F196f4d30e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/196f4d30e92f0137cf47005056a9545d",
+      "caption": "\u201cCornelius! I\u2019ve been watching him! \u2026 Beware of the jawbone!\u201d",
+      "title": "\u201cCornelius! I\u2019ve been watching him! \u2026 Beware of the jawbo..."
+    },
+    {
+      "id": "22106",
+      "date": "2026-04-18",
+      "url": "https://www.thefarside.com/2026/04/18/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7346f7d0d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7346f7d0d8bb0137c959005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22106"
+    }
+  ]
+}
