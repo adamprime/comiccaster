@@ -80,14 +80,17 @@ def get_optional_env_var(name, default):
     return os.environ.get(name, default)
 
 
-def setup_driver(show_browser=False, use_profile=False):
+def setup_driver(show_browser=False, use_profile=True):
     """Setup Chrome driver.
 
-    When use_profile is True, Chrome launches with --user-data-dir pointing at
-    ~/.comicskingdom_chrome_profile. The profile carries session cookies so the
-    first request to CK arrives authenticated -- this bypasses the WAF slow-walk
-    that was the root cause of the chronic renderer timeout (see
-    docs/solutions/logic-errors/comicskingdom-hang-diagnosis.md).
+    Defaults to use_profile=True (Shape A). Chrome launches with --user-data-dir
+    pointing at ~/.comicskingdom_chrome_profile. The profile carries session
+    cookies so the first request to CK arrives authenticated -- this bypasses
+    the WAF slow-walk that was the root cause of the chronic renderer timeout
+    (see docs/solutions/logic-errors/comicskingdom-hang-diagnosis.md).
+
+    Pass use_profile=False to fall back to the legacy pickled-cookie flow
+    (kept for rollback; expected to be removed once Shape A proves out).
     """
     options = Options()
     if not show_browser:
@@ -465,10 +468,13 @@ def main():
     parser.add_argument('--output-dir', default='data', help='Output directory for JSON files')
     parser.add_argument('--show-browser', action='store_true', help='Show browser window')
     parser.add_argument(
-        '--use-profile',
-        action='store_true',
-        help='Use persistent Chrome profile at ~/.comicskingdom_chrome_profile '
-             '(Shape A; skips pickled-cookie load to avoid the WAF slow-walk)',
+        '--no-profile',
+        action='store_false',
+        dest='use_profile',
+        default=True,
+        help='Disable the persistent Chrome profile and fall back to the '
+             'legacy pickled-cookie flow (for debugging / rollback only; '
+             'default is profile-based auth).',
     )
 
     args = parser.parse_args()

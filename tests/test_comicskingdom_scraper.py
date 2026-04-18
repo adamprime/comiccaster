@@ -192,7 +192,9 @@ class TestSetupDriver:
     def test_headless_when_show_browser_false(self):
         with patch.object(cki.webdriver, "Chrome") as chrome_cls:
             chrome_cls.return_value = MagicMock()
-            cki.setup_driver(show_browser=False)
+            # Pass use_profile=False so this test stays focused on the
+            # headless flag and doesn't touch the user's real $HOME.
+            cki.setup_driver(show_browser=False, use_profile=False)
 
             args, kwargs = chrome_cls.call_args
             options = kwargs["options"]
@@ -201,11 +203,22 @@ class TestSetupDriver:
     def test_not_headless_when_show_browser_true(self):
         with patch.object(cki.webdriver, "Chrome") as chrome_cls:
             chrome_cls.return_value = MagicMock()
-            cki.setup_driver(show_browser=True)
+            cki.setup_driver(show_browser=True, use_profile=False)
 
             args, kwargs = chrome_cls.call_args
             options = kwargs["options"]
             assert "--headless=new" not in options.arguments
+
+    def test_default_use_profile_is_true(self, tmp_path, monkeypatch):
+        """Shape A cutover: use_profile is True by default."""
+        monkeypatch.setenv("HOME", str(tmp_path))
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver()
+
+            args, kwargs = chrome_cls.call_args
+            options = kwargs["options"]
+            assert any(a.startswith("--user-data-dir=") for a in options.arguments)
 
     def test_no_profile_flag_when_use_profile_false(self, tmp_path, monkeypatch):
         monkeypatch.setenv("HOME", str(tmp_path))

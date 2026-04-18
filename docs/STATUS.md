@@ -1,15 +1,15 @@
 # Project Status
-<!-- Updated: 2026-04-17 by Adam -->
+<!-- Updated: 2026-04-18 by Adam -->
 
 ## Project Overview
 ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, and Creators Syndicate into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation; Netlify serves the static site and feed files.
 
 ## Current State
-Stable. Daily automation is healthier than it was 24 hours ago: all six sources now follow a uniform scrape-to-data / generate-from-data architecture, push-conflict recovery no longer uses `git pull --rebase` (the strategy that broke the 2026-04-17 overnight run), and an invariant guard catches silent scrape regressions before they reach published feeds. Waiting on tomorrow's scheduled overnight run as the first unattended end-to-end validation.
+Stable. Daily automation underwent a significant reliability pass today: instrumentation diagnosed the chronic CK renderer-timeout failure as a WAF slow-walk on `driver.get("https://comicskingdom.com")` (the navigation that precedes cookie injection), and Shape A (persistent Chrome profile, TinyView pattern) replaced the pickled-cookie flow. Waiting on tomorrow's scheduled overnight run as the first unattended validation under profile-based auth.
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-04-17
-**Last Session Summary:** Closed the automation gaps exposed by the 2026-04-17 overnight incident. Brought the production entrypoint under version control, refactored the three remaining sources (New Yorker, Far Side, Creators) into scrape-and-generate splits, replaced the push-conflict recovery path with save / reset / regenerate, added an invariant guard, and rewrote the automation and deployment docs.
+**Last Session:** 2026-04-18
+**Last Session Summary:** Diagnosed and fixed the Comics Kingdom scraper reliability issue. Added instrumentation, captured two daytime runs showing the 20–30s slow-walk on the cookie-load domain navigation, confirmed `_secure` reproduces the same failure (eliminating the "consolidate on `_secure`" alternative), and migrated CK auth from pickled cookies to a persistent Chrome profile. Five units across two PRs, all test coverage extended; `_secure` deprecation is a deferred follow-up.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -19,7 +19,9 @@ Stable. Daily automation is healthier than it was 24 hours ago: all six sources 
 - Production entrypoint is tracked in git (`scripts/mini_master_update.sh`) — no more untracked wrappers patching the master script at runtime
 - Push-conflict recovery uses save / fetch / reset / regenerate (no `git pull --rebase` against generated XMLs)
 - Invariant guard between Phase 2 and Phase 3 catches silent scrape regressions (scrape reports success but its dated JSON is missing)
-- 229-test suite passing (31 new tests covering Far Side and Creators generator logic)
+- Comics Kingdom authentication now uses a persistent Chrome profile at `~/.comicskingdom_chrome_profile` (Shape A), matching TinyView's proven pattern and eliminating the WAF slow-walk on the cookie-load startup path
+- Chrome boundary instrumentation in `_individual` (and `_secure`) — timestamped log lines at every `driver.get` make hang-site localization a grep
+- 254+-test suite passing (first CK-specific tests added this session)
 - 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, and 10 Creators feeds updating daily
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled; all CodeQL alerts resolved
@@ -32,7 +34,8 @@ Stable. Daily automation is healthier than it was 24 hours ago: all six sources 
 
 | Item | Status | Branch | Notes |
 |------|--------|--------|-------|
-| Automation hardening | Monitoring | main | 2026-04-17 rewrote wrapper/tracking, push-recovery, scrape/generate splits. Next scheduled overnight run is the first unattended validation. |
+| Shape A (CK profile-based auth) | Monitoring | main (this PR once merged) | Daytime validation run successful; tonight's 3 AM LaunchD run is the first unattended validation. Rollback is a one-line default flip on `setup_driver`. |
+| `_secure` deletion | Deferred | — | Follow-up PR after Shape A has run cleanly for a week. Also: migrate `scripts/diagnose_ck_page.py` off `_secure` or retire it. |
 
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
@@ -87,6 +90,22 @@ Between Phase 2 and Phase 3, an invariant guard checks that every successful scr
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-04-18
+- **Goal:** Diagnose and fix the Comics Kingdom scraper's chronic ~weekly renderer timeout. Move from "reauth as a reflex" to a structural fix.
+- **Accomplished:**
+  - Recovered this morning's CK feeds after the 03:13 run failed on the renderer timeout (manual reauth + rescrape, commit `86b3b2883`).
+  - Shipped PR #114 (parent plan + Unit 1 instrumentation + Unit 2 smoke tests): added timestamped markers around every Chrome interaction boundary in `_individual`, first CK-specific test coverage (11 tests).
+  - Captured two instrumented daytime runs: `_individual` at 14:09 (success, 20.4s on the domain hit), `_secure` at 14:24 (30.0s timeout — reproduced the overnight-failure fingerprint in the afternoon). Data confirms the WAF slow-walks the first unauthenticated request and the slow-walk is orthogonal to scraper choice.
+  - Shipped PR #115 (Unit 1 findings + `_secure` instrumentation): pinned the diagnosis in `docs/solutions/logic-errors/comicskingdom-hang-diagnosis.md`, ruled out Shape B.
+  - Shipped PR #116 (testenv cleanup, unrelated): cleared all three `Known Issues` items (`bin/chromedriver` ignore, `webdriver-manager` requirement, two test side-effect writes).
+  - Shipped this PR (Shape A — profile-based auth): 5 implementation units migrating CK auth off pickled cookies and onto a persistent Chrome profile at `~/.comicskingdom_chrome_profile`. `reauth_comicskingdom.py` now imports only from `_individual`, breaking the last production dependency on `_secure`.
+- **Validation:**
+  - 254 tests passing in PR #116; this PR extends `tests/test_comicskingdom_scraper.py` to 33 CK-specific scenarios.
+  - Manual end-to-end profile run on the Mini (pending as part of this PR's pre-merge check).
+  - Tonight's 3 AM LaunchD run under Shape A is the first unattended validation. The Unit 1 instrumentation makes "did Shape A engage" trivial to verify: `load_cookies: driver.get(comicskingdom.com)` START/END markers should be absent from tomorrow's log.
+- **Didn't finish:** Tonight's overnight run validation. Post-validation: delete `_secure` and migrate `scripts/diagnose_ck_page.py` (both deferred to a separate PR).
+- **Discovered:** `_individual` has been the production scraper since 2025-11-15 (commit `d8596247d`), but `_secure` was never fully deprecated — it's imported by both `reauth_comicskingdom.py` and `scripts/diagnose_ck_page.py`. The 2026-04-09 reliability rewrite landed in `_secure` and never reached production. The per-URL strategy of `_individual` (153 sequential page loads) is actually more complete than `_secure`'s favorites-page approach (97/153 on a successful run), so keeping `_individual` as production is the right call.
 
 ### 2026-04-17
 - **Goal:** Close the automation gaps exposed by the 2026-04-17 overnight incident (Comics Kingdom feeds missing from the published commit; several source JSONs pushed to `main` with unresolved merge conflict markers). Bring the production entrypoint under version control and replace the push-recovery strategy.
