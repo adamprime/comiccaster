@@ -197,6 +197,88 @@ def authenticate_with_cookies(driver, config):
     return False
 
 
+def login_with_manual_recaptcha(driver, username, password):
+    """Login to Comics Kingdom with manual reCAPTCHA solving."""
+    print("\n" + "="*80)
+    print("COMICS KINGDOM LOGIN")
+    print("="*80)
+    print("Navigating to login page...")
+
+    driver.get("https://comicskingdom.com/login")
+    time.sleep(5)
+
+    try:
+        # Find and fill username field
+        username_field = None
+        selectors = [
+            (By.NAME, "username"),
+            (By.ID, "username"),
+            (By.CSS_SELECTOR, "input[name='username']"),
+        ]
+
+        for selector_type, selector_value in selectors:
+            try:
+                username_field = WebDriverWait(driver, 5).until(
+                    EC.presence_of_element_located((selector_type, selector_value))
+                )
+                break
+            except:
+                continue
+
+        if not username_field:
+            print("❌ Could not find username field")
+            return False
+
+        # Find password field
+        password_field = driver.find_element(By.NAME, "password")
+
+        # Fill credentials using JavaScript to avoid click interception
+        print("Filling in credentials...")
+        driver.execute_script(f"arguments[0].value = '{username}';", username_field)
+        driver.execute_script("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", username_field)
+        driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", username_field)
+
+        driver.execute_script(f"arguments[0].value = '{password}';", password_field)
+        driver.execute_script("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", password_field)
+        driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", password_field)
+
+        print("✅ Credentials filled")
+
+        # Wait for manual reCAPTCHA solving
+        print("\n" + "="*80)
+        print("⏸️  PLEASE SOLVE THE reCAPTCHA AND CLICK LOGIN")
+        print("="*80)
+        print("Instructions:")
+        print("  1. Check the reCAPTCHA box in the browser window")
+        print("  2. Complete any image challenges if prompted")
+        print("  3. Click the 'Log in' button")
+        print("  4. Wait for the page to redirect")
+        print("\n⏳ Waiting for you to complete login...")
+        print("="*80 + "\n")
+
+        # Wait for navigation away from login page
+        for i in range(120):  # Wait up to 2 minutes
+            time.sleep(1)
+            current_url = driver.current_url
+
+            if 'login' not in current_url:
+                print(f"\n✅ Login successful! Redirected to: {current_url}")
+                time.sleep(3)  # Give page time to fully load
+                return True
+
+            if (i+1) % 15 == 0:
+                print(f"  ...still waiting ({i+1}/120 seconds)...")
+
+        print("\n❌ Timeout waiting for login")
+        return False
+
+    except Exception as e:
+        print(f"❌ Login failed: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
+
+
 def load_comics_catalog():
     """Load Comics Kingdom comics from catalog."""
     catalog_path = Path('public/comics_list.json')

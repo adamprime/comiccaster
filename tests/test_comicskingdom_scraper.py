@@ -216,6 +216,73 @@ class TestSetupDriver:
             assert "--headless=new" not in options.arguments
 
 
+# --- login_with_manual_recaptcha --------------------------------------------
+
+
+class TestLoginWithManualRecaptcha:
+    """Characterization tests for the port from _secure.
+
+    Locks the signature and observable behavior so future edits to either copy
+    (_individual's or _secure's) surface as a test diff.
+    """
+
+    def test_function_exists_on_individual(self):
+        assert callable(cki.login_with_manual_recaptcha)
+
+    def test_signature_matches_secure(self):
+        # Ensure both copies take (driver, username, password).
+        import comicskingdom_scraper_secure as cks
+
+        assert cki.login_with_manual_recaptcha.__code__.co_argcount == 3
+        assert cks.login_with_manual_recaptcha.__code__.co_argcount == 3
+        assert (
+            cki.login_with_manual_recaptcha.__code__.co_varnames[:3]
+            == cks.login_with_manual_recaptcha.__code__.co_varnames[:3]
+        )
+
+    def test_returns_true_when_redirect_away_from_login(self, monkeypatch):
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/account"
+
+        # Speed up the 120-iteration wait loop
+        monkeypatch.setattr(cki.time, "sleep", lambda *_a, **_kw: None)
+
+        mock_wdw = MagicMock()
+        mock_wdw.return_value.until.return_value = MagicMock()
+        monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
+
+        result = cki.login_with_manual_recaptcha(driver, "u", "p")
+        assert result is True
+        # Credentials were filled via execute_script
+        assert driver.execute_script.called
+
+    def test_returns_false_on_timeout(self, monkeypatch):
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/login?step=captcha"
+
+        monkeypatch.setattr(cki.time, "sleep", lambda *_a, **_kw: None)
+
+        mock_wdw = MagicMock()
+        mock_wdw.return_value.until.return_value = MagicMock()
+        monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
+
+        result = cki.login_with_manual_recaptcha(driver, "u", "p")
+        assert result is False
+
+    def test_returns_false_when_no_username_field(self, monkeypatch):
+        driver = MagicMock()
+
+        monkeypatch.setattr(cki.time, "sleep", lambda *_a, **_kw: None)
+
+        # All three selector attempts raise (no username field findable)
+        mock_wdw = MagicMock()
+        mock_wdw.return_value.until.side_effect = Exception("not found")
+        monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
+
+        result = cki.login_with_manual_recaptcha(driver, "u", "p")
+        assert result is False
+
+
 # --- load_config_from_env ---------------------------------------------------
 
 
