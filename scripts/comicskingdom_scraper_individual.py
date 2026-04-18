@@ -23,6 +23,19 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
 
+# Unit 1 instrumentation (2026-04-18). Timestamped log lines at every Chrome
+# interaction boundary so we can see which call is hanging when the renderer
+# timeout fires. Remove after Unit 3 lands.
+# See docs/plans/2026-04-18-001-fix-comicskingdom-scraper-reliability-plan.md
+_SCRAPE_CALL_COUNT = 0
+
+
+def _log_timing(label):
+    """Print a timestamped marker line. Instrumentation only; no behavior change."""
+    now = datetime.now().strftime('%H:%M:%S.%f')[:-3]
+    print(f"[{now}] {label}")
+
+
 def get_required_env_var(name):
     """Get required environment variable or exit with error."""
     value = os.environ.get(name)
@@ -66,9 +79,11 @@ def setup_driver(show_browser=False):
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
-    
+
+    _log_timing("setup_driver: webdriver.Chrome() START")
     driver = webdriver.Chrome(options=options)
-    
+    _log_timing("setup_driver: webdriver.Chrome() END")
+
     # Set timeouts
     driver.set_page_load_timeout(30)
     driver.set_script_timeout(30)
@@ -102,16 +117,20 @@ def load_cookies(driver, cookie_file):
             cookies = pickle.load(f)
         
         # Navigate to site first
+        _log_timing("load_cookies: driver.get(comicskingdom.com) START")
         driver.get("https://comicskingdom.com")
+        _log_timing("load_cookies: driver.get(comicskingdom.com) END")
         time.sleep(2)
-        
+
         # Add all cookies
+        _log_timing("load_cookies: add_cookie loop START")
         for cookie in cookies:
             try:
                 driver.add_cookie(cookie)
             except Exception as e:
                 pass
-        
+        _log_timing("load_cookies: add_cookie loop END")
+
         print(f"✅ Loaded cookies from {cookie_file}")
         return True
     except Exception as e:
@@ -122,12 +141,14 @@ def load_cookies(driver, cookie_file):
 def is_authenticated(driver):
     """Check if the current session is authenticated."""
     try:
+        _log_timing("is_authenticated: driver.get(/favorites) START")
         driver.get("https://comicskingdom.com/favorites")
+        _log_timing("is_authenticated: driver.get(/favorites) END")
         time.sleep(2)
-        
+
         if 'login' in driver.current_url:
             return False
-        
+
         return True
     except Exception as e:
         return False
@@ -177,10 +198,16 @@ def load_comics_catalog():
 
 def scrape_comic_page(driver, comic_slug, date_str, debug=False):
     """Scrape a single comic page."""
+    global _SCRAPE_CALL_COUNT
+    _SCRAPE_CALL_COUNT += 1
     url = f"https://comicskingdom.com/{comic_slug}/{date_str}"
-    
+
     try:
+        if _SCRAPE_CALL_COUNT <= 5:
+            _log_timing(f"scrape_comic_page[{_SCRAPE_CALL_COUNT}]: driver.get({comic_slug}) START")
         driver.get(url)
+        if _SCRAPE_CALL_COUNT <= 5:
+            _log_timing(f"scrape_comic_page[{_SCRAPE_CALL_COUNT}]: driver.get({comic_slug}) END")
         time.sleep(2)
         
         soup = BeautifulSoup(driver.page_source, 'html.parser')
