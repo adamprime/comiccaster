@@ -201,13 +201,14 @@ class TestSmartUpdateStrategy:
              patch('scripts.update_feeds.load_political_comics_list') as mock_load_political, \
              patch('scripts.update_feeds.load_last_update_times') as mock_load_times, \
              patch('scripts.update_feeds.filter_comics_for_update') as mock_filter, \
+             patch('scripts.update_feeds.save_last_update_times') as mock_save_times, \
              patch('scripts.update_feeds.update_comic_feed') as mock_update:
-            
+
             mock_load_comics.return_value = []
             mock_load_political.return_value = mock_comics
             mock_load_times.return_value = {}
             mock_filter.return_value = [mock_comics[0]]  # Only daily comic needs update
-            
+
             update_feeds_smart()
             
             # Verify only filtered comics were updated

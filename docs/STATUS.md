@@ -52,14 +52,12 @@ Stable. Daily automation is healthier than it was 24 hours ago: all six sources 
 
 - GoComics strips don't save to read-later platforms like Pocket/Instapaper (#91) — approach TBD.
 - Old data files (pre-March 31) have fewer entries (~100/day vs 257) than current runs; only ~115 comics matched slugs under the old extraction approach.
-- A handful of tests in `test_comic_config.py`, `test_loader.py`, and `test_web_interface.py` fail at collection time due to a missing `webdriver_manager` dependency in the current venv. Pre-existing and unrelated to the 2026-04-17 work; 229 other tests pass.
-- A couple of tests still produce side-effect writes at the repo root (`feeds/clayjones.xml`, `data/last_update_times.json`) when the suite runs. Worth cleaning up at some point so developers don't have to revert them before committing.
 
 ## Environment & Setup
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 229 passing, a few pre-existing collection errors (see Known Issues), requires Python ≥3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 254 passing, requires Python ≥3.10
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
 **Production pipeline:** see [docs/LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) and [docs/DEPLOYMENT.md](DEPLOYMENT.md)

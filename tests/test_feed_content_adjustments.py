@@ -80,16 +80,16 @@ class TestFeedContentAdjustments:
         assert 'political' in description.lower() or 'editorial' in description.lower()
         assert 'cartoon' in description.lower()
     
-    def test_add_content_warnings(self, political_comic_info, political_feed_entries):
+    def test_add_content_warnings(self, political_comic_info, political_feed_entries, tmp_path):
         """Test adding content warnings for political comics."""
         from comiccaster.feed_generator import ComicFeedGenerator
-        
-        generator = ComicFeedGenerator()
-        
+
+        generator = ComicFeedGenerator(output_dir=str(tmp_path))
+
         # Generate feed with political entries
         success = generator.generate_feed(political_comic_info, political_feed_entries)
         assert success
-        
+
         # Parse generated feed
         feed_path = Path(generator.output_dir) / f"{political_comic_info['slug']}.xml"
         parsed_feed = feedparser.parse(str(feed_path))
