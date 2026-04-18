@@ -22,6 +22,15 @@ from bs4 import BeautifulSoup
 import time
 
 
+# Unit 1 comparison instrumentation (2026-04-18): matches the markers added to
+# comicskingdom_scraper_individual.py so both scrapers' timings are directly
+# comparable under the same Chrome / CK / network conditions.
+def _log_timing(label):
+    """Print a timestamped marker line. Instrumentation only; no behavior change."""
+    now = datetime.now().strftime('%H:%M:%S.%f')[:-3]
+    print(f"[{now}] {label}")
+
+
 def get_required_env_var(name):
     """Get required environment variable or exit with error."""
     value = os.environ.get(name)
@@ -65,9 +74,11 @@ def setup_driver(show_browser=False):
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
-    
+
+    _log_timing("setup_driver: webdriver.Chrome() START")
     driver = webdriver.Chrome(options=options)
-    
+    _log_timing("setup_driver: webdriver.Chrome() END")
+
     # Set page load strategy and timeouts
     driver.set_page_load_timeout(30)
     driver.set_script_timeout(30)
@@ -103,19 +114,24 @@ def load_cookies(driver, cookie_file):
         # Navigate to site first (required before adding cookies)
         print("🌐 Navigating to Comics Kingdom to load cookies...")
         try:
+            _log_timing("load_cookies: driver.get(comicskingdom.com) START")
             driver.get("https://comicskingdom.com")
+            _log_timing("load_cookies: driver.get(comicskingdom.com) END")
             time.sleep(2)
         except Exception as nav_error:
+            _log_timing("load_cookies: driver.get(comicskingdom.com) RAISED")
             print(f"⚠️  Navigation warning: {nav_error}")
             # Continue anyway - cookies might still work
-        
+
         # Add all cookies
+        _log_timing("load_cookies: add_cookie loop START")
         for cookie in cookies:
             try:
                 driver.add_cookie(cookie)
             except Exception as e:
                 print(f"⚠️  Could not add cookie: {e}")
-        
+        _log_timing("load_cookies: add_cookie loop END")
+
         print(f"✅ Loaded cookies from {cookie_file}")
         return True
     except Exception as e:
@@ -126,7 +142,9 @@ def load_cookies(driver, cookie_file):
 def is_authenticated(driver):
     """Check if the current session is authenticated."""
     try:
+        _log_timing("is_authenticated: driver.get(/favorites) START")
         driver.get("https://comicskingdom.com/favorites")
+        _log_timing("is_authenticated: driver.get(/favorites) END")
         time.sleep(3)
         
         # If we're redirected to login page, we're not authenticated
@@ -315,7 +333,9 @@ def extract_comics_from_favorites(driver, date_str):
     print(f"Extracting comics from favorites page for {date_str}")
     print("="*80)
 
+    _log_timing("extract_favorites: driver.get(/favorites) START")
     driver.get("https://comicskingdom.com/favorites")
+    _log_timing("extract_favorites: driver.get(/favorites) END")
     time.sleep(5)
 
     # Try to dismiss any popups/interstitials
