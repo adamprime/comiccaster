@@ -45,8 +45,8 @@ check_gocomics_*.py
 debug_*.py
 extract_*.py
 test_actual_*.py
-test_comics_kingdom_*.py
-test_comicskingdom_*.py
+/test_comics_kingdom_*.py
+/test_comicskingdom_*.py
 test_curl_*.py
 test_current_day_*.py
 test_custom_*.py
