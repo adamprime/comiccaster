@@ -38,6 +38,8 @@ config/config.json
 !.env.example
 debug_*.html
 *.log
+# Host-local chromedriver binary (downloaded per-host; see mini_master_update.sh)
+/bin/
 
 # Local test and debug files (not for repo)
 analyze_*.py
