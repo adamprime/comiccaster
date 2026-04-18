@@ -102,8 +102,6 @@ class TestAuthenticateWithCookies:
         assert cki.authenticate_with_cookies(driver, config) is False
 
         captured = capsys.readouterr()
-        # This exact string is what Unit 3 will intentionally reshape.
-        # Locking it here so Unit 3's change is visible as a test diff.
         assert "Authentication failed - please run reauth script" in captured.out
 
     def test_returns_true_when_cookies_load_and_auth_succeeds(self, tmp_path):
@@ -116,6 +114,74 @@ class TestAuthenticateWithCookies:
 
         config = {"cookie_file": cookie_file}
         assert cki.authenticate_with_cookies(driver, config) is True
+
+
+class TestAuthenticateWithProfile:
+    """use_profile=True branch of authenticate_with_cookies."""
+
+    def test_returns_true_and_skips_load_cookies(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        # Populate the profile so "Default/Cookies" exists (authenticated state)
+        (tmp_path / ".comicskingdom_chrome_profile" / "Default").mkdir(parents=True)
+        (tmp_path / ".comicskingdom_chrome_profile" / "Default" / "Cookies").write_bytes(b"x")
+
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/favorites"
+
+        # Prove load_cookies is not called when use_profile=True
+        with patch.object(cki, "load_cookies") as mock_load:
+            result = cki.authenticate_with_cookies(driver, {}, use_profile=True)
+
+        assert result is True
+        mock_load.assert_not_called()
+
+    def test_empty_profile_emits_distinct_message(
+        self, tmp_path, monkeypatch, capsys
+    ):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        # Profile dir does not exist at all → treated as empty
+
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/login"
+
+        result = cki.authenticate_with_cookies(driver, {}, use_profile=True)
+        assert result is False
+
+        captured = capsys.readouterr()
+        assert "has no stored session" in captured.out
+        # Distinct from the legacy reauth message — critical for the
+        # empty-vs-expired distinction.
+        assert "Authentication failed - please run reauth script" not in captured.out
+
+    def test_populated_profile_but_auth_fails_uses_legacy_message(
+        self, tmp_path, monkeypatch, capsys
+    ):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        # Profile exists and has a Cookies file → treat as session-expired
+        (tmp_path / ".comicskingdom_chrome_profile" / "Default").mkdir(parents=True)
+        (tmp_path / ".comicskingdom_chrome_profile" / "Default" / "Cookies").write_bytes(b"x")
+
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/login"
+
+        result = cki.authenticate_with_cookies(driver, {}, use_profile=True)
+        assert result is False
+
+        captured = capsys.readouterr()
+        assert "Authentication failed - please run reauth script" in captured.out
+        assert "has no stored session" not in captured.out
+
+    def test_use_profile_false_preserves_legacy_behavior(self, tmp_path, capsys):
+        # Legacy flow when use_profile=False should be identical to pre-Unit-3.
+        cookie_file = tmp_path / "cookies.pkl"
+        with open(cookie_file, "wb") as f:
+            pickle.dump([{"name": "s", "value": "v", "domain": "comicskingdom.com"}], f)
+
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/favorites"
+
+        config = {"cookie_file": cookie_file}
+        assert cki.authenticate_with_cookies(driver, config, use_profile=False) is True
 
 
 # --- setup_driver -----------------------------------------------------------
@@ -298,3 +364,24 @@ class TestLoadConfigFromEnv:
         captured = capsys.readouterr()
         assert "test-user-do-not-log" not in captured.out
         assert "test-pass-do-not-log" not in captured.out
+
+    def test_require_credentials_false_accepts_missing_env_vars(
+        self, monkeypatch
+    ):
+        # Under profile-based auth, credentials aren't needed for daily scrape.
+        monkeypatch.delenv("COMICSKINGDOM_USERNAME", raising=False)
+        monkeypatch.delenv("COMICSKINGDOM_PASSWORD", raising=False)
+
+        config = cki.load_config_from_env(require_credentials=False)
+        assert config["credentials"]["username"] is None
+        assert config["credentials"]["password"] is None
+
+    def test_require_credentials_true_still_exits_when_missing(
+        self, monkeypatch
+    ):
+        # Reauth path keeps the hard requirement.
+        monkeypatch.delenv("COMICSKINGDOM_USERNAME", raising=False)
+        monkeypatch.delenv("COMICSKINGDOM_PASSWORD", raising=False)
+
+        with pytest.raises(SystemExit):
+            cki.load_config_from_env(require_credentials=True)

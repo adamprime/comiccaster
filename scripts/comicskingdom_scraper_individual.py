@@ -45,19 +45,33 @@ def get_required_env_var(name):
     return value
 
 
-def load_config_from_env():
-    """Load configuration from environment variables."""
+def load_config_from_env(require_credentials=True):
+    """Load configuration from environment variables.
+
+    When require_credentials is False, COMICSKINGDOM_USERNAME and
+    COMICSKINGDOM_PASSWORD may be unset (they land as None). Use
+    require_credentials=False on the daily-scrape path under profile-based
+    auth, where credentials are not needed. Use require_credentials=True
+    (default) for the reauth flow, which does need them.
+    """
+    if require_credentials:
+        username = get_required_env_var('COMICSKINGDOM_USERNAME')
+        password = get_required_env_var('COMICSKINGDOM_PASSWORD')
+    else:
+        username = os.environ.get('COMICSKINGDOM_USERNAME')
+        password = os.environ.get('COMICSKINGDOM_PASSWORD')
+
     config = {
         'credentials': {
-            'username': get_required_env_var('COMICSKINGDOM_USERNAME'),
-            'password': get_required_env_var('COMICSKINGDOM_PASSWORD'),
+            'username': username,
+            'password': password,
         },
         'cookie_file': Path(get_optional_env_var('COMICSKINGDOM_COOKIE_FILE', 'data/comicskingdom_cookies.pkl'))
     }
-    
+
     print(f"✅ Loaded configuration from environment")
     print(f"   Cookie file: {config['cookie_file']}")
-    
+
     return config
 
 
@@ -169,30 +183,58 @@ def is_authenticated(driver):
         return False
 
 
-def authenticate_with_cookies(driver, config):
-    """Authenticate using saved cookies."""
+def authenticate_with_cookies(driver, config, use_profile=False):
+    """Authenticate either via a persistent Chrome profile or pickled cookies.
+
+    When use_profile is True, Chrome is expected to have launched with
+    --user-data-dir pointing at ~/.comicskingdom_chrome_profile. The session
+    cookies are already in the browser, so we skip the pickled-cookie load
+    entirely and just verify authentication. This is the Shape A path; see
+    docs/solutions/logic-errors/comicskingdom-hang-diagnosis.md.
+
+    When use_profile is False, use the legacy pickled-cookie flow.
+    """
+    if use_profile:
+        profile_dir = Path.home() / '.comicskingdom_chrome_profile'
+        cookies_db = profile_dir / 'Default' / 'Cookies'
+
+        if is_authenticated(driver):
+            print("✅ Successfully authenticated with Chrome profile!")
+            return True
+
+        # Distinguish "profile never seeded" from "profile has a dead session".
+        # Chrome creates Default/Cookies on the first authenticated navigation,
+        # so its absence is a reliable signal that reauth has never run.
+        if not cookies_db.exists():
+            print(f"⚠️  Chrome profile at {profile_dir} has no stored session.")
+            print("   Run scripts/reauth_comicskingdom.py to seed it.")
+            return False
+
+        print("❌ Authentication failed - please run reauth script")
+        return False
+
     cookie_file = config['cookie_file']
-    
+
     # Check cookie age
     if cookie_file.exists():
         cookie_age_days = (datetime.now() - datetime.fromtimestamp(
             cookie_file.stat().st_mtime
         )).days
         print(f"📅 Cookie file is {cookie_age_days} days old")
-        
+
         if cookie_age_days > 60:
             print(f"⚠️  Cookies are old. Recommend re-authentication.")
-    
+
     # Try to load existing cookies
     if load_cookies(driver, cookie_file):
         print("🔍 Checking if cookies are still valid...")
-        
+
         if is_authenticated(driver):
             print("✅ Successfully authenticated with saved cookies!")
             return True
         else:
             print("⚠️  Saved cookies are expired or invalid")
-    
+
     print("❌ Authentication failed - please run reauth script")
     return False
 
@@ -422,25 +464,32 @@ def main():
     parser.add_argument('--date', help='Date in YYYY-MM-DD format (defaults to today)')
     parser.add_argument('--output-dir', default='data', help='Output directory for JSON files')
     parser.add_argument('--show-browser', action='store_true', help='Show browser window')
-    
+    parser.add_argument(
+        '--use-profile',
+        action='store_true',
+        help='Use persistent Chrome profile at ~/.comicskingdom_chrome_profile '
+             '(Shape A; skips pickled-cookie load to avoid the WAF slow-walk)',
+    )
+
     args = parser.parse_args()
-    
+
     date_str = args.date or datetime.now().strftime('%Y-%m-%d')
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    
-    # Load configuration
-    config = load_config_from_env()
-    
+
+    # Load configuration. Credentials are only required when seeding the
+    # profile (reauth). Daily scrape under --use-profile does not need them.
+    config = load_config_from_env(require_credentials=not args.use_profile)
+
     # Load comics catalog
     comics = load_comics_catalog()
-    
+
     # Setup Chrome
-    driver = setup_driver(show_browser=args.show_browser)
-    
+    driver = setup_driver(show_browser=args.show_browser, use_profile=args.use_profile)
+
     try:
         # Authenticate
-        if not authenticate_with_cookies(driver, config):
+        if not authenticate_with_cookies(driver, config, use_profile=args.use_profile):
             print("❌ Authentication failed")
             driver.quit()
             return 1
