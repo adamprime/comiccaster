@@ -66,11 +66,26 @@ def get_optional_env_var(name, default):
     return os.environ.get(name, default)
 
 
-def setup_driver(show_browser=False):
-    """Setup Chrome driver."""
+def setup_driver(show_browser=False, use_profile=False):
+    """Setup Chrome driver.
+
+    When use_profile is True, Chrome launches with --user-data-dir pointing at
+    ~/.comicskingdom_chrome_profile. The profile carries session cookies so the
+    first request to CK arrives authenticated -- this bypasses the WAF slow-walk
+    that was the root cause of the chronic renderer timeout (see
+    docs/solutions/logic-errors/comicskingdom-hang-diagnosis.md).
+    """
     options = Options()
     if not show_browser:
         options.add_argument('--headless=new')
+
+    if use_profile:
+        profile_dir = Path.home() / '.comicskingdom_chrome_profile'
+        profile_dir.mkdir(parents=True, exist_ok=True)
+        profile_dir.chmod(0o700)
+        options.add_argument(f'--user-data-dir={profile_dir}')
+        print(f"🔧 Using Chrome profile: {profile_dir}")
+
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1920,1080')

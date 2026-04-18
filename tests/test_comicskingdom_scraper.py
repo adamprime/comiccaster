@@ -140,6 +140,81 @@ class TestSetupDriver:
             options = kwargs["options"]
             assert "--headless=new" not in options.arguments
 
+    def test_no_profile_flag_when_use_profile_false(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=False)
+
+            args, kwargs = chrome_cls.call_args
+            options = kwargs["options"]
+            assert not any(a.startswith("--user-data-dir=") for a in options.arguments)
+
+    def test_profile_flag_added_when_use_profile_true(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=True)
+
+            args, kwargs = chrome_cls.call_args
+            options = kwargs["options"]
+            expected = f"--user-data-dir={tmp_path / '.comicskingdom_chrome_profile'}"
+            assert expected in options.arguments
+
+    def test_profile_directory_created_when_missing(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        profile_dir = tmp_path / ".comicskingdom_chrome_profile"
+        assert not profile_dir.exists()
+
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=True)
+
+        assert profile_dir.is_dir()
+
+    def test_profile_directory_contents_preserved_when_exists(
+        self, tmp_path, monkeypatch
+    ):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        profile_dir = tmp_path / ".comicskingdom_chrome_profile"
+        profile_dir.mkdir()
+        # Simulate an existing Chrome profile artifact
+        existing_cookies = profile_dir / "Default" / "Cookies"
+        existing_cookies.parent.mkdir(parents=True)
+        existing_cookies.write_bytes(b"pretend-sqlite-content")
+
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=True)
+
+        assert existing_cookies.read_bytes() == b"pretend-sqlite-content"
+
+    def test_profile_directory_mode_is_0o700(self, tmp_path, monkeypatch):
+        import stat
+
+        monkeypatch.setenv("HOME", str(tmp_path))
+        profile_dir = tmp_path / ".comicskingdom_chrome_profile"
+        # Pre-create with a more permissive mode to prove setup_driver tightens it.
+        profile_dir.mkdir(mode=0o755)
+
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=True)
+
+        assert stat.S_IMODE(profile_dir.stat().st_mode) == 0o700
+
+    def test_profile_and_show_browser_coexist(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(show_browser=True, use_profile=True)
+
+            args, kwargs = chrome_cls.call_args
+            options = kwargs["options"]
+            expected = f"--user-data-dir={tmp_path / '.comicskingdom_chrome_profile'}"
+            assert expected in options.arguments
+            assert "--headless=new" not in options.arguments
+
 
 # --- load_config_from_env ---------------------------------------------------
 
