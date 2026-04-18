@@ -17,6 +17,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 import comicskingdom_scraper_individual as cki
 
@@ -385,3 +386,100 @@ class TestLoadConfigFromEnv:
 
         with pytest.raises(SystemExit):
             cki.load_config_from_env(require_credentials=True)
+
+
+# --- reauth_comicskingdom.py -------------------------------------------------
+
+
+class TestReauthScript:
+    """Unit 4 — reauth rewrite imports from _individual, seeds the profile."""
+
+    def _load_reauth_module(self):
+        """Fresh import of the reauth script for a test.
+
+        Using importlib so each test gets a clean module state and
+        patch.object works cleanly on the reauth-local names.
+        """
+        import importlib
+        import scripts.reauth_comicskingdom as reauth
+        importlib.reload(reauth)
+        return reauth
+
+    def test_imports_from_individual_not_secure(self):
+        """AST-level: the reauth script must not import from _secure."""
+        import ast
+        repo_root = Path(__file__).parent.parent
+        source = (repo_root / "scripts" / "reauth_comicskingdom.py").read_text()
+        tree = ast.parse(source)
+
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ImportFrom):
+                module = node.module or ""
+                assert "comicskingdom_scraper_secure" not in module, (
+                    f"reauth_comicskingdom.py still imports from _secure: "
+                    f"line {node.lineno}"
+                )
+                # Positive check: it does import from _individual.
+                # At least one import should reference it.
+        assert any(
+            isinstance(n, ast.ImportFrom)
+            and "comicskingdom_scraper_individual" in (n.module or "")
+            for n in ast.walk(tree)
+        )
+
+    def test_exits_zero_on_login_success(self, monkeypatch, tmp_path):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "user")
+        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "pass")
+        monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
+
+        reauth = self._load_reauth_module()
+
+        driver = MagicMock()
+        with patch.object(reauth, "setup_driver", return_value=driver) as ms, \
+             patch.object(reauth, "login_with_manual_recaptcha", return_value=True) as ml:
+            result = reauth.main()
+
+        assert result == 0
+        # setup_driver must be invoked with use_profile=True
+        ms.assert_called_once()
+        _, kwargs = ms.call_args
+        assert kwargs.get("use_profile") is True
+        assert kwargs.get("show_browser") is True
+        # login helper was invoked with the credentials
+        ml.assert_called_once_with(driver, "user", "pass")
+
+    def test_exits_nonzero_on_login_fail(self, monkeypatch, tmp_path):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "user")
+        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "pass")
+        monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
+
+        reauth = self._load_reauth_module()
+
+        driver = MagicMock()
+        with patch.object(reauth, "setup_driver", return_value=driver), \
+             patch.object(reauth, "login_with_manual_recaptcha", return_value=False):
+            result = reauth.main()
+
+        assert result == 1
+
+    def test_does_not_write_pickle_file(self, monkeypatch, tmp_path, capsys):
+        # Even after a successful login, no pickle file should be produced --
+        # the profile carries the session, not a pkl.
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "user")
+        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "pass")
+        monkeypatch.setenv(
+            "COMICSKINGDOM_COOKIE_FILE", str(tmp_path / "unused.pkl")
+        )
+        monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
+
+        reauth = self._load_reauth_module()
+
+        driver = MagicMock()
+        with patch.object(reauth, "setup_driver", return_value=driver), \
+             patch.object(reauth, "login_with_manual_recaptcha", return_value=True):
+            reauth.main()
+
+        assert not (tmp_path / "unused.pkl").exists()

@@ -1,58 +1,61 @@
 #!/usr/bin/env python3
 """
 Re-authentication helper for Comics Kingdom.
-Run this script when cookies expire (every ~60 days).
+
+Seeds the persistent Chrome profile at ~/.comicskingdom_chrome_profile by
+opening a visible Chrome window, letting the operator solve reCAPTCHA and
+log in, and then closing the window so Chrome persists the session into
+the profile. Run this when the session expires (typically every ~60 days,
+or when the daily scrape reports "profile has no stored session").
 """
 
 import sys
-import os
 from pathlib import Path
 
-# Add parent directory to path to import comicskingdom_scraper_secure
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from comicskingdom_scraper_secure import (
+from scripts.comicskingdom_scraper_individual import (
     setup_driver,
     load_config_from_env,
-    authenticate_with_cookie_persistence
+    login_with_manual_recaptcha,
 )
 
 
+PROFILE_DIR = Path.home() / '.comicskingdom_chrome_profile'
+
+
 def main():
-    """Re-authenticate with Comics Kingdom and save new cookies."""
+    """Re-authenticate with Comics Kingdom by seeding the Chrome profile."""
     print("="*80)
     print("COMICS KINGDOM RE-AUTHENTICATION")
     print("="*80)
     print("\nThis script will:")
-    print("  1. Delete your old cookies")
-    print("  2. Open a browser window")
-    print("  3. Wait for you to solve reCAPTCHA and login")
-    print("  4. Save new cookies for ~60 days of automated use")
+    print("  1. Open a Chrome window using the persistent profile at")
+    print(f"     {PROFILE_DIR}")
+    print("  2. Wait for you to solve reCAPTCHA and log in")
+    print("  3. Close cleanly so Chrome persists the session")
+    print("\nAfter this completes, the daily scrape can authenticate without")
+    print("pickled cookies and without hitting the WAF slow-walk on startup.")
     print("\n" + "="*80 + "\n")
-    
+
     input("Press ENTER to continue...")
-    
-    # Load configuration
-    config = load_config_from_env()
-    
-    # Delete old cookies
-    if config['cookie_file'].exists():
-        config['cookie_file'].unlink()
-        print(f"🗑️  Deleted old cookies from {config['cookie_file']}")
-    
-    # Setup driver (with visible browser)
-    print("\n🌐 Opening browser...")
-    driver = setup_driver(show_browser=True)
-    
+
+    # Reauth is the one path where credentials are actually needed.
+    config = load_config_from_env(require_credentials=True)
+    username = config['credentials']['username']
+    password = config['credentials']['password']
+
+    print("\n🌐 Opening browser with persistent profile...")
+    driver = setup_driver(show_browser=True, use_profile=True)
+
     try:
-        # Authenticate (will force manual login)
-        if authenticate_with_cookie_persistence(driver, config):
+        if login_with_manual_recaptcha(driver, username, password):
             print("\n" + "="*80)
             print("✅ SUCCESS! Re-authentication complete")
             print("="*80)
-            print(f"\nNew cookies saved to: {config['cookie_file']}")
-            print("These cookies will be valid for ~60 days")
-            print("\nYou can now run the Comics Kingdom scraper normally.")
+            print(f"\nProfile seeded at: {PROFILE_DIR}")
+            print("The daily scrape will pick up this session on its next run.")
+            print("No pickled cookies were written.")
             print("="*80 + "\n")
             driver.quit()
             return 0
@@ -60,7 +63,7 @@ def main():
             print("\n❌ Re-authentication failed")
             driver.quit()
             return 1
-            
+
     except KeyboardInterrupt:
         print("\n\n⚠️  Interrupted by user")
         driver.quit()
