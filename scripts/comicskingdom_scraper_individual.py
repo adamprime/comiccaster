@@ -45,19 +45,33 @@ def get_required_env_var(name):
     return value
 
 
-def load_config_from_env():
-    """Load configuration from environment variables."""
+def load_config_from_env(require_credentials=True):
+    """Load configuration from environment variables.
+
+    When require_credentials is False, COMICSKINGDOM_USERNAME and
+    COMICSKINGDOM_PASSWORD may be unset (they land as None). Use
+    require_credentials=False on the daily-scrape path under profile-based
+    auth, where credentials are not needed. Use require_credentials=True
+    (default) for the reauth flow, which does need them.
+    """
+    if require_credentials:
+        username = get_required_env_var('COMICSKINGDOM_USERNAME')
+        password = get_required_env_var('COMICSKINGDOM_PASSWORD')
+    else:
+        username = os.environ.get('COMICSKINGDOM_USERNAME')
+        password = os.environ.get('COMICSKINGDOM_PASSWORD')
+
     config = {
         'credentials': {
-            'username': get_required_env_var('COMICSKINGDOM_USERNAME'),
-            'password': get_required_env_var('COMICSKINGDOM_PASSWORD'),
+            'username': username,
+            'password': password,
         },
         'cookie_file': Path(get_optional_env_var('COMICSKINGDOM_COOKIE_FILE', 'data/comicskingdom_cookies.pkl'))
     }
-    
+
     print(f"✅ Loaded configuration from environment")
     print(f"   Cookie file: {config['cookie_file']}")
-    
+
     return config
 
 
@@ -66,11 +80,29 @@ def get_optional_env_var(name, default):
     return os.environ.get(name, default)
 
 
-def setup_driver(show_browser=False):
-    """Setup Chrome driver."""
+def setup_driver(show_browser=False, use_profile=True):
+    """Setup Chrome driver.
+
+    Defaults to use_profile=True (Shape A). Chrome launches with --user-data-dir
+    pointing at ~/.comicskingdom_chrome_profile. The profile carries session
+    cookies so the first request to CK arrives authenticated -- this bypasses
+    the WAF slow-walk that was the root cause of the chronic renderer timeout
+    (see docs/solutions/logic-errors/comicskingdom-hang-diagnosis.md).
+
+    Pass use_profile=False to fall back to the legacy pickled-cookie flow
+    (kept for rollback; expected to be removed once Shape A proves out).
+    """
     options = Options()
     if not show_browser:
         options.add_argument('--headless=new')
+
+    if use_profile:
+        profile_dir = Path.home() / '.comicskingdom_chrome_profile'
+        profile_dir.mkdir(parents=True, exist_ok=True)
+        profile_dir.chmod(0o700)
+        options.add_argument(f'--user-data-dir={profile_dir}')
+        print(f"🔧 Using Chrome profile: {profile_dir}")
+
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1920,1080')
@@ -154,32 +186,142 @@ def is_authenticated(driver):
         return False
 
 
-def authenticate_with_cookies(driver, config):
-    """Authenticate using saved cookies."""
+def authenticate_with_cookies(driver, config, use_profile=False):
+    """Authenticate either via a persistent Chrome profile or pickled cookies.
+
+    When use_profile is True, Chrome is expected to have launched with
+    --user-data-dir pointing at ~/.comicskingdom_chrome_profile. The session
+    cookies are already in the browser, so we skip the pickled-cookie load
+    entirely and just verify authentication. This is the Shape A path; see
+    docs/solutions/logic-errors/comicskingdom-hang-diagnosis.md.
+
+    When use_profile is False, use the legacy pickled-cookie flow.
+    """
+    if use_profile:
+        profile_dir = Path.home() / '.comicskingdom_chrome_profile'
+        cookies_db = profile_dir / 'Default' / 'Cookies'
+
+        if is_authenticated(driver):
+            print("✅ Successfully authenticated with Chrome profile!")
+            return True
+
+        # Distinguish "profile never seeded" from "profile has a dead session".
+        # Chrome creates Default/Cookies on the first authenticated navigation,
+        # so its absence is a reliable signal that reauth has never run.
+        if not cookies_db.exists():
+            print(f"⚠️  Chrome profile at {profile_dir} has no stored session.")
+            print("   Run scripts/reauth_comicskingdom.py to seed it.")
+            return False
+
+        print("❌ Authentication failed - please run reauth script")
+        return False
+
     cookie_file = config['cookie_file']
-    
+
     # Check cookie age
     if cookie_file.exists():
         cookie_age_days = (datetime.now() - datetime.fromtimestamp(
             cookie_file.stat().st_mtime
         )).days
         print(f"📅 Cookie file is {cookie_age_days} days old")
-        
+
         if cookie_age_days > 60:
             print(f"⚠️  Cookies are old. Recommend re-authentication.")
-    
+
     # Try to load existing cookies
     if load_cookies(driver, cookie_file):
         print("🔍 Checking if cookies are still valid...")
-        
+
         if is_authenticated(driver):
             print("✅ Successfully authenticated with saved cookies!")
             return True
         else:
             print("⚠️  Saved cookies are expired or invalid")
-    
+
     print("❌ Authentication failed - please run reauth script")
     return False
+
+
+def login_with_manual_recaptcha(driver, username, password):
+    """Login to Comics Kingdom with manual reCAPTCHA solving."""
+    print("\n" + "="*80)
+    print("COMICS KINGDOM LOGIN")
+    print("="*80)
+    print("Navigating to login page...")
+
+    driver.get("https://comicskingdom.com/login")
+    time.sleep(5)
+
+    try:
+        # Find and fill username field
+        username_field = None
+        selectors = [
+            (By.NAME, "username"),
+            (By.ID, "username"),
+            (By.CSS_SELECTOR, "input[name='username']"),
+        ]
+
+        for selector_type, selector_value in selectors:
+            try:
+                username_field = WebDriverWait(driver, 5).until(
+                    EC.presence_of_element_located((selector_type, selector_value))
+                )
+                break
+            except:
+                continue
+
+        if not username_field:
+            print("❌ Could not find username field")
+            return False
+
+        # Find password field
+        password_field = driver.find_element(By.NAME, "password")
+
+        # Fill credentials using JavaScript to avoid click interception
+        print("Filling in credentials...")
+        driver.execute_script(f"arguments[0].value = '{username}';", username_field)
+        driver.execute_script("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", username_field)
+        driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", username_field)
+
+        driver.execute_script(f"arguments[0].value = '{password}';", password_field)
+        driver.execute_script("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", password_field)
+        driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", password_field)
+
+        print("✅ Credentials filled")
+
+        # Wait for manual reCAPTCHA solving
+        print("\n" + "="*80)
+        print("⏸️  PLEASE SOLVE THE reCAPTCHA AND CLICK LOGIN")
+        print("="*80)
+        print("Instructions:")
+        print("  1. Check the reCAPTCHA box in the browser window")
+        print("  2. Complete any image challenges if prompted")
+        print("  3. Click the 'Log in' button")
+        print("  4. Wait for the page to redirect")
+        print("\n⏳ Waiting for you to complete login...")
+        print("="*80 + "\n")
+
+        # Wait for navigation away from login page
+        for i in range(120):  # Wait up to 2 minutes
+            time.sleep(1)
+            current_url = driver.current_url
+
+            if 'login' not in current_url:
+                print(f"\n✅ Login successful! Redirected to: {current_url}")
+                time.sleep(3)  # Give page time to fully load
+                return True
+
+            if (i+1) % 15 == 0:
+                print(f"  ...still waiting ({i+1}/120 seconds)...")
+
+        print("\n❌ Timeout waiting for login")
+        return False
+
+    except Exception as e:
+        print(f"❌ Login failed: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
 
 
 def load_comics_catalog():
@@ -325,25 +467,35 @@ def main():
     parser.add_argument('--date', help='Date in YYYY-MM-DD format (defaults to today)')
     parser.add_argument('--output-dir', default='data', help='Output directory for JSON files')
     parser.add_argument('--show-browser', action='store_true', help='Show browser window')
-    
+    parser.add_argument(
+        '--no-profile',
+        action='store_false',
+        dest='use_profile',
+        default=True,
+        help='Disable the persistent Chrome profile and fall back to the '
+             'legacy pickled-cookie flow (for debugging / rollback only; '
+             'default is profile-based auth).',
+    )
+
     args = parser.parse_args()
-    
+
     date_str = args.date or datetime.now().strftime('%Y-%m-%d')
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    
-    # Load configuration
-    config = load_config_from_env()
-    
+
+    # Load configuration. Credentials are only required when seeding the
+    # profile (reauth). Daily scrape under --use-profile does not need them.
+    config = load_config_from_env(require_credentials=not args.use_profile)
+
     # Load comics catalog
     comics = load_comics_catalog()
-    
+
     # Setup Chrome
-    driver = setup_driver(show_browser=args.show_browser)
-    
+    driver = setup_driver(show_browser=args.show_browser, use_profile=args.use_profile)
+
     try:
         # Authenticate
-        if not authenticate_with_cookies(driver, config):
+        if not authenticate_with_cookies(driver, config, use_profile=args.use_profile):
             print("❌ Authentication failed")
             driver.quit()
             return 1

@@ -17,6 +17,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 import comicskingdom_scraper_individual as cki
 
@@ -102,8 +103,6 @@ class TestAuthenticateWithCookies:
         assert cki.authenticate_with_cookies(driver, config) is False
 
         captured = capsys.readouterr()
-        # This exact string is what Unit 3 will intentionally reshape.
-        # Locking it here so Unit 3's change is visible as a test diff.
         assert "Authentication failed - please run reauth script" in captured.out
 
     def test_returns_true_when_cookies_load_and_auth_succeeds(self, tmp_path):
@@ -118,6 +117,74 @@ class TestAuthenticateWithCookies:
         assert cki.authenticate_with_cookies(driver, config) is True
 
 
+class TestAuthenticateWithProfile:
+    """use_profile=True branch of authenticate_with_cookies."""
+
+    def test_returns_true_and_skips_load_cookies(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        # Populate the profile so "Default/Cookies" exists (authenticated state)
+        (tmp_path / ".comicskingdom_chrome_profile" / "Default").mkdir(parents=True)
+        (tmp_path / ".comicskingdom_chrome_profile" / "Default" / "Cookies").write_bytes(b"x")
+
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/favorites"
+
+        # Prove load_cookies is not called when use_profile=True
+        with patch.object(cki, "load_cookies") as mock_load:
+            result = cki.authenticate_with_cookies(driver, {}, use_profile=True)
+
+        assert result is True
+        mock_load.assert_not_called()
+
+    def test_empty_profile_emits_distinct_message(
+        self, tmp_path, monkeypatch, capsys
+    ):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        # Profile dir does not exist at all → treated as empty
+
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/login"
+
+        result = cki.authenticate_with_cookies(driver, {}, use_profile=True)
+        assert result is False
+
+        captured = capsys.readouterr()
+        assert "has no stored session" in captured.out
+        # Distinct from the legacy reauth message — critical for the
+        # empty-vs-expired distinction.
+        assert "Authentication failed - please run reauth script" not in captured.out
+
+    def test_populated_profile_but_auth_fails_uses_legacy_message(
+        self, tmp_path, monkeypatch, capsys
+    ):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        # Profile exists and has a Cookies file → treat as session-expired
+        (tmp_path / ".comicskingdom_chrome_profile" / "Default").mkdir(parents=True)
+        (tmp_path / ".comicskingdom_chrome_profile" / "Default" / "Cookies").write_bytes(b"x")
+
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/login"
+
+        result = cki.authenticate_with_cookies(driver, {}, use_profile=True)
+        assert result is False
+
+        captured = capsys.readouterr()
+        assert "Authentication failed - please run reauth script" in captured.out
+        assert "has no stored session" not in captured.out
+
+    def test_use_profile_false_preserves_legacy_behavior(self, tmp_path, capsys):
+        # Legacy flow when use_profile=False should be identical to pre-Unit-3.
+        cookie_file = tmp_path / "cookies.pkl"
+        with open(cookie_file, "wb") as f:
+            pickle.dump([{"name": "s", "value": "v", "domain": "comicskingdom.com"}], f)
+
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/favorites"
+
+        config = {"cookie_file": cookie_file}
+        assert cki.authenticate_with_cookies(driver, config, use_profile=False) is True
+
+
 # --- setup_driver -----------------------------------------------------------
 
 
@@ -125,7 +192,9 @@ class TestSetupDriver:
     def test_headless_when_show_browser_false(self):
         with patch.object(cki.webdriver, "Chrome") as chrome_cls:
             chrome_cls.return_value = MagicMock()
-            cki.setup_driver(show_browser=False)
+            # Pass use_profile=False so this test stays focused on the
+            # headless flag and doesn't touch the user's real $HOME.
+            cki.setup_driver(show_browser=False, use_profile=False)
 
             args, kwargs = chrome_cls.call_args
             options = kwargs["options"]
@@ -134,11 +203,164 @@ class TestSetupDriver:
     def test_not_headless_when_show_browser_true(self):
         with patch.object(cki.webdriver, "Chrome") as chrome_cls:
             chrome_cls.return_value = MagicMock()
-            cki.setup_driver(show_browser=True)
+            cki.setup_driver(show_browser=True, use_profile=False)
 
             args, kwargs = chrome_cls.call_args
             options = kwargs["options"]
             assert "--headless=new" not in options.arguments
+
+    def test_default_use_profile_is_true(self, tmp_path, monkeypatch):
+        """Shape A cutover: use_profile is True by default."""
+        monkeypatch.setenv("HOME", str(tmp_path))
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver()
+
+            args, kwargs = chrome_cls.call_args
+            options = kwargs["options"]
+            assert any(a.startswith("--user-data-dir=") for a in options.arguments)
+
+    def test_no_profile_flag_when_use_profile_false(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=False)
+
+            args, kwargs = chrome_cls.call_args
+            options = kwargs["options"]
+            assert not any(a.startswith("--user-data-dir=") for a in options.arguments)
+
+    def test_profile_flag_added_when_use_profile_true(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=True)
+
+            args, kwargs = chrome_cls.call_args
+            options = kwargs["options"]
+            expected = f"--user-data-dir={tmp_path / '.comicskingdom_chrome_profile'}"
+            assert expected in options.arguments
+
+    def test_profile_directory_created_when_missing(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        profile_dir = tmp_path / ".comicskingdom_chrome_profile"
+        assert not profile_dir.exists()
+
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=True)
+
+        assert profile_dir.is_dir()
+
+    def test_profile_directory_contents_preserved_when_exists(
+        self, tmp_path, monkeypatch
+    ):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        profile_dir = tmp_path / ".comicskingdom_chrome_profile"
+        profile_dir.mkdir()
+        # Simulate an existing Chrome profile artifact
+        existing_cookies = profile_dir / "Default" / "Cookies"
+        existing_cookies.parent.mkdir(parents=True)
+        existing_cookies.write_bytes(b"pretend-sqlite-content")
+
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=True)
+
+        assert existing_cookies.read_bytes() == b"pretend-sqlite-content"
+
+    def test_profile_directory_mode_is_0o700(self, tmp_path, monkeypatch):
+        import stat
+
+        monkeypatch.setenv("HOME", str(tmp_path))
+        profile_dir = tmp_path / ".comicskingdom_chrome_profile"
+        # Pre-create with a more permissive mode to prove setup_driver tightens it.
+        profile_dir.mkdir(mode=0o755)
+
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(use_profile=True)
+
+        assert stat.S_IMODE(profile_dir.stat().st_mode) == 0o700
+
+    def test_profile_and_show_browser_coexist(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        with patch.object(cki.webdriver, "Chrome") as chrome_cls:
+            chrome_cls.return_value = MagicMock()
+            cki.setup_driver(show_browser=True, use_profile=True)
+
+            args, kwargs = chrome_cls.call_args
+            options = kwargs["options"]
+            expected = f"--user-data-dir={tmp_path / '.comicskingdom_chrome_profile'}"
+            assert expected in options.arguments
+            assert "--headless=new" not in options.arguments
+
+
+# --- login_with_manual_recaptcha --------------------------------------------
+
+
+class TestLoginWithManualRecaptcha:
+    """Characterization tests for the port from _secure.
+
+    Locks the signature and observable behavior so future edits to either copy
+    (_individual's or _secure's) surface as a test diff.
+    """
+
+    def test_function_exists_on_individual(self):
+        assert callable(cki.login_with_manual_recaptcha)
+
+    def test_signature_matches_secure(self):
+        # Ensure both copies take (driver, username, password).
+        import comicskingdom_scraper_secure as cks
+
+        assert cki.login_with_manual_recaptcha.__code__.co_argcount == 3
+        assert cks.login_with_manual_recaptcha.__code__.co_argcount == 3
+        assert (
+            cki.login_with_manual_recaptcha.__code__.co_varnames[:3]
+            == cks.login_with_manual_recaptcha.__code__.co_varnames[:3]
+        )
+
+    def test_returns_true_when_redirect_away_from_login(self, monkeypatch):
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/account"
+
+        # Speed up the 120-iteration wait loop
+        monkeypatch.setattr(cki.time, "sleep", lambda *_a, **_kw: None)
+
+        mock_wdw = MagicMock()
+        mock_wdw.return_value.until.return_value = MagicMock()
+        monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
+
+        result = cki.login_with_manual_recaptcha(driver, "u", "p")
+        assert result is True
+        # Credentials were filled via execute_script
+        assert driver.execute_script.called
+
+    def test_returns_false_on_timeout(self, monkeypatch):
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/login?step=captcha"
+
+        monkeypatch.setattr(cki.time, "sleep", lambda *_a, **_kw: None)
+
+        mock_wdw = MagicMock()
+        mock_wdw.return_value.until.return_value = MagicMock()
+        monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
+
+        result = cki.login_with_manual_recaptcha(driver, "u", "p")
+        assert result is False
+
+    def test_returns_false_when_no_username_field(self, monkeypatch):
+        driver = MagicMock()
+
+        monkeypatch.setattr(cki.time, "sleep", lambda *_a, **_kw: None)
+
+        # All three selector attempts raise (no username field findable)
+        mock_wdw = MagicMock()
+        mock_wdw.return_value.until.side_effect = Exception("not found")
+        monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
+
+        result = cki.login_with_manual_recaptcha(driver, "u", "p")
+        assert result is False
 
 
 # --- load_config_from_env ---------------------------------------------------
@@ -156,3 +378,121 @@ class TestLoadConfigFromEnv:
         captured = capsys.readouterr()
         assert "test-user-do-not-log" not in captured.out
         assert "test-pass-do-not-log" not in captured.out
+
+    def test_require_credentials_false_accepts_missing_env_vars(
+        self, monkeypatch
+    ):
+        # Under profile-based auth, credentials aren't needed for daily scrape.
+        monkeypatch.delenv("COMICSKINGDOM_USERNAME", raising=False)
+        monkeypatch.delenv("COMICSKINGDOM_PASSWORD", raising=False)
+
+        config = cki.load_config_from_env(require_credentials=False)
+        assert config["credentials"]["username"] is None
+        assert config["credentials"]["password"] is None
+
+    def test_require_credentials_true_still_exits_when_missing(
+        self, monkeypatch
+    ):
+        # Reauth path keeps the hard requirement.
+        monkeypatch.delenv("COMICSKINGDOM_USERNAME", raising=False)
+        monkeypatch.delenv("COMICSKINGDOM_PASSWORD", raising=False)
+
+        with pytest.raises(SystemExit):
+            cki.load_config_from_env(require_credentials=True)
+
+
+# --- reauth_comicskingdom.py -------------------------------------------------
+
+
+class TestReauthScript:
+    """Unit 4 — reauth rewrite imports from _individual, seeds the profile."""
+
+    def _load_reauth_module(self):
+        """Fresh import of the reauth script for a test.
+
+        Using importlib so each test gets a clean module state and
+        patch.object works cleanly on the reauth-local names.
+        """
+        import importlib
+        import scripts.reauth_comicskingdom as reauth
+        importlib.reload(reauth)
+        return reauth
+
+    def test_imports_from_individual_not_secure(self):
+        """AST-level: the reauth script must not import from _secure."""
+        import ast
+        repo_root = Path(__file__).parent.parent
+        source = (repo_root / "scripts" / "reauth_comicskingdom.py").read_text()
+        tree = ast.parse(source)
+
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ImportFrom):
+                module = node.module or ""
+                assert "comicskingdom_scraper_secure" not in module, (
+                    f"reauth_comicskingdom.py still imports from _secure: "
+                    f"line {node.lineno}"
+                )
+                # Positive check: it does import from _individual.
+                # At least one import should reference it.
+        assert any(
+            isinstance(n, ast.ImportFrom)
+            and "comicskingdom_scraper_individual" in (n.module or "")
+            for n in ast.walk(tree)
+        )
+
+    def test_exits_zero_on_login_success(self, monkeypatch, tmp_path):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "user")
+        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "pass")
+        monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
+
+        reauth = self._load_reauth_module()
+
+        driver = MagicMock()
+        with patch.object(reauth, "setup_driver", return_value=driver) as ms, \
+             patch.object(reauth, "login_with_manual_recaptcha", return_value=True) as ml:
+            result = reauth.main()
+
+        assert result == 0
+        # setup_driver must be invoked with use_profile=True
+        ms.assert_called_once()
+        _, kwargs = ms.call_args
+        assert kwargs.get("use_profile") is True
+        assert kwargs.get("show_browser") is True
+        # login helper was invoked with the credentials
+        ml.assert_called_once_with(driver, "user", "pass")
+
+    def test_exits_nonzero_on_login_fail(self, monkeypatch, tmp_path):
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "user")
+        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "pass")
+        monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
+
+        reauth = self._load_reauth_module()
+
+        driver = MagicMock()
+        with patch.object(reauth, "setup_driver", return_value=driver), \
+             patch.object(reauth, "login_with_manual_recaptcha", return_value=False):
+            result = reauth.main()
+
+        assert result == 1
+
+    def test_does_not_write_pickle_file(self, monkeypatch, tmp_path, capsys):
+        # Even after a successful login, no pickle file should be produced --
+        # the profile carries the session, not a pkl.
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "user")
+        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "pass")
+        monkeypatch.setenv(
+            "COMICSKINGDOM_COOKIE_FILE", str(tmp_path / "unused.pkl")
+        )
+        monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
+
+        reauth = self._load_reauth_module()
+
+        driver = MagicMock()
+        with patch.object(reauth, "setup_driver", return_value=driver), \
+             patch.object(reauth, "login_with_manual_recaptcha", return_value=True):
+            reauth.main()
+
+        assert not (tmp_path / "unused.pkl").exists()
