@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-04-19",
+  "scraped_at": "2026-04-19T08:18:53.301744+00:00",
+  "comics": [
+    {
+      "id": "22107",
+      "date": "2026-04-19",
+      "url": "https://www.thefarside.com/2026/04/19/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffec04090d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fec04090d8ba0137c959005056a9545d",
+      "caption": "\u201cWell, heaven knows what it is or where it came from\u2014just get rid of it! But save that cheese first.\u201d",
+      "title": "\u201cWell, heaven knows what it is or where it came from\u2014just..."
+    },
+    {
+      "id": "22108",
+      "date": "2026-04-19",
+      "url": "https://www.thefarside.com/2026/04/19/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffdc3b6b0d1a40137c690005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fdc3b6b0d1a40137c690005056a9545d",
+      "caption": "How Mr. Ed was made to talk",
+      "title": "How Mr"
+    }
+  ]
+}
