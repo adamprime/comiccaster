@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-04-20",
+  "scraped_at": "2026-04-20T08:19:02.560768+00:00",
+  "comics": [
+    {
+      "id": "22109",
+      "date": "2026-04-20",
+      "url": "https://www.thefarside.com/2026/04/20/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc3f8e300e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c3f8e300e92e0137cf47005056a9545d",
+      "caption": "The writers for Bewitched sit down for their weekly brainstorming session",
+      "title": "The writers for Bewitched sit down for their weekly brain..."
+    },
+    {
+      "id": "22110",
+      "date": "2026-04-20",
+      "url": "https://www.thefarside.com/2026/04/20/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2ba2fd80027f0138d7ba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2ba2fd80027f0138d7ba005056a9545d",
+      "caption": "\u201cDear Henry: Where were you? We waited and waited but finally decided that \u2026\u201d",
+      "title": "\u201cDear Henry: Where were you? We waited and waited but fin..."
+    },
+    {
+      "id": "22111",
+      "date": "2026-04-20",
+      "url": "https://www.thefarside.com/2026/04/20/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1788b8f0d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1788b8f0d0f70137c652005056a9545d",
+      "caption": "Seconds before his ax fell, Farmer Dale suddenly noticed the chicken\u2019s tattoo\u2014the tattoo that marked them both as brothers of an ancient Tibetan order sworn to loyalty and mutual aid.",
+      "title": "Seconds before his ax fell, Farmer Dale suddenly noticed ..."
+    },
+    {
+      "id": "22112",
+      "date": "2026-04-20",
+      "url": "https://www.thefarside.com/2026/04/20/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe5bebe40d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e5bebe40d8ba0137c959005056a9545d",
+      "caption": "\u201cAnd here he is\u2014but when I started, I bet he was at least this tall.\u201d",
+      "title": "\u201cAnd here he is\u2014but when I started, I bet he was at least..."
+    },
+    {
+      "id": "22113",
+      "date": "2026-04-20",
+      "url": "https://www.thefarside.com/2026/04/20/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fce48cde0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ce48cde0cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22113"
+    }
+  ]
+}
