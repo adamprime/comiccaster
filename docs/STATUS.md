@@ -1,15 +1,15 @@
 # Project Status
-<!-- Updated: 2026-04-18 by Adam -->
+<!-- Updated: 2026-04-20 by Adam -->
 
 ## Project Overview
 ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, and Creators Syndicate into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation; Netlify serves the static site and feed files.
 
 ## Current State
-Stable, with Shape A live on `main`. Today's reliability pass diagnosed the chronic CK renderer-timeout failure as a WAF slow-walk on `driver.get("https://comicskingdom.com")` (the navigation that precedes cookie injection), and replaced the pickled-cookie flow with a persistent Chrome profile at `~/.comicskingdom_chrome_profile`. End-to-end validation at 16:12 confirmed the fix: Chrome startup + auth check went from ~23–33s (with frequent timeouts) to ~5s, with the `load_cookies: driver.get(...)` code path never invoked under profile mode. Tonight's 3 AM LaunchD run is the final unattended validation.
+Stable. Shape A (CK profile-based auth) has two clean unattended overnight runs behind it (2026-04-19, 2026-04-20). Today's session was opportunistic `functions/` housekeeping (orphaned `uuid` dep + untracked `functions/node_modules/`) plus a CK reauth cleanup: deleted the JS-injected credential fill from `login_with_manual_recaptcha` after confirming it's always rejected by CK's bot check, and rewrote the login prompts to match the real manual-type-and-click flow.
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-04-18
-**Last Session Summary:** Troubleshot this morning's CK failure → diagnosed + fixed the chronic renderer-timeout root cause → cleared three Known Issues items along the way. Shipped four PRs: #114 (instrumentation + smoke tests), #115 (diagnosis findings + `_secure` instrumentation), #116 (unrelated testenv cleanup: bin gitignore, webdriver-manager dep, two test side-effect writes), #117 (Shape A profile-based auth migration, 5 units). Reauth ran successfully post-merge; validation scrape succeeded on first profile-mode run.
+**Last Session:** 2026-04-20
+**Last Session Summary:** Reviewed Dependabot #119 (uuid 13→14); discovered the dep was orphaned since commit `6fe3dd1ec` removed `functions/generate-token.js`. Shipped three changes: `3fe2a54fa` (removed uuid dep, closed #119), PR #120 / `727a7b177` (untracked 41 files in `functions/node_modules/`, −10,566 lines, verified via deploy preview + prod smoke test), and the CK reauth JS-fill removal (deleted dead `execute_script` credential fill + rewrote prompts in `_individual.login_with_manual_recaptcha` and `reauth_comicskingdom.py`). 276 tests passing.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -39,13 +39,11 @@ Stable, with Shape A live on `main`. Today's reliability pass diagnosed the chro
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
 
-1. **Confirm tonight's overnight run.** Grep `logs/master_update.log` tomorrow morning for `load_cookies: driver.get(comicskingdom.com)` — markers should be absent, confirming the production path uses the profile.
-2. **Delete `scripts/comicskingdom_scraper_secure.py`** — after a week of clean overnight runs (target: 2026-04-25). Prereq: migrate `scripts/diagnose_ck_page.py` off `_secure` or retire it.
-3. **Remove `data/comicskingdom_cookies.pkl` from the repo** — dead data under Shape A. Same week-of-stable-runs gate as `_secure` deletion.
-4. **Reauth-script prompt polish.** Current instructions ("Check the reCAPTCHA box in the browser window") don't match reality — CK's CAPTCHA is invisible, and JS-injected credentials get rejected by their bot check. Operator has to manually re-type or paste credentials before clicking Login. Update `scripts/reauth_comicskingdom.py` prompts accordingly.
-5. **`chmod 700` on `~/.tinyview_chrome_profile`** — same security fix that Shape A applied to CK's profile. Pre-existing issue with TinyView's `setup_driver`.
-6. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
-7. **Investigate issue #91** (GoComics strips don't save to read-later platforms).
+1. **Delete `scripts/comicskingdom_scraper_secure.py`** — after a week of clean overnight runs (target: 2026-04-25). Prereq: migrate `scripts/diagnose_ck_page.py` off `_secure` or retire it. When this lands, also rename `_individual.login_with_manual_recaptcha` → something like `wait_for_manual_login` (the reCAPTCHA framing is a leftover from `_secure` and misleading now that the JS fill is gone).
+2. **Remove `data/comicskingdom_cookies.pkl` from the repo** — dead data under Shape A. Same week-of-stable-runs gate as `_secure` deletion.
+3. **`chmod 700` on `~/.tinyview_chrome_profile`** — same security fix that Shape A applied to CK's profile. Pre-existing issue with TinyView's `setup_driver`.
+4. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
+5. **Investigate issue #91** (GoComics strips don't save to read-later platforms).
 
 ## Open Decisions
 <!-- Architectural or product decisions that haven't been made yet. -->
@@ -95,6 +93,22 @@ Between Phase 2 and Phase 3, an invariant guard checks that every successful scr
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-04-20
+- **Goal:** Review Dependabot PR #119 (uuid 13→14 in `functions/`); see if there's anything else worth cleaning up while in there.
+- **Accomplished:**
+  - Diagnosed #119: the `uuid` dep was orphaned — added for `functions/generate-token.js`, which was removed in commit `6fe3dd1ec` ("Replace token-based OPML generation with direct OPML generation without tokens"). No current JS file imports it.
+  - Shipped `3fe2a54fa` direct-to-main: removed the dep entirely via `npm uninstall uuid`. Smoke-tested locally via `netlify dev` (generate-opml 200 + valid OPML, fetch-feed 405 method guard). Closed #119 with reference to the cleanup commit.
+  - Noticed 41 additional files in `functions/node_modules/` tracked in git, grandfathered before the root `.gitignore` `node_modules/` rule. Confirmed no other grandfathered `node_modules/` directories in the repo.
+  - Shipped PR #120 (`chore/untrack-functions-node_modules` → `727a7b177` squash-merge): `git rm -r --cached functions/node_modules`, −10,566 lines. Deploy preview verified Netlify installs from `functions/package-lock.json` at build time via `node_bundler = "esbuild"`. Post-merge prod smoke-tested green on `comiccaster.xyz`.
+  - Removed the dead JS-fill block from `_individual.login_with_manual_recaptcha` (3× `execute_script` pairs that were always rejected by CK's bot check, forcing the operator to clear + retype every reauth). Dropped `username`/`password` params since they were theater. Rewrote the login banner to describe the real manual-type-and-click flow (no reCAPTCHA checkbox, invisible reCAPTCHA v3). Simplified `reauth_comicskingdom.py`: dropped `load_config_from_env` import + credential loading, updated intro blurb. Updated tests: deleted `test_signature_matches_secure` (drift from `_secure` is intentional; `_secure` dies 2026-04-25), updated three direct-call tests, added `test_does_not_inject_credentials_via_js`, updated reauth-main assertion, cleaned up now-unused setenv calls.
+- **Validation:**
+  - #120 deploy preview: generate-opml 200, fetch-feed 405.
+  - Post-merge prod: generate-opml 200, fetch-feed 405.
+  - Python test suite green on all 3 versions (3.10/3.11/3.12) for #120.
+  - Local full suite: 276 tests passing after the JS-fill removal.
+- **Didn't finish:** Real-world validation of the new reauth prompts happens Monday (next CK session expiry) on the prod host.
+- **Discovered:** Netlify's `esbuild` bundler does install from `functions/package-lock.json` at deploy time — the 2023-era committed `node_modules/` was dead weight, not load-bearing.
 
 ### 2026-04-18
 - **Goal:** Diagnose and fix the Comics Kingdom scraper's chronic ~weekly renderer timeout. Move from "reauth as a reflex" to a structural fix.

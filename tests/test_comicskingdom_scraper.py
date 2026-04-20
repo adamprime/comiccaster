@@ -300,25 +300,15 @@ class TestSetupDriver:
 
 
 class TestLoginWithManualRecaptcha:
-    """Characterization tests for the port from _secure.
+    """Behavior tests for the manual-login helper.
 
-    Locks the signature and observable behavior so future edits to either copy
-    (_individual's or _secure's) surface as a test diff.
+    CK's bot check rejects JS-injected credential fills, so this function
+    only confirms the login form is present and waits for the operator to
+    complete login in a visible browser; it does not type or submit.
     """
 
     def test_function_exists_on_individual(self):
         assert callable(cki.login_with_manual_recaptcha)
-
-    def test_signature_matches_secure(self):
-        # Ensure both copies take (driver, username, password).
-        import comicskingdom_scraper_secure as cks
-
-        assert cki.login_with_manual_recaptcha.__code__.co_argcount == 3
-        assert cks.login_with_manual_recaptcha.__code__.co_argcount == 3
-        assert (
-            cki.login_with_manual_recaptcha.__code__.co_varnames[:3]
-            == cks.login_with_manual_recaptcha.__code__.co_varnames[:3]
-        )
 
     def test_returns_true_when_redirect_away_from_login(self, monkeypatch):
         driver = MagicMock()
@@ -331,10 +321,8 @@ class TestLoginWithManualRecaptcha:
         mock_wdw.return_value.until.return_value = MagicMock()
         monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
 
-        result = cki.login_with_manual_recaptcha(driver, "u", "p")
+        result = cki.login_with_manual_recaptcha(driver)
         assert result is True
-        # Credentials were filled via execute_script
-        assert driver.execute_script.called
 
     def test_returns_false_on_timeout(self, monkeypatch):
         driver = MagicMock()
@@ -346,7 +334,7 @@ class TestLoginWithManualRecaptcha:
         mock_wdw.return_value.until.return_value = MagicMock()
         monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
 
-        result = cki.login_with_manual_recaptcha(driver, "u", "p")
+        result = cki.login_with_manual_recaptcha(driver)
         assert result is False
 
     def test_returns_false_when_no_username_field(self, monkeypatch):
@@ -359,8 +347,22 @@ class TestLoginWithManualRecaptcha:
         mock_wdw.return_value.until.side_effect = Exception("not found")
         monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
 
-        result = cki.login_with_manual_recaptcha(driver, "u", "p")
+        result = cki.login_with_manual_recaptcha(driver)
         assert result is False
+
+    def test_does_not_inject_credentials_via_js(self, monkeypatch):
+        """CK's bot check rejects JS-injected fills — the function must not attempt them."""
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/account"
+
+        monkeypatch.setattr(cki.time, "sleep", lambda *_a, **_kw: None)
+
+        mock_wdw = MagicMock()
+        mock_wdw.return_value.until.return_value = MagicMock()
+        monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
+
+        cki.login_with_manual_recaptcha(driver)
+        assert not driver.execute_script.called
 
 
 # --- load_config_from_env ---------------------------------------------------
@@ -442,8 +444,6 @@ class TestReauthScript:
 
     def test_exits_zero_on_login_success(self, monkeypatch, tmp_path):
         monkeypatch.setenv("HOME", str(tmp_path))
-        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "user")
-        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "pass")
         monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
 
         reauth = self._load_reauth_module()
@@ -459,13 +459,11 @@ class TestReauthScript:
         _, kwargs = ms.call_args
         assert kwargs.get("use_profile") is True
         assert kwargs.get("show_browser") is True
-        # login helper was invoked with the credentials
-        ml.assert_called_once_with(driver, "user", "pass")
+        # login helper was invoked with only the driver (no JS-filled creds)
+        ml.assert_called_once_with(driver)
 
     def test_exits_nonzero_on_login_fail(self, monkeypatch, tmp_path):
         monkeypatch.setenv("HOME", str(tmp_path))
-        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "user")
-        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "pass")
         monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
 
         reauth = self._load_reauth_module()
@@ -481,8 +479,6 @@ class TestReauthScript:
         # Even after a successful login, no pickle file should be produced --
         # the profile carries the session, not a pkl.
         monkeypatch.setenv("HOME", str(tmp_path))
-        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "user")
-        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "pass")
         monkeypatch.setenv(
             "COMICSKINGDOM_COOKIE_FILE", str(tmp_path / "unused.pkl")
         )

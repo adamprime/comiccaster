@@ -242,8 +242,14 @@ def authenticate_with_cookies(driver, config, use_profile=False):
     return False
 
 
-def login_with_manual_recaptcha(driver, username, password):
-    """Login to Comics Kingdom with manual reCAPTCHA solving."""
+def login_with_manual_recaptcha(driver):
+    """Wait for the operator to log in manually in a visible browser window.
+
+    Comics Kingdom uses an invisible reCAPTCHA v3 and a bot check that rejects
+    JS-injected credential fills, so the operator types credentials directly
+    into the page. This function opens the login page, confirms the form is
+    present, then polls for redirect away from /login.
+    """
     print("\n" + "="*80)
     print("COMICS KINGDOM LOGIN")
     print("="*80)
@@ -253,7 +259,7 @@ def login_with_manual_recaptcha(driver, username, password):
     time.sleep(5)
 
     try:
-        # Find and fill username field
+        # Confirm the login form is present before handing off to the operator
         username_field = None
         selectors = [
             (By.NAME, "username"),
@@ -274,30 +280,18 @@ def login_with_manual_recaptcha(driver, username, password):
             print("❌ Could not find username field")
             return False
 
-        # Find password field
-        password_field = driver.find_element(By.NAME, "password")
-
-        # Fill credentials using JavaScript to avoid click interception
-        print("Filling in credentials...")
-        driver.execute_script(f"arguments[0].value = '{username}';", username_field)
-        driver.execute_script("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", username_field)
-        driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", username_field)
-
-        driver.execute_script(f"arguments[0].value = '{password}';", password_field)
-        driver.execute_script("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", password_field)
-        driver.execute_script("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", password_field)
-
-        print("✅ Credentials filled")
-
-        # Wait for manual reCAPTCHA solving
         print("\n" + "="*80)
-        print("⏸️  PLEASE SOLVE THE reCAPTCHA AND CLICK LOGIN")
+        print("⏸️  PLEASE LOG IN MANUALLY IN THE BROWSER WINDOW")
         print("="*80)
         print("Instructions:")
-        print("  1. Check the reCAPTCHA box in the browser window")
-        print("  2. Complete any image challenges if prompted")
-        print("  3. Click the 'Log in' button")
-        print("  4. Wait for the page to redirect")
+        print("  1. Click into the Username field and type (or paste) your username.")
+        print("  2. Click into the Password field and type (or paste) your password.")
+        print("  3. Click the 'Log in' button.")
+        print("  4. If an image challenge appears, complete it.")
+        print("  5. Wait for the page to redirect away from /login.")
+        print("\nNote: CK uses an invisible reCAPTCHA — there is no checkbox to tick.")
+        print("JS-injected credential fills are rejected by their bot check, which")
+        print("is why you have to type or paste directly.")
         print("\n⏳ Waiting for you to complete login...")
         print("="*80 + "\n")
 

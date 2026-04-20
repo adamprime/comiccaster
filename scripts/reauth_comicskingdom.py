@@ -3,7 +3,7 @@
 Re-authentication helper for Comics Kingdom.
 
 Seeds the persistent Chrome profile at ~/.comicskingdom_chrome_profile by
-opening a visible Chrome window, letting the operator solve reCAPTCHA and
+opening a visible Chrome window, letting the operator type credentials and
 log in, and then closing the window so Chrome persists the session into
 the profile. Run this when the session expires (typically every ~60 days,
 or when the daily scrape reports "profile has no stored session").
@@ -16,7 +16,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from scripts.comicskingdom_scraper_individual import (
     setup_driver,
-    load_config_from_env,
     login_with_manual_recaptcha,
 )
 
@@ -32,24 +31,22 @@ def main():
     print("\nThis script will:")
     print("  1. Open a Chrome window using the persistent profile at")
     print(f"     {PROFILE_DIR}")
-    print("  2. Wait for you to solve reCAPTCHA and log in")
+    print("  2. Navigate to the CK login page and wait for you to type")
+    print("     credentials and click Log in")
     print("  3. Close cleanly so Chrome persists the session")
+    print("\nCredentials are NOT read from .env — you type them directly into")
+    print("the browser because CK's bot check rejects JS-injected fills.")
     print("\nAfter this completes, the daily scrape can authenticate without")
     print("pickled cookies and without hitting the WAF slow-walk on startup.")
     print("\n" + "="*80 + "\n")
 
     input("Press ENTER to continue...")
 
-    # Reauth is the one path where credentials are actually needed.
-    config = load_config_from_env(require_credentials=True)
-    username = config['credentials']['username']
-    password = config['credentials']['password']
-
     print("\n🌐 Opening browser with persistent profile...")
     driver = setup_driver(show_browser=True, use_profile=True)
 
     try:
-        if login_with_manual_recaptcha(driver, username, password):
+        if login_with_manual_recaptcha(driver):
             print("\n" + "="*80)
             print("✅ SUCCESS! Re-authentication complete")
             print("="*80)
