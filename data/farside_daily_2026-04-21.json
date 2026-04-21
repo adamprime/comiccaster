@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-04-21",
+  "scraped_at": "2026-04-21T08:20:37.813421+00:00",
+  "comics": [
+    {
+      "id": "22114",
+      "date": "2026-04-21",
+      "url": "https://www.thefarside.com/2026/04/21/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0614e9b0e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0614e9b0e92f0137cf47005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22114"
+    },
+    {
+      "id": "22115",
+      "date": "2026-04-21",
+      "url": "https://www.thefarside.com/2026/04/21/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5018ece0cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5018ece0cdd60137c56b005056a9545d",
+      "caption": "\u201cExcuse our excitement, Mr. Farnsworth, but your cries for help have afforded science a rare opportunity.\u201d",
+      "title": "\u201cExcuse our excitement, Mr"
+    },
+    {
+      "id": "22116",
+      "date": "2026-04-21",
+      "url": "https://www.thefarside.com/2026/04/21/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcfecce70d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cfecce70d8ba0137c959005056a9545d",
+      "caption": "Animal nerds",
+      "title": "Animal nerds"
+    },
+    {
+      "id": "22117",
+      "date": "2026-04-21",
+      "url": "https://www.thefarside.com/2026/04/21/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3b64e840ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3b64e840ea250137cfba005056a9545d",
+      "caption": "\u201cOh, man, Clem! To add insult to injury, I see a great campsite right over yonder.\u201d",
+      "title": "\u201cOh, man, Clem! To add insult to injury, I see a great ca..."
+    },
+    {
+      "id": "22118",
+      "date": "2026-04-21",
+      "url": "https://www.thefarside.com/2026/04/21/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa1a4d4f0e4780137cd9d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a1a4d4f0e4780137cd9d005056a9545d",
+      "caption": "The Bluebird of Happiness long absent from his life, Ned is visited by the Chicken of Depression.",
+      "title": "The Bluebird of Happiness long absent from his life, Ned ..."
+    }
+  ]
+}
