@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-04-22",
+  "scraped_at": "2026-04-22T08:20:13.726190+00:00",
+  "comics": [
+    {
+      "id": "22119",
+      "date": "2026-04-22",
+      "url": "https://www.thefarside.com/2026/04/22/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F60c9b9b0e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/60c9b9b0e6f80137ce50005056a9545d",
+      "caption": "Editor's note: This is a special cartoon Gary drew for Earth Day 1990, as part of a project in which many cartoonists participated to bring more awareness to the state of the environment.",
+      "title": "Editor's note: This is a special cartoon Gary drew for Ea..."
+    },
+    {
+      "id": "22120",
+      "date": "2026-04-22",
+      "url": "https://www.thefarside.com/2026/04/22/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fff9c2a70d7400137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ff9c2a70d7400137c8a6005056a9545d",
+      "caption": "\u201cAnd, if you squint your eyes just right, you can see the zork in the Earth.\u201d",
+      "title": "\u201cAnd, if you squint your eyes just right, you can see the..."
+    },
+    {
+      "id": "22121",
+      "date": "2026-04-22",
+      "url": "https://www.thefarside.com/2026/04/22/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc82f7560e92d0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c82f7560e92d0137cf47005056a9545d",
+      "caption": "Environmental disasters in a flea\u2019s world",
+      "title": "Environmental disasters in a flea\u2019s world"
+    },
+    {
+      "id": "22122",
+      "date": "2026-04-22",
+      "url": "https://www.thefarside.com/2026/04/22/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5173be60d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5173be60d8ba0137c959005056a9545d",
+      "caption": "At night, the forest custodians would arrive\u2014sometimes stopping work to laugh and gossip about the habits of certain daytime animals.",
+      "title": "At night, the forest custodians would arrive\u2014sometimes st..."
+    },
+    {
+      "id": "22123",
+      "date": "2026-04-22",
+      "url": "https://www.thefarside.com/2026/04/22/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F02148e40b5440137bc07005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/02148e40b5440137bc07005056a9545d",
+      "caption": "Sixty-five million years ago, when cows ruled the Earth",
+      "title": "Sixty-five million years ago, when cows ruled the Earth"
+    }
+  ]
+}
