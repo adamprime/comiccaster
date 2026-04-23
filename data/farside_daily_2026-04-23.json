@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-04-23",
+  "scraped_at": "2026-04-23T08:20:08.815270+00:00",
+  "comics": [
+    {
+      "id": "22124",
+      "date": "2026-04-23",
+      "url": "https://www.thefarside.com/2026/04/23/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3727d930d7420137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3727d930d7420137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22124"
+    },
+    {
+      "id": "22125",
+      "date": "2026-04-23",
+      "url": "https://www.thefarside.com/2026/04/23/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F729be9e0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/729be9e0cdd50137c56b005056a9545d",
+      "caption": "\u201cC\u2019mon! Look at these fangs! Look at these claws! You think we\u2019re supposed to eat just honey and berries?\u201d",
+      "title": "\u201cC\u2019mon! Look at these fangs! Look at these claws! You thi..."
+    },
+    {
+      "id": "22126",
+      "date": "2026-04-23",
+      "url": "https://www.thefarside.com/2026/04/23/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff5651ef0e3ad0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f5651ef0e3ad0137cd49005056a9545d",
+      "caption": "\u201cYou recognize this, Mr. Grok? \u2026 We found it in the bushes near the victim\u2019s cave. Isn\u2019t this your atlatl, Mr. Grok?\u201d",
+      "title": "\u201cYou recognize this, Mr"
+    },
+    {
+      "id": "22127",
+      "date": "2026-04-23",
+      "url": "https://www.thefarside.com/2026/04/23/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb3a186f0d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b3a186f0d7410137c8a6005056a9545d",
+      "caption": "\u201cLook out, Larry! \u2026 That retriever has finally found you!\u201d",
+      "title": "\u201cLook out, Larry! \u2026 That retriever has finally found you!\u201d"
+    },
+    {
+      "id": "22128",
+      "date": "2026-04-23",
+      "url": "https://www.thefarside.com/2026/04/23/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F888a50e0d28d0137c715005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/888a50e0d28d0137c715005056a9545d",
+      "caption": "\u201cMr. Fenton? First of all, I want to say that it\u2019s all Carl Denham\u2019s fault. \u2018Watchin\u2019 that machine?\u2019 I says to Carl, and \u2026 Wait, Carl! You can talk when I\u2019m through!\u201d",
+      "title": "\u201cMr"
+    }
+  ]
+}
