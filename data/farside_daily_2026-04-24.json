@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-04-24",
+  "scraped_at": "2026-04-24T08:20:26.756675+00:00",
+  "comics": [
+    {
+      "id": "22129",
+      "date": "2026-04-24",
+      "url": "https://www.thefarside.com/2026/04/24/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcd782020027e0138d7ba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cd782020027e0138d7ba005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22129"
+    },
+    {
+      "id": "22130",
+      "date": "2026-04-24",
+      "url": "https://www.thefarside.com/2026/04/24/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fab27f130e3ad0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ab27f130e3ad0137cd49005056a9545d",
+      "caption": "\u201cFor crying out loud, Patrick\u2014sit down. ... And enough with the \u2018give me the potatoes or give me death\u2019 nonsense.\u201d",
+      "title": "\u201cFor crying out loud, Patrick\u2014sit down"
+    },
+    {
+      "id": "22131",
+      "date": "2026-04-24",
+      "url": "https://www.thefarside.com/2026/04/24/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee48132558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee48132558c311ea8bf6005056a9",
+      "caption": "\u201cOkay, buddy. Then how \u2019bout the right arm?\u201d",
+      "title": "\u201cOkay, buddy"
+    },
+    {
+      "id": "22132",
+      "date": "2026-04-24",
+      "url": "https://www.thefarside.com/2026/04/24/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9fb81820d0be0137c62c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9fb81820d0be0137c62c005056a9545d",
+      "caption": "\u201cAnthropologists! Anthropologists!\u201d",
+      "title": "\u201cAnthropologists! Anthropologists!\u201d"
+    },
+    {
+      "id": "22133",
+      "date": "2026-04-24",
+      "url": "https://www.thefarside.com/2026/04/24/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa2730af0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a2730af0cdd20137c56b005056a9545d",
+      "caption": "\u201c Now you\u2019ve done it!\u201d",
+      "title": "\u201c Now you\u2019ve done it!\u201d"
+    }
+  ]
+}
