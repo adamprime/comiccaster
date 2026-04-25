@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-04-25",
+  "scraped_at": "2026-04-25T08:20:00.977330+00:00",
+  "comics": [
+    {
+      "id": "22134",
+      "date": "2026-04-25",
+      "url": "https://www.thefarside.com/2026/04/25/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F848500a0d0d10137c639005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/848500a0d0d10137c639005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22134"
+    },
+    {
+      "id": "22135",
+      "date": "2026-04-25",
+      "url": "https://www.thefarside.com/2026/04/25/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcc23fce0fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cc23fce0fa830137d52f005056a9545d",
+      "caption": "\u201cAndrew! So that\u2019s where you\u2019ve been! And good heavens! \u2026 There\u2019s my old hairbrush, too!\u201d",
+      "title": "\u201cAndrew! So that\u2019s where you\u2019ve been! And good heavens! \u2026..."
+    }
+  ]
+}
