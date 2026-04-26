@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Beardo - GoComics</title><link>https://www.gocomics.com/beardo</link><description>Daily Beardo comic strip by Dan Dougherty from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/beardo.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 25 Apr 2026 08:21:31 +0000</lastBuildDate><ttl>1440</ttl><item><title>Beardo - 2026-04-24</title><link>https://www.gocomics.com/beardo/2026/04/24</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Beardo - GoComics</title><link>https://www.gocomics.com/beardo</link><description>Daily Beardo comic strip by Dan Dougherty from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/beardo.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 26 Apr 2026 08:20:45 +0000</lastBuildDate><ttl>1440</ttl><item><title>Beardo - 2026-04-24</title><link>https://www.gocomics.com/beardo/2026/04/24</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-24&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/60d2fee021c7013fc020005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Beardo" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -188,11 +188,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Beardo&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/beardo/2026/01/27</guid><pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate></item><item><title>Beardo - 2026-01-26</title><link>https://www.gocomics.com/beardo/2026/01/26</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-01-26&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://featureassets.gocomics.com/assets/af6a48a0d9d5013ebadd005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Beardo" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Beardo&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/beardo/2026/01/26</guid><pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://www.gocomics.com/beardo/2026/01/27</guid><pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>

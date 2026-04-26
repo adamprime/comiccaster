@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Edge City - Comics Kingdom</title><link>https://www.gocomics.com/edge-city</link><description>Daily Edge City comic strip by Terry and Patty LaBan from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/edge-city.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 25 Apr 2026 08:21:32 +0000</lastBuildDate><ttl>1440</ttl><item><title>Edge City - 2026-04-25</title><link>https://comicskingdom.com/edge-city/2026-04-25</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Edge City - Comics Kingdom</title><link>https://www.gocomics.com/edge-city</link><description>Daily Edge City comic strip by Terry and Patty LaBan from Comics Kingdom</description><atom:link href="https://comiccaster.xyz/feeds/edge-city.xml" rel="self" type="application/rss+xml"/><category>Comics Kingdom</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 26 Apr 2026 08:20:46 +0000</lastBuildDate><ttl>1440</ttl><item><title>Edge City - 2026-04-26</title><link>https://comicskingdom.com/edge-city/2026-04-26</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-26&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/04/Y2tFZGdlIENpdHktRU5HLTYwOTY5NDk.jpg" alt="Edge City" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Edge City&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://comicskingdom.com/edge-city/2026-04-26</guid><pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Edge City - 2026-04-25</title><link>https://comicskingdom.com/edge-city/2026-04-25</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-25&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/04/Y2tFZGdlIENpdHktRU5HLTYwOTcwNTE.jpg" alt="Edge City" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -622,11 +629,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Edge City&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/edge-city/2026-01-26</guid><pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate></item><item><title>Edge City - 2026-01-25</title><link>https://comicskingdom.com/edge-city/2026-01-25</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-01-25&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/01/Y2tFZGdlIENpdHktRU5HLTU4MjA0ODE.jpg" alt="Edge City" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Edge City&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://comicskingdom.com/edge-city/2026-01-25</guid><pubDate>Sun, 25 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://comicskingdom.com/edge-city/2026-01-26</guid><pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>

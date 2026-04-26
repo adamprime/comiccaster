@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-04-26",
+  "scraped_at": "2026-04-26T08:19:11.139332+00:00",
+  "comics": [
+    {
+      "id": "22136",
+      "date": "2026-04-26",
+      "url": "https://www.thefarside.com/2026/04/26/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F116fa070cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/116fa070cdd40137c56b005056a9545d",
+      "caption": "\u201cWell, you better get someone over here right away. \u2026 He really looks like he\u2019s going to jump.\u201d",
+      "title": "\u201cWell, you better get someone over here right away"
+    },
+    {
+      "id": "22137",
+      "date": "2026-04-26",
+      "url": "https://www.thefarside.com/2026/04/26/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee43185558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee43185558c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22137"
+    }
+  ]
+}
