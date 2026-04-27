@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-04-27",
+  "scraped_at": "2026-04-27T08:19:07.617509+00:00",
+  "comics": [
+    {
+      "id": "22138",
+      "date": "2026-04-27",
+      "url": "https://www.thefarside.com/2026/04/27/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F08dcf120df120137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/08dcf120df120137cbaf005056a9545d",
+      "caption": "Volume five in a series",
+      "title": "Volume five in a series"
+    },
+    {
+      "id": "22139",
+      "date": "2026-04-27",
+      "url": "https://www.thefarside.com/2026/04/27/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9252a4e0e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9252a4e0e9ee0137cf93005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22139"
+    },
+    {
+      "id": "22140",
+      "date": "2026-04-27",
+      "url": "https://www.thefarside.com/2026/04/27/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0f4a4700e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0f4a4700e6f90137ce50005056a9545d",
+      "caption": "On what was to be his last day on the job, Gus is caught asleep at the switch.",
+      "title": "On what was to be his last day on the job, Gus is caught ..."
+    },
+    {
+      "id": "22141",
+      "date": "2026-04-27",
+      "url": "https://www.thefarside.com/2026/04/27/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff2f02410df0f0137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f2f02410df0f0137cbaf005056a9545d",
+      "caption": "Giraffe evolution",
+      "title": "Giraffe evolution"
+    },
+    {
+      "id": "22142",
+      "date": "2026-04-27",
+      "url": "https://www.thefarside.com/2026/04/27/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8319b040d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8319b040d8bb0137c959005056a9545d",
+      "caption": "\u201cOh, Laaaaaarrrrrry \u2026 I think you should look up niiiiiice and eaaaaasy and see what\u2019s right \u2026 over \u2026 your \u2026 head.\u201d",
+      "title": "\u201cOh, Laaaaaarrrrrry \u2026 I think you should look up niiiiiic..."
+    }
+  ]
+}
