@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-04-28",
+  "scraped_at": "2026-04-28T08:10:11.452596+00:00",
+  "comics": [
+    {
+      "id": "22143",
+      "date": "2026-04-28",
+      "url": "https://www.thefarside.com/2026/04/28/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa11deda0d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a11deda0d7410137c8a6005056a9545d",
+      "caption": "\u201cTick-tock, tick-tock, tick-tock, tick-tock \u2026\u201d",
+      "title": "\u201cTick-tock, tick-tock, tick-tock, tick-tock \u2026\u201d"
+    },
+    {
+      "id": "22144",
+      "date": "2026-04-28",
+      "url": "https://www.thefarside.com/2026/04/28/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45a6f558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45a6f558c311ea8bf6005056a9",
+      "caption": "A lucky night for Goldy",
+      "title": "A lucky night for Goldy"
+    },
+    {
+      "id": "22145",
+      "date": "2026-04-28",
+      "url": "https://www.thefarside.com/2026/04/28/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F963f9d40dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/963f9d40dcc90137caaf005056a9545d",
+      "caption": "\u201cThat\u2019s right, the 49th floor! ... And you better hurry\u2014she\u2019s hanging by a thread!\u201d",
+      "title": "\u201cThat\u2019s right, the 49th floor!"
+    },
+    {
+      "id": "22146",
+      "date": "2026-04-28",
+      "url": "https://www.thefarside.com/2026/04/28/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffb72dd80cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fb72dd80cdd40137c56b005056a9545d",
+      "caption": "\u201cOh, yeah. \u2026 Now that place was really a greasy spoon!\u201d",
+      "title": "\u201cOh, yeah"
+    },
+    {
+      "id": "22147",
+      "date": "2026-04-28",
+      "url": "https://www.thefarside.com/2026/04/28/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4fabfd50cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4fabfd50cdd50137c56b005056a9545d",
+      "caption": "\u201cRETREAT!\u201d",
+      "title": "\u201cRETREAT!\u201d"
+    }
+  ]
+}
