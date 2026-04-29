@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Herman - GoComics</title><link>https://www.gocomics.com/herman</link><description>Daily Herman comic strip by Jim Unger from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/herman.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 28 Apr 2026 08:11:44 +0000</lastBuildDate><ttl>1440</ttl><item><title>Herman - 2026-04-28</title><link>https://www.gocomics.com/herman/2026/04/28</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Herman - GoComics</title><link>https://www.gocomics.com/herman</link><description>Daily Herman comic strip by Jim Unger from GoComics</description><atom:link href="https://comiccaster.xyz/feeds/herman.xml" rel="self" type="application/rss+xml"/><category>GoComics</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 29 Apr 2026 08:12:14 +0000</lastBuildDate><ttl>1440</ttl><item><title>Herman - 2026-04-29</title><link>https://www.gocomics.com/herman/2026/04/29</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-29&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://featureassets.gocomics.com/assets/b869b6901c29013fbfc5005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Herman" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Herman&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.gocomics.com/herman/2026/04/29</guid><pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate></item><item><title>Herman - 2026-04-28</title><link>https://www.gocomics.com/herman/2026/04/28</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-04-28&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://featureassets.gocomics.com/assets/b5ed71701c29013fbfc5005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Herman" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -622,11 +629,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Herman&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/herman/2026/01/30</guid><pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate></item><item><title>Herman - 2026-01-29</title><link>https://www.gocomics.com/herman/2026/01/29</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-01-29&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://featureassets.gocomics.com/assets/85ecf940d484013ebadd005056a9545d?optimizer=image&amp;width=2800&amp;quality=85" alt="Herman" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Herman&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.gocomics.com/herman/2026/01/29</guid><pubDate>Thu, 29 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://www.gocomics.com/herman/2026/01/30</guid><pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate></item></channel></rss>

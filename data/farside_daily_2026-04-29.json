@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-04-29",
+  "scraped_at": "2026-04-29T08:10:43.428319+00:00",
+  "comics": [
+    {
+      "id": "22148",
+      "date": "2026-04-29",
+      "url": "https://www.thefarside.com/2026/04/29/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F56708030e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/56708030e92e0137cf47005056a9545d",
+      "caption": "\u201cLook at the hordes down there, Phil. ... Have I ever told you what they look like? Huh? ... Have I?\u201d",
+      "title": "\u201cLook at the hordes down there, Phil"
+    },
+    {
+      "id": "22149",
+      "date": "2026-04-29",
+      "url": "https://www.thefarside.com/2026/04/29/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fdd8189f0fa850137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/dd8189f0fa850137d52f005056a9545d",
+      "caption": "\u201cThat\u2019s why I never walk in front.\u201d",
+      "title": "\u201cThat\u2019s why I never walk in front"
+    },
+    {
+      "id": "22150",
+      "date": "2026-04-29",
+      "url": "https://www.thefarside.com/2026/04/29/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb15272a0d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b15272a0d8ba0137c959005056a9545d",
+      "caption": "\u201cBEAR! BEAR!\u201d",
+      "title": "\u201cBEAR! BEAR!\u201d"
+    },
+    {
+      "id": "22151",
+      "date": "2026-04-29",
+      "url": "https://www.thefarside.com/2026/04/29/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F916e8080cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/916e8080cdd30137c56b005056a9545d",
+      "caption": "\u201cZag and Thena! ... Come on in and act uncivilized!\u201d",
+      "title": "\u201cZag and Thena!"
+    },
+    {
+      "id": "22152",
+      "date": "2026-04-29",
+      "url": "https://www.thefarside.com/2026/04/29/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fde309880fa840137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/de309880fa840137d52f005056a9545d",
+      "caption": "When potato salad goes bad",
+      "title": "When potato salad goes bad"
+    }
+  ]
+}
