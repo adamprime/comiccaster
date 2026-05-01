@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-01",
+  "scraped_at": "2026-05-01T08:20:19.337441+00:00",
+  "comics": [
+    {
+      "id": "22158",
+      "date": "2026-05-01",
+      "url": "https://www.thefarside.com/2026/05/01/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F37a873a03f3b013a8bea005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/37a873a03f3b013a8bea005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22158"
+    },
+    {
+      "id": "22159",
+      "date": "2026-05-01",
+      "url": "https://www.thefarside.com/2026/05/01/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F76bb4380e85a0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/76bb4380e85a0137cedf005056a9545d",
+      "caption": "Saving on transportation costs, some pioneers were known to head west on covered skates.",
+      "title": "Saving on transportation costs, some pioneers were known ..."
+    },
+    {
+      "id": "22160",
+      "date": "2026-05-01",
+      "url": "https://www.thefarside.com/2026/05/01/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa2d78470e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a2d78470e92e0137cf47005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22160"
+    },
+    {
+      "id": "22161",
+      "date": "2026-05-01",
+      "url": "https://www.thefarside.com/2026/05/01/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc01db570e85a0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c01db570e85a0137cedf005056a9545d",
+      "caption": "*Young urban scientist",
+      "title": "*Young urban scientist"
+    },
+    {
+      "id": "22162",
+      "date": "2026-05-01",
+      "url": "https://www.thefarside.com/2026/05/01/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F198b9c20dccb0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/198b9c20dccb0137caaf005056a9545d",
+      "caption": "\u201cBe back by suppertime, Hump. \u2026 And as always,\n you be careful!\u201d",
+      "title": "\u201cBe back by suppertime, Hump"
+    }
+  ]
+}
