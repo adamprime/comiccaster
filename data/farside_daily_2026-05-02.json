@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-05-02",
+  "scraped_at": "2026-05-02T08:20:24.852911+00:00",
+  "comics": [
+    {
+      "id": "22163",
+      "date": "2026-05-02",
+      "url": "https://www.thefarside.com/2026/05/02/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F58c2ea30cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/58c2ea30cdd20137c56b005056a9545d",
+      "caption": "\u201cOf course I never eat the shells.\u201d",
+      "title": "\u201cOf course I never eat the shells"
+    },
+    {
+      "id": "22164",
+      "date": "2026-05-02",
+      "url": "https://www.thefarside.com/2026/05/02/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff9ebf7c0d7400137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f9ebf7c0d7400137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22164"
+    }
+  ]
+}
