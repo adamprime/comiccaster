@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-05-03",
+  "scraped_at": "2026-05-03T08:19:19.540517+00:00",
+  "comics": [
+    {
+      "id": "22165",
+      "date": "2026-05-03",
+      "url": "https://www.thefarside.com/2026/05/03/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee47eb6758c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee47eb6758c311ea8bf6005056a9",
+      "caption": "\u201cOh, please, oh, please, Dad! \u2026 The little brown one!\u201d",
+      "title": "\u201cOh, please, oh, please, Dad! \u2026 The little brown one!\u201d"
+    },
+    {
+      "id": "22166",
+      "date": "2026-05-03",
+      "url": "https://www.thefarside.com/2026/05/03/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee48116d58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee48116d58c311ea8bf6005056a9",
+      "caption": "The Blob family at home",
+      "title": "The Blob family at home"
+    }
+  ]
+}
