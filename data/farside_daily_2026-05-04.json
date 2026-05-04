@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-04",
+  "scraped_at": "2026-05-04T08:18:58.679347+00:00",
+  "comics": [
+    {
+      "id": "22167",
+      "date": "2026-05-04",
+      "url": "https://www.thefarside.com/2026/05/04/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee47f9d758c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee47f9d758c311ea8bf6005056a9",
+      "caption": "\u201cWell, down I go.\u201d",
+      "title": "\u201cWell, down I go"
+    },
+    {
+      "id": "22168",
+      "date": "2026-05-04",
+      "url": "https://www.thefarside.com/2026/05/04/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7b1bdcc0e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7b1bdcc0e9ef0137cf93005056a9545d",
+      "caption": "A few days following the King Kong \u201cincident,\u201d New Yorkers return to business as usual.",
+      "title": "A few days following the King Kong \u201cincident,\u201d New Yorker..."
+    },
+    {
+      "id": "22169",
+      "date": "2026-05-04",
+      "url": "https://www.thefarside.com/2026/05/04/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F38898b30fa880137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/38898b30fa880137d531005056a9545d",
+      "caption": "\u201cOne day, Wilson, I\u2019ll be sitting at that desk.\u201d",
+      "title": "\u201cOne day, Wilson, I\u2019ll be sitting at that desk"
+    },
+    {
+      "id": "22170",
+      "date": "2026-05-04",
+      "url": "https://www.thefarside.com/2026/05/04/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F96fdc8f0e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/96fdc8f0e92e0137cf47005056a9545d",
+      "caption": "Every year, hundreds of tourists travel great distances to get a glimpse of the few remaining mountain Chihuahuas.",
+      "title": "Every year, hundreds of tourists travel great distances t..."
+    },
+    {
+      "id": "22171",
+      "date": "2026-05-04",
+      "url": "https://www.thefarside.com/2026/05/04/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee457f5a58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee457f5a58c311ea8bf6005056a9",
+      "caption": "Cow tools",
+      "title": "Cow tools"
+    }
+  ]
+}
