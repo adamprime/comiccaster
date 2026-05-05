@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-05",
+  "scraped_at": "2026-05-05T08:19:51.277680+00:00",
+  "comics": [
+    {
+      "id": "22172",
+      "date": "2026-05-05",
+      "url": "https://www.thefarside.com/2026/05/05/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2b989e30d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2b989e30d8bb0137c959005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22172"
+    },
+    {
+      "id": "22173",
+      "date": "2026-05-05",
+      "url": "https://www.thefarside.com/2026/05/05/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F85ea1480b6000137bc4b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/85ea1480b6000137bc4b005056a9545d",
+      "caption": "\u201cAnd notice, gentlemen, the faster I go, the more Simmons sounds like a motorboat.\u201d",
+      "title": "\u201cAnd notice, gentlemen, the faster I go, the more Simmons..."
+    },
+    {
+      "id": "22174",
+      "date": "2026-05-05",
+      "url": "https://www.thefarside.com/2026/05/05/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee42f29b58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee42f29b58c311ea8bf6005056a9",
+      "caption": "\u201cGod, Collings, I hate to start a Monday with a case like this.\u201d",
+      "title": "\u201cGod, Collings, I hate to start a Monday with a case like..."
+    },
+    {
+      "id": "22175",
+      "date": "2026-05-05",
+      "url": "https://www.thefarside.com/2026/05/05/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fae4c96b0fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ae4c96b0fa830137d52f005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22175"
+    },
+    {
+      "id": "22176",
+      "date": "2026-05-05",
+      "url": "https://www.thefarside.com/2026/05/05/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F23b75350fa880137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/23b75350fa880137d531005056a9545d",
+      "caption": "History shmistory",
+      "title": "History shmistory"
+    }
+  ]
+}
