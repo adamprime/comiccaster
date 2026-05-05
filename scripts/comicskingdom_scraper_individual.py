@@ -212,13 +212,11 @@ def authenticate_with_cookies(driver, cookie_file, use_profile=False):
     return False
 
 
-def login_with_manual_recaptcha(driver):
-    """Wait for the operator to log in manually in a visible browser window.
+def wait_for_manual_login(driver):
+    """Open the CK login page, confirm the form is present, and wait for the
+    operator to complete login in a visible browser window.
 
-    Comics Kingdom uses an invisible reCAPTCHA v3 and a bot check that rejects
-    JS-injected credential fills, so the operator types credentials directly
-    into the page. This function opens the login page, confirms the form is
-    present, then polls for redirect away from /login.
+    Polls for a redirect away from /login (up to 120 x 5s = 10 minutes).
     """
     print("\n" + "="*80)
     print("COMICS KINGDOM LOGIN")

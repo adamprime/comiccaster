@@ -278,7 +278,7 @@ def main():
     scraped_data = load_scraped_data()
     if not scraped_data:
         print("❌ No scraped data available. Run scraper first:")
-        print("   python comicskingdom_scraper_secure.py")
+        print("   python scripts/comicskingdom_scraper_individual.py")
         return 1
     print()
     

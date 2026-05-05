@@ -293,19 +293,19 @@ class TestSetupDriver:
             assert "--headless=new" not in options.arguments
 
 
-# --- login_with_manual_recaptcha --------------------------------------------
+# --- wait_for_manual_login --------------------------------------------------
 
 
-class TestLoginWithManualRecaptcha:
+class TestWaitForManualLogin:
     """Behavior tests for the manual-login helper.
 
-    CK's bot check rejects JS-injected credential fills, so this function
-    only confirms the login form is present and waits for the operator to
-    complete login in a visible browser; it does not type or submit.
+    The function only confirms the login form is present and waits for the
+    operator to complete login in a visible browser; it does not type or
+    submit.
     """
 
     def test_function_exists_on_individual(self):
-        assert callable(cki.login_with_manual_recaptcha)
+        assert callable(cki.wait_for_manual_login)
 
     def test_returns_true_when_redirect_away_from_login(self, monkeypatch):
         driver = MagicMock()
@@ -318,7 +318,7 @@ class TestLoginWithManualRecaptcha:
         mock_wdw.return_value.until.return_value = MagicMock()
         monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
 
-        result = cki.login_with_manual_recaptcha(driver)
+        result = cki.wait_for_manual_login(driver)
         assert result is True
 
     def test_returns_false_on_timeout(self, monkeypatch):
@@ -331,7 +331,7 @@ class TestLoginWithManualRecaptcha:
         mock_wdw.return_value.until.return_value = MagicMock()
         monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
 
-        result = cki.login_with_manual_recaptcha(driver)
+        result = cki.wait_for_manual_login(driver)
         assert result is False
 
     def test_returns_false_when_no_username_field(self, monkeypatch):
@@ -344,7 +344,7 @@ class TestLoginWithManualRecaptcha:
         mock_wdw.return_value.until.side_effect = Exception("not found")
         monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
 
-        result = cki.login_with_manual_recaptcha(driver)
+        result = cki.wait_for_manual_login(driver)
         assert result is False
 
     def test_does_not_inject_credentials_via_js(self, monkeypatch):
@@ -358,7 +358,7 @@ class TestLoginWithManualRecaptcha:
         mock_wdw.return_value.until.return_value = MagicMock()
         monkeypatch.setattr(cki, "WebDriverWait", mock_wdw)
 
-        cki.login_with_manual_recaptcha(driver)
+        cki.wait_for_manual_login(driver)
         assert not driver.execute_script.called
 
 
@@ -437,7 +437,7 @@ class TestReauthScript:
 
         driver = MagicMock()
         with patch.object(reauth, "setup_driver", return_value=driver) as ms, \
-             patch.object(reauth, "login_with_manual_recaptcha", return_value=True) as ml:
+             patch.object(reauth, "wait_for_manual_login", return_value=True) as ml:
             result = reauth.main()
 
         assert result == 0
@@ -457,7 +457,7 @@ class TestReauthScript:
 
         driver = MagicMock()
         with patch.object(reauth, "setup_driver", return_value=driver), \
-             patch.object(reauth, "login_with_manual_recaptcha", return_value=False):
+             patch.object(reauth, "wait_for_manual_login", return_value=False):
             result = reauth.main()
 
         assert result == 1
@@ -475,7 +475,7 @@ class TestReauthScript:
 
         driver = MagicMock()
         with patch.object(reauth, "setup_driver", return_value=driver), \
-             patch.object(reauth, "login_with_manual_recaptcha", return_value=True):
+             patch.object(reauth, "wait_for_manual_login", return_value=True):
             reauth.main()
 
         assert not (tmp_path / "unused.pkl").exists()
