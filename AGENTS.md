@@ -74,7 +74,7 @@ python scripts/generate_creators_feeds.py
    - `fetch-feed.js` - Feed preview functionality
 
 5. **docs/** - Documentation
-   - `docs/setup/` - Setup and configuration guides
+   - `docs/LOCAL_AUTOMATION_README.md` - Operational reference for the daily pipeline
    - `docs/internal/` - Internal/archived documentation
 
 ### Feed Update Process
