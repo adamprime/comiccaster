@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from scripts.comicskingdom_scraper_individual import (
     setup_driver,
-    login_with_manual_recaptcha,
+    wait_for_manual_login,
 )
 
 
@@ -46,7 +46,7 @@ def main():
     driver = setup_driver(show_browser=True, use_profile=True)
 
     try:
-        if login_with_manual_recaptcha(driver):
+        if wait_for_manual_login(driver):
             print("\n" + "="*80)
             print("✅ SUCCESS! Re-authentication complete")
             print("="*80)
