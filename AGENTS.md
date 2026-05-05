@@ -67,14 +67,14 @@ python scripts/generate_creators_feeds.py
    - `scrape_*.py` and authenticated scrapers — per-source scrapers (Phase 1), each writes `data/<src>_$DATE.json`
    - `generate_*.py` — per-source generators (Phase 2), network-free, read the latest scraped JSON and write `public/feeds/*.xml`
    - `backfill_gocomics_feeds.py` — manual rate-limited recovery
-   - `reauth_comicskingdom.py`, `SETUP_COMICSKINGDOM_AUTH.sh` — session refresh for Comics Kingdom
+   - `reauth_comicskingdom.py` — session refresh for Comics Kingdom
 
 4. **functions/** - Netlify serverless functions
    - `generate-opml.js` - OPML bundle generation
    - `fetch-feed.js` - Feed preview functionality
 
 5. **docs/** - Documentation
-   - `docs/setup/` - Setup and configuration guides
+   - `docs/LOCAL_AUTOMATION_README.md` - Operational reference for the daily pipeline
    - `docs/internal/` - Internal/archived documentation
 
 ### Feed Update Process
