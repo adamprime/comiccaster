@@ -1,15 +1,15 @@
 # Project Status
-<!-- Updated: 2026-04-20 by Adam -->
+<!-- Updated: 2026-05-05 by Adam -->
 
 ## Project Overview
 ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, and Creators Syndicate into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation; Netlify serves the static site and feed files.
 
 ## Current State
-Stable. Shape A (CK profile-based auth) has two clean unattended overnight runs behind it (2026-04-19, 2026-04-20). Today's session was opportunistic `functions/` housekeeping (orphaned `uuid` dep + untracked `functions/node_modules/`) plus a CK reauth cleanup: deleted the JS-injected credential fill from `login_with_manual_recaptcha` after confirming it's always rejected by CK's bot check, and rewrote the login prompts to match the real manual-type-and-click flow.
+Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with no observed regressions; daily runs report all-success on most days, with the expected weekly CK session refresh handled manually via `reauth_comicskingdom.py`. Today's session was a 7-PR maintenance sweep: a Dependabot bump, a new watcher for the public feedback site, GitHub Actions modernization, two CodeQL high-severity alerts cleared, deletion of stale setup docs, and retirement of the legacy CK scraper.
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-04-20
-**Last Session Summary:** Reviewed Dependabot #119 (uuid 13→14); discovered the dep was orphaned since commit `6fe3dd1ec` removed `functions/generate-token.js`. Shipped three changes: `3fe2a54fa` (removed uuid dep, closed #119), PR #120 / `727a7b177` (untracked 41 files in `functions/node_modules/`, −10,566 lines, verified via deploy preview + prod smoke test), and the CK reauth JS-fill removal (deleted dead `execute_script` credential fill + rewrote prompts in `_individual.login_with_manual_recaptcha` and `reauth_comicskingdom.py`). 276 tests passing.
+**Last Session:** 2026-05-05
+**Last Session Summary:** Seven PRs merged (#121, #122, #128, #129, #130, #131, #132). #121 bumped pytz; #122 added a daily GitHub Action that polls the public feedback Atom feed and opens issues for new posts (state-via-issues, idempotent); #128 bumped active workflows to Node 24 actions and pruned four dead/legacy workflows (8 → 4); #129 / #130 cleared CodeQL alerts #53 and #54 by first splitting CK credentials from the cookie-file path and then dropping credential loading entirely (nothing in the post-Shape-A codebase still consumed it); #131 deleted seven stale pre-Shape-A setup docs (`docs/setup/` is gone); #132 retired `comicskingdom_scraper_secure.py`, deleted the now-broken `diagnose_ck_page.py`, and renamed `_individual.login_with_manual_recaptcha` → `wait_for_manual_login`. 276 tests passing throughout. Zero open CodeQL alerts.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -19,31 +19,33 @@ Stable. Shape A (CK profile-based auth) has two clean unattended overnight runs 
 - Production entrypoint is tracked in git (`scripts/mini_master_update.sh`) — no more untracked wrappers patching the master script at runtime
 - Push-conflict recovery uses save / fetch / reset / regenerate (no `git pull --rebase` against generated XMLs)
 - Invariant guard between Phase 2 and Phase 3 catches silent scrape regressions (scrape reports success but its dated JSON is missing)
-- Comics Kingdom authentication now uses a persistent Chrome profile at `~/.comicskingdom_chrome_profile` (Shape A), matching TinyView's proven pattern and eliminating the WAF slow-walk on the cookie-load startup path
-- Chrome boundary instrumentation in `_individual` (and `_secure`) — timestamped log lines at every `driver.get` make hang-site localization a grep
-- 254+-test suite passing (first CK-specific tests added this session)
+- Comics Kingdom authentication uses a persistent Chrome profile at `~/.comicskingdom_chrome_profile` (Shape A); `reauth_comicskingdom.py` is the operator entry point for refresh
+- Chrome boundary instrumentation in `_individual` — timestamped log lines at every `driver.get` make hang-site localization a grep
+- 276-test suite passing across Python 3.10 / 3.11 / 3.12
 - 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, and 10 Creators feeds updating daily
 - Static site + Netlify functions deployment flow
-- Security policy and private vulnerability reporting enabled; all CodeQL alerts resolved
+- Security policy and private vulnerability reporting enabled; **zero open CodeQL alerts**
 - Consistent comic strip sizing (max-width: 700px) and centering across all sources (#105)
 - Manual backfill script available for GoComics feed recovery (`scripts/backfill_gocomics_feeds.py`)
 - Daily automated feed monitoring via agent
+- Public feedback site (https://feedback.comiccaster.xyz) auto-tracked: a daily GitHub Action opens an issue for each new post (`feedback-site` label)
+- GitHub Actions on Node 24 actions runtime; only 4 active workflows in `.github/workflows/` (down from 8)
 
 ## What's In Progress
 <!-- Active work items. Update every session. -->
 
 | Item | Status | Branch | Notes |
 |------|--------|--------|-------|
-| Shape A (CK profile-based auth) | Monitoring | main (PR #117 merged) | Daytime validation run succeeded (16:12, 153/153, 5s startup). Tonight's 3 AM LaunchD run is the unattended validation. Rollback is a one-line default flip on `setup_driver`. |
+| _none_ | | | All planned work merged. Daily pipeline running stable on Shape A. |
 
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
 
-1. **Delete `scripts/comicskingdom_scraper_secure.py`** — after a week of clean overnight runs (target: 2026-04-25). Prereq: migrate `scripts/diagnose_ck_page.py` off `_secure` or retire it. When this lands, also rename `_individual.login_with_manual_recaptcha` → something like `wait_for_manual_login` (the reCAPTCHA framing is a leftover from `_secure` and misleading now that the JS fill is gone).
-2. **Remove `data/comicskingdom_cookies.pkl` from the repo** — dead data under Shape A. Same week-of-stable-runs gate as `_secure` deletion.
-3. **`chmod 700` on `~/.tinyview_chrome_profile`** — same security fix that Shape A applied to CK's profile. Pre-existing issue with TinyView's `setup_driver`.
-4. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
-5. **Investigate issue #91** (GoComics strips don't save to read-later platforms).
+1. **`chmod 700` on `~/.tinyview_chrome_profile`** — same security fix that Shape A applied to the CK profile. Pre-existing issue with TinyView's `setup_driver`.
+2. **Audit `SETUP_TINYVIEW_AUTH.sh`** — script is operationally correct (calls `tinyview_scraper_secure.py`, which is the canonical interactive auth tool there). Worth re-reading against the same operator-pragmatic principle the CK setup-doc cleanup applied.
+3. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
+4. **Investigate issue #91** (GoComics strips don't save to read-later platforms).
+5. **Optional source-code-comment cleanup pass** — several files have docstrings and comments that could be trimmed for accuracy and conciseness. Deferred: low risk, real cost.
 
 ## Open Decisions
 <!-- Architectural or product decisions that haven't been made yet. -->
@@ -63,7 +65,7 @@ Stable. Shape A (CK profile-based auth) has two clean unattended overnight runs 
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 254 passing, requires Python ≥3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 276 passing, requires Python ≥3.10
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
 **Production pipeline:** see [docs/LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) and [docs/DEPLOYMENT.md](DEPLOYMENT.md)
@@ -93,6 +95,24 @@ Between Phase 2 and Phase 3, an invariant guard checks that every successful scr
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-05-05
+- **Goal:** Project review + opportunistic cleanup of accumulated tech debt.
+- **Accomplished:**
+  - PR #121: pytz 2026.1.post1 → 2026.2 (Dependabot, IANA tzdata bump).
+  - PR #122: new GitHub Action (`watch-feedback.yml`) that polls the public feedback Atom feed daily and opens an issue for each new post. State lives in the issues themselves (label `feedback-site` + a `Source:` line in each body), so no state file is needed; idempotent.
+  - PR #128: bumped active workflows to Node 24-supported actions (`checkout@v5`, `setup-python@v6`, `github-script@v8`) ahead of the 2026-06-02 deprecation. Pruned four dead/legacy workflows (`update-feeds-smart.yml`, `validate-feeds.yml`, `test-authenticated-scraping.yml`, `test-comicskingdom.yml`); 8 → 4 workflows.
+  - PR #129 / #130: cleared CodeQL alerts #53 and #54 (`py/clear-text-logging-sensitive-data`, severity high). #129 first split `load_config_from_env` to return cookie-file and credentials separately; CodeQL still propagated the taint through tuple-unpacking, so #130 went further and dropped credential loading from `_individual.py` entirely (nothing in the post-Shape-A codebase still consumed it). Two real high-severity alerts → zero open alerts.
+  - PR #131: deleted seven stale pre-Shape-A setup docs (`COMICSKINGDOM_SETUP.md`, `GITHUB_SECRETS_COMICSKINGDOM.md`, `DROPLET_QUICKSTART.md`, `DROPLET_SETUP.md`, `COMICSKINGDOM_FAVORITES_SETUP.md`, `TINYVIEW_AUTH_SETUP.md`, `NOTIFICATION_SETUP.md`) and one stale shell helper (`SETUP_COMICSKINGDOM_AUTH.sh`). `docs/setup/` removed entirely. Rewrote the `Credentials` section of `LOCAL_AUTOMATION_README.md` to reflect Shape A reality. −1684 / +6 lines.
+  - PR #132: retired `scripts/comicskingdom_scraper_secure.py` (off the active path since 2025-11-15) and `scripts/diagnose_ck_page.py` (premise obsolete; also fixed a broken-import bug introduced in #130). Renamed `_individual.login_with_manual_recaptcha` → `wait_for_manual_login` to match what the function actually does. −908 / +20 lines.
+- **Validation:**
+  - 276 tests passing across all PRs.
+  - All CI checks green on each PR (Python 3.10 / 3.11 / 3.12, CodeQL, Netlify deploy preview, redirect/header rules).
+  - Zero open CodeQL alerts.
+- **Didn't finish:** TinyView profile `chmod 700`, `SETUP_TINYVIEW_AUTH.sh` audit, optional source-code-comment cleanup pass — all queued in `What's Next`.
+- **Discovered:**
+  - `data/comicskingdom_cookies.pkl` is no longer git-tracked (handled in a prior session). The 2026-04-20 What's Next item to remove it is moot.
+  - `tinyview_scraper_secure.py` is shared infrastructure, not legacy — imported by the active daily scraper (`tinyview_scraper_local_authenticated.py`) and the canonical entry point for first-time interactive setup. Earlier framing as "wrong scraper file" was incorrect; `SETUP_TINYVIEW_AUTH.sh` is operationally correct.
 
 ### 2026-04-20
 - **Goal:** Review Dependabot PR #119 (uuid 13→14 in `functions/`); see if there's anything else worth cleaning up while in there.
@@ -184,51 +204,3 @@ Between Phase 2 and Phase 3, an invariant guard checks that every successful scr
   - 212 tests passing, no regressions
 - **Didn't finish:** Nothing left outstanding
 - **Discovered:** CK now uses a vertical reader layout with paginated loading instead of a grid; images are proxied through a CDN layer; structured data attributes on reader items are more reliable than element traversal
-
-### 2026-04-02
-- **Goal:** Review and merge Claude Code's fix for comic strip sizing/alignment (#105), clean up remote branches
-- **Accomplished:**
-  - Reviewed issue #105 (user-reported inconsistent strip sizing and alignment in RSS readers)
-  - Reviewed Claude Code's fix on `claude/issue-105-20260402-2158` -- wraps all comic images in centering div with max-width: 700px in `feed_generator.py`, adds 2 new tests
-  - All 209 tests passing; merged into main
-  - Deleted stale remote branches: `fix/gocomics-feed-generation` (already merged), `feature/v1.1-political-comics-epic-2` (work already in main via other PRs)
-  - First successful use of red-orchestrator + Claude Code agent orchestration workflow
-- **Didn't finish:** Nothing left outstanding
-- **Discovered:** Agent orchestration (red-orchestrator dispatching to Claude Code) works end-to-end for straightforward fixes
-
-### 2026-03-31 (evening)
-- **Goal:** Fix Spanish strips appearing in English feeds (#103), fix FoxTrot contamination (#104), resolve CodeQL alerts
-- **Accomplished:**
-  - Rewrote `extract_comics_from_page` in `authenticated_scraper_secure.py` to use href-based slug extraction from comic containers (was badge filename-based, causing slug mismatches and Spanish/English conflation)
-  - Added `_extract_comic_slug_from_link`, `_is_asset_host`, `_get_image_src`, `_get_badge_name` helpers
-  - Added slug+date deduplication in `generate_gocomics_feeds.py`
-  - Added page-level validation logging (cross-checks extraction against page metadata)
-  - Created `tests/test_authenticated_scraper.py` (24 tests) -- total test suite now 40 tests
-  - Fixed CodeQL alerts #49-52 (replaced URL substring checks with `urlparse().netloc` domain validation)
-  - Cleaned 5,230 contaminated entries from old data files
-  - Reverted all GoComics feeds to March 30 (pre-contamination) and backfilled 2 days (306 feeds updated, 0 failures)
-  - Sanitized code comments to avoid revealing page structure details
-  - Feed coverage jumped from 115 to 312 GoComics feeds updating daily
-- **Didn't finish:** Nothing left outstanding
-- **Discovered:** `regenerate_feed` in `update_feeds.py` merges with existing feed data, which can preserve contamination; backfill approach requires clean base feeds
-
-### 2026-03-31 (morning)
-- **Goal:** Fix GoComics feed generation failure (zero feeds updated despite "ALL SUCCESS" report)
-- **Accomplished:**
-  - Created `scripts/generate_gocomics_feeds.py` -- data-driven daily feed generator (PR #102)
-  - Created `scripts/backfill_gocomics_feeds.py` -- manual rate-limited recovery script
-  - Fixed misleading success reporting in `process_comic()` / `main()`
-  - Updated `local_master_update.sh` to use new generator
-  - Bumped `requests` to 2.33.1 (Dependabot security fix)
-  - Fixed CodeQL alert #48 (incomplete URL substring sanitization in `public/index.html`)
-  - Added SECURITY.md with GitHub private vulnerability reporting
-  - Dropped EOL Python 3.9 from CI, added 3.12
-  - Merged Dependabot PR #100 (pytz 2024.1 -> 2026.1.post1)
-- **Didn't finish:** Nothing left outstanding
-- **Discovered:** Badge-based slug extraction was root cause of both Spanish contamination and 142 dropped comics
-
-### 2026-02-23
-- **Goal:** Initialize compound engineering docs structure
-- **Accomplished:** Created docs/ directory with STATUS.md, plans/, solutions/, decisions/, brainstorms/
-- **Didn't finish:** Fill in deeper project details and backlog priorities
-- **Discovered:** Project is currently in maintenance/on-hold mode with no recent active development
