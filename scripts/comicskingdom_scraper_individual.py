@@ -36,53 +36,20 @@ def _log_timing(label):
     print(f"[{now}] {label}")
 
 
-def get_required_env_var(name):
-    """Get required environment variable or exit with error."""
-    value = os.environ.get(name)
-    if not value:
-        print(f"❌ Error: Required environment variable {name} is not set")
-        sys.exit(1)
-    return value
+def load_cookie_file_path():
+    """Return the cookie pickle file path from $COMICSKINGDOM_COOKIE_FILE.
 
-
-def load_config_from_env(require_credentials=True):
-    """Load configuration from environment variables.
-
-    Returns (cookie_file, credentials):
-      - cookie_file: Path to the cookie pickle file.
-      - credentials: dict with 'username' and 'password' keys. Values are
-        non-empty strings when require_credentials=True; either may be None
-        when require_credentials=False and the env var is unset.
-
-    Cookie file and credentials are returned as separate values so the path
-    can be passed and printed without touching anything that holds the
-    password.
-
-    Use require_credentials=False on the daily-scrape path under profile-based
-    auth, where credentials are not needed. Use require_credentials=True
-    (default) for the reauth flow, which does need them.
+    Defaults to data/comicskingdom_cookies.pkl. Under Shape A profile-based
+    auth this is the only piece of configuration the daily scrape needs;
+    credentials are typed by the operator into the browser during reauth
+    (CK's bot check rejects JS-injected fills) and are never read from env.
     """
-    if require_credentials:
-        username = get_required_env_var('COMICSKINGDOM_USERNAME')
-        password = get_required_env_var('COMICSKINGDOM_PASSWORD')
-    else:
-        username = os.environ.get('COMICSKINGDOM_USERNAME')
-        password = os.environ.get('COMICSKINGDOM_PASSWORD')
-
-    credentials = {'username': username, 'password': password}
-    cookie_file = Path(get_optional_env_var(
+    cookie_file = Path(os.environ.get(
         'COMICSKINGDOM_COOKIE_FILE', 'data/comicskingdom_cookies.pkl'
     ))
-
     print("✅ Loaded configuration from environment")
     print(f"   Cookie file: {cookie_file}")
-
-    return cookie_file, credentials
-
-
-def get_optional_env_var(name, default):
-    """Get optional environment variable with default."""
-    return os.environ.get(name, default)
+    return cookie_file
 
 
 def setup_driver(show_browser=False, use_profile=True):
@@ -480,11 +447,7 @@ def main():
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Load configuration. Credentials are only required when seeding the
-    # profile (reauth). Daily scrape under --use-profile does not need them.
-    cookie_file, _credentials = load_config_from_env(
-        require_credentials=not args.use_profile
-    )
+    cookie_file = load_cookie_file_path()
 
     # Load comics catalog
     comics = load_comics_catalog()
