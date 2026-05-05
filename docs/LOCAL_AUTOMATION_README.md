@@ -2,7 +2,7 @@
 
 ComicCaster's daily feed pipeline runs on a dedicated always-on host, not in CI. All scrapers, all feed generators, and the commit/push step run together on that host; Netlify picks up the push and deploys.
 
-An earlier hybrid design split scraping between a laptop (one source) and GitHub Actions (the rest). That was retired 2025-11-26. The GitHub Actions feed workflows still exist (`.github/workflows/update-feeds.yml`, `update-feeds-smart.yml`) with their schedules commented out — they're a manual fallback if the local host is unavailable.
+An earlier hybrid design split scraping between a laptop (one source) and GitHub Actions (the rest). That was retired 2025-11-26. `.github/workflows/update-feeds.yml` is kept as a manual-only emergency fallback if the local host is unavailable.
 
 ## Pipeline at a glance
 
@@ -60,9 +60,8 @@ These are the load-bearing assumptions the pipeline relies on. Detailed provisio
 `.env` at the repo root, git-ignored. Variables consumed by the scrapers:
 
 - `GOCOMICS_EMAIL`, `GOCOMICS_PASSWORD`
-- `COMICSKINGDOM_USERNAME`, `COMICSKINGDOM_PASSWORD`, `COMICSKINGDOM_COOKIE_FILE`
 
-The Comics Kingdom cookie file is a binary pickle produced on first-time auth via `scripts/SETUP_COMICSKINGDOM_AUTH.sh` + `scripts/reauth_comicskingdom.py`. It expires roughly every 60 days and must be refreshed manually.
+Comics Kingdom does not use env vars. Session state lives in a Chrome profile at `~/.comicskingdom_chrome_profile/`, seeded by `python scripts/reauth_comicskingdom.py`. Sessions last about a week; refresh when the daily run reports `profile has no stored session`, or proactively on a weekly cadence.
 
 ## Dev mode (not on the production host)
 
@@ -135,14 +134,14 @@ This is a real production run: it scrapes, commits, and pushes. Use it to valida
 
 ### Comics Kingdom session expired
 
-If `Scraping Comics Kingdom` starts failing consistently, refresh the session:
+When the daily run reports `profile has no stored session`, refresh:
 
 ```bash
 source venv/bin/activate
 python scripts/reauth_comicskingdom.py
 ```
 
-A browser will open; complete the login flow. Fresh session state is saved automatically. Next run picks it up.
+A browser will open; complete the login flow. Session state is saved automatically. Next run picks it up.
 
 ### LaunchAgent not firing
 
