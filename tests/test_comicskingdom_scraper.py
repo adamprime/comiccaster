@@ -99,8 +99,7 @@ class TestAuthenticateWithCookies:
         driver = MagicMock()
         driver.current_url = "https://comicskingdom.com/login"
 
-        config = {"cookie_file": cookie_file}
-        assert cki.authenticate_with_cookies(driver, config) is False
+        assert cki.authenticate_with_cookies(driver, cookie_file) is False
 
         captured = capsys.readouterr()
         assert "Authentication failed - please run reauth script" in captured.out
@@ -113,8 +112,7 @@ class TestAuthenticateWithCookies:
         driver = MagicMock()
         driver.current_url = "https://comicskingdom.com/favorites"
 
-        config = {"cookie_file": cookie_file}
-        assert cki.authenticate_with_cookies(driver, config) is True
+        assert cki.authenticate_with_cookies(driver, cookie_file) is True
 
 
 class TestAuthenticateWithProfile:
@@ -131,7 +129,7 @@ class TestAuthenticateWithProfile:
 
         # Prove load_cookies is not called when use_profile=True
         with patch.object(cki, "load_cookies") as mock_load:
-            result = cki.authenticate_with_cookies(driver, {}, use_profile=True)
+            result = cki.authenticate_with_cookies(driver, None, use_profile=True)
 
         assert result is True
         mock_load.assert_not_called()
@@ -145,7 +143,7 @@ class TestAuthenticateWithProfile:
         driver = MagicMock()
         driver.current_url = "https://comicskingdom.com/login"
 
-        result = cki.authenticate_with_cookies(driver, {}, use_profile=True)
+        result = cki.authenticate_with_cookies(driver, None, use_profile=True)
         assert result is False
 
         captured = capsys.readouterr()
@@ -165,7 +163,7 @@ class TestAuthenticateWithProfile:
         driver = MagicMock()
         driver.current_url = "https://comicskingdom.com/login"
 
-        result = cki.authenticate_with_cookies(driver, {}, use_profile=True)
+        result = cki.authenticate_with_cookies(driver, None, use_profile=True)
         assert result is False
 
         captured = capsys.readouterr()
@@ -181,8 +179,7 @@ class TestAuthenticateWithProfile:
         driver = MagicMock()
         driver.current_url = "https://comicskingdom.com/favorites"
 
-        config = {"cookie_file": cookie_file}
-        assert cki.authenticate_with_cookies(driver, config, use_profile=False) is True
+        assert cki.authenticate_with_cookies(driver, cookie_file, use_profile=False) is True
 
 
 # --- setup_driver -----------------------------------------------------------
@@ -388,9 +385,12 @@ class TestLoadConfigFromEnv:
         monkeypatch.delenv("COMICSKINGDOM_USERNAME", raising=False)
         monkeypatch.delenv("COMICSKINGDOM_PASSWORD", raising=False)
 
-        config = cki.load_config_from_env(require_credentials=False)
-        assert config["credentials"]["username"] is None
-        assert config["credentials"]["password"] is None
+        cookie_file, credentials = cki.load_config_from_env(
+            require_credentials=False
+        )
+        assert credentials["username"] is None
+        assert credentials["password"] is None
+        assert cookie_file is not None
 
     def test_require_credentials_true_still_exits_when_missing(
         self, monkeypatch

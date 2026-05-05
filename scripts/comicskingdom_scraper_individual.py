@@ -48,9 +48,17 @@ def get_required_env_var(name):
 def load_config_from_env(require_credentials=True):
     """Load configuration from environment variables.
 
-    When require_credentials is False, COMICSKINGDOM_USERNAME and
-    COMICSKINGDOM_PASSWORD may be unset (they land as None). Use
-    require_credentials=False on the daily-scrape path under profile-based
+    Returns (cookie_file, credentials):
+      - cookie_file: Path to the cookie pickle file.
+      - credentials: dict with 'username' and 'password' keys. Values are
+        non-empty strings when require_credentials=True; either may be None
+        when require_credentials=False and the env var is unset.
+
+    Cookie file and credentials are returned as separate values so the path
+    can be passed and printed without touching anything that holds the
+    password.
+
+    Use require_credentials=False on the daily-scrape path under profile-based
     auth, where credentials are not needed. Use require_credentials=True
     (default) for the reauth flow, which does need them.
     """
@@ -61,18 +69,15 @@ def load_config_from_env(require_credentials=True):
         username = os.environ.get('COMICSKINGDOM_USERNAME')
         password = os.environ.get('COMICSKINGDOM_PASSWORD')
 
-    config = {
-        'credentials': {
-            'username': username,
-            'password': password,
-        },
-        'cookie_file': Path(get_optional_env_var('COMICSKINGDOM_COOKIE_FILE', 'data/comicskingdom_cookies.pkl'))
-    }
+    credentials = {'username': username, 'password': password}
+    cookie_file = Path(get_optional_env_var(
+        'COMICSKINGDOM_COOKIE_FILE', 'data/comicskingdom_cookies.pkl'
+    ))
 
-    print(f"✅ Loaded configuration from environment")
-    print(f"   Cookie file: {config['cookie_file']}")
+    print("✅ Loaded configuration from environment")
+    print(f"   Cookie file: {cookie_file}")
 
-    return config
+    return cookie_file, credentials
 
 
 def get_optional_env_var(name, default):
@@ -186,7 +191,7 @@ def is_authenticated(driver):
         return False
 
 
-def authenticate_with_cookies(driver, config, use_profile=False):
+def authenticate_with_cookies(driver, cookie_file, use_profile=False):
     """Authenticate either via a persistent Chrome profile or pickled cookies.
 
     When use_profile is True, Chrome is expected to have launched with
@@ -215,8 +220,6 @@ def authenticate_with_cookies(driver, config, use_profile=False):
 
         print("❌ Authentication failed - please run reauth script")
         return False
-
-    cookie_file = config['cookie_file']
 
     # Check cookie age
     if cookie_file.exists():
@@ -479,7 +482,9 @@ def main():
 
     # Load configuration. Credentials are only required when seeding the
     # profile (reauth). Daily scrape under --use-profile does not need them.
-    config = load_config_from_env(require_credentials=not args.use_profile)
+    cookie_file, _credentials = load_config_from_env(
+        require_credentials=not args.use_profile
+    )
 
     # Load comics catalog
     comics = load_comics_catalog()
@@ -489,7 +494,7 @@ def main():
 
     try:
         # Authenticate
-        if not authenticate_with_cookies(driver, config, use_profile=args.use_profile):
+        if not authenticate_with_cookies(driver, cookie_file, use_profile=args.use_profile):
             print("❌ Authentication failed")
             driver.quit()
             return 1

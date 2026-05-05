@@ -143,13 +143,13 @@ def main():
     output_dir = Path('data/ck_diagnostics')
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    config = load_config_from_env()
+    cookie_file, _credentials = load_config_from_env()
     driver = setup_driver(show_browser=True)
 
     try:
         # Phase 1: Load cookies and authenticate
         print("\n=== Phase 1: Authentication ===")
-        if not load_cookies(driver, config['cookie_file']):
+        if not load_cookies(driver, cookie_file):
             print("No cookies loaded. Exiting (run reauth first).")
             return 1
 
