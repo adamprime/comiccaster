@@ -14,7 +14,7 @@ from pathlib import Path
 # Reuse auth machinery from the main scraper
 sys.path.insert(0, str(Path(__file__).parent))
 from comicskingdom_scraper_secure import (
-    load_config_from_env, setup_driver, load_cookies, is_authenticated
+    load_cookie_file_path, setup_driver, load_cookies, is_authenticated
 )
 
 
@@ -143,7 +143,7 @@ def main():
     output_dir = Path('data/ck_diagnostics')
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    cookie_file, _credentials = load_config_from_env()
+    cookie_file = load_cookie_file_path()
     driver = setup_driver(show_browser=True)
 
     try:

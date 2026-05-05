@@ -362,45 +362,32 @@ class TestLoginWithManualRecaptcha:
         assert not driver.execute_script.called
 
 
-# --- load_config_from_env ---------------------------------------------------
+# --- load_cookie_file_path --------------------------------------------------
 
 
-class TestLoadConfigFromEnv:
-    def test_credentials_not_printed(self, capsys, monkeypatch):
-        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "test-user-do-not-log")
-        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "test-pass-do-not-log")
-        monkeypatch.setenv(
-            "COMICSKINGDOM_COOKIE_FILE", "data/comicskingdom_cookies.pkl"
+class TestLoadCookieFilePath:
+    def test_uses_env_var_when_set(self, monkeypatch):
+        monkeypatch.setenv("COMICSKINGDOM_COOKIE_FILE", "/tmp/ck-test.pkl")
+        assert str(cki.load_cookie_file_path()) == "/tmp/ck-test.pkl"
+
+    def test_falls_back_to_default_when_unset(self, monkeypatch):
+        monkeypatch.delenv("COMICSKINGDOM_COOKIE_FILE", raising=False)
+        assert (
+            str(cki.load_cookie_file_path()) == "data/comicskingdom_cookies.pkl"
         )
 
-        cki.load_config_from_env()
+    def test_does_not_read_credential_env_vars(self, capsys, monkeypatch):
+        # Shape A: credentials are typed by the operator into the browser at
+        # reauth time and are never loaded from env. Setting them here proves
+        # the loader ignores them and they cannot leak into stdout.
+        monkeypatch.setenv("COMICSKINGDOM_USERNAME", "test-user-do-not-log")
+        monkeypatch.setenv("COMICSKINGDOM_PASSWORD", "test-pass-do-not-log")
+
+        cki.load_cookie_file_path()
+
         captured = capsys.readouterr()
         assert "test-user-do-not-log" not in captured.out
         assert "test-pass-do-not-log" not in captured.out
-
-    def test_require_credentials_false_accepts_missing_env_vars(
-        self, monkeypatch
-    ):
-        # Under profile-based auth, credentials aren't needed for daily scrape.
-        monkeypatch.delenv("COMICSKINGDOM_USERNAME", raising=False)
-        monkeypatch.delenv("COMICSKINGDOM_PASSWORD", raising=False)
-
-        cookie_file, credentials = cki.load_config_from_env(
-            require_credentials=False
-        )
-        assert credentials["username"] is None
-        assert credentials["password"] is None
-        assert cookie_file is not None
-
-    def test_require_credentials_true_still_exits_when_missing(
-        self, monkeypatch
-    ):
-        # Reauth path keeps the hard requirement.
-        monkeypatch.delenv("COMICSKINGDOM_USERNAME", raising=False)
-        monkeypatch.delenv("COMICSKINGDOM_PASSWORD", raising=False)
-
-        with pytest.raises(SystemExit):
-            cki.load_config_from_env(require_credentials=True)
 
 
 # --- reauth_comicskingdom.py -------------------------------------------------
