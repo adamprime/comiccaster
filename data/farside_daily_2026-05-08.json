@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-08",
+  "scraped_at": "2026-05-08T08:20:38.573595+00:00",
+  "comics": [
+    {
+      "id": "22187",
+      "date": "2026-05-08",
+      "url": "https://www.thefarside.com/2026/05/08/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee42fd8658c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee42fd8658c311ea8bf6005056a9",
+      "caption": "\u201cSure, I\u2019m a creature\u2014and I can accept that \u2026 but lately it seems I\u2019ve been turning into a miserable creature.\u201d",
+      "title": "\u201cSure, I\u2019m a creature\u2014and I can accept that \u2026 but lately ..."
+    },
+    {
+      "id": "22188",
+      "date": "2026-05-08",
+      "url": "https://www.thefarside.com/2026/05/08/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4302e158c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4302e158c311ea8bf6005056a9",
+      "caption": "\u201cLook! Look, gentlemen! Purple mountains! Spacious skies! Fruited plains! \u2026 Is someone writing this down?\u201d",
+      "title": "\u201cLook! Look, gentlemen! Purple mountains! Spacious skies!..."
+    },
+    {
+      "id": "22189",
+      "date": "2026-05-08",
+      "url": "https://www.thefarside.com/2026/05/08/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5f230100d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5f230100d8bb0137c959005056a9545d",
+      "caption": "\u201cYou know what I\u2019m sayin\u2019? \u2026 Me, for example. I couldn\u2019t work in some stuffy little office. \u2026 The outdoors just calls to me.\u201d",
+      "title": "\u201cYou know what I\u2019m sayin\u2019? \u2026 Me, for example"
+    },
+    {
+      "id": "22190",
+      "date": "2026-05-08",
+      "url": "https://www.thefarside.com/2026/05/08/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee42faab58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee42faab58c311ea8bf6005056a9",
+      "caption": "\u201cFor crying out loud, Jonah! Three days late, covered with slime, and smelling like fish! \u2026 And what story have I got to swallow this time?\u201d",
+      "title": "\u201cFor crying out loud, Jonah! Three days late, covered wit..."
+    },
+    {
+      "id": "22191",
+      "date": "2026-05-08",
+      "url": "https://www.thefarside.com/2026/05/08/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee47ffa758c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee47ffa758c311ea8bf6005056a9",
+      "caption": "Horse styles of the \u201950s",
+      "title": "Horse styles of the \u201950s"
+    }
+  ]
+}
