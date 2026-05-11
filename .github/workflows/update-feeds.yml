@@ -37,7 +37,7 @@ jobs:
           pip install selenium beautifulsoup4
       
       - name: Setup Chrome for authenticated scraping
-        uses: browser-actions/setup-chrome@v1
+        uses: browser-actions/setup-chrome@v2
         with:
           chrome-version: stable
       
