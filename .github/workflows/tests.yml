@@ -71,6 +71,6 @@ jobs:
         
     - name: Upload coverage reports to Codecov
       if: always()  # Run even if tests fail
-      uses: codecov/codecov-action@v5
+      uses: codecov/codecov-action@v6
       with:
         token: ${{ secrets.CODECOV_TOKEN }} 
