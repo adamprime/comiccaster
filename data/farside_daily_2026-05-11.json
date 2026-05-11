@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-11",
+  "scraped_at": "2026-05-11T08:19:16.785294+00:00",
+  "comics": [
+    {
+      "id": "22196",
+      "date": "2026-05-11",
+      "url": "https://www.thefarside.com/2026/05/11/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd9c18b70e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d9c18b70e6f80137ce50005056a9545d",
+      "caption": "Math phobic\u2019s nightmare",
+      "title": "Math phobic\u2019s nightmare"
+    },
+    {
+      "id": "22197",
+      "date": "2026-05-11",
+      "url": "https://www.thefarside.com/2026/05/11/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe75e8e60d0c40137c631005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e75e8e60d0c40137c631005056a9545d",
+      "caption": "\u201cOne more thing, young man. You get my daughter home before sunrise\u2014I don\u2019t want you coming back here with a pile of dried bones!\u201d",
+      "title": "\u201cOne more thing, young man"
+    },
+    {
+      "id": "22198",
+      "date": "2026-05-11",
+      "url": "https://www.thefarside.com/2026/05/11/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee458a5658c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee458a5658c311ea8bf6005056a9",
+      "caption": "\u201cSay \u2026 what\u2019s a mountain goat doing way up here in a cloud bank?\u201d",
+      "title": "\u201cSay \u2026 what\u2019s a mountain goat doing way up here in a clou..."
+    },
+    {
+      "id": "22199",
+      "date": "2026-05-11",
+      "url": "https://www.thefarside.com/2026/05/11/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F15c33140fa880137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/15c33140fa880137d531005056a9545d",
+      "caption": "\u201cOh, Professor DeWitt! Have you seen Professor Weinberg\u2019s time machine? \u2026 It\u2019s digital!\u201d",
+      "title": "\u201cOh, Professor DeWitt! Have you seen Professor Weinberg\u2019s..."
+    },
+    {
+      "id": "22200",
+      "date": "2026-05-11",
+      "url": "https://www.thefarside.com/2026/05/11/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1d9245b002810138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1d9245b002810138d7bb005056a9545d",
+      "caption": "The conversation had been brisk and pleasant when, suddenly and simultaneously, everyone just got dog tired.",
+      "title": "The conversation had been brisk and pleasant when, sudden..."
+    }
+  ]
+}
