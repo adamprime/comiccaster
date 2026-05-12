@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-12",
+  "scraped_at": "2026-05-12T08:20:58.744475+00:00",
+  "comics": [
+    {
+      "id": "22201",
+      "date": "2026-05-12",
+      "url": "https://www.thefarside.com/2026/05/12/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45cdbb58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45cdbb58c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22201"
+    },
+    {
+      "id": "22202",
+      "date": "2026-05-12",
+      "url": "https://www.thefarside.com/2026/05/12/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1da8f340fa850137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1da8f340fa850137d52f005056a9545d",
+      "caption": "When ornithologists are mutually attracted",
+      "title": "When ornithologists are mutually attracted"
+    },
+    {
+      "id": "22203",
+      "date": "2026-05-12",
+      "url": "https://www.thefarside.com/2026/05/12/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee48016f58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee48016f58c311ea8bf6005056a9",
+      "caption": "\u201cJust heft that baby in your arms a little. \u2026 I guarantee you, whether they\u2019re drawn in ink or pencil, that sucker will wipe out any characters that come around.\u201d",
+      "title": "\u201cJust heft that baby in your arms a little"
+    },
+    {
+      "id": "22204",
+      "date": "2026-05-12",
+      "url": "https://www.thefarside.com/2026/05/12/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4331ae58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4331ae58c311ea8bf6005056a9",
+      "caption": "\u201cOf course, that was back in the days when you were just a twinkle in your father\u2019s eyes.\u201d",
+      "title": "\u201cOf course, that was back in the days when you were just ..."
+    },
+    {
+      "id": "22205",
+      "date": "2026-05-12",
+      "url": "https://www.thefarside.com/2026/05/12/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F33d0bae0e3af0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/33d0bae0e3af0137cd49005056a9545d",
+      "caption": "\u201cAnd so you just threw everything together? Matthews, a posse is something you have to organize .\u201d",
+      "title": "\u201cAnd so you just threw everything together? Matthews, a p..."
+    }
+  ]
+}
