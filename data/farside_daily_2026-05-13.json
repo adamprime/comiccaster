@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-13",
+  "scraped_at": "2026-05-13T08:19:48.069884+00:00",
+  "comics": [
+    {
+      "id": "22206",
+      "date": "2026-05-13",
+      "url": "https://www.thefarside.com/2026/05/13/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee48106558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee48106558c311ea8bf6005056a9",
+      "caption": "MORE FACTS OF NATURE: As part of nature\u2019s way to help spread the species throughout their ecological niche, bison often utilize a behavior naturalists have described as \u201cballooning.\u201d",
+      "title": "MORE FACTS OF NATURE: As part of nature\u2019s way to help spr..."
+    },
+    {
+      "id": "22207",
+      "date": "2026-05-13",
+      "url": "https://www.thefarside.com/2026/05/13/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fce92a300d19e0137c68e005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ce92a300d19e0137c68e005056a9545d",
+      "caption": "The four basic personality types",
+      "title": "The four basic personality types"
+    },
+    {
+      "id": "22208",
+      "date": "2026-05-13",
+      "url": "https://www.thefarside.com/2026/05/13/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45bcc558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45bcc558c311ea8bf6005056a9",
+      "caption": "\u201cYou idiot! Don\u2019t write that down\u2014his name ain\u2019t Puddin\u2019 Tame!\u201d",
+      "title": "\u201cYou idiot! Don\u2019t write that down\u2014his name ain\u2019t Puddin\u2019 ..."
+    },
+    {
+      "id": "22209",
+      "date": "2026-05-13",
+      "url": "https://www.thefarside.com/2026/05/13/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee48047158c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee48047158c311ea8bf6005056a9",
+      "caption": "The 25th annual \u201cPart of the Problem\u201d convention",
+      "title": "The 25th annual \u201cPart of the Problem\u201d convention"
+    },
+    {
+      "id": "22210",
+      "date": "2026-05-13",
+      "url": "https://www.thefarside.com/2026/05/13/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee480f9658c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee480f9658c311ea8bf6005056a9",
+      "caption": "\u201cSay, Will\u2014why don\u2019t you pull that thing out and play us a tune?\u201d",
+      "title": "\u201cSay, Will\u2014why don\u2019t you pull that thing out and play us ..."
+    }
+  ]
+}
