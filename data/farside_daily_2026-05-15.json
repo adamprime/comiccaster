@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-15",
+  "scraped_at": "2026-05-15T08:19:46.504450+00:00",
+  "comics": [
+    {
+      "id": "22216",
+      "date": "2026-05-15",
+      "url": "https://www.thefarside.com/2026/05/15/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee70ec60e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee70ec60e92e0137cf47005056a9545d",
+      "caption": "\u201cRemember, Calloway, this is their biggest and best warrior\u2014so stay alert! When you knock him down, he\u2019s gonna come right back at ya!\u201d",
+      "title": "\u201cRemember, Calloway, this is their biggest and best warri..."
+    },
+    {
+      "id": "22217",
+      "date": "2026-05-15",
+      "url": "https://www.thefarside.com/2026/05/15/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3a0162d0d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3a0162d0d0f70137c652005056a9545d",
+      "caption": "The townsfolk all stopped and stared; they didn\u2019t know the tall stranger who rode calmly through their midst, but they did know the reign of terror had ended.",
+      "title": "The townsfolk all stopped and stared; they didn\u2019t know th..."
+    },
+    {
+      "id": "22218",
+      "date": "2026-05-15",
+      "url": "https://www.thefarside.com/2026/05/15/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee47f14158c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee47f14158c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22218"
+    },
+    {
+      "id": "22219",
+      "date": "2026-05-15",
+      "url": "https://www.thefarside.com/2026/05/15/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee460c6758c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee460c6758c311ea8bf6005056a9",
+      "caption": "\u201cWow. \u2026 That\u2019s ironic. I think something bit me.\u201d",
+      "title": "\u201cWow"
+    },
+    {
+      "id": "22220",
+      "date": "2026-05-15",
+      "url": "https://www.thefarside.com/2026/05/15/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45bee358c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45bee358c311ea8bf6005056a9",
+      "caption": "\u201cWhoa! Smells like a French primate house in here.\u201d",
+      "title": "\u201cWhoa! Smells like a French primate house in here"
+    }
+  ]
+}
