@@ -9,7 +9,7 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 
 **Phase:** Maintenance (active)
 **Last Session:** 2026-05-16
-**Last Session Summary:** PR #139 opened from `codex/external-rss-catalog`: added a first-party External RSS catalog with its own browse and OPML tabs, direct `feed_url` handling in `functions/generate-opml.js`, Netlify function packaging for the new catalog, docs updates, and 5 new catalog/UI tests. Full local suite: 281 tests passing. Direct OPML smoke check verified xkcd and Poorly Drawn Lines use publisher RSS URLs rather than ComicCaster-generated URLs.
+**Last Session Summary:** PR #139 (this branch): first-party External RSS catalog with its own browse and OPML tabs, direct `feed_url` handling in `functions/generate-opml.js`, Netlify function packaging for the new catalog, docs updates, and 5 new catalog/UI tests. PR #140 (parallel, no file overlap): two-pass GoComics scrape addressing issue #138 (Nick Anderson and ~10 other late-publishing political cartoonists missing from daily scrape data) plus single-source-of-truth fix for the catalog files that the GoComics generator was reading from a stale location. After both PRs land, full suite: 289 tests passing (276 baseline + 5 external-rss + 8 pass-2/catalog).
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -21,7 +21,7 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 - Invariant guard between Phase 2 and Phase 3 catches silent scrape regressions (scrape reports success but its dated JSON is missing)
 - Comics Kingdom authentication uses a persistent Chrome profile at `~/.comicskingdom_chrome_profile` (Shape A); `reauth_comicskingdom.py` is the operator entry point for refresh
 - Chrome boundary instrumentation in `_individual` — timestamped log lines at every `driver.get` make hang-site localization a grep
-- 281-test suite passing locally on the external RSS branch; mainline CI covers Python 3.10 / 3.11 / 3.12
+- 289-test suite passing across Python 3.10 / 3.11 / 3.12 after PR #139 and #140 merge (281 on `codex/external-rss-catalog` alone + 8 more from `feat/two-pass-scrape-and-catalog-fix`)
 - 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, and 10 Creators feeds updating daily
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled; **zero open CodeQL alerts**
@@ -66,7 +66,7 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 281 passing on `codex/external-rss-catalog`, requires Python ≥3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 289 passing after PR #139 and #140 merge, requires Python ≥3.10
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
 **Production pipeline:** see [docs/LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) and [docs/DEPLOYMENT.md](DEPLOYMENT.md)
@@ -109,7 +109,7 @@ Between Phase 2 and Phase 3, an invariant guard checks that every successful scr
   - Updated README and the testing guide for the new catalog type.
   - Opened PR #139: `codex/external-rss-catalog` → `main`.
 - **Validation:**
-  - `pytest -q`: 281 passing.
+  - `pytest -q`: 281 passing on this branch; 289 after PR #140 also merges.
   - External OPML smoke check verified xkcd and Poorly Drawn Lines output direct publisher feed URLs.
   - Static page smoke check verified External RSS tab markup, `external_comics_list.json` serving, and inline script parsing.
 - **Didn't finish:** PR #139 still needs CI/Netlify preview review and merge.
