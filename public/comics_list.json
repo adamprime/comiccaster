@@ -1002,14 +1002,6 @@
     "is_updated": false
   },
   {
-    "name": "Everyday People Cartoons",
-    "author": "Cathy Thorne",
-    "url": "https://www.gocomics.com/everyday-people-cartoons",
-    "slug": "everyday-people-cartoons",
-    "position": 126,
-    "is_updated": false
-  },
-  {
     "name": "Eyebeam",
     "author": "Sam Hurt",
     "url": "https://www.gocomics.com/eyebeam",
@@ -3229,31 +3221,12 @@
     "is_updated": true
   },
   {
-    "name": "ADHDinos",
-    "author": "Pina Vazquez",
-    "url": "https://tinyview.com/adhdinos",
-    "slug": "adhdinos",
-    "position": 405,
-    "is_updated": false,
-    "source": "tinyview"
-  },
-  {
-    "name": "Nick Anderson",
-    "author": "Nick Anderson",
-    "url": "https://tinyview.com/nick-anderson",
-    "slug": "nick-anderson",
-    "position": 406,
-    "is_updated": false,
-    "source": "tinyview"
-  },
-  {
     "name": "Fowl Language",
     "author": "Brian Gordon",
-    "url": "https://tinyview.com/fowl-language",
+    "url": "https://www.gocomics.com/fowl-language",
     "slug": "fowl-language",
     "position": 407,
-    "is_updated": false,
-    "source": "tinyview"
+    "is_updated": false
   },
   {
     "name": "Brilliant Mind Of Edison Lee",
@@ -4602,5 +4575,19 @@
     "position": 567,
     "is_updated": true,
     "source": "comicskingdom"
+  },
+  {
+    "name": "The Ancients",
+    "url": "https://www.gocomics.com/the-ancients",
+    "slug": "the-ancients",
+    "position": 568,
+    "is_updated": true
+  },
+  {
+    "name": "Street Scene",
+    "url": "https://www.gocomics.com/street-scene",
+    "slug": "street-scene",
+    "position": 569,
+    "is_updated": true
   }
 ]
