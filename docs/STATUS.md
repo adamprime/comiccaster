@@ -1,15 +1,15 @@
 # Project Status
-<!-- Updated: 2026-05-05 by Adam -->
+<!-- Updated: 2026-05-16 by Codex -->
 
 ## Project Overview
-ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, and Creators Syndicate into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation; Netlify serves the static site and feed files.
+ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, Creators Syndicate, and first-party external RSS feeds into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation where ComicCaster owns the feed; external RSS entries link directly to publisher-provided feeds. Netlify serves the static site and feed files.
 
 ## Current State
-Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with no observed regressions; daily runs report all-success on most days, with the expected weekly CK session refresh handled manually via `reauth_comicskingdom.py`. Today's session was a 7-PR maintenance sweep: a Dependabot bump, a new watcher for the public feedback site, GitHub Actions modernization, two CodeQL high-severity alerts cleared, deletion of stale setup docs, and retirement of the legacy CK scraper.
+Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with no observed regressions; daily runs report all-success on most days, with the expected weekly CK session refresh handled manually via `reauth_comicskingdom.py`. PR #139 is open from `codex/external-rss-catalog` to add a separate External RSS catalog and OPML flow for first-party publisher feeds. It avoids the scrape/generate pipeline entirely and should be validated through CI plus the Netlify preview before merge.
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-05-05
-**Last Session Summary:** Seven PRs merged (#121, #122, #128, #129, #130, #131, #132). #121 bumped pytz; #122 added a daily GitHub Action that polls the public feedback Atom feed and opens issues for new posts (state-via-issues, idempotent); #128 bumped active workflows to Node 24 actions and pruned four dead/legacy workflows (8 → 4); #129 / #130 cleared CodeQL alerts #53 and #54 by first splitting CK credentials from the cookie-file path and then dropping credential loading entirely (nothing in the post-Shape-A codebase still consumed it); #131 deleted seven stale pre-Shape-A setup docs (`docs/setup/` is gone); #132 retired `comicskingdom_scraper_secure.py`, deleted the now-broken `diagnose_ck_page.py`, and renamed `_individual.login_with_manual_recaptcha` → `wait_for_manual_login`. 276 tests passing throughout. Zero open CodeQL alerts.
+**Last Session:** 2026-05-16
+**Last Session Summary:** PR #139 (this branch): first-party External RSS catalog with its own browse and OPML tabs, direct `feed_url` handling in `functions/generate-opml.js`, Netlify function packaging for the new catalog, docs updates, and 5 new catalog/UI tests. PR #140 (parallel, no file overlap): two-pass GoComics scrape addressing issue #138 (Nick Anderson and ~10 other late-publishing political cartoonists missing from daily scrape data) plus single-source-of-truth fix for the catalog files that the GoComics generator was reading from a stale location. After both PRs land, full suite: 289 tests passing (276 baseline + 5 external-rss + 8 pass-2/catalog).
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -21,7 +21,7 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 - Invariant guard between Phase 2 and Phase 3 catches silent scrape regressions (scrape reports success but its dated JSON is missing)
 - Comics Kingdom authentication uses a persistent Chrome profile at `~/.comicskingdom_chrome_profile` (Shape A); `reauth_comicskingdom.py` is the operator entry point for refresh
 - Chrome boundary instrumentation in `_individual` — timestamped log lines at every `driver.get` make hang-site localization a grep
-- 276-test suite passing across Python 3.10 / 3.11 / 3.12
+- 289-test suite passing across Python 3.10 / 3.11 / 3.12 after PR #139 and #140 merge (281 on `codex/external-rss-catalog` alone + 8 more from `feat/two-pass-scrape-and-catalog-fix`)
 - 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, and 10 Creators feeds updating daily
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled; **zero open CodeQL alerts**
@@ -36,16 +36,17 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 
 | Item | Status | Branch | Notes |
 |------|--------|--------|-------|
-| _none_ | | | All planned work merged. Daily pipeline running stable on Shape A. |
+| External RSS catalog | PR open | `codex/external-rss-catalog` | PR #139 adds a separate External RSS tab and OPML path for first-party feeds; merge after CI and Netlify preview review. |
 
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
 
-1. **`chmod 700` on `~/.tinyview_chrome_profile`** — same security fix that Shape A applied to the CK profile. Pre-existing issue with TinyView's `setup_driver`.
-2. **Audit `SETUP_TINYVIEW_AUTH.sh`** — script is operationally correct (calls `tinyview_scraper_secure.py`, which is the canonical interactive auth tool there). Worth re-reading against the same operator-pragmatic principle the CK setup-doc cleanup applied.
-3. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
-4. **Investigate issue #91** (GoComics strips don't save to read-later platforms).
-5. **Optional source-code-comment cleanup pass** — several files have docstrings and comments that could be trimmed for accuracy and conciseness. Deferred: low risk, real cost.
+1. **Review and merge PR #139** — confirm CI and Netlify preview. Preview checks: External RSS tabs render, search works, Poorly Drawn Lines shows `https://poorlydrawnlines.com/feed/`, and External OPML contains publisher feed URLs.
+2. **`chmod 700` on `~/.tinyview_chrome_profile`** — same security fix that Shape A applied to the CK profile. Pre-existing issue with TinyView's `setup_driver`.
+3. **Audit `SETUP_TINYVIEW_AUTH.sh`** — script is operationally correct (calls `tinyview_scraper_secure.py`, which is the canonical interactive auth tool there). Worth re-reading against the same operator-pragmatic principle the CK setup-doc cleanup applied.
+4. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
+5. **Investigate issue #91** (GoComics strips don't save to read-later platforms).
+6. **Optional source-code-comment cleanup pass** — several files have docstrings and comments that could be trimmed for accuracy and conciseness. Deferred: low risk, real cost.
 
 ## Open Decisions
 <!-- Architectural or product decisions that haven't been made yet. -->
@@ -65,7 +66,7 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 276 passing, requires Python ≥3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 289 passing after PR #139 and #140 merge, requires Python ≥3.10
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
 **Production pipeline:** see [docs/LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) and [docs/DEPLOYMENT.md](DEPLOYMENT.md)
@@ -95,6 +96,26 @@ Between Phase 2 and Phase 3, an invariant guard checks that every successful scr
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-05-16
+- **Goal:** Add a cheap expansion path for popular webcomics that already publish first-party RSS feeds, without creating new scrapers or generated feed files.
+- **Accomplished:**
+  - Confirmed `main` was clean and current with `origin/main` before starting, then researched first-party RSS candidates.
+  - Added `public/external_comics_list.json` with 25 non-mature external feeds. Included direct feeds even when a comic also exists in the GoComics catalog, because publisher feeds can update more frequently.
+  - Excluded mature feeds for now; Oglaf was deliberately left out.
+  - Added a dedicated External RSS browse tab and External RSS OPML tab in `public/index.html`, following the existing tab/table/list UI patterns.
+  - Updated `functions/generate-opml.js` so `external-rss` entries preserve their publisher `feed_url` in OPML instead of being rewritten to ComicCaster `/rss/` or `/feeds/` URLs.
+  - Updated `netlify.toml` to package the external, Spanish, and TinyView catalog JSON files with Netlify functions.
+  - Updated README and the testing guide for the new catalog type.
+  - Opened PR #139: `codex/external-rss-catalog` → `main`.
+- **Validation:**
+  - `pytest -q`: 281 passing on this branch; 289 after PR #140 also merges.
+  - External OPML smoke check verified xkcd and Poorly Drawn Lines output direct publisher feed URLs.
+  - Static page smoke check verified External RSS tab markup, `external_comics_list.json` serving, and inline script parsing.
+- **Didn't finish:** PR #139 still needs CI/Netlify preview review and merge.
+- **Discovered:**
+  - Questionable Content and Girl Genius did not have a clearly working official RSS URL from the obvious/current endpoints checked, so they were not added.
+  - Some comics already present through GoComics, such as Poorly Drawn Lines and SMBC, have direct feeds that are worth listing separately.
 
 ### 2026-05-05
 - **Goal:** Project review + opportunistic cleanup of accumulated tech debt.

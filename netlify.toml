@@ -10,8 +10,14 @@
     # Copy necessary files for functions
     cp public/comics_list.json functions/ || true
     cp public/political_comics_list.json functions/ || true
+    cp public/spanish_comics_list.json functions/ || true
+    cp public/tinyview_comics_list.json functions/ || true
+    cp public/external_comics_list.json functions/ || true
     cp public/comics_list.json functions/data/ || true
     cp public/political_comics_list.json functions/data/ || true
+    cp public/spanish_comics_list.json functions/data/ || true
+    cp public/tinyview_comics_list.json functions/data/ || true
+    cp public/external_comics_list.json functions/data/ || true
     
     echo "Build command complete."
   """
@@ -19,7 +25,7 @@
 [functions]
   directory = "functions"
   node_bundler = "esbuild"
-  included_files = ["comics_list.json", "political_comics_list.json", "data/**"]
+  included_files = ["comics_list.json", "political_comics_list.json", "spanish_comics_list.json", "tinyview_comics_list.json", "external_comics_list.json", "data/**"]
 
 # Direct /rss/ requests to the static feed files
 [[redirects]]

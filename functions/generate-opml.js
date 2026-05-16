@@ -37,14 +37,18 @@ function comicFeedExists(slug) {
     }
 
     // If we have a comics list, consider that as validation too
-    // Check daily, political, and tinyview lists
+    // Check all catalog lists, including external direct RSS feeds
     const dailyComicsList = loadComicsList('daily');
     const politicalComicsList = loadComicsList('political');
+    const spanishComicsList = loadComicsList('spanish');
     const tinyviewComicsList = loadComicsList('tinyview');
+    const externalComicsList = loadComicsList('external');
     
     if ((dailyComicsList && dailyComicsList.some(comic => comic.slug === slug)) ||
         (politicalComicsList && politicalComicsList.some(comic => comic.slug === slug)) ||
-        (tinyviewComicsList && tinyviewComicsList.some(comic => comic.slug === slug))) {
+        (spanishComicsList && spanishComicsList.some(comic => comic.slug === slug)) ||
+        (tinyviewComicsList && tinyviewComicsList.some(comic => comic.slug === slug)) ||
+        (externalComicsList && externalComicsList.some(comic => comic.slug === slug))) {
         console.log(`Comic ${slug} found in comics list`);
         return true;
     }
@@ -62,6 +66,18 @@ function loadComicsList(type = 'daily') {
                 const politicalComics = require('./political_comics_list.json');
                 console.log(`Loaded ${politicalComics.length} political comics using require()`);
                 return politicalComics;
+            } else if (type === 'spanish') {
+                const spanishComics = require('./spanish_comics_list.json');
+                console.log(`Loaded ${spanishComics.length} spanish comics using require()`);
+                return spanishComics;
+            } else if (type === 'tinyview') {
+                const tinyviewComics = require('./tinyview_comics_list.json');
+                console.log(`Loaded ${tinyviewComics.length} tinyview comics using require()`);
+                return tinyviewComics;
+            } else if (type === 'external') {
+                const externalComics = require('./external_comics_list.json');
+                console.log(`Loaded ${externalComics.length} external comics using require()`);
+                return externalComics;
             } else {
                 const dailyComics = require('./comics_list.json');
                 console.log(`Loaded ${dailyComics.length} daily comics using require()`);
@@ -76,7 +92,9 @@ function loadComicsList(type = 'daily') {
         
         // Determine the filename based on type
         const filename = type === 'political' ? 'political_comics_list.json' : 
+                         type === 'spanish' ? 'spanish_comics_list.json' :
                          type === 'tinyview' ? 'tinyview_comics_list.json' : 
+                         type === 'external' ? 'external_comics_list.json' :
                          'comics_list.json';
         
         // List contents of function directory
@@ -159,7 +177,9 @@ function generateOPML(comics, type = 'daily') {
         // Determine feed URL based on source
         // GoComics uses /rss/{slug}, others use /feeds/{slug}.xml
         let feedUrl;
-        if (comic && (comic.source === 'comicskingdom' || comic.source === 'tinyview' || 
+        if (comic && comic.source === 'external-rss' && comic.feed_url) {
+            feedUrl = comic.feed_url;
+        } else if (comic && (comic.source === 'comicskingdom' || comic.source === 'tinyview' || 
                       comic.source === 'farside' || comic.source === 'newyorker' ||
                       comic.source === 'creators')) {
             feedUrl = `${baseUrl}/feeds/${slug}.xml`;
@@ -176,10 +196,14 @@ function generateOPML(comics, type = 'daily') {
     }).join('\n');
 
     const categoryTitle = type === 'political' ? 'Political Cartoons' : 
+                         type === 'spanish' ? 'Spanish Comics' :
                          type === 'tinyview' ? 'TinyView Comics' : 
+                         type === 'external' ? 'External RSS Comics' :
                          'Comics';
     const opmlTitle = type === 'political' ? 'ComicCaster Political Cartoons' : 
+                     type === 'spanish' ? 'ComicCaster Spanish Comics' :
                      type === 'tinyview' ? 'ComicCaster TinyView Comics' : 
+                     type === 'external' ? 'ComicCaster External RSS Comics' :
                      'ComicCaster Daily Comics';
 
     return `<?xml version="1.0" encoding="UTF-8"?>
@@ -253,7 +277,9 @@ exports.handler = async function(event, context) {
 
         // Determine filename based on type
         const filename = type === 'political' ? 'political-cartoons.opml' : 
+                        type === 'spanish' ? 'spanish-comics.opml' :
                         type === 'tinyview' ? 'tinyview-comics.opml' : 
+                        type === 'external' ? 'external-comics.opml' :
                         'daily-comics.opml';
 
         // Return OPML as attachment

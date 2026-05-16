@@ -5,7 +5,7 @@ ComicCaster is a web application that generates RSS feeds for comics from multip
 ## Features
 
 ### Core Functionality
-- **500+ Comics Available**: Access to comics from GoComics, Comics Kingdom, TinyView, and The Far Side
+- **500+ Comics Available**: Access to comics from GoComics, Comics Kingdom, TinyView, The Far Side, and first-party webcomic RSS feeds
 - **Multi-Source Architecture**: Unified interface for comics from different platforms
 - **RSS Feed Generation**: Standard RSS 2.0 feeds compatible with all major feed readers
 - **OPML Bundle Creation**: Generate custom bundles of comics for easy import into feed readers
@@ -19,6 +19,7 @@ ComicCaster is a web application that generates RSS feeds for comics from multip
 
 ### User Interface
 - **Tabbed Navigation**: Separate tabs for daily comics, political cartoons, and TinyView comics
+- **External RSS Directory**: Browse first-party RSS feeds for independent webcomics alongside ComicCaster-generated feeds
 - **Feed Preview**: Check comic content before subscribing
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 - **Search and Filter**: Quickly find comics by name or category
@@ -153,13 +154,21 @@ See [TESTING_GUIDE.md](TESTING_GUIDE.md) for comprehensive testing documentation
 
 1. **For GoComics**: Add to appropriate JSON file in `public/`
 2. **For TinyView**: Add to `public/tinyview_comics_list.json`
-3. **Required fields**:
+3. **For first-party external RSS feeds**: Add to `public/external_comics_list.json`
+4. **Required fields**:
    ```json
    {
      "name": "Comic Name",
      "slug": "comic-slug",
      "url": "https://source.com/comic-slug",
      "source": "gocomics-daily|gocomics-political|tinyview"
+   }
+   ```
+5. **External RSS feeds also require**:
+   ```json
+   {
+     "feed_url": "https://comic.example/feed.xml",
+     "source": "external-rss"
    }
    ```
 
@@ -196,6 +205,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### The Far Side
 - **Daily Far Side**: Gary Larson's classic comic
+
+### External RSS Feeds
+- **First-party feeds**: Popular independent webcomics that publish their own RSS feeds, such as xkcd and Poorly Drawn Lines
+- **No scraping required**: ComicCaster links directly to the publisher's RSS feed
 
 ## Acknowledgments
 
