@@ -224,7 +224,7 @@ class ComicsLoader:
         
         return comics
 
-    def load_comics_from_file(self, file_path: str = "comics_list.json") -> List[Dict[str, str]]:
+    def load_comics_from_file(self, file_path: str = "public/comics_list.json") -> List[Dict[str, str]]:
         """
         Load comic information from a JSON file.
         
@@ -253,7 +253,7 @@ class ComicsLoader:
             logger.error(f"Failed to load comics from file: {e}")
             raise
     
-    def get_comics_list(self, file_path: str = "comics_list.json") -> List[str]:
+    def get_comics_list(self, file_path: str = "public/comics_list.json") -> List[str]:
         """
         Get a list of all comic slugs from the JSON file.
         
@@ -317,8 +317,8 @@ class ComicsLoader:
         
         return True
     
-    def load_all_comics(self, regular_comics_file: str = "comics_list.json", 
-                       political_comics_file: str = "political_comics_list.json") -> List[Dict[str, str]]:
+    def load_all_comics(self, regular_comics_file: str = "public/comics_list.json",
+                       political_comics_file: str = "public/political_comics_list.json") -> List[Dict[str, str]]:
         """
         Load all comics from both regular and political comics files.
         
