@@ -351,3 +351,58 @@ class TestMain:
         result = main()
 
         assert result == 1
+
+
+class TestCatalogPath:
+    """Pin the contract that the generator reads catalogs from public/.
+
+    Prior to 2026-05-16, the generator silently read stale root/scripts copies
+    of comics_list.json and political_comics_list.json while the UI and all
+    other source scrapers read public/. The drift caused catalog edits to
+    public/ to silently no-op at feed generation (see
+    docs/plans/2026-05-16-001-fix-dual-catalog-source-of-truth-plan.md).
+    These tests fail if the generator regresses to reading a different copy.
+    """
+
+    def test_loads_full_public_catalog(self):
+        """load_comics_catalog returns every entry from both public/ catalog files."""
+        project_root = Path(__file__).parent.parent
+        public_comics = json.load(open(project_root / 'public' / 'comics_list.json'))
+        public_political = json.load(open(project_root / 'public' / 'political_comics_list.json'))
+        expected_count = len(public_comics) + len(public_political)
+
+        original_cwd = os.getcwd()
+        os.chdir(project_root)
+        try:
+            catalog = load_comics_catalog()
+        finally:
+            os.chdir(original_cwd)
+
+        assert len(catalog) == expected_count, (
+            f"Generator loaded {len(catalog)} comics but public/ catalogs total "
+            f"{expected_count} ({len(public_comics)} daily + {len(public_political)} political). "
+            f"If these diverge, the generator is reading a stale copy instead of public/."
+        )
+
+    def test_includes_recent_additions_from_public(self):
+        """Entries added to public/comics_list.json are visible to the generator.
+
+        Concrete check: the-ancients and street-scene were added to
+        public/comics_list.json and must appear in load_comics_catalog() output.
+        If they don't, the generator is reading a stale catalog copy.
+        """
+        project_root = Path(__file__).parent.parent
+        original_cwd = os.getcwd()
+        os.chdir(project_root)
+        try:
+            catalog = load_comics_catalog()
+        finally:
+            os.chdir(original_cwd)
+
+        slugs = {c.get('slug') for c in catalog}
+        for required_slug in ('the-ancients', 'street-scene'):
+            assert required_slug in slugs, (
+                f"{required_slug!r} is in public/comics_list.json but not visible to "
+                f"the generator. This indicates the generator is reading a stale "
+                f"catalog copy instead of public/."
+            )

@@ -323,6 +323,32 @@ def extract_comics_from_page(driver, page_url, date_str):
     return unique_comics
 
 
+def merge_with_existing(output_file: Path, new_comics: list) -> list:
+    """Union new scrape results with any existing same-day file.
+
+    Used by the second daily pass to capture late-publishing comics without
+    losing slugs the first pass already extracted. New entries win for any
+    slug present in both passes (newer strip, same publication date).
+    """
+    if not output_file.exists():
+        return new_comics
+    try:
+        with open(output_file) as f:
+            existing = json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"⚠️  Could not read existing {output_file}: {e}; using new data only")
+        return new_comics
+
+    new_slugs = {c.get('slug') for c in new_comics if c.get('slug')}
+    preserved = [c for c in existing if c.get('slug') and c.get('slug') not in new_slugs]
+    merged = new_comics + preserved
+    print(
+        f"🔀 Merge: {len(new_comics)} from this pass + "
+        f"{len(preserved)} preserved from existing = {len(merged)} total"
+    )
+    return merged
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Secure authenticated scraper for GoComics'
@@ -330,7 +356,10 @@ def main():
     parser.add_argument('--date', help='Date in YYYY-MM-DD format (defaults to today)')
     parser.add_argument('--output-dir', default='/tmp', help='Output directory for JSON files')
     parser.add_argument('--show-browser', action='store_true', help='Show browser window')
-    
+    parser.add_argument('--merge', action='store_true',
+                        help='Merge with existing same-day file instead of overwriting. '
+                             'Used by the second daily pass to capture late-publishing comics.')
+
     args = parser.parse_args()
     
     date_str = args.date or datetime.now().strftime('%Y-%m-%d')
@@ -389,6 +418,8 @@ def main():
 
         # Save results
         output_file = output_dir / f'comics_{date_str}.json'
+        if args.merge:
+            all_comics = merge_with_existing(output_file, all_comics)
         with open(output_file, 'w') as f:
             json.dump(all_comics, f, indent=2)
         

@@ -15,6 +15,7 @@ from scripts.authenticated_scraper_secure import (
     _extract_comic_slug_from_link,
     _get_image_src,
     _get_badge_name,
+    merge_with_existing,
 )
 
 
@@ -285,3 +286,94 @@ class TestExtractComicsFromPage:
 
         assert len(comics) == 2
         assert 'all 2 updated comics captured' in captured.out
+
+
+class TestMergeWithExisting:
+    """Verifies the second-pass merge logic that combines pass-1 and pass-2 scrapes."""
+
+    def test_no_existing_file_returns_new_unchanged(self, tmp_path):
+        """When no prior file exists, merge passes new comics through verbatim."""
+        out = tmp_path / 'comics_2026-05-14.json'
+        new = [{'slug': 'a', 'url': 'https://www.gocomics.com/a/2026/05/14'}]
+
+        result = merge_with_existing(out, new)
+
+        assert result == new
+
+    def test_unreadable_existing_falls_back_to_new(self, tmp_path, capsys):
+        """Corrupt existing file falls back to new data with a warning."""
+        out = tmp_path / 'comics_2026-05-14.json'
+        out.write_text('{ not valid json')
+        new = [{'slug': 'a'}]
+
+        result = merge_with_existing(out, new)
+
+        assert result == new
+        assert 'Could not read existing' in capsys.readouterr().out
+
+    def test_disjoint_slugs_unions_both(self, tmp_path):
+        """Pass-1 slugs not in pass-2 are preserved; pass-2 slugs are added."""
+        out = tmp_path / 'comics_2026-05-14.json'
+        out.write_text(json.dumps([
+            {'slug': 'chipbok', 'image_url': 'pass1-chipbok'},
+            {'slug': 'doonesbury', 'image_url': 'pass1-doonesbury'},
+        ]))
+        new = [{'slug': 'nickanderson', 'image_url': 'pass2-nickanderson'}]
+
+        result = merge_with_existing(out, new)
+
+        slugs = {c['slug'] for c in result}
+        assert slugs == {'chipbok', 'doonesbury', 'nickanderson'}
+
+    def test_overlapping_slug_pass_two_wins(self, tmp_path):
+        """For a slug present in both passes, pass-2's entry replaces pass-1's."""
+        out = tmp_path / 'comics_2026-05-14.json'
+        out.write_text(json.dumps([
+            {'slug': 'chipbok', 'image_url': 'pass1-image'},
+        ]))
+        new = [{'slug': 'chipbok', 'image_url': 'pass2-image'}]
+
+        result = merge_with_existing(out, new)
+
+        assert len(result) == 1
+        assert result[0]['image_url'] == 'pass2-image'
+
+    def test_mixed_overlap_and_disjoint(self, tmp_path, capsys):
+        """Realistic merge: some shared slugs (pass-2 wins), some unique to each pass."""
+        out = tmp_path / 'comics_2026-05-14.json'
+        out.write_text(json.dumps([
+            {'slug': 'chipbok', 'image_url': 'pass1-chipbok'},
+            {'slug': 'doonesbury', 'image_url': 'pass1-doonesbury'},
+            {'slug': 'johndeering', 'image_url': 'pass1-johndeering'},
+        ]))
+        new = [
+            {'slug': 'chipbok', 'image_url': 'pass2-chipbok'},
+            {'slug': 'nickanderson', 'image_url': 'pass2-nickanderson'},
+            {'slug': 'robrogers', 'image_url': 'pass2-robrogers'},
+        ]
+
+        result = merge_with_existing(out, new)
+
+        by_slug = {c['slug']: c['image_url'] for c in result}
+        assert by_slug == {
+            'chipbok': 'pass2-chipbok',
+            'doonesbury': 'pass1-doonesbury',
+            'johndeering': 'pass1-johndeering',
+            'nickanderson': 'pass2-nickanderson',
+            'robrogers': 'pass2-robrogers',
+        }
+        assert 'Merge: 3 from this pass + 2 preserved' in capsys.readouterr().out
+
+    def test_entries_without_slug_are_dropped_from_preservation(self, tmp_path):
+        """Pass-1 entries missing a slug field are skipped (treated as malformed)."""
+        out = tmp_path / 'comics_2026-05-14.json'
+        out.write_text(json.dumps([
+            {'slug': 'chipbok'},
+            {'no_slug_here': True},
+        ]))
+        new = [{'slug': 'nickanderson'}]
+
+        result = merge_with_existing(out, new)
+
+        slugs = {c.get('slug') for c in result}
+        assert slugs == {'chipbok', 'nickanderson'}

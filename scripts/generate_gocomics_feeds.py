@@ -101,7 +101,7 @@ def load_comics_catalog() -> List[Dict]:
     """Load the full GoComics catalog (regular + political comics)."""
     comics = []
 
-    comics_file = Path('comics_list.json')
+    comics_file = Path('public/comics_list.json')
     try:
         with open(comics_file, 'r') as f:
             comics.extend(json.load(f))
@@ -109,7 +109,7 @@ def load_comics_catalog() -> List[Dict]:
         logger.error(f"Error loading {comics_file}: {e}")
         return []
 
-    political_file = Path(__file__).parent / 'political_comics_list.json'
+    political_file = Path('public/political_comics_list.json')
     try:
         if political_file.exists():
             with open(political_file, 'r') as f:
