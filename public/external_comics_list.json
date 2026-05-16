@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Awkward Zombie",
+    "slug": "awkward-zombie",
+    "author": "Katie Tiedrich",
+    "url": "https://www.awkwardzombie.com/",
+    "feed_url": "https://www.awkwardzombie.com/awkward-zombie/rss",
+    "source": "external-rss"
+  },
+  {
+    "name": "Buttersafe",
+    "slug": "buttersafe",
+    "author": "Raynato Castro and Alex Culang",
+    "url": "https://www.buttersafe.com/",
+    "feed_url": "https://www.buttersafe.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Ctrl+Alt+Del",
+    "slug": "ctrl-alt-del",
+    "author": "Tim Buckley",
+    "url": "https://cad-comic.com/",
+    "feed_url": "https://cad-comic.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Dresden Codak",
+    "slug": "dresden-codak",
+    "author": "Aaron Diaz",
+    "url": "https://dresdencodak.com/",
+    "feed_url": "https://dresdencodak.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Dumbing of Age",
+    "slug": "dumbing-of-age",
+    "author": "David Willis",
+    "url": "https://www.dumbingofage.com/",
+    "feed_url": "https://www.dumbingofage.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "El Goonish Shive",
+    "slug": "el-goonish-shive",
+    "author": "Dan Shive",
+    "url": "https://www.egscomics.com/",
+    "feed_url": "https://www.egscomics.com/comic/rss",
+    "source": "external-rss"
+  },
+  {
+    "name": "Existential Comics",
+    "slug": "existential-comics",
+    "author": "Corey Mohler",
+    "url": "https://existentialcomics.com/",
+    "feed_url": "https://existentialcomics.com/rss.xml",
+    "source": "external-rss"
+  },
+  {
+    "name": "Explosm",
+    "slug": "explosm",
+    "author": "Explosm",
+    "url": "https://explosm.net/",
+    "feed_url": "https://explosm.net/rss.xml",
+    "source": "external-rss"
+  },
+  {
+    "name": "False Knees",
+    "slug": "false-knees",
+    "author": "Joshua Barkman",
+    "url": "https://falseknees.com/",
+    "feed_url": "https://falseknees.com/rss.xml",
+    "source": "external-rss"
+  },
+  {
+    "name": "Gunnerkrigg Court",
+    "slug": "gunnerkrigg-court",
+    "author": "Tom Siddell",
+    "url": "https://www.gunnerkrigg.com/",
+    "feed_url": "https://www.gunnerkrigg.com/rss.xml",
+    "source": "external-rss"
+  },
+  {
+    "name": "Kill Six Billion Demons",
+    "slug": "kill-six-billion-demons",
+    "author": "Tom Parkinson-Morgan",
+    "url": "https://killsixbilliondemons.com/",
+    "feed_url": "https://killsixbilliondemons.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Loading Artist",
+    "slug": "loading-artist",
+    "author": "Gregor Czaykowski",
+    "url": "https://loadingartist.com/",
+    "feed_url": "https://loadingartist.com/index.xml",
+    "source": "external-rss"
+  },
+  {
+    "name": "Namesake",
+    "slug": "namesake",
+    "author": "Isabelle Melancon and Megan Lavey-Heaton",
+    "url": "https://www.namesakecomic.com/",
+    "feed_url": "https://www.namesakecomic.com/comic/rss",
+    "source": "external-rss"
+  },
+  {
+    "name": "The Oatmeal",
+    "slug": "the-oatmeal",
+    "author": "Matthew Inman",
+    "url": "https://theoatmeal.com/",
+    "feed_url": "https://theoatmeal.com/feed/rss",
+    "source": "external-rss"
+  },
+  {
+    "name": "Order of the Stick",
+    "slug": "order-of-the-stick",
+    "author": "Rich Burlew",
+    "url": "https://www.giantitp.com/comics/oots.html",
+    "feed_url": "https://www.giantitp.com/comics/oots.rss",
+    "source": "external-rss"
+  },
+  {
+    "name": "Penny Arcade",
+    "slug": "penny-arcade",
+    "author": "Jerry Holkins and Mike Krahulik",
+    "url": "https://www.penny-arcade.com/comic",
+    "feed_url": "https://www.penny-arcade.com/feed",
+    "source": "external-rss"
+  },
+  {
+    "name": "The Perry Bible Fellowship",
+    "slug": "perry-bible-fellowship",
+    "author": "Nicholas Gurewitch",
+    "url": "https://pbfcomics.com/",
+    "feed_url": "https://pbfcomics.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Poorly Drawn Lines",
+    "slug": "poorly-drawn-lines",
+    "author": "Reza Farazmand",
+    "url": "https://poorlydrawnlines.com/",
+    "feed_url": "https://poorlydrawnlines.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Sam and Fuzzy",
+    "slug": "sam-and-fuzzy",
+    "author": "Sam Logan",
+    "url": "https://www.samandfuzzy.com/",
+    "feed_url": "https://www.samandfuzzy.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Saturday Morning Breakfast Cereal",
+    "slug": "saturday-morning-breakfast-cereal",
+    "author": "Zach Weinersmith",
+    "url": "https://www.smbc-comics.com/",
+    "feed_url": "https://www.smbc-comics.com/comic/rss",
+    "source": "external-rss"
+  },
+  {
+    "name": "Schlock Mercenary",
+    "slug": "schlock-mercenary",
+    "author": "Howard Tayler",
+    "url": "https://www.schlockmercenary.com/",
+    "feed_url": "https://www.schlockmercenary.com/rss/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Sheldon",
+    "slug": "sheldon",
+    "author": "Dave Kellett",
+    "url": "https://www.sheldoncomics.com/",
+    "feed_url": "https://www.sheldoncomics.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Wapsi Square",
+    "slug": "wapsi-square",
+    "author": "Paul Taylor",
+    "url": "https://wapsisquare.com/",
+    "feed_url": "https://wapsisquare.com/feed/",
+    "source": "external-rss"
+  },
+  {
+    "name": "Wilde Life",
+    "slug": "wilde-life",
+    "author": "Pascalle Lepas",
+    "url": "https://www.wildelifecomic.com/",
+    "feed_url": "https://www.wildelifecomic.com/comic/rss",
+    "source": "external-rss"
+  },
+  {
+    "name": "xkcd",
+    "slug": "xkcd",
+    "author": "Randall Munroe",
+    "url": "https://xkcd.com/",
+    "feed_url": "https://xkcd.com/rss.xml",
+    "source": "external-rss"
+  }
+]

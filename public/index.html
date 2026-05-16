@@ -65,6 +65,7 @@
                     <button class="tab-button" data-tab="political">🏛️ Political Cartoons</button>
                     <button class="tab-button" data-tab="spanish">🇪🇸 Spanish Comics</button>
                     <button class="tab-button" data-tab="tinyview">📱 TinyView</button>
+                    <button class="tab-button" data-tab="external">🌐 External RSS</button>
                 </div>
                 <div class="tab-content active" id="daily-tab">
                     <input type="text" id="comicSearch" placeholder="Search daily comics...">
@@ -134,6 +135,23 @@
                         </table>
                     </div>
                 </div>
+                <div class="tab-content" id="external-tab">
+                    <input type="text" id="externalComicSearch" placeholder="Search external RSS comics...">
+                    <div class="table-container">
+                        <table class="table" id="external-comics-table">
+                            <thead>
+                                <tr>
+                                    <th>Comic</th>
+                                    <th>🔗 Source</th>
+                                    <th>📡 RSS Link</th>
+                                </tr>
+                            </thead>
+                            <tbody id="external-comics-table-body">
+                                <!-- External RSS comic rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -148,6 +166,7 @@
                     <button class="tab-button opml-tab" data-tab="political-opml">🏛️ Political Cartoons</button>
                     <button class="tab-button opml-tab" data-tab="spanish-opml">🇪🇸 Spanish Comics</button>
                     <button class="tab-button opml-tab" data-tab="tinyview-opml">📱 TinyView</button>
+                    <button class="tab-button opml-tab" data-tab="external-opml">🌐 External RSS</button>
                 </div>
                 <div class="tab-content opml-content active" id="daily-opml-tab">
                     <input type="text" id="customFeedSearch" placeholder="Search daily comics by name...">
@@ -201,6 +220,19 @@
                         <p>✅ Your OPML file is ready! <a href="#" id="tinyview-download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the TinyView comics!</p>
                     </div>
                 </div>
+                <div class="tab-content opml-content" id="external-opml-tab">
+                    <input type="text" id="externalFeedSearch" placeholder="Search external RSS comics by name...">
+                    <div class="comic-list" id="external-comics-list">
+                        <!-- External RSS comics checkboxes will be populated dynamically -->
+                    </div>
+
+                    <button class="btn btn-primary" id="generateExternalOPMLBtn">📄 Generate External RSS OPML</button>
+                    <button class="btn btn-secondary" id="resetExternalSelectionBtn">❌ Clear Selection</button>
+                    
+                    <div id="external-success-message" class="success-message">
+                        <p>✅ Your OPML file is ready! <a href="#" id="external-download-link">Click here to download it</a>. Then import it into your RSS reader and enjoy the comics!</p>
+                    </div>
+                </div>
 
                 <div class="help-text">
                     <h3>🧠 What's an OPML file?</h3>
@@ -220,15 +252,17 @@
             let politicalComics = [];
             let spanishComics = [];
             let tinyviewComics = [];
+            let externalComics = [];
             
-            // Load all four types of comics data
+            // Load all comic catalog data
             Promise.all([
                 fetch('/comics_list.json').then(r => r.json()),
                 fetch('/political_comics_list.json').then(r => r.json()),
                 fetch('/spanish_comics_list.json').then(r => r.json()).catch(() => []), // Fallback to empty array if file doesn't exist yet
-                fetch('/tinyview_comics_list.json').then(r => r.json()).catch(() => []) // Fallback to empty array if file doesn't exist yet
+                fetch('/tinyview_comics_list.json').then(r => r.json()).catch(() => []), // Fallback to empty array if file doesn't exist yet
+                fetch('/external_comics_list.json').then(r => r.json()).catch(() => []) // Fallback to empty array if file doesn't exist yet
             ])
-            .then(([daily, political, spanish, tinyview]) => {
+            .then(([daily, political, spanish, tinyview, external]) => {
                 // Combine daily comics from all sources (GoComics + TinyView)
                 // This includes Comics Kingdom and Far Side which are in the daily list with source tags
                 const allDailyComics = [...daily, ...tinyview].sort((a, b) => a.name.localeCompare(b.name));
@@ -238,16 +272,19 @@
                 politicalComics = political.sort((a, b) => a.name.localeCompare(b.name));
                 spanishComics = spanish.sort((a, b) => a.name.localeCompare(b.name));
                 tinyviewComics = tinyview.sort((a, b) => a.name.localeCompare(b.name));
+                externalComics = external.sort((a, b) => a.name.localeCompare(b.name));
                 
                 // Populate tables and lists (all with Source column for consistency)
                 populateComicsTable(dailyComics, 'comics-table-body', 'all');
                 populateComicsTable(politicalComics, 'political-comics-table-body', 'all');
                 populateComicsTable(spanishComics, 'spanish-comics-table-body', 'all');
                 populateComicsTable(tinyviewComics, 'tinyview-comics-table-body', 'tinyview');
+                populateComicsTable(externalComics, 'external-comics-table-body', 'external-rss');
                 populateComicsList(dailyComics, 'comics-list');
                 populateComicsList(politicalComics, 'political-comics-list');
                 populateComicsList(spanishComics, 'spanish-comics-list');
                 populateComicsList(tinyviewComics, 'tinyview-comics-list');
+                populateComicsList(externalComics, 'external-comics-list');
                 
                 // Setup functionality
                 setupTabSwitching();
@@ -277,6 +314,7 @@
                     let sourceName = 'GoComics';
                     let sourceUrl;
                     let feedPath;
+                    let feedUrl;
                     
                     if (comic.source === 'comicskingdom') {
                         let comicsKingdomUrl = `https://comicskingdom.com/${comic.slug}`;
@@ -307,13 +345,19 @@
                         sourceName = 'The New Yorker';
                         sourceUrl = comic.url || 'https://www.newyorker.com/cartoons/daily-cartoon';
                         feedPath = `/feeds/${comic.slug}.xml`;
+                    } else if (comic.source === 'external-rss') {
+                        sourceName = 'Website';
+                        sourceUrl = comic.url;
+                        feedUrl = comic.feed_url;
                     } else {
                         sourceName = 'GoComics';
                         sourceUrl = `https://www.gocomics.com/${comic.slug}`;
                         feedPath = `/rss/${comic.slug}`;
                     }
                     
-                    const feedUrl = `https://comiccaster.xyz${feedPath}`;
+                    if (!feedUrl) {
+                        feedUrl = `https://comiccaster.xyz${feedPath}`;
+                    }
                     
                     row.innerHTML = `
                         <td>${displayName}</td>
@@ -324,7 +368,7 @@
                                 <span class="url-text" onclick="copyToClipboard(this)" data-url="${feedUrl}">
                                     ${feedUrl}
                                 </span>
-                                <a href="/preview.html?url=${feedUrl}" class="preview-link" target="_blank">👁️ Preview</a>
+                                <a href="/preview.html?url=${encodeURIComponent(feedUrl)}" class="preview-link" target="_blank">👁️ Preview</a>
                             </div>
                         </td>
                     `;
@@ -350,6 +394,8 @@
                         prefix = 'tinyview';
                     } else if (listId === 'spanish-comics-list') {
                         prefix = 'spanish';
+                    } else if (listId === 'external-comics-list') {
+                        prefix = 'external';
                     }
                     
                     // Determine source name for display
@@ -366,6 +412,8 @@
                         sourceName = ' <span class="source-tag">(Far Side)</span>';
                     } else if (comic.source === 'newyorker') {
                         sourceName = ' <span class="source-tag">(The New Yorker)</span>';
+                    } else if (comic.source === 'external-rss') {
+                        sourceName = ' <span class="source-tag">(External RSS)</span>';
                     } else {
                         sourceName = ' <span class="source-tag">(GoComics)</span>';
                     }
@@ -533,6 +581,40 @@
                     const searchTerm = this.value.toLowerCase();
                     
                     tinyviewCheckboxItems.forEach(item => {
+                        const name = item.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+
+                // External RSS comic table search
+                const externalComicSearch = document.getElementById('externalComicSearch');
+                const externalTableRows = document.querySelectorAll('#external-comics-table-body tr');
+                
+                externalComicSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    externalTableRows.forEach(row => {
+                        const name = row.dataset.name;
+                        if (name.includes(searchTerm)) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+                
+                // External RSS comic list search
+                const externalFeedSearch = document.getElementById('externalFeedSearch');
+                const externalCheckboxItems = document.querySelectorAll('#external-comics-list .form-check');
+                
+                externalFeedSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    externalCheckboxItems.forEach(item => {
                         const name = item.dataset.name;
                         if (name.includes(searchTerm)) {
                             item.style.display = '';
@@ -746,6 +828,57 @@
                         checkbox.checked = false;
                     });
                     tinyviewSuccessMessage.style.display = 'none';
+                });
+
+                // External RSS comics OPML
+                const generateExternalBtn = document.getElementById('generateExternalOPMLBtn');
+                const resetExternalBtn = document.getElementById('resetExternalSelectionBtn');
+                const externalSuccessMessage = document.getElementById('external-success-message');
+                const externalDownloadLink = document.getElementById('external-download-link');
+                
+                generateExternalBtn.addEventListener('click', function() {
+                    const selectedComics = [];
+                    document.querySelectorAll('#external-comics-list .form-check-input:checked').forEach(checkbox => {
+                        selectedComics.push(checkbox.value);
+                    });
+                    
+                    if (selectedComics.length === 0) {
+                        alert('Please select at least one external RSS comic.');
+                        return;
+                    }
+                    
+                    fetch('/.netlify/functions/generate-opml', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ comics: selectedComics, type: 'external' }),
+                    })
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        externalDownloadLink.href = url;
+                        externalDownloadLink.download = 'external-comics.opml';
+                        externalSuccessMessage.style.display = 'block';
+                        
+                        // Set up the download link
+                        externalDownloadLink.addEventListener('click', function(e) {
+                            setTimeout(() => {
+                                URL.revokeObjectURL(url);
+                            }, 100);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error generating OPML:', error);
+                        alert('There was an error generating your OPML file. Please try again.');
+                    });
+                });
+                
+                resetExternalBtn.addEventListener('click', function() {
+                    document.querySelectorAll('#external-comics-list .form-check-input:checked').forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    externalSuccessMessage.style.display = 'none';
                 });
             }
         });

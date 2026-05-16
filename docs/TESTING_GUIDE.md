@@ -62,6 +62,9 @@ pytest -v tests/test_gocomics_scraper.py
 # Run multi-image RSS tests
 pytest -v tests/test_multi_image_rss.py
 
+# Run external RSS catalog/UI tests
+pytest -v tests/test_external_rss_catalog.py
+
 # Run scraper factory tests
 pytest -v tests/test_scraper_factory.py
 ```
@@ -122,6 +125,11 @@ pytest -v -k "multi_image"
 - **`test_feed_aggregator.py`** - Feed aggregation tests
   - Combined feed generation
   - OPML export functionality
+
+- **`test_external_rss_catalog.py`** - External first-party RSS catalog tests
+  - External catalog shape and direct `feed_url` fields
+  - Browse and OPML tab wiring
+  - Netlify function packaging for catalog JSON files
 
 ## Regression Testing
 
