@@ -1,5 +1,13 @@
 [
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/7c32973034fd013fc126005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-18",
+    "url": "https://www.gocomics.com/tim-campbell/2026/05/18",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/3e66696032ac013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
@@ -21,6 +29,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/3c5f074034a3013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-18",
     "url": "https://www.gocomics.com/m2bulls/2026/05/18",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/b7e0e14034f9013fc125005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-18",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/05/18",
     "category": "political"
   },
   {
@@ -1672,6 +1688,14 @@
     "category": "daily"
   },
   {
+    "name": "Lards World Peace Tips",
+    "slug": "lards-world-peace-tips",
+    "image_url": "https://featureassets.gocomics.com/assets/e6db94e034c1013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-18",
+    "url": "https://www.gocomics.com/lards-world-peace-tips/2026/05/18",
+    "category": "daily"
+  },
+  {
     "name": "La Cucaracha",
     "slug": "la-cucaracha-en-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/94e27e10311b013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1824,11 +1848,27 @@
     "category": "daily"
   },
   {
+    "name": "Tutelandia",
+    "slug": "tutelandia",
+    "image_url": "https://featureassets.gocomics.com/assets/07c3580034f0013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-18",
+    "url": "https://www.gocomics.com/tutelandia/2026/05/18",
+    "category": "daily"
+  },
+  {
     "name": "Alley Oop",
     "slug": "trucutu",
     "image_url": "https://featureassets.gocomics.com/assets/350502e03117013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-18",
     "url": "https://www.gocomics.com/trucutu/2026/05/18",
+    "category": "daily"
+  },
+  {
+    "name": "Tiny Sepuku",
+    "slug": "tinysepuku",
+    "image_url": "https://featureassets.gocomics.com/assets/8f4ad1e034dd013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-18",
+    "url": "https://www.gocomics.com/tinysepuku/2026/05/18",
     "category": "daily"
   },
   {
