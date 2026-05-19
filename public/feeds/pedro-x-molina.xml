@@ -1,30 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 15 May 2026 08:21:22 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina</title><link>https://tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;A president must be able to identify the most pressing needs of his people and do everything in his power to address them... But sadly, Trump's prioriti...&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Pedro X. Molina (TinyView) - TinyView</title><link>https://tinyview.com/pedro-x-molina</link><description>Daily Pedro X. Molina (TinyView) comic strip by Pedro X. Molina from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/pedro-x-molina.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 19 May 2026 08:21:12 +0000</lastBuildDate><ttl>1440</ttl><item><title>Pedro X. Molina (TinyView)</title><link>https://tinyview.com/pedro-x-molina/2026/05/17/china-s-trip</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;The president is definitely making some people happy with everything he does. Sadly, this doesn’t apply to most Americans, nor to his traditional allies...&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/17/china-s-trip/ChinaVTrumpTVC.jpg" alt="Cover Image" style="max-width: 100%; height: auto;" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT01.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT01.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT02.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT02.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT03.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT03.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT04.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT04.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT05.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT05.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT06.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT06.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT07.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times/SOTT07.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/pedro-x-molina/2026/05/17/china-s-trip/ChinaVTrumpTV.jpg" alt="https://cdn.tinyview.com/pedro-x-molina/2026/05/17/china-s-trip/ChinaVTrumpTV.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2026/05/13/signs-of-the-times</guid><pubDate>Wed, 13 May 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/pedro-x-molina/2026/05/17/china-s-trip</guid><pubDate>Sun, 17 May 2026 23:59:59 +0000</pubDate></item></channel></rss>

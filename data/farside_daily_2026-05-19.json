@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-19",
+  "scraped_at": "2026-05-19T08:19:31.009504+00:00",
+  "comics": [
+    {
+      "id": "22230",
+      "date": "2026-05-19",
+      "url": "https://www.thefarside.com/2026/05/19/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee461c4458c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee461c4458c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22230"
+    },
+    {
+      "id": "22231",
+      "date": "2026-05-19",
+      "url": "https://www.thefarside.com/2026/05/19/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee46012858c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee46012858c311ea8bf6005056a9",
+      "caption": "\u201cWell, here we go again! I always get the gurney with one bad wheel!\u201d",
+      "title": "\u201cWell, here we go again! I always get the gurney with one..."
+    },
+    {
+      "id": "22232",
+      "date": "2026-05-19",
+      "url": "https://www.thefarside.com/2026/05/19/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1c076230d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1c076230d0f70137c652005056a9545d",
+      "caption": "At the Vincent van Gogh School of Art",
+      "title": "At the Vincent van Gogh School of Art"
+    },
+    {
+      "id": "22233",
+      "date": "2026-05-19",
+      "url": "https://www.thefarside.com/2026/05/19/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45c4fa58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45c4fa58c311ea8bf6005056a9",
+      "caption": "\u201cHey! Now her whole head is out! \u2026 This is getting better every minute!\u201d",
+      "title": "\u201cHey! Now her whole head is out! \u2026 This is getting better..."
+    },
+    {
+      "id": "22234",
+      "date": "2026-05-19",
+      "url": "https://www.thefarside.com/2026/05/19/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee431f2658c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee431f2658c311ea8bf6005056a9",
+      "caption": "\u201cWell, Mr. President, let\u2019s see\u2014carry the one, take away three, carry the two \u2026 that would be four score and seven years ago.\u201d",
+      "title": "\u201cWell, Mr"
+    }
+  ]
+}
