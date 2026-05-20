@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-20",
+  "scraped_at": "2026-05-20T08:19:16.634817+00:00",
+  "comics": [
+    {
+      "id": "22235",
+      "date": "2026-05-20",
+      "url": "https://www.thefarside.com/2026/05/20/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45ba7e58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45ba7e58c311ea8bf6005056a9",
+      "caption": "\u201cYou know, Russell, you\u2019re a great torturer. I mean, you can make a man scream for mercy in nothing flat \u2026 but boy, you sure can\u2019t make a good cup of coffee.\u201d",
+      "title": "\u201cYou know, Russell, you\u2019re a great torturer"
+    },
+    {
+      "id": "22236",
+      "date": "2026-05-20",
+      "url": "https://www.thefarside.com/2026/05/20/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4586fb58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4586fb58c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22236"
+    },
+    {
+      "id": "22237",
+      "date": "2026-05-20",
+      "url": "https://www.thefarside.com/2026/05/20/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4cc025b0fa880137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4cc025b0fa880137d531005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22237"
+    },
+    {
+      "id": "22238",
+      "date": "2026-05-20",
+      "url": "https://www.thefarside.com/2026/05/20/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F85debdc0d0d10137c639005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/85debdc0d0d10137c639005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22238"
+    },
+    {
+      "id": "22239",
+      "date": "2026-05-20",
+      "url": "https://www.thefarside.com/2026/05/20/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2a0928d0d2850137c70c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2a0928d0d2850137c70c005056a9545d",
+      "caption": "\u201cI built the forms around him just yesterday afternoon when he fell asleep, and by early evening I was able to mix and pour.\u201d",
+      "title": "\u201cI built the forms around him just yesterday afternoon wh..."
+    }
+  ]
+}
