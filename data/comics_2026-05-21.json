@@ -16,6 +16,22 @@
     "category": "political"
   },
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/fc0f28d0374a013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/robert-ariail/2026/05/21",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/718031303755013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/robrogers/2026/05/21",
+    "category": "political"
+  },
+  {
     "name": "Nick Anderson",
     "slug": "nickanderson",
     "image_url": "https://featureassets.gocomics.com/assets/b79e4c90369a013fc140005056a9545d?optimizer=image&width=2800&quality=85",
@@ -32,6 +48,22 @@
     "category": "political"
   },
   {
+    "name": "Michael Ramirez",
+    "slug": "michaelramirez",
+    "image_url": "https://featureassets.gocomics.com/assets/28da1820371d013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/michaelramirez/2026/05/21",
+    "category": "political"
+  },
+  {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/95b0b5f03751013fc14c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/kal/2026/05/21",
+    "category": "political"
+  },
+  {
     "name": "Kevin Necessary",
     "slug": "kevin-necessary-editorial-cartoons",
     "image_url": "https://featureassets.gocomics.com/assets/ac7b078036bf013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
@@ -40,11 +72,35 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/55db93d03757013fc14d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/05/21",
+    "category": "political"
+  },
+  {
     "name": "Joe Heller",
     "slug": "joe-heller",
     "image_url": "https://featureassets.gocomics.com/assets/366f192036d2013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-21",
     "url": "https://www.gocomics.com/joe-heller/2026/05/21",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Stahler",
+    "slug": "jeffstahler",
+    "image_url": "https://featureassets.gocomics.com/assets/1b8612203763013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/jeffstahler/2026/05/21",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/5e0d6e503761013fc150005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/05/21",
     "category": "political"
   },
   {
@@ -69,6 +125,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/e937c75036ba013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-21",
     "url": "https://www.gocomics.com/clayjones/2026/05/21",
+    "category": "political"
+  },
+  {
+    "name": "Clay Bennett",
+    "slug": "claybennett",
+    "image_url": "https://featureassets.gocomics.com/assets/fc69ad603758013fc14e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/claybennett/2026/05/21",
     "category": "political"
   },
   {
@@ -456,6 +520,14 @@
     "category": "daily"
   },
   {
+    "name": "Bacon",
+    "slug": "bacon",
+    "image_url": "https://featureassets.gocomics.com/assets/798897103730013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/bacon/2026/05/21",
+    "category": "daily"
+  },
+  {
     "name": "Back to B C",
     "slug": "back-to-bc",
     "image_url": "https://featureassets.gocomics.com/assets/961b674027b9013fc080005056a9545d?optimizer=image&width=2800&quality=85",
@@ -464,7 +536,7 @@
     "category": "daily"
   },
   {
-    "name": "Back In The Day",
+    "name": "Ike",
     "slug": "backintheday",
     "image_url": "https://featureassets.gocomics.com/assets/b70384d036ac013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-21",
@@ -1768,6 +1840,14 @@
     "category": "daily"
   },
   {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/1148b2f03739013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/tavicat/2026/05/21",
+    "category": "daily"
+  },
+  {
     "name": "Tarzan",
     "slug": "tarzan",
     "image_url": "https://featureassets.gocomics.com/assets/140b53000e7601312708001dd8b71c47?optimizer=image&width=2800&quality=85",
@@ -1869,6 +1949,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/ddf6f5800979013fbe3b005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-21",
     "url": "https://www.gocomics.com/savage-chickens/2026/05/21",
+    "category": "daily"
+  },
+  {
+    "name": "Saturday Morning Breakfast Cereal",
+    "slug": "saturday-morning-breakfast-cereal",
+    "image_url": "https://featureassets.gocomics.com/assets/0c90f1703763013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-21",
+    "url": "https://www.gocomics.com/saturday-morning-breakfast-cereal/2026/05/21",
     "category": "daily"
   },
   {
