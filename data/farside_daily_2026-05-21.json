@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-21",
+  "scraped_at": "2026-05-21T08:19:21.414186+00:00",
+  "comics": [
+    {
+      "id": "22240",
+      "date": "2026-05-21",
+      "url": "https://www.thefarside.com/2026/05/21/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4d120e90e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4d120e90e85b0137cedf005056a9545d",
+      "caption": "Awkward ages",
+      "title": "Awkward ages"
+    },
+    {
+      "id": "22241",
+      "date": "2026-05-21",
+      "url": "https://www.thefarside.com/2026/05/21/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45dc8658c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45dc8658c311ea8bf6005056a9",
+      "caption": "\u201cNo, no, no! What are you doing? \u2026 Fifth leg! Fifth leg!\u201d",
+      "title": "\u201cNo, no, no! What are you doing? \u2026 Fifth leg! Fifth leg!\u201d"
+    },
+    {
+      "id": "22242",
+      "date": "2026-05-21",
+      "url": "https://www.thefarside.com/2026/05/21/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee431d0258c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee431d0258c311ea8bf6005056a9",
+      "caption": "\u201cI like it \u2026 I like it.\u201d",
+      "title": "\u201cI like it \u2026 I like it"
+    },
+    {
+      "id": "22243",
+      "date": "2026-05-21",
+      "url": "https://www.thefarside.com/2026/05/21/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3c7f5ca0fa850137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3c7f5ca0fa850137d52f005056a9545d",
+      "caption": "\u201cI don\u2019t know if this is such a wise thing to do, George.\u201d",
+      "title": "\u201cI don\u2019t know if this is such a wise thing to do, George"
+    },
+    {
+      "id": "22244",
+      "date": "2026-05-21",
+      "url": "https://www.thefarside.com/2026/05/21/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee459cab58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee459cab58c311ea8bf6005056a9",
+      "caption": "Aerobics in hell",
+      "title": "Aerobics in hell"
+    }
+  ]
+}
