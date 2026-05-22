@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-22",
+  "scraped_at": "2026-05-22T08:19:14.811052+00:00",
+  "comics": [
+    {
+      "id": "22245",
+      "date": "2026-05-22",
+      "url": "https://www.thefarside.com/2026/05/22/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc7e69770fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c7e69770fa830137d52f005056a9545d",
+      "caption": "\u201cDon\u2019t encourage him, Sylvia.\u201d",
+      "title": "\u201cDon\u2019t encourage him, Sylvia"
+    },
+    {
+      "id": "22246",
+      "date": "2026-05-22",
+      "url": "https://www.thefarside.com/2026/05/22/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4336aa58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4336aa58c311ea8bf6005056a9",
+      "caption": "\u201cNow stay calm. \u2026 Let\u2019s hear what they said to Bill.\u201d",
+      "title": "\u201cNow stay calm"
+    },
+    {
+      "id": "22247",
+      "date": "2026-05-22",
+      "url": "https://www.thefarside.com/2026/05/22/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4a2fb6f0cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4a2fb6f0cdd40137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22247"
+    },
+    {
+      "id": "22248",
+      "date": "2026-05-22",
+      "url": "https://www.thefarside.com/2026/05/22/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc5322720d19e0137c68e005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c5322720d19e0137c68e005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22248"
+    },
+    {
+      "id": "22249",
+      "date": "2026-05-22",
+      "url": "https://www.thefarside.com/2026/05/22/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45da1958c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45da1958c311ea8bf6005056a9",
+      "caption": "Superman in his later years",
+      "title": "Superman in his later years"
+    }
+  ]
+}
