@@ -16,6 +16,22 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/bb0806303826013fc159005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-22",
+    "url": "https://www.gocomics.com/robrogers/2026/05/22",
+    "category": "political"
+  },
+  {
+    "name": "Phil Hands",
+    "slug": "phil-hands",
+    "image_url": "https://featureassets.gocomics.com/assets/c60f79303819013fc15b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-22",
+    "url": "https://www.gocomics.com/phil-hands/2026/05/22",
+    "category": "political"
+  },
+  {
     "name": "Nick Anderson",
     "slug": "nickanderson",
     "image_url": "https://featureassets.gocomics.com/assets/8dade9503772013fc152005056a9545d?optimizer=image&width=2800&quality=85",
@@ -32,6 +48,22 @@
     "category": "political"
   },
   {
+    "name": "Mike Lester",
+    "slug": "mike-lester",
+    "image_url": "https://featureassets.gocomics.com/assets/fc9d0230381f013fc159005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-22",
+    "url": "https://www.gocomics.com/mike-lester/2026/05/22",
+    "category": "political"
+  },
+  {
+    "name": "Matt Wuerker",
+    "slug": "mattwuerker",
+    "image_url": "https://featureassets.gocomics.com/assets/7be38ba0382c013fc159005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-22",
+    "url": "https://www.gocomics.com/mattwuerker/2026/05/22",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/2b602720371d013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
@@ -45,6 +77,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/536bc4b03757013fc14d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-22",
     "url": "https://www.gocomics.com/joey-weatherford/2026/05/22",
+    "category": "political"
+  },
+  {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/abd85c203824013fc15f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-22",
+    "url": "https://www.gocomics.com/joelpett/2026/05/22",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/9220761037eb013fc159005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-22",
+    "url": "https://www.gocomics.com/garyvarvel/2026/05/22",
     "category": "political"
   },
   {
@@ -480,6 +528,14 @@
     "category": "daily"
   },
   {
+    "name": "Bacon",
+    "slug": "bacon",
+    "image_url": "https://featureassets.gocomics.com/assets/28c8a2a037f1013fc159005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-22",
+    "url": "https://www.gocomics.com/bacon/2026/05/22",
+    "category": "daily"
+  },
+  {
     "name": "Back to B C",
     "slug": "back-to-bc",
     "image_url": "https://featureassets.gocomics.com/assets/982d484027b9013fc080005056a9545d?optimizer=image&width=2800&quality=85",
@@ -501,6 +557,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/223384203045013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-22",
     "url": "https://www.gocomics.com/babyblues/2026/05/22",
+    "category": "daily"
+  },
+  {
+    "name": "Auntie Acid",
+    "slug": "aunty-acid",
+    "image_url": "https://featureassets.gocomics.com/assets/b8dd1de0381f013fc159005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-22",
+    "url": "https://www.gocomics.com/aunty-acid/2026/05/22",
     "category": "daily"
   },
   {
@@ -805,6 +869,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/afc242407e2e013eb553005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-22",
     "url": "https://www.gocomics.com/globetrotter/2026/05/22",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/d76040903811013fc159005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-22",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/05/22",
     "category": "daily"
   },
   {
