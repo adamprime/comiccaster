@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-05-24",
+  "scraped_at": "2026-05-24T08:18:29.768180+00:00",
+  "comics": [
+    {
+      "id": "22252",
+      "date": "2026-05-24",
+      "url": "https://www.thefarside.com/2026/05/24/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4618e458c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4618e458c311ea8bf6005056a9",
+      "caption": "\u201cFrankie! When didja get out? \u2026 Gee, I bet you been sittin\u2019 in da cage wonderin\u2019 where me and da loot wuz!\u00a0 \u2026 Oh, Frankie, Frankie \u2026 heh heh heh \u2026 Want some coffee, Frankie?\u201d",
+      "title": "\u201cFrankie! When didja get out? \u2026 Gee, I bet you been sitti..."
+    },
+    {
+      "id": "22253",
+      "date": "2026-05-24",
+      "url": "https://www.thefarside.com/2026/05/24/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee430fd958c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee430fd958c311ea8bf6005056a9",
+      "caption": "\u201cI tell you he\u2019s up there! \u2026 Those wild, sunken eyes! That horrid wooden leg! \u2026 And he\u2019s looking for me! \u201d",
+      "title": "\u201cI tell you he\u2019s up there! \u2026 Those wild, sunken eyes! Tha..."
+    }
+  ]
+}
