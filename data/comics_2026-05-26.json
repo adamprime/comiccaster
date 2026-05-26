@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/f36f72603b40013fc171005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-26",
+    "url": "https://www.gocomics.com/nickanderson/2026/05/26",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/8085b03038ba013fc159005056a9545d?optimizer=image&width=2800&quality=85",
@@ -21,6 +29,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/ae5851303845013fc159005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-26",
     "url": "https://www.gocomics.com/johndeering/2026/05/26",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/5e0767403b4d013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-26",
+    "url": "https://www.gocomics.com/henrypayne/2026/05/26",
     "category": "political"
   },
   {
@@ -741,6 +757,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/b4d9a0a07e2e013eb553005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-26",
     "url": "https://www.gocomics.com/globetrotter/2026/05/26",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/49b98d103b3c013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-26",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/05/26",
     "category": "daily"
   },
   {
@@ -1677,6 +1701,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/2e60bea0368d013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-26",
     "url": "https://www.gocomics.com/trucutu/2026/05/26",
+    "category": "daily"
+  },
+  {
+    "name": "Thin Lines",
+    "slug": "thinlines",
+    "image_url": "https://featureassets.gocomics.com/assets/c14ccf103b40013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-26",
+    "url": "https://www.gocomics.com/thinlines/2026/05/26",
     "category": "daily"
   },
   {
