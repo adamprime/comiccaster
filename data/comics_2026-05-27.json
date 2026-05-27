@@ -24,6 +24,14 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/1ddd4a103c0a013fc185005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-27",
+    "url": "https://www.gocomics.com/nickanderson/2026/05/27",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/62df15803b83013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
@@ -32,11 +40,27 @@
     "category": "political"
   },
   {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/29a3c5a03c15013fc189005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-27",
+    "url": "https://www.gocomics.com/mattdavies/2026/05/27",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/8b2270a03b8b013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-27",
     "url": "https://www.gocomics.com/michaelramirez/2026/05/27",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/3672aeb03c0c013fc186005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-27",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/05/27",
     "category": "political"
   },
   {
@@ -53,6 +77,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/72b97e003b75013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-27",
     "url": "https://www.gocomics.com/jeffstahler/2026/05/27",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/fa3f26103c0f013fc187005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-27",
+    "url": "https://www.gocomics.com/drewsheneman/2026/05/27",
     "category": "political"
   },
   {
@@ -477,6 +509,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/8ac0cff0c613013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-27",
     "url": "https://www.gocomics.com/bad-machinery/2026/05/27",
+    "category": "daily"
+  },
+  {
+    "name": "Bacon",
+    "slug": "bacon",
+    "image_url": "https://featureassets.gocomics.com/assets/ec051b703bed013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-27",
+    "url": "https://www.gocomics.com/bacon/2026/05/27",
     "category": "daily"
   },
   {
@@ -1672,6 +1712,30 @@
     "category": "daily"
   },
   {
+    "name": "Ziggy",
+    "slug": "ziggyespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/b2dbbb900631012ea5c900163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-27",
+    "url": "https://www.gocomics.com/ziggyespanol/2026/05/27",
+    "category": "daily"
+  },
+  {
+    "name": "Ziggy",
+    "slug": "ziggy",
+    "image_url": "https://featureassets.gocomics.com/assets/163d638036af013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-27",
+    "url": "https://www.gocomics.com/ziggy/2026/05/27",
+    "category": "daily"
+  },
+  {
+    "name": "Zack Hill",
+    "slug": "zackhill",
+    "image_url": "https://featureassets.gocomics.com/assets/36282a8035fb013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-27",
+    "url": "https://www.gocomics.com/zackhill/2026/05/27",
+    "category": "daily"
+  },
+  {
     "name": "Street Scene",
     "slug": "street-scene",
     "image_url": "https://featureassets.gocomics.com/assets/ad4cdb2035e9013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
@@ -2045,30 +2109,6 @@
     "image_url": "https://featureassets.gocomics.com/assets/e28d2c703212013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-27",
     "url": "https://www.gocomics.com/pickles/2026/05/27",
-    "category": "daily"
-  },
-  {
-    "name": "Ziggy",
-    "slug": "ziggyespanol",
-    "image_url": "https://featureassets.gocomics.com/assets/b2dbbb900631012ea5c900163e41dd5b?optimizer=image&width=2800&quality=85",
-    "date": "2026-05-27",
-    "url": "https://www.gocomics.com/ziggyespanol/2026/05/27",
-    "category": "daily"
-  },
-  {
-    "name": "Ziggy",
-    "slug": "ziggy",
-    "image_url": "https://featureassets.gocomics.com/assets/163d638036af013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-05-27",
-    "url": "https://www.gocomics.com/ziggy/2026/05/27",
-    "category": "daily"
-  },
-  {
-    "name": "Zack Hill",
-    "slug": "zackhill",
-    "image_url": "https://featureassets.gocomics.com/assets/36282a8035fb013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-05-27",
-    "url": "https://www.gocomics.com/zackhill/2026/05/27",
     "category": "daily"
   }
 ]
