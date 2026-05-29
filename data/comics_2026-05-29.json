@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/b88306303daa013fc1aa005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-29",
+    "url": "https://www.gocomics.com/tim-campbell/2026/05/29",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/ca7832903834013fc159005056a9545d?optimizer=image&width=2800&quality=85",
@@ -69,6 +77,30 @@
     "image_url": "https://featureassets.gocomics.com/assets/ac3633503cdb013fc19a005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-29",
     "url": "https://www.gocomics.com/joey-weatherford/2026/05/29",
+    "category": "political"
+  },
+  {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/bc53c3f03da2013fc1a9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-29",
+    "url": "https://www.gocomics.com/joelpett/2026/05/29",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/69b4faa03d8a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-29",
+    "url": "https://www.gocomics.com/joe-heller/2026/05/29",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/c7e4eab03d6a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-29",
+    "url": "https://www.gocomics.com/garyvarvel/2026/05/29",
     "category": "political"
   },
   {
@@ -1021,6 +1053,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/46479190a5540131428e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-05-29",
     "url": "https://www.gocomics.com/familytree/2026/05/29",
+    "category": "daily"
+  },
+  {
+    "name": "Endtown",
+    "slug": "endtown",
+    "image_url": "https://featureassets.gocomics.com/assets/1b1781f03d70013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-05-29",
+    "url": "https://www.gocomics.com/endtown/2026/05/29",
     "category": "daily"
   },
   {
