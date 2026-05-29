@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-05-29",
+  "scraped_at": "2026-05-29T08:19:01.481467+00:00",
+  "comics": [
+    {
+      "id": "20979",
+      "date": "2026-05-29",
+      "url": "https://www.thefarside.com/2026/05/29/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4cc6a6f0e85a0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4cc6a6f0e85a0137cedf005056a9545d",
+      "caption": "\u201cUh-oh, Lenny \u2026 it\u2019s the slimelord.\u201d",
+      "title": "\u201cUh-oh, Lenny \u2026 it\u2019s the slimelord"
+    },
+    {
+      "id": "20980",
+      "date": "2026-05-29",
+      "url": "https://www.thefarside.com/2026/05/29/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F913bb680963101395e72005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/913bb680963101395e72005056a9545d",
+      "caption": "",
+      "title": "The Far Side #20980"
+    },
+    {
+      "id": "20981",
+      "date": "2026-05-29",
+      "url": "https://www.thefarside.com/2026/05/29/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe82e5f40e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e82e5f40e6f80137ce50005056a9545d",
+      "caption": "How to draw cartoons",
+      "title": "How to draw cartoons"
+    },
+    {
+      "id": "20982",
+      "date": "2026-05-29",
+      "url": "https://www.thefarside.com/2026/05/29/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F07448cc0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/07448cc0cdd30137c56b005056a9545d",
+      "caption": "\u201cBy Jove, Andrew! \u2026 It\u2019s just like being the heroes of some football game!\u201d",
+      "title": "\u201cBy Jove, Andrew! \u2026 It\u2019s just like being the heroes of so..."
+    },
+    {
+      "id": "20983",
+      "date": "2026-05-29",
+      "url": "https://www.thefarside.com/2026/05/29/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc2539980e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c2539980e9ef0137cf93005056a9545d",
+      "caption": "Jurassic parking",
+      "title": "Jurassic parking"
+    }
+  ]
+}
