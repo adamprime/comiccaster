@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-01",
+  "scraped_at": "2026-06-01T08:19:03.454307+00:00",
+  "comics": [
+    {
+      "id": "22271",
+      "date": "2026-06-01",
+      "url": "https://www.thefarside.com/2026/06/01/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45802358c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45802358c311ea8bf6005056a9",
+      "caption": "\u201cNow wait just a minute here. \u2026 How are we supposed to know you\u2019re the real Angel of Death?\u201d",
+      "title": "\u201cNow wait just a minute here"
+    },
+    {
+      "id": "22272",
+      "date": "2026-06-01",
+      "url": "https://www.thefarside.com/2026/06/01/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F46c6d130e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/46c6d130e9ef0137cf93005056a9545d",
+      "caption": "Ironically, Barnum\u2019s and Bailey\u2019s respective kids\u2014Sid and Marty\u2014both ran away one night to join corporate America.",
+      "title": "Ironically, Barnum\u2019s and Bailey\u2019s respective kids\u2014Sid and..."
+    },
+    {
+      "id": "22273",
+      "date": "2026-06-01",
+      "url": "https://www.thefarside.com/2026/06/01/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee480aad58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee480aad58c311ea8bf6005056a9",
+      "caption": "New Age construction workers",
+      "title": "New Age construction workers"
+    },
+    {
+      "id": "22274",
+      "date": "2026-06-01",
+      "url": "https://www.thefarside.com/2026/06/01/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F110c06d0c1890137c0cc005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/110c06d0c1890137c0cc005056a9545d",
+      "caption": "\u201cWhoa! That was a good one! Try it, Hobbs\u2014just poke his brain right where my finger is.\u201d",
+      "title": "\u201cWhoa! That was a good one! Try it, Hobbs\u2014just poke his b..."
+    },
+    {
+      "id": "22275",
+      "date": "2026-06-01",
+      "url": "https://www.thefarside.com/2026/06/01/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee432cc058c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee432cc058c311ea8bf6005056a9",
+      "caption": "\u201cGet \u2019em up there!\u201d",
+      "title": "\u201cGet \u2019em up there!\u201d"
+    }
+  ]
+}
