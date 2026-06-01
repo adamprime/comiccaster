@@ -8,11 +8,27 @@
     "category": "political"
   },
   {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/b53da2a04008013fc1bf005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-01",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/06/01",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/05a0b3403d73013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-01",
     "url": "https://www.gocomics.com/michaelramirez/2026/06/01",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/3b5651103ffe013fc1bc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-01",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/06/01",
     "category": "political"
   },
   {
@@ -101,6 +117,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/7a7049a001a90130f7e3001dd8b71c47?optimizer=image&width=2800&quality=85",
     "date": "2026-06-01",
     "url": "https://www.gocomics.com/cowandboy/2026/06/01",
+    "category": "daily"
+  },
+  {
+    "name": "Cornered",
+    "slug": "cornered",
+    "image_url": "https://featureassets.gocomics.com/assets/b826bfb04001013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-01",
+    "url": "https://www.gocomics.com/cornered/2026/06/01",
     "category": "daily"
   },
   {
@@ -381,6 +405,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/882da380377d013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-01",
     "url": "https://www.gocomics.com/bc/2026/06/01",
+    "category": "daily"
+  },
+  {
+    "name": "Batch Rejection",
+    "slug": "batch-rejection",
+    "image_url": "https://featureassets.gocomics.com/assets/72e2c5703fd7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-01",
+    "url": "https://www.gocomics.com/batch-rejection/2026/06/01",
     "category": "daily"
   },
   {
@@ -1648,6 +1680,14 @@
     "category": "daily"
   },
   {
+    "name": "Lards World Peace Tips",
+    "slug": "lards-world-peace-tips",
+    "image_url": "https://featureassets.gocomics.com/assets/47c3d6203fc6013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-01",
+    "url": "https://www.gocomics.com/lards-world-peace-tips/2026/06/01",
+    "category": "daily"
+  },
+  {
     "name": "La Cucaracha",
     "slug": "la-cucaracha-en-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/fb3897703c15013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1789,6 +1829,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/85a278a03c0d013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-01",
     "url": "https://www.gocomics.com/trucutu/2026/06/01",
+    "category": "daily"
+  },
+  {
+    "name": "Tiny Sepuku",
+    "slug": "tinysepuku",
+    "image_url": "https://featureassets.gocomics.com/assets/a9179c103fcf013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-01",
+    "url": "https://www.gocomics.com/tinysepuku/2026/06/01",
     "category": "daily"
   },
   {
