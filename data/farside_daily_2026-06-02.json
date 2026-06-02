@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-02",
+  "scraped_at": "2026-06-02T08:46:28.098215+00:00",
+  "comics": [
+    {
+      "id": "22276",
+      "date": "2026-06-02",
+      "url": "https://www.thefarside.com/2026/06/02/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb834ba50e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b834ba50e9ef0137cf93005056a9545d",
+      "caption": "Fortunately, both Ali and his camel knew to take refuge during a desert Spam storm.",
+      "title": "Fortunately, both Ali and his camel knew to take refuge d..."
+    },
+    {
+      "id": "22277",
+      "date": "2026-06-02",
+      "url": "https://www.thefarside.com/2026/06/02/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F21926ee0fa850137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/21926ee0fa850137d52f005056a9545d",
+      "caption": "Hominid reconstructions",
+      "title": "Hominid reconstructions"
+    },
+    {
+      "id": "22278",
+      "date": "2026-06-02",
+      "url": "https://www.thefarside.com/2026/06/02/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45c2f858c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45c2f858c311ea8bf6005056a9",
+      "caption": "Final page of the medical boards",
+      "title": "Final page of the medical boards"
+    },
+    {
+      "id": "22279",
+      "date": "2026-06-02",
+      "url": "https://www.thefarside.com/2026/06/02/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee42e6d958c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee42e6d958c311ea8bf6005056a9",
+      "caption": "\u201cShoot! You not only got the wrong planet, you got the wrong solar system! \u2026 I mean, a wrong planet I can understand\u2014but a whole solar system?\u201d",
+      "title": "\u201cShoot! You not only got the wrong planet, you got the wr..."
+    },
+    {
+      "id": "22280",
+      "date": "2026-06-02",
+      "url": "https://www.thefarside.com/2026/06/02/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F87933280e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/87933280e92f0137cf47005056a9545d",
+      "caption": "Red Cloud\u2019s ultimate nightmare",
+      "title": "Red Cloud\u2019s ultimate nightmare"
+    }
+  ]
+}
