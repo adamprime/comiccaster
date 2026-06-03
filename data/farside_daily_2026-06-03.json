@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-03",
+  "scraped_at": "2026-06-03T08:10:10.976813+00:00",
+  "comics": [
+    {
+      "id": "22288",
+      "date": "2026-06-03",
+      "url": "https://www.thefarside.com/2026/06/03/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fae6a96b0d1b30137c6a2005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ae6a96b0d1b30137c6a2005056a9545d",
+      "caption": "\u201cYou ever get that urge, Frank? It begins with looking down from 50 stories up, thinking about the meaninglessness of life, listening to dark voices deep inside you, and you think, \u2018Should I? \u2026 Should I?\u00a0 \u2026 Should I push someone off?\u2019\u201d",
+      "title": "\u201cYou ever get that urge, Frank? It begins with looking do..."
+    },
+    {
+      "id": "22289",
+      "date": "2026-06-03",
+      "url": "https://www.thefarside.com/2026/06/03/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee48126558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee48126558c311ea8bf6005056a9",
+      "caption": "\u201cMy God, Carlson! After years of searching, this is an emotional moment for me! \u2026 Voil\u00e0! I give you the Secret Elephant Breeding Grounds!\u201d",
+      "title": "\u201cMy God, Carlson! After years of searching, this is an em..."
+    },
+    {
+      "id": "22290",
+      "date": "2026-06-03",
+      "url": "https://www.thefarside.com/2026/06/03/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcbcb6210d19e0137c68e005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cbcb6210d19e0137c68e005056a9545d",
+      "caption": "\u201cBen\u2014what d\u2019ya say we turn the power off for a while and let the little guy roam around?\u201d",
+      "title": "\u201cBen\u2014what d\u2019ya say we turn the power off for a while and ..."
+    },
+    {
+      "id": "22291",
+      "date": "2026-06-03",
+      "url": "https://www.thefarside.com/2026/06/03/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F703b1200d28b0137c712005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/703b1200d28b0137c712005056a9545d",
+      "caption": "Primitive man discovers tools.",
+      "title": "Primitive man discovers tools"
+    },
+    {
+      "id": "22293",
+      "date": "2026-06-03",
+      "url": "https://www.thefarside.com/2026/06/03/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F213c65f0b46c013aaa65005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/213c65f0b46c013aaa65005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22293"
+    }
+  ]
+}
