@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-04",
+  "scraped_at": "2026-06-04T08:46:01.447482+00:00",
+  "comics": [
+    {
+      "id": "22294",
+      "date": "2026-06-04",
+      "url": "https://www.thefarside.com/2026/06/04/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff07a3be0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f07a3be0cdd50137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22294"
+    },
+    {
+      "id": "22295",
+      "date": "2026-06-04",
+      "url": "https://www.thefarside.com/2026/06/04/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd6bde200027e0138d7ba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d6bde200027e0138d7ba005056a9545d",
+      "caption": "\u201cHey, wait a minute! This is grass! We\u2019ve been eating grass!\u201d",
+      "title": "\u201cHey, wait a minute! This is grass! We\u2019ve been eating gra..."
+    },
+    {
+      "id": "22296",
+      "date": "2026-06-04",
+      "url": "https://www.thefarside.com/2026/06/04/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee42f0d558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee42f0d558c311ea8bf6005056a9",
+      "caption": "\u201cSomethin\u2019s up, Jed. \u2026 That\u2019s Ben Potter\u2019s horse, all right, but ain\u2019t that Henry Morgan\u2019s chicken ridin\u2019 him?\u201d",
+      "title": "\u201cSomethin\u2019s up, Jed"
+    },
+    {
+      "id": "22297",
+      "date": "2026-06-04",
+      "url": "https://www.thefarside.com/2026/06/04/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F09895e60d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/09895e60d7410137c8a6005056a9545d",
+      "caption": "\u201cOh, is that so? \u2026 Well, if there\u2019s anything I hate worse than a big, stupid carrot, it\u2019s a big, stupid banana!\u201d",
+      "title": "\u201cOh, is that so? \u2026 Well, if there\u2019s anything I hate worse..."
+    },
+    {
+      "id": "22298",
+      "date": "2026-06-04",
+      "url": "https://www.thefarside.com/2026/06/04/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4609be58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4609be58c311ea8bf6005056a9",
+      "caption": "The Samson family at home",
+      "title": "The Samson family at home"
+    }
+  ]
+}
