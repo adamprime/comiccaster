@@ -8,11 +8,35 @@
     "category": "political"
   },
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/869b14704262013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/robert-ariail/2026/06/04",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/35eff2104263013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/robrogers/2026/06/04",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/835ca5d040fb013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-04",
     "url": "https://www.gocomics.com/mikeluckovich/2026/06/04",
+    "category": "political"
+  },
+  {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/62bb9320425c013fc1ec005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/kal/2026/06/04",
     "category": "political"
   },
   {
@@ -24,11 +48,59 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/bd24efb04259013fc1eb005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/06/04",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/fe8a9bb04241013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/joe-heller/2026/06/04",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Stahler",
+    "slug": "jeffstahler",
+    "image_url": "https://featureassets.gocomics.com/assets/9db274704263013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/jeffstahler/2026/06/04",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/4db1f7904259013fc1ea005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/06/04",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/77745560425c013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/henrypayne/2026/06/04",
+    "category": "political"
+  },
+  {
     "name": "Gary Markstein",
     "slug": "garymarkstein",
     "image_url": "https://featureassets.gocomics.com/assets/07738e4041ba013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-04",
     "url": "https://www.gocomics.com/garymarkstein/2026/06/04",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/af291b204261013fc1ed005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/drewsheneman/2026/06/04",
     "category": "political"
   },
   {
@@ -1725,6 +1797,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/03f527203da5013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-04",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/06/04",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/063f5c904236013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-04",
+    "url": "https://www.gocomics.com/tavicat/2026/06/04",
     "category": "daily"
   },
   {
