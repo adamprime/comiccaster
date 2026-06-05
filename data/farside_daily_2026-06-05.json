@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-05",
+  "scraped_at": "2026-06-05T08:48:12.176096+00:00",
+  "comics": [
+    {
+      "id": "22299",
+      "date": "2026-06-05",
+      "url": "https://www.thefarside.com/2026/06/05/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee47f46158c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee47f46158c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22299"
+    },
+    {
+      "id": "22300",
+      "date": "2026-06-05",
+      "url": "https://www.thefarside.com/2026/06/05/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee46139558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee46139558c311ea8bf6005056a9",
+      "caption": "Early microscope",
+      "title": "Early microscope"
+    },
+    {
+      "id": "22301",
+      "date": "2026-06-05",
+      "url": "https://www.thefarside.com/2026/06/05/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7ba08bc0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7ba08bc0cdd20137c56b005056a9545d",
+      "caption": "\u201c\u2026 and this must be the little woman.\u201d",
+      "title": "\u201c\u2026 and this must be the little woman"
+    },
+    {
+      "id": "22302",
+      "date": "2026-06-05",
+      "url": "https://www.thefarside.com/2026/06/05/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee47ef9b58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee47ef9b58c311ea8bf6005056a9",
+      "caption": "\u201cThank God! \u2026 It was only a cat!\u201d",
+      "title": "\u201cThank God! \u2026 It was only a cat!\u201d"
+    },
+    {
+      "id": "22303",
+      "date": "2026-06-05",
+      "url": "https://www.thefarside.com/2026/06/05/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F782c1420cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/782c1420cdd40137c56b005056a9545d",
+      "caption": "\u201cYou should have thought of that earlier, Cornelius. \u2026 You\u2019re just going to have to hold it until nightfall.\u201d",
+      "title": "\u201cYou should have thought of that earlier, Cornelius"
+    }
+  ]
+}
