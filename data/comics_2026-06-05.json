@@ -24,6 +24,14 @@
     "category": "political"
   },
   {
+    "name": "Lisa Benson",
+    "slug": "lisabenson",
+    "image_url": "https://featureassets.gocomics.com/assets/da11b490432a013fc1fa005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-05",
+    "url": "https://www.gocomics.com/lisabenson/2026/06/05",
+    "category": "political"
+  },
+  {
     "name": "John Deering",
     "slug": "johndeering",
     "image_url": "https://featureassets.gocomics.com/assets/e1cd4e104207013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -45,6 +53,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/1a73ed10429c013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-05",
     "url": "https://www.gocomics.com/joe-heller/2026/06/05",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/779667304322013fc1f8005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-05",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/06/05",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/3c150cf0432a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-05",
+    "url": "https://www.gocomics.com/henrypayne/2026/06/05",
     "category": "political"
   },
   {
@@ -808,6 +832,14 @@
     "category": "daily"
   },
   {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/f42c96f04307013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-05",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/06/05",
+    "category": "daily"
+  },
+  {
     "name": "Ginger Meggs",
     "slug": "gingermeggs-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/9f5699a085d4012ee3c400163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -1277,6 +1309,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/f9009d7035fe013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-05",
     "url": "https://www.gocomics.com/nonsequitur/2026/06/05",
+    "category": "daily"
+  },
+  {
+    "name": "Next Door Neighbors",
+    "slug": "next-door-neighbors",
+    "image_url": "https://featureassets.gocomics.com/assets/b8d037c04324013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-05",
+    "url": "https://www.gocomics.com/next-door-neighbors/2026/06/05",
     "category": "daily"
   },
   {
