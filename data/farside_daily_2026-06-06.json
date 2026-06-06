@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-06-06",
+  "scraped_at": "2026-06-06T08:49:31.701187+00:00",
+  "comics": [
+    {
+      "id": "22304",
+      "date": "2026-06-06",
+      "url": "https://www.thefarside.com/2026/06/06/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4604d558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4604d558c311ea8bf6005056a9",
+      "caption": "Primitive UFOs",
+      "title": "Primitive UFOs"
+    },
+    {
+      "id": "22305",
+      "date": "2026-06-06",
+      "url": "https://www.thefarside.com/2026/06/06/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe231e000cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e231e000cdd20137c56b005056a9545d",
+      "caption": "\u201cSo! You\u2019ve been buzzing around the living room again, haven\u2019t you?\u201d",
+      "title": "\u201cSo! You\u2019ve been buzzing around the living room again, ha..."
+    }
+  ]
+}
