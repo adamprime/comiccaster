@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-06-07",
+  "scraped_at": "2026-06-07T08:46:02.312222+00:00",
+  "comics": [
+    {
+      "id": "22306",
+      "date": "2026-06-07",
+      "url": "https://www.thefarside.com/2026/06/07/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2d13c1f0dccb0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2d13c1f0dccb0137caaf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22306"
+    },
+    {
+      "id": "22307",
+      "date": "2026-06-07",
+      "url": "https://www.thefarside.com/2026/06/07/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee461fc358c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee461fc358c311ea8bf6005056a9",
+      "caption": "\u201cI can\u2019t stand it. \u2026 They\u2019re so cute when they sit like that.\u201d",
+      "title": "\u201cI can\u2019t stand it"
+    }
+  ]
+}
