@@ -1,33 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lunarbaboon - TinyView</title><link>https://tinyview.com/lunarbaboon</link><description>Daily Lunarbaboon comic strip by Christopher Grady from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/lunarbaboon.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 04 Jun 2026 08:48:12 +0000</lastBuildDate><ttl>1440</ttl><item><title>Lunarbaboon</title><link>https://tinyview.com/lunarbaboon/2026/06/02/negative</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;This is an old comic...but it feels like I could have made it today. Times are tough!&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lunarbaboon - TinyView</title><link>https://tinyview.com/lunarbaboon</link><description>Daily Lunarbaboon comic strip by Christopher Grady from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/lunarbaboon.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 08 Jun 2026 08:49:23 +0000</lastBuildDate><ttl>1440</ttl><item><title>Lunarbaboon</title><link>https://tinyview.com/lunarbaboon/2026/06/06/bloom</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Some people deserve to be treated like dirt.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/preview-Recovered.jpg" alt="Cover Image" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/preview-1.jpg" alt="Cover Image" style="max-width: 100%; height: auto;" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel1-23.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel1-23.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/panel1-2.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/panel1-2.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel2-22.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel2-22.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/panel2-2.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/panel2-2.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel3-22.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel3-22.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/panel3-2.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/panel3-2.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel4-22.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel4-22.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/panel4-2.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/panel4-2.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel5-15.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel5-15.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel6-15.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel6-15.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel7-5.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel7-5.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel8-5.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/06/02/negative/panel8-5.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/06/06/bloom/bonuspanel-2.jpg" alt="bonus-panel-image" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;bonus-panel-image&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/lunarbaboon/2026/06/02/negative</guid><pubDate>Tue, 02 Jun 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/lunarbaboon/2026/06/06/bloom</guid><pubDate>Sat, 06 Jun 2026 23:59:59 +0000</pubDate></item></channel></rss>

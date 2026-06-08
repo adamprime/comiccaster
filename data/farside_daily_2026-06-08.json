@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-08",
+  "scraped_at": "2026-06-08T08:47:47.969096+00:00",
+  "comics": [
+    {
+      "id": "22308",
+      "date": "2026-06-08",
+      "url": "https://www.thefarside.com/2026/06/08/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4322cf58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4322cf58c311ea8bf6005056a9",
+      "caption": "\u201cHey, Buddy! Nobody tells me to go there and gets away with it!\u201d",
+      "title": "\u201cHey, Buddy! Nobody tells me to go there and gets away wi..."
+    },
+    {
+      "id": "22309",
+      "date": "2026-06-08",
+      "url": "https://www.thefarside.com/2026/06/08/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4de6bf00cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4de6bf00cdd50137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22309"
+    },
+    {
+      "id": "22310",
+      "date": "2026-06-08",
+      "url": "https://www.thefarside.com/2026/06/08/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee457aaa58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee457aaa58c311ea8bf6005056a9",
+      "caption": "Late at night, and without permission, Reuben would often enter the nursery and conduct experiments in static electricity.",
+      "title": "Late at night, and without permission, Reuben would often..."
+    },
+    {
+      "id": "22311",
+      "date": "2026-06-08",
+      "url": "https://www.thefarside.com/2026/06/08/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45d48c58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45d48c58c311ea8bf6005056a9",
+      "caption": "\u201cDrive, George, drive! This one\u2019s got a coat hanger!\u201d",
+      "title": "\u201cDrive, George, drive! This one\u2019s got a coat hanger!\u201d"
+    },
+    {
+      "id": "22312",
+      "date": "2026-06-08",
+      "url": "https://www.thefarside.com/2026/06/08/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45710858c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45710858c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22312"
+    }
+  ]
+}
