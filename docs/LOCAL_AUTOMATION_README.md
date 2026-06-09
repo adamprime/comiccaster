@@ -37,6 +37,7 @@ An earlier hybrid design split scraping between a laptop (one source) and GitHub
 |---|---|
 | `scripts/mini_master_update.sh` | Production entrypoint — sets host-specific environment, execs the tracked master update |
 | `scripts/local_master_update.sh` | Tracked master update — all pipeline logic lives here |
+| `scripts/catchup_master_update.sh` | Login-triggered safety net — runs the master update only if today's GoComics data file is missing |
 | `scripts/scrape_*.py` and per-source authenticated scrapers | Phase 1 scrapers; each writes to `data/*.json` |
 | `scripts/generate_*.py` | Phase 2 generators; each reads `data/*.json` and writes to `public/feeds/*.xml` |
 | `scripts/reauth_comicskingdom.py` | Manual Comics Kingdom session refresh |
@@ -150,6 +151,24 @@ launchctl list | grep comiccaster.master
 launchctl unload ~/Library/LaunchAgents/com.comiccaster.master.plist
 launchctl load   ~/Library/LaunchAgents/com.comiccaster.master.plist
 ```
+
+### Forced overnight macOS updates skipping the 03:05 slot
+
+The master LaunchAgent is user-level (`~/Library/LaunchAgents/...`) and only fires while a user is logged in. A forced macOS update that reboots overnight can leave the host at the loginwindow past 03:05 and the slot is silently skipped (incident 2026-05-26). Two layers of defence:
+
+1. **Stop forced overnight installs.** macOS still notifies; operator installs on demand.
+
+   ```bash
+   sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyInstallMacOSUpdates -bool false
+   ```
+
+2. **Catch-up LaunchAgent.** A second user-level agent runs at login and execs the master update only if today's `data/comics_<DATE>.json` is missing. Loaded once on the host:
+
+   ```bash
+   launchctl load -w ~/Library/LaunchAgents/com.comiccaster.catchup.plist
+   ```
+
+   The corresponding script lives in the repo at `scripts/catchup_master_update.sh`.
 
 ### Inspect a failed run
 
