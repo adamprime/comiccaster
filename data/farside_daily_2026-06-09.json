@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-09",
+  "scraped_at": "2026-06-09T08:06:52.859338+00:00",
+  "comics": [
+    {
+      "id": "22313",
+      "date": "2026-06-09",
+      "url": "https://www.thefarside.com/2026/06/09/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F875c6230d0d10137c639005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/875c6230d0d10137c639005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22313"
+    },
+    {
+      "id": "22314",
+      "date": "2026-06-09",
+      "url": "https://www.thefarside.com/2026/06/09/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4615fb58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4615fb58c311ea8bf6005056a9",
+      "caption": "Regrettably, Professor DeWitt\u2019s boasting fell on too many jealous ears, and that night, as he stumbled from the bar, he was etherized by an unknown assailant and \u201crelieved\u201d of his trophy.",
+      "title": "Regrettably, Professor DeWitt\u2019s boasting fell on too many..."
+    },
+    {
+      "id": "22315",
+      "date": "2026-06-09",
+      "url": "https://www.thefarside.com/2026/06/09/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee43261858c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee43261858c311ea8bf6005056a9",
+      "caption": "\u201cYou idiot! \u2026 Twenty bucks for a smoke alarm and we don\u2019t even know what the stuff is!\u201d",
+      "title": "\u201cYou idiot! \u2026 Twenty bucks for a smoke alarm and we don\u2019t..."
+    },
+    {
+      "id": "22316",
+      "date": "2026-06-09",
+      "url": "https://www.thefarside.com/2026/06/09/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb952bfe0cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b952bfe0cdd60137c56b005056a9545d",
+      "caption": "\u201cListen out there! We\u2019re George and Harriet Miller! We just dropped in on the pigs for coffee! We\u2019re coming out! \u2026 We don\u2019t want trouble!\u201d",
+      "title": "\u201cListen out there! We\u2019re George and Harriet Miller! We ju..."
+    },
+    {
+      "id": "22317",
+      "date": "2026-06-09",
+      "url": "https://www.thefarside.com/2026/06/09/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee461aae58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee461aae58c311ea8bf6005056a9",
+      "caption": "Fast-food farms",
+      "title": "Fast-food farms"
+    }
+  ]
+}
