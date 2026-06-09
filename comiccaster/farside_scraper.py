@@ -267,7 +267,8 @@ class FarsideScraper(BaseScraper):
             chrome_options.add_argument('--disable-dev-shm-usage')
             chrome_options.add_argument('--disable-gpu')
             
-            driver = webdriver.Chrome(options=chrome_options)
+            from .webdriver_setup import build_chrome_driver
+            driver = build_chrome_driver(chrome_options)
             
             try:
                 # Start at the New Stuff page
