@@ -24,6 +24,14 @@
     "category": "political"
   },
   {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/3471a240460a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-09",
+    "url": "https://www.gocomics.com/garyvarvel/2026/06/09",
+    "category": "political"
+  },
+  {
     "name": "Doonesbury",
     "slug": "doonesbury",
     "image_url": "https://featureassets.gocomics.com/assets/8f8bd5d040c7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1709,6 +1717,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/1f7dfa904283013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-09",
     "url": "https://www.gocomics.com/ten-cats/2026/06/09",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/2400d830461f013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-09",
+    "url": "https://www.gocomics.com/tavicat/2026/06/09",
     "category": "daily"
   },
   {
