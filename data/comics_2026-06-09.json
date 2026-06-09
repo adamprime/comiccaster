@@ -16,6 +16,30 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/5fa134b04643013fc20f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-09",
+    "url": "https://www.gocomics.com/nickanderson/2026/06/09",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/6227b8504643013fc20f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-09",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/06/09",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/d09952404648013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-09",
+    "url": "https://www.gocomics.com/joe-heller/2026/06/09",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/87526a2045a9013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1016,6 +1040,14 @@
     "category": "daily"
   },
   {
+    "name": "Domestic Abuse",
+    "slug": "domesticabuse",
+    "image_url": "https://featureassets.gocomics.com/assets/a2acb4f04638013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-09",
+    "url": "https://www.gocomics.com/domesticabuse/2026/06/09",
+    "category": "daily"
+  },
+  {
     "name": "Dogs Of C Kennel",
     "slug": "dogsofckennel",
     "image_url": "https://featureassets.gocomics.com/assets/30483d8040e2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1677,6 +1709,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/b9b9bb10b8fe013eb960005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-09",
     "url": "https://www.gocomics.com/viivi-and-wagner/2026/06/09",
+    "category": "daily"
+  },
+  {
+    "name": "Tutelandia",
+    "slug": "tutelandia",
+    "image_url": "https://featureassets.gocomics.com/assets/252881804652013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-09",
+    "url": "https://www.gocomics.com/tutelandia/2026/06/09",
     "category": "daily"
   },
   {
