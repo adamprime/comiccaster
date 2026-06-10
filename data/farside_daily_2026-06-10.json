@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-10",
+  "scraped_at": "2026-06-10T08:19:28.547301+00:00",
+  "comics": [
+    {
+      "id": "22318",
+      "date": "2026-06-10",
+      "url": "https://www.thefarside.com/2026/06/10/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee43049d58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee43049d58c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22318"
+    },
+    {
+      "id": "22319",
+      "date": "2026-06-10",
+      "url": "https://www.thefarside.com/2026/06/10/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F78b7fa5002810138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/78b7fa5002810138d7bb005056a9545d",
+      "caption": "\u201cLunch is ready, Lawrence, and \u2026 what? You\u2019re still a fly?\u201d",
+      "title": "\u201cLunch is ready, Lawrence, and \u2026 what? You\u2019re still a fly?\u201d"
+    },
+    {
+      "id": "22320",
+      "date": "2026-06-10",
+      "url": "https://www.thefarside.com/2026/06/10/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F75e59fb0d28b0137c712005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/75e59fb0d28b0137c712005056a9545d",
+      "caption": "\u201cGood heavens, Mr. Farley, is that the end of someone\u2019s nose I see down there?\u201d",
+      "title": "\u201cGood heavens, Mr"
+    },
+    {
+      "id": "22321",
+      "date": "2026-06-10",
+      "url": "https://www.thefarside.com/2026/06/10/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45b6a058c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45b6a058c311ea8bf6005056a9",
+      "caption": "\u201cListen\u2014just take one of our brochures and see what we\u2019re all about. \u2026 In the meantime, you may wish to ask yourself, \u2018Am I a happy cow?\u2019\u201d",
+      "title": "\u201cListen\u2014just take one of our brochures and see what we\u2019re..."
+    },
+    {
+      "id": "22322",
+      "date": "2026-06-10",
+      "url": "https://www.thefarside.com/2026/06/10/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5890fec0cdd70137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5890fec0cdd70137c56b005056a9545d",
+      "caption": "\u201cI\u2019ve got it, too, Omar \u2026 a strange feeling like we\u2019ve just been going in circles.\u201d",
+      "title": "\u201cI\u2019ve got it, too, Omar \u2026 a strange feeling like we\u2019ve ju..."
+    }
+  ]
+}
