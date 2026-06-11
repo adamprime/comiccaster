@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-11",
+  "scraped_at": "2026-06-11T08:19:56.163727+00:00",
+  "comics": [
+    {
+      "id": "22323",
+      "date": "2026-06-11",
+      "url": "https://www.thefarside.com/2026/06/11/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45aa0558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45aa0558c311ea8bf6005056a9",
+      "caption": "Creationism explained",
+      "title": "Creationism explained"
+    },
+    {
+      "id": "22324",
+      "date": "2026-06-11",
+      "url": "https://www.thefarside.com/2026/06/11/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee458ffa58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee458ffa58c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22324"
+    },
+    {
+      "id": "22325",
+      "date": "2026-06-11",
+      "url": "https://www.thefarside.com/2026/06/11/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45889158c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45889158c311ea8bf6005056a9",
+      "caption": "\u201cNow, Grog! Throw! \u2026 Throoooooow! \u2026 Throw throw throw throw throw throw! \u2026\u201d",
+      "title": "\u201cNow, Grog! Throw! \u2026 Throoooooow! \u2026 Throw throw throw thr..."
+    },
+    {
+      "id": "22326",
+      "date": "2026-06-11",
+      "url": "https://www.thefarside.com/2026/06/11/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45c10658c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45c10658c311ea8bf6005056a9",
+      "caption": "How cow documentaries are made",
+      "title": "How cow documentaries are made"
+    },
+    {
+      "id": "22327",
+      "date": "2026-06-11",
+      "url": "https://www.thefarside.com/2026/06/11/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F409fe2a0027f0138d7ba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/409fe2a0027f0138d7ba005056a9545d",
+      "caption": "\u201cYour room is right in here, Maestro.\u201d",
+      "title": "\u201cYour room is right in here, Maestro"
+    }
+  ]
+}
