@@ -56,6 +56,22 @@
     "category": "political"
   },
   {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/6eba11a048ab013fc243005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-12",
+    "url": "https://www.gocomics.com/joelpett/2026/06/12",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/0e8525a0486a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-12",
+    "url": "https://www.gocomics.com/garyvarvel/2026/06/12",
+    "category": "political"
+  },
+  {
     "name": "Drew Sheneman",
     "slug": "drewsheneman",
     "image_url": "https://featureassets.gocomics.com/assets/fd49a12047fa013fc23d005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1749,6 +1765,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/bf134380b8fe013eb960005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-12",
     "url": "https://www.gocomics.com/viivi-and-wagner/2026/06/12",
+    "category": "daily"
+  },
+  {
+    "name": "UFO",
+    "slug": "ufo",
+    "image_url": "https://featureassets.gocomics.com/assets/655117404891013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-12",
+    "url": "https://www.gocomics.com/ufo/2026/06/12",
     "category": "daily"
   },
   {
