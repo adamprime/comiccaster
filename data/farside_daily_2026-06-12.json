@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-12",
+  "scraped_at": "2026-06-12T08:20:05.709883+00:00",
+  "comics": [
+    {
+      "id": "22328",
+      "date": "2026-06-12",
+      "url": "https://www.thefarside.com/2026/06/12/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff27219e0cea10137c5c3005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f27219e0cea10137c5c3005056a9545d",
+      "caption": "\u201cSo, Foster! That\u2019s how you want it, huh? \u2026 Then take THIS!\u201d",
+      "title": "\u201cSo, Foster! That\u2019s how you want it, huh? \u2026 Then take THIS!\u201d"
+    },
+    {
+      "id": "22329",
+      "date": "2026-06-12",
+      "url": "https://www.thefarside.com/2026/06/12/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F74629a40d28b0137c712005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/74629a40d28b0137c712005056a9545d",
+      "caption": "\u201cOh, Thak! You\u2019ve done it! \u2026 If only we had a camera\u2014but, of course, I\u2019m getting ahead of myself.\u201d",
+      "title": "\u201cOh, Thak! You\u2019ve done it! \u2026 If only we had a camera\u2014but,..."
+    },
+    {
+      "id": "22330",
+      "date": "2026-06-12",
+      "url": "https://www.thefarside.com/2026/06/12/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F34bca350d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/34bca350d0f70137c652005056a9545d",
+      "caption": "\u201cNow remember, Cory, show us that you can take good care of these little fellows and maybe next year we\u2019ll get you\nthat puppy.\u201d",
+      "title": "\u201cNow remember, Cory, show us that you can take good care ..."
+    },
+    {
+      "id": "22331",
+      "date": "2026-06-12",
+      "url": "https://www.thefarside.com/2026/06/12/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45ff0458c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45ff0458c311ea8bf6005056a9",
+      "caption": "Morning in the crypt",
+      "title": "Morning in the crypt"
+    },
+    {
+      "id": "22332",
+      "date": "2026-06-12",
+      "url": "https://www.thefarside.com/2026/06/12/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F226b2960fa880137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/226b2960fa880137d531005056a9545d",
+      "caption": "\u201cSay. \u2026 It\u2019s only a paper moon.\u201d",
+      "title": "\u201cSay"
+    }
+  ]
+}
