@@ -264,6 +264,14 @@
     "category": "daily"
   },
   {
+    "name": "Bob the Squirrel",
+    "slug": "bobthesquirrel",
+    "image_url": "https://featureassets.gocomics.com/assets/1ba2cf804941013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-13",
+    "url": "https://www.gocomics.com/bobthesquirrel/2026/06/13",
+    "category": "daily"
+  },
+  {
     "name": "Bloom County",
     "slug": "bloomcounty",
     "image_url": "https://featureassets.gocomics.com/assets/301280082128102d94d7001438c0f03b?optimizer=image&width=2800&quality=85",
