@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-15",
+  "scraped_at": "2026-06-15T08:19:14.109278+00:00",
+  "comics": [
+    {
+      "id": "22337",
+      "date": "2026-06-15",
+      "url": "https://www.thefarside.com/2026/06/15/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd8cd8940cea10137c5c3005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d8cd8940cea10137c5c3005056a9545d",
+      "caption": "Another great moment in evolution",
+      "title": "Another great moment in evolution"
+    },
+    {
+      "id": "22338",
+      "date": "2026-06-15",
+      "url": "https://www.thefarside.com/2026/06/15/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4582c858c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4582c858c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22338"
+    },
+    {
+      "id": "22339",
+      "date": "2026-06-15",
+      "url": "https://www.thefarside.com/2026/06/15/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F45597e90cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/45597e90cdd60137c56b005056a9545d",
+      "caption": "\u201cQuick! ... Run up and tell Him we found them!\u201d",
+      "title": "\u201cQuick!"
+    },
+    {
+      "id": "22340",
+      "date": "2026-06-15",
+      "url": "https://www.thefarside.com/2026/06/15/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5269c3d0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5269c3d0cdd50137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22340"
+    },
+    {
+      "id": "22341",
+      "date": "2026-06-15",
+      "url": "https://www.thefarside.com/2026/06/15/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4597f558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4597f558c311ea8bf6005056a9",
+      "caption": "\u201cQuit complaining and eat it! \u2026 Number one, chicken soup is good for the flu, and number two, it\u2019s nobody we know.\u201d",
+      "title": "\u201cQuit complaining and eat it! \u2026 Number one, chicken soup ..."
+    }
+  ]
+}
