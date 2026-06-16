@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-16",
+  "scraped_at": "2026-06-16T08:20:11.834992+00:00",
+  "comics": [
+    {
+      "id": "22342",
+      "date": "2026-06-16",
+      "url": "https://www.thefarside.com/2026/06/16/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee459e4758c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee459e4758c311ea8bf6005056a9",
+      "caption": "How Nature says, \u201cDo not touch.\u201d",
+      "title": "How Nature says, \u201cDo not touch"
+    },
+    {
+      "id": "22343",
+      "date": "2026-06-16",
+      "url": "https://www.thefarside.com/2026/06/16/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0ce960a0e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0ce960a0e6f80137ce50005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22343"
+    },
+    {
+      "id": "22344",
+      "date": "2026-06-16",
+      "url": "https://www.thefarside.com/2026/06/16/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4579bd58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4579bd58c311ea8bf6005056a9",
+      "caption": "Left to right: Old Man Winter, River, and Higgins",
+      "title": "Left to right: Old Man Winter, River, and Higgins"
+    },
+    {
+      "id": "22345",
+      "date": "2026-06-16",
+      "url": "https://www.thefarside.com/2026/06/16/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45d01958c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45d01958c311ea8bf6005056a9",
+      "caption": "\u201cActually, Johnny knows this stuff better than me. \u2026 Hey, Johnny! This lady wants to know the difference in all these fertilizers!\u201d",
+      "title": "\u201cActually, Johnny knows this stuff better than me"
+    },
+    {
+      "id": "22346",
+      "date": "2026-06-16",
+      "url": "https://www.thefarside.com/2026/06/16/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8e135e50d0be0137c62c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8e135e50d0be0137c62c005056a9545d",
+      "caption": "\u201cHa! Ain\u2019t a rattler, Jake. You got one of them maraca players down your bag\u2014and he\u2019s probably more scared than you.\u201d",
+      "title": "\u201cHa! Ain\u2019t a rattler, Jake"
+    }
+  ]
+}
