@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-17",
+  "scraped_at": "2026-06-17T08:19:54.961737+00:00",
+  "comics": [
+    {
+      "id": "22347",
+      "date": "2026-06-17",
+      "url": "https://www.thefarside.com/2026/06/17/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4e539220e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4e539220e85b0137cedf005056a9545d",
+      "caption": "\u201cAccording to these figures, Simmons, your department has lost another No. 2 Double N\u2014and I want you to find it!\u201d",
+      "title": "\u201cAccording to these figures, Simmons, your department has..."
+    },
+    {
+      "id": "22348",
+      "date": "2026-06-17",
+      "url": "https://www.thefarside.com/2026/06/17/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45a58f58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45a58f58c311ea8bf6005056a9",
+      "caption": "Luposlipaphobia: The fear of being pursued by timber wolves around a kitchen table while wearing socks on a newly waxed floor.",
+      "title": "Luposlipaphobia: The fear of being pursued by timber wolv..."
+    },
+    {
+      "id": "22349",
+      "date": "2026-06-17",
+      "url": "https://www.thefarside.com/2026/06/17/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45ad6558c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45ad6558c311ea8bf6005056a9",
+      "caption": "\u201cNever mind my name. You just tell your boss some thing is here to see him!\u201d",
+      "title": "\u201cNever mind my name"
+    },
+    {
+      "id": "22350",
+      "date": "2026-06-17",
+      "url": "https://www.thefarside.com/2026/06/17/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0ed5c6a0d3f80137c79c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0ed5c6a0d3f80137c79c005056a9545d",
+      "caption": "\u201cLooks like the bank\u2019s been hit again. Well, no hurry\u2014we\u2019ll take the big horse.\u201d",
+      "title": "\u201cLooks like the bank\u2019s been hit again"
+    },
+    {
+      "id": "22351",
+      "date": "2026-06-17",
+      "url": "https://www.thefarside.com/2026/06/17/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45991f58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45991f58c311ea8bf6005056a9",
+      "caption": "\u201cWell no wonder! \u2026 It\u2019s plugged in! \u2026 And I thought I was going nuts!\u201d",
+      "title": "\u201cWell no wonder! \u2026 It\u2019s plugged in! \u2026 And I thought I was..."
+    }
+  ]
+}
