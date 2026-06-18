@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-18",
+  "scraped_at": "2026-06-18T08:20:11.935439+00:00",
+  "comics": [
+    {
+      "id": "22352",
+      "date": "2026-06-18",
+      "url": "https://www.thefarside.com/2026/06/18/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee460b9458c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee460b9458c311ea8bf6005056a9",
+      "caption": "\u201cIt\u2019s time we face reality, my friends. \u2026 We\u2019re not exactly rocket scientists.\u201d",
+      "title": "\u201cIt\u2019s time we face reality, my friends"
+    },
+    {
+      "id": "22353",
+      "date": "2026-06-18",
+      "url": "https://www.thefarside.com/2026/06/18/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee4580d658c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee4580d658c311ea8bf6005056a9",
+      "caption": "Astral traveling in water buffaloes",
+      "title": "Astral traveling in water buffaloes"
+    },
+    {
+      "id": "22354",
+      "date": "2026-06-18",
+      "url": "https://www.thefarside.com/2026/06/18/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7929c7f0d0ea0137c64d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7929c7f0d0ea0137c64d005056a9545d",
+      "caption": "\u201cSo, until next week\u2014adios, amoebas.\u201d",
+      "title": "\u201cSo, until next week\u2014adios, amoebas"
+    },
+    {
+      "id": "22355",
+      "date": "2026-06-18",
+      "url": "https://www.thefarside.com/2026/06/18/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee48008358c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee48008358c311ea8bf6005056a9",
+      "caption": "\u201cNo, they\u2019re not real exciting\npets\u2014mostly they just lie around and wait to be fed\u2014although a couple years ago\nCharles tried teachin\u2019 him\nto take a cookie from his mouth.\u201d",
+      "title": "\u201cNo, they\u2019re not real exciting\npets\u2014mostly they just lie ..."
+    },
+    {
+      "id": "22356",
+      "date": "2026-06-18",
+      "url": "https://www.thefarside.com/2026/06/18/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5140b520d0d10137c639005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5140b520d0d10137c639005056a9545d",
+      "caption": "\u201cMr. Ainsworth. \u2026 Calling Mr. Aiiiinsworth. \u2026 If you\u2019re within the sound of my voice, Mr. Ainsworth, please give us some kind of sign.\u201d",
+      "title": "\u201cMr"
+    }
+  ]
+}
