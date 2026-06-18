@@ -16,6 +16,14 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/3e0a3aa04d5e013fc277005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-18",
+    "url": "https://www.gocomics.com/nickanderson/2026/06/18",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/ddd800a04cbe013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -32,11 +40,43 @@
     "category": "political"
   },
   {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/8e0980e04d4f013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-18",
+    "url": "https://www.gocomics.com/kal/2026/06/18",
+    "category": "political"
+  },
+  {
     "name": "John Deering",
     "slug": "johndeering",
     "image_url": "https://featureassets.gocomics.com/assets/8720d8c04d16013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-18",
     "url": "https://www.gocomics.com/johndeering/2026/06/18",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/26add6d04d5c013fc276005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-18",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/06/18",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/16053d404d1d013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-18",
+    "url": "https://www.gocomics.com/garyvarvel/2026/06/18",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/038e11304d62013fc278005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-18",
+    "url": "https://www.gocomics.com/drewsheneman/2026/06/18",
     "category": "political"
   },
   {
@@ -1741,6 +1781,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/029acc70467a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-18",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/06/18",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/933f08e04d30013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-18",
+    "url": "https://www.gocomics.com/tavicat/2026/06/18",
     "category": "daily"
   },
   {
