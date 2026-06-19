@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/2cac1cd04e2b013fc289005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-19",
+    "url": "https://www.gocomics.com/tim-campbell/2026/06/19",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/0914a4f048c7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -93,6 +101,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/94d1b5b04d8b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-19",
     "url": "https://www.gocomics.com/jeffstahler/2026/06/19",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/2f0e9a204e2b013fc289005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-19",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/06/19",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/c3cc85e04df2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-19",
+    "url": "https://www.gocomics.com/garyvarvel/2026/06/19",
     "category": "political"
   },
   {
@@ -709,6 +733,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/5bf35730457d013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-19",
     "url": "https://www.gocomics.com/jumpstart/2026/06/19",
+    "category": "daily"
+  },
+  {
+    "name": "Jim Benton Cartoons",
+    "slug": "jim-benton-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/660a0fe04e14013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-19",
+    "url": "https://www.gocomics.com/jim-benton-cartoons/2026/06/19",
     "category": "daily"
   },
   {
@@ -1397,6 +1429,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/68582e50457d013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-19",
     "url": "https://www.gocomics.com/nancy/2026/06/19",
+    "category": "daily"
+  },
+  {
+    "name": "Myth Tickle",
+    "slug": "mythtickle",
+    "image_url": "https://featureassets.gocomics.com/assets/668e62804dfc013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-19",
+    "url": "https://www.gocomics.com/mythtickle/2026/06/19",
     "category": "daily"
   },
   {
