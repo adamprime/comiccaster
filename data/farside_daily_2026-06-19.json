@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-19",
+  "scraped_at": "2026-06-19T08:19:57.146925+00:00",
+  "comics": [
+    {
+      "id": "22357",
+      "date": "2026-06-19",
+      "url": "https://www.thefarside.com/2026/06/19/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45b11858c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45b11858c311ea8bf6005056a9",
+      "caption": "Canine social blunders",
+      "title": "Canine social blunders"
+    },
+    {
+      "id": "22358",
+      "date": "2026-06-19",
+      "url": "https://www.thefarside.com/2026/06/19/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd284da20d0c40137c631005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d284da20d0c40137c631005056a9545d",
+      "caption": "The Great Nerd Drive of \u201976",
+      "title": "The Great Nerd Drive of \u201976"
+    },
+    {
+      "id": "22359",
+      "date": "2026-06-19",
+      "url": "https://www.thefarside.com/2026/06/19/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45fcfe58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45fcfe58c311ea8bf6005056a9",
+      "caption": "\u201cBeats me how they did it \u2026 I got the whole thing at a garage sale for five bucks\u2014and that included the stand.\u201d",
+      "title": "\u201cBeats me how they did it \u2026 I got the whole thing at a ga..."
+    },
+    {
+      "id": "22360",
+      "date": "2026-06-19",
+      "url": "https://www.thefarside.com/2026/06/19/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc90f12a0e8590137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c90f12a0e8590137cedf005056a9545d",
+      "caption": "It was over. But before the police could arrive, the rioting employees had already turned on one another, using the closest weapons at hand.",
+      "title": "It was over"
+    },
+    {
+      "id": "22361",
+      "date": "2026-06-19",
+      "url": "https://www.thefarside.com/2026/06/19/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa2116410d0be0137c62c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a2116410d0be0137c62c005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22361"
+    }
+  ]
+}
