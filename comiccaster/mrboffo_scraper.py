@@ -4,13 +4,17 @@ Mr. Boffo Scraper Module
 Scrapes the Mr. Boffo daily strip (by Joe Martin) for RSS feed generation.
 Uses requests + BeautifulSoup (no authentication required).
 
-Mr. Boffo is self-syndicated via Joe Martin's "Neatly Chiseled Features" and
-runs on its own site at http://www.mrboffo.com/daily.html. The page is a
-hand-built static HTML table (plain HTTP, no HTTPS) that embeds exactly one
-comic image — a single <img> whose src lives under ``images/daily/`` (a legacy
-fixed path the site overwrites in place each day). There is no per-day
-permalink, date metadata, or archive, so the strip is dated by fetch date
-(the same "daily dose" model used by The Far Side).
+Mr. Boffo is self-syndicated via Joe Martin's "Neatly Chiseled Features". We
+source the strip from https://www.mrboffocomics.com/, which embeds exactly one
+comic image (``images/secure_daily.jpg``) — a single fixed path the site
+overwrites in place each day. We use this site rather than mrboffo.com because
+it serves the image over HTTPS, so the feed needs no image proxy (an HTTP image
+would be blocked as mixed content in browsers and web RSS readers).
+
+There is no per-day permalink, date metadata, or archive at any Mr. Boffo site
+(the year-based archives are vintage navigation pages with no harvestable
+strips), so the strip is dated by fetch date — the same "daily dose" model used
+by The Far Side.
 """
 
 import logging
@@ -29,12 +33,12 @@ logger = logging.getLogger(__name__)
 class MrBoffoScraper(BaseScraper):
     """Scraper for the Mr. Boffo daily strip."""
 
-    BASE_URL = "http://www.mrboffo.com"
-    DAILY_URL = "http://www.mrboffo.com/daily.html"
+    BASE_URL = "https://www.mrboffocomics.com"
+    DAILY_URL = "https://www.mrboffocomics.com/"
 
-    # The daily strip image lives under this path fragment; decorative buttons
-    # and headers live under images/buttons/ and images/<other> instead.
-    IMAGE_PATH_MARKER = "images/daily/"
+    # The daily strip is the only image on the page, served over HTTPS at this
+    # fixed path (overwritten daily).
+    IMAGE_PATH_MARKER = "secure_daily"
 
     def __init__(self, timeout: int = 30, max_retries: int = 3):
         """Initialize the Mr. Boffo scraper.

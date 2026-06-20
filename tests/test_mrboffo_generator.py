@@ -20,9 +20,9 @@ _SPEC.loader.exec_module(gen)
 
 def _comic(**overrides):
     base = {
-        'image_url': 'http://www.mrboffo.com/images/daily/2026/today.jpg',
+        'image_url': 'https://www.mrboffocomics.com/images/secure_daily.jpg',
         'title': 'Mr. Boffo',
-        'url': 'http://www.mrboffo.com/daily.html',
+        'url': 'https://www.mrboffocomics.com/',
     }
     base.update(overrides)
     return base
@@ -37,17 +37,16 @@ class TestBuildEntries:
         assert '2026-06-20' in e['description']
         assert e['id'] == 'mrboffo-2026-06-20'
 
-    def test_image_url_is_https_proxied_with_cache_buster(self):
-        """HTTP-only source image is routed through the HTTPS proxy, and the
-        proxied (inner) URL carries the date cache-buster."""
-        from urllib.parse import quote
+    def test_image_url_is_direct_https_with_cache_buster(self):
+        """The source image is already HTTPS (mrboffocomics.com), so it is
+        embedded directly — no proxy — with a date cache-buster."""
         entries = gen.build_entries([('2026-06-20', [_comic()])])
         url = entries[0]['image_url']
-        # Served over HTTPS via our proxy (fixes mixed-content blocking).
-        assert url.startswith('https://comiccaster.xyz/.netlify/functions/proxy-mrboffo-image?url=')
-        # The original HTTP image URL + date cache-buster is the encoded payload.
-        inner = 'http://www.mrboffo.com/images/daily/2026/today.jpg?d=2026-06-20'
-        assert quote(inner, safe='') in url
+        assert url == (
+            'https://www.mrboffocomics.com/images/secure_daily.jpg?d=2026-06-20'
+        )
+        # No proxy indirection anymore.
+        assert 'proxy-mrboffo-image' not in url
 
     def test_feed_window_is_one(self):
         """Source has no archive; the feed only ever holds the current strip."""
