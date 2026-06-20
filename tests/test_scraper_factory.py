@@ -34,6 +34,14 @@ class TestScraperFactory:
         assert scraper.__class__.__name__ == 'TinyviewScraper'
         assert scraper.get_source_name() == 'tinyview'
     
+    def test_factory_returns_mrboffo_scraper(self):
+        """Test factory returns Mr. Boffo scraper for mrboffo source."""
+        from comiccaster.scraper_factory import ScraperFactory
+
+        scraper = ScraperFactory.get_scraper('mrboffo')
+        assert scraper.__class__.__name__ == 'MrBoffoScraper'
+        assert scraper.get_source_name() == 'mrboffo'
+
     def test_factory_raises_for_unknown_source(self):
         """Test factory raises exception for unknown source."""
         from comiccaster.scraper_factory import ScraperFactory
@@ -103,7 +111,7 @@ class TestScraperFactory:
         
         sources = ScraperFactory.get_supported_sources()
         
-        expected_sources = ['gocomics-daily', 'gocomics-political', 'tinyview', 'gocomics', 'farside-daily', 'farside-new', 'newyorker']
+        expected_sources = ['gocomics-daily', 'gocomics-political', 'tinyview', 'gocomics', 'farside-daily', 'farside-new', 'newyorker', 'mrboffo']
         assert set(sources) == set(expected_sources)
     
     def test_factory_supports_source_checking(self):
@@ -117,7 +125,9 @@ class TestScraperFactory:
         assert ScraperFactory.is_supported('gocomics')  # Backward compatibility
         assert ScraperFactory.is_supported('farside-daily')
         assert ScraperFactory.is_supported('farside-new')
-        
+        assert ScraperFactory.is_supported('newyorker')
+        assert ScraperFactory.is_supported('mrboffo')
+
         # Invalid sources
         assert not ScraperFactory.is_supported('invalid-source')
         assert not ScraperFactory.is_supported('unknown')

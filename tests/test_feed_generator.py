@@ -48,13 +48,32 @@ def test_initialization(tmp_path):
 def test_create_feed(feed_generator, comic_info):
     """Test creating a new feed."""
     fg = feed_generator.create_feed(comic_info)
-    
+
     feed_str = fg.rss_str(pretty=True).decode('utf-8')
     assert 'Test Comic - GoComics' in feed_str
     assert comic_info['url'] in feed_str
     assert 'Daily Test Comic comic strip by Test Author' in feed_str
     assert '<language>en</language>' in feed_str
     assert comic_info['author'] in feed_str
+
+
+@pytest.mark.parametrize('source,display', [
+    ('mrboffo', 'Mr. Boffo'),
+    ('farside-daily', 'The Far Side'),
+    ('farside-new', 'The Far Side'),
+    ('newyorker', 'The New Yorker'),
+    ('creators', 'Creators'),
+    ('comicskingdom', 'Comics Kingdom'),
+])
+def test_create_feed_custom_source_branding(feed_generator, comic_info, source, display):
+    """One-off custom scrapers are branded by their own source, not GoComics."""
+    comic_info = {**comic_info, 'source': source}
+    fg = feed_generator.create_feed(comic_info)
+
+    feed_str = fg.rss_str(pretty=True).decode('utf-8')
+    assert f'Test Comic - {display}' in feed_str
+    assert f'from {display}' in feed_str
+    assert 'GoComics' not in feed_str
 
 def test_create_entry(feed_generator, comic_info, metadata):
     """Test creating a feed entry."""

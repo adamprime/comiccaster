@@ -15,6 +15,7 @@ from .gocomics_scraper import GoComicsScraper
 from .tinyview_scraper import TinyviewScraper
 from .farside_scraper import FarsideScraper
 from .newyorker_scraper import NewYorkerScraper
+from .mrboffo_scraper import MrBoffoScraper
 
 logger = logging.getLogger(__name__)
 
@@ -38,7 +39,8 @@ class ScraperFactory:
         'gocomics': {'class': GoComicsScraper, 'args': {'source_type': 'gocomics-daily'}},  # Backward compatibility
         'farside-daily': {'class': FarsideScraper, 'args': {'source_type': 'farside-daily'}},
         'farside-new': {'class': FarsideScraper, 'args': {'source_type': 'farside-new'}},
-        'newyorker': {'class': NewYorkerScraper, 'args': {}}
+        'newyorker': {'class': NewYorkerScraper, 'args': {}},
+        'mrboffo': {'class': MrBoffoScraper, 'args': {}}
     }
     
     @classmethod

@@ -75,7 +75,7 @@ echo "=== Phase 1: Scraping All Sources ==="
 DATE_STR=$(date +%Y-%m-%d)
 
 echo ""
-echo "[1/6] Scraping GoComics (authenticated)..."
+echo "[1/7] Scraping GoComics (authenticated)..."
 if python scripts/authenticated_scraper_secure.py --output-dir ./data; then
     echo "✅ GoComics scraping succeeded"
 else
@@ -84,7 +84,7 @@ else
 fi
 
 echo ""
-echo "[2/6] Scraping Comics Kingdom..."
+echo "[2/7] Scraping Comics Kingdom..."
 # CK_SCRAPER_EXTRA_ARGS lets host-specific wrappers inject flags (e.g. the
 # Mini sets --show-browser because upstream anti-bot blocks headless Chrome).
 # Intentionally unquoted for word-splitting; supports single-token args.
@@ -96,7 +96,7 @@ else
 fi
 
 echo ""
-echo "[3/6] Scraping TinyView..."
+echo "[3/7] Scraping TinyView..."
 if python scripts/tinyview_scraper_local_authenticated.py --date "$DATE_STR" --days-back 90; then
     echo "✅ TinyView scraping succeeded"
 else
@@ -105,7 +105,7 @@ else
 fi
 
 echo ""
-echo "[4/6] Scraping Far Side..."
+echo "[4/7] Scraping Far Side..."
 if python scripts/scrape_farside.py; then
     echo "✅ Far Side scraping succeeded"
 else
@@ -114,7 +114,7 @@ else
 fi
 
 echo ""
-echo "[5/6] Scraping New Yorker Daily Cartoon..."
+echo "[5/7] Scraping New Yorker Daily Cartoon..."
 if python scripts/scrape_newyorker.py; then
     echo "✅ New Yorker scraping succeeded"
 else
@@ -123,12 +123,21 @@ else
 fi
 
 echo ""
-echo "[6/6] Scraping Creators Syndicate..."
+echo "[6/7] Scraping Creators Syndicate..."
 if python scripts/scrape_creators.py; then
     echo "✅ Creators scraping succeeded"
 else
     echo "❌ Creators scraping failed"
     FAILURES+=("Creators scraping")
+fi
+
+echo ""
+echo "[7/7] Scraping Mr. Boffo..."
+if python scripts/scrape_mrboffo.py; then
+    echo "✅ Mr. Boffo scraping succeeded"
+else
+    echo "❌ Mr. Boffo scraping failed"
+    FAILURES+=("Mr. Boffo scraping")
 fi
 
 # Phase 2: Generate all feeds from scraped data
@@ -137,7 +146,7 @@ echo ""
 echo "=== Phase 2: Generating All Feeds ==="
 
 echo ""
-echo "[1/6] Generating GoComics feeds (from scraped data)..."
+echo "[1/7] Generating GoComics feeds (from scraped data)..."
 if python scripts/generate_gocomics_feeds.py; then
     echo "✅ GoComics feed generation succeeded"
 else
@@ -146,7 +155,7 @@ else
 fi
 
 echo ""
-echo "[2/6] Generating Comics Kingdom feeds..."
+echo "[2/7] Generating Comics Kingdom feeds..."
 if python scripts/generate_comicskingdom_feeds.py; then
     echo "✅ Comics Kingdom feed generation succeeded"
 else
@@ -155,7 +164,7 @@ else
 fi
 
 echo ""
-echo "[3/6] Generating TinyView feeds..."
+echo "[3/7] Generating TinyView feeds..."
 if python scripts/generate_tinyview_feeds_from_data.py; then
     echo "✅ TinyView feed generation succeeded"
 else
@@ -164,7 +173,7 @@ else
 fi
 
 echo ""
-echo "[4/6] Generating New Yorker feed..."
+echo "[4/7] Generating New Yorker feed..."
 if python scripts/generate_newyorker_feeds.py; then
     echo "✅ New Yorker feed generation succeeded"
 else
@@ -173,7 +182,7 @@ else
 fi
 
 echo ""
-echo "[5/6] Generating Far Side feeds..."
+echo "[5/7] Generating Far Side feeds..."
 if python scripts/generate_farside_feeds.py; then
     echo "✅ Far Side feed generation succeeded"
 else
@@ -182,12 +191,21 @@ else
 fi
 
 echo ""
-echo "[6/6] Generating Creators feeds..."
+echo "[6/7] Generating Creators feeds..."
 if python scripts/generate_creators_feeds.py; then
     echo "✅ Creators feed generation succeeded"
 else
     echo "❌ Creators feed generation failed"
     FAILURES+=("Creators feed generation")
+fi
+
+echo ""
+echo "[7/7] Generating Mr. Boffo feed..."
+if python scripts/generate_mrboffo_feeds.py; then
+    echo "✅ Mr. Boffo feed generation succeeded"
+else
+    echo "❌ Mr. Boffo feed generation failed"
+    FAILURES+=("Mr. Boffo feed generation")
 fi
 
 # Invariant guard: if a scraper reported success, its daily data file must exist.
@@ -216,11 +234,12 @@ check_scrape_output "New Yorker"     "data/newyorker_$DATE_STR.json"
 check_scrape_output "Far Side"       "data/farside_daily_$DATE_STR.json"
 check_scrape_output "Far Side"       "data/farside_new_$DATE_STR.json"
 check_scrape_output "Creators"       "data/creators_$DATE_STR.json"
+check_scrape_output "Mr. Boffo"      "data/mrboffo_$DATE_STR.json"
 
 # Phase 3: Commit and push everything that succeeded.
 # Recovery on push rejection: save same-day scrape JSONs to a staging dir, reset
 # to origin/main, restore the JSONs, re-run all data-driven generators, and
-# push once. All six sources are data-driven, so recovery is a full
+# push once. All seven sources are data-driven, so recovery is a full
 # regeneration — no source gets stale on recovery. Deliberately avoids git
 # pull --rebase against generated XML artifacts, which explodes into hundreds
 # of conflicts (see 2026-04-17 incident).
@@ -277,7 +296,8 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
             "data/farside_daily_$FS_YESTERDAY.json" \
             "data/farside_daily_$FS_DAYBEFORE.json" \
             "data/farside_new_$DATE_STR.json" \
-            "data/creators_$DATE_STR.json"; do
+            "data/creators_$DATE_STR.json" \
+            "data/mrboffo_$DATE_STR.json"; do
             if [ -f "$f" ]; then
                 cp -p "$f" "$STAGING/"
                 echo "  saved $(basename "$f")"
@@ -296,7 +316,7 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
             echo "  restored $(basename "$f")"
         done
 
-        # Regenerate every feed from restored data. All six sources are now
+        # Regenerate every feed from restored data. All seven sources are now
         # data-driven (see 3a/3b/3c refactors), so recovery produces
         # byte-identical output to a clean run from the same scrape data.
         echo "🔧 Regenerating feeds from restored scrape data"
@@ -306,6 +326,7 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
         python scripts/generate_newyorker_feeds.py          || FAILURES+=("New Yorker regen in recovery")
         python scripts/generate_farside_feeds.py            || FAILURES+=("Far Side regen in recovery")
         python scripts/generate_creators_feeds.py           || FAILURES+=("Creators regen in recovery")
+        python scripts/generate_mrboffo_feeds.py            || FAILURES+=("Mr. Boffo regen in recovery")
 
         git add -f data/*.json public/feeds/*.xml
         if git diff --staged --quiet; then
