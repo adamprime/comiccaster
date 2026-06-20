@@ -1,8 +1,8 @@
 # Project Status
-<!-- Updated: 2026-05-16 by Codex -->
+<!-- Updated: 2026-06-20 by Claude Code -->
 
 ## Project Overview
-ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, Creators Syndicate, and first-party external RSS feeds into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation where ComicCaster owns the feed; external RSS entries link directly to publisher-provided feeds. Netlify serves the static site and feed files.
+ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, Creators Syndicate, Mr. Boffo, and first-party external RSS feeds into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation where ComicCaster owns the feed; external RSS entries link directly to publisher-provided feeds. Netlify serves the static site and feed files.
 
 ## Current State
 Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with no observed regressions; daily runs report all-success on most days, with the expected weekly CK session refresh handled manually via `reauth_comicskingdom.py`. PR #139 is open from `codex/external-rss-catalog` to add a separate External RSS catalog and OPML flow for first-party publisher feeds. It avoids the scrape/generate pipeline entirely and should be validated through CI plus the Netlify preview before merge.
@@ -15,14 +15,14 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 <!-- Features/systems that are shipped and stable. Keep this current. -->
 
 - Daily multi-source RSS feed generation and publishing workflow
-- All six sources use a uniform scrape-to-data / generate-from-data architecture (`scripts/scrape_*.py` → `data/<src>_$DATE.json` → `scripts/generate_*.py` → `public/feeds/*.xml`)
+- All seven sources use a uniform scrape-to-data / generate-from-data architecture (`scripts/scrape_*.py` → `data/<src>_$DATE.json` → `scripts/generate_*.py` → `public/feeds/*.xml`)
 - Production entrypoint is tracked in git (`scripts/mini_master_update.sh`) — no more untracked wrappers patching the master script at runtime
 - Push-conflict recovery uses save / fetch / reset / regenerate (no `git pull --rebase` against generated XMLs)
 - Invariant guard between Phase 2 and Phase 3 catches silent scrape regressions (scrape reports success but its dated JSON is missing)
 - Comics Kingdom authentication uses a persistent Chrome profile at `~/.comicskingdom_chrome_profile` (Shape A); `reauth_comicskingdom.py` is the operator entry point for refresh
 - Chrome boundary instrumentation in `_individual` — timestamped log lines at every `driver.get` make hang-site localization a grep
 - 289-test suite passing across Python 3.10 / 3.11 / 3.12 after PR #139 and #140 merge (281 on `codex/external-rss-catalog` alone + 8 more from `feat/two-pass-scrape-and-catalog-fix`)
-- 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, and 10 Creators feeds updating daily
+- 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, 10 Creators feeds, and Mr. Boffo (single daily strip) updating daily
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled; **zero open CodeQL alerts**
 - Consistent comic strip sizing (max-width: 700px) and centering across all sources (#105)

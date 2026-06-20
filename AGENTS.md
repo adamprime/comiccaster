@@ -4,7 +4,7 @@ This file provides guidance to AI coding assistants when working with this repos
 
 ## Project Overview
 
-ComicCaster generates RSS feeds for comics from multiple sources (GoComics, Comics Kingdom, TinyView, The Far Side). It uses a hybrid serverless/static site architecture deployed on Netlify, with daily automated feed updates run locally.
+ComicCaster generates RSS feeds for comics from multiple sources (GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, Creators Syndicate, Mr. Boffo). It uses a hybrid serverless/static site architecture deployed on Netlify, with daily automated feed updates run locally.
 
 ## Key Commands
 
@@ -35,6 +35,7 @@ python scripts/tinyview_scraper_local_authenticated.py # TinyView
 python scripts/scrape_newyorker.py                     # New Yorker
 python scripts/scrape_farside.py                       # Far Side
 python scripts/scrape_creators.py                      # Creators Syndicate
+python scripts/scrape_mrboffo.py                       # Mr. Boffo
 
 # Individual source generators (Phase 2 — reads JSON, writes public/feeds/*.xml; network-free)
 python scripts/generate_gocomics_feeds.py
@@ -43,6 +44,7 @@ python scripts/generate_tinyview_feeds_from_data.py
 python scripts/generate_newyorker_feeds.py
 python scripts/generate_farside_feeds.py
 python scripts/generate_creators_feeds.py
+python scripts/generate_mrboffo_feeds.py
 ```
 
 ## Architecture
@@ -80,7 +82,7 @@ python scripts/generate_creators_feeds.py
 ### Feed Update Process
 
 Daily updates run on a dedicated always-on host, overnight:
-1. **Phase 1 — scrape** the six sources (GoComics, Comics Kingdom, TinyView, New Yorker, Far Side, Creators Syndicate), each writing to `data/<src>_$DATE.json`.
+1. **Phase 1 — scrape** the seven sources (GoComics, Comics Kingdom, TinyView, New Yorker, Far Side, Creators Syndicate, Mr. Boffo), each writing to `data/<src>_$DATE.json`.
 2. **Phase 2 — generate** feeds from those JSONs. Each source has a dedicated generator; all are network-free.
 3. **Invariant guard:** every successful scrape must have written its dated JSON file; missing files surface as failures.
 4. **Phase 3 — commit and push.** On push rejection, recovery saves today's JSONs, resets to `origin/main`, restores them, and regenerates all feeds. Netlify auto-deploys on push.

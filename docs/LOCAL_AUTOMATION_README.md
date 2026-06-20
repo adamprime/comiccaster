@@ -10,9 +10,9 @@ An earlier hybrid design split scraping between a laptop (one source) and GitHub
 ┌────────────────────────────────────────────────────────────────┐
 │  Local host, daily overnight run (LaunchAgent)                 │
 │                                                                │
-│  Phase 1 — scrape 6 sources (sequential, fail-soft)            │
+│  Phase 1 — scrape 7 sources (sequential, fail-soft)            │
 │    GoComics, Comics Kingdom, TinyView, Far Side,               │
-│    New Yorker, Creators Syndicate                              │
+│    New Yorker, Creators Syndicate, Mr. Boffo                   │
 │                                                                │
 │  Phase 2 — generate feeds from scraped JSON                    │
 │    one script per source, all network-free                     │

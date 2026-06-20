@@ -23,7 +23,7 @@ ceremony; a new comic source or a pipeline change does.
 - Test behavior at boundaries, not internals: scraper input → `data/<src>_$DATE.json`,
   generator JSON → `public/feeds/*.xml`, and feed output shape. `tests/` mirrors source.
 - Keep the default run fast and offline. Mock the live comic sources
-  (GoComics, Comics Kingdom, TinyView, New Yorker, Far Side, Creators) — never hit
+  (GoComics, Comics Kingdom, TinyView, New Yorker, Far Side, Creators, Mr. Boffo) — never hit
   them in unit tests. Use the existing `network` / `integration` pytest markers for
   the few tests that genuinely need the network.
 
@@ -66,10 +66,17 @@ The `compound-engineering` plugin is installed on this account, so its skills ar
 available (`ce-plan`, `ce-work`, `ce-code-review`, `ce-debug`, `ce-compound`, …).
 - For non-trivial work (a new source, a pipeline change, anything multi-file):
   plan → work → review → compound. Skip the ceremony for typos and one-liners.
-- `docs/` already exists here. Capture tricky fixes as
-  `docs/solutions/YYYY-MM-DD-slug.md` and forward-looking work in `docs/plans/`,
+- `docs/` already exists here. Capture tricky fixes under
+  `docs/solutions/<category>/<slug>.md` and forward-looking work in `docs/plans/`,
   so the next session — often you, back on this box over Screen Sharing — inherits
   the context instead of rediscovering it.
+- `docs/solutions/` is a searchable knowledge store of past solutions (bugs, best
+  practices, workflow patterns), organized by category with YAML frontmatter
+  (`module`, `tags`, `problem_type`) — relevant to grep when implementing or
+  debugging in a documented area.
+- `CONCEPTS.md` (repo root) holds the project's shared domain vocabulary — Sources,
+  the scrape/generate pipeline, feed-shaping terms — relevant when orienting or
+  discussing domain concepts.
 - When you solve something non-obvious (a scraper breaking on a site change, a
   Netlify build quirk, a re-auth dance), write the solution doc. That payoff is the
   whole reason to work with this rigor.
