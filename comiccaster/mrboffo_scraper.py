@@ -140,6 +140,14 @@ class MrBoffoScraper(BaseScraper):
         if not images:
             logger.warning("No daily strip image found on the Mr. Boffo page")
             return None
+        if len(images) > 1:
+            # The page is expected to carry exactly one daily strip; more than
+            # one means the site layout changed and the first match may be the
+            # wrong image. Surface it loudly but still publish the first.
+            logger.warning(
+                f"Expected 1 daily strip image but found {len(images)}; "
+                f"using the first ({images[0]['url']})"
+            )
 
         return self.build_comic_result(
             comic_slug or 'mr-boffo',

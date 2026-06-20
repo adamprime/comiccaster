@@ -107,3 +107,22 @@ class TestScrapeComic:
         no_comic = '<html><body><p>Down for maintenance</p></body></html>'
         with patch.object(scraper, 'fetch_comic_page', return_value=no_comic):
             assert scraper.scrape_comic() is None
+
+    def test_multiple_daily_images_uses_first_and_warns(self, caplog):
+        """If the layout ever exposes 2+ images/daily/ imgs, warn but publish first."""
+        from comiccaster.mrboffo_scraper import MrBoffoScraper
+
+        scraper = MrBoffoScraper()
+        two = '''
+        <img src="images/daily/2026/first.jpg">
+        <img src="images/daily/2026/second.jpg">
+        '''
+        with patch.object(scraper, 'fetch_comic_page', return_value=two):
+            import logging
+            with caplog.at_level(logging.WARNING):
+                result = scraper.scrape_comic()
+
+        assert result is not None
+        # The scrape driver publishes images[0]; assert the first match wins.
+        assert result['images'][0]['url'] == 'http://www.mrboffo.com/images/daily/2026/first.jpg'
+        assert any('found 2' in r.message for r in caplog.records)

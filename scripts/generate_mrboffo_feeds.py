@@ -44,8 +44,13 @@ COMIC_INFO = {
 
 DATA_DIR = Path('data')
 OUTPUT_DIR = 'public/feeds'
-# How many recent days of strips to keep in the feed.
-FEED_WINDOW = 7
+# The site serves exactly one strip at a single fixed image path that it
+# overwrites in place each day — there is no archive and no per-day image URL.
+# So the feed only ever holds the current strip: a wider window would emit
+# multiple entries that all resolve to the same (latest) image. Each day's
+# regeneration gives that strip a fresh guid (mrboffo-<date>), so subscribers
+# still see one new item per day.
+FEED_WINDOW = 1
 
 # Only consider date-shaped snapshot files (mrboffo_YYYY-MM-DD.json), so stray
 # files like mrboffo_notes.json never win the "latest" selection.
@@ -106,13 +111,19 @@ def build_entries(snapshots):
             except ValueError:
                 pub_datetime = datetime.now(eastern)
 
+            # The image path is fixed and overwritten daily, so a reader that
+            # cached it yesterday would show a stale strip. A date-keyed query
+            # forces a fresh fetch for each day's entry (the server serves the
+            # current bytes regardless of the query string).
+            cache_busted_url = f"{image_url}?d={target_date}"
+
             entries.append({
                 'title': f"Mr. Boffo - {target_date}",
                 'url': comic.get('url', COMIC_INFO['url']),
-                'image_url': image_url,
-                'images': [{'url': image_url, 'alt': 'Mr. Boffo'}],
+                'image_url': cache_busted_url,
                 'pub_date': pub_datetime,
-                'description': f'<p>Mr. Boffo by Joe Martin — {target_date}</p>',
+                # Plain text — ComicFeedGenerator wraps the description in <p>.
+                'description': f'Mr. Boffo by Joe Martin — {target_date}',
                 'id': f"mrboffo-{target_date}",
             })
 

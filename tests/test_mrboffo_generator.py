@@ -33,10 +33,20 @@ class TestBuildEntries:
         entries = gen.build_entries([('2026-06-20', [_comic()])])
         assert len(entries) == 1
         e = entries[0]
-        assert e['image_url'] == 'http://www.mrboffo.com/images/daily/2026/today.jpg'
         assert e['title'] == 'Mr. Boffo - 2026-06-20'
         assert '2026-06-20' in e['description']
         assert e['id'] == 'mrboffo-2026-06-20'
+
+    def test_image_url_has_date_cache_buster(self):
+        """The fixed image path gets a date query so readers fetch fresh bytes."""
+        entries = gen.build_entries([('2026-06-20', [_comic()])])
+        assert entries[0]['image_url'] == (
+            'http://www.mrboffo.com/images/daily/2026/today.jpg?d=2026-06-20'
+        )
+
+    def test_feed_window_is_one(self):
+        """Source has no archive; the feed only ever holds the current strip."""
+        assert gen.FEED_WINDOW == 1
 
     def test_pub_date_is_noon_eastern(self):
         entry = gen.build_entries([('2026-06-20', [_comic()])])[0]
