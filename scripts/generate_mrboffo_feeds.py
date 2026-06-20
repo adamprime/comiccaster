@@ -21,7 +21,6 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import quote
 
 import pytz
 
@@ -39,16 +38,12 @@ COMIC_INFO = {
     'name': 'Mr. Boffo',
     'slug': 'mr-boffo',
     'author': 'Joe Martin',
-    'url': 'http://www.mrboffo.com/',
+    'url': 'https://www.mrboffocomics.com/',
     'source': 'mrboffo',
 }
 
 DATA_DIR = Path('data')
 OUTPUT_DIR = 'public/feeds'
-# mrboffo.com is HTTP-only, so its image is mixed content on our HTTPS site and
-# gets blocked by browsers and web RSS readers. Route it through our Netlify
-# proxy (mirrors The Far Side) so the image is served over HTTPS.
-IMAGE_PROXY_BASE = 'https://comiccaster.xyz/.netlify/functions/proxy-mrboffo-image'
 # The site serves exactly one strip at a single fixed image path that it
 # overwrites in place each day — there is no archive and no per-day image URL.
 # So the feed only ever holds the current strip: a wider window would emit
@@ -116,19 +111,17 @@ def build_entries(snapshots):
             except ValueError:
                 pub_datetime = datetime.now(eastern)
 
-            # The image path is fixed and overwritten daily, so a reader that
-            # cached it yesterday would show a stale strip. A date-keyed query
-            # forces a fresh fetch for each day's entry (the server serves the
-            # current bytes regardless of the query string).
+            # The image is served over HTTPS at a fixed path that is overwritten
+            # daily, so a reader that cached it yesterday would show a stale
+            # strip. A date-keyed query forces a fresh fetch for each day's
+            # entry (the server serves the current bytes regardless of the query
+            # string).
             cache_busted_url = f"{image_url}?d={target_date}"
-            # Serve the HTTP-only source image over HTTPS via our proxy so it
-            # isn't blocked as mixed content in browsers and web readers.
-            proxied_url = f"{IMAGE_PROXY_BASE}?url={quote(cache_busted_url, safe='')}"
 
             entries.append({
                 'title': f"Mr. Boffo - {target_date}",
                 'url': comic.get('url', COMIC_INFO['url']),
-                'image_url': proxied_url,
+                'image_url': cache_busted_url,
                 'pub_date': pub_datetime,
                 # Plain text — ComicFeedGenerator wraps the description in <p>.
                 'description': f'Mr. Boffo by Joe Martin — {target_date}',
