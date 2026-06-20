@@ -37,12 +37,17 @@ class TestBuildEntries:
         assert '2026-06-20' in e['description']
         assert e['id'] == 'mrboffo-2026-06-20'
 
-    def test_image_url_has_date_cache_buster(self):
-        """The fixed image path gets a date query so readers fetch fresh bytes."""
+    def test_image_url_is_https_proxied_with_cache_buster(self):
+        """HTTP-only source image is routed through the HTTPS proxy, and the
+        proxied (inner) URL carries the date cache-buster."""
+        from urllib.parse import quote
         entries = gen.build_entries([('2026-06-20', [_comic()])])
-        assert entries[0]['image_url'] == (
-            'http://www.mrboffo.com/images/daily/2026/today.jpg?d=2026-06-20'
-        )
+        url = entries[0]['image_url']
+        # Served over HTTPS via our proxy (fixes mixed-content blocking).
+        assert url.startswith('https://comiccaster.xyz/.netlify/functions/proxy-mrboffo-image?url=')
+        # The original HTTP image URL + date cache-buster is the encoded payload.
+        inner = 'http://www.mrboffo.com/images/daily/2026/today.jpg?d=2026-06-20'
+        assert quote(inner, safe='') in url
 
     def test_feed_window_is_one(self):
         """Source has no archive; the feed only ever holds the current strip."""
