@@ -28,16 +28,34 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Security: Only allow Far Side image URLs
-    const allowedDomains = [
+    // Security: parse the URL and match the hostname EXACTLY. A substring
+    // check (imageUrl.includes('thefarside.com')) is an SSRF bypass — it would
+    // accept thefarside.com.evil.com or evil/?x=thefarside.com.
+    let parsed;
+    try {
+      parsed = new URL(imageUrl);
+    } catch (e) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Invalid url parameter' })
+      };
+    }
+
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+      return {
+        statusCode: 403,
+        body: JSON.stringify({ error: 'Disallowed URL scheme' })
+      };
+    }
+
+    const host = parsed.hostname.toLowerCase().replace(/\.$/, '');
+    const allowedHosts = [
       'thefarside.com',
+      'www.thefarside.com',
       'siteassets.thefarside.com',
       'featureassets.amuniversal.com'  // Far Side images are hosted here
     ];
-    
-    const isAllowed = allowedDomains.some(domain => imageUrl.includes(domain));
-    
-    if (!isAllowed) {
+    if (!allowedHosts.includes(host)) {
       console.warn(`Rejected non-Far Side URL: ${imageUrl}`);
       return {
         statusCode: 403,
@@ -45,10 +63,12 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Fetch the image with proper headers
-    console.log(`Proxying image: ${imageUrl}`);
-    
-    const response = await fetch(imageUrl, {
+    // Fetch the image with proper headers. redirect: 'manual' so a redirect
+    // can't bounce us off an allowed host.
+    console.log(`Proxying image: ${parsed.toString()}`);
+
+    const response = await fetch(parsed.toString(), {
+      redirect: 'manual',
       headers: {
         'Referer': 'https://www.thefarside.com/',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -63,15 +83,24 @@ exports.handler = async (event, context) => {
       console.error(`Failed to fetch image: ${response.status} ${response.statusText}`);
       return {
         statusCode: response.status,
-        body: JSON.stringify({ 
-          error: `Failed to fetch image: ${response.status} ${response.statusText}` 
+        body: JSON.stringify({
+          error: `Failed to fetch image: ${response.status} ${response.statusText}`
         })
+      };
+    }
+
+    // Only ever serve images back — never relay arbitrary content types.
+    const contentType = response.headers.get('content-type') || 'image/jpeg';
+    if (!contentType.toLowerCase().startsWith('image/')) {
+      console.warn(`Refusing non-image content-type: ${contentType}`);
+      return {
+        statusCode: 415,
+        body: JSON.stringify({ error: 'Upstream did not return an image' })
       };
     }
 
     // Get image data
     const imageBuffer = await response.arrayBuffer();
-    const contentType = response.headers.get('content-type') || 'image/jpeg';
 
     console.log(`Successfully proxied image (${imageBuffer.byteLength} bytes, ${contentType})`);
 
