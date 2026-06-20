@@ -60,7 +60,10 @@ class ComicFeedGenerator:
             'tinyview': 'TinyView',
             'comicskingdom': 'Comics Kingdom',
             'creators': 'Creators',
-            'newyorker': 'The New Yorker'
+            'newyorker': 'The New Yorker',
+            'farside-daily': 'The Far Side',
+            'farside-new': 'The Far Side',
+            'mrboffo': 'Mr. Boffo'
         }.get(source, 'GoComics')
         
         # Set feed metadata

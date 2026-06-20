@@ -179,9 +179,9 @@ function generateOPML(comics, type = 'daily') {
         let feedUrl;
         if (comic && comic.source === 'external-rss' && comic.feed_url) {
             feedUrl = comic.feed_url;
-        } else if (comic && (comic.source === 'comicskingdom' || comic.source === 'tinyview' || 
+        } else if (comic && (comic.source === 'comicskingdom' || comic.source === 'tinyview' ||
                       comic.source === 'farside' || comic.source === 'newyorker' ||
-                      comic.source === 'creators')) {
+                      comic.source === 'creators' || comic.source === 'mrboffo')) {
             feedUrl = `${baseUrl}/feeds/${slug}.xml`;
         } else {
             feedUrl = `${baseUrl}/rss/${slug}`;

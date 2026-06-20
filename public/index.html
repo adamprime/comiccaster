@@ -345,6 +345,10 @@
                         sourceName = 'The New Yorker';
                         sourceUrl = comic.url || 'https://www.newyorker.com/cartoons/daily-cartoon';
                         feedPath = `/feeds/${comic.slug}.xml`;
+                    } else if (comic.source === 'mrboffo') {
+                        sourceName = 'Mr. Boffo';
+                        sourceUrl = comic.url || 'http://www.mrboffo.com/';
+                        feedPath = `/feeds/${comic.slug}.xml`;
                     } else if (comic.source === 'external-rss') {
                         sourceName = 'Website';
                         sourceUrl = comic.url;
@@ -354,7 +358,7 @@
                         sourceUrl = `https://www.gocomics.com/${comic.slug}`;
                         feedPath = `/rss/${comic.slug}`;
                     }
-                    
+
                     if (!feedUrl) {
                         feedUrl = `https://comiccaster.xyz${feedPath}`;
                     }
@@ -412,6 +416,8 @@
                         sourceName = ' <span class="source-tag">(Far Side)</span>';
                     } else if (comic.source === 'newyorker') {
                         sourceName = ' <span class="source-tag">(The New Yorker)</span>';
+                    } else if (comic.source === 'mrboffo') {
+                        sourceName = ' <span class="source-tag">(Mr. Boffo)</span>';
                     } else if (comic.source === 'external-rss') {
                         sourceName = ' <span class="source-tag">(External RSS)</span>';
                     } else {
