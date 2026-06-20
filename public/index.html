@@ -362,7 +362,13 @@
                     if (!feedUrl) {
                         feedUrl = `https://comiccaster.xyz${feedPath}`;
                     }
-                    
+
+                    // The copied/subscribe URL stays canonical (production), but
+                    // preview from the CURRENT origin so a Netlify deploy preview
+                    // shows that branch's feed instead of the live one. External
+                    // RSS feeds (no local feedPath) preview their own URL.
+                    const previewUrl = feedPath ? `${window.location.origin}${feedPath}` : feedUrl;
+
                     row.innerHTML = `
                         <td>${displayName}</td>
                         <td><a href="${sourceUrl}" target="_blank">🔗 ${sourceName}</a></td>
@@ -372,7 +378,7 @@
                                 <span class="url-text" onclick="copyToClipboard(this)" data-url="${feedUrl}">
                                     ${feedUrl}
                                 </span>
-                                <a href="/preview.html?url=${encodeURIComponent(feedUrl)}" class="preview-link" target="_blank">👁️ Preview</a>
+                                <a href="/preview.html?url=${encodeURIComponent(previewUrl)}" class="preview-link" target="_blank">👁️ Preview</a>
                             </div>
                         </td>
                     `;
