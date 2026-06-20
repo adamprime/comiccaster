@@ -58,7 +58,7 @@ def test_create_feed(feed_generator, comic_info):
 
 
 @pytest.mark.parametrize('source,display', [
-    ('mrboffo', 'Mr. Boffo'),
+    ('mrboffo', 'Neatly Chiseled Features'),
     ('farside-daily', 'The Far Side'),
     ('farside-new', 'The Far Side'),
     ('newyorker', 'The New Yorker'),

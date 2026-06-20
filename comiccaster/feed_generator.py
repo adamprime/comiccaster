@@ -63,7 +63,7 @@ class ComicFeedGenerator:
             'newyorker': 'The New Yorker',
             'farside-daily': 'The Far Side',
             'farside-new': 'The Far Side',
-            'mrboffo': 'Mr. Boffo'
+            'mrboffo': 'Neatly Chiseled Features'
         }.get(source, 'GoComics')
         
         # Set feed metadata
