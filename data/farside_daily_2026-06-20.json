@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-06-20",
+  "scraped_at": "2026-06-20T08:19:30.430278+00:00",
+  "comics": [
+    {
+      "id": "22362",
+      "date": "2026-06-20",
+      "url": "https://www.thefarside.com/2026/06/20/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb0fede40cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b0fede40cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22362"
+    },
+    {
+      "id": "22363",
+      "date": "2026-06-20",
+      "url": "https://www.thefarside.com/2026/06/20/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee432f0258c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee432f0258c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22363"
+    }
+  ]
+}
