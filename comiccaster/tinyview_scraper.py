@@ -21,6 +21,7 @@ from selenium.common.exceptions import TimeoutException
 from bs4 import BeautifulSoup
 
 from .base_scraper import BaseScraper
+from .webdriver_setup import build_chrome_driver
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -61,7 +62,7 @@ class TinyviewScraper(BaseScraper):
                 chrome_options.add_argument('--allow-running-insecure-content')
                 chrome_options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
                 
-                self.driver = webdriver.Chrome(options=chrome_options)
+                self.driver = build_chrome_driver(chrome_options)
                 self.driver.set_window_size(1920, 1080)
                 self.driver.implicitly_wait(10)
                 self.driver.set_page_load_timeout(30)

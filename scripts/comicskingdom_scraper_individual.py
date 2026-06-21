@@ -18,6 +18,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
+
+from comiccaster.webdriver_setup import build_chrome_driver
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
@@ -85,7 +87,7 @@ def setup_driver(show_browser=False, use_profile=True):
     options.add_experimental_option('useAutomationExtension', False)
 
     _log_timing("setup_driver: webdriver.Chrome() START")
-    driver = webdriver.Chrome(options=options)
+    driver = build_chrome_driver(options)
     _log_timing("setup_driver: webdriver.Chrome() END")
 
     # Set timeouts
