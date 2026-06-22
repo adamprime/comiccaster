@@ -1,5 +1,37 @@
 [
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/aaf42dc05086013fc291005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-22",
+    "url": "https://www.gocomics.com/tim-campbell/2026/06/22",
+    "category": "political"
+  },
+  {
+    "name": "Ted Rall",
+    "slug": "ted-rall",
+    "image_url": "https://featureassets.gocomics.com/assets/fb0e1bb05078013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-22",
+    "url": "https://www.gocomics.com/ted-rall/2026/06/22",
+    "category": "political"
+  },
+  {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/b50700705075013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-22",
+    "url": "https://www.gocomics.com/kal/2026/06/22",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/e7b114505082013fc290005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-22",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/06/22",
+    "category": "political"
+  },
+  {
     "name": "Doonesbury",
     "slug": "doonesbury",
     "image_url": "https://featureassets.gocomics.com/assets/871a21004bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -805,6 +837,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/8ca260504bd4013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-22",
     "url": "https://www.gocomics.com/grand-avenue/2026/06/22",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/b7c398a05064013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-22",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/06/22",
     "category": "daily"
   },
   {
@@ -1813,6 +1853,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/706a35804d25013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-22",
     "url": "https://www.gocomics.com/tinysepuku/2026/06/22",
+    "category": "daily"
+  },
+  {
+    "name": "Thin Lines",
+    "slug": "thinlines",
+    "image_url": "https://featureassets.gocomics.com/assets/942fb4c05064013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-22",
+    "url": "https://www.gocomics.com/thinlines/2026/06/22",
     "category": "daily"
   },
   {
