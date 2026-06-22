@@ -9,7 +9,7 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 
 **Phase:** Maintenance (active)
 **Last Session:** 2026-06-22
-**Last Session Summary:** Project review + dependency hygiene. Merged three green Dependabot PRs — #162 (pytest 9.1.0→9.1.1), #161 (selenium 4.44.0→4.45.0), #160 (actions/checkout 6→7) — squash-merged in order, branches deleted, local `main` rebased to `276ae8e63`. Reconciled this STATUS doc with reality (it had drifted ~5 weeks: PR #139 was still listed as open, test count was 289). Current suite: **321 tests collected**.
+**Last Session Summary:** Dependency hygiene + backlog cleanup. (1) Merged three green Dependabot PRs — #162 (pytest 9.1.0→9.1.1), #161 (selenium 4.44.0→4.45.0), #160 (actions/checkout 6→7). (2) Hardened the TinyView Chrome profile dir to `0o700` (parity with CK Shape A) with new `setup_driver` tests. (3) Audited `SETUP_TINYVIEW_AUTH.sh`: found and fixed a path-resolution bug — after the scripts/ reorg it resolved venv/.env/data as if at repo root, so venv activation silently failed and the cookie pickle landed in `scripts/data/` while the daily run reads root `data/` (auth survived only via the absolute-path Chrome profile). (4) Comment/docstring cleanup sweep across the scraper modules + core library — concision, accuracy fixes (stale JSON-LD/singleton claims corrected), and softened method-revealing/WAF-naming prose; verified code-token-identical, suite green. (5) Recorded issue #91 (GoComics → read-later) as WONTFIX. Current suite: **326 tests** passing.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -21,7 +21,7 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 - Invariant guard between Phase 2 and Phase 3 catches silent scrape regressions (scrape reports success but its dated JSON is missing)
 - Comics Kingdom authentication uses a persistent Chrome profile at `~/.comicskingdom_chrome_profile` (Shape A); `reauth_comicskingdom.py` is the operator entry point for refresh
 - Chrome boundary instrumentation in `_individual` — timestamped log lines at every `driver.get` make hang-site localization a grep
-- 321-test suite collected, passing across Python 3.10 / 3.11 / 3.12 (grew from 289 with the Mr. Boffo source and the external-RSS / two-pass GoComics work)
+- 326-test suite passing across Python 3.10 / 3.11 / 3.12 (grew from 289 with the Mr. Boffo source, the external-RSS / two-pass GoComics work, and TinyView profile-permission tests)
 - 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, 10 Creators feeds, and Mr. Boffo (single daily strip) updating daily
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled; **zero open CodeQL alerts**
@@ -39,11 +39,9 @@ _Nothing in flight. No open PRs; working tree clean on `main`._
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
 
-1. **`chmod 700` on `~/.tinyview_chrome_profile`** — same security fix that Shape A applied to the CK profile. Pre-existing issue with TinyView's `setup_driver` (`scripts/tinyview_scraper_secure.py:76`).
-2. **Audit `SETUP_TINYVIEW_AUTH.sh`** — script is operationally correct (calls `tinyview_scraper_secure.py`, which is the canonical interactive auth tool there). Worth re-reading against the same operator-pragmatic principle the CK setup-doc cleanup applied.
-3. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
-4. **Investigate issue #91** (GoComics strips don't save to read-later platforms).
-5. **Optional source-code-comment cleanup pass** — several files have docstrings and comments that could be trimmed for accuracy and conciseness. Deferred: low risk, real cost.
+1. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
+
+_Cleared this session: TinyView profile `chmod 700` (done, with tests), `SETUP_TINYVIEW_AUTH.sh` audit (done — path-resolution bug fixed), source-comment cleanup pass (done), and issue #91 (closed WONTFIX — see Known Issues)._
 
 ## Open Decisions
 <!-- Architectural or product decisions that haven't been made yet. -->
@@ -56,14 +54,14 @@ _Nothing in flight. No open PRs; working tree clean on `main`._
 ## Known Issues
 <!-- Bugs, tech debt, or things that are broken but not urgent. -->
 
-- GoComics strips don't save to read-later platforms like Pocket/Instapaper (#91) — approach TBD.
+- GoComics strips don't save to read-later platforms like Pocket/Instapaper (#91) — **closed WONTFIX (2026-06-09).** Read-later apps re-fetch the linked page and extract the image themselves; GoComics' page/image delivery doesn't expose it in a form they can pull. The only fix is self-hosting the images, which we won't do. Not actionable; don't reopen.
 - Old data files (pre-March 31) have fewer entries (~100/day vs 257) than current runs; only ~115 comics matched slugs under the old extraction approach.
 
 ## Environment & Setup
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 289 passing after PR #139 and #140 merge, requires Python ≥3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 326 passing, requires Python ≥3.10
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
 **Production pipeline:** see [docs/LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) and [docs/DEPLOYMENT.md](DEPLOYMENT.md)
@@ -99,9 +97,16 @@ Between Phase 2 and Phase 3, an invariant guard checks that every successful scr
 - **Accomplished:**
   - Got oriented (STATUS had drifted ~5 weeks); confirmed `main` clean.
   - Merged three green Dependabot PRs, squash + delete-branch, in order: #162 (pytest 9.1.0→9.1.1), #161 (selenium 4.44.0→4.45.0), #160 (actions/checkout 6→7). Each touched non-conflicting lines so GitHub rebased cleanly. Rebased local `main` to `276ae8e63`.
-  - Reconciled this STATUS doc: PR #139 (merged 2026-05-16) cleared from In Progress, test count corrected 289→321, recent Mr. Boffo / Far Side SSRF / ChromeDriver work folded into Current State, session log pruned to the 30-day window.
-- **Validation:** All three PRs were green on CI (Python 3.10/3.11/3.12, CodeQL, coverage, Netlify preview) before merge. Local fast-forward pull verified the expected diff (4 workflow files + `requirements.txt`).
-- **Discovered:** The "codecov dependency bumps" the operator spotted were the `codecov/patch` coverage *status check* passing on each PR, not Codecov-action version bumps.
+  - Reconciled this STATUS doc: PR #139 (merged 2026-05-16) cleared from In Progress, recent Mr. Boffo / Far Side SSRF / ChromeDriver work folded into Current State, session log pruned to the 30-day window.
+  - Then worked the backlog:
+    - **TinyView profile `chmod 700`** (`fix`, with tests): `setup_driver` now tightens `~/.tinyview_chrome_profile` to `0o700`, matching CK Shape A. Added `tests/test_tinyview_scraper_secure.py` (+5 tests → 326 total).
+    - **Audited `SETUP_TINYVIEW_AUTH.sh`** and fixed a real path-resolution bug (`fix`): the scripts/ reorg (`bf4e41d01`) left it resolving venv/.env/data as if at repo root, so venv activation silently fell back to system Python and the cookie pickle landed in `scripts/data/` while the daily run reads root `data/`. (Auth had survived only because the Chrome profile path is absolute.) Now resolves `PROJECT_ROOT` to the parent and invokes the scraper by its scripts/ path.
+    - **Comment/docstring cleanup sweep** (`docs`): 12 scraper/library files + 1 archived note. Concision, accuracy fixes (loader/gocomics no longer claim JSON-LD; scraper_factory described as a source registry, not a "singleton"; mrboffo `secure_daily` marker), and softened method-revealing/WAF-product-naming prose. Verified the code-token stream is byte-identical and the suite stayed green (326) — comments/docstrings only.
+    - **Issue #91 (GoComics → read-later): recorded WONTFIX** (already closed 2026-06-09) in Known Issues + auto-memory.
+- **Validation:** All three Dependabot PRs were green on CI before merge; local fast-forward verified the expected diff. Full suite **326 passing** after the chmod fix and cleanup sweep. Cleanup verified non-behavioral via a token-stream comparison against HEAD.
+- **Discovered:**
+  - The "codecov dependency bumps" the operator spotted were the `codecov/patch` coverage *status check* passing on each PR, not Codecov-action version bumps.
+  - `SETUP_TINYVIEW_AUTH.sh` had been quietly half-broken since the scripts/ reorg; it only "worked" because the absolute-path Chrome profile masked the misplaced cookie/.env/venv paths. The prior "operationally correct" note had only checked which tool it calls, not its path resolution.
 
 ### 2026-06-20 — 2026-06-21 (reconstructed from git; not separately logged at the time)
 - **Mr. Boffo added as the seventh self-hosted source** (#154), then iterated: image HTTPS proxy + feed source label (#155), full HTTPS migration dropping the image proxy (#157) with a follow-up for code the migration missed (#158), and docs/CONCEPTS registration (#159). Mr. Boffo is a Daily Dose source (single overwritten image, feed window of one).
