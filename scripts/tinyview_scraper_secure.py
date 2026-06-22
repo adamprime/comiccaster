@@ -75,6 +75,8 @@ def setup_driver(show_browser=False, for_auth=False, use_profile=True):
     if use_profile:
         profile_dir = Path.home() / '.tinyview_chrome_profile'
         profile_dir.mkdir(exist_ok=True)
+        # Profile carries an authenticated session; keep it owner-only (matches CK Shape A).
+        profile_dir.chmod(0o700)
         options.add_argument(f'--user-data-dir={profile_dir}')
         print(f"🔧 Using Chrome profile: {profile_dir}")
     
