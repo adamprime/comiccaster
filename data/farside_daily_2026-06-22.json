@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-22",
+  "scraped_at": "2026-06-22T08:19:27.072924+00:00",
+  "comics": [
+    {
+      "id": "22366",
+      "date": "2026-06-22",
+      "url": "https://www.thefarside.com/2026/06/22/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45a18758c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45a18758c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22366"
+    },
+    {
+      "id": "22367",
+      "date": "2026-06-22",
+      "url": "https://www.thefarside.com/2026/06/22/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3cec7f10d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3cec7f10d0f70137c652005056a9545d",
+      "caption": "\u201cOh, for heaven\u2019s sake, Miss Carlisle! \u2026 They\u2019re only cartoon animals!\u201d",
+      "title": "\u201cOh, for heaven\u2019s sake, Miss Carlisle! \u2026 They\u2019re only car..."
+    },
+    {
+      "id": "22368",
+      "date": "2026-06-22",
+      "url": "https://www.thefarside.com/2026/06/22/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fed94e4d0fa840137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ed94e4d0fa840137d52f005056a9545d",
+      "caption": "\u201cWon\u2019t talk, huh? \u2026 Frankie! Hand me that scaler.\u201d",
+      "title": "\u201cWon\u2019t talk, huh? \u2026 Frankie! Hand me that scaler"
+    },
+    {
+      "id": "22369",
+      "date": "2026-06-22",
+      "url": "https://www.thefarside.com/2026/06/22/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee458e7a58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee458e7a58c311ea8bf6005056a9",
+      "caption": "Unwittingly, Palmer stepped out of the jungle and into headhunter folklore forever.",
+      "title": "Unwittingly, Palmer stepped out of the jungle and into he..."
+    },
+    {
+      "id": "22370",
+      "date": "2026-06-22",
+      "url": "https://www.thefarside.com/2026/06/22/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F10f3e7b0fa840137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/10f3e7b0fa840137d52f005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22370"
+    }
+  ]
+}
