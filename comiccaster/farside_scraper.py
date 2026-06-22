@@ -123,11 +123,11 @@ class FarsideScraper(BaseScraper):
             return []
     
     def scrape_daily_dose(self, date: str) -> Optional[Dict[str, Any]]:
-        """Scrape the 5 daily comics from the homepage.
-        
+        """Record the day's 5 Daily Dose comics, as selected upstream by thefarside.com.
+
         Args:
             date: Date in YYYY/MM/DD format (used for metadata)
-            
+
         Returns:
             Dictionary containing list of 5 comics for the day
         """
@@ -137,8 +137,7 @@ class FarsideScraper(BaseScraper):
         
         soup = BeautifulSoup(html_content, 'html.parser')
         
-        # Find all divs with data-id (comic containers)
-        # Each comic is wrapped in a div.tfs-content__1col with data-id
+        # Each comic is wrapped in a div with a data-id attribute
         comic_containers = soup.find_all('div', attrs={'data-id': True})
         
         if not comic_containers:
@@ -146,7 +145,7 @@ class FarsideScraper(BaseScraper):
             return None
         
         comics = []
-        for container in comic_containers[:5]:  # Only take first 5
+        for container in comic_containers[:5]:
             try:
                 comic_data = self._parse_daily_comic(container, date)
                 if comic_data:
@@ -156,8 +155,7 @@ class FarsideScraper(BaseScraper):
                 continue
         
         logger.info(f"Scraped {len(comics)} comics from Daily Dose")
-        
-        # Return as a composite result
+
         # Use US/Eastern timezone to match other comics (GoComics, etc.)
         eastern = pytz.timezone('US/Eastern')
         now_eastern = datetime.now(eastern)
@@ -177,7 +175,7 @@ class FarsideScraper(BaseScraper):
         """Parse a single Daily Dose comic container.
         
         Args:
-            container: BeautifulSoup element for comic container (div.tfs-content__1col)
+            container: BeautifulSoup element for the comic container (carries data-id)
             date: Date string for metadata
             
         Returns:
@@ -222,21 +220,20 @@ class FarsideScraper(BaseScraper):
         elif not image_url.startswith('http'):
             image_url = urljoin(self.base_url, image_url)
         
-        # Get caption ONLY from figcaption element (not from alt text)
-        # Alt text often contains OCR'd text from within the comic image itself
+        # Caption comes only from figcaption; alt text often holds OCR'd text
+        # from within the comic image itself.
         figcaption = card.find('figcaption', class_='figure-caption')
         caption = ''
         if figcaption:
-            # Use separator=' ' to preserve spaces around inline elements like <i> or <em>
+            # separator=' ' preserves spaces around inline elements like <i>/<em>
             caption = figcaption.get_text(separator=' ', strip=True)
-        
-        # Transform image URL to use our proxy
+
         proxied_image_url = self.transform_image_url(image_url)
         
         return {
             'id': data_id,
             'date': date.replace('/', '-'),
-            'url': f"{self.base_url}/{date}/{container.get('data-position', '0')}",  # Use permalink with actual date
+            'url': f"{self.base_url}/{date}/{container.get('data-position', '0')}",  # dated permalink
             'image_url': proxied_image_url,
             'original_image_url': image_url,
             'caption': caption,
@@ -300,15 +297,14 @@ class FarsideScraper(BaseScraper):
                 clicks = 0
                 
                 while clicks < max_clicks:
-                    # Get current URL to extract comic ID
+                    # Extract the comic ID from the current URL
                     current_url = driver.current_url
                     match = re.search(r'/new-stuff/(\d+)/([^/]+)', current_url)
-                    
+
                     if match:
                         comic_id = match.group(1)
                         comic_slug = match.group(2)
-                        
-                        # Only add if we haven't seen this ID
+
                         if comic_id not in seen_ids:
                             seen_ids.add(comic_id)
                             comics.append({
@@ -318,10 +314,9 @@ class FarsideScraper(BaseScraper):
                             })
                             logger.info(f"Found New Stuff comic {comic_id}: {comic_slug}")
                     
-                    # Try to find and click the "next" arrow button
-                    # The Far Side uses .js-next class for the next arrow
+                    # Find and click the "next" arrow to advance the carousel
                     try:
-                        # Try The Far Side specific selector first, then fallbacks
+                        # Try the site-specific selector first, then fallbacks
                         next_button = None
                         selectors = [
                             ".js-next",  # The Far Side specific
@@ -348,14 +343,13 @@ class FarsideScraper(BaseScraper):
                             logger.info("No more next buttons found, reached end of New Stuff")
                             break
                         
-                        # Click the next button
                         next_button.click()
-                        
+
                         # Wait a bit for navigation
                         import time
                         time.sleep(1)
-                        
-                        # Check if URL changed
+
+                        # If the URL didn't change, we've reached the end
                         new_url = driver.current_url
                         if new_url == current_url:
                             logger.info("URL didn't change, likely at the end")
@@ -522,10 +516,9 @@ class FarsideScraper(BaseScraper):
         Returns:
             Proxied URL that will work in RSS readers
         """
-        # URL encode the original URL
         encoded_url = quote(original_url, safe='')
-        
-        # Return absolute proxy URL (required for RSS readers)
+
+        # Absolute URL is required so RSS readers can resolve it
         return f"https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url={encoded_url}"
     
     def _create_title_from_caption(self, caption: str, comic_id: str) -> str:

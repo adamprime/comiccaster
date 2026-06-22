@@ -121,8 +121,8 @@ def scrape_comic(comic, date_str):
         return None
 
 
-# TLS client session for HTTP requests (bypasses BunnyShield fingerprinting)
-# Using Chrome 120 TLS fingerprint + full browser headers = 100% success rate
+# TLS-configured HTTP client session matching a real browser's fingerprint
+# Uses a Chrome 120 TLS fingerprint plus full browser headers
 _tls_session = None
 _tls_session_lock = threading.Lock()
 
@@ -137,7 +137,7 @@ def get_tls_session():
             )
     return _tls_session
 
-# Browser pool for parallel scraping with BunnyShield bypass
+# Browser pool for parallel scraping (Selenium fallback)
 # Using 4 browsers allows 4x parallelization while keeping memory manageable
 _browser_pool = []
 _browser_pool_size = 4
@@ -210,16 +210,16 @@ def close_browser_pool():
 
 def scrape_comic_enhanced_http(comic_slug: str, date_str: str) -> Optional[Dict[str, str]]:
     """
-    Hybrid scraping: Try HTTP first, fall back to Selenium if BunnyShield detected.
+    Hybrid scraping: try HTTP first, fall back to Selenium when the HTTP fetch is challenged.
 
     1. Attempts fast HTTP request first
-    2. If BunnyShield challenge detected, uses shared Selenium browser
+    2. If the HTTP fetch is challenged, uses a shared Selenium browser
     3. Reuses browser instance across multiple comics for performance
     """
     try:
         url = f"https://www.gocomics.com/{comic_slug}/{date_str}"
 
-        # Fetch page with TLS fingerprinting (bypasses BunnyShield 100%)
+        # Fetch the page over HTTP with a browser-equivalent TLS profile
         # Uses tls-client with Chrome 120 fingerprint - ~0.25s per comic
         try:
             session = get_tls_session()
@@ -298,8 +298,8 @@ def get_headers():
     """
     Get full browser-like headers for HTTP requests.
 
-    BunnyShield checks for complete browser header signatures, not just User-Agent.
-    Including all these headers allows HTTP requests to bypass BunnyShield challenge.
+    Servers may check for a complete set of browser headers, not just User-Agent;
+    sending the full set keeps HTTP requests from being challenged.
     """
     return {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",

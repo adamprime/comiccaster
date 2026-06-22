@@ -56,8 +56,8 @@ def load_config_from_env():
 
 
 def setup_driver(show_browser=False, for_auth=False, use_profile=True):
-    """Setup Chrome driver with anti-detection.
-    
+    """Set up the Chrome driver.
+
     Args:
         show_browser: If True, show browser window
         for_auth: If True and show_browser is False, this is for authentication so show warning
@@ -83,8 +83,7 @@ def setup_driver(show_browser=False, for_auth=False, use_profile=True):
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1920,1080')
-    
-    # Anti-bot detection
+
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
@@ -95,8 +94,8 @@ def setup_driver(show_browser=False, for_auth=False, use_profile=True):
     driver.set_page_load_timeout(30)
     driver.set_script_timeout(30)
     driver.implicitly_wait(10)
-    
-    # Remove webdriver property
+
+    # Set a standard user agent and unset the navigator.webdriver flag.
     driver.execute_cdp_cmd('Network.setUserAgentOverride', {
         "userAgent": 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     })

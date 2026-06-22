@@ -2,8 +2,8 @@
 GoComics Scraper Module
 
 This module handles fetching and parsing comic pages from GoComics.
-It supports both daily comics and political cartoons, using the enhanced
-HTTP scraping approach with JSON-LD structured data.
+It supports both daily comics and political cartoons, fetching over HTTP
+with a Selenium fallback.
 """
 
 import logging
@@ -44,7 +44,7 @@ class GoComicsScraper(BaseScraper):
         self.source_type = source_type
         self.driver = None
         self.session = requests.Session()
-        # Add common headers to mimic a browser
+        # Standard request headers
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         })

@@ -1,9 +1,9 @@
 """
 Scraper Factory Module
 
-This module provides a centralized factory for creating and managing
-comic scrapers based on source type. It implements a singleton pattern
-for performance and provides a clean interface for scraper management.
+Selects a comic scraper by source type from a registry, so a new source is
+added by registering it rather than by editing a branching dispatch (Open/Closed).
+Instances are cached per source and reused across the application.
 """
 
 import logging
@@ -21,17 +21,17 @@ logger = logging.getLogger(__name__)
 
 
 class ScraperFactory:
-    """Factory class for creating and managing comic scrapers.
-    
-    This class implements a singleton pattern to ensure that only one
-    instance of each scraper type is created and reused across the application.
+    """Creates and caches comic scrapers, one cached instance per source type.
+
+    Sources live in the _SUPPORTED_SOURCES registry; add one by registering it
+    (here or via register_source) rather than by branching on source type.
     """
-    
-    # Class-level cache for scraper instances
+
+    # Cache of scraper instances, keyed by source.
     _scrapers: Dict[str, BaseScraper] = {}
-    _lock = threading.Lock()  # Thread safety
-    
-    # Supported source types
+    _lock = threading.Lock()  # Guards both caches below.
+
+    # Registry mapping each source to its scraper class and constructor args.
     _SUPPORTED_SOURCES = {
         'gocomics-daily': {'class': GoComicsScraper, 'args': {'source_type': 'gocomics-daily'}},
         'gocomics-political': {'class': GoComicsScraper, 'args': {'source_type': 'gocomics-political'}},
@@ -57,25 +57,21 @@ class ScraperFactory:
         Raises:
             ValueError: If the source is not supported.
         """
-        # Validate input
         if not source or not isinstance(source, str) or not source.strip():
             raise ValueError("Source must be a non-empty string")
-        
+
         source = source.strip()
-        
-        # Check if source is supported
+
         if not cls.is_supported(source):
             supported = list(cls._SUPPORTED_SOURCES.keys())
             raise ValueError(f"Unsupported source '{source}'. Supported sources: {supported}")
-        
-        # Thread-safe singleton pattern
+
+        # Return the cached instance, or build and cache one, under the lock.
         with cls._lock:
-            # Check if scraper already exists in cache
             if source in cls._scrapers:
                 logger.debug(f"Returning cached scraper for source: {source}")
                 return cls._scrapers[source]
-            
-            # Create new scraper instance
+
             logger.info(f"Creating new scraper for source: {source}")
             source_config = cls._SUPPORTED_SOURCES[source]
             scraper_class = source_config['class']
@@ -134,7 +130,7 @@ class ScraperFactory:
         Returns:
             List[str]: List of supported source types.
         """
-        # Return copy to prevent external modification
+        # Return a copy to prevent external modification.
         return list(cls._SUPPORTED_SOURCES.keys())
     
     @classmethod
@@ -146,7 +142,7 @@ class ScraperFactory:
         """
         with cls._lock:
             logger.info("Clearing scraper cache")
-            # Close any scrapers that have cleanup methods
+            # Let scrapers release their WebDriver before dropping them.
             for source, scraper in cls._scrapers.items():
                 try:
                     if hasattr(scraper, 'close_driver'):
@@ -175,10 +171,8 @@ class ScraperFactory:
     @classmethod
     def register_source(cls, source: str, scraper_class: type, scraper_args: Optional[Dict] = None) -> None:
         """
-        Register a new source type with the factory.
-        
-        This allows for dynamic extension of supported sources.
-        
+        Register a new source type, dynamically extending the supported set.
+
         Args:
             source (str): The source identifier.
             scraper_class (type): The scraper class to use for this source.
@@ -209,10 +203,8 @@ class ScraperFactory:
 # Convenience function for backward compatibility
 def get_scraper_for_comic(comic: Dict[str, Any]) -> BaseScraper:
     """
-    Convenience function to get a scraper for a comic.
-    
-    This function provides backward compatibility for existing code.
-    
+    Get a scraper for a comic (module-level convenience wrapper).
+
     Args:
         comic (Dict[str, Any]): Comic configuration.
         

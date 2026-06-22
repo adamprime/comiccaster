@@ -53,8 +53,7 @@ def load_config_from_env():
         'custom_pages': []
     }
     
-    # Load custom page URLs from environment
-    # Expected format: CUSTOM_PAGE_1, CUSTOM_PAGE_2, etc.
+    # Load custom page URLs from environment (CUSTOM_PAGE_1, CUSTOM_PAGE_2, ...)
     page_num = 1
     while True:
         page_var = f'CUSTOM_PAGE_{page_num}'

@@ -4,7 +4,7 @@
 
 ---
 
-# Fix for BunnyShield Bypass Race Condition (Historical - October 2025)
+# Fix for Scraper Browser-Pool Race Condition (Historical - October 2025)
 
 ## Problem
 

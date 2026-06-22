@@ -108,14 +108,13 @@ class NewYorkerScraper(BaseScraper):
         soup = BeautifulSoup(html, 'html.parser')
         cartoons = []
         
-        # Find all cartoon links - they follow the pattern /cartoons/daily-cartoon/...
-        # Look for links with cartoon titles
+        # Cartoon links follow the pattern /cartoons/daily-cartoon/...
         seen_urls = set()
-        
+
         for link in soup.find_all('a', href=True):
             href = link.get('href', '')
-            
-            # Match daily cartoon URLs (but not the main listing page)
+
+            # Match individual cartoon URLs, but not the listing page itself
             if '/cartoons/daily-cartoon/' in href and href != '/cartoons/daily-cartoon':
                 full_url = urljoin(self.BASE_URL, href)
                 
@@ -124,9 +123,8 @@ class NewYorkerScraper(BaseScraper):
                     continue
                 seen_urls.add(full_url)
                 
-                # Extract title from link text
                 title = link.get_text(strip=True)
-                
+
                 # Skip empty titles or generic navigation links
                 if not title or len(title) < 10:
                     continue
@@ -161,17 +159,16 @@ class NewYorkerScraper(BaseScraper):
             'source': 'newyorker',
         }
         
-        # Extract high-res image URL
-        # Look for the main cartoon image (master/w_1600 quality)
+        # Prefer the high-res master image
         img_tag = None
         for img in soup.find_all('img'):
             src = img.get('src', '')
             if 'media.newyorker.com/cartoons/' in src and 'master' in src:
                 img_tag = img
                 break
-        
+
         if not img_tag:
-            # Fallback: look for any cartoon image
+            # Fallback: any cartoon image
             for img in soup.find_all('img'):
                 src = img.get('src', '')
                 if 'media.newyorker.com/cartoons/' in src:
@@ -185,20 +182,17 @@ class NewYorkerScraper(BaseScraper):
             logger.warning(f"No cartoon image found on {url}")
             return None
         
-        # Extract caption (the text below the image, usually in quotes)
-        # Search the full page text for quoted caption
+        # Caption is the quoted text just before "Cartoon by".
+        # Handle both straight and curly quotes (U+201C / U+201D).
         caption = None
         page_text = soup.get_text()
-        
-        # Look for quoted text that appears before "Cartoon by"
-        # Handle both straight quotes and curly quotes (Unicode: U+201C and U+201D)
         caption_match = re.search(r'["\u201c\u201d]([^"\u201c\u201d]+)["\u201c\u201d](?=Cartoon by)', page_text)
         if caption_match:
             caption = f'"{caption_match.group(1)}"'
         
         result['caption'] = caption or ''
         
-        # Extract artist name - look for "Cartoon by X" pattern
+        # Artist name follows the "Cartoon by X" pattern
         artist = None
         page_text = soup.get_text()
         artist_match = re.search(r'Cartoon by ([A-Za-z\s\.]+?)(?:Copy|$|\n)', page_text)
@@ -207,23 +201,21 @@ class NewYorkerScraper(BaseScraper):
         
         result['author'] = artist or 'The New Yorker'
         
-        # Extract title from page
+        # Extract title from the page <title>, dropping the site suffix
         title_tag = soup.find('title')
         if title_tag:
             title = title_tag.get_text(strip=True)
-            # Remove " | The New Yorker" suffix
             title = re.sub(r'\s*\|\s*The New Yorker$', '', title)
             result['title'] = title
         else:
             result['title'] = 'Daily Cartoon'
         
-        # Extract date from URL or page content
-        # URLs are like: /cartoons/daily-cartoon/friday-december-12th-a-i-slop
+        # Extract date from the URL slug, e.g.
+        # /cartoons/daily-cartoon/friday-december-12th-a-i-slop
         date_match = re.search(r'(\w+)-(\w+)-(\d+)(?:st|nd|rd|th)', url)
         if date_match:
             try:
                 day_name, month_str, day = date_match.groups()
-                # Parse month
                 month_map = {
                     'january': 1, 'february': 2, 'march': 3, 'april': 4,
                     'may': 5, 'june': 6, 'july': 7, 'august': 8,
@@ -231,18 +223,18 @@ class NewYorkerScraper(BaseScraper):
                 }
                 month = month_map.get(month_str.lower())
                 if month:
-                    # Assume current year (or previous year if month is ahead)
+                    # Assume current year; if the month is well ahead, it's last year
                     eastern = pytz.timezone('US/Eastern')
                     now = datetime.now(eastern)
                     year = now.year
-                    if month > now.month + 1:  # If month is way ahead, it's probably last year
+                    if month > now.month + 1:
                         year -= 1
                     result['date'] = f"{year}-{month:02d}-{int(day):02d}"
             except (ValueError, AttributeError) as e:
                 logger.debug(f"Could not parse date from URL: {e}")
         
         if 'date' not in result:
-            # Fallback to today's date
+            # Fall back to today's date
             eastern = pytz.timezone('US/Eastern')
             result['date'] = datetime.now(eastern).strftime('%Y-%m-%d')
         
@@ -251,8 +243,7 @@ class NewYorkerScraper(BaseScraper):
         for li in soup.find_all('li'):
             link = li.find('a')
             if link and '/humor/' in link.get('href', ''):
-                # Get full text and clean up spacing
-                full_text = ' '.join(li.get_text().split())  # Normalize whitespace
+                full_text = ' '.join(li.get_text().split())  # normalize whitespace
                 href = link.get('href', '')
                 humor_links.append({
                     'title': full_text,

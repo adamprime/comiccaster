@@ -65,7 +65,7 @@ class MrBoffoScraper(BaseScraper):
         return 'mrboffo'
 
     def fetch_comic_page(self, comic_slug: str = '', date: str = '') -> Optional[str]:
-        """Fetch the daily.html page with retry logic.
+        """Fetch the daily strip page with retry logic.
 
         Args:
             comic_slug: Unused (Mr. Boffo is a single comic).
@@ -99,9 +99,10 @@ class MrBoffoScraper(BaseScraper):
                        date: str = '') -> List[Dict[str, str]]:
         """Extract the daily strip image from the page HTML.
 
-        The page contains exactly one comic image (under ``images/daily/``)
-        alongside decorative button/header images; this returns only the
-        comic image, with its URL absolutized against the site root.
+        The page contains exactly one comic image (its src matching
+        ``IMAGE_PATH_MARKER``) alongside decorative button/header images; this
+        returns only the comic image, with its URL absolutized against the
+        site root.
 
         Args:
             html_content: The HTML content to parse.

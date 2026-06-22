@@ -1,8 +1,8 @@
 """
 Comics A-to-Z Loader Module
 
-This module handles fetching and parsing the list of available comics from GoComics.
-It extracts comic information from the JSON-LD metadata on the A-to-Z page.
+Fetches the GoComics A-to-Z page with Selenium and parses the comic links out
+of its HTML.
 """
 
 import json
@@ -78,17 +78,14 @@ class ComicsLoader:
             
             logger.info(f"Fetching {self.a_to_z_url}")
             self.driver.get(self.a_to_z_url)
-            
-            # Wait for the comics list to load
+
+            # Wait for the comics list, then a bit longer for dynamic content.
             wait = WebDriverWait(self.driver, 10)
             wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "ol li a")))
-            
-            # Additional wait for any dynamic content
             time.sleep(2)
-            
-            # Get the page source after JavaScript execution
+
             html_content = self.driver.page_source
-            
+
             # Save the raw response for debugging
             with open("debug_raw_response.html", "w", encoding="utf-8") as f:
                 f.write(html_content)
@@ -146,21 +143,17 @@ class ComicsLoader:
             soup = BeautifulSoup(html_text, 'html.parser')
             comic_list = []
             position = 1
-            
-            # Find all comic links in ordered lists
+
             for link in soup.select("ol li a"):
                 raw_title = link.text.strip()
                 url = link.get("href", "")
-                
+
                 if raw_title and url:
-                    # Parse the comic title
                     name, author, is_updated = self.parse_comic_title(raw_title)
-                    
-                    # Make URL absolute if it's relative
+
                     if url.startswith("/"):
                         url = f"{self.base_url}{url}"
-                    
-                    # Extract the comic slug from the URL
+
                     slug = url.split("/")[-1]
                     
                     comic_list.append({
@@ -192,7 +185,6 @@ class ComicsLoader:
             output_file (str): Path to the output JSON file.
         """
         try:
-            # Ensure the output directory exists
             output_path = Path(output_file)
             output_path.parent.mkdir(parents=True, exist_ok=True)
             
@@ -281,8 +273,8 @@ class ComicsLoader:
             Dict[str, str]: Normalized comic configuration with default source.
         """
         normalized = comic.copy()
-        
-        # Add default source if not present (backward compatibility)
+
+        # Default the source for older configs that predate the field.
         if 'source' not in normalized:
             normalized['source'] = 'gocomics-daily'
         
@@ -301,16 +293,13 @@ class ComicsLoader:
         Raises:
             ValueError: If the configuration is invalid.
         """
-        # Valid source types
         valid_sources = ['gocomics-daily', 'gocomics-political', 'tinyview']
-        
-        # Check required fields
+
         required_fields = ['slug', 'name']
         for field in required_fields:
             if field not in comic:
                 raise ValueError(f"Missing required field: {field}")
-        
-        # Validate source field
+
         source = comic.get('source', 'gocomics-daily')
         if source not in valid_sources:
             raise ValueError(f"Invalid source '{source}'. Valid sources: {valid_sources}")
@@ -330,8 +319,7 @@ class ComicsLoader:
             List[Dict[str, str]]: List of all comic configurations with normalized sources.
         """
         all_comics = []
-        
-        # Load regular comics
+
         try:
             regular_comics = self.load_comics_from_file(regular_comics_file)
             for comic in regular_comics:
@@ -343,14 +331,12 @@ class ComicsLoader:
             logger.warning(f"Regular comics file not found: {regular_comics_file}")
         except Exception as e:
             logger.error(f"Error loading regular comics: {e}")
-            
-        # Load political comics
+
         try:
             political_comics = self.load_comics_from_file(political_comics_file)
             for comic in political_comics:
-                # Political comics should already have source set, but normalize anyway
                 normalized = self.normalize_comic_config(comic)
-                # Override source for political comics if not explicitly set to political
+                # A political entry left at the default source is treated as political.
                 if normalized.get('source') == 'gocomics-daily':
                     normalized['source'] = 'gocomics-political'
                 self.validate_comic_config(normalized)

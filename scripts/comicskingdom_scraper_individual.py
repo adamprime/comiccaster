@@ -55,12 +55,12 @@ def load_cookie_file_path():
 
 
 def setup_driver(show_browser=False, use_profile=True):
-    """Setup Chrome driver.
+    """Set up the Chrome driver.
 
     Defaults to use_profile=True (Shape A). Chrome launches with --user-data-dir
     pointing at ~/.comicskingdom_chrome_profile. The profile carries session
-    cookies so the first request to CK arrives authenticated -- this bypasses
-    the WAF slow-walk that was the root cause of the chronic renderer timeout
+    cookies so the first request to CK arrives authenticated, which avoids the
+    renderer timeout we used to hit on the first navigation
     (see docs/solutions/logic-errors/comicskingdom-hang-diagnosis.md).
 
     Pass use_profile=False to fall back to the legacy pickled-cookie flow
@@ -80,8 +80,7 @@ def setup_driver(show_browser=False, use_profile=True):
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1920,1080')
-    
-    # Anti-bot detection
+
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
@@ -94,8 +93,8 @@ def setup_driver(show_browser=False, use_profile=True):
     driver.set_page_load_timeout(30)
     driver.set_script_timeout(30)
     driver.implicitly_wait(10)
-    
-    # Remove webdriver property
+
+    # Set a standard user agent and unset the navigator.webdriver flag.
     driver.execute_cdp_cmd('Network.setUserAgentOverride', {
         "userAgent": 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     })
