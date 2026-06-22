@@ -16,33 +16,34 @@ echo "  2. Authenticate with TinyView using magic link"
 echo "  3. Save cookies for automated scraping"
 echo ""
 
-# Get script directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# This script lives in scripts/, but venv, .env, and data/ are all at the repo
+# root. Resolve PROJECT_ROOT to the parent so paths match the daily run's cwd.
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # Activate virtual environment if it exists
-if [ -d "$SCRIPT_DIR/venv/bin" ]; then
+if [ -d "$PROJECT_ROOT/venv/bin" ]; then
     echo "✅ Activating virtual environment..."
-    source "$SCRIPT_DIR/venv/bin/activate"
-elif [ -d "$SCRIPT_DIR/.venv/bin" ]; then
+    source "$PROJECT_ROOT/venv/bin/activate"
+elif [ -d "$PROJECT_ROOT/.venv/bin" ]; then
     echo "✅ Activating virtual environment..."
-    source "$SCRIPT_DIR/.venv/bin/activate"
+    source "$PROJECT_ROOT/.venv/bin/activate"
 else
     echo "⚠️  No virtual environment found. Using system Python."
 fi
 
 # Check if .env file exists
-if [ -f "$SCRIPT_DIR/.env" ]; then
+if [ -f "$PROJECT_ROOT/.env" ]; then
     echo "✅ Found .env file"
-    source "$SCRIPT_DIR/.env"
+    source "$PROJECT_ROOT/.env"
 else
     echo "⚠️  No .env file found"
     echo "   Creating one from template..."
     
-    if [ -f "$SCRIPT_DIR/.env.example" ]; then
-        cp "$SCRIPT_DIR/.env.example" "$SCRIPT_DIR/.env"
+    if [ -f "$PROJECT_ROOT/.env.example" ]; then
+        cp "$PROJECT_ROOT/.env.example" "$PROJECT_ROOT/.env"
         echo "✅ Created .env file from .env.example"
     else
-        touch "$SCRIPT_DIR/.env"
+        touch "$PROJECT_ROOT/.env"
         echo "✅ Created empty .env file"
     fi
 fi
@@ -55,8 +56,8 @@ if [ -z "$TINYVIEW_EMAIL" ]; then
     read -p "   Email: " TINYVIEW_EMAIL
     
     # Add to .env if not already there
-    if ! grep -q "TINYVIEW_EMAIL" "$SCRIPT_DIR/.env"; then
-        echo "TINYVIEW_EMAIL=$TINYVIEW_EMAIL" >> "$SCRIPT_DIR/.env"
+    if ! grep -q "TINYVIEW_EMAIL" "$PROJECT_ROOT/.env"; then
+        echo "TINYVIEW_EMAIL=$TINYVIEW_EMAIL" >> "$PROJECT_ROOT/.env"
         echo "✅ Saved TINYVIEW_EMAIL to .env"
     fi
 fi
@@ -66,7 +67,7 @@ echo ""
 echo "Using email: $TINYVIEW_EMAIL"
 
 # Set cookie file location
-export TINYVIEW_COOKIE_FILE="$SCRIPT_DIR/data/tinyview_cookies.pkl"
+export TINYVIEW_COOKIE_FILE="$PROJECT_ROOT/data/tinyview_cookies.pkl"
 
 echo ""
 echo "================================================================================"
@@ -82,8 +83,8 @@ echo ""
 read -p "Press Enter to continue..."
 
 # Run the authentication
-cd "$SCRIPT_DIR"
-python3 tinyview_scraper_secure.py --show-browser
+cd "$PROJECT_ROOT"
+python3 scripts/tinyview_scraper_secure.py --show-browser
 
 echo ""
 echo "================================================================================"
@@ -93,7 +94,7 @@ echo ""
 echo "Testing if we can use the saved cookies..."
 
 # Test with notifications
-python3 tinyview_scraper_secure.py --get-notifications
+python3 scripts/tinyview_scraper_secure.py --get-notifications
 
 echo ""
 echo "================================================================================"
@@ -102,7 +103,7 @@ echo "==========================================================================
 echo ""
 echo "Discovering all comics you follow on TinyView..."
 
-python3 tinyview_scraper_secure.py --discover-comics
+python3 scripts/tinyview_scraper_secure.py --discover-comics
 
 echo ""
 echo "================================================================================"
@@ -122,5 +123,5 @@ echo "  2. Add any missing comics to the list"
 echo "  3. Update your automated scripts to use authentication"
 echo ""
 echo "To re-authenticate in the future, run:"
-echo "  ./SETUP_TINYVIEW_AUTH.sh"
+echo "  bash scripts/SETUP_TINYVIEW_AUTH.sh"
 echo ""
