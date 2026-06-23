@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-23",
+  "scraped_at": "2026-06-23T08:20:09.182327+00:00",
+  "comics": [
+    {
+      "id": "22371",
+      "date": "2026-06-23",
+      "url": "https://www.thefarside.com/2026/06/23/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3e4b7d10d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3e4b7d10d0f70137c652005056a9545d",
+      "caption": "What really happened to Elvis",
+      "title": "What really happened to Elvis"
+    },
+    {
+      "id": "22372",
+      "date": "2026-06-23",
+      "url": "https://www.thefarside.com/2026/06/23/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1d7f34f0d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1d7f34f0d0f70137c652005056a9545d",
+      "caption": "\u201cFrankly, you\u2019ve got a lot of anger toward the world to work out, Mr. Pembrose.\u201d",
+      "title": "\u201cFrankly, you\u2019ve got a lot of anger toward the world to w..."
+    },
+    {
+      "id": "22373",
+      "date": "2026-06-23",
+      "url": "https://www.thefarside.com/2026/06/23/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F65775ae0e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/65775ae0e9ee0137cf93005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22373"
+    },
+    {
+      "id": "22374",
+      "date": "2026-06-23",
+      "url": "https://www.thefarside.com/2026/06/23/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc847b070df100137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c847b070df100137cbaf005056a9545d",
+      "caption": "Goldfish little brothers",
+      "title": "Goldfish little brothers"
+    },
+    {
+      "id": "22375",
+      "date": "2026-06-23",
+      "url": "https://www.thefarside.com/2026/06/23/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6d198050d0d10137c639005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6d198050d0d10137c639005056a9545d",
+      "caption": "Before paper and scissors",
+      "title": "Before paper and scissors"
+    }
+  ]
+}
