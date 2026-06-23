@@ -1,10 +1,34 @@
 [
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/d5677790514f013fc2a4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-23",
+    "url": "https://www.gocomics.com/tim-campbell/2026/06/23",
+    "category": "political"
+  },
+  {
     "name": "Robert Ariail",
     "slug": "robert-ariail",
     "image_url": "https://featureassets.gocomics.com/assets/8d6f60a050bb013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-23",
     "url": "https://www.gocomics.com/robert-ariail/2026/06/23",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/323a7ef0514c013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-23",
+    "url": "https://www.gocomics.com/robrogers/2026/06/23",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/c6fc2a905145013fc2a3005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-23",
+    "url": "https://www.gocomics.com/nickanderson/2026/06/23",
     "category": "political"
   },
   {
@@ -16,6 +40,14 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/c98db2a05145013fc2a3005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-23",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/06/23",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/6ce11dc0508f013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -24,11 +56,27 @@
     "category": "political"
   },
   {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/d7b9fdd0514f013fc2a4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-23",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/06/23",
+    "category": "political"
+  },
+  {
     "name": "Doonesbury",
     "slug": "doonesbury",
     "image_url": "https://featureassets.gocomics.com/assets/8a3468404bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-23",
     "url": "https://www.gocomics.com/doonesbury/2026/06/23",
+    "category": "political"
+  },
+  {
+    "name": "Clay Jones",
+    "slug": "clayjones",
+    "image_url": "https://featureassets.gocomics.com/assets/952807e05130013fc29e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-23",
+    "url": "https://www.gocomics.com/clayjones/2026/06/23",
     "category": "political"
   },
   {
@@ -720,6 +768,14 @@
     "category": "daily"
   },
   {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/bd007040512d013fc29d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-23",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/06/23",
+    "category": "daily"
+  },
+  {
     "name": "Ginger Meggs",
     "slug": "gingermeggs-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/7575e8208f10012ee3c400163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -973,6 +1029,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/4726d8104c83013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-23",
     "url": "https://www.gocomics.com/don-brutus/2026/06/23",
+    "category": "daily"
+  },
+  {
+    "name": "Domestic Abuse",
+    "slug": "domesticabuse",
+    "image_url": "https://featureassets.gocomics.com/assets/b340c5c0514b013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-23",
+    "url": "https://www.gocomics.com/domesticabuse/2026/06/23",
     "category": "daily"
   },
   {
@@ -1677,6 +1741,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/bf14fae04cba013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-23",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/06/23",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/21fcb7a05125013fc29c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-23",
+    "url": "https://www.gocomics.com/tavicat/2026/06/23",
     "category": "daily"
   },
   {
