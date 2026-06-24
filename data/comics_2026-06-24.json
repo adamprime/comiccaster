@@ -8,11 +8,27 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/f28ce550520e013fc2b2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/nickanderson/2026/06/24",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/87ad87f0518b013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-24",
     "url": "https://www.gocomics.com/mikeluckovich/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/3a7103b05209013fc2b1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/mattdavies/2026/06/24",
     "category": "political"
   },
   {
@@ -45,6 +61,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/8a74a870516a013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-24",
     "url": "https://www.gocomics.com/jen-sorensen/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/9dddb2405210013fc2b3005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/drewsheneman/2026/06/24",
     "category": "political"
   },
   {
@@ -797,6 +821,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/8fe56a804bd4013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-24",
     "url": "https://www.gocomics.com/grand-avenue/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/4b7b811051f8013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/06/24",
     "category": "daily"
   },
   {
