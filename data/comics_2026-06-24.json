@@ -1,0 +1,2066 @@
+[
+  {
+    "name": "Ted Rall",
+    "slug": "ted-rall",
+    "image_url": "https://featureassets.gocomics.com/assets/f4928de0507d013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/ted-rall/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Mike Luckovich",
+    "slug": "mikeluckovich",
+    "image_url": "https://featureassets.gocomics.com/assets/87ad87f0518b013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/mikeluckovich/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Matt Wuerker",
+    "slug": "mattwuerker",
+    "image_url": "https://featureassets.gocomics.com/assets/4caeb6d03407013ea71d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/mattwuerker/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Michael Ramirez",
+    "slug": "michaelramirez",
+    "image_url": "https://featureassets.gocomics.com/assets/36ea3e4051c3013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/michaelramirez/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "John Deering",
+    "slug": "johndeering",
+    "image_url": "https://featureassets.gocomics.com/assets/0416ff3051b0013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/johndeering/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Jen Sorensen",
+    "slug": "jen-sorensen",
+    "image_url": "https://featureassets.gocomics.com/assets/8a74a870516a013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/jen-sorensen/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Doonesbury",
+    "slug": "doonesbury",
+    "image_url": "https://featureassets.gocomics.com/assets/77718b504bd4013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/doonesbury/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Clay Jones",
+    "slug": "clayjones",
+    "image_url": "https://featureassets.gocomics.com/assets/b94b47605176013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/clayjones/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Clay Bennett",
+    "slug": "claybennett",
+    "image_url": "https://featureassets.gocomics.com/assets/82513420518a013fc2ae005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/claybennett/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Chip Bok",
+    "slug": "chipbok",
+    "image_url": "https://featureassets.gocomics.com/assets/06ca6aa051b0013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/chipbok/2026/06/24",
+    "category": "political"
+  },
+  {
+    "name": "Curses",
+    "slug": "curses",
+    "image_url": "https://featureassets.gocomics.com/assets/15c30a705145013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/curses/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Cul De Sac",
+    "slug": "culdesac",
+    "image_url": "https://featureassets.gocomics.com/assets/a4fbed104274013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/culdesac/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Crumb",
+    "slug": "crumb",
+    "image_url": "https://featureassets.gocomics.com/assets/188c53204b1e013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/crumb/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Crankshaft",
+    "slug": "crankshaft",
+    "image_url": "https://featureassets.gocomics.com/assets/9878b7a04673013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/crankshaft/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Crabgrass",
+    "slug": "crabgrass",
+    "image_url": "https://featureassets.gocomics.com/assets/2286196048ad013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/crabgrass/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Cow Town",
+    "slug": "cowtown",
+    "image_url": "https://featureassets.gocomics.com/assets/616855f04eee013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/cowtown/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Cow and Boy Classics",
+    "slug": "cowandboy",
+    "image_url": "https://featureassets.gocomics.com/assets/84f8c9b001a90130f7e3001dd8b71c47?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/cowandboy/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Cornered",
+    "slug": "cornered",
+    "image_url": "https://featureassets.gocomics.com/assets/ccd30b404001013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/cornered/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Compu toon",
+    "slug": "compu-toon",
+    "image_url": "https://featureassets.gocomics.com/assets/7dfacbf051ab013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/compu-toon/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Close to Home",
+    "slug": "closetohome",
+    "image_url": "https://featureassets.gocomics.com/assets/abe598b048c9013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/closetohome/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Cleats",
+    "slug": "cleats",
+    "image_url": "https://featureassets.gocomics.com/assets/b110064002c601358e71005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/cleats/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The City",
+    "slug": "thecity",
+    "image_url": "https://featureassets.gocomics.com/assets/d61699f050cd013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/thecity/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Citizen Dog",
+    "slug": "citizendog",
+    "image_url": "https://featureassets.gocomics.com/assets/72a9e3242516102d94d7001438c0f03b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/citizendog/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "C est La Vie",
+    "slug": "cestlavie",
+    "image_url": "https://featureassets.gocomics.com/assets/d03cbb503c60013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/cestlavie/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Cattitude Doggonit",
+    "slug": "cattitude-doggonit",
+    "image_url": "https://featureassets.gocomics.com/assets/0d466910b8da013eb960005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/cattitude-doggonit/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Cathy Classics",
+    "slug": "cathy",
+    "image_url": "https://featureassets.gocomics.com/assets/c32c6be0b1bb013eb9a6005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/cathy/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Calvin And Hobbes",
+    "slug": "calvinandhobbesespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/5bade8a014e5013fbf5d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/calvinandhobbesespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Calvin And Hobbes",
+    "slug": "calvinandhobbes",
+    "image_url": "https://featureassets.gocomics.com/assets/bfbcfd7014e4013fbf5d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/calvinandhobbes/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bully",
+    "slug": "bully",
+    "image_url": "https://featureassets.gocomics.com/assets/b4f76af04e35013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bully/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Buckles",
+    "slug": "buckles",
+    "image_url": "https://featureassets.gocomics.com/assets/868a76903e79013fc1ba005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/buckles/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Buckets",
+    "slug": "thebuckets",
+    "image_url": "https://featureassets.gocomics.com/assets/acb044a04bda013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/thebuckets/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Broom Hilda",
+    "slug": "broomhilda",
+    "image_url": "https://featureassets.gocomics.com/assets/6a27aab04bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/broomhilda/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Brewster Rockit",
+    "slug": "brewsterrockit",
+    "image_url": "https://featureassets.gocomics.com/assets/db20baa04b01013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/brewsterrockit/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Brevity",
+    "slug": "brevity",
+    "image_url": "https://featureassets.gocomics.com/assets/bf9d73904ca2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/brevity/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Breaking Cat News",
+    "slug": "breaking-cat-news",
+    "image_url": "https://featureassets.gocomics.com/assets/fdc62a8047e3013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/breaking-cat-news/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bound And Gagged",
+    "slug": "boundandgagged",
+    "image_url": "https://featureassets.gocomics.com/assets/b87990504b03013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/boundandgagged/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bottom Liners",
+    "slug": "bottomliners",
+    "image_url": "https://featureassets.gocomics.com/assets/5970a2604bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bottomliners/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Born Loser",
+    "slug": "the-born-loser",
+    "image_url": "https://featureassets.gocomics.com/assets/82d6ac004bec013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/the-born-loser/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Boondocks",
+    "slug": "boondocks",
+    "image_url": "https://featureassets.gocomics.com/assets/41c657305cf4012ee3bd00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/boondocks/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Boomerangs",
+    "slug": "boomerangs",
+    "image_url": "https://featureassets.gocomics.com/assets/90160a204fd0013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/boomerangs/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bo Nanas",
+    "slug": "bonanas",
+    "image_url": "https://featureassets.gocomics.com/assets/3d8326c05d0f012ee3bd00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bonanas/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bob the Squirrel",
+    "slug": "bobthesquirrel",
+    "image_url": "https://featureassets.gocomics.com/assets/cd487e405193013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bobthesquirrel/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bloom County",
+    "slug": "bloomcounty",
+    "image_url": "https://featureassets.gocomics.com/assets/f1c941ba2127102d94d7001438c0f03b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bloomcounty/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bliss",
+    "slug": "bliss",
+    "image_url": "https://featureassets.gocomics.com/assets/7b4c60c04bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bliss/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bleeker the Rechargable Dog",
+    "slug": "bleeker",
+    "image_url": "https://featureassets.gocomics.com/assets/0810c9604d16013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bleeker/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Birdbrains",
+    "slug": "birdbrains",
+    "image_url": "https://featureassets.gocomics.com/assets/20a29050b6ed013150c5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/birdbrains/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Big Top",
+    "slug": "bigtop",
+    "image_url": "https://featureassets.gocomics.com/assets/2ec356d05dbe012ee3bf00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bigtop/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Big Nate",
+    "slug": "bignate",
+    "image_url": "https://featureassets.gocomics.com/assets/382cb770384901314853001dd8b71c47?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bignate/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Betty",
+    "slug": "betty",
+    "image_url": "https://featureassets.gocomics.com/assets/197ece004af8013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/betty/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Mutt And Jeff",
+    "slug": "muttandjeffespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/4ab3e91048c8013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/muttandjeffespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ben",
+    "slug": "ben",
+    "image_url": "https://featureassets.gocomics.com/assets/fc522510287f013fc093005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/ben/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Beardo",
+    "slug": "beardo",
+    "image_url": "https://featureassets.gocomics.com/assets/375a0ae051ab013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/beardo/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "B C",
+    "slug": "bc",
+    "image_url": "https://featureassets.gocomics.com/assets/a7023e404b19013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bc/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Barney And Clyde",
+    "slug": "barneyandclyde",
+    "image_url": "https://featureassets.gocomics.com/assets/806a94704761013fc235005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/barneyandclyde/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Barn",
+    "slug": "thebarn",
+    "image_url": "https://featureassets.gocomics.com/assets/5b4a09003531013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/thebarn/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Barkeater Lake",
+    "slug": "barkeaterlake",
+    "image_url": "https://featureassets.gocomics.com/assets/63bd19c032fd012f2fd000163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/barkeaterlake/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ballard Street",
+    "slug": "ballardstreet",
+    "image_url": "https://featureassets.gocomics.com/assets/71c7bb005ce2012ee3bd00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/ballardstreet/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Baldo",
+    "slug": "baldoespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/fe7fbfb04cb5013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/baldoespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Baldo",
+    "slug": "baldo",
+    "image_url": "https://featureassets.gocomics.com/assets/0edd92604af8013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/baldo/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bad Machinery",
+    "slug": "bad-machinery",
+    "image_url": "https://featureassets.gocomics.com/assets/aba195a0c613013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bad-machinery/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Bacon",
+    "slug": "bacon",
+    "image_url": "https://featureassets.gocomics.com/assets/31e759e04ccf013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/bacon/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Back to B C",
+    "slug": "back-to-bc",
+    "image_url": "https://featureassets.gocomics.com/assets/017f2c0040fa013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/back-to-bc/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ike",
+    "slug": "backintheday",
+    "image_url": "https://featureassets.gocomics.com/assets/a2f086505176013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/backintheday/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Baby Blues",
+    "slug": "babyblues",
+    "image_url": "https://featureassets.gocomics.com/assets/90a3df604b01013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/babyblues/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Auntie Acid",
+    "slug": "aunty-acid",
+    "image_url": "https://featureassets.gocomics.com/assets/91a44570bee9013eb960005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/aunty-acid/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Arlo And Janis",
+    "slug": "arloandjanis",
+    "image_url": "https://featureassets.gocomics.com/assets/6b8292d04bd4013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/arloandjanis/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Argyle Sweater",
+    "slug": "theargylesweater",
+    "image_url": "https://featureassets.gocomics.com/assets/f1d76da04cb0013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/theargylesweater/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Annie Sharper",
+    "slug": "annie",
+    "image_url": "https://featureassets.gocomics.com/assets/d9962de02817012f2fcc00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/annie/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Animal Crackers",
+    "slug": "animalcrackers",
+    "image_url": "https://featureassets.gocomics.com/assets/7c673a004b01013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/animalcrackers/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Andy Capp",
+    "slug": "andycapp",
+    "image_url": "https://featureassets.gocomics.com/assets/caa39b004b4b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/andycapp/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Andertoons",
+    "slug": "andertoons",
+    "image_url": "https://featureassets.gocomics.com/assets/ad75c4f0df5a013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/andertoons/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Amanda The Great",
+    "slug": "amanda-the-great",
+    "image_url": "https://featureassets.gocomics.com/assets/ed4844705197013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/amanda-the-great/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Alley Oop",
+    "slug": "alley-oop",
+    "image_url": "https://featureassets.gocomics.com/assets/89367f804597013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/alley-oop/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Agnes",
+    "slug": "agnes",
+    "image_url": "https://featureassets.gocomics.com/assets/390086102c30013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/agnes/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Adult Children",
+    "slug": "adult-children",
+    "image_url": "https://featureassets.gocomics.com/assets/cc24c0e04ddd013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/adult-children/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Adam Home",
+    "slug": "adamathome",
+    "image_url": "https://featureassets.gocomics.com/assets/a4ddacf04b03013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/adamathome/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Academia Waltz",
+    "slug": "the-academia-waltz",
+    "image_url": "https://featureassets.gocomics.com/assets/cc5bcb805cea012ee3bd00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/the-academia-waltz/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Aagghhh",
+    "slug": "aaggghhh",
+    "image_url": "https://featureassets.gocomics.com/assets/251f75c0513b013fc2a1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/aaggghhh/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "9 To 5",
+    "slug": "9to5",
+    "image_url": "https://featureassets.gocomics.com/assets/dc7c0e504bda013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/9to5/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "9 Chickweed Lane",
+    "slug": "9-chickweed-lane",
+    "image_url": "https://featureassets.gocomics.com/assets/2bb6882048d1013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/9-chickweed-lane/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "1 And Done",
+    "slug": "1-and-done",
+    "image_url": "https://featureassets.gocomics.com/assets/4d803c105178013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/1-and-done/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Junk Drawer",
+    "slug": "junk-drawer",
+    "image_url": "https://featureassets.gocomics.com/assets/4bc60c704323013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/junk-drawer/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Jumpstart",
+    "slug": "jumpstart",
+    "image_url": "https://featureassets.gocomics.com/assets/0e65af304afa013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/jumpstart/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Jerry King Comics",
+    "slug": "jerry-king-comics",
+    "image_url": "https://featureassets.gocomics.com/assets/953012e02e27013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/jerry-king-comics/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Janes World",
+    "slug": "janesworld",
+    "image_url": "https://featureassets.gocomics.com/assets/b736acc002ef01311db0001dd8b71c47?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/janesworld/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "In The Bleachers",
+    "slug": "inthebleachers",
+    "image_url": "https://featureassets.gocomics.com/assets/71a623e04ca6013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/inthebleachers/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "In Security",
+    "slug": "in-security",
+    "image_url": "https://featureassets.gocomics.com/assets/00dd2840c316013ebad6005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/in-security/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ink Pen",
+    "slug": "inkpen",
+    "image_url": "https://featureassets.gocomics.com/assets/e59ab0c0b891012fd92d001dd8b71c47?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/inkpen/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Imagine This",
+    "slug": "imaginethis",
+    "image_url": "https://featureassets.gocomics.com/assets/658f4e00a6920132ccd1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/imaginethis/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Humble Stumble",
+    "slug": "humble-stumble",
+    "image_url": "https://featureassets.gocomics.com/assets/362b82007aa6012ee3c400163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/humble-stumble/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Home And Away",
+    "slug": "homeandaway",
+    "image_url": "https://featureassets.gocomics.com/assets/7d63e340218b012f2fca00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/homeandaway/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Herman",
+    "slug": "herman",
+    "image_url": "https://featureassets.gocomics.com/assets/258915d04742013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/herman/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Herb And Jamaal",
+    "slug": "herbandjamaal",
+    "image_url": "https://featureassets.gocomics.com/assets/2fd42d704c04013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/herbandjamaal/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Healthcliff",
+    "slug": "heathcliffespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/6ef26df04cc7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/heathcliffespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Healthcliff",
+    "slug": "heathcliff",
+    "image_url": "https://featureassets.gocomics.com/assets/33d107704777013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/heathcliff/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Heart Of The City",
+    "slug": "heartofthecity",
+    "image_url": "https://featureassets.gocomics.com/assets/db10eec04700013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/heartofthecity/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Harley",
+    "slug": "harley",
+    "image_url": "https://featureassets.gocomics.com/assets/5e6bc1904fef013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/harley/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Grizzwells",
+    "slug": "thegrizzwells",
+    "image_url": "https://featureassets.gocomics.com/assets/2017f4504d7b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/thegrizzwells/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Gray Matters",
+    "slug": "gray-matters",
+    "image_url": "https://featureassets.gocomics.com/assets/7bd0f080498f013155fa001dd8b71c47?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/gray-matters/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Grand Adventure",
+    "slug": "grand-avenue",
+    "image_url": "https://featureassets.gocomics.com/assets/8fe56a804bd4013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/grand-avenue/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ginger Meggs",
+    "slug": "gingermeggs-espanol",
+    "image_url": "https://featureassets.gocomics.com/assets/7332a7208f10012ee3c400163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/gingermeggs-espanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ginger Meggs",
+    "slug": "gingermeggs",
+    "image_url": "https://featureassets.gocomics.com/assets/e2d811c0466e013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/gingermeggs/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Gil Thorp",
+    "slug": "gilthorp",
+    "image_url": "https://featureassets.gocomics.com/assets/a87b7130426f013fc1ef005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/gilthorp/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Get Fuzzy",
+    "slug": "getfuzzy",
+    "image_url": "https://featureassets.gocomics.com/assets/205b69f04bee013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/getfuzzy/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Geech",
+    "slug": "geech",
+    "image_url": "https://featureassets.gocomics.com/assets/ed66f16099fa012e2f8200163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/geech/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Gasoline Alley",
+    "slug": "gasolinealley",
+    "image_url": "https://featureassets.gocomics.com/assets/05d911204afa013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/gasolinealley/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Garfield",
+    "slug": "garfieldespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/a62b9ef0471e013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/garfieldespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Garfield",
+    "slug": "garfield",
+    "image_url": "https://featureassets.gocomics.com/assets/2b9f7c4035e7013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/garfield/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Fusco Brothers",
+    "slug": "thefuscobrothers",
+    "image_url": "https://featureassets.gocomics.com/assets/996894d04b01013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/thefuscobrothers/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Fur Babies",
+    "slug": "furbabies",
+    "image_url": "https://featureassets.gocomics.com/assets/9561ea004f47013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/furbabies/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Funky Winkerbean",
+    "slug": "funky-winkerbean",
+    "image_url": "https://featureassets.gocomics.com/assets/3f1898e0977f013d817d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/funky-winkerbean/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Free Range",
+    "slug": "freerange",
+    "image_url": "https://featureassets.gocomics.com/assets/f46620b044e8013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/freerange/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Fred Basset",
+    "slug": "fredbassetespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/7e2434302e3e012ea5cb00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/fredbassetespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Fred Basset",
+    "slug": "fredbasset",
+    "image_url": "https://featureassets.gocomics.com/assets/174935104cab013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/fredbasset/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Frazz",
+    "slug": "frazz",
+    "image_url": "https://featureassets.gocomics.com/assets/9bbff2904bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/frazz/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Frank And Ernest",
+    "slug": "frank-and-ernest",
+    "image_url": "https://featureassets.gocomics.com/assets/5f4e948047f1013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/frank-and-ernest/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Foxtrot",
+    "slug": "foxtrotespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/43f2a8c04cbe013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/foxtrotespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Fox Trot Classics",
+    "slug": "foxtrotclassics",
+    "image_url": "https://featureassets.gocomics.com/assets/402c9d804cab013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/foxtrotclassics/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "For Better Or For Worse",
+    "slug": "forbetterorforworse",
+    "image_url": "https://featureassets.gocomics.com/assets/c3849c404bda013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/forbetterorforworse/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "F Minus",
+    "slug": "fminus",
+    "image_url": "https://featureassets.gocomics.com/assets/22e409304b15013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/fminus/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Flying Mc Coys",
+    "slug": "theflyingmccoys",
+    "image_url": "https://featureassets.gocomics.com/assets/2634be104cb0013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/theflyingmccoys/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Flo And Friends",
+    "slug": "floandfriends",
+    "image_url": "https://featureassets.gocomics.com/assets/ce72a5d04b32013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/floandfriends/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Fat Cats",
+    "slug": "fat-cats",
+    "image_url": "https://featureassets.gocomics.com/assets/783d6c50497d013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/fat-cats/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Farcus",
+    "slug": "farcus",
+    "image_url": "https://featureassets.gocomics.com/assets/038b6db0dae1013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/farcus/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Family Tree",
+    "slug": "familytree",
+    "image_url": "https://featureassets.gocomics.com/assets/5e554230a5540131428e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/familytree/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Elderberries",
+    "slug": "theelderberries",
+    "image_url": "https://featureassets.gocomics.com/assets/005d8a50eea4012da5c500163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/theelderberries/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Pooch Cafe",
+    "slug": "el-cafe-de-poncho",
+    "image_url": "https://featureassets.gocomics.com/assets/e19df7204cbc013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/el-cafe-de-poncho/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Eek",
+    "slug": "eek",
+    "image_url": "https://featureassets.gocomics.com/assets/8009ca90465a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/eek/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Edge City",
+    "slug": "edge-city",
+    "image_url": "https://featureassets.gocomics.com/assets/a0dcd4f0c58e013ebaed005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/edge-city/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Duplex",
+    "slug": "duplex",
+    "image_url": "https://featureassets.gocomics.com/assets/f296ae104af9013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/duplex/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Drabble",
+    "slug": "drabble",
+    "image_url": "https://featureassets.gocomics.com/assets/19f35df041b6013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/drabble/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Doodle Town",
+    "slug": "doodle-town",
+    "image_url": "https://featureassets.gocomics.com/assets/fe3a89704f05013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/doodle-town/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Born Loser",
+    "slug": "don-brutus",
+    "image_url": "https://featureassets.gocomics.com/assets/48fd22a04c83013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/don-brutus/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Dogs Of C Kennel",
+    "slug": "dogsofckennel",
+    "image_url": "https://featureassets.gocomics.com/assets/db52ec204b4b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/dogsofckennel/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Dog Eat Doug",
+    "slug": "dogeatdoug",
+    "image_url": "https://featureassets.gocomics.com/assets/9789dc402c33013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/dogeatdoug/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Dinosaur Comics",
+    "slug": "dinosaur-comics",
+    "image_url": "https://featureassets.gocomics.com/assets/69f8d1f0d8f1013d93dc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/dinosaur-comics/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Dinette Set",
+    "slug": "dinetteset",
+    "image_url": "https://featureassets.gocomics.com/assets/81e0b790d7e201316bdc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/dinetteset/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Dick Tracy",
+    "slug": "dicktracy",
+    "image_url": "https://featureassets.gocomics.com/assets/0b8d22f04bd3013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/dicktracy/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Diamond Lil",
+    "slug": "diamondlil",
+    "image_url": "https://featureassets.gocomics.com/assets/844bc6b04378013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/diamondlil/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "De Flocked",
+    "slug": "deflocked",
+    "image_url": "https://featureassets.gocomics.com/assets/f94ae1204caf013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/deflocked/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Day by Dave",
+    "slug": "day-by-dave",
+    "image_url": "https://featureassets.gocomics.com/assets/d319a8a04f4b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/day-by-dave/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Dark Side Of The Horse",
+    "slug": "darksideofthehorse",
+    "image_url": "https://featureassets.gocomics.com/assets/9d81e2204658013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/darksideofthehorse/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Daddys Home",
+    "slug": "daddyshome",
+    "image_url": "https://featureassets.gocomics.com/assets/f61733f04c14013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/daddyshome/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Phoebe And Her Unicorn",
+    "slug": "phoebe-and-her-unicorn",
+    "image_url": "https://featureassets.gocomics.com/assets/066ae160c0b10130e915001dd8b71c47?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/phoebe-and-her-unicorn/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Peanuts",
+    "slug": "peanuts-espanol",
+    "image_url": "https://featureassets.gocomics.com/assets/6ce92b004cbe013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/peanuts-espanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Nancy Classics",
+    "slug": "periquita",
+    "image_url": "https://featureassets.gocomics.com/assets/712f15a04c86013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/periquita/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Pearls Before Swine",
+    "slug": "pearlsbeforeswine",
+    "image_url": "https://featureassets.gocomics.com/assets/b07917504658013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/pearlsbeforeswine/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Peanuts Begins",
+    "slug": "peanuts-begins",
+    "image_url": "https://featureassets.gocomics.com/assets/32f2f060dd6c0133501f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/peanuts-begins/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Over The Hedge",
+    "slug": "overthehedge",
+    "image_url": "https://featureassets.gocomics.com/assets/c8608f604b01013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/overthehedge/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Peanuts",
+    "slug": "peanuts",
+    "image_url": "https://featureassets.gocomics.com/assets/4e39dbc0463e013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/peanuts/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Overboard",
+    "slug": "overboardespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/e55a69e027e9012ea5cb00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/overboardespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Overboard",
+    "slug": "overboard",
+    "image_url": "https://featureassets.gocomics.com/assets/43c7373048ab013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/overboard/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Out of the Gene Pool",
+    "slug": "outofthegenepool",
+    "image_url": "https://featureassets.gocomics.com/assets/10ed56305cff012ee3bd00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/outofthegenepool/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Other Coast",
+    "slug": "theothercoast",
+    "image_url": "https://featureassets.gocomics.com/assets/8df40db04103013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/theothercoast/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "One Big Happy",
+    "slug": "onebighappy",
+    "image_url": "https://featureassets.gocomics.com/assets/3f95f9d05e29012ee3bf00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/onebighappy/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "On A Clair Day",
+    "slug": "onaclaireday",
+    "image_url": "https://featureassets.gocomics.com/assets/640518a05bd1012d63cc00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/onaclaireday/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ollie and Quentin",
+    "slug": "ollie-and-quentin",
+    "image_url": "https://featureassets.gocomics.com/assets/83c5daf0f25e0132eae7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/ollie-and-quentin/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Off The Mark",
+    "slug": "offthemark",
+    "image_url": "https://featureassets.gocomics.com/assets/8493ed604ca7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/offthemark/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Nothing Is Not Something",
+    "slug": "nothing-is-not-something",
+    "image_url": "https://featureassets.gocomics.com/assets/c45da29051af013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/nothing-is-not-something/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Norm Classics",
+    "slug": "thenorm",
+    "image_url": "https://featureassets.gocomics.com/assets/b4126d3099cb013eb772005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/thenorm/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Non Sequitur",
+    "slug": "nonsequitur",
+    "image_url": "https://featureassets.gocomics.com/assets/408d2ac0465a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/nonsequitur/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Next Door Neighbors",
+    "slug": "next-door-neighbors",
+    "image_url": "https://featureassets.gocomics.com/assets/619587a048a2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/next-door-neighbors/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "New Adventures of Queen Victoria",
+    "slug": "thenewadventuresofqueenvictoria",
+    "image_url": "https://featureassets.gocomics.com/assets/e8eee4c05188013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/thenewadventuresofqueenvictoria/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "NEUROTICA",
+    "slug": "neurotica",
+    "image_url": "https://featureassets.gocomics.com/assets/2a0316802817012f2fcc00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/neurotica/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Nest Heads",
+    "slug": "nestheads",
+    "image_url": "https://featureassets.gocomics.com/assets/9862dd964dbb102dbf94001438c0f03b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/nestheads/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Nancy Classics",
+    "slug": "nancy-classics",
+    "image_url": "https://featureassets.gocomics.com/assets/ffc2a3b0daa701345620005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/nancy-classics/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Nancy",
+    "slug": "nancy",
+    "image_url": "https://featureassets.gocomics.com/assets/417bd4404af8013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/nancy/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Myth Tickle",
+    "slug": "mythtickle",
+    "image_url": "https://featureassets.gocomics.com/assets/977eda304e3f013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/mythtickle/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "My Dad is Dracula",
+    "slug": "my-dad-is-dracula",
+    "image_url": "https://featureassets.gocomics.com/assets/92937ce0270d013fc072005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/my-dad-is-dracula/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Mutt And Jeff",
+    "slug": "muttandjeff",
+    "image_url": "https://featureassets.gocomics.com/assets/906af9d048c6013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/muttandjeff/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Mother Goose And Grimm",
+    "slug": "mother-goose-and-grimm",
+    "image_url": "https://featureassets.gocomics.com/assets/3aa78c1047e7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/mother-goose-and-grimm/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Monty",
+    "slug": "monty",
+    "image_url": "https://featureassets.gocomics.com/assets/59cafa804ca7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/monty/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Momma",
+    "slug": "momma",
+    "image_url": "https://featureassets.gocomics.com/assets/831aa1b02cf4013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/momma/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Molly and the Bear",
+    "slug": "molly-and-the-bear",
+    "image_url": "https://featureassets.gocomics.com/assets/97513c304da4013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/molly-and-the-bear/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Moderately Confused",
+    "slug": "moderately-confused",
+    "image_url": "https://featureassets.gocomics.com/assets/40fbf1a04ca7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/moderately-confused/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Miss Peach",
+    "slug": "miss-peach",
+    "image_url": "https://featureassets.gocomics.com/assets/415a88c0941c013653f6005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/miss-peach/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Mike du Jour",
+    "slug": "mike-du-jour",
+    "image_url": "https://featureassets.gocomics.com/assets/9b243b404bec013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/mike-du-jour/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Middletons",
+    "slug": "themiddletons",
+    "image_url": "https://featureassets.gocomics.com/assets/3a5b76904af8013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/themiddletons/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Meaning of Lila",
+    "slug": "meaningoflila",
+    "image_url": "https://featureassets.gocomics.com/assets/5d4f16502cf1013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/meaningoflila/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Marmaduke",
+    "slug": "marmaduke",
+    "image_url": "https://featureassets.gocomics.com/assets/315454a04ca7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/marmaduke/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Maria s Day",
+    "slug": "marias-day",
+    "image_url": "https://featureassets.gocomics.com/assets/0b551a605191013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/marias-day/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Maintaining",
+    "slug": "maintaining",
+    "image_url": "https://featureassets.gocomics.com/assets/80ad7bb05f05012ee3bf00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/maintaining/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Lug Nuts",
+    "slug": "lug-nuts",
+    "image_url": "https://featureassets.gocomics.com/assets/5acc17100e21013fbec7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lug-nuts/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Lucky Cow",
+    "slug": "luckycow",
+    "image_url": "https://featureassets.gocomics.com/assets/1994f7e08f920137aeb9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/luckycow/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Luann",
+    "slug": "luannspanish",
+    "image_url": "https://featureassets.gocomics.com/assets/499535a0f8ec0137d486005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/luannspanish/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Luann Againn",
+    "slug": "luann-againn",
+    "image_url": "https://featureassets.gocomics.com/assets/94f03360b1fb013eb9ab005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/luann-againn/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Luann",
+    "slug": "luann",
+    "image_url": "https://featureassets.gocomics.com/assets/ca4489d04bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/luann/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Lost Sheep",
+    "slug": "lostsheep",
+    "image_url": "https://featureassets.gocomics.com/assets/0136e6e029fb013fc094005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lostsheep/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Grizzwells",
+    "slug": "los-osorios",
+    "image_url": "https://featureassets.gocomics.com/assets/25a648507e020134e443005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/los-osorios/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Loose Parts",
+    "slug": "looseparts",
+    "image_url": "https://featureassets.gocomics.com/assets/e55977f048d3013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/looseparts/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Looks Good On Paper",
+    "slug": "looks-good-on-paper",
+    "image_url": "https://featureassets.gocomics.com/assets/7c826c704807013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/looks-good-on-paper/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Lola",
+    "slug": "lola-en-espanol",
+    "image_url": "https://featureassets.gocomics.com/assets/8689b9f0673a0131e0ae005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lola-en-espanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Lola",
+    "slug": "lola",
+    "image_url": "https://featureassets.gocomics.com/assets/2e92f0903131013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lola/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Lockhorns",
+    "slug": "lockhorns",
+    "image_url": "https://featureassets.gocomics.com/assets/c67a88d048c9013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lockhorns/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Little Fried Chicken and Sushi",
+    "slug": "little-fried-chicken-and-sushi",
+    "image_url": "https://featureassets.gocomics.com/assets/07adcf40e2f501382662005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/little-fried-chicken-and-sushi/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Little Dog Lost",
+    "slug": "littledoglost",
+    "image_url": "https://featureassets.gocomics.com/assets/1de8d100503b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/littledoglost/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Lio",
+    "slug": "lioespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/29de1a304cc4013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lioespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Lio",
+    "slug": "lio",
+    "image_url": "https://featureassets.gocomics.com/assets/d3286ed04b00013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lio/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Lil Abner",
+    "slug": "lil-abner",
+    "image_url": "https://featureassets.gocomics.com/assets/faa9a5e095ee012eb06f001dd8b71c47?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lil-abner/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Life on Earth",
+    "slug": "life-on-earth",
+    "image_url": "https://featureassets.gocomics.com/assets/1deed5f0513b013fc2a1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/life-on-earth/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Liberty Meadows",
+    "slug": "libertymeadows",
+    "image_url": "https://featureassets.gocomics.com/assets/224000002cf1013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/libertymeadows/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Last Kiss",
+    "slug": "lastkiss",
+    "image_url": "https://featureassets.gocomics.com/assets/8a9172f04cc4013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lastkiss/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Lards World Peace Tips",
+    "slug": "lards-world-peace-tips",
+    "image_url": "https://featureassets.gocomics.com/assets/562ee0604e02013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lards-world-peace-tips/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "La Cucaracha",
+    "slug": "la-cucaracha-en-espanol",
+    "image_url": "https://featureassets.gocomics.com/assets/d245c7904cbb013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/la-cucaracha-en-espanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "La Cucaracha",
+    "slug": "lacucaracha",
+    "image_url": "https://featureassets.gocomics.com/assets/bb2939204bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/lacucaracha/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Knight Life",
+    "slug": "theknightlife",
+    "image_url": "https://featureassets.gocomics.com/assets/75f663d050f60132aea9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/theknightlife/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Kiban",
+    "slug": "kliban",
+    "image_url": "https://featureassets.gocomics.com/assets/39be30904ea7013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/kliban/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Frank And Ernest",
+    "slug": "justo-y-franco",
+    "image_url": "https://featureassets.gocomics.com/assets/fc59ca204cb2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/justo-y-franco/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Street Scene",
+    "slug": "street-scene",
+    "image_url": "https://featureassets.gocomics.com/assets/0db932204b1a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/street-scene/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Wu Mo",
+    "slug": "wumo",
+    "image_url": "https://featureassets.gocomics.com/assets/8e45f8104635013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/wumo/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "The Worried Well",
+    "slug": "the-worried-well",
+    "image_url": "https://featureassets.gocomics.com/assets/79ec5230519d013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/the-worried-well/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Working It Out",
+    "slug": "workingitout",
+    "image_url": "https://featureassets.gocomics.com/assets/d82773703bd7013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/workingitout/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Working Daze",
+    "slug": "working-daze",
+    "image_url": "https://featureassets.gocomics.com/assets/52cf28c05191013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/working-daze/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Wizard Of Id",
+    "slug": "wizardofidespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/9f4bd5004cd0013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/wizardofidespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Wizard of Id Classics",
+    "slug": "wizard-of-id-classics",
+    "image_url": "https://featureassets.gocomics.com/assets/892bced04355013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/wizard-of-id-classics/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Wizard Of Id",
+    "slug": "wizardofid",
+    "image_url": "https://featureassets.gocomics.com/assets/29c27d704b1a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/wizardofid/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Wee Pals",
+    "slug": "weepals",
+    "image_url": "https://featureassets.gocomics.com/assets/a360c9403bd7013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/weepals/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Wayno Vision",
+    "slug": "waynovision",
+    "image_url": "https://featureassets.gocomics.com/assets/0e7766704dfd0135dba7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/waynovision/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Wallace The Brave",
+    "slug": "wallace-the-brave",
+    "image_url": "https://featureassets.gocomics.com/assets/fbca2280472b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/wallace-the-brave/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Viivi and Wagner",
+    "slug": "viivi-and-wagner",
+    "image_url": "https://featureassets.gocomics.com/assets/d39b7fb0b8fe013eb960005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/viivi-and-wagner/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "UFO",
+    "slug": "ufo",
+    "image_url": "https://featureassets.gocomics.com/assets/280627c05194013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/ufo/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Alley Oop",
+    "slug": "trucutu",
+    "image_url": "https://featureassets.gocomics.com/assets/ed1efe304cb5013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/trucutu/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "That is Priceless",
+    "slug": "that-is-priceless",
+    "image_url": "https://featureassets.gocomics.com/assets/18b789705198013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/that-is-priceless/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Thatababy 2026",
+    "slug": "thatababy",
+    "image_url": "https://featureassets.gocomics.com/assets/4feb8a90458b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/thatababy/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Texts from Mittens",
+    "slug": "texts-from-mittens",
+    "image_url": "https://featureassets.gocomics.com/assets/c13b00c04cba013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/texts-from-mittens/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Tarzan",
+    "slug": "tarzan",
+    "image_url": "https://featureassets.gocomics.com/assets/21fcb2300e7601312708001dd8b71c47?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/tarzan/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Tank Mc Namara",
+    "slug": "tankmcnamara",
+    "image_url": "https://featureassets.gocomics.com/assets/06ab9a804bdb013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/tankmcnamara/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Sylvia",
+    "slug": "sylvia",
+    "image_url": "https://featureassets.gocomics.com/assets/c0f41680633f012ee3c300163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/sylvia/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Super Fun Pak Comix",
+    "slug": "super-fun-pak-comix",
+    "image_url": "https://featureassets.gocomics.com/assets/1b8534903f60013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/super-fun-pak-comix/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Studio Jantze",
+    "slug": "studio-jantze",
+    "image_url": "https://featureassets.gocomics.com/assets/33eeb03051b5013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/studio-jantze/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Strange Brew",
+    "slug": "strangebrew",
+    "image_url": "https://featureassets.gocomics.com/assets/8b6eec6045ba013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/strangebrew/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Stone Soup",
+    "slug": "stonesoup",
+    "image_url": "https://featureassets.gocomics.com/assets/31f7c9b000b9013d55fd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/stonesoup/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Speed Bump",
+    "slug": "speedbump",
+    "image_url": "https://featureassets.gocomics.com/assets/b32b2ae04b4b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/speedbump/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Snow Sez",
+    "slug": "snow-sez",
+    "image_url": "https://featureassets.gocomics.com/assets/fe33aca05025013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/snow-sez/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Skippy",
+    "slug": "skippy",
+    "image_url": "https://featureassets.gocomics.com/assets/82a10c90da88012fe743001dd8b71c47?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/skippy/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Skin Horse",
+    "slug": "skinhorse",
+    "image_url": "https://featureassets.gocomics.com/assets/6ad6c5607b5f012ee3c400163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/skinhorse/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Shoe",
+    "slug": "shoe",
+    "image_url": "https://featureassets.gocomics.com/assets/c48a07004664013fc217005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/shoe/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Shermans Lagoon",
+    "slug": "shermanslagoon",
+    "image_url": "https://featureassets.gocomics.com/assets/e0461fc04b03013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/shermanslagoon/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Scary Gary",
+    "slug": "scarygary",
+    "image_url": "https://featureassets.gocomics.com/assets/1fb499903b75013fc16e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/scarygary/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Savage Chickens",
+    "slug": "savage-chickens",
+    "image_url": "https://featureassets.gocomics.com/assets/cecc32c03f7a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/savage-chickens/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Rubes",
+    "slug": "rubes",
+    "image_url": "https://featureassets.gocomics.com/assets/05bf9e004b1a013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/rubes/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Rose Is Rose",
+    "slug": "roseisrose",
+    "image_url": "https://featureassets.gocomics.com/assets/fc7b8d4047ec013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/roseisrose/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ripleys Believe It Or Not",
+    "slug": "ripleysbelieveitornot",
+    "image_url": "https://featureassets.gocomics.com/assets/b97f76504cb0013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/ripleysbelieveitornot/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ripleys Believe It Or Not",
+    "slug": "ripleys-en-espanol",
+    "image_url": "https://featureassets.gocomics.com/assets/5f77a3c04d47013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/ripleys-en-espanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Rip Haywire",
+    "slug": "riphaywire",
+    "image_url": "https://featureassets.gocomics.com/assets/f9984d804bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/riphaywire/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Red And Rover",
+    "slug": "redandrover",
+    "image_url": "https://featureassets.gocomics.com/assets/db1d64e04bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/redandrover/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Real Life Adventures",
+    "slug": "reallifeadventures",
+    "image_url": "https://featureassets.gocomics.com/assets/e1c0927085dc012f2fe000163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/reallifeadventures/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Reality Check",
+    "slug": "realitycheck",
+    "image_url": "https://featureassets.gocomics.com/assets/eb2bada04bd2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/realitycheck/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Rabbits Against Magic",
+    "slug": "rabbitsagainstmagic",
+    "image_url": "https://featureassets.gocomics.com/assets/3a33d7204928013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/rabbitsagainstmagic/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Prickly City",
+    "slug": "pricklycity",
+    "image_url": "https://featureassets.gocomics.com/assets/ef910fb04bda013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/pricklycity/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Pre Teena",
+    "slug": "preteena",
+    "image_url": "https://featureassets.gocomics.com/assets/09bbdf705d3e012ee3bd00163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/preteena/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Pooch Cafe",
+    "slug": "poochcafe",
+    "image_url": "https://featureassets.gocomics.com/assets/92d5a860457d013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/poochcafe/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Pluggers",
+    "slug": "pluggers",
+    "image_url": "https://featureassets.gocomics.com/assets/84280b90482a013fc242005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/pluggers/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Pickles",
+    "slug": "pickles",
+    "image_url": "https://featureassets.gocomics.com/assets/a266a3c047e2013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/pickles/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ziggy",
+    "slug": "ziggyespanol",
+    "image_url": "https://featureassets.gocomics.com/assets/d1d954101b9a012ea5c900163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/ziggyespanol/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Ziggy",
+    "slug": "ziggy",
+    "image_url": "https://featureassets.gocomics.com/assets/18dc44804cb1013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/ziggy/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Zack Hill",
+    "slug": "zackhill",
+    "image_url": "https://featureassets.gocomics.com/assets/9d26db104cc6013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/zackhill/2026/06/24",
+    "category": "daily"
+  },
+  {
+    "name": "Yaffle",
+    "slug": "yaffle",
+    "image_url": "https://featureassets.gocomics.com/assets/6d1772404fb3013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-24",
+    "url": "https://www.gocomics.com/yaffle/2026/06/24",
+    "category": "daily"
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-24",
+  "scraped_at": "2026-06-24T08:19:13.006970+00:00",
+  "comics": [
+    {
+      "id": "22376",
+      "date": "2026-06-24",
+      "url": "https://www.thefarside.com/2026/06/24/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F53123bd0e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/53123bd0e9ee0137cf93005056a9545d",
+      "caption": "Carlton falls for the old rubber-scalpel gag.",
+      "title": "Carlton falls for the old rubber-scalpel gag"
+    },
+    {
+      "id": "22377",
+      "date": "2026-06-24",
+      "url": "https://www.thefarside.com/2026/06/24/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F07fac8e0d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/07fac8e0d0f70137c652005056a9545d",
+      "caption": "Metamorphosis nightclubs",
+      "title": "Metamorphosis nightclubs"
+    },
+    {
+      "id": "22378",
+      "date": "2026-06-24",
+      "url": "https://www.thefarside.com/2026/06/24/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fac68b830d19e0137c68e005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ac68b830d19e0137c68e005056a9545d",
+      "caption": "Dog restaurants",
+      "title": "Dog restaurants"
+    },
+    {
+      "id": "22379",
+      "date": "2026-06-24",
+      "url": "https://www.thefarside.com/2026/06/24/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8c2b0740d0d10137c639005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8c2b0740d0d10137c639005056a9545d",
+      "caption": "\u201cSay, ain\u2019t you a stranger in this part?\u201d",
+      "title": "\u201cSay, ain\u2019t you a stranger in this part?\u201d"
+    },
+    {
+      "id": "22380",
+      "date": "2026-06-24",
+      "url": "https://www.thefarside.com/2026/06/24/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee461d1758c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee461d1758c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22380"
+    }
+  ]
+}
