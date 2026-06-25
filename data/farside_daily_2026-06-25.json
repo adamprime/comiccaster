@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-25",
+  "scraped_at": "2026-06-25T08:19:58.945056+00:00",
+  "comics": [
+    {
+      "id": "22381",
+      "date": "2026-06-25",
+      "url": "https://www.thefarside.com/2026/06/25/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Faad94c20d0be0137c62c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/aad94c20d0be0137c62c005056a9545d",
+      "caption": "\u201cNow just hold your horses, everyone. \u2026 Let\u2019s let it run for a minute or so and see if it gets any colder.\u201d",
+      "title": "\u201cNow just hold your horses, everyone"
+    },
+    {
+      "id": "22382",
+      "date": "2026-06-25",
+      "url": "https://www.thefarside.com/2026/06/25/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffa235150fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fa235150fa830137d52f005056a9545d",
+      "caption": "\u201cUh-oh, Lorraine ... someone seems to be checking you out.\u201d",
+      "title": "\u201cUh-oh, Lorraine"
+    },
+    {
+      "id": "22383",
+      "date": "2026-06-25",
+      "url": "https://www.thefarside.com/2026/06/25/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F777eb650d0ea0137c64d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/777eb650d0ea0137c64d005056a9545d",
+      "caption": "\u201cSeems like Gramp\u2019s been there forever\u2014fossilized right there on his favorite rock. \u2026 Scares the hell out of the dog.\u201d",
+      "title": "\u201cSeems like Gramp\u2019s been there forever\u2014fossilized right t..."
+    },
+    {
+      "id": "22384",
+      "date": "2026-06-25",
+      "url": "https://www.thefarside.com/2026/06/25/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F37a71fe0e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/37a71fe0e6f90137ce50005056a9545d",
+      "caption": "Fish funerals",
+      "title": "Fish funerals"
+    },
+    {
+      "id": "22385",
+      "date": "2026-06-25",
+      "url": "https://www.thefarside.com/2026/06/25/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff01cbc50fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f01cbc50fa830137d52f005056a9545d",
+      "caption": "\u201cWait a minute! Say that again, Doris! \u2026 You know, the part about \u2018If only we had some means of climbing down.\u2019\u201d",
+      "title": "\u201cWait a minute! Say that again, Doris! \u2026 You know, the pa..."
+    }
+  ]
+}
