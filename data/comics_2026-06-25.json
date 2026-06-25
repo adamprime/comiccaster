@@ -24,11 +24,51 @@
     "category": "political"
   },
   {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/99f13c9052da013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-25",
+    "url": "https://www.gocomics.com/kal/2026/06/25",
+    "category": "political"
+  },
+  {
     "name": "John Deering",
     "slug": "johndeering",
     "image_url": "https://featureassets.gocomics.com/assets/1b98d2005248013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-25",
     "url": "https://www.gocomics.com/johndeering/2026/06/25",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/6839e82052de013fc2c9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-25",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/06/25",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/2f1213b052e2013fc2ca005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-25",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/06/25",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/45d06e4052a1013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-25",
+    "url": "https://www.gocomics.com/garyvarvel/2026/06/25",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/29baf57052e2013fc2ca005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-25",
+    "url": "https://www.gocomics.com/drewsheneman/2026/06/25",
     "category": "political"
   },
   {
@@ -992,6 +1032,14 @@
     "category": "daily"
   },
   {
+    "name": "Domestic Abuse",
+    "slug": "domesticabuse",
+    "image_url": "https://featureassets.gocomics.com/assets/0d529c00529d013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-25",
+    "url": "https://www.gocomics.com/domesticabuse/2026/06/25",
+    "category": "daily"
+  },
+  {
     "name": "Dogs Of C Kennel",
     "slug": "dogsofckennel",
     "image_url": "https://featureassets.gocomics.com/assets/de64f7b04b4b013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1685,6 +1733,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/edf90cf05251013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-25",
     "url": "https://www.gocomics.com/ten-cats/2026/06/25",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/693dcb2052bd013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-25",
+    "url": "https://www.gocomics.com/tavicat/2026/06/25",
     "category": "daily"
   },
   {
