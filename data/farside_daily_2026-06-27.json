@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-06-27",
+  "scraped_at": "2026-06-27T08:20:08.295734+00:00",
+  "comics": [
+    {
+      "id": "22395",
+      "date": "2026-06-27",
+      "url": "https://www.thefarside.com/2026/06/27/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6f8af6e0d0be0137c62c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6f8af6e0d0be0137c62c005056a9545d",
+      "caption": "\u201cWhat are you gonna tell your dad, Chuck?\u201d",
+      "title": "\u201cWhat are you gonna tell your dad, Chuck?\u201d"
+    },
+    {
+      "id": "22396",
+      "date": "2026-06-27",
+      "url": "https://www.thefarside.com/2026/06/27/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F74805ea0d0ea0137c64d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/74805ea0d0ea0137c64d005056a9545d",
+      "caption": "\u201cI\u2019ve warned you kids about this\u2014now I\u2019m gonna straighten you out once and for all.\u201d",
+      "title": "\u201cI\u2019ve warned you kids about this\u2014now I\u2019m gonna straighten..."
+    }
+  ]
+}
