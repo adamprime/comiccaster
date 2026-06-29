@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-06-29",
+  "scraped_at": "2026-06-29T08:19:11.183455+00:00",
+  "comics": [
+    {
+      "id": "22399",
+      "date": "2026-06-29",
+      "url": "https://www.thefarside.com/2026/06/29/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6fbd5550cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6fbd5550cdd60137c56b005056a9545d",
+      "caption": "After 23 uneventful years at the zoo\u2019s snakehouse,\ncurator Ernie Schwartz has a cumulative attack of\nthe willies.",
+      "title": "After 23 uneventful years at the zoo\u2019s snakehouse,\ncurato..."
+    },
+    {
+      "id": "22400",
+      "date": "2026-06-29",
+      "url": "https://www.thefarside.com/2026/06/29/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb7214df0dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b7214df0dcca0137caaf005056a9545d",
+      "caption": "Tarzan is greeted by the Parakeet People.",
+      "title": "Tarzan is greeted by the Parakeet People"
+    },
+    {
+      "id": "22401",
+      "date": "2026-06-29",
+      "url": "https://www.thefarside.com/2026/06/29/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F20c1d3a0d35f0137c76e005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/20c1d3a0d35f0137c76e005056a9545d",
+      "caption": "\u201cOn the other hand, gentlemen, what if we gave a war and everybody came?\u201d",
+      "title": "\u201cOn the other hand, gentlemen, what if we gave a war and ..."
+    },
+    {
+      "id": "22402",
+      "date": "2026-06-29",
+      "url": "https://www.thefarside.com/2026/06/29/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb8f58520e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b8f58520e6f80137ce50005056a9545d",
+      "caption": "\"Well, like I said, a mammoth shouldn\u2019t be allowed in the cave to begin with\u2014but installing a swinging door was just plain crazy!\u201d",
+      "title": "\"Well, like I said, a mammoth shouldn\u2019t be allowed in the..."
+    },
+    {
+      "id": "22403",
+      "date": "2026-06-29",
+      "url": "https://www.thefarside.com/2026/06/29/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc0b4ed60df100137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c0b4ed60df100137cbaf005056a9545d",
+      "caption": "\u201cHold it right there, Frank! \u2026 If you\u2019re gonna shake, you do it in another room!\u201d",
+      "title": "\u201cHold it right there, Frank! \u2026 If you\u2019re gonna shake, you..."
+    }
+  ]
+}
