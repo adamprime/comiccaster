@@ -1,5 +1,13 @@
 [
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/fe96acd056cf013fc2eb005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-30",
+    "url": "https://www.gocomics.com/tim-campbell/2026/06/30",
+    "category": "political"
+  },
+  {
     "name": "Robert Ariail",
     "slug": "robert-ariail",
     "image_url": "https://featureassets.gocomics.com/assets/a3071b20562e013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -8,11 +16,27 @@
     "category": "political"
   },
   {
+    "name": "Phil Hands",
+    "slug": "phil-hands",
+    "image_url": "https://featureassets.gocomics.com/assets/00eb49a056d0013fc2eb005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-30",
+    "url": "https://www.gocomics.com/phil-hands/2026/06/30",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/81ef2330557a013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-06-30",
     "url": "https://www.gocomics.com/michaelramirez/2026/06/30",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/bfd3463056c1013fc2e9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-06-30",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/06/30",
     "category": "political"
   },
   {
