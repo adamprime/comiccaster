@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-01",
+  "scraped_at": "2026-07-01T08:19:40.392677+00:00",
+  "comics": [
+    {
+      "id": "22410",
+      "date": "2026-07-01",
+      "url": "https://www.thefarside.com/2026/07/01/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd5911100ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d5911100ea250137cfba005056a9545d",
+      "caption": "\u201cWell, it came from your division, Sanders, and as you can see, it\u2019s covered with honey and molasses! \u2026 You know what that makes this, Sanders?\u201d",
+      "title": "\u201cWell, it came from your division, Sanders, and as you ca..."
+    },
+    {
+      "id": "22411",
+      "date": "2026-07-01",
+      "url": "https://www.thefarside.com/2026/07/01/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F87060150df0f0137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/87060150df0f0137cbaf005056a9545d",
+      "caption": "\u201cCheck this guy out, Lois. \u2026 Artificial for sure.\u201d",
+      "title": "\u201cCheck this guy out, Lois"
+    },
+    {
+      "id": "22412",
+      "date": "2026-07-01",
+      "url": "https://www.thefarside.com/2026/07/01/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F13b1c120e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/13b1c120e9ef0137cf93005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22412"
+    },
+    {
+      "id": "22413",
+      "date": "2026-07-01",
+      "url": "https://www.thefarside.com/2026/07/01/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6a9cb500c0b501396953005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6a9cb500c0b501396953005056a9545d",
+      "caption": "\u201c\u2026 and then the second group comes in\u2014\u2018row, row, row your boat\u2019\u2026\u201d",
+      "title": "\u201c\u2026 and then the second group comes in\u2014\u2018row, row, row your..."
+    },
+    {
+      "id": "22414",
+      "date": "2026-07-01",
+      "url": "https://www.thefarside.com/2026/07/01/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1095b6d0ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1095b6d0ea250137cfba005056a9545d",
+      "caption": "\u201cIt\u2019s a cute trick, Warren, but the Schuberts are here for dinner, so just \u2018abracadabra\u2019 this thing back to where it was.\u201d",
+      "title": "\u201cIt\u2019s a cute trick, Warren, but the Schuberts are here fo..."
+    }
+  ]
+}
