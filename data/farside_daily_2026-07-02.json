@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-02",
+  "scraped_at": "2026-07-02T08:19:55.162556+00:00",
+  "comics": [
+    {
+      "id": "22415",
+      "date": "2026-07-02",
+      "url": "https://www.thefarside.com/2026/07/02/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9765105029d50138e54b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9765105029d50138e54b005056a9545d",
+      "caption": "\u201cBut before we begin, this announcement: Mr. Johnson! Mr. Frank Johnson! \u2026 If you\u2019re out there, the conference organizers would like you to know that you were never actually invited.\u201d",
+      "title": "\u201cBut before we begin, this announcement: Mr"
+    },
+    {
+      "id": "22416",
+      "date": "2026-07-02",
+      "url": "https://www.thefarside.com/2026/07/02/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F04355050db8001397097005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/04355050db8001397097005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22416"
+    },
+    {
+      "id": "22417",
+      "date": "2026-07-02",
+      "url": "https://www.thefarside.com/2026/07/02/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95acc7f858c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95acc7f858c311ea8bf6005056a9",
+      "caption": "\u201cNice try.\u201d",
+      "title": "\u201cNice try"
+    },
+    {
+      "id": "22418",
+      "date": "2026-07-02",
+      "url": "https://www.thefarside.com/2026/07/02/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F15409120ea260137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/15409120ea260137cfba005056a9545d",
+      "caption": "\u201cWell, it was a private table.\u201d",
+      "title": "\u201cWell, it was a private table"
+    },
+    {
+      "id": "22419",
+      "date": "2026-07-02",
+      "url": "https://www.thefarside.com/2026/07/02/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2c042d309ee701396086005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2c042d309ee701396086005056a9545d",
+      "caption": "\u201cAnd this little piggy went weee, weee, weee, weee \u2026 but soon stopped struggling and was eaten.\u201d",
+      "title": "\u201cAnd this little piggy went weee, weee, weee, weee \u2026 but ..."
+    }
+  ]
+}
