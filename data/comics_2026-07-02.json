@@ -56,6 +56,30 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/5cee85f0585a013fc307005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-02",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/07/02",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/687e3d90585e013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-02",
+    "url": "https://www.gocomics.com/joe-heller/2026/07/02",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/5386a7e05862013fc309005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-02",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/07/02",
+    "category": "political"
+  },
+  {
     "name": "Jack Ohman",
     "slug": "jackohman",
     "image_url": "https://featureassets.gocomics.com/assets/b0967c0057ba013fc300005056a9545d?optimizer=image&width=2800&quality=85",
@@ -149,6 +173,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/44b8d5802630013fc020005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-02",
     "url": "https://www.gocomics.com/cornered/2026/07/02",
+    "category": "daily"
+  },
+  {
+    "name": "Compu toon",
+    "slug": "compu-toon",
+    "image_url": "https://featureassets.gocomics.com/assets/21e008e05829013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-02",
+    "url": "https://www.gocomics.com/compu-toon/2026/07/02",
     "category": "daily"
   },
   {
@@ -1549,6 +1581,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/304d4bb02cf1013fc0c4005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-02",
     "url": "https://www.gocomics.com/libertymeadows/2026/07/02",
+    "category": "daily"
+  },
+  {
+    "name": "Lards World Peace Tips",
+    "slug": "lards-world-peace-tips",
+    "image_url": "https://featureassets.gocomics.com/assets/ed119f605821013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-02",
+    "url": "https://www.gocomics.com/lards-world-peace-tips/2026/07/02",
     "category": "daily"
   },
   {
