@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-03",
+  "scraped_at": "2026-07-03T08:19:18.146825+00:00",
+  "comics": [
+    {
+      "id": "22420",
+      "date": "2026-07-03",
+      "url": "https://www.thefarside.com/2026/07/03/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fffa3aa30e4850137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ffa3aa30e4850137cda5005056a9545d",
+      "caption": "\u201cI\u2019m coming! I\u2019m coming! \u2026 Keep your skin on!\u201d",
+      "title": "\u201cI\u2019m coming! I\u2019m coming! \u2026 Keep your skin on!\u201d"
+    },
+    {
+      "id": "22421",
+      "date": "2026-07-03",
+      "url": "https://www.thefarside.com/2026/07/03/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6b209200e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6b209200e9ef0137cf93005056a9545d",
+      "caption": "Primitive theme parks",
+      "title": "Primitive theme parks"
+    },
+    {
+      "id": "22422",
+      "date": "2026-07-03",
+      "url": "https://www.thefarside.com/2026/07/03/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F830c3750e85a0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/830c3750e85a0137cedf005056a9545d",
+      "caption": "\u201cOh, the whole flower bed is still in shock. He was such a quiet butterfly\u2014kept to himself mostly.\u201d",
+      "title": "\u201cOh, the whole flower bed is still in shock"
+    },
+    {
+      "id": "22423",
+      "date": "2026-07-03",
+      "url": "https://www.thefarside.com/2026/07/03/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F52a84800fa880137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/52a84800fa880137d531005056a9545d",
+      "caption": "\u201cWell, hell no, I can\u2019t tell Harriet! \u2026 First thing she\u2019s gonna ask me is what was I doin\u2019 checkin\u2019 out a decoy!\u201d",
+      "title": "\u201cWell, hell no, I can\u2019t tell Harriet! \u2026 First thing she\u2019s..."
+    },
+    {
+      "id": "22424",
+      "date": "2026-07-03",
+      "url": "https://www.thefarside.com/2026/07/03/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fceb01290d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ceb01290d8ba0137c959005056a9545d",
+      "caption": "\u201cTake this handkerchief back to the lab, Stevens. I want some answers on which monster did this\u2014Godzilla? Gargantua?\n Who, dammit!?\u201d",
+      "title": "\u201cTake this handkerchief back to the lab, Stevens"
+    }
+  ]
+}
