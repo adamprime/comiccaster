@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Rugrats - Creators</title><link>https://www.creators.com/read/rugrats</link><description>Daily Rugrats comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/rugrats.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 03 Jul 2026 08:20:52 +0000</lastBuildDate><ttl>1440</ttl><item><title>Rugrats for Jul 03, 2026</title><link>https://www.creators.com/read/rugrats/07/26/416512</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Rugrats - Creators</title><link>https://www.creators.com/read/rugrats</link><description>Daily Rugrats comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/rugrats.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 04 Jul 2026 08:21:11 +0000</lastBuildDate><ttl>1440</ttl><item><title>Rugrats for Jul 04, 2026</title><link>https://www.creators.com/read/rugrats/07/26/416535</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-07-04&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.alphacomedy.com/50/2026/07_04_26_8eed4e336b3f0462ca10c0c45890df31.jpg" alt="Rugrats" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Rugrats&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/rugrats/07/26/416535</guid><pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate></item><item><title>Rugrats for Jul 03, 2026</title><link>https://www.creators.com/read/rugrats/07/26/416512</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-07-03&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/50/2026/07_03_26_03525af50eca250bf03cc4bf4d178dff.jpg" alt="Rugrats" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -160,11 +167,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Rugrats&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/rugrats/06/26/415788</guid><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate></item><item><title>Rugrats for Jun 10, 2026</title><link>https://www.creators.com/read/rugrats/06/26/415791</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-06-10&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.alphacomedy.com/50/2026/06_10_26_95557bb7b179a21941b7f1df14ae5f09.jpg" alt="Rugrats" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Rugrats&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/rugrats/06/26/415791</guid><pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://www.creators.com/read/rugrats/06/26/415788</guid><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate></item></channel></rss>
