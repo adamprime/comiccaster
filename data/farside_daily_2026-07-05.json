@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-07-05",
+  "scraped_at": "2026-07-05T08:19:27.061215+00:00",
+  "comics": [
+    {
+      "id": "22427",
+      "date": "2026-07-05",
+      "url": "https://www.thefarside.com/2026/07/05/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2d493b70e3af0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2d493b70e3af0137cd49005056a9545d",
+      "caption": "\u201cAnd when the big moment comes, here\u2019s the nursery Robert and I have fixed up.\u201d",
+      "title": "\u201cAnd when the big moment comes, here\u2019s the nursery Robert..."
+    },
+    {
+      "id": "22428",
+      "date": "2026-07-05",
+      "url": "https://www.thefarside.com/2026/07/05/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F630cf930cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/630cf930cdd50137c56b005056a9545d",
+      "caption": "\u201cThrough the hoop, Bob! Through the hoop!\u201d",
+      "title": "\u201cThrough the hoop, Bob! Through the hoop!\u201d"
+    }
+  ]
+}
