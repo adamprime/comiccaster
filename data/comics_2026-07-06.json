@@ -32,6 +32,14 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/3864d1505b83013fc31c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-06",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/07/06",
+    "category": "political"
+  },
+  {
     "name": "Doonesbury",
     "slug": "doonesbury",
     "image_url": "https://featureassets.gocomics.com/assets/91f2933056bd013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -757,6 +765,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/d9c1f9d056ba013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-06",
     "url": "https://www.gocomics.com/heartofthecity/2026/07/06",
+    "category": "daily"
+  },
+  {
+    "name": "Harley",
+    "slug": "harley",
+    "image_url": "https://featureassets.gocomics.com/assets/164d29c05b57013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-06",
+    "url": "https://www.gocomics.com/harley/2026/07/06",
     "category": "daily"
   },
   {
@@ -1552,6 +1568,14 @@
     "category": "daily"
   },
   {
+    "name": "Little Dog Lost",
+    "slug": "littledoglost",
+    "image_url": "https://featureassets.gocomics.com/assets/df3d52f05b42013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-06",
+    "url": "https://www.gocomics.com/littledoglost/2026/07/06",
+    "category": "daily"
+  },
+  {
     "name": "Lio",
     "slug": "lioespanol",
     "image_url": "https://featureassets.gocomics.com/assets/1383b1d057a0013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1605,6 +1629,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/96c56910525f013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-06",
     "url": "https://www.gocomics.com/lastkiss/2026/07/06",
+    "category": "daily"
+  },
+  {
+    "name": "Lards World Peace Tips",
+    "slug": "lards-world-peace-tips",
+    "image_url": "https://featureassets.gocomics.com/assets/0afbaa205b4b013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-06",
+    "url": "https://www.gocomics.com/lards-world-peace-tips/2026/07/06",
     "category": "daily"
   },
   {
