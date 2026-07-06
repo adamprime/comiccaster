@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-06",
+  "scraped_at": "2026-07-06T08:19:23.755756+00:00",
+  "comics": [
+    {
+      "id": "22429",
+      "date": "2026-07-06",
+      "url": "https://www.thefarside.com/2026/07/06/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F89da37e0963101395e72005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/89da37e0963101395e72005056a9545d",
+      "caption": "\u201cThe revolution has been postponed. \u2026 We\u2019ve discovered a leak.\u201d",
+      "title": "\u201cThe revolution has been postponed"
+    },
+    {
+      "id": "22430",
+      "date": "2026-07-06",
+      "url": "https://www.thefarside.com/2026/07/06/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F24bc3820e85c0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/24bc3820e85c0137cedf005056a9545d",
+      "caption": "\u201cCome with us, ma\u2019am\u2014and if I were you, I\u2019d get a good lawyer. No one\u2019s gonna buy that my-husband-was-only-hibernating story.\u201d",
+      "title": "\u201cCome with us, ma\u2019am\u2014and if I were you, I\u2019d get a good la..."
+    },
+    {
+      "id": "22431",
+      "date": "2026-07-06",
+      "url": "https://www.thefarside.com/2026/07/06/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F064e3110d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/064e3110d7410137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22431"
+    },
+    {
+      "id": "22432",
+      "date": "2026-07-06",
+      "url": "https://www.thefarside.com/2026/07/06/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6de3ec20d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6de3ec20d8ba0137c959005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22432"
+    },
+    {
+      "id": "22433",
+      "date": "2026-07-06",
+      "url": "https://www.thefarside.com/2026/07/06/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4675b1509bd301395fec005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4675b1509bd301395fec005056a9545d",
+      "caption": "Loch Ness mobsters",
+      "title": "Loch Ness mobsters"
+    }
+  ]
+}
