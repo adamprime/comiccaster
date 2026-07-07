@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-07",
+  "scraped_at": "2026-07-07T08:10:06.839111+00:00",
+  "comics": [
+    {
+      "id": "22434",
+      "date": "2026-07-07",
+      "url": "https://www.thefarside.com/2026/07/07/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F94912140cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/94912140cdd50137c56b005056a9545d",
+      "caption": "\u201cHarry! I found this note from Mary Beth! \u2026 She\u2019s run off with\na spoon!\u201d",
+      "title": "\u201cHarry! I found this note from Mary Beth! \u2026 She\u2019s run off..."
+    },
+    {
+      "id": "22435",
+      "date": "2026-07-07",
+      "url": "https://www.thefarside.com/2026/07/07/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F16bebee0ea260137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/16bebee0ea260137cfba005056a9545d",
+      "caption": "\u201cYou folks like flies? Well, wait till you see the parlor!\u201d",
+      "title": "\u201cYou folks like flies? Well, wait till you see the parlor!\u201d"
+    },
+    {
+      "id": "22436",
+      "date": "2026-07-07",
+      "url": "https://www.thefarside.com/2026/07/07/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcb4a19a0e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cb4a19a0e9ee0137cf93005056a9545d",
+      "caption": "\u201cOh, God! Here comes Finchley! \u2026 He\u2019s out of the closet, you know\u2014says he kills only for food, not for sport.\u201d",
+      "title": "\u201cOh, God! Here comes Finchley! \u2026 He\u2019s out of the closet, ..."
+    },
+    {
+      "id": "22437",
+      "date": "2026-07-07",
+      "url": "https://www.thefarside.com/2026/07/07/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F590c4ea0df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/590c4ea0df110137cbaf005056a9545d",
+      "caption": "\u201cSo, Carl\u2014attacked by any giant carrots lately?\u201d",
+      "title": "\u201cSo, Carl\u2014attacked by any giant carrots lately?\u201d"
+    },
+    {
+      "id": "22438",
+      "date": "2026-07-07",
+      "url": "https://www.thefarside.com/2026/07/07/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcaf57e60d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/caf57e60d7410137c8a6005056a9545d",
+      "caption": "Early physics",
+      "title": "Early physics"
+    }
+  ]
+}
