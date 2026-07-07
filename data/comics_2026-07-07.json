@@ -32,6 +32,22 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/e83696c05c41013fc327005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-07",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/07/07",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/5a1fa8d05c4f013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-07",
+    "url": "https://www.gocomics.com/henrypayne/2026/07/07",
+    "category": "political"
+  },
+  {
     "name": "Gary Varvel",
     "slug": "garyvarvel",
     "image_url": "https://featureassets.gocomics.com/assets/b59dd3005bfd013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1701,6 +1717,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/8283caf05bab013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-07",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/07/07",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/a5da1a105c16013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-07",
+    "url": "https://www.gocomics.com/tavicat/2026/07/07",
     "category": "daily"
   },
   {
