@@ -16,6 +16,14 @@
     "category": "political"
   },
   {
+    "name": "Phil Hands",
+    "slug": "phil-hands",
+    "image_url": "https://featureassets.gocomics.com/assets/57c270605d19013fc33b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-08",
+    "url": "https://www.gocomics.com/phil-hands/2026/07/08",
+    "category": "political"
+  },
+  {
     "name": "Nick Anderson",
     "slug": "nickanderson",
     "image_url": "https://featureassets.gocomics.com/assets/1aab9f105c72013fc330005056a9545d?optimizer=image&width=2800&quality=85",
@@ -32,6 +40,14 @@
     "category": "political"
   },
   {
+    "name": "Michael Ramirez",
+    "slug": "michaelramirez",
+    "image_url": "https://featureassets.gocomics.com/assets/70c86ae05cf0013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-08",
+    "url": "https://www.gocomics.com/michaelramirez/2026/07/08",
+    "category": "political"
+  },
+  {
     "name": "Lisa Benson",
     "slug": "lisabenson",
     "image_url": "https://featureassets.gocomics.com/assets/370f5be05c93013fc338005056a9545d?optimizer=image&width=2800&quality=85",
@@ -45,6 +61,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/ca6794205c6a013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-08",
     "url": "https://www.gocomics.com/jen-sorensen/2026/07/08",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/555538805d19013fc33b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-08",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/07/08",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/51760b805d19013fc33b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-08",
+    "url": "https://www.gocomics.com/drewsheneman/2026/07/08",
     "category": "political"
   },
   {
@@ -1629,6 +1661,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/888a5f205142013fc2a2005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-08",
     "url": "https://www.gocomics.com/wumo/2026/07/08",
+    "category": "daily"
+  },
+  {
+    "name": "The Worried Well",
+    "slug": "the-worried-well",
+    "image_url": "https://featureassets.gocomics.com/assets/9d1676905d22013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-08",
+    "url": "https://www.gocomics.com/the-worried-well/2026/07/08",
     "category": "daily"
   },
   {
