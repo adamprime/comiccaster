@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-09",
+  "scraped_at": "2026-07-09T08:19:46.446808+00:00",
+  "comics": [
+    {
+      "id": "22444",
+      "date": "2026-07-09",
+      "url": "https://www.thefarside.com/2026/07/09/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4dba17d0d7420137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4dba17d0d7420137c8a6005056a9545d",
+      "caption": "\u201cThere! Quick, Larry! Look! \u2026 Was I kidding? \u2026 That sucker\u2019s longer than the boat!\u201d",
+      "title": "\u201cThere! Quick, Larry! Look! \u2026 Was I kidding? \u2026 That sucke..."
+    },
+    {
+      "id": "22445",
+      "date": "2026-07-09",
+      "url": "https://www.thefarside.com/2026/07/09/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9151e600d8b90137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9151e600d8b90137c959005056a9545d",
+      "caption": "\u201cYou know, Sid, I really like bananas. \u2026 I mean, I know that\u2019s not profound or nothin\u2019. \u2026 Heck! We all do. \u2026 But for me, I think it goes far beyond that.\u201d",
+      "title": "\u201cYou know, Sid, I really like bananas"
+    },
+    {
+      "id": "22446",
+      "date": "2026-07-09",
+      "url": "https://www.thefarside.com/2026/07/09/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F17e28210cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/17e28210cdd30137c56b005056a9545d",
+      "caption": "\u201cOh Thorg! The new bird feeder is wonderful! \u201d",
+      "title": "\u201cOh Thorg! The new bird feeder is wonderful! \u201d"
+    },
+    {
+      "id": "22447",
+      "date": "2026-07-09",
+      "url": "https://www.thefarside.com/2026/07/09/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95b4412258c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95b4412258c311ea8bf6005056a9",
+      "caption": "Scene from the film Giraffes\nIV: This\ntime, they\u2019re not just looking for acacia leaves.",
+      "title": "Scene from the film Giraffes\nIV: This\ntime, they\u2019re not j..."
+    },
+    {
+      "id": "22448",
+      "date": "2026-07-09",
+      "url": "https://www.thefarside.com/2026/07/09/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95b4534858c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95b4534858c311ea8bf6005056a9",
+      "caption": "\u201cThose snakes? Oh, they\u2019re just signing, honey.\u201d",
+      "title": "\u201cThose snakes? Oh, they\u2019re just signing, honey"
+    }
+  ]
+}
