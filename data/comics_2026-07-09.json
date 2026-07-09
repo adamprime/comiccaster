@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/870ce6705dda013fc347005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-09",
+    "url": "https://www.gocomics.com/nickanderson/2026/07/09",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/238003405d47013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -24,11 +32,27 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/9eba55905ddc013fc348005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-09",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/07/09",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/fae766405d3e013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-09",
     "url": "https://www.gocomics.com/jeffstahler/2026/07/09",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/7bbc2d005de2013fc349005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-09",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/07/09",
     "category": "political"
   },
   {
@@ -432,6 +456,14 @@
     "category": "daily"
   },
   {
+    "name": "Ike",
+    "slug": "backintheday",
+    "image_url": "https://featureassets.gocomics.com/assets/9f1df5e05db1013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-09",
+    "url": "https://www.gocomics.com/backintheday/2026/07/09",
+    "category": "daily"
+  },
+  {
     "name": "Baby Blues",
     "slug": "babyblues",
     "image_url": "https://featureassets.gocomics.com/assets/bd6484d05603013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -573,6 +605,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/246195105313013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-09",
     "url": "https://www.gocomics.com/9-chickweed-lane/2026/07/09",
+    "category": "daily"
+  },
+  {
+    "name": "1 And Done",
+    "slug": "1-and-done",
+    "image_url": "https://featureassets.gocomics.com/assets/a15343805db1013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-09",
+    "url": "https://www.gocomics.com/1-and-done/2026/07/09",
     "category": "daily"
   },
   {
