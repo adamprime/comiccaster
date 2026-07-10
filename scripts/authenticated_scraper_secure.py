@@ -9,7 +9,7 @@ import os
 import json
 import re
 import argparse
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlparse
 from selenium import webdriver
@@ -132,6 +132,18 @@ def login(driver, email, password):
     except Exception as e:
         print(f"❌ Login failed: {e}")
         return False
+
+
+def page_url_for_date(base_url, date_str):
+    """Return the favorites-page URL for a specific date via the ?date= param.
+
+    The GoComics favorites page renders a given day's strips when passed a
+    ?date=YYYY-MM-DD query param. Appends it with the correct separator so a
+    base URL that already carries a query string is respected. Mirrors the
+    construction in scripts/diagnose_political_favorites.py.
+    """
+    separator = '&' if '?' in base_url else '?'
+    return f"{base_url}{separator}date={date_str}"
 
 
 def _extract_comic_slug_from_link(href):
@@ -350,6 +362,72 @@ def merge_with_existing(output_file: Path, new_comics: list) -> list:
     return merged
 
 
+def backfill_target_dates(reference_date, days):
+    """Return the `days` dates immediately before `reference_date`, oldest first.
+
+    `reference_date` (today) is excluded — the same-day pass already covers it.
+    e.g. (2026-07-10, 3) -> ['2026-07-07', '2026-07-08', '2026-07-09'].
+    """
+    return [
+        (reference_date - timedelta(days=offset)).strftime('%Y-%m-%d')
+        for offset in range(days, 0, -1)
+    ]
+
+
+def run_backfill(driver, custom_pages, output_dir, days, reference_date=None):
+    """Re-scrape the political favorites page(s) for recent past dates and merge.
+
+    The favorites page is reactive: a cartoonist who published after our daily
+    passes only shows as "updated" on a later fetch of the same ?date=. This
+    re-fetches the last `days` days and merges any newly-appeared slugs into the
+    existing data/comics_<date>.json via merge_with_existing (additive for new
+    slugs, replacive for overlapping ones — same publication date).
+
+    Returns the list of Path files touched (one per backfilled date), which the
+    pipeline uses to stage exactly those files.
+    """
+    if days <= 0:
+        return []
+
+    political_pages = [p for p in custom_pages if p.get('category') == 'political']
+    if not political_pages:
+        print("⚠️  Backfill: no political custom pages configured; skipping")
+        return []
+
+    if reference_date is None:
+        reference_date = datetime.now().date()
+
+    touched = []
+    for date_str in backfill_target_dates(reference_date, days):
+        day_comics = []
+        for page in political_pages:
+            url = page_url_for_date(page['url'], date_str)
+            comics = extract_comics_from_page(driver, url, date_str)
+            for comic in comics:
+                comic['category'] = 'political'
+            day_comics.extend(comics)
+
+        # Deduplicate across political pages (a slug may appear on more than one).
+        seen = set()
+        unique = []
+        for comic in day_comics:
+            slug = comic.get('slug')
+            if not slug or slug in seen:
+                continue
+            seen.add(slug)
+            unique.append(comic)
+
+        output_file = output_dir / f'comics_{date_str}.json'
+        merged = merge_with_existing(output_file, unique)
+        with open(output_file, 'w') as f:
+            json.dump(merged, f, indent=2)
+        touched.append(output_file)
+        print(f"🗓️  Backfill {date_str}: {len(unique)} scraped → "
+              f"{output_file.name} now holds {len(merged)} entries")
+
+    return touched
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Secure authenticated scraper for GoComics'
@@ -360,6 +438,12 @@ def main():
     parser.add_argument('--merge', action='store_true',
                         help='Merge with existing same-day file instead of overwriting. '
                              'Used by the second daily pass to capture late-publishing comics.')
+    parser.add_argument('--backfill-days', type=int, default=0,
+                        help='After the same-day scrape, re-scrape the political favorites '
+                             'page(s) for the last N days (via ?date=) and merge newly-'
+                             'appeared slugs into each data/comics_<date>.json. Recovers '
+                             'cartoonists who published after the daily passes. Default 0 '
+                             '(off); the daily pass-2 pipeline sets this to 3.')
 
     args = parser.parse_args()
     
@@ -428,7 +512,18 @@ def main():
         print(f"✅ SUCCESS! Extracted {len(all_comics)} comics for {date_str}")
         print(f"💾 Saved to {output_file}")
         print(f"{'='*80}\n")
-        
+
+        # Rolling backfill: recover political cartoonists who published after the
+        # daily passes by re-scraping recent past dates and merging (issue #164).
+        if args.backfill_days > 0:
+            print(f"🔁 Rolling backfill: re-scraping political page(s) for the last "
+                  f"{args.backfill_days} day(s)")
+            reference_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+            touched = run_backfill(driver, config['custom_pages'], output_dir,
+                                   args.backfill_days, reference_date=reference_date)
+            print(f"🔁 Backfill touched {len(touched)} date file(s): "
+                  f"{', '.join(p.name for p in touched) or '(none)'}")
+
         driver.quit()
         return 0
         
