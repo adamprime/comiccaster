@@ -186,6 +186,19 @@ class TestRunBackfill:
             data = json.loads((tmp_path / f'comics_{d}.json').read_text())
             assert data[0]['slug'] == 'jackohman' and data[0]['date'] == d
 
+    def test_empty_scrape_preserves_existing_file(self, tmp_path):
+        # A day with no political updates (weekend, holiday) must not wipe the
+        # existing file — merge preserves everything and adds nothing.
+        (tmp_path / 'comics_2026-07-08.json').write_text(
+            json.dumps([_political_comic('doonesbury', '2026-07-08')])
+        )
+        with patch(_EXTRACT, return_value=[]):
+            touched = run_backfill(_mock_driver(''), self._pages, tmp_path,
+                                   days=1, reference_date=date(2026, 7, 9))
+        assert touched == [tmp_path / 'comics_2026-07-08.json']
+        data = json.loads((tmp_path / 'comics_2026-07-08.json').read_text())
+        assert [c['slug'] for c in data] == ['doonesbury']
+
     def test_creates_file_when_absent(self, tmp_path):
         with patch(_EXTRACT, return_value=[_political_comic('jackohman', '2026-07-08')]):
             run_backfill(_mock_driver(''), self._pages, tmp_path,
