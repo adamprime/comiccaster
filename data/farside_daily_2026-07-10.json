@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-10",
+  "scraped_at": "2026-07-10T08:20:04.220248+00:00",
+  "comics": [
+    {
+      "id": "22449",
+      "date": "2026-07-10",
+      "url": "https://www.thefarside.com/2026/07/10/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F00cda0f0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/00cda0f0cdd50137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22449"
+    },
+    {
+      "id": "22450",
+      "date": "2026-07-10",
+      "url": "https://www.thefarside.com/2026/07/10/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa2c30120395a0138eaa4005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a2c30120395a0138eaa4005056a9545d",
+      "caption": "\u201cHeeeeeere, yakity yak yak yak! \u2026 Come, come, yakity yak\nyak yak!\u201d",
+      "title": "\u201cHeeeeeere, yakity yak yak yak! \u2026 Come, come, yakity yak\n..."
+    },
+    {
+      "id": "22451",
+      "date": "2026-07-10",
+      "url": "https://www.thefarside.com/2026/07/10/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4ce91f40d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4ce91f40d7410137c8a6005056a9545d",
+      "caption": "\u201cSorry, mister, but this is what we do to cattle rustlers in these parts.\u201d",
+      "title": "\u201cSorry, mister, but this is what we do to cattle rustlers..."
+    },
+    {
+      "id": "22452",
+      "date": "2026-07-10",
+      "url": "https://www.thefarside.com/2026/07/10/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F216fcc70a61b01396268005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/216fcc70a61b01396268005056a9545d",
+      "caption": "\u201cWell, don\u2019t look at me, idiot! \u2026 I said we should\u2019ve flown!\u201d",
+      "title": "\u201cWell, don\u2019t look at me, idiot! \u2026 I said we should\u2019ve flo..."
+    },
+    {
+      "id": "22453",
+      "date": "2026-07-10",
+      "url": "https://www.thefarside.com/2026/07/10/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe27b60b0d7400137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e27b60b0d7400137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22453"
+    }
+  ]
+}
