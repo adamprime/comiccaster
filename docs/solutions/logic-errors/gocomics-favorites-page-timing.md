@@ -2,9 +2,9 @@
 title: "GoComics favorites page is reactive: scraping at 03:20 PT misses late-publishing political cartoonists"
 date: 2026-05-16
 category: logic-errors
-tags: [scraping, gocomics, timing, political-cartoons, favorites-page, page-state]
+tags: [scraping, gocomics, timing, political-cartoons, favorites-page, page-state, backfill]
 stack: [python, selenium, beautifulsoup]
-github_issues: [138]
+github_issues: [138, 164]
 ---
 
 ## Problem
@@ -61,8 +61,51 @@ python scripts/diagnose_political_favorites.py --date YYYY-MM-DD --target-slug <
 - **Extraction bug** — replaying the production extractor against the diagnostic HTML extracts all 21 slugs successfully.
 - **Pagination / lazy-load** — only 21 of 63 ComicViewer containers extract cleanly, but the other 42 are responsive-layout duplicates; deduplication is working correctly.
 
+## Update — issue #164: the late/next-day tail beyond Pass 2
+
+GitHub #164 reported Jack Ohman's feed stale since 2026-07-02. Same class of bug as
+#138, but one the two-pass fix above does **not** catch: cartoonists who publish
+*after* the 13:00 PT Pass 2 window, or on a next-day lag.
+
+**Evidence (2026-07-10, via `scripts/diagnose_political_favorites.py`):** re-fetching the
+political page with `?date=2026-07-08` showed `jackohman` in the `ComicViewer` (updated)
+set, and replaying the production extractor against that saved HTML pulled him out cleanly
+(valid strip image) — so it is a timing gap, not an extraction bug. Cross-checking the
+settled Jul-8 "updated" set against `data/comics_2026-07-08.json` found **11 of 25**
+political comics that published Jul 8 were missed by both passes: `bill-bramhall`,
+`chrisbritt`, `garymarkstein`, `garyvarvel`, `henrypayne`, `jackohman`, `jeffstahler`,
+`joe-heller`, `kal`, `mattdavies`, `pedroxmolina`. Jack Ohman had been captured only ~7
+days since April — the same systemic tail, not an Ohman-specific problem. A slug missed on
+its publish date is never written to any dated JSON, so the miss was permanent.
+
+**Fix — rolling backfill (issue #164).** The favorites page is reactive in our favour too:
+re-fetching `?date=<past-date>` returns that day's *settled* updated/not-issued state once
+the strip exists. So each daily run now re-scrapes the political favorites page for the last
+`GOCOMICS_BACKFILL_DAYS` days (default 3) and merges any newly-appeared slugs into that day's
+`data/comics_<date>.json`:
+
+- `scripts/authenticated_scraper_secure.py` gained `page_url_for_date()`, `backfill_target_dates()`,
+  `run_backfill()`, and a `--backfill-days N` flag. After the same-day scrape it re-fetches the
+  political page(s) for each past date (one login) and merges via the existing
+  `merge_with_existing` (additive for new slugs, replacive for overlapping same-date ones).
+- `scripts/local_pass2_update.sh` runs it (`--backfill-days "$BACKFILL_DAYS"`) and — the
+  load-bearing part — stages **every** date file the run touched (today plus the backfill
+  window) on both the happy-path commit and the push-conflict recovery. Previously all three
+  staging points hardcoded today's file, so backfilled past-date JSON would regenerate into
+  feeds but never commit, then be wiped by the next run's `git reset --hard origin/main`. The
+  touched-date set is an explicit enumerated list, never a `data/comics_*.json` glob.
+
+**Why 3 days is robust despite next-day/late posting:** each past date is re-fetched on every
+subsequent in-window day (enters as `today-1`, re-scraped as `today-2`, `today-3`), so
+within-window late settling is self-healing. Only lateness *exceeding* the window is missed;
+`GOCOMICS_BACKFILL_DAYS` widens it without code edits. Recovering a gap *older* than the
+window (e.g. #164's Jul 2–7 backlog) is a one-off wider `--backfill-days` run.
+
 ## Related
 
 - Issue #138 (Nick Anderson missing from GoComics feed)
-- `scripts/authenticated_scraper_secure.py` — the production GoComics scraper
+- Issue #164 (Jack Ohman feed not updating — the late/next-day tail)
+- Plan: `docs/plans/2026-07-10-001-fix-gocomics-late-publisher-backfill-plan.md`
+- `scripts/authenticated_scraper_secure.py` — the production GoComics scraper + rolling backfill
+- `scripts/local_pass2_update.sh` — Pass 2, which runs the backfill and stages all touched dates
 - `docs/solutions/logic-errors/gocomics-spanish-english-feed-contamination.md` — prior GoComics scrape-correctness work
