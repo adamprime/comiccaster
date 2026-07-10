@@ -134,6 +134,18 @@ def login(driver, email, password):
         return False
 
 
+def page_url_for_date(base_url, date_str):
+    """Return the favorites-page URL for a specific date via the ?date= param.
+
+    The GoComics favorites page renders a given day's strips when passed a
+    ?date=YYYY-MM-DD query param. Appends it with the correct separator so a
+    base URL that already carries a query string is respected. Mirrors the
+    construction in scripts/diagnose_political_favorites.py.
+    """
+    separator = '&' if '?' in base_url else '?'
+    return f"{base_url}{separator}date={date_str}"
+
+
 def _extract_comic_slug_from_link(href):
     """Extract a comic slug from a link href, handling both absolute and relative URLs.
 

@@ -16,6 +16,7 @@ from scripts.authenticated_scraper_secure import (
     _get_image_src,
     _get_badge_name,
     merge_with_existing,
+    page_url_for_date,
 )
 
 
@@ -90,6 +91,23 @@ class TestExtractComicSlugFromLink:
 
     def test_rejects_empty_path(self):
         assert _extract_comic_slug_from_link('/') is None
+
+
+class TestPageUrlForDate:
+    def test_appends_date_to_bare_url(self):
+        base = 'https://www.gocomics.com/profile/User52732/comics/221821'
+        assert page_url_for_date(base, '2026-07-08') == base + '?date=2026-07-08'
+
+    def test_appends_date_with_ampersand_when_query_present(self):
+        base = 'https://www.gocomics.com/profile/User52732/comics/221821?foo=bar'
+        assert page_url_for_date(base, '2026-07-08') == base + '&date=2026-07-08'
+
+    def test_leaves_base_url_otherwise_unchanged(self):
+        base = 'https://www.gocomics.com/profile/User52732/comics/221821'
+        result = page_url_for_date(base, '2026-07-08')
+        # Everything up to the appended query is byte-identical to the base.
+        assert result.startswith(base)
+        assert result[len(base):] == '?date=2026-07-08'
 
 
 class TestGetImageSrc:
