@@ -8,12 +8,15 @@
 #
 # Design: Reads pass-1's data/comics_$DATE.json, scrapes the GoComics
 # favorites pages again, and merges any newly-published slugs into the
-# same-day file via authenticated_scraper_secure.py --merge. Regenerates
-# only GoComics feeds, then commits and pushes.
+# same-day file via authenticated_scraper_secure.py --merge. It also runs a
+# rolling backfill (--backfill-days) that re-scrapes the political favorites
+# page for the last few days and merges late/next-day publishers into their
+# own comics_<date>.json (issue #164). Regenerates only GoComics feeds, then
+# commits and pushes.
 #
-# Push recovery mirrors local_master_update.sh's strategy: save the
-# merged comics_$DATE.json, reset to origin/main, restore, regenerate,
-# push once. No git pull --rebase.
+# Push recovery mirrors local_master_update.sh's strategy: save every
+# comics_<date>.json the run touched (today plus the backfill window), reset to
+# origin/main, restore, regenerate, push once. No git pull --rebase.
 
 REPO_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 cd "$REPO_DIR"
@@ -56,6 +59,30 @@ DATE_STR=$(date +%Y-%m-%d)
 echo ""
 echo "📅 Target date: $DATE_STR"
 
+# Rolling-backfill window (issue #164). Configurable without editing core logic
+# per R5: set GOCOMICS_BACKFILL_DAYS in the environment to override the default.
+BACKFILL_DAYS="${GOCOMICS_BACKFILL_DAYS:-3}"
+
+# The exact, enumerated set of date files this run may touch: today plus each
+# day in the backfill window. Built explicitly (never a data/comics_*.json glob)
+# so force-adds past .gitignore can't sweep in stale/leftover dated JSON.
+DATE_FILES=("data/comics_$DATE_STR.json")
+for i in $(seq 1 "$BACKFILL_DAYS"); do
+    d=$(date -v-"${i}"d +%Y-%m-%d)
+    DATE_FILES+=("data/comics_$d.json")
+done
+echo "🗂️  Date files in scope: ${DATE_FILES[*]}"
+
+# Stage only the touched date files that actually exist, plus regenerated feeds.
+# Used on both the happy path and the push-conflict recovery path.
+stage_touched_files() {
+    local f
+    for f in "${DATE_FILES[@]}"; do
+        [ -f "$f" ] && git add -f "$f"
+    done
+    git add -f public/feeds/*.xml
+}
+
 # Reset to origin/main before starting. Any uncommitted work or divergent
 # local commits will be discarded — same policy as the master script.
 git fetch origin
@@ -70,9 +97,9 @@ else
 fi
 
 echo ""
-echo "=== Phase 1: GoComics re-scrape with merge ==="
-if python scripts/authenticated_scraper_secure.py --output-dir ./data --merge; then
-    echo "✅ GoComics pass-2 scrape complete"
+echo "=== Phase 1: GoComics re-scrape with merge + rolling backfill ==="
+if python scripts/authenticated_scraper_secure.py --output-dir ./data --merge --backfill-days "$BACKFILL_DAYS"; then
+    echo "✅ GoComics pass-2 scrape + backfill complete"
 else
     echo "❌ GoComics pass-2 scrape failed"
     FAILURES+=("GoComics pass-2 scrape")
@@ -107,7 +134,7 @@ push_with_watchdog() {
     fi
 }
 
-git add -f "data/comics_$DATE_STR.json" public/feeds/*.xml
+stage_touched_files
 
 if git diff --staged --quiet; then
     echo "ℹ️  No changes to commit (pass 2 found nothing new)"
@@ -124,15 +151,17 @@ pass-1 scrape. See docs/solutions/logic-errors/gocomics-favorites-page-timing.md
     else
         echo "⚠️  First push attempt failed. Engaging reset-regenerate recovery..."
 
-        # Pass 2 only touches data/comics_$DATE.json. Save it and the
-        # GoComics feeds we just regenerated; reset; restore the JSON;
-        # regenerate; push once.
+        # Pass 2 touches today's file plus each backfilled date file. Save all
+        # of them and the GoComics feeds we just regenerated; reset; restore the
+        # JSONs; regenerate; push once.
         STAGING=$(mktemp -d)
         echo "📦 Staging pass-2 scrape data to $STAGING"
-        if [ -f "$PASS1_FILE" ]; then
-            cp -p "$PASS1_FILE" "$STAGING/"
-            echo "  saved $(basename "$PASS1_FILE")"
-        fi
+        for f in "${DATE_FILES[@]}"; do
+            if [ -f "$f" ]; then
+                cp -p "$f" "$STAGING/"
+                echo "  saved $(basename "$f")"
+            fi
+        done
 
         git fetch origin
         git reset --hard origin/main
@@ -147,7 +176,7 @@ pass-1 scrape. See docs/solutions/logic-errors/gocomics-favorites-page-timing.md
         echo "🔧 Regenerating GoComics feeds from restored scrape data"
         python scripts/generate_gocomics_feeds.py || FAILURES+=("GoComics regen in pass-2 recovery")
 
-        git add -f "data/comics_$DATE_STR.json" public/feeds/*.xml
+        stage_touched_files
         if git diff --staged --quiet; then
             echo "ℹ️  No changes after regeneration; nothing more to push"
             PUSH_OK=true
