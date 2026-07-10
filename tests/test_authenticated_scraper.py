@@ -17,7 +17,10 @@ from scripts.authenticated_scraper_secure import (
     _get_badge_name,
     merge_with_existing,
     page_url_for_date,
+    backfill_target_dates,
+    run_backfill,
 )
+from datetime import date
 
 
 def _make_comic_container(slug, badge_name, image_asset_id, include_strip=True,
@@ -108,6 +111,115 @@ class TestPageUrlForDate:
         # Everything up to the appended query is byte-identical to the base.
         assert result.startswith(base)
         assert result[len(base):] == '?date=2026-07-08'
+
+
+def _political_comic(slug, date_str):
+    """Build a scraped-comic dict as extract_comics_from_page would return."""
+    return {
+        'name': slug.replace('-', ' ').title(),
+        'slug': slug,
+        'image_url': f'https://featureassets.gocomics.com/assets/{slug}',
+        'date': date_str,
+        'url': f"https://www.gocomics.com/{slug}/{date_str.replace('-', '/')}",
+    }
+
+
+_EXTRACT = 'scripts.authenticated_scraper_secure.extract_comics_from_page'
+
+
+class TestBackfillTargetDates:
+    def test_returns_last_n_dates_oldest_first_excluding_reference(self):
+        assert backfill_target_dates(date(2026, 7, 10), 3) == [
+            '2026-07-07', '2026-07-08', '2026-07-09',
+        ]
+
+    def test_one_day_window(self):
+        assert backfill_target_dates(date(2026, 7, 10), 1) == ['2026-07-09']
+
+    def test_zero_days_is_empty(self):
+        assert backfill_target_dates(date(2026, 7, 10), 0) == []
+
+
+class TestRunBackfill:
+    _pages = [
+        {'url': 'https://www.gocomics.com/profile/User1/comics/221821', 'category': 'political'},
+        {'url': 'https://www.gocomics.com/profile/User1/comics/221824', 'category': 'daily'},
+    ]
+
+    def test_adds_missed_slug_and_preserves_existing(self, tmp_path):
+        (tmp_path / 'comics_2026-07-08.json').write_text(
+            json.dumps([_political_comic('doonesbury', '2026-07-08')])
+        )
+
+        def fake_extract(driver, url, date_str):
+            return [_political_comic('jackohman', date_str)] if date_str == '2026-07-08' else []
+
+        with patch(_EXTRACT, side_effect=fake_extract):
+            touched = run_backfill(_mock_driver(''), self._pages, tmp_path,
+                                   days=1, reference_date=date(2026, 7, 9))
+
+        assert touched == [tmp_path / 'comics_2026-07-08.json']
+        data = json.loads((tmp_path / 'comics_2026-07-08.json').read_text())
+        assert {c['slug'] for c in data} == {'doonesbury', 'jackohman'}
+        # backfilled entry is stamped political
+        ohman = next(c for c in data if c['slug'] == 'jackohman')
+        assert ohman['category'] == 'political'
+
+    def test_noop_when_slug_already_present(self, tmp_path):
+        (tmp_path / 'comics_2026-07-08.json').write_text(
+            json.dumps([_political_comic('jackohman', '2026-07-08')])
+        )
+        with patch(_EXTRACT, return_value=[_political_comic('jackohman', '2026-07-08')]):
+            run_backfill(_mock_driver(''), self._pages, tmp_path,
+                         days=1, reference_date=date(2026, 7, 9))
+        data = json.loads((tmp_path / 'comics_2026-07-08.json').read_text())
+        assert [c['slug'] for c in data] == ['jackohman']
+
+    def test_multiple_dates_write_own_files(self, tmp_path):
+        with patch(_EXTRACT, side_effect=lambda d, u, ds: [_political_comic('jackohman', ds)]):
+            touched = run_backfill(_mock_driver(''), self._pages, tmp_path,
+                                   days=3, reference_date=date(2026, 7, 10))
+        assert [p.name for p in touched] == [
+            'comics_2026-07-07.json', 'comics_2026-07-08.json', 'comics_2026-07-09.json',
+        ]
+        for d in ('2026-07-07', '2026-07-08', '2026-07-09'):
+            data = json.loads((tmp_path / f'comics_{d}.json').read_text())
+            assert data[0]['slug'] == 'jackohman' and data[0]['date'] == d
+
+    def test_creates_file_when_absent(self, tmp_path):
+        with patch(_EXTRACT, return_value=[_political_comic('jackohman', '2026-07-08')]):
+            run_backfill(_mock_driver(''), self._pages, tmp_path,
+                         days=1, reference_date=date(2026, 7, 9))
+        assert (tmp_path / 'comics_2026-07-08.json').exists()
+
+    def test_only_political_pages_fetched_with_date_param(self, tmp_path):
+        calls = []
+
+        def fake_extract(driver, url, date_str):
+            calls.append(url)
+            return []
+
+        with patch(_EXTRACT, side_effect=fake_extract):
+            run_backfill(_mock_driver(''), self._pages, tmp_path,
+                         days=1, reference_date=date(2026, 7, 9))
+        assert calls, 'expected at least one political page fetch'
+        assert all('221821' in u for u in calls)          # political page only
+        assert all('221824' not in u for u in calls)      # daily page skipped
+        assert all('date=2026-07-08' in u for u in calls)  # date param applied
+
+    def test_zero_days_performs_no_scrape(self, tmp_path):
+        with patch(_EXTRACT) as mock_extract:
+            touched = run_backfill(_mock_driver(''), self._pages, tmp_path, days=0)
+        assert touched == []
+        mock_extract.assert_not_called()
+
+    def test_no_political_pages_returns_empty(self, tmp_path):
+        daily_only = [{'url': 'https://www.gocomics.com/profile/User1/comics/221824', 'category': 'daily'}]
+        with patch(_EXTRACT) as mock_extract:
+            touched = run_backfill(_mock_driver(''), daily_only, tmp_path,
+                                   days=2, reference_date=date(2026, 7, 10))
+        assert touched == []
+        mock_extract.assert_not_called()
 
 
 class TestGetImageSrc:
