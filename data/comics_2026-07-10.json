@@ -16,6 +16,14 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/1f81de405ec9013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-10",
+    "url": "https://www.gocomics.com/robrogers/2026/07/10",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/775848605e11013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -48,11 +56,27 @@
     "category": "political"
   },
   {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/6680cea05ecf013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-10",
+    "url": "https://www.gocomics.com/joe-heller/2026/07/10",
+    "category": "political"
+  },
+  {
     "name": "Gary Varvel",
     "slug": "garyvarvel",
     "image_url": "https://featureassets.gocomics.com/assets/6aa2f0105eba013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-10",
     "url": "https://www.gocomics.com/garyvarvel/2026/07/10",
+    "category": "political"
+  },
+  {
+    "name": "Gary Markstein",
+    "slug": "garymarkstein",
+    "image_url": "https://featureassets.gocomics.com/assets/17f618205ef3013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-10",
+    "url": "https://www.gocomics.com/garymarkstein/2026/07/10",
     "category": "political"
   },
   {
