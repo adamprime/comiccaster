@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-07-12",
+  "scraped_at": "2026-07-12T08:19:29.054236+00:00",
+  "comics": [
+    {
+      "id": "22456",
+      "date": "2026-07-12",
+      "url": "https://www.thefarside.com/2026/07/12/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3b9b26d09ee701396086005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3b9b26d09ee701396086005056a9545d",
+      "caption": "\u201cYou\u2019ve got to watch out for them gopher holes, Roger.\u201d",
+      "title": "\u201cYou\u2019ve got to watch out for them gopher holes, Roger"
+    },
+    {
+      "id": "22457",
+      "date": "2026-07-12",
+      "url": "https://www.thefarside.com/2026/07/12/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F92e91e50963101395e72005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/92e91e50963101395e72005056a9545d",
+      "caption": "\u201cThat does it, Carl. \u2026 You\u2019re through doing the bookings.\u201d",
+      "title": "\u201cThat does it, Carl"
+    }
+  ]
+}
