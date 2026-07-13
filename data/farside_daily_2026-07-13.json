@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-13",
+  "scraped_at": "2026-07-13T08:19:15.224059+00:00",
+  "comics": [
+    {
+      "id": "22458",
+      "date": "2026-07-13",
+      "url": "https://www.thefarside.com/2026/07/13/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fbb24f590d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/bb24f590d7410137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22458"
+    },
+    {
+      "id": "22459",
+      "date": "2026-07-13",
+      "url": "https://www.thefarside.com/2026/07/13/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F45c645d0ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/45c645d0ea250137cfba005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22459"
+    },
+    {
+      "id": "22460",
+      "date": "2026-07-13",
+      "url": "https://www.thefarside.com/2026/07/13/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6dce77d0e3ad0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6dce77d0e3ad0137cd49005056a9545d",
+      "caption": "Suddenly, everyone turned and looked\u2014there, standing in the doorway, was one wretched, mean-looking ingrown.",
+      "title": "Suddenly, everyone turned and looked\u2014there, standing in t..."
+    },
+    {
+      "id": "22461",
+      "date": "2026-07-13",
+      "url": "https://www.thefarside.com/2026/07/13/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9fe31060e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9fe31060e9ee0137cf93005056a9545d",
+      "caption": "Through mostly grunts and exaggerated gestures, two fishermen-gatherers attempt to communicate.",
+      "title": "Through mostly grunts and exaggerated gestures, two fishe..."
+    },
+    {
+      "id": "22462",
+      "date": "2026-07-13",
+      "url": "https://www.thefarside.com/2026/07/13/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45a2dd58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45a2dd58c311ea8bf6005056a9",
+      "caption": "Knowing how it could change the lives of canines everywhere, the dog scientists struggled diligently to understand the Doorknob Principle.",
+      "title": "Knowing how it could change the lives of canines everywhe..."
+    }
+  ]
+}
