@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-14",
+  "scraped_at": "2026-07-14T08:20:22.570551+00:00",
+  "comics": [
+    {
+      "id": "22463",
+      "date": "2026-07-14",
+      "url": "https://www.thefarside.com/2026/07/14/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0e0b43b0e3af0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0e0b43b0e3af0137cd49005056a9545d",
+      "caption": "The Hendersons of the Jungle",
+      "title": "The Hendersons of the Jungle"
+    },
+    {
+      "id": "22464",
+      "date": "2026-07-14",
+      "url": "https://www.thefarside.com/2026/07/14/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa26c6710963101395e72005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a26c6710963101395e72005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22464"
+    },
+    {
+      "id": "22465",
+      "date": "2026-07-14",
+      "url": "https://www.thefarside.com/2026/07/14/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4fc42e60d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4fc42e60d7410137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22465"
+    },
+    {
+      "id": "22466",
+      "date": "2026-07-14",
+      "url": "https://www.thefarside.com/2026/07/14/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc94c9530dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c94c9530dcc90137caaf005056a9545d",
+      "caption": "\u201cHe\u2019s using blanks\u2014pass it on.\u201d",
+      "title": "\u201cHe\u2019s using blanks\u2014pass it on"
+    },
+    {
+      "id": "22467",
+      "date": "2026-07-14",
+      "url": "https://www.thefarside.com/2026/07/14/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F586220c0dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/586220c0dcca0137caaf005056a9545d",
+      "caption": "Hannibal\u2019s first attempt",
+      "title": "Hannibal\u2019s first attempt"
+    }
+  ]
+}
