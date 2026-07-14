@@ -1,5 +1,13 @@
 [
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/a71d3e0061bb013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-14",
+    "url": "https://www.gocomics.com/robert-ariail/2026/07/14",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/d2d3a2e0609c013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -13,6 +21,38 @@
     "image_url": "https://featureassets.gocomics.com/assets/481ce860615f013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-14",
     "url": "https://www.gocomics.com/johndeering/2026/07/14",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/42e68c5061c6013fc371005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-14",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/07/14",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/34e03d0061c8013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-14",
+    "url": "https://www.gocomics.com/joe-heller/2026/07/14",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/fcf844d061c0013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-14",
+    "url": "https://www.gocomics.com/henrypayne/2026/07/14",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/2c7916d06191013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-14",
+    "url": "https://www.gocomics.com/garyvarvel/2026/07/14",
     "category": "political"
   },
   {
@@ -568,6 +608,14 @@
     "category": "daily"
   },
   {
+    "name": "Jim Benton Cartoons",
+    "slug": "jim-benton-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/7db936e061c9013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-14",
+    "url": "https://www.gocomics.com/jim-benton-cartoons/2026/07/14",
+    "category": "daily"
+  },
+  {
     "name": "Jerry King Comics",
     "slug": "jerry-king-comics",
     "image_url": "https://featureassets.gocomics.com/assets/fc46e080558c013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -917,6 +965,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/70d6b900a5540131428e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-14",
     "url": "https://www.gocomics.com/familytree/2026/07/14",
+    "category": "daily"
+  },
+  {
+    "name": "Endtown",
+    "slug": "endtown",
+    "image_url": "https://featureassets.gocomics.com/assets/3bca568061aa013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-14",
+    "url": "https://www.gocomics.com/endtown/2026/07/14",
     "category": "daily"
   },
   {
