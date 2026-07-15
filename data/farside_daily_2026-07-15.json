@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-15",
+  "scraped_at": "2026-07-15T08:19:42.941072+00:00",
+  "comics": [
+    {
+      "id": "22468",
+      "date": "2026-07-15",
+      "url": "https://www.thefarside.com/2026/07/15/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1f76b010cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1f76b010cdd30137c56b005056a9545d",
+      "caption": "\u201cWhat the? ... Margaret! Margaret! Wake up! ... The bed\u2019s covered with coconuts!\u201d",
+      "title": "\u201cWhat the?"
+    },
+    {
+      "id": "22469",
+      "date": "2026-07-15",
+      "url": "https://www.thefarside.com/2026/07/15/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F024fdbc0dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/024fdbc0dcca0137caaf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22469"
+    },
+    {
+      "id": "22470",
+      "date": "2026-07-15",
+      "url": "https://www.thefarside.com/2026/07/15/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb8323070df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b8323070df110137cbaf005056a9545d",
+      "caption": "\u201cYou\u2019re gonna be okay, mister, but I can\u2019t say the same for your little buddy over there. \u2026 The way I hear it, he\u2019s the one that mouthed off to them gunfighters in the first place.\u201d",
+      "title": "\u201cYou\u2019re gonna be okay, mister, but I can\u2019t say the same f..."
+    },
+    {
+      "id": "22471",
+      "date": "2026-07-15",
+      "url": "https://www.thefarside.com/2026/07/15/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0bf33490cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0bf33490cdd30137c56b005056a9545d",
+      "caption": "\u201cIt\u2019s no use. I drink and I drink, and I still can\u2019t forget.\u201d",
+      "title": "\u201cIt\u2019s no use"
+    },
+    {
+      "id": "22472",
+      "date": "2026-07-15",
+      "url": "https://www.thefarside.com/2026/07/15/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3a0d8f60e85c0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3a0d8f60e85c0137cedf005056a9545d",
+      "caption": "Charlie Brown in Indian country",
+      "title": "Charlie Brown in Indian country"
+    }
+  ]
+}
