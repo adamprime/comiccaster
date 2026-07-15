@@ -1,5 +1,13 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/97b7f5306259013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-15",
+    "url": "https://www.gocomics.com/two-party-opera/2026/07/15",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/08a8b1b05ed1013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -13,6 +21,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/5e1e7f606213013fc37f005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-15",
     "url": "https://www.gocomics.com/scottstantis/2026/07/15",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/0016d6d0629c013fc387005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-15",
+    "url": "https://www.gocomics.com/nickanderson/2026/07/15",
     "category": "political"
   },
   {
@@ -45,6 +61,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/c772333061e5013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-15",
     "url": "https://www.gocomics.com/jen-sorensen/2026/07/15",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/79c2d0b06299013fc386005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-15",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/07/15",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/5dc839b06262013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-15",
+    "url": "https://www.gocomics.com/garyvarvel/2026/07/15",
     "category": "political"
   },
   {
@@ -1757,6 +1789,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/289737405c77013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-15",
     "url": "https://www.gocomics.com/ten-cats/2026/07/15",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/a8d73bc06262013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-15",
+    "url": "https://www.gocomics.com/tavicat/2026/07/15",
     "category": "daily"
   },
   {
