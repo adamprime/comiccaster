@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-16",
+  "scraped_at": "2026-07-16T08:20:16.640396+00:00",
+  "comics": [
+    {
+      "id": "22473",
+      "date": "2026-07-16",
+      "url": "https://www.thefarside.com/2026/07/16/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee0d6d80cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee0d6d80cdd20137c56b005056a9545d",
+      "caption": "\u201cOkay\u2014those that want to call our new club \u2018The Buccaneers\u2019 raise their \u2026 Hey! Who\u2019s the wise guy that keeps cracking his knuckles?\u201d",
+      "title": "\u201cOkay\u2014those that want to call our new club \u2018The Buccaneer..."
+    },
+    {
+      "id": "22474",
+      "date": "2026-07-16",
+      "url": "https://www.thefarside.com/2026/07/16/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3d3c51e0e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3d3c51e0e6f80137ce50005056a9545d",
+      "caption": "Tapeworms visiting a stomach park",
+      "title": "Tapeworms visiting a stomach park"
+    },
+    {
+      "id": "22475",
+      "date": "2026-07-16",
+      "url": "https://www.thefarside.com/2026/07/16/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F37299c50cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/37299c50cdd30137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22475"
+    },
+    {
+      "id": "22476",
+      "date": "2026-07-16",
+      "url": "https://www.thefarside.com/2026/07/16/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F08957be0c1050137c06f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/08957be0c1050137c06f005056a9545d",
+      "caption": "\u201cI lift, you grab. \u2026 Was that concept just a little too complex, Carl?\u201d",
+      "title": "\u201cI lift, you grab"
+    },
+    {
+      "id": "22477",
+      "date": "2026-07-16",
+      "url": "https://www.thefarside.com/2026/07/16/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F65449c00dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/65449c00dcca0137caaf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22477"
+    }
+  ]
+}
