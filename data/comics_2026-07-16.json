@@ -16,6 +16,38 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/0e5741d06357013fc392005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-16",
+    "url": "https://www.gocomics.com/robrogers/2026/07/16",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/af40d810635a013fc393005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-16",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/07/16",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/a9f36f206362013fc394005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-16",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/07/16",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/a4a26f406362013fc394005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-16",
+    "url": "https://www.gocomics.com/drewsheneman/2026/07/16",
+    "category": "political"
+  },
+  {
     "name": "Doonesbury",
     "slug": "doonesbury",
     "image_url": "https://featureassets.gocomics.com/assets/458c99205b7d013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -381,6 +413,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/01f32de05b7d013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-16",
     "url": "https://www.gocomics.com/baldo/2026/07/16",
+    "category": "daily"
+  },
+  {
+    "name": "Bacon",
+    "slug": "bacon",
+    "image_url": "https://featureassets.gocomics.com/assets/18a5aef06337013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-16",
+    "url": "https://www.gocomics.com/bacon/2026/07/16",
     "category": "daily"
   },
   {
@@ -1645,6 +1685,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/7b4eb4b062c7013fc382005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-16",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/07/16",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/18432f006339013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-16",
+    "url": "https://www.gocomics.com/tavicat/2026/07/16",
     "category": "daily"
   },
   {
