@@ -32,6 +32,22 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/f2a9e1a06426013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/robrogers/2026/07/17",
+    "category": "political"
+  },
+  {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/c17830806421013fc3a1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/07/17",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/3a04ef606390013fc382005056a9545d?optimizer=image&width=2800&quality=85",
@@ -53,6 +69,30 @@
     "image_url": "https://featureassets.gocomics.com/assets/b188a6c0635a013fc393005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-17",
     "url": "https://www.gocomics.com/joey-weatherford/2026/07/17",
+    "category": "political"
+  },
+  {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/53f426d0642e013fc3a4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/joelpett/2026/07/17",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/6f7d82d06423013fc3a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/07/17",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/6d46c3706423013fc3a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/drewsheneman/2026/07/17",
     "category": "political"
   },
   {
@@ -78,6 +118,14 @@
     "date": "2026-07-17",
     "url": "https://www.gocomics.com/claybennett/2026/07/17",
     "category": "political"
+  },
+  {
+    "name": "Curses",
+    "slug": "curses",
+    "image_url": "https://featureassets.gocomics.com/assets/13a3cc206429013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/curses/2026/07/17",
+    "category": "daily"
   },
   {
     "name": "Cul De Sac",
@@ -133,6 +181,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/0152772040c8013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-17",
     "url": "https://www.gocomics.com/cornered/2026/07/17",
+    "category": "daily"
+  },
+  {
+    "name": "Compu toon",
+    "slug": "compu-toon",
+    "image_url": "https://featureassets.gocomics.com/assets/f14ee790642a013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/compu-toon/2026/07/17",
     "category": "daily"
   },
   {
@@ -285,6 +341,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/16a506205dc0012ee3bf00163e41dd5b?optimizer=image&width=2800&quality=85",
     "date": "2026-07-17",
     "url": "https://www.gocomics.com/bonanas/2026/07/17",
+    "category": "daily"
+  },
+  {
+    "name": "Bob the Squirrel",
+    "slug": "bobthesquirrel",
+    "image_url": "https://featureassets.gocomics.com/assets/f4e729606428013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/bobthesquirrel/2026/07/17",
     "category": "daily"
   },
   {
@@ -1360,6 +1424,14 @@
     "category": "daily"
   },
   {
+    "name": "Maria s Day",
+    "slug": "marias-day",
+    "image_url": "https://featureassets.gocomics.com/assets/e65c8830642a013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/marias-day/2026/07/17",
+    "category": "daily"
+  },
+  {
     "name": "Maintaining",
     "slug": "maintaining",
     "image_url": "https://featureassets.gocomics.com/assets/56515c305eff012ee3bf00163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -1592,6 +1664,14 @@
     "category": "daily"
   },
   {
+    "name": "Working Daze",
+    "slug": "working-daze",
+    "image_url": "https://featureassets.gocomics.com/assets/f2fd9340642a013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/working-daze/2026/07/17",
+    "category": "daily"
+  },
+  {
     "name": "Wordmark",
     "slug": "wondermark",
     "image_url": "https://featureassets.gocomics.com/assets/8f00b950624f013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1672,6 +1752,14 @@
     "category": "daily"
   },
   {
+    "name": "That is Priceless",
+    "slug": "that-is-priceless",
+    "image_url": "https://featureassets.gocomics.com/assets/efbc3d00642a013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/that-is-priceless/2026/07/17",
+    "category": "daily"
+  },
+  {
     "name": "Thatababy 2026",
     "slug": "thatababy",
     "image_url": "https://featureassets.gocomics.com/assets/195e86c0583f013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1685,6 +1773,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/7f7e157062c7013fc382005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-17",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/07/17",
+    "category": "daily"
+  },
+  {
+    "name": "Ten Cats",
+    "slug": "ten-cats",
+    "image_url": "https://featureassets.gocomics.com/assets/ee5f9430642a013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-17",
+    "url": "https://www.gocomics.com/ten-cats/2026/07/17",
     "category": "daily"
   },
   {
