@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-17",
+  "scraped_at": "2026-07-17T08:19:51.927917+00:00",
+  "comics": [
+    {
+      "id": "22478",
+      "date": "2026-07-17",
+      "url": "https://www.thefarside.com/2026/07/17/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1a9ad05002810138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1a9ad05002810138d7bb005056a9545d",
+      "caption": "\u201cFor crying out loud, I was hibernating! \u2026 Don\u2019t you guys ever take a pulse?\u201d",
+      "title": "\u201cFor crying out loud, I was hibernating! \u2026 Don\u2019t you guys..."
+    },
+    {
+      "id": "22479",
+      "date": "2026-07-17",
+      "url": "https://www.thefarside.com/2026/07/17/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8b1d02c0e92d0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8b1d02c0e92d0137cf47005056a9545d",
+      "caption": "\u201cAnd here\u2019s the jewel of my collection, purchased for a king\u2019s ransom from a one-eyed man in Istanbul. ... I give you\u2014Zuzu\u2019s petals.\u201d",
+      "title": "\u201cAnd here\u2019s the jewel of my collection, purchased for a k..."
+    },
+    {
+      "id": "22480",
+      "date": "2026-07-17",
+      "url": "https://www.thefarside.com/2026/07/17/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F33dc18e0ea260137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/33dc18e0ea260137cfba005056a9545d",
+      "caption": "In medieval times, a suit of armor often served as a family\u2019s message center.",
+      "title": "In medieval times, a suit of armor often served as a fami..."
+    },
+    {
+      "id": "22481",
+      "date": "2026-07-17",
+      "url": "https://www.thefarside.com/2026/07/17/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7c1275e0d28b0137c712005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7c1275e0d28b0137c712005056a9545d",
+      "caption": "\u201cI wouldn\u2019t do that, Spunky\u2014I have friends in pie places.\u201d",
+      "title": "\u201cI wouldn\u2019t do that, Spunky\u2014I have friends in pie places"
+    },
+    {
+      "id": "22482",
+      "date": "2026-07-17",
+      "url": "https://www.thefarside.com/2026/07/17/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8b098d20d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8b098d20d8ba0137c959005056a9545d",
+      "caption": "\u201cEgad! It\u2019s those weird possums from across town! \u2026 Everyone fake like you\u2019re dead.\u201d",
+      "title": "\u201cEgad! It\u2019s those weird possums from across town! \u2026 Every..."
+    }
+  ]
+}
