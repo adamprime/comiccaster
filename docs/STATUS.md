@@ -1,15 +1,15 @@
 # Project Status
-<!-- Updated: 2026-06-22 by Claude Code -->
+<!-- Updated: 2026-07-20 by Claude Code -->
 
 ## Project Overview
 ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, Creators Syndicate, Mr. Boffo, and first-party external RSS feeds into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation where ComicCaster owns the feed; external RSS entries link directly to publisher-provided feeds. Netlify serves the static site and feed files.
 
 ## Current State
-Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with no observed regressions; daily runs report all-success on most days, with the expected weekly CK session refresh handled manually via `reauth_comicskingdom.py`. Since the last status update, the External RSS catalog (PR #139) and two-pass GoComics scrape (PR #140) both merged, **Mr. Boffo** was added as the seventh self-hosted source (PRs #154–159, including an HTTPS migration that dropped the image proxy), the Far Side proxy was hardened against SSRF (#156), and ChromeDriver now auto-resolves via webdriver-manager (#149). No PRs are open. The dependency stream is current as of 2026-06-22 (pytest 9.1.1, selenium 4.45.0, actions/checkout v7).
+Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with no observed regressions; daily runs report all-success on most days, with the expected weekly CK session refresh handled manually via `reauth_comicskingdom.py`. Since the last status update, the External RSS catalog (PR #139) and two-pass GoComics scrape (PR #140) both merged, **Mr. Boffo** was added as the seventh self-hosted source (PRs #154–159, including an HTTPS migration that dropped the image proxy), the Far Side proxy was hardened against SSRF (#156), and ChromeDriver now auto-resolves via webdriver-manager (#149). As of 2026-07-20, **all** Selenium scrapers resolve their driver via `build_chrome_driver` — the last raw-`webdriver.Chrome()` holdout (`tinyview_scraper_secure.py`, which the #149 migration missed and which the nightly TinyView pipeline imports) was closed, ending PATH-driver drift as a source of silent scrape gaps. No PRs are open. The dependency stream is current as of 2026-07-20 (pytest 9.1.1, selenium 4.46.0, actions/checkout v7, actions/setup-python v7).
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-06-22
-**Last Session Summary:** Dependency hygiene + backlog cleanup. (1) Merged three green Dependabot PRs — #162 (pytest 9.1.0→9.1.1), #161 (selenium 4.44.0→4.45.0), #160 (actions/checkout 6→7). (2) Hardened the TinyView Chrome profile dir to `0o700` (parity with CK Shape A) with new `setup_driver` tests. (3) Audited `SETUP_TINYVIEW_AUTH.sh`: found and fixed a path-resolution bug — after the scripts/ reorg it resolved venv/.env/data as if at repo root, so venv activation silently failed and the cookie pickle landed in `scripts/data/` while the daily run reads root `data/` (auth survived only via the absolute-path Chrome profile). (4) Comment/docstring cleanup sweep across the scraper modules + core library — concision, accuracy fixes (stale JSON-LD/singleton claims corrected), and softened method-revealing/WAF-naming prose; verified code-token-identical, suite green. (5) Recorded issue #91 (GoComics → read-later) as WONTFIX. Current suite: **326 tests** passing.
+**Last Session:** 2026-07-20
+**Last Session Summary:** Dependency merges + TinyView driver-drift fix. (1) Merged two green Dependabot PRs — #166 (actions/setup-python 6→7) and #167 (selenium 4.45.0→4.46.0); both low-risk (setup-python's removed inputs/EOL Pythons don't apply here, and CI ran the test matrix on the new versions). (2) Fixed the last raw-driver holdout: `tinyview_scraper_secure.py::setup_driver` now builds its driver via `build_chrome_driver` instead of raw `webdriver.Chrome()`. The 2026-06-09 (#149) migration missed this one, and because the nightly `tinyview_scraper_local_authenticated.py` imports `setup_driver` from it, that single raw constructor left the whole TinyView pipeline dependent on a PATH `chromedriver` — the root cause of a silent Jul 19–20 data gap after Chrome auto-updated 149→150. Added a guard test asserting the shared helper is used. Verified end-to-end: webdriver-manager auto-resolved chromedriver 150.0.7871.124 to match Chrome 150. (3) Recovered the gap — manual rescrape wrote `data/tinyview_2026-07-20.json` (4 comics) and regenerated/pushed the affected feeds (itchy-feet, nick-anderson, student-bill, the-other-end). (4) Captured the fix as `docs/solutions/best-practices/scrapers-must-use-build-chrome-driver.md`. Current suite: **341 tests** passing.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -21,7 +21,8 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 - Invariant guard between Phase 2 and Phase 3 catches silent scrape regressions (scrape reports success but its dated JSON is missing)
 - Comics Kingdom authentication uses a persistent Chrome profile at `~/.comicskingdom_chrome_profile` (Shape A); `reauth_comicskingdom.py` is the operator entry point for refresh
 - Chrome boundary instrumentation in `_individual` — timestamped log lines at every `driver.get` make hang-site localization a grep
-- 326-test suite passing across Python 3.10 / 3.11 / 3.12 (grew from 289 with the Mr. Boffo source, the external-RSS / two-pass GoComics work, and TinyView profile-permission tests)
+- 341-test suite passing across Python 3.10 / 3.11 / 3.12 (grew from 289 with the Mr. Boffo source, the external-RSS / two-pass GoComics work, TinyView profile-permission tests, and the TinyView driver-builder guard test)
+- All seven Selenium scrapers build their driver via `comiccaster.webdriver_setup.build_chrome_driver` (webdriver-manager auto-matches ChromeDriver to installed Chrome); no production scraper depends on a PATH-pinned `chromedriver`
 - 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, 10 Creators feeds, and Mr. Boffo (single daily strip) updating daily
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled; **zero open CodeQL alerts**
@@ -41,7 +42,7 @@ _Nothing in flight. No open PRs; working tree clean on `main`._
 
 1. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
 
-_Cleared this session: TinyView profile `chmod 700` (done, with tests), `SETUP_TINYVIEW_AUTH.sh` audit (done — path-resolution bug fixed), source-comment cleanup pass (done), and issue #91 (closed WONTFIX — see Known Issues)._
+_Cleared this session (2026-07-20): merged Dependabot #166 (actions/setup-python v7) and #167 (selenium 4.46.0); fixed the TinyView raw-driver holdout (now on `build_chrome_driver`, with a guard test); recovered the Jul 19–20 TinyView data gap; captured the driver solution doc._
 
 ## Open Decisions
 <!-- Architectural or product decisions that haven't been made yet. -->
@@ -61,7 +62,7 @@ _Cleared this session: TinyView profile `chmod 700` (done, with tests), `SETUP_T
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 326 passing, requires Python ≥3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 341 passing, requires Python ≥3.10
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
 **Production pipeline:** see [docs/LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) and [docs/DEPLOYMENT.md](DEPLOYMENT.md)
@@ -91,6 +92,20 @@ Between Phase 2 and Phase 3, an invariant guard checks that every successful scr
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-07-20
+- **Goal:** Evaluate/merge Dependabot PRs #166 & #167; review this morning's TinyView reauth output.
+- **Accomplished:**
+  - Merged two green Dependabot PRs (squash + delete-branch): #166 (actions/setup-python 6→7) and #167 (selenium 4.45.0→4.46.0). #166 is a major bump but its breaking changes don't apply (removed `pip-install` input unused; dropped EOL Pythons 3.7–3.9, we run 3.10–3.12), and CI ran the test matrix on v7 itself.
+  - **Root-caused the TinyView reauth warning + a silent Jul 19–20 data gap.** `scripts/tinyview_scraper_secure.py::setup_driver` still built its driver with raw `webdriver.Chrome()`, so it leaned on a PATH `chromedriver` — the #149 (2026-06-09) webdriver-manager migration had missed this one script. Because the nightly `tinyview_scraper_local_authenticated.py` imports `setup_driver` from it, that single raw constructor was the driver source for the whole TinyView pipeline; it drifted when Chrome auto-updated 149→150 and the scrape stopped producing data.
+  - **Fixed it** (`fix`): routed `setup_driver` through `comiccaster.webdriver_setup.build_chrome_driver`, matching CK/GoComics/Far Side. Updated the 5 existing profile tests to patch the helper and added a guard test (`TestSetupDriverBuilder`) asserting the shared helper is used, not a raw driver (+1 → 341 total).
+  - **Recovered the gap:** manual rescrape resolved chromedriver 150.0.7871.124 to match Chrome 150 via webdriver-manager (bypassing the stale PATH binary), wrote `data/tinyview_2026-07-20.json` (4 comics), and regenerated/pushed the affected feeds (itchy-feet, nick-anderson, student-bill, the-other-end).
+  - Captured the fix as `docs/solutions/best-practices/scrapers-must-use-build-chrome-driver.md`.
+- **Validation:** Full suite **341 passing** across 3.10/3.11/3.12. Driver fix verified end-to-end by the live rescrape (correct driver auto-resolved, data landed, exit 0). Comics Kingdom confirmed already on the helper — no action needed.
+- **Discovered:**
+  - `tinyview_scraper_secure.py` is imported by the nightly pipeline script, so its "reauth-only" driver setup is actually production-critical.
+  - `brew upgrade chromedriver` is a dead end: the formula is deprecated and the upgrade left PATH at 151 (ahead of Chrome 150). The webdriver-manager helper makes the PATH driver irrelevant for all production scrapers; `chromedriver --version` even hangs on this box.
+  - The `⚠️ No Firebase auth keys found` line in TinyView reauth is cosmetic (session persists via cookies, not localStorage), not a failure signal.
 
 ### 2026-06-22
 - **Goal:** Project review; clear the open dependency PRs.
