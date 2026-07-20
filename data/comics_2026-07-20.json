@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/4eadbd706687013fc3af005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-20",
+    "url": "https://www.gocomics.com/tim-campbell/2026/07/20",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/628c90e0637b013fc382005056a9545d?optimizer=image&width=2800&quality=85",
@@ -16,11 +24,43 @@
     "category": "political"
   },
   {
+    "name": "Phil Hands",
+    "slug": "phil-hands",
+    "image_url": "https://featureassets.gocomics.com/assets/5361c9806687013fc3af005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-20",
+    "url": "https://www.gocomics.com/phil-hands/2026/07/20",
+    "category": "political"
+  },
+  {
+    "name": "Michael Ramirez",
+    "slug": "michaelramirez",
+    "image_url": "https://featureassets.gocomics.com/assets/dbad48006646013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-20",
+    "url": "https://www.gocomics.com/michaelramirez/2026/07/20",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/734ea3806681013fc3ae005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-20",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/07/20",
+    "category": "political"
+  },
+  {
     "name": "Joe Heller",
     "slug": "joe-heller",
     "image_url": "https://featureassets.gocomics.com/assets/fdad70d06626013fc382005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-20",
     "url": "https://www.gocomics.com/joe-heller/2026/07/20",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/d12ab7606684013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-20",
+    "url": "https://www.gocomics.com/henrypayne/2026/07/20",
     "category": "political"
   },
   {
@@ -333,6 +373,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/afe0f5705ba3013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-20",
     "url": "https://www.gocomics.com/bc/2026/07/20",
+    "category": "daily"
+  },
+  {
+    "name": "Batch Rejection",
+    "slug": "batch-rejection",
+    "image_url": "https://featureassets.gocomics.com/assets/b4f3af70667d013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-20",
+    "url": "https://www.gocomics.com/batch-rejection/2026/07/20",
     "category": "daily"
   },
   {
@@ -1568,6 +1616,14 @@
     "category": "daily"
   },
   {
+    "name": "Lards World Peace Tips",
+    "slug": "lards-world-peace-tips",
+    "image_url": "https://featureassets.gocomics.com/assets/af37c6506646013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-20",
+    "url": "https://www.gocomics.com/lards-world-peace-tips/2026/07/20",
+    "category": "daily"
+  },
+  {
     "name": "La Cucaracha",
     "slug": "la-cucaracha-en-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/5093541062a7013fc382005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1733,6 +1789,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/e92493f05828013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-20",
     "url": "https://www.gocomics.com/toomuchcoffeeman/2026/07/20",
+    "category": "daily"
+  },
+  {
+    "name": "Tiny Sepuku",
+    "slug": "tinysepuku",
+    "image_url": "https://featureassets.gocomics.com/assets/817f8ad06648013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-20",
+    "url": "https://www.gocomics.com/tinysepuku/2026/07/20",
     "category": "daily"
   },
   {

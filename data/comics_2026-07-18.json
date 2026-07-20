@@ -1,10 +1,26 @@
 [
   {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "image_url": "https://featureassets.gocomics.com/assets/624968606625013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-18",
+    "url": "https://www.gocomics.com/stevebreen/2026/07/18",
+    "category": "political"
+  },
+  {
     "name": "Robert Ariail",
     "slug": "robert-ariail",
     "image_url": "https://featureassets.gocomics.com/assets/3ae93e006451013fc382005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-18",
     "url": "https://www.gocomics.com/robert-ariail/2026/07/18",
+    "category": "political"
+  },
+  {
+    "name": "Phil Hands",
+    "slug": "phil-hands",
+    "image_url": "https://featureassets.gocomics.com/assets/2f2b0750668d013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-18",
+    "url": "https://www.gocomics.com/phil-hands/2026/07/18",
     "category": "political"
   },
   {
