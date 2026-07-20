@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-20",
+  "scraped_at": "2026-07-20T08:17:11.011926+00:00",
+  "comics": [
+    {
+      "id": "22487",
+      "date": "2026-07-20",
+      "url": "https://www.thefarside.com/2026/07/20/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc6bcef80d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c6bcef80d7410137c8a6005056a9545d",
+      "caption": "\u201cHere he comes, Earl. \u2026 Remember, be gentle but firm \u2026 we are absolutely, positively, NOT driving him south this winter.\u201d",
+      "title": "\u201cHere he comes, Earl"
+    },
+    {
+      "id": "22488",
+      "date": "2026-07-20",
+      "url": "https://www.thefarside.com/2026/07/20/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Faa941a90d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/aa941a90d8ba0137c959005056a9545d",
+      "caption": "\u201cThag, take napkin. \u2026 Got some mammoth on face.\u201d",
+      "title": "\u201cThag, take napkin"
+    },
+    {
+      "id": "22489",
+      "date": "2026-07-20",
+      "url": "https://www.thefarside.com/2026/07/20/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F88611e70e4860137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/88611e70e4860137cda5005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22489"
+    },
+    {
+      "id": "22490",
+      "date": "2026-07-20",
+      "url": "https://www.thefarside.com/2026/07/20/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb25f3540e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b25f3540e9ef0137cf93005056a9545d",
+      "caption": "\u201cListen up, my Cossack brethren! We\u2019ll ride into the valley like the wind, the thunder of our horses and the lightning of our steel striking fear in the hearts of our enemies! \u2026 And remember\u2014stay out of Mrs. Caldwell\u2019s garden!\u201d",
+      "title": "\u201cListen up, my Cossack brethren! We\u2019ll ride into the vall..."
+    },
+    {
+      "id": "22491",
+      "date": "2026-07-20",
+      "url": "https://www.thefarside.com/2026/07/20/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1f6c6110cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1f6c6110cdd60137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22491"
+    }
+  ]
+}
