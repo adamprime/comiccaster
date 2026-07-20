@@ -10,13 +10,17 @@ import json
 import pickle
 from datetime import datetime, timedelta
 from pathlib import Path
-from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import time
+
+# Shared helper: auto-resolves a ChromeDriver matching the installed Chrome so
+# TinyView never depends on a manually pinned driver on PATH (incident
+# 2026-06-09). Matches Comics Kingdom / GoComics / Far Side.
+from comiccaster.webdriver_setup import build_chrome_driver
 
 # Load environment variables from .env file
 from dotenv import load_dotenv
@@ -88,7 +92,7 @@ def setup_driver(show_browser=False, for_auth=False, use_profile=True):
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
     
-    driver = webdriver.Chrome(options=options)
+    driver = build_chrome_driver(options)
     
     # Set page load strategy and timeouts
     driver.set_page_load_timeout(30)
