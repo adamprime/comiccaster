@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-21",
+  "scraped_at": "2026-07-21T08:20:06.433277+00:00",
+  "comics": [
+    {
+      "id": "22492",
+      "date": "2026-07-21",
+      "url": "https://www.thefarside.com/2026/07/21/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fce50d8b0e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ce50d8b0e9ee0137cf93005056a9545d",
+      "caption": "\u201cMan, these pups today with all their fancy balls and whatnot. \u2026 Why, back in our day, we had to play with a half-rotted cat\u2019s head.\u201d",
+      "title": "\u201cMan, these pups today with all their fancy balls and wha..."
+    },
+    {
+      "id": "22493",
+      "date": "2026-07-21",
+      "url": "https://www.thefarside.com/2026/07/21/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa781d2e0395a0138eaa4005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a781d2e0395a0138eaa4005056a9545d",
+      "caption": "\u201cWell, okay, Frank. \u2026 Maybe it is just the wind.\u201d",
+      "title": "\u201cWell, okay, Frank"
+    },
+    {
+      "id": "22494",
+      "date": "2026-07-21",
+      "url": "https://www.thefarside.com/2026/07/21/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fbe4b38f0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/be4b38f0cdd50137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22494"
+    },
+    {
+      "id": "22495",
+      "date": "2026-07-21",
+      "url": "https://www.thefarside.com/2026/07/21/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8fb49da0e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8fb49da0e92f0137cf47005056a9545d",
+      "caption": "Testifying before a Senate subcommittee, the Hardy boys crack the Iran-Contra scandal.",
+      "title": "Testifying before a Senate subcommittee, the Hardy boys c..."
+    },
+    {
+      "id": "22496",
+      "date": "2026-07-21",
+      "url": "https://www.thefarside.com/2026/07/21/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F22b95dd0a61b01396268005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/22b95dd0a61b01396268005056a9545d",
+      "caption": "Obscene duck call",
+      "title": "Obscene duck call"
+    }
+  ]
+}
