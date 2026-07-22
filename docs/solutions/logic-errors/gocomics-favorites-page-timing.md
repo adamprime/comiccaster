@@ -1,5 +1,5 @@
 ---
-title: "GoComics favorites page is reactive: scraping at 03:20 PT misses late-publishing political cartoonists"
+title: "GoComics favorites page is reactive: scraping at 03:20 CT misses late-publishing political cartoonists"
 date: 2026-05-16
 category: logic-errors
 tags: [scraping, gocomics, timing, political-cartoons, favorites-page, page-state, backfill]
@@ -19,8 +19,8 @@ A targeted diagnostic script (`scripts/diagnose_political_favorites.py`) fetched
 
 | Run | Time | ComicViewer (updated) | FeaturesNotIssued | Total |
 |-----|------|----------------------:|------------------:|------:|
-| Production scrape | 03:20 PT, May 14 | 10 | 51 | 61 |
-| Diagnostic fetch | ~14:00 PT, May 16 (querying `?date=2026-05-14`) | **21** | 40 | 61 |
+| Production scrape | 03:20 CT, May 14 | 10 | 51 | 61 |
+| Diagnostic fetch | ~14:00 CT, May 16 (querying `?date=2026-05-14`) | **21** | 40 | 61 |
 
 Production's 10 extracted slugs were a strict subset of the diagnostic's 21. The 11 additional slugs included `nickanderson` and 10 other political cartoonists with chronically-stale feeds:
 
@@ -32,19 +32,26 @@ When the production scraper's extraction code is re-run against the diagnostic's
 
 The GoComics favorites page renders as-of-now: a comic is classified into `ComicViewer` (published) vs `FeaturesNotIssued` (not yet published / won't publish today) based on the page's view of the world at request time. The `?date=` query parameter selects which day's strips to show, but the published-vs-not classification remains a function of "what has actually been posted by the time of the HTTP request."
 
-Most editorial cartoonists publish mid-morning Eastern (roughly 09:00–13:00 ET). At 03:20 PT (06:20 ET), only a small subset of strips for the day have been syndicated. The page lists the rest as `FeaturesNotIssued`. By the time we re-fetch the same `?date=` URL many hours later, those late-publishing strips have appeared and moved to `ComicViewer` — but our daily scrape never sees that second state because we only fetch once per day, early in the morning Pacific.
+Most editorial cartoonists publish mid-morning Eastern (roughly 09:00–13:00 ET). At 03:20 CT (04:20 ET), only a small subset of strips for the day have been syndicated. The page lists the rest as `FeaturesNotIssued`. By the time we re-fetch the same `?date=` URL many hours later, those late-publishing strips have appeared and moved to `ComicViewer` — but our daily scrape never sees that second state because we only fetch once per day, early in the morning Central.
 
-Comics whose syndication runs after our 03:20 PT window were therefore never appearing in scrape data, regardless of how reliably they posted.
+Comics whose syndication runs after our 03:20 CT window were therefore never appearing in scrape data, regardless of how reliably they posted.
 
 ## Fix
 
+> **Timezone note:** the automation host runs on **US Central time** (logs print
+> `CDT`/`CST`). Earlier revisions of this doc labeled times "PT" inconsistently —
+> some values were Central clock readings, and one ("13:00 PT") was self-
+> contradictory against its own "14:00 ET" rationale. All times here are now stated
+> in **Central (CT)** with the Eastern equivalent where it matters, matching the
+> launchd schedule (`master` = Hour 3, `pass2` = Hour 13). Note 13:00 CT = 14:00 ET.
+
 Two-pass GoComics scrape:
-- **Pass 1 — 03:20 PT (unchanged):** captures overnight-syndicated content.
-- **Pass 2 — 11:00 PT (new):** re-fetches the GoComics favorites pages and merges new slugs into the same-day `data/comics_$DATE.json`. Pass 2 entries win for slugs present in both passes; pass 1's slugs not seen in pass 2 are preserved.
+- **Pass 1 — 03:20 CT (unchanged):** captures overnight-syndicated content.
+- **Pass 2 — 13:00 CT / 14:00 ET (new):** re-fetches the GoComics favorites pages and merges new slugs into the same-day `data/comics_$DATE.json`. Pass 2 entries win for slugs present in both passes; pass 1's slugs not seen in pass 2 are preserved.
 
 Pass 2 is GoComics-only — the other five sources (Comics Kingdom, TinyView, Far Side, New Yorker, Creators) don't use a single reactive favorites page, so their existing timing is fine.
 
-11:00 PT was chosen as a balance: late enough that the mid-morning Eastern publishing wave has finished (14:00 ET), early enough that feeds refresh well before evening RSS consumption. The two-pass design is self-tuning — once we have a few weeks of pass-2 data, the gap between pass 1 and pass 2 captures tells us whether to shift pass 2 earlier or later.
+13:00 CT (14:00 ET) was chosen as a balance: late enough that the mid-morning Eastern publishing wave has finished (14:00 ET), early enough that feeds refresh well before evening RSS consumption. The two-pass design is self-tuning — once we have a few weeks of pass-2 data, the gap between pass 1 and pass 2 captures tells us whether to shift pass 2 earlier or later.
 
 ## Diagnostic tooling
 
@@ -65,7 +72,7 @@ python scripts/diagnose_political_favorites.py --date YYYY-MM-DD --target-slug <
 
 GitHub #164 reported Jack Ohman's feed stale since 2026-07-02. Same class of bug as
 #138, but one the two-pass fix above does **not** catch: cartoonists who publish
-*after* the 13:00 PT Pass 2 window, or on a next-day lag.
+*after* the 13:00 CT Pass 2 window, or on a next-day lag.
 
 **Evidence (2026-07-10, via `scripts/diagnose_political_favorites.py`):** re-fetching the
 political page with `?date=2026-07-08` showed `jackohman` in the `ComicViewer` (updated)
