@@ -45,11 +45,22 @@ fi
 source "$REPO_DIR/venv/bin/activate"
 pip install -e "$REPO_DIR" > /dev/null 2>&1 || true
 
-# Load SSH key from Keychain (LaunchD runs without GUI session)
-ssh-add --apple-use-keychain ~/.ssh/id_rsa 2>/dev/null || true
-
-if ! ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"; then
-    echo "❌ GitHub SSH authentication failed - check SSH key and keychain"
+# Verify GitHub SSH access before proceeding. Derive the SSH host from the actual
+# push remote so this check can never drift from what the push uses. The remote
+# uses a dedicated host alias (git@github-comiccaster:...) whose deploy key is
+# named via IdentityFile in ~/.ssh/config, so no ssh-agent/keychain load is
+# required. Testing a hardcoded git@github.com here was a false-negative source:
+# it validated the wrong host and aborted the whole run even though the aliased
+# push would have succeeded. Mirrors the guard in local_master_update.sh.
+REMOTE_URL="$(git -C "$REPO_DIR" remote get-url origin 2>/dev/null)"
+SSH_HOST="$(echo "$REMOTE_URL" | sed -n 's/^git@\([^:]*\):.*/\1/p')"
+if [ -z "$SSH_HOST" ]; then
+    echo "❌ Could not determine SSH host from origin remote: '$REMOTE_URL'"
+    echo "Aborting: Cannot push without a resolvable SSH remote."
+    exit 0
+fi
+if ! ssh -T "$SSH_HOST" 2>&1 | grep -q "successfully authenticated"; then
+    echo "❌ GitHub SSH authentication failed ($SSH_HOST) - check SSH key and keychain"
     osascript -e 'display notification "Pass 2: SSH auth failed" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
     echo "Aborting: Cannot push without SSH access."
     exit 0
