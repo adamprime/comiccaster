@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-22",
+  "scraped_at": "2026-07-22T15:42:06.824817+00:00",
+  "comics": [
+    {
+      "id": "22497",
+      "date": "2026-07-22",
+      "url": "https://www.thefarside.com/2026/07/22/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fffdb3a80e6f70137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ffdb3a80e6f70137ce50005056a9545d",
+      "caption": "\u201cOkay, Frank, that\u2019s enough. \u2026 I\u2019m sure the Jeffersons are quite amazed at your car headlight device.\u201d",
+      "title": "\u201cOkay, Frank, that\u2019s enough"
+    },
+    {
+      "id": "22498",
+      "date": "2026-07-22",
+      "url": "https://www.thefarside.com/2026/07/22/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7c8536a0e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7c8536a0e92f0137cf47005056a9545d",
+      "caption": "Zorg dupes the entire tribe in an incident later known as \u201cfiregate.\u201d",
+      "title": "Zorg dupes the entire tribe in an incident later known as..."
+    },
+    {
+      "id": "22499",
+      "date": "2026-07-22",
+      "url": "https://www.thefarside.com/2026/07/22/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffac2bd60dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fac2bd60dcca0137caaf005056a9545d",
+      "caption": "Eventually, Murray took the job\u2014but his friends never did speak to him again.",
+      "title": "Eventually, Murray took the job\u2014but his friends never did..."
+    },
+    {
+      "id": "22500",
+      "date": "2026-07-22",
+      "url": "https://www.thefarside.com/2026/07/22/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F06812040dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/06812040dcca0137caaf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22500"
+    },
+    {
+      "id": "22501",
+      "date": "2026-07-22",
+      "url": "https://www.thefarside.com/2026/07/22/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F14a61ba0cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/14a61ba0cdd40137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22501"
+    }
+  ]
+}
