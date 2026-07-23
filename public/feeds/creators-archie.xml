@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Archie - Creators</title><link>https://www.creators.com/read/archie</link><description>Daily Archie comic strip by Archie Comics from Creators</description><atom:link href="https://comiccaster.xyz/feeds/creators-archie.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 22 Jul 2026 15:43:44 +0000</lastBuildDate><ttl>1440</ttl><item><title>Archie for Jul 22, 2026</title><link>https://www.creators.com/read/archie/07/26/417614</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Archie - Creators</title><link>https://www.creators.com/read/archie</link><description>Daily Archie comic strip by Archie Comics from Creators</description><atom:link href="https://comiccaster.xyz/feeds/creators-archie.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 23 Jul 2026 08:21:16 +0000</lastBuildDate><ttl>1440</ttl><item><title>Archie for Jul 23, 2026</title><link>https://www.creators.com/read/archie/07/26/417618</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-07-23&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.alphacomedy.com/34/2026/07_23_26_44c8b3f6ea44dae193e04a73328dff84.jpg" alt="Archie" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Archie&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/archie/07/26/417618</guid><pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate></item><item><title>Archie for Jul 22, 2026</title><link>https://www.creators.com/read/archie/07/26/417614</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-07-22&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/34/2026/07_22_26_eaa584e3eebb263273e13608e2fbcb60.jpg" alt="Archie" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -160,11 +167,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Archie&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/archie/06/26/417014</guid><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate></item><item><title>Archie for Jun 29, 2026</title><link>https://www.creators.com/read/archie/06/26/417024</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-06-29&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.alphacomedy.com/34/2026/06_29_26_95b489e812f6f42a3bd2b0d84b075a48.jpg" alt="Archie" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Archie&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/archie/06/26/417024</guid><pubDate>Mon, 29 Jun 2026 00:00:00 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://www.creators.com/read/archie/06/26/417014</guid><pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate></item></channel></rss>
