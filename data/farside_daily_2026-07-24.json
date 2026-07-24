@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-24",
+  "scraped_at": "2026-07-24T08:20:21.484475+00:00",
+  "comics": [
+    {
+      "id": "22507",
+      "date": "2026-07-24",
+      "url": "https://www.thefarside.com/2026/07/24/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F74c80830fa840137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/74c80830fa840137d52f005056a9545d",
+      "caption": "\u201cOkay. Here\u2019s another little ditty we can all sing. \u2026 Of course, as always, the only words are \u2018ribbit, ribbit, ribbit.\u2019\u201d",
+      "title": "\u201cOkay"
+    },
+    {
+      "id": "22508",
+      "date": "2026-07-24",
+      "url": "https://www.thefarside.com/2026/07/24/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8726b930e3ad0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8726b930e3ad0137cd49005056a9545d",
+      "caption": "\u201c\u2018You have a small capacity for reason, some basic tool-making skills, and the use of a few simple words.\u2019... Yep. That\u2019s you.\u201d",
+      "title": "\u201c\u2018You have a small capacity for reason, some basic tool-m..."
+    },
+    {
+      "id": "22509",
+      "date": "2026-07-24",
+      "url": "https://www.thefarside.com/2026/07/24/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcc61ad90e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cc61ad90e9ef0137cf93005056a9545d",
+      "caption": "The questions were getting harder, and Ted could feel Lucky\u2019s watchful glare from across the room. He had been warned, he recalled, that this was a breed that would sometimes test him.",
+      "title": "The questions were getting harder, and Ted could feel Luc..."
+    },
+    {
+      "id": "22510",
+      "date": "2026-07-24",
+      "url": "https://www.thefarside.com/2026/07/24/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2c4dc1a0cdd70137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2c4dc1a0cdd70137c56b005056a9545d",
+      "caption": "\u201cYou boys got a bottle opener?\u201d",
+      "title": "\u201cYou boys got a bottle opener?\u201d"
+    },
+    {
+      "id": "22511",
+      "date": "2026-07-24",
+      "url": "https://www.thefarside.com/2026/07/24/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F26ca507002820138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/26ca507002820138d7bb005056a9545d",
+      "caption": "Thirty years had passed, and although he had no real regrets about marrying Wendy, buying a home, and having two kids, Peter found his thoughts often going back to his life in Never-Never-Land.",
+      "title": "Thirty years had passed, and although he had no real regr..."
+    }
+  ]
+}
