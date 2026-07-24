@@ -16,6 +16,14 @@
     "category": "political"
   },
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/fa5fd03069ab013fc3e0005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-24",
+    "url": "https://www.gocomics.com/tim-campbell/2026/07/24",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/6ae2b180637b013fc382005056a9545d?optimizer=image&width=2800&quality=85",
@@ -53,6 +61,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/f38a058068dc013fc3cd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-24",
     "url": "https://www.gocomics.com/joey-weatherford/2026/07/24",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/fceafd9069ab013fc3e0005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-24",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/07/24",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/7e0889c0696b013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-24",
+    "url": "https://www.gocomics.com/garyvarvel/2026/07/24",
     "category": "political"
   },
   {
@@ -781,6 +805,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/ba72858062b0013fc382005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-24",
     "url": "https://www.gocomics.com/grand-avenue/2026/07/24",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/b341f410699c013fc382005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-24",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/07/24",
     "category": "daily"
   },
   {
