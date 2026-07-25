@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-07-25",
+  "scraped_at": "2026-07-25T08:19:57.306544+00:00",
+  "comics": [
+    {
+      "id": "22512",
+      "date": "2026-07-25",
+      "url": "https://www.thefarside.com/2026/07/25/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F84163f70e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/84163f70e3ae0137cd49005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22512"
+    },
+    {
+      "id": "22513",
+      "date": "2026-07-25",
+      "url": "https://www.thefarside.com/2026/07/25/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0a805320e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0a805320e92e0137cf47005056a9545d",
+      "caption": "Alert, but far from panicked, the herbivores studied the sudden arrival of two cheetah speedwalkers.",
+      "title": "Alert, but far from panicked, the herbivores studied the ..."
+    }
+  ]
+}
