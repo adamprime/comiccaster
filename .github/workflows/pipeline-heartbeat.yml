@@ -1,0 +1,49 @@
+name: Pipeline Heartbeat
+
+# Dead-man's switch for the daily feed pipeline.
+#
+# report_pipeline_failures.py reports what broke *during* a run. It cannot
+# report a run that never happened: if the Mac Mini is off, asleep, or
+# network-dead, no step fails, so nothing is reported and a dead pipeline looks
+# exactly like a healthy one.
+#
+# This runs on GitHub's infrastructure precisely because the thing it monitors
+# is the Mini -- a heartbeat hosted on the machine it watches dies with it.
+#
+# 11:00 UTC is ~06:00 America/Chicago: about three hours after the 03:05 Pass 1
+# run, so a missed night surfaces before the morning inbox check.
+
+on:
+  schedule:
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+    inputs:
+      stale_hours:
+        description: 'Hours without a pipeline commit before alerting'
+        required: false
+        default: '20'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # Need history deep enough to find recent pipeline commits; the
+          # default fetch-depth of 1 would make every run look stale.
+          fetch-depth: 200
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Check pipeline heartbeat
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STALE_HOURS: ${{ inputs.stale_hours || '20' }}
+        run: python scripts/check_pipeline_heartbeat.py --stale-hours "$STALE_HOURS"

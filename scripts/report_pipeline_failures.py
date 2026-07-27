@@ -52,6 +52,7 @@ SOURCE_NAMES = {
     "mrboffo": "Mr. Boffo",
     "push": "Git push",
     "preflight": "SSH preflight",
+    "heartbeat": "Daily pipeline",
 }
 
 
@@ -96,7 +97,7 @@ def issue_body(slug: str, kind: str, run: str, date: str, detail: str) -> str:
         "This issue closes itself automatically when this source next succeeds.\n"
     )
     if detail:
-        body += f"\n<details><summary>Log tail</summary>\n\n```\n{detail}\n```\n\n</details>\n"
+        body += f"\n<details><summary>Details</summary>\n\n```\n{detail}\n```\n\n</details>\n"
     body += f"\n{MARKER_PREFIX}{slug}\n"
     return body
 
@@ -106,7 +107,7 @@ def recurrence_comment(slug: str, kind: str, run: str, date: str, detail: str) -
         f"Still failing: **{kind}** on the {run} run of {date}.\n"
     )
     if detail:
-        comment += f"\n<details><summary>Log tail</summary>\n\n```\n{detail}\n```\n\n</details>\n"
+        comment += f"\n<details><summary>Details</summary>\n\n```\n{detail}\n```\n\n</details>\n"
     return comment
 
 
