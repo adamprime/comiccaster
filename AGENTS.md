@@ -64,8 +64,11 @@ python scripts/generate_mrboffo_feeds.py
    - `index.html` - Main web interface
 
 3. **scripts/** - Update and utility scripts
-   - `mini_master_update.sh` - Production entrypoint (sets host-specific environment, execs the tracked master update)
-   - `local_master_update.sh` - Main daily update orchestrator
+   - `mini_master_update.sh` - Pass 1 production entrypoint (sets host-specific environment, execs the tracked master update)
+   - `local_master_update.sh` - Pass 1 orchestrator (03:05, all seven sources)
+   - `mini_master_pass2.sh` / `local_pass2_update.sh` - Pass 2 (13:00, GoComics only, `--merge` + rolling backfill)
+   - `report_pipeline_failures.py` - Opens/comments/closes a GitHub issue per failing source (runs in Actions)
+   - `check_pipeline_heartbeat.py` - Dead-man's switch for a pipeline that never ran
    - `scrape_*.py` and authenticated scrapers — per-source scrapers (Phase 1), each writes `data/<src>_$DATE.json`
    - `generate_*.py` — per-source generators (Phase 2), network-free, read the latest scraped JSON and write `public/feeds/*.xml`
    - `backfill_gocomics_feeds.py` — manual rate-limited recovery
@@ -75,17 +78,25 @@ python scripts/generate_mrboffo_feeds.py
    - `generate-opml.js` - OPML bundle generation
    - `fetch-feed.js` - Feed preview functionality
 
-5. **docs/** - Documentation
+5. **.github/workflows/** - CI and alerting
+   - `pipeline-alert.yml` - Dispatched by both passes; creates failure issues as `github-actions[bot]`
+   - `pipeline-heartbeat.yml` - Scheduled; alerts when no pipeline commit lands within 20h
+   - `tests.yml` - pytest on 3.10/3.11/3.12 for PRs to `main`
+
+6. **docs/** - Documentation
    - `docs/LOCAL_AUTOMATION_README.md` - Operational reference for the daily pipeline
    - `docs/internal/` - Internal/archived documentation
 
 ### Feed Update Process
 
-Daily updates run on a dedicated always-on host, overnight:
+Updates run on a dedicated always-on host, **twice daily** — Pass 1 at 03:05 (all sources) and Pass 2 at 13:00 (GoComics only, catching late political/editorial publishers):
 1. **Phase 1 — scrape** the seven sources (GoComics, Comics Kingdom, TinyView, New Yorker, Far Side, Creators Syndicate, Mr. Boffo), each writing to `data/<src>_$DATE.json`.
 2. **Phase 2 — generate** feeds from those JSONs. Each source has a dedicated generator; all are network-free.
 3. **Invariant guard:** every successful scrape must have written its dated JSON file; missing files surface as failures.
 4. **Phase 3 — commit and push.** On push rejection, recovery saves today's JSONs, resets to `origin/main`, restores them, and regenerates all feeds. Netlify auto-deploys on push.
+5. **Alerting.** Every run dispatches `pipeline-alert.yml` with what failed and what it examined — on success too, since that is what closes issues for recovered sources. Scrape, invariant, push, and SSH-preflight failures open a GitHub issue; feed generation and `git fetch` stay log-only.
+
+The host **detects** failures but does not create the issues: GitHub sends no notification for an issue you author yourself, and the host authenticates as the repo owner. Issues are authored by `github-actions[bot]` instead. A separate scheduled heartbeat covers the case the reporter structurally cannot — a run that never happened. See `docs/LOCAL_AUTOMATION_README.md`.
 
 See [docs/LOCAL_AUTOMATION_README.md](docs/LOCAL_AUTOMATION_README.md) for the operational details.
 

@@ -15,7 +15,7 @@ ComicCaster is a web application that generates RSS feeds for comics from multip
 - **Accurate Daily Comic Detection**: Distinguishes between current daily comics and "best of" reruns
 - **Smart Update Scheduling**: Optimizes feed updates based on comic publishing patterns (daily, weekly, irregular)
 - **Parallel Processing**: Efficient concurrent feed generation
-- **Feed Health Monitoring**: Automated canary system detects and alerts on stale feeds
+- **Pipeline Failure Alerting**: A failed scrape opens a GitHub issue that comments on recurrence and closes itself on recovery
 
 ### User Interface
 - **Tabbed Navigation**: Separate tabs for daily comics, political cartoons, and TinyView comics
@@ -93,19 +93,22 @@ comiccaster/
 
 ## Feed Updates
 
-Feeds are updated daily and committed to the repository. The workflow:
+Feeds are updated twice daily and committed to the repository. The workflow:
 1. Runs update scripts to fetch latest comics from each source
 2. Detects and includes only current daily comics (not reruns)
 3. Commits updated feed files to the repository
 4. Netlify automatically deploys when changes are pushed
-5. Canary monitoring validates feed freshness
+5. Failures open a GitHub issue; a scheduled heartbeat catches a run that never happened at all
+
+A second pass re-scrapes GoComics later in the day to pick up political and editorial
+cartoonists who publish after the overnight window.
 
 ### Key Features
 
-- **Multi-Source Support**: Comics from GoComics, Comics Kingdom, TinyView, and The Far Side
+- **Multi-Source Support**: Comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, Creators Syndicate, and Mr. Boffo
 - **Accurate Detection**: Distinguishes current daily comics from reruns
 - **Multi-Image Support**: Handles comics with multiple panels per day
-- **Feed Health Monitoring**: Canary system alerts on stale feeds
+- **Failure Alerting**: A failing source opens a GitHub issue and closes it automatically once the source recovers
 - **Resilient Updates**: Graceful handling of missing comics and site changes
 
 ## Technical Components

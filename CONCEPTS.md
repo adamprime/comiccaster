@@ -33,6 +33,15 @@ The GoComics-only daily schedule that fetches the Reactive favorites page twice 
 ### Rolling backfill
 Part of Pass 2: re-scrape the Reactive favorites page for the last N days (`GOCOMICS_BACKFILL_DAYS`, default 3) via `?date=` and merge any newly-appeared slugs into each day's JSON. Because the page reports a past date's *settled* state once strips exist, this recovers cartoonists who published after both same-day passes or on a next-day lag. Each in-window date is re-fetched on every subsequent day, so within-window late settling is self-healing; lateness beyond the window needs a one-off wider backfill. Introduced for #164.
 
+### Failure alert
+The GitHub issue a pipeline run opens when a source fails, identified by a `Pipeline-Failure-Key: <slug>` marker in its body rather than by title or label. One issue per source: a repeat failure comments on the existing issue, and the issue closes itself once that source succeeds again. Covers scrape failures, Invariant guard violations, `git push` failures, and the SSH preflight abort — not feed generation or `git fetch`, which stay log-only. Issues are authored by `github-actions[bot]`, because GitHub sends no notification for an issue you author yourself and the host authenticates as the repo owner.
+
+### Covered set
+The list of slugs a given run actually examined, passed alongside the failures. A source is only eligible to have its Failure alert auto-closed if it appears in the covered set, so Pass 2 — which scrapes GoComics alone — cannot close a Comics Kingdom issue by omission. Absence from a run's failures means "healthy" only for sources that run examined; for everything else it means "not looked at."
+
+### Heartbeat
+The scheduled off-host check that alerts when *no* pipeline run happened, as opposed to a run that failed. It asks whether any pipeline commit has landed on `main` within a staleness window (20h), ignoring human commits so a code push cannot mask a stalled pipeline. It runs on GitHub Actions rather than the automation host, because a check hosted on the machine it monitors dies with it.
+
 ## Feed shaping
 
 ### Daily Dose
