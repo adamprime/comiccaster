@@ -24,8 +24,18 @@ echo "==========================================================================
 echo "ComicCaster Master Update - $(date)"
 echo "================================================================================"
 
-# Track failures
+# Track failures. FAILURES holds human-readable labels for the log summary and
+# the desktop notification; FAILED_KEYS holds stable "<slug>:<kind>" slugs for
+# the GitHub issue reporter. Only scrape, invariant, and push failures get a
+# slug -- feed generation and git fetch stay log-only by design.
 FAILURES=()
+FAILED_KEYS=()
+
+# Sources this run examines, so the reporter knows what it may auto-close.
+# Pass 1 covers everything; Pass 2 covers GoComics only.
+# `preflight` is included because reaching the end of a run proves it passed,
+# which is what auto-closes a preflight issue from a previous run.
+ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,creators,mrboffo,push,preflight"
 
 # Load environment variables (.env has GoComics credentials)
 if [ -f "$REPO_DIR/.env" ]; then
@@ -37,6 +47,23 @@ source "$REPO_DIR/venv/bin/activate"
 
 # Install comiccaster package in editable mode (if not already installed)
 pip install -e "$REPO_DIR" > /dev/null 2>&1 || true
+
+# Report this run's outcome by dispatching a GitHub Actions workflow rather than
+# creating issues here. The Mini's `gh` is authenticated as the repo owner, and
+# GitHub sends NO notification for an issue you author yourself -- host-created
+# alerts were silently invisible to the person meant to act on them. Dispatching
+# makes github-actions[bot] the author, which does notify.
+#
+# This is a direct API call, not a git push, so it still fires when pushing is
+# the thing that broke. Best-effort: never fatal to the pipeline.
+report_pipeline_failures() {
+    local covered="$1" failed="$2"
+    gh workflow run pipeline-alert.yml \
+        --field run=pass1 \
+        --field date="$(date +%Y-%m-%d)" \
+        --field covered="$covered" \
+        --field failed="$failed" || true
+}
 
 # Verify GitHub SSH access before proceeding.
 # Derive the SSH host from the actual push remote so this check can never drift
@@ -50,6 +77,9 @@ SSH_HOST="$(echo "$REMOTE_URL" | sed -n 's/^git@\([^:]*\):.*/\1/p')"
 if [ -z "$SSH_HOST" ]; then
     echo "❌ Could not determine SSH host from origin remote: '$REMOTE_URL'"
     echo "Aborting: Cannot push without a resolvable SSH remote."
+    # This aborts before any scraping, so the normal end-of-run report never
+    # happens. Alert here or the hardest failure is the quietest one.
+    report_pipeline_failures "preflight" "preflight:remote"
     echo "================================================================================"
     echo "ComicCaster Master Update ABORTED (SSH) - $(date)"
     echo "================================================================================"
@@ -60,6 +90,9 @@ if ! ssh -T "$SSH_HOST" 2>&1 | grep -q "successfully authenticated"; then
     osascript -e 'display notification "SSH auth failed - check keychain" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
     # This is fatal -- we can't push anything without SSH
     echo "Aborting: Cannot push without SSH access."
+    # Aborts before any scraping, so alert here (see PR #168 -- a preflight bug
+    # silently killed daily runs).
+    report_pipeline_failures "preflight" "preflight:ssh"
     echo "================================================================================"
     echo "ComicCaster Master Update ABORTED (SSH) - $(date)"
     echo "================================================================================"
@@ -94,6 +127,7 @@ if python scripts/authenticated_scraper_secure.py --output-dir ./data; then
 else
     echo "❌ GoComics scraping failed"
     FAILURES+=("GoComics scraping")
+    FAILED_KEYS+=("gocomics:scrape")
 fi
 
 echo ""
@@ -106,6 +140,7 @@ if python scripts/comicskingdom_scraper_individual.py ${CK_SCRAPER_EXTRA_ARGS:-}
 else
     echo "❌ Comics Kingdom scraping failed"
     FAILURES+=("Comics Kingdom scraping")
+    FAILED_KEYS+=("comicskingdom:scrape")
 fi
 
 echo ""
@@ -115,6 +150,7 @@ if python scripts/tinyview_scraper_local_authenticated.py --date "$DATE_STR" --d
 else
     echo "❌ TinyView scraping failed"
     FAILURES+=("TinyView scraping")
+    FAILED_KEYS+=("tinyview:scrape")
 fi
 
 echo ""
@@ -124,6 +160,7 @@ if python scripts/scrape_farside.py; then
 else
     echo "❌ Far Side scraping failed"
     FAILURES+=("Far Side scraping")
+    FAILED_KEYS+=("farside:scrape")
 fi
 
 echo ""
@@ -133,6 +170,7 @@ if python scripts/scrape_newyorker.py; then
 else
     echo "❌ New Yorker scraping failed"
     FAILURES+=("New Yorker scraping")
+    FAILED_KEYS+=("newyorker:scrape")
 fi
 
 echo ""
@@ -142,6 +180,7 @@ if python scripts/scrape_creators.py; then
 else
     echo "❌ Creators scraping failed"
     FAILURES+=("Creators scraping")
+    FAILED_KEYS+=("creators:scrape")
 fi
 
 echo ""
@@ -151,6 +190,7 @@ if python scripts/scrape_mrboffo.py; then
 else
     echo "❌ Mr. Boffo scraping failed"
     FAILURES+=("Mr. Boffo scraping")
+    FAILED_KEYS+=("mrboffo:scrape")
 fi
 
 # Phase 2: Generate all feeds from scraped data
@@ -228,7 +268,7 @@ fi
 echo ""
 echo "=== Verifying scrape invariants ==="
 check_scrape_output() {
-    local source="$1" file="$2"
+    local source="$1" slug="$2" file="$3"
     # Skip the check if this source's scraping was already reported as failed.
     if [ ${#FAILURES[@]} -gt 0 ] && printf '%s\n' "${FAILURES[@]}" | grep -qxF "$source scraping"; then
         return 0
@@ -236,18 +276,20 @@ check_scrape_output() {
     if [ ! -f "$file" ]; then
         echo "❌ Invariant violation: $source scrape reported success but $file is missing"
         FAILURES+=("$source invariant ($(basename "$file") missing)")
+        # Far Side is checked twice; a duplicate slug collapses to one issue.
+        FAILED_KEYS+=("$slug:invariant")
     else
         echo "✅ $source: $(basename "$file") present"
     fi
 }
-check_scrape_output "GoComics"       "data/comics_$DATE_STR.json"
-check_scrape_output "Comics Kingdom" "data/comicskingdom_$DATE_STR.json"
-check_scrape_output "TinyView"       "data/tinyview_$DATE_STR.json"
-check_scrape_output "New Yorker"     "data/newyorker_$DATE_STR.json"
-check_scrape_output "Far Side"       "data/farside_daily_$DATE_STR.json"
-check_scrape_output "Far Side"       "data/farside_new_$DATE_STR.json"
-check_scrape_output "Creators"       "data/creators_$DATE_STR.json"
-check_scrape_output "Mr. Boffo"      "data/mrboffo_$DATE_STR.json"
+check_scrape_output "GoComics"       "gocomics"      "data/comics_$DATE_STR.json"
+check_scrape_output "Comics Kingdom" "comicskingdom" "data/comicskingdom_$DATE_STR.json"
+check_scrape_output "TinyView"       "tinyview"      "data/tinyview_$DATE_STR.json"
+check_scrape_output "New Yorker"     "newyorker"     "data/newyorker_$DATE_STR.json"
+check_scrape_output "Far Side"       "farside"       "data/farside_daily_$DATE_STR.json"
+check_scrape_output "Far Side"       "farside"       "data/farside_new_$DATE_STR.json"
+check_scrape_output "Creators"       "creators"      "data/creators_$DATE_STR.json"
+check_scrape_output "Mr. Boffo"      "mrboffo"       "data/mrboffo_$DATE_STR.json"
 
 # Phase 3: Commit and push everything that succeeded.
 # Recovery on push rejection: save same-day scrape JSONs to a staging dir, reset
@@ -363,6 +405,7 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
 
     if [ "$PUSH_OK" = false ]; then
         FAILURES+=("Git push")
+        FAILED_KEYS+=("push:push")
     fi
 fi
 
@@ -378,6 +421,14 @@ else
     echo "Failed steps: $FAIL_LIST"
     osascript -e "display notification \"Failed: $FAIL_LIST\" with title \"ComicCaster: Partial Failure\" sound name \"Basso\"" 2>/dev/null || true
 fi
+
+# Reconcile GitHub issues. Runs on success too -- that is what closes an issue
+# for a source that has recovered.
+FAILED_KEY_LIST=""
+if [ ${#FAILED_KEYS[@]} -gt 0 ]; then
+    FAILED_KEY_LIST=$(IFS=,; echo "${FAILED_KEYS[*]}")
+fi
+report_pipeline_failures "$ALERT_COVERED" "$FAILED_KEY_LIST"
 echo "================================================================================"
 
 # Always exit 0 -- LaunchD should not retry on failure.
