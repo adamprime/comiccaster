@@ -63,9 +63,23 @@ both belong on the host.
 ### Why this is cheap
 
 `gh` 2.90.0 is already installed at `/opt/homebrew/bin/gh` and authenticated
-(account `adamprime`, keyring, scopes include `repo`). `mini_master_update.sh:17`
-already puts `/opt/homebrew/bin` on the LaunchAgent's `PATH`. **No new secret needs to
-be provisioned.**
+(account `adamprime`, keyring, scopes include `repo` and `workflow`).
+`mini_master_update.sh:17` already puts `/opt/homebrew/bin` on the LaunchAgent's
+`PATH`. **No new secret needs to be provisioned.**
+
+### Correction during implementation: the host must not author the issues
+
+The first implementation had the host create issues directly. It worked, and it was
+useless: **GitHub sends no notification for an issue you author yourself**, and the
+Mini authenticates as the repo owner. Alerts were invisible to the one person meant
+to act on them — confirmed by opening a real issue and getting no email, and by an
+empty notification inbox.
+
+The host therefore *detects* and *dispatches*; GitHub Actions *creates*, so issues
+are authored by `github-actions[bot]` and notify normally. `gh workflow run` is a
+direct API call rather than a `git push`, so the push-failure robustness above is
+preserved. Full write-up:
+`docs/solutions/best-practices/github-self-authored-issues-dont-notify.md`.
 
 ---
 
@@ -99,14 +113,20 @@ Feed-generation and `git fetch` failures are **out of scope** — they stay in
 Source slugs: `gocomics`, `comicskingdom`, `tinyview`, `newyorker`, `farside`,
 `creators`, `mrboffo`, plus the pseudo-sources `push` and `preflight`.
 
-### 2. Python: `scripts/report_pipeline_failures.py`
+### 2. Python: `scripts/report_pipeline_failures.py`, run from Actions
 
+The host dispatches:
+
+```bash
+gh workflow run pipeline-alert.yml \
+    --field run=pass1 --field date="$DATE_STR" \
+    --field covered="$ALERT_COVERED" \
+    --field failed="gocomics:scrape,tinyview:invariant" || true
 ```
-python scripts/report_pipeline_failures.py \
-    --run pass1 --date "$DATE_STR" \
-    --covered gocomics,comicskingdom,tinyview,newyorker,farside,creators,mrboffo,push \
-    --failed "gocomics:scrape,tinyview:invariant"
-```
+
+`.github/workflows/pipeline-alert.yml` then runs the reporter under
+`GITHUB_TOKEN`. All dispatch inputs are bound through `env:` rather than
+interpolated into the `run:` script, so no input can be parsed as shell.
 
 For each source in `--covered`:
 
@@ -124,7 +144,9 @@ Pipeline-Failure-Key: tinyview
 ```
 
 Label `pipeline-failure`, created on demand. Title `[pipeline] TinyView scrape failed`.
-Body carries date, run, failure kind, and a tail of the run log for triage.
+Body carries date, run, and failure kind — **no run-log excerpt**: this repo is
+public and pipeline logs can carry account emails and cookie paths. The operator
+reads the real log on the host.
 
 ### 3. `--covered` is the safety-critical part
 

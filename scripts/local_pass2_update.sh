@@ -52,15 +52,21 @@ fi
 source "$REPO_DIR/venv/bin/activate"
 pip install -e "$REPO_DIR" > /dev/null 2>&1 || true
 
-# Open/update/close GitHub issues for this run. Best-effort; never fatal.
+# Report this run's outcome by dispatching a GitHub Actions workflow rather than
+# creating issues here. The Mini's `gh` is authenticated as the repo owner, and
+# GitHub sends NO notification for an issue you author yourself -- host-created
+# alerts were silently invisible to the person meant to act on them. Dispatching
+# makes github-actions[bot] the author, which does notify.
+#
+# This is a direct API call, not a git push, so it still fires when pushing is
+# the thing that broke. Best-effort: never fatal to the pipeline.
 report_pipeline_failures() {
     local covered="$1" failed="$2"
-    python "$REPO_DIR/scripts/report_pipeline_failures.py" \
-        --run pass2 \
-        --date "$(date +%Y-%m-%d)" \
-        --covered "$covered" \
-        --failed "$failed" \
-        --log-file "$LOG_FILE" || true
+    gh workflow run pipeline-alert.yml \
+        --field run=pass2 \
+        --field date="$(date +%Y-%m-%d)" \
+        --field covered="$covered" \
+        --field failed="$failed" || true
 }
 
 # Verify GitHub SSH access before proceeding. Derive the SSH host from the actual

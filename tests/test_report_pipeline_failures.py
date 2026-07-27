@@ -320,27 +320,36 @@ class TestMain:
         ]) == 0
         assert calls_of(gh_mock, 'issue', 'create') == []
 
-    def test_reads_log_tail_when_given(self, gh_mock, tmp_path):
-        log = tmp_path / 'master_update.log'
-        log.write_text('\n'.join(f'line {i}' for i in range(200)))
-
+    def test_passes_detail_through_to_the_body(self, gh_mock):
         main([
             '--run', 'pass1', '--date', '2026-07-27',
             '--covered', 'gocomics', '--failed', 'gocomics:scrape',
-            '--log-file', str(log),
+            '--detail', 'last commit was 30h ago',
         ])
 
         body = calls_of(gh_mock, 'issue', 'create')[0]
         body = body[body.index('--body') + 1]
-        assert 'line 199' in body
-        assert 'line 0' not in body
+        assert 'last commit was 30h ago' in body
 
-    def test_missing_log_file_is_not_fatal(self, gh_mock, tmp_path):
+    def test_detail_is_optional(self, gh_mock):
         assert main([
             '--run', 'pass1', '--date', '2026-07-27',
             '--covered', 'gocomics', '--failed', 'gocomics:scrape',
-            '--log-file', str(tmp_path / 'nope.log'),
         ]) == 0
+
+    def test_body_contains_no_log_excerpt_by_default(self, gh_mock):
+        """This repo is public; run logs can carry emails and cookie paths.
+
+        Issues carry structured facts only -- the operator reads the real log
+        on the host.
+        """
+        main([
+            '--run', 'pass1', '--date', '2026-07-27',
+            '--covered', 'gocomics', '--failed', 'gocomics:scrape',
+        ])
+        body = calls_of(gh_mock, 'issue', 'create')[0]
+        body = body[body.index('--body') + 1]
+        assert '<details>' not in body
 
 
 class TestSourceNames:

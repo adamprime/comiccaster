@@ -18,9 +18,17 @@ GoComics only, so it covers only GoComics; without that scoping it would
 auto-close a Comics Kingdom issue merely because CK wasn't in its failure
 list -- CK isn't healthy, it simply wasn't examined.
 
-Uses the `gh` CLI, which is installed and authenticated on the pipeline host.
-Never raises into the pipeline: gh errors are logged and reported via exit
-code, and the caller invokes this with `|| true`.
+Runs in GitHub Actions, not on the pipeline host, so issues are authored by
+github-actions[bot]. That is not incidental: GitHub sends no notification for
+an issue you author yourself, so host-side creation (as the repo owner) was
+silently invisible to the person meant to read it. The host dispatches this
+workflow instead. See docs/solutions/best-practices/github-self-authored-issues-dont-notify.md
+
+Detail text is passed in explicitly rather than scraped from the run log: this
+repo is public, and pipeline logs can carry account emails and cookie paths.
+Issues carry structured facts only; the operator reads the real log on the host.
+
+Never raises into the pipeline: gh errors are logged and reported via exit code.
 """
 
 import argparse
@@ -31,7 +39,6 @@ import sys
 LABEL = "pipeline-failure"
 LABEL_COLOR = "b60205"
 MARKER_PREFIX = "Pipeline-Failure-Key: "
-LOG_TAIL_LINES = 40
 
 # Display names for the pipeline's stable slugs. `push` and `preflight` are
 # pseudo-sources: whole-run failures that aren't tied to one comic source.
@@ -78,7 +85,7 @@ def issue_title(slug: str, kind: str) -> str:
     return f"[pipeline] {display_name(slug)} {kind} failed"
 
 
-def issue_body(slug: str, kind: str, run: str, date: str, log_tail: str) -> str:
+def issue_body(slug: str, kind: str, run: str, date: str, detail: str) -> str:
     body = (
         f"The {run} pipeline run on {date} reported a **{kind}** failure for "
         f"**{display_name(slug)}**.\n\n"
@@ -88,18 +95,18 @@ def issue_body(slug: str, kind: str, run: str, date: str, log_tail: str) -> str:
         f"- First seen: {date}\n\n"
         "This issue closes itself automatically when this source next succeeds.\n"
     )
-    if log_tail:
-        body += f"\n<details><summary>Log tail</summary>\n\n```\n{log_tail}\n```\n\n</details>\n"
+    if detail:
+        body += f"\n<details><summary>Log tail</summary>\n\n```\n{detail}\n```\n\n</details>\n"
     body += f"\n{MARKER_PREFIX}{slug}\n"
     return body
 
 
-def recurrence_comment(slug: str, kind: str, run: str, date: str, log_tail: str) -> str:
+def recurrence_comment(slug: str, kind: str, run: str, date: str, detail: str) -> str:
     comment = (
         f"Still failing: **{kind}** on the {run} run of {date}.\n"
     )
-    if log_tail:
-        comment += f"\n<details><summary>Log tail</summary>\n\n```\n{log_tail}\n```\n\n</details>\n"
+    if detail:
+        comment += f"\n<details><summary>Log tail</summary>\n\n```\n{detail}\n```\n\n</details>\n"
     return comment
 
 
@@ -152,19 +159,7 @@ def open_issues_by_key() -> dict:
     return found
 
 
-def read_log_tail(path: str) -> str:
-    if not path:
-        return ""
-    try:
-        with open(path, "r", errors="replace") as handle:
-            lines = handle.read().splitlines()
-    except OSError as exc:
-        print(f"could not read log file {path}: {exc}", file=sys.stderr)
-        return ""
-    return "\n".join(lines[-LOG_TAIL_LINES:])
-
-
-def report(covered, failed, run, date, log_tail="") -> int:
+def report(covered, failed, run, date, detail="") -> int:
     """Reconcile GitHub issues against this run's outcome.
 
     Returns 0 if every source was reported successfully, 1 otherwise. Never
@@ -199,14 +194,14 @@ def report(covered, failed, run, date, log_tail="") -> int:
                     gh(
                         "issue", "create",
                         "--title", issue_title(slug, kind),
-                        "--body", issue_body(slug, kind, run, date, log_tail),
+                        "--body", issue_body(slug, kind, run, date, detail),
                         "--label", LABEL,
                     )
                     print(f"opened issue for {slug} ({kind})")
                 else:
                     gh(
                         "issue", "comment", str(number),
-                        "--body", recurrence_comment(slug, kind, run, date, log_tail),
+                        "--body", recurrence_comment(slug, kind, run, date, detail),
                     )
                     print(f"commented on #{number} for {slug} ({kind})")
             elif number is not None:
@@ -236,7 +231,10 @@ def main(argv=None) -> int:
         "--failed", default="",
         help="comma-separated slug:kind entries that failed",
     )
-    parser.add_argument("--log-file", default="", help="log file to excerpt")
+    parser.add_argument(
+        "--detail", default="",
+        help="extra context for the issue body; must not contain secrets",
+    )
     args = parser.parse_args(argv)
 
     return report(
@@ -244,7 +242,7 @@ def main(argv=None) -> int:
         parse_failed(args.failed),
         args.run,
         args.date,
-        read_log_tail(args.log_file),
+        args.detail,
     )
 
 

@@ -1,0 +1,69 @@
+name: Pipeline Alert
+
+# Opens/updates/closes GitHub issues for daily pipeline failures.
+#
+# The pipeline host detects failures, but it must not create the issues itself:
+# the Mini's `gh` is authenticated as the repo owner, and GitHub sends no
+# notification for an issue you author yourself. Host-created alerts were
+# therefore invisible to the one person meant to act on them -- verified
+# empirically, see docs/solutions/best-practices/.
+#
+# Dispatching here instead means issues are authored by github-actions[bot], a
+# different actor, so watching the repo produces a real notification and email.
+#
+# This is a direct API call from the host, not a git push, so it still fires
+# when pushing is the thing that is broken.
+
+on:
+  workflow_dispatch:
+    inputs:
+      run:
+        description: 'Which run reported this (pass1, pass2, preflight)'
+        required: true
+      date:
+        description: 'Run date, YYYY-MM-DD'
+        required: true
+      covered:
+        description: 'Comma-separated slugs this run actually examined'
+        required: true
+      failed:
+        description: 'Comma-separated slug:kind entries that failed'
+        required: false
+        default: ''
+      detail:
+        description: 'Extra context for the issue body (no secrets)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      # Every input is bound through env rather than interpolated into the run
+      # script, so no input value can be parsed as shell.
+      - name: Report pipeline failures
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_NAME: ${{ inputs.run }}
+          RUN_DATE: ${{ inputs.date }}
+          COVERED: ${{ inputs.covered }}
+          FAILED: ${{ inputs.failed }}
+          DETAIL: ${{ inputs.detail }}
+        run: |
+          python scripts/report_pipeline_failures.py \
+            --run "$RUN_NAME" \
+            --date "$RUN_DATE" \
+            --covered "$COVERED" \
+            --failed "$FAILED" \
+            --detail "$DETAIL"
