@@ -36,6 +36,13 @@ echo "ComicCaster Pass 2 Update (GoComics only) - $(date)"
 echo "================================================================================"
 
 FAILURES=()
+# Stable "<slug>:<kind>" slugs for the GitHub issue reporter (see
+# local_master_update.sh for the full rationale).
+FAILED_KEYS=()
+
+# Pass 2 examines GoComics only. This list is what the reporter may auto-close,
+# so it must NOT name the other sources -- they are untouched here, not healthy.
+ALERT_COVERED="gocomics,push,preflight"
 
 # Load environment variables (.env has GoComics credentials)
 if [ -f "$REPO_DIR/.env" ]; then
@@ -44,6 +51,17 @@ fi
 
 source "$REPO_DIR/venv/bin/activate"
 pip install -e "$REPO_DIR" > /dev/null 2>&1 || true
+
+# Open/update/close GitHub issues for this run. Best-effort; never fatal.
+report_pipeline_failures() {
+    local covered="$1" failed="$2"
+    python "$REPO_DIR/scripts/report_pipeline_failures.py" \
+        --run pass2 \
+        --date "$(date +%Y-%m-%d)" \
+        --covered "$covered" \
+        --failed "$failed" \
+        --log-file "$LOG_FILE" || true
+}
 
 # Verify GitHub SSH access before proceeding. Derive the SSH host from the actual
 # push remote so this check can never drift from what the push uses. The remote
@@ -57,12 +75,15 @@ SSH_HOST="$(echo "$REMOTE_URL" | sed -n 's/^git@\([^:]*\):.*/\1/p')"
 if [ -z "$SSH_HOST" ]; then
     echo "❌ Could not determine SSH host from origin remote: '$REMOTE_URL'"
     echo "Aborting: Cannot push without a resolvable SSH remote."
+    # Aborts before any scraping, so the end-of-run report never happens.
+    report_pipeline_failures "preflight" "preflight:remote"
     exit 0
 fi
 if ! ssh -T "$SSH_HOST" 2>&1 | grep -q "successfully authenticated"; then
     echo "❌ GitHub SSH authentication failed ($SSH_HOST) - check SSH key and keychain"
     osascript -e 'display notification "Pass 2: SSH auth failed" with title "ComicCaster: Error" sound name "Basso"' 2>/dev/null || true
     echo "Aborting: Cannot push without SSH access."
+    report_pipeline_failures "preflight" "preflight:ssh"
     exit 0
 fi
 
@@ -114,6 +135,7 @@ if python scripts/authenticated_scraper_secure.py --output-dir ./data --merge --
 else
     echo "❌ GoComics pass-2 scrape failed"
     FAILURES+=("GoComics pass-2 scrape")
+    FAILED_KEYS+=("gocomics:scrape")
 fi
 
 # If the scrape failed but the existing file is intact, generator can still
@@ -206,6 +228,7 @@ pass-1 scrape. See docs/solutions/logic-errors/gocomics-favorites-page-timing.md
 
     if [ "$PUSH_OK" = false ]; then
         FAILURES+=("Git push")
+        FAILED_KEYS+=("push:push")
     fi
 fi
 
@@ -220,6 +243,14 @@ else
     echo "Failed steps: $FAIL_LIST"
     osascript -e "display notification \"Pass 2 failed: $FAIL_LIST\" with title \"ComicCaster: Pass 2 Failure\" sound name \"Basso\"" 2>/dev/null || true
 fi
+
+# Reconcile GitHub issues. Runs on success too, so a GoComics failure from the
+# 03:05 pass closes itself when this pass repairs it.
+FAILED_KEY_LIST=""
+if [ ${#FAILED_KEYS[@]} -gt 0 ]; then
+    FAILED_KEY_LIST=$(IFS=,; echo "${FAILED_KEYS[*]}")
+fi
+report_pipeline_failures "$ALERT_COVERED" "$FAILED_KEY_LIST"
 echo "================================================================================"
 
 # Always exit 0 — LaunchD should not retry on failure.
