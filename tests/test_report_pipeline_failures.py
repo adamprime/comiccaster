@@ -370,6 +370,24 @@ class TestAlertWording:
         created = calls_of(gh_mock, 'issue', 'create')[0]
         assert f'{MARKER_PREFIX}cksession' in created[created.index('--body') + 1]
 
+    def test_wrong_branch_alert_explains_the_silent_failure(self):
+        title = issue_title('branch', 'wrongbranch')
+        assert 'wrong branch' in title.lower()
+        body = issue_body('branch', 'wrongbranch', 'pass2', '2026-07-28', '')
+        # Must tell the operator to go looking for a stranded feed commit.
+        assert 'up-to-date' in body
+        assert 'git log' in body
+
+    def test_push_verification_alert_reads_sensibly(self):
+        assert issue_title('push', 'verification') == (
+            '[pipeline] Git push verification failed'
+        )
+
+    def test_branch_alert_keeps_its_marker(self, gh_mock):
+        report(['branch'], {'branch': 'wrongbranch'}, run='pass2', date='2026-07-28')
+        created = calls_of(gh_mock, 'issue', 'create')[0]
+        assert f'{MARKER_PREFIX}branch' in created[created.index('--body') + 1]
+
     def test_ordinary_sources_keep_the_default_template(self):
         assert issue_title('tinyview', 'scrape') == '[pipeline] TinyView scrape failed'
         body = issue_body('tinyview', 'scrape', 'pass1', '2026-07-28', '')

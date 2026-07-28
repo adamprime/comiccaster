@@ -42,7 +42,7 @@ FAILED_KEYS=()
 
 # Pass 2 examines GoComics only. This list is what the reporter may auto-close,
 # so it must NOT name the other sources -- they are untouched here, not healthy.
-ALERT_COVERED="gocomics,push,preflight"
+ALERT_COVERED="gocomics,push,preflight,branch"
 
 # Load environment variables (.env has GoComics credentials)
 if [ -f "$REPO_DIR/.env" ]; then
@@ -121,6 +121,28 @@ stage_touched_files() {
     git add -f public/feeds/*.xml
 }
 
+# Branch guard -- same rationale as local_master_update.sh. Everything below
+# assumes main: the reset below and the `git push origin main` in Phase 3. On any
+# other branch the failure is SILENT -- the reset moves that branch's pointer, the
+# commit lands there, and pushing an unchanged main reports "Everything
+# up-to-date" as success. On 2026-07-28 this pass did exactly that and a full
+# feed update never reached subscribers while the run declared ALL SUCCESS.
+CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+if [ "$CURRENT_BRANCH" != "main" ]; then
+    echo "⚠️  Repo is on '$CURRENT_BRANCH', not main -- switching before syncing"
+    if git checkout main; then
+        echo "✅ Switched to main (was on '$CURRENT_BRANCH')"
+        FAILURES+=("repo was left on branch '$CURRENT_BRANCH'")
+        FAILED_KEYS+=("branch:wrongbranch")
+    else
+        echo "❌ Could not switch to main from '$CURRENT_BRANCH' -- aborting"
+        echo "   Refusing to reset --hard while on another branch."
+        report_pipeline_failures "branch" "branch:checkout"
+        echo "ComicCaster Pass 2 ABORTED (wrong branch) - $(date)"
+        exit 0
+    fi
+fi
+
 # Reset to origin/main before starting. Any uncommitted work or divergent
 # local commits will be discarded — same policy as the master script.
 git fetch origin
@@ -173,6 +195,24 @@ push_with_watchdog() {
     fi
 }
 
+# verify_push_landed: confirm the commit we just made is genuinely reachable from
+# origin/main. `git push` exiting 0 is NOT proof of publication -- pushing a ref
+# that has nothing new prints "Everything up-to-date" and succeeds, which on
+# 2026-07-28 turned an unpublished feed update into a reported ALL SUCCESS.
+# Fetch first so origin/main reflects the remote rather than a stale local ref.
+verify_push_landed() {
+    if ! git fetch -q origin main 2>/dev/null; then
+        echo "⚠️  Could not fetch to verify the push landed"
+        return 1
+    fi
+    if git merge-base --is-ancestor HEAD origin/main 2>/dev/null; then
+        echo "✅ Verified: $(git rev-parse --short HEAD) is on origin/main"
+        return 0
+    fi
+    echo "❌ Push reported success but $(git rev-parse --short HEAD) is NOT on origin/main"
+    return 1
+}
+
 stage_touched_files
 
 if git diff --staged --quiet; then
@@ -184,7 +224,7 @@ Captures late-publishing political cartoonists missed by the 03:20 PT
 pass-1 scrape. See docs/solutions/logic-errors/gocomics-favorites-page-timing.md."
 
     PUSH_OK=false
-    if push_with_watchdog; then
+    if push_with_watchdog && verify_push_landed; then
         echo "✅ Successfully pushed pass-2 updates"
         PUSH_OK=true
     else
@@ -221,7 +261,7 @@ pass-1 scrape. See docs/solutions/logic-errors/gocomics-favorites-page-timing.md
             PUSH_OK=true
         else
             git commit -m "Pass 2 GoComics feed update for $DATE_STR (recovery after push conflict)"
-            if push_with_watchdog; then
+            if push_with_watchdog && verify_push_landed; then
                 echo "✅ Successfully pushed pass-2 recovery commit"
                 PUSH_OK=true
             else
@@ -234,7 +274,7 @@ pass-1 scrape. See docs/solutions/logic-errors/gocomics-favorites-page-timing.md
 
     if [ "$PUSH_OK" = false ]; then
         FAILURES+=("Git push")
-        FAILED_KEYS+=("push:push")
+        FAILED_KEYS+=("push:verification")
     fi
 fi
 
