@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-28",
+  "scraped_at": "2026-07-28T08:09:53.041838+00:00",
+  "comics": [
+    {
+      "id": "22524",
+      "date": "2026-07-28",
+      "url": "https://www.thefarside.com/2026/07/28/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F405e4df0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/405e4df0cdd30137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22524"
+    },
+    {
+      "id": "22525",
+      "date": "2026-07-28",
+      "url": "https://www.thefarside.com/2026/07/28/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F66e9dd70e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/66e9dd70e92e0137cf47005056a9545d",
+      "caption": "\u201c There you are, my darling \u2026 Rawlings! Don\u2019t move!\u201d",
+      "title": "\u201c There you are, my darling \u2026 Rawlings! Don\u2019t move!\u201d"
+    },
+    {
+      "id": "22526",
+      "date": "2026-07-28",
+      "url": "https://www.thefarside.com/2026/07/28/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb1904780e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b1904780e92e0137cf47005056a9545d",
+      "caption": "\u201cWell, there goes Binky with the boss again. \u2026 What a red-noser!\u201d",
+      "title": "\u201cWell, there goes Binky with the boss again"
+    },
+    {
+      "id": "22527",
+      "date": "2026-07-28",
+      "url": "https://www.thefarside.com/2026/07/28/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1aa1c1f0b46c013aaa65005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1aa1c1f0b46c013aaa65005056a9545d",
+      "caption": "\u201cI don\u2019t know where your father is tonight. \u2026 No doubt out bangin\u2019 his head against some tree.\u201d",
+      "title": "\u201cI don\u2019t know where your father is tonight"
+    },
+    {
+      "id": "22528",
+      "date": "2026-07-28",
+      "url": "https://www.thefarside.com/2026/07/28/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb105daf0e92d0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b105daf0e92d0137cf47005056a9545d",
+      "caption": "Primitive r\u00e9sum\u00e9s",
+      "title": "Primitive r\u00e9sum\u00e9s"
+    }
+  ]
+}
