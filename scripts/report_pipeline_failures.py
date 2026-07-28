@@ -53,6 +53,22 @@ SOURCE_NAMES = {
     "push": "Git push",
     "preflight": "SSH preflight",
     "heartbeat": "Daily pipeline",
+    "cksession": "Comics Kingdom session",
+}
+
+# A few alerts are warnings rather than failures, and read badly through the
+# generic "<name> <kind> failed" template.
+TITLE_OVERRIDES = {
+    "cksession": "[pipeline] Comics Kingdom session needs a reauth",
+}
+
+LEAD_OVERRIDES = {
+    "cksession": (
+        "The Comics Kingdom session token is close to expiring. CK issues a "
+        "7-day token, so a run will start failing within days if it is not "
+        "renewed.\n\nRun `python scripts/reauth_comicskingdom.py` on the host; "
+        "it now confirms whether the expiry actually moved."
+    ),
 }
 
 
@@ -83,13 +99,18 @@ def display_name(slug: str) -> str:
 
 
 def issue_title(slug: str, kind: str) -> str:
+    if slug in TITLE_OVERRIDES:
+        return TITLE_OVERRIDES[slug]
     return f"[pipeline] {display_name(slug)} {kind} failed"
 
 
 def issue_body(slug: str, kind: str, run: str, date: str, detail: str) -> str:
-    body = (
+    lead = LEAD_OVERRIDES.get(slug) or (
         f"The {run} pipeline run on {date} reported a **{kind}** failure for "
-        f"**{display_name(slug)}**.\n\n"
+        f"**{display_name(slug)}**."
+    )
+    body = (
+        f"{lead}\n\n"
         f"- Source: {display_name(slug)} (`{slug}`)\n"
         f"- Failure: {kind}\n"
         f"- Run: {run}\n"
