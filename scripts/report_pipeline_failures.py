@@ -54,12 +54,14 @@ SOURCE_NAMES = {
     "preflight": "SSH preflight",
     "heartbeat": "Daily pipeline",
     "cksession": "Comics Kingdom session",
+    "branch": "Repo branch",
 }
 
 # A few alerts are warnings rather than failures, and read badly through the
 # generic "<name> <kind> failed" template.
 TITLE_OVERRIDES = {
     "cksession": "[pipeline] Comics Kingdom session needs a reauth",
+    "branch": "[pipeline] Pipeline ran on the wrong branch",
 }
 
 LEAD_OVERRIDES = {
@@ -68,6 +70,16 @@ LEAD_OVERRIDES = {
         "7-day token, so a run will start failing within days if it is not "
         "renewed.\n\nRun `python scripts/reauth_comicskingdom.py` on the host; "
         "it now confirms whether the expiry actually moved."
+    ),
+    "branch": (
+        "The pipeline started with the repository checked out on a branch other "
+        "than `main`.\n\nThis matters because the run resets `--hard` to "
+        "origin/main and then pushes the local `main` ref: on another branch the "
+        "commit lands there instead, and the push reports \"Everything "
+        "up-to-date\" as success while publishing nothing.\n\nThe run switched "
+        "back to `main` and continued. Check whether a feed commit was stranded "
+        "on the other branch:\n\n"
+        "```bash\ngit log --oneline -3 <branch>\n```"
     ),
 }
 

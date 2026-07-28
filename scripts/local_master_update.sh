@@ -35,7 +35,7 @@ FAILED_KEYS=()
 # Pass 1 covers everything; Pass 2 covers GoComics only.
 # `preflight` is included because reaching the end of a run proves it passed,
 # which is what auto-closes a preflight issue from a previous run.
-ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,creators,mrboffo,push,preflight,cksession"
+ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,creators,mrboffo,push,preflight,cksession,branch"
 
 # Load environment variables (.env has GoComics credentials)
 if [ -f "$REPO_DIR/.env" ]; then
@@ -99,6 +99,35 @@ if ! ssh -T "$SSH_HOST" 2>&1 | grep -q "successfully authenticated"; then
     exit 0  # Exit 0 so LaunchD doesn't retry endlessly
 fi
 echo "✅ GitHub SSH authentication verified"
+
+# Branch guard.
+# The LaunchAgents fire regardless of what is checked out, and everything below
+# assumes main: the sync resets --hard to origin/main, and Phase 3 pushes the
+# local `main` ref. Run this on any other branch and the failure is SILENT --
+# the reset moves the *feature branch* pointer, the commit lands on that branch,
+# and `git push origin main` pushes an unchanged main and reports "Everything
+# up-to-date" as success. That is exactly what happened on 2026-07-28: a full
+# Pass 2 feed update never reached subscribers and the run declared ALL SUCCESS.
+#
+# Switch back to main rather than abort, so a forgotten checkout costs a warning
+# instead of a day of stale feeds. Deliberately NOT `checkout -f`: discarding
+# someone's uncommitted branch work is worse than skipping a run, so a checkout
+# that cannot proceed aborts loudly instead.
+CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+if [ "$CURRENT_BRANCH" != "main" ]; then
+    echo "⚠️  Repo is on '$CURRENT_BRANCH', not main -- switching before syncing"
+    if git checkout main; then
+        echo "✅ Switched to main (was on '$CURRENT_BRANCH')"
+        FAILURES+=("repo was left on branch '$CURRENT_BRANCH'")
+        FAILED_KEYS+=("branch:wrongbranch")
+    else
+        echo "❌ Could not switch to main from '$CURRENT_BRANCH' -- aborting"
+        echo "   Refusing to reset --hard while on another branch."
+        report_pipeline_failures "branch" "branch:checkout"
+        echo "ComicCaster ABORTED (wrong branch) - $(date)"
+        exit 0
+    fi
+fi
 
 # Sync local main with origin.
 # Policy: local main must exactly match origin/main at the start of each run.
@@ -332,6 +361,24 @@ push_with_watchdog() {
     fi
 }
 
+# verify_push_landed: confirm the commit we just made is genuinely reachable from
+# origin/main. `git push` exiting 0 is NOT proof of publication -- pushing a ref
+# that has nothing new prints "Everything up-to-date" and succeeds, which on
+# 2026-07-28 turned an unpublished feed update into a reported ALL SUCCESS.
+# Fetch first so origin/main reflects the remote rather than a stale local ref.
+verify_push_landed() {
+    if ! git fetch -q origin main 2>/dev/null; then
+        echo "⚠️  Could not fetch to verify the push landed"
+        return 1
+    fi
+    if git merge-base --is-ancestor HEAD origin/main 2>/dev/null; then
+        echo "✅ Verified: $(git rev-parse --short HEAD) is on origin/main"
+        return 0
+    fi
+    echo "❌ Push reported success but $(git rev-parse --short HEAD) is NOT on origin/main"
+    return 1
+}
+
 git add -f data/*.json public/feeds/*.xml
 
 if git diff --staged --quiet; then
@@ -342,7 +389,7 @@ else
 Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>"
 
     PUSH_OK=false
-    if push_with_watchdog; then
+    if push_with_watchdog && verify_push_landed; then
         echo "✅ Successfully pushed all updates"
         PUSH_OK=true
     else
@@ -406,7 +453,7 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
 
 Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>"
 
-            if push_with_watchdog; then
+            if push_with_watchdog && verify_push_landed; then
                 echo "✅ Successfully pushed recovery commit"
                 PUSH_OK=true
             else
@@ -419,7 +466,7 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
 
     if [ "$PUSH_OK" = false ]; then
         FAILURES+=("Git push")
-        FAILED_KEYS+=("push:push")
+        FAILED_KEYS+=("push:verification")
     fi
 fi
 
