@@ -13,6 +13,11 @@ A Source that ComicCaster scrapes itself and whose RSS feed ComicCaster generate
 ### External-RSS source
 A Source that already publishes its own native RSS feed; ComicCaster simply points subscribers at that publisher feed URL and runs no scrape/generate pipeline for it.
 
+### Reauth
+The manual, human-in-the-loop browser login that re-seeds the stored browser session an authenticated Source's scrape depends on. Distinct from an automated token refresh: the operator types the credentials themselves, because the upstream bot check rejects scripted fills, and the resulting session is written into a persistent browser profile that later unattended runs consume.
+
+A reauth counts as successful only if it *persisted* a new session. A browser showing a logged-in page can leave the stored session untouched, so the outcome is confirmed by checking that the stored expiry moved forward — never by how the page looks. Session lifetimes are set by the provider and are read from the stored session rather than assumed, since an interval inferred from past failures can be badly wrong. A stored session may also roll forward on each authenticated use rather than counting from login, and can be revoked by the provider while the stored copy still looks unexpired — so a healthy-looking stored session is a leading indicator, not proof the next unattended run will authenticate.
+
 ## Pipeline
 
 ### Scrape phase
