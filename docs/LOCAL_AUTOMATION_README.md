@@ -63,6 +63,7 @@ An earlier hybrid design split scraping between a laptop (one source) and GitHub
 | `scripts/generate_*.py` | Phase 2 generators; each reads `data/*.json` and writes to `public/feeds/*.xml` |
 | `scripts/report_pipeline_failures.py` | Opens / comments / closes the GitHub issue for each failing source. Runs in Actions, not on the host (see Failure alerting) |
 | `scripts/check_pipeline_heartbeat.py` | Dead-man's switch — alerts when no pipeline commit has landed in 20h |
+| `scripts/check_ck_session.py` | Reads the CK token expiry; used by the reauth script and the daily expiry alert |
 | `.github/workflows/pipeline-alert.yml` | Dispatched by both passes; runs the reporter under `GITHUB_TOKEN` |
 | `.github/workflows/pipeline-heartbeat.yml` | Scheduled 11:00 UTC; runs the heartbeat check |
 | `scripts/reauth_comicskingdom.py` | Manual Comics Kingdom session refresh |
@@ -88,7 +89,20 @@ These are the load-bearing assumptions the pipeline relies on. Detailed provisio
 
 - `GOCOMICS_EMAIL`, `GOCOMICS_PASSWORD`
 
-Comics Kingdom does not use env vars. Session state lives in a Chrome profile at `~/.comicskingdom_chrome_profile/`, seeded by `python scripts/reauth_comicskingdom.py`. Sessions last about a week; refresh when the daily run reports `profile has no stored session`, or proactively on a weekly cadence.
+Comics Kingdom does not use env vars. Session state lives in a Chrome profile at `~/.comicskingdom_chrome_profile/`, seeded by `python scripts/reauth_comicskingdom.py`.
+
+**CK's token lasts exactly 7 days** — measured from the cookie, not estimated. The operator reauths weekly, so the margin is hours, not days: a reauth that fails to mint a new token means a failed run the next morning (2026-07-28). Two guards:
+
+- `scripts/reauth_comicskingdom.py` reads the expiry before and after login and tells you whether it **actually moved**. Trust that line rather than the browser looking logged in. It exits non-zero if the expiry did not change.
+- The daily run checks the expiry and opens a `[pipeline] Comics Kingdom session needs a reauth` issue when fewer than 2 days remain, so a silent reauth failure surfaces the same day instead of as an outage.
+
+Check it any time:
+
+```bash
+python scripts/check_ck_session.py
+```
+
+Let the reauth script close the browser. Closing the window by hand can leave Chrome's new cookies unflushed — the leading hypothesis for the 2026-07-28 failure.
 
 ## Dev mode (not on the production host)
 
@@ -201,14 +215,20 @@ This is a real production run: it scrapes, commits, and pushes. Use it to valida
 
 ### Comics Kingdom session expired
 
-When the daily run reports `profile has no stored session`, refresh:
+When the daily run reports an auth failure, or a session alert arrives:
 
 ```bash
 source venv/bin/activate
 python scripts/reauth_comicskingdom.py
 ```
 
-A browser will open; complete the login flow. Session state is saved automatically. Next run picks it up.
+A browser opens; complete the login flow and **let the script close it**. The script then reports whether the expiry moved:
+
+```
+✅ Session renewed: expires 2026-08-04 11:21 UTC (7.0 days from now).
+```
+
+If it instead prints `❌ Session expiry did NOT move`, the login did not produce a new token — re-run it. That silent no-op is what caused the 2026-07-28 outage, and it is invisible in the browser.
 
 ### LaunchAgent not firing
 

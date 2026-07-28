@@ -429,15 +429,24 @@ class TestReauthScript:
             for n in ast.walk(tree)
         )
 
-    def test_exits_zero_on_login_success(self, monkeypatch, tmp_path):
+    def test_exits_zero_when_login_mints_a_new_token(self, monkeypatch, tmp_path):
+        """Success requires a *new* token on disk, not just a login that looked fine.
+
+        A reauth performed while the old session is still valid can leave the
+        old expiry untouched; that is not success (2026-07-28 outage).
+        """
+        from datetime import datetime, timedelta, timezone
+
         monkeypatch.setenv("HOME", str(tmp_path))
         monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
 
         reauth = self._load_reauth_module()
 
         driver = MagicMock()
+        fresh = datetime.now(timezone.utc) + timedelta(days=7)
         with patch.object(reauth, "setup_driver", return_value=driver) as ms, \
-             patch.object(reauth, "wait_for_manual_login", return_value=True) as ml:
+             patch.object(reauth, "wait_for_manual_login", return_value=True) as ml, \
+             patch.object(reauth, "read_token_expiry", side_effect=[None, fresh]):
             result = reauth.main()
 
         assert result == 0
@@ -448,6 +457,66 @@ class TestReauthScript:
         assert kwargs.get("show_browser") is True
         # login helper was invoked with only the driver (no JS-filled creds)
         ml.assert_called_once_with(driver)
+
+    def test_exits_nonzero_when_the_expiry_does_not_move(self, monkeypatch, tmp_path):
+        """The 2026-07-28 failure: login looked fine, no new token was issued."""
+        from datetime import datetime, timedelta, timezone
+
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
+
+        reauth = self._load_reauth_module()
+
+        stale = datetime.now(timezone.utc) + timedelta(hours=6)
+        with patch.object(reauth, "setup_driver", return_value=MagicMock()), \
+             patch.object(reauth, "wait_for_manual_login", return_value=True), \
+             patch.object(reauth, "read_token_expiry", side_effect=[stale, stale]):
+            result = reauth.main()
+
+        assert result == 1
+
+    def test_exits_nonzero_when_no_token_lands_on_disk(self, monkeypatch, tmp_path):
+        """Chrome closed without flushing cookies — the leading 07-28 hypothesis."""
+        from datetime import datetime, timedelta, timezone
+
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
+
+        reauth = self._load_reauth_module()
+
+        old = datetime.now(timezone.utc) + timedelta(hours=6)
+        with patch.object(reauth, "setup_driver", return_value=MagicMock()), \
+             patch.object(reauth, "wait_for_manual_login", return_value=True), \
+             patch.object(reauth, "read_token_expiry", side_effect=[old, None]):
+            result = reauth.main()
+
+        assert result == 1
+
+    def test_reads_the_expiry_after_quitting_the_browser(self, monkeypatch, tmp_path):
+        """Chrome flushes cookies on clean shutdown, so order matters."""
+        from datetime import datetime, timedelta, timezone
+
+        monkeypatch.setenv("HOME", str(tmp_path))
+        monkeypatch.setattr("builtins.input", lambda *_a, **_kw: "")
+
+        reauth = self._load_reauth_module()
+
+        order = []
+        driver = MagicMock()
+        driver.quit.side_effect = lambda: order.append("quit")
+        fresh = datetime.now(timezone.utc) + timedelta(days=7)
+
+        def read(_profile):
+            order.append("read")
+            return fresh
+
+        with patch.object(reauth, "setup_driver", return_value=driver), \
+             patch.object(reauth, "wait_for_manual_login", return_value=True), \
+             patch.object(reauth, "read_token_expiry", side_effect=read):
+            reauth.main()
+
+        # first read is the "before" snapshot, then quit, then the "after" read
+        assert order == ["read", "quit", "read"]
 
     def test_exits_nonzero_on_login_fail(self, monkeypatch, tmp_path):
         monkeypatch.setenv("HOME", str(tmp_path))

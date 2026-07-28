@@ -352,6 +352,30 @@ class TestMain:
         assert '<details>' not in body
 
 
+class TestAlertWording:
+    """Some alerts are warnings, not failures, and need their own wording."""
+
+    def test_session_alert_title_avoids_the_failed_template(self):
+        title = issue_title('cksession', 'expiry')
+        assert 'failed' not in title
+        assert 'reauth' in title.lower()
+
+    def test_session_alert_body_says_what_to_run(self):
+        body = issue_body('cksession', 'expiry', 'pass1', '2026-07-28', '')
+        assert 'reauth_comicskingdom.py' in body
+        assert '7-day' in body
+
+    def test_session_alert_keeps_its_marker(self, gh_mock):
+        report(['cksession'], {'cksession': 'expiry'}, run='pass1', date='2026-07-28')
+        created = calls_of(gh_mock, 'issue', 'create')[0]
+        assert f'{MARKER_PREFIX}cksession' in created[created.index('--body') + 1]
+
+    def test_ordinary_sources_keep_the_default_template(self):
+        assert issue_title('tinyview', 'scrape') == '[pipeline] TinyView scrape failed'
+        body = issue_body('tinyview', 'scrape', 'pass1', '2026-07-28', '')
+        assert 'reported a **scrape** failure' in body
+
+
 class TestSourceNames:
     def test_every_pipeline_slug_has_a_display_name(self):
         expected = {

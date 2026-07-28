@@ -35,7 +35,7 @@ FAILED_KEYS=()
 # Pass 1 covers everything; Pass 2 covers GoComics only.
 # `preflight` is included because reaching the end of a run proves it passed,
 # which is what auto-closes a preflight issue from a previous run.
-ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,creators,mrboffo,push,preflight"
+ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,creators,mrboffo,push,preflight,cksession"
 
 # Load environment variables (.env has GoComics credentials)
 if [ -f "$REPO_DIR/.env" ]; then
@@ -290,6 +290,20 @@ check_scrape_output "Far Side"       "farside"       "data/farside_daily_$DATE_S
 check_scrape_output "Far Side"       "farside"       "data/farside_new_$DATE_STR.json"
 check_scrape_output "Creators"       "creators"      "data/creators_$DATE_STR.json"
 check_scrape_output "Mr. Boffo"      "mrboffo"       "data/mrboffo_$DATE_STR.json"
+
+# Comics Kingdom session expiry check.
+# CK's token lasts 7 days and the operator reauths on a 7-day cadence, so the
+# margin is hours: a reauth that silently fails to mint a new token means a
+# failed run the next morning (2026-07-28). Warn while there is still time.
+# `cksession` is in ALERT_COVERED, so the alert clears itself after a good reauth.
+echo ""
+echo "=== Checking Comics Kingdom session expiry ==="
+if python scripts/check_ck_session.py; then
+    :
+else
+    FAILURES+=("Comics Kingdom session expiring")
+    FAILED_KEYS+=("cksession:expiry")
+fi
 
 # Phase 3: Commit and push everything that succeeded.
 # Recovery on push rejection: save same-day scrape JSONs to a staging dir, reset
