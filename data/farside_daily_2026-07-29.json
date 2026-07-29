@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-29",
+  "scraped_at": "2026-07-29T08:20:09.581447+00:00",
+  "comics": [
+    {
+      "id": "22529",
+      "date": "2026-07-29",
+      "url": "https://www.thefarside.com/2026/07/29/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F03ad9740e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/03ad9740e85b0137cedf005056a9545d",
+      "caption": "Wiener dog distribution centers",
+      "title": "Wiener dog distribution centers"
+    },
+    {
+      "id": "22530",
+      "date": "2026-07-29",
+      "url": "https://www.thefarside.com/2026/07/29/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95acce7c58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95acce7c58c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22530"
+    },
+    {
+      "id": "22531",
+      "date": "2026-07-29",
+      "url": "https://www.thefarside.com/2026/07/29/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc0dbd830e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c0dbd830e6f80137ce50005056a9545d",
+      "caption": "\u201cWell, Donald\u2014forgot your sunblock, I see.\u201d",
+      "title": "\u201cWell, Donald\u2014forgot your sunblock, I see"
+    },
+    {
+      "id": "22532",
+      "date": "2026-07-29",
+      "url": "https://www.thefarside.com/2026/07/29/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0ba55e40fa880137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0ba55e40fa880137d531005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22532"
+    },
+    {
+      "id": "22533",
+      "date": "2026-07-29",
+      "url": "https://www.thefarside.com/2026/07/29/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc7b2b080d8b90137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c7b2b080d8b90137c959005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22533"
+    }
+  ]
+}
