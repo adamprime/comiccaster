@@ -40,6 +40,14 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/eed14ef06e58013fc419005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-30",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/07/30",
+    "category": "political"
+  },
+  {
     "name": "Joe Pett",
     "slug": "joelpett",
     "image_url": "https://featureassets.gocomics.com/assets/52a49f006dc8013fc414005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1717,6 +1725,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/e6e21ca06dce013fc40b005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-30",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/07/30",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/3e8842d06e28013fc40b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-30",
+    "url": "https://www.gocomics.com/tavicat/2026/07/30",
     "category": "daily"
   },
   {
