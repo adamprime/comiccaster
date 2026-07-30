@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-30",
+  "scraped_at": "2026-07-30T08:20:27.135342+00:00",
+  "comics": [
+    {
+      "id": "22534",
+      "date": "2026-07-30",
+      "url": "https://www.thefarside.com/2026/07/30/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F45f06b7002810138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/45f06b7002810138d7bb005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22534"
+    },
+    {
+      "id": "22535",
+      "date": "2026-07-30",
+      "url": "https://www.thefarside.com/2026/07/30/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0685e310cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0685e310cdd50137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22535"
+    },
+    {
+      "id": "22536",
+      "date": "2026-07-30",
+      "url": "https://www.thefarside.com/2026/07/30/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F06de96e0e9f00137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/06de96e0e9f00137cf93005056a9545d",
+      "caption": "Vegetarian towns of the Old West",
+      "title": "Vegetarian towns of the Old West"
+    },
+    {
+      "id": "22537",
+      "date": "2026-07-30",
+      "url": "https://www.thefarside.com/2026/07/30/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5b125be0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5b125be0cdd50137c56b005056a9545d",
+      "caption": "\u201cPolly wanna finger.\u201d",
+      "title": "\u201cPolly wanna finger"
+    },
+    {
+      "id": "22538",
+      "date": "2026-07-30",
+      "url": "https://www.thefarside.com/2026/07/30/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee42e86b58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee42e86b58c311ea8bf6005056a9",
+      "caption": "Thor\u2019s hammer, screwdriver, and crescent wrench",
+      "title": "Thor\u2019s hammer, screwdriver, and crescent wrench"
+    }
+  ]
+}
