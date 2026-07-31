@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-07-31",
+  "scraped_at": "2026-07-31T08:19:43.911008+00:00",
+  "comics": [
+    {
+      "id": "22539",
+      "date": "2026-07-31",
+      "url": "https://www.thefarside.com/2026/07/31/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1ce97a30b46c013aaa65005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1ce97a30b46c013aaa65005056a9545d",
+      "caption": "\u201cSo! \u2026 Out bob bob bobbing along again!\u201d",
+      "title": "\u201cSo! \u2026 Out bob bob bobbing along again!\u201d"
+    },
+    {
+      "id": "22540",
+      "date": "2026-07-31",
+      "url": "https://www.thefarside.com/2026/07/31/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4a454510e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4a454510e9ef0137cf93005056a9545d",
+      "caption": "\u201cTime out, please! ... Eyelash!\u201d",
+      "title": "\u201cTime out, please!"
+    },
+    {
+      "id": "22541",
+      "date": "2026-07-31",
+      "url": "https://www.thefarside.com/2026/07/31/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9dd3b2b0d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9dd3b2b0d8ba0137c959005056a9545d",
+      "caption": "\u201cOh! Wait! Wait! My mistake! \u2026 That\u2019s him down there!\u201d",
+      "title": "\u201cOh! Wait! Wait! My mistake! \u2026 That\u2019s him down there!\u201d"
+    },
+    {
+      "id": "22542",
+      "date": "2026-07-31",
+      "url": "https://www.thefarside.com/2026/07/31/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F09377a40e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/09377a40e9ef0137cf93005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22542"
+    },
+    {
+      "id": "22543",
+      "date": "2026-07-31",
+      "url": "https://www.thefarside.com/2026/07/31/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc9bf68d0cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c9bf68d0cdd60137c56b005056a9545d",
+      "caption": "\u201cTHE GOLDEN ARCHES! \u2026 THE GOLDEN ARCHES GOT ME!\u201d",
+      "title": "\u201cTHE GOLDEN ARCHES! \u2026 THE GOLDEN ARCHES GOT ME!\u201d"
+    }
+  ]
+}
