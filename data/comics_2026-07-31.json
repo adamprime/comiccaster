@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/43242f606eed013fc12b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-31",
+    "url": "https://www.gocomics.com/two-party-opera/2026/07/31",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/d299a2f069d0013fc382005056a9545d?optimizer=image&width=2800&quality=85",
@@ -61,6 +69,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/f8291e306e62013fc41a005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-31",
     "url": "https://www.gocomics.com/jeffdanziger/2026/07/31",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/3712f2206f25013fc136005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-31",
+    "url": "https://www.gocomics.com/garyvarvel/2026/07/31",
     "category": "political"
   },
   {
@@ -1237,6 +1253,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/6d933a606823013fc382005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-07-31",
     "url": "https://www.gocomics.com/offthemark/2026/07/31",
+    "category": "daily"
+  },
+  {
+    "name": "Nothing Is Not Something",
+    "slug": "nothing-is-not-something",
+    "image_url": "https://featureassets.gocomics.com/assets/3b14ba606efb013fc12f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-07-31",
+    "url": "https://www.gocomics.com/nothing-is-not-something/2026/07/31",
     "category": "daily"
   },
   {
