@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-08-01",
+  "scraped_at": "2026-08-01T08:20:10.498022+00:00",
+  "comics": [
+    {
+      "id": "22544",
+      "date": "2026-08-01",
+      "url": "https://www.thefarside.com/2026/08/01/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7905cdf0d28b0137c712005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7905cdf0d28b0137c712005056a9545d",
+      "caption": "\u201cHey! Not this new stuff. \u2026 Me want Jurassic Coke.\u201d",
+      "title": "\u201cHey! Not this new stuff"
+    },
+    {
+      "id": "22545",
+      "date": "2026-08-01",
+      "url": "https://www.thefarside.com/2026/08/01/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5597e420cdd70137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5597e420cdd70137c56b005056a9545d",
+      "caption": "\u201cBecause it\u2019s not there.\u201d",
+      "title": "\u201cBecause it\u2019s not there"
+    }
+  ]
+}
