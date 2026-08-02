@@ -9,7 +9,7 @@ severity: high
 applies_when:
   - "A scheduled run is missing entirely and logs/master_update.log has NO entry for it (not a failure — no attempt)"
   - "The host was rebooted (power outage, forced restart) and nobody logged in afterwards"
-  - "SSH / Screen Sharing to the mini is refused after a reboot until someone physically logs in at the machine"
+  - "SSH / Screen Sharing over Tailscale is refused after a reboot, while LAN SSH from another node on the same subnet still works"
   - "The pipeline-heartbeat issue fires but no per-source failure issue accompanies it"
 tags: [launchd, launchagent, power-outage, auto-login, filevault, tailscale, remote-access, heartbeat, catchup]
 stack: [macos, launchd, tailscale]
@@ -27,9 +27,13 @@ The pipeline runs as **LaunchAgents** (`~/Library/LaunchAgents/com.comiccaster.m
 `.pass2`, `.catchup`). LaunchAgents load on **GUI login**, not at boot. No login
 → no agents → no runs, with nothing written to any log to say so.
 
-Same root cause made the box unreachable: Tailscale (how the mini is reached
-remotely) was a **user-session app** that also never started, so SSH and Screen
-Sharing were dead until someone walked to the machine.
+The same root cause cut off remote access: Tailscale (how the host is normally
+reached) is a **user-session app** that likewise never started, so SSH and Screen
+Sharing over the tailnet were dead and someone walked to the machine.
+
+That trip was avoidable, as it turns out — SSH from another node on the same LAN
+does survive this, because `sshd` is a boot-loaded daemon rather than a login
+item. See [The LAN fallback](#the-lan-fallback-verified-2026-08-02).
 
 ## Why the logs are useless here
 
@@ -108,11 +112,9 @@ The root-owned network extension starts *two seconds after* the user-owned GUI
 app, i.e. the extension is brought up **by** the logged-in session, not ahead of
 it. There is no pre-login window in which SSH works.
 
-The consequence is the important part: **auto-login is the only thing that makes
-this box remotely reachable.** If `kcpassword` is ever cleared, the failure is not
-"the pipeline is late" but "the host is unreachable and cannot be fixed remotely" —
-it needs someone physically at the machine. That makes the post-macOS-update
-re-verify checklist below load-bearing, not hygiene.
+So auto-login is what makes the host reachable **over Tailscale**. It is not the
+only way in — see the LAN fallback below, which is what keeps a cleared
+`kcpassword` from being an unrecoverable, drive-there failure.
 
 ## The recovery chain (defence in depth)
 
@@ -121,21 +123,46 @@ re-verify checklist below load-bearing, not hygiene.
 | `pmset autorestart 1` | Power returns → box boots itself |
 | Auto-login (`kcpassword`) | Session starts → LaunchAgents load → runs happen |
 | Tailscale Start-on-Login + On Demand | SSH / Screen Sharing return without a human |
-| LAN SSH to the host's private address | **Unverified — do not rely on it.** See below |
+| LAN SSH from another node on the same subnet | **The login-window fallback** — the one path that survives auto-login being broken |
 
-The LAN row is not a proven fallback. `com.openssh.sshd` is a *LaunchDaemon*, so
-in principle it listens from boot and would accept a connection while the box sits
-at the login window — which is exactly the situation the Tailscale layer cannot
-cover. But from the host, both Tailscale peers on the same subnet resolve in ARP
-and then refuse ICMP and port 22 with "No route to host", consistent with Wi-Fi
-client isolation or peer firewalls. Only the host→peer direction was tested; the
-direction that matters for recovery is peer→host.
+### The LAN fallback (verified 2026-08-02)
 
-**Test it from another machine on that LAN before counting on it** (`ssh <pipeline
-user>@<host LAN address> 'echo OK'`). If it works, a login-window-stuck host is
-recoverable by hopping through another tailnet node on the same LAN, and nobody
-has to drive anywhere. If it doesn't, physical presence really is the only path
-and auto-login is a single point of failure.
+This is the layer that matters when auto-login itself fails, because it is the
+only one that does not depend on a login session.
+
+`com.openssh.sshd` is a **LaunchDaemon in the `system` domain**
+(`/System/Library/LaunchDaemons/ssh.plist`), so it is loaded at *boot* — unlike
+the pipeline's LaunchAgents and unlike Tailscale, neither of which exists until
+someone logs in. It therefore listens while the box sits at the login window.
+
+Peer→host SSH over the LAN was confirmed working, and the host key matched the
+existing `known_hosts` entries for the Tailscale name and IP — same machine, no
+ambiguity:
+
+```
+$ ssh <pipeline user>@<host LAN address> 'echo OK'
+OK
+```
+
+**Direction matters, and the confusing result is expected.** host→peer fails:
+peers on the same subnet resolve in ARP and then refuse ICMP and port 22 with
+"No route to host". That is the *peers'* firewalls rejecting inbound, not a
+broken network — the host has Remote Login on and they do not. Do not read a
+failed outbound ping as evidence the fallback is down; test the direction you
+actually need.
+
+**Recovery procedure for a host stuck at the login window:** SSH over Tailscale
+to another tailnet node on the same LAN, then hop to the host's private address.
+This requires no physical presence, so a cleared `kcpassword` is a nuisance
+rather than a trip.
+
+Two dependencies to keep in mind. It needs *some* other tailnet node up on that
+LAN, so it fails in a whole-site power loss until something else comes back. And
+it quietly depends on **FileVault staying off**: with FileVault on, the data
+volume is not mounted before unlock, so sshd could not read the user's
+`authorized_keys` and pre-login key auth would fail. FileVault is one of the four
+settings `scripts/check_host_config.py` watches — it guards this fallback as well
+as auto-login itself.
 
 ## What worked correctly, and should not be "fixed"
 

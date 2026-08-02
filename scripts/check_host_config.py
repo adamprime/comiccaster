@@ -12,9 +12,14 @@ reachable afterwards:
 
 None of these announce themselves when they break. macOS updates have been
 known to reset login settings, and the failure is invisible until the next
-reboot -- at which point the box sits at the login window, unreachable, and
-needs someone physically present (Tailscale's tunnel is started *by* the login
-session, so there is no pre-login window in which SSH works).
+reboot -- at which point the box sits at the login window with no pipeline and
+no Tailscale, since the tunnel is started *by* the login session.
+
+Recovery then depends on the LAN fallback (SSH from another node on the same
+subnet, which works because sshd is boot-loaded), and that in turn needs
+FileVault to stay off -- an encrypted volume is not mounted before unlock, so
+sshd could not read `authorized_keys`. Hence FileVault is checked here too: it
+guards the fallback as well as auto-login.
 
 The gap this closes is one of timing, not prevention. We cannot stop an update
 from clearing these, but between the update and the next reboot the machine is
