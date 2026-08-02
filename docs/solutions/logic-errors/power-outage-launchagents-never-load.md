@@ -94,8 +94,23 @@ plus **VPN On Demand**, and `AlwaysOn.Enabled` — the latter an **MDM/device-po
 key (`Tailscale syspolicy list`), not a user setting, which the binary notes will
 *disable* on-demand when set.
 
-Whether the tunnel comes up **before** login is unverified — confirm empirically by
-rebooting and attempting SSH to `100.84.185.32` before the desktop appears.
+**The tunnel does not come up before login** — settled empirically by the
+2026-08-02 13:03:57 verification reboot (see below). Process start times:
+
+```
+openclaw  13:04:07  /Applications/Tailscale.app/Contents/MacOS/Tailscale
+root      13:04:09  …/io.tailscale.ipn.macsys.network-extension
+```
+
+The root-owned network extension starts *two seconds after* the user-owned GUI
+app, i.e. the extension is brought up **by** the logged-in session, not ahead of
+it. There is no pre-login window in which SSH works.
+
+The consequence is the important part: **auto-login is the only thing that makes
+this box remotely reachable.** If `kcpassword` is ever cleared, the failure is not
+"the pipeline is late" but "the host is unreachable and cannot be fixed remotely" —
+it needs someone physically at the machine. That makes the post-macOS-update
+re-verify checklist below load-bearing, not hygiene.
 
 ## The recovery chain (defence in depth)
 
@@ -117,6 +132,32 @@ Both safety nets behaved exactly as designed and did the recovery:
 - **`pipeline-heartbeat.yml`** opened issue #181, which is the *only* mechanism that
   can report a run that never happened — the host itself was off and structurally
   could not report anything. It self-clears once a fresh pipeline commit lands.
+
+## Verification reboot (2026-08-02) — the whole chain, confirmed
+
+The fixes above were validated by a deliberate reboot, not left to the next
+outage. Boot at `13:03:57`, and with **nobody at the keyboard**:
+
+| Time | Event | Layer proven |
+| --- | --- | --- |
+| 13:03:57 | `kern.boottime` | box boots itself |
+| ~13:04 | `openclaw console` in `who` | auto-login / `kcpassword` |
+| 13:04:07 | Tailscale GUI app | Start-on-Login |
+| 13:04:09 | network extension | tunnel up → SSH returns |
+| 13:04:13 | `com.comiccaster.catchup` fired | LaunchAgents load on login |
+
+Total: **~16 seconds** from power to a fully recovered, remotely reachable host,
+versus ~25h of silent downtime before the fix.
+
+The catch-up agent logged
+`data/comics_2026-08-02.json present, today's run already happened. Skipping.` —
+the correct no-op, since Pass 1 (12:15) and Pass 2 (13:02) had both landed before
+the reboot. That exercises the canary's *skip* branch; the outage itself had
+already exercised its *run* branch.
+
+`pipeline-heartbeat.yml` was then dispatched manually to close issue #181 rather
+than waiting for the 11:00 UTC schedule — it verified a fresh pipeline commit and
+self-cleared as designed.
 
 ## Prevention
 
