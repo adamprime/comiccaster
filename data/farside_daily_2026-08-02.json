@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-08-02",
+  "scraped_at": "2026-08-02T17:14:15.415332+00:00",
+  "comics": [
+    {
+      "id": "22546",
+      "date": "2026-08-02",
+      "url": "https://www.thefarside.com/2026/08/02/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fda9a1fe0fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/da9a1fe0fa830137d52f005056a9545d",
+      "caption": "\u201cSomething\u2019s wrong here, Harriet. This is starting to look less and less like Interstate 95.\u201d",
+      "title": "\u201cSomething\u2019s wrong here, Harriet"
+    },
+    {
+      "id": "22547",
+      "date": "2026-08-02",
+      "url": "https://www.thefarside.com/2026/08/02/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1e866600b46c013aaa65005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1e866600b46c013aaa65005056a9545d",
+      "caption": "\u201cI dreamt last night I was walking. \u2026 And I mean I could walk anywhere \u2026 fast, slow \u2026\u201d",
+      "title": "\u201cI dreamt last night I was walking"
+    }
+  ]
+}
