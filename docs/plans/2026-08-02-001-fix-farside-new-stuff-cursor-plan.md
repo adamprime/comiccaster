@@ -75,6 +75,46 @@ Only `/new-stuff/*` is protected. Note plain `requests` to `/new-stuff/<id>` ret
 **403** for every id tried (340, 363, 364, 380, 396, 400), so there is no non-browser
 fallback for that path.
 
+## Feasibility probes (2026-08-02) — what does NOT work
+
+Negative results, recorded so they are not repeated. All three still return the
+1,894-byte "Hold tight" interstitial:
+
+| Probe | `navigator.webdriver` | Result |
+| --- | --- | --- |
+| Bare headless (current code) | `true` | blocked |
+| Headless + fresh persistent `--user-data-dir` | `true` | blocked |
+| Headless + profile + full CK/TinyView anti-detection flags | **`false`** | **still blocked** |
+
+The third probe used exactly the pattern that works for Comics Kingdom and TinyView
+(`scripts/comicskingdom_scraper_individual.py:84-86`):
+
+```python
+options.add_argument('--disable-blink-features=AutomationControlled')
+options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option('useAutomationExtension', False)
+```
+
+It successfully hides the automation flag and **still does not get through**, so the
+protection is keying on something other than `navigator.webdriver` — most likely
+headless itself, or it requires a challenge-clearance cookie obtained by actually
+solving the JS challenge.
+
+Note `comiccaster/farside_scraper.py` currently sets **none** of these options — it
+builds a bare headless driver. Adding them is necessary but demonstrably not
+sufficient.
+
+**Implication:** a headless-only solution is not viable. The remaining routes are
+non-headless Chrome, and/or a **profile primed once by a human** clearing the
+challenge so the clearance cookie persists — the same shape as the existing Comics
+Kingdom / TinyView reauth ritual (`docs/AUTHENTICATED_SCRAPING_README.md`).
+
+Cost to weigh: that would make Far Side a **third** scraper with a periodic manual
+operator step. For a section that currently holds ~10 comics and appears not to have
+gained new ones since setup, the ongoing ritual may exceed the value — worth deciding
+deliberately rather than by default. Unknown until measured: how long a clearance
+cookie survives, which sets the reauth cadence.
+
 ## Secondary defects (real, but currently moot)
 
 Even with page access restored, three bugs would keep the feed broken. Fix only
@@ -93,10 +133,17 @@ after the access problem is solved, and only in light of decision 2 below.
 
 ## Open decisions
 
-1. **Is this feed worth restoring at all?** It has produced one item in 8.5 months and
-   no user has reported it. Deleting `farside-new` (feed, scraper path, and its
-   invariant) is a legitimate outcome and cheaper than maintaining a
-   bot-protection workaround. **Decide this first — everything else is downstream.**
+1. ~~**Is this feed worth restoring at all?**~~ **RESOLVED 2026-08-02 — keep it.**
+   Operator: *"we should leave it up... it's important to not lose that
+   functionality, and it sounds like we'll need a browser based solution."*
+   Deleting `farside-new` is off the table. A browser-based approach is endorsed.
+
+   Operator also observed that **no new comics appear to have been published since
+   the original scraper was set up**. That is consistent with the empty feed and
+   means a working scraper would likely emit nothing *new* — but it should still
+   carry the ~10 comics that already exist, so subscribers get a populated feed
+   rather than an empty document. Treat "feed contains the existing back catalogue"
+   as the success criterion, not "feed gains new items".
 
 2. **If restoring: is New Stuff an archive or a rotating single?** The operator sees
    ~10 comics behind arrows, which suggests a browsable archive with monotonic ids —
