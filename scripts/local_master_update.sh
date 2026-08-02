@@ -35,7 +35,7 @@ FAILED_KEYS=()
 # Pass 1 covers everything; Pass 2 covers GoComics only.
 # `preflight` is included because reaching the end of a run proves it passed,
 # which is what auto-closes a preflight issue from a previous run.
-ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,creators,mrboffo,push,preflight,cksession,branch"
+ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,creators,mrboffo,push,preflight,cksession,branch,autologin"
 
 # Load environment variables (.env has GoComics credentials)
 if [ -f "$REPO_DIR/.env" ]; then
@@ -332,6 +332,25 @@ if python scripts/check_ck_session.py; then
 else
     FAILURES+=("Comics Kingdom session expiring")
     FAILED_KEYS+=("cksession:expiry")
+fi
+
+# Host auto-login / remote-access config check.
+# The LaunchAgents that run this pipeline load only on GUI login, and macOS
+# updates have been known to reset login settings. The drift is invisible until
+# the next reboot -- by which point the box is at the login window with no
+# Tailscale, so it cannot be fixed remotely (2026-08-01 outage, 25h). Between
+# the drift and that reboot the machine is still reachable and the fix takes a
+# minute, so surface it now. `autologin` is in ALERT_COVERED, so the alert
+# clears itself once the setting is restored.
+# No detail is passed to the reporter on purpose: the findings describe the
+# host's security posture and the issue it opens is public.
+echo ""
+echo "=== Checking host auto-login configuration ==="
+if python scripts/check_host_config.py; then
+    :
+else
+    FAILURES+=("Host configuration drifted")
+    FAILED_KEYS+=("autologin:config")
 fi
 
 # Phase 3: Commit and push everything that succeeded.

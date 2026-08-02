@@ -55,6 +55,7 @@ SOURCE_NAMES = {
     "heartbeat": "Daily pipeline",
     "cksession": "Comics Kingdom session",
     "branch": "Repo branch",
+    "autologin": "Host configuration",
 }
 
 # A few alerts are warnings rather than failures, and read badly through the
@@ -62,6 +63,8 @@ SOURCE_NAMES = {
 TITLE_OVERRIDES = {
     "cksession": "[pipeline] Comics Kingdom session needs a reauth",
     "branch": "[pipeline] Pipeline ran on the wrong branch",
+    # Deliberately says nothing about *which* setting drifted -- see the lead.
+    "autologin": "[pipeline] Host configuration preflight failed",
 }
 
 LEAD_OVERRIDES = {
@@ -80,6 +83,20 @@ LEAD_OVERRIDES = {
         "back to `main` and continued. Check whether a feed commit was stranded "
         "on the other branch:\n\n"
         "```bash\ngit log --oneline -3 <branch>\n```"
+    ),
+    # Intentionally vague. The findings describe the host's security posture
+    # (disk encryption, which account logs in unattended) and this repo is
+    # public, so the specifics stay on the host. check_host_config.py has no
+    # flag to print them into an alert body, by design.
+    "autologin": (
+        "One of the host settings the pipeline depends on has drifted.\n\n"
+        "Nothing is broken *yet*: the machine is still up and still reachable. "
+        "But these settings only take effect at boot, so the next reboot is "
+        "when this becomes an outage -- and, depending on which setting "
+        "drifted, potentially one that cannot be fixed remotely.\n\n"
+        "**Fix it now, while you can still get in.** Run the check on the host "
+        "for the specifics, which are deliberately not repeated here:\n\n"
+        "```bash\npython scripts/check_host_config.py\n```"
     ),
 }
 

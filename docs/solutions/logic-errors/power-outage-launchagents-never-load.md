@@ -53,7 +53,7 @@ Two settings, each independently sufficient to cause the outage:
 | Setting | Was | Now |
 | --- | --- | --- |
 | `/etc/kcpassword` | **missing** | present (auto-login works) |
-| `/Library/Preferences/com.apple.loginwindow autoLoginUser` | `openclaw` | unchanged |
+| `/Library/Preferences/com.apple.loginwindow autoLoginUser` | the pipeline user | unchanged |
 | `io.tailscale.ipn.macsys TailscaleStartOnLogin` | `0` | `1` |
 | `io.tailscale.ipn.macsys VPNOnDemandIsUserConfigured` | `0` | `1` |
 | `pmset autorestart` | `1` (already correct) | `1` |
@@ -64,14 +64,16 @@ configured and does nothing. Only System Settings → Users & Groups → "Automa
 in as" writes `kcpassword`; there is no safe CLI path (`sysadminctl -autologin` puts
 the password in shell history and the process list).
 
-This is possible only because **FileVault is Off** (`fdesetup status`). With FileVault
-on, auto-login is greyed out entirely and this whole recovery chain is unavailable —
-the box would require manual unlock after every power event.
+Auto-login requires FileVault to be **off** — check with `fdesetup status`. With
+FileVault on, auto-login is greyed out entirely and this whole recovery chain is
+unavailable; the box would require a manual unlock after every power event. That
+is the trade this setup accepts in exchange for unattended recovery.
 
 Security note: `/etc/kcpassword` is XOR-obfuscated with a published key, not
-encrypted. With FileVault off, physical access already yields the deploy key and the
-CK/TinyView session cookies, so auto-login doesn't widen exposure — but it is a
-deliberate trade, not a free win.
+encrypted. Where FileVault is off, physical access already yields the deploy key and
+the CK/TinyView session cookies, so auto-login doesn't widen exposure — but it is a
+deliberate trade, not a free win, and it is the reason the pipeline's alert for these
+settings stays generic (this repo is public; see `scripts/check_host_config.py`).
 
 ## Tailscale specifics (this build)
 
@@ -98,8 +100,8 @@ key (`Tailscale syspolicy list`), not a user setting, which the binary notes wil
 2026-08-02 13:03:57 verification reboot (see below). Process start times:
 
 ```
-openclaw  13:04:07  /Applications/Tailscale.app/Contents/MacOS/Tailscale
-root      13:04:09  …/io.tailscale.ipn.macsys.network-extension
+<pipeline user>  13:04:07  /Applications/Tailscale.app/Contents/MacOS/Tailscale
+root             13:04:09  …/io.tailscale.ipn.macsys.network-extension
 ```
 
 The root-owned network extension starts *two seconds after* the user-owned GUI
@@ -119,7 +121,21 @@ re-verify checklist below load-bearing, not hygiene.
 | `pmset autorestart 1` | Power returns → box boots itself |
 | Auto-login (`kcpassword`) | Session starts → LaunchAgents load → runs happen |
 | Tailscale Start-on-Login + On Demand | SSH / Screen Sharing return without a human |
-| LAN (`192.168.1.123`) | Independent path whenever you're on-site |
+| LAN SSH to the host's private address | **Unverified — do not rely on it.** See below |
+
+The LAN row is not a proven fallback. `com.openssh.sshd` is a *LaunchDaemon*, so
+in principle it listens from boot and would accept a connection while the box sits
+at the login window — which is exactly the situation the Tailscale layer cannot
+cover. But from the host, both Tailscale peers on the same subnet resolve in ARP
+and then refuse ICMP and port 22 with "No route to host", consistent with Wi-Fi
+client isolation or peer firewalls. Only the host→peer direction was tested; the
+direction that matters for recovery is peer→host.
+
+**Test it from another machine on that LAN before counting on it** (`ssh <pipeline
+user>@<host LAN address> 'echo OK'`). If it works, a login-window-stuck host is
+recoverable by hopping through another tailnet node on the same LAN, and nobody
+has to drive anywhere. If it doesn't, physical presence really is the only path
+and auto-login is a single point of failure.
 
 ## What worked correctly, and should not be "fixed"
 
@@ -141,7 +157,7 @@ outage. Boot at `13:03:57`, and with **nobody at the keyboard**:
 | Time | Event | Layer proven |
 | --- | --- | --- |
 | 13:03:57 | `kern.boottime` | box boots itself |
-| ~13:04 | `openclaw console` in `who` | auto-login / `kcpassword` |
+| ~13:04 | pipeline user on `console` in `who` | auto-login / `kcpassword` |
 | 13:04:07 | Tailscale GUI app | Start-on-Login |
 | 13:04:09 | network extension | tunnel up → SSH returns |
 | 13:04:13 | `com.comiccaster.catchup` fired | LaunchAgents load on login |
@@ -165,10 +181,27 @@ Do not convert the LaunchAgents to LaunchDaemons — the scrapers want a real us
 session for Chrome and keychain access. Auto-login is the correct fix; the catch-up
 agent covers the residual case.
 
-After any macOS update, re-verify — updates have been known to reset login settings:
+### The drift is now checked automatically
+
+macOS updates have been known to reset login settings, and the reset is silent —
+nothing changes until the next reboot, which is precisely when it stops being
+fixable remotely. **Pass 1 therefore runs `scripts/check_host_config.py` every
+morning**, verifying `kcpassword`, `autoLoginUser`, FileVault, and Tailscale's
+start-on-login, and alerting through the normal `pipeline-failure` machinery
+(key: `autologin`, self-clearing like any other source).
+
+The value is timing. Between the update that clears a setting and the reboot that
+exposes it, the machine is still up and still reachable, and the fix is a minute
+in System Settings. The check turns that silent window into a GitHub issue rather
+than letting the reboot be the discovery event.
+
+That alert is **deliberately vague** — "Host configuration preflight failed", no
+specifics. These findings describe the host's security posture and this repo is
+public, so the details stay in the local run log. `check_host_config.py` has no
+flag to print them into an alert body, and a test pins that absence.
+
+To see the specifics, run it on the host:
 
 ```bash
-ls -l /etc/kcpassword                                          # must exist
-defaults read /Library/Preferences/com.apple.loginwindow autoLoginUser
-defaults read io.tailscale.ipn.macsys TailscaleStartOnLogin    # must be 1
+python scripts/check_host_config.py
 ```
