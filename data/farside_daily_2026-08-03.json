@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-03",
+  "scraped_at": "2026-08-03T08:19:04.169437+00:00",
+  "comics": [
+    {
+      "id": "22548",
+      "date": "2026-08-03",
+      "url": "https://www.thefarside.com/2026/08/03/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F55e09030fa850137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/55e09030fa850137d52f005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22548"
+    },
+    {
+      "id": "22549",
+      "date": "2026-08-03",
+      "url": "https://www.thefarside.com/2026/08/03/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F817bf1a0e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/817bf1a0e6f90137ce50005056a9545d",
+      "caption": "Nature films that Disney test-marketed but never released.",
+      "title": "Nature films that Disney test-marketed but never released"
+    },
+    {
+      "id": "22550",
+      "date": "2026-08-03",
+      "url": "https://www.thefarside.com/2026/08/03/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F03ddba90cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/03ddba90cdd40137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22550"
+    },
+    {
+      "id": "22551",
+      "date": "2026-08-03",
+      "url": "https://www.thefarside.com/2026/08/03/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa6d4bb50d0be0137c62c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a6d4bb50d0be0137c62c005056a9545d",
+      "caption": "The anthropologist\u2019s dream: a beautiful woman in one hand, the fossilized skull of a Homo habilus in the other.",
+      "title": "The anthropologist\u2019s dream: a beautiful woman in one hand..."
+    },
+    {
+      "id": "22552",
+      "date": "2026-08-03",
+      "url": "https://www.thefarside.com/2026/08/03/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1fc4b7e0b46c013aaa65005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1fc4b7e0b46c013aaa65005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22552"
+    }
+  ]
+}
