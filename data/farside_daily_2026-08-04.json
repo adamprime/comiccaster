@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-04",
+  "scraped_at": "2026-08-04T08:20:02.536711+00:00",
+  "comics": [
+    {
+      "id": "22553",
+      "date": "2026-08-04",
+      "url": "https://www.thefarside.com/2026/08/04/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd4fbd200e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d4fbd200e3ae0137cd49005056a9545d",
+      "caption": "Scene from Never Cry Cow",
+      "title": "Scene from Never Cry Cow"
+    },
+    {
+      "id": "22554",
+      "date": "2026-08-04",
+      "url": "https://www.thefarside.com/2026/08/04/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe1e26b30e92d0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e1e26b30e92d0137cf47005056a9545d",
+      "caption": "Some of our common crabs",
+      "title": "Some of our common crabs"
+    },
+    {
+      "id": "22555",
+      "date": "2026-08-04",
+      "url": "https://www.thefarside.com/2026/08/04/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F13eddf10e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/13eddf10e92f0137cf47005056a9545d",
+      "caption": "Historical note: For many years, until they became truly nasty, Vikings would plunder, loot, and then egg the houses of coastal villagers.",
+      "title": "Historical note: For many years, until they became truly ..."
+    },
+    {
+      "id": "22556",
+      "date": "2026-08-04",
+      "url": "https://www.thefarside.com/2026/08/04/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0f59a440d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0f59a440d8bb0137c959005056a9545d",
+      "caption": "\u201cHey! \u2026 Be cool, man, be cool!\u201d",
+      "title": "\u201cHey! \u2026 Be cool, man, be cool!\u201d"
+    },
+    {
+      "id": "22557",
+      "date": "2026-08-04",
+      "url": "https://www.thefarside.com/2026/08/04/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe5d03ce0e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e5d03ce0e6f90137ce50005056a9545d",
+      "caption": "\u201cOkay, Johnson\u2014we\u2019ve got a deal. We\u2019ll let your people and my\npeople work out the details.\u201d",
+      "title": "\u201cOkay, Johnson\u2014we\u2019ve got a deal"
+    }
+  ]
+}
