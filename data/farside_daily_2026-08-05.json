@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-05",
+  "scraped_at": "2026-08-05T08:11:16.700905+00:00",
+  "comics": [
+    {
+      "id": "22558",
+      "date": "2026-08-05",
+      "url": "https://www.thefarside.com/2026/08/05/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8c9b0090cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8c9b0090cdd50137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22558"
+    },
+    {
+      "id": "22559",
+      "date": "2026-08-05",
+      "url": "https://www.thefarside.com/2026/08/05/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8bc8ba00df0f0137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8bc8ba00df0f0137cbaf005056a9545d",
+      "caption": "Another case of too many scientists and not enough hunchbacks.",
+      "title": "Another case of too many scientists and not enough hunchb..."
+    },
+    {
+      "id": "22560",
+      "date": "2026-08-05",
+      "url": "https://www.thefarside.com/2026/08/05/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Feeada9d0e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/eeada9d0e9ee0137cf93005056a9545d",
+      "caption": "Failed marketing ploys",
+      "title": "Failed marketing ploys"
+    },
+    {
+      "id": "22561",
+      "date": "2026-08-05",
+      "url": "https://www.thefarside.com/2026/08/05/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4204a050b46c013aaa65005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4204a050b46c013aaa65005056a9545d",
+      "caption": "\u201cDoreen! There\u2019s a spider on you! One of those big, hairy, brown ones with the long legs that can move like the wind itself!\u201d",
+      "title": "\u201cDoreen! There\u2019s a spider on you! One of those big, hairy..."
+    },
+    {
+      "id": "22562",
+      "date": "2026-08-05",
+      "url": "https://www.thefarside.com/2026/08/05/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F68e4e570e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/68e4e570e85b0137cedf005056a9545d",
+      "caption": "Know your barbarians.",
+      "title": "Know your barbarians"
+    }
+  ]
+}
