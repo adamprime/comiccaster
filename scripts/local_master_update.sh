@@ -309,6 +309,15 @@ check_scrape_output() {
         FAILED_KEYS+=("$slug:invariant")
     else
         echo "✅ $source: $(basename "$file") present"
+        # Existence is not enough. A scrape can run, write a well-formed file
+        # and put nothing in it: on 2026-08-03 TinyView wrote `[]` and the run
+        # still reported ALL SUCCESS. Nothing surfaced it either, because the
+        # generator builds feeds from a 90-day window, so a missing day looks
+        # like a healthy feed one entry short. Assert a plausible entry count.
+        if ! python scripts/check_scrape_counts.py "$file"; then
+            FAILURES+=("$source empty or partial scrape")
+            FAILED_KEYS+=("$slug:invariant")
+        fi
     fi
 }
 check_scrape_output "GoComics"       "gocomics"      "data/comics_$DATE_STR.json"
