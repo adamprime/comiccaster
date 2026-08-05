@@ -121,6 +121,19 @@ class TestEvaluate:
         status, _ = evaluate(NOW + timedelta(days=7), NOW, DEFAULT_WARN_DAYS)
         assert status == 'ok'
 
+    def test_passing_detail_does_not_claim_the_session_works(self):
+        """Regression guard for a misleading green line, not a style rule.
+
+        On 2026-08-05 this printed "session ok: 7.0 days remaining" during the
+        very run in which CK redirected the scraper to login. The expiry is
+        refreshed even by requests CK rejects, so cookie validity and session
+        health had come apart -- and the ✅ sent diagnosis away from the real
+        cause. The passing message must describe the cookie only.
+        """
+        _, detail = evaluate(NOW + timedelta(days=7), NOW, DEFAULT_WARN_DAYS)
+        assert 'cookie' in detail.lower()
+        assert 'session ok' not in detail.lower()
+
     def test_token_inside_warn_window_is_expiring(self):
         status, _ = evaluate(NOW + timedelta(days=1), NOW, DEFAULT_WARN_DAYS)
         assert status == 'expiring'
@@ -193,7 +206,7 @@ class TestMain:
             (CK_HOST, TOKEN_NAME, datetime.now(timezone.utc) + timedelta(days=7)),
         ])
         assert main(['--profile', str(profile)]) == 0
-        assert 'ok' in capsys.readouterr().out.lower()
+        assert 'cookie' in capsys.readouterr().out.lower()
 
     def test_exit_nonzero_when_expiring(self, tmp_path):
         profile = make_profile(tmp_path, [

@@ -15,6 +15,17 @@ This makes that invisible clock visible. Run it:
 Reads the expiry straight out of the Chrome profile's cookie store. The store
 is copied before querying, so this is safe to run while Chrome holds the
 profile open and never mutates the operator's session.
+
+**What this cannot tell you.** It measures cookie expiry, which is not session
+health. CK refreshes that expiry on *any* visit, including one it redirects to
+the login page -- so a dead session keeps reporting "7.0 days remaining"
+indefinitely. On 2026-08-05 this printed a green line during the very run in
+which the scraper was rejected. A live session is proven only by a successful
+`is_authenticated` / scrape, so the passing message says so explicitly rather
+than implying health it never checked.
+
+The value that *is* real is `describe_renewal`: run after a reauth, it catches
+a login that looked fine in the browser but left no new token on disk.
 """
 
 import argparse
@@ -105,7 +116,9 @@ def evaluate(expiry, now: datetime, warn_days: float):
             "Run scripts/reauth_comicskingdom.py."
         )
     return "ok", (
-        f"Comics Kingdom session ok: {remaining:.1f} days remaining ({stamp})."
+        f"Comics Kingdom session cookie present, expires in {remaining:.1f} days "
+        f"({stamp}). This does NOT mean the session works -- CK refreshes the "
+        "expiry even on requests it rejects, so only a scrape proves it is live."
     )
 
 
