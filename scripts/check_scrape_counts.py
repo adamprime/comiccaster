@@ -52,12 +52,14 @@ SOURCE_RULES = {
     # Upstream picks the daily set and it has legitimately been as low as 2.
     "farside_daily": {"payload": "comics",   "minimum": 1,
                       "note": "Far Side Daily Dose"},
-    # Deliberate exemption. New Stuff has returned 0 every day since the site
-    # added bot protection; the recorded decision was to keep the feed rather
-    # than chase it. A minimum of 1 here would open an issue every morning
-    # forever, which is how alerting gets ignored.
+    # Deliberate exemption, and NOT a masked bug: New Stuff has published once
+    # in the whole life of this feed, so an empty result is its normal steady
+    # state rather than evidence of a failed scrape. (Access is separately
+    # blocked by bot protection; the recorded decision was to keep the feed.)
+    # A minimum of 1 would open an issue every morning forever, which is how
+    # alerting gets ignored. Contrast farside_daily, which always has content.
     "farside_new":   {"payload": "comics",   "minimum": 0,
-                      "note": "Far Side New Stuff (known broken upstream)"},
+                      "note": "Far Side New Stuff (known to publish very rarely)"},
     "mrboffo":       {"payload": "comics",   "minimum": 1,
                       "note": "Mr. Boffo"},
 }
@@ -100,8 +102,8 @@ def evaluate(source_key, count):
 
     if minimum == 0:
         return True, (
-            f"{note}: {count} entries, not checked -- known-broken source, "
-            "exempt by design."
+            f"{note}: {count} entries, not checked -- empty is the normal state "
+            "for this source, exempt by design."
         )
 
     if count < minimum:

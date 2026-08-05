@@ -91,10 +91,12 @@ caught that days before anyone reported it.
 
 ### Two deliberate judgement calls
 
-- **`farside_new` is exempt** (`minimum: 0`). It has returned 0 every day since
-  the site added bot protection, and the recorded decision was to keep the feed
-  rather than chase it. A minimum of 1 would open an issue every morning
-  forever — which is how alerting gets ignored.
+- **`farside_new` is exempt** (`minimum: 0`), and this is not a masked bug. New
+  Stuff has published *once* in the whole life of the feed, so empty is its
+  normal steady state, not a failed scrape. (Access is separately blocked by bot
+  protection; the recorded decision was to keep the feed.) A minimum of 1 would
+  open an issue every morning forever — which is how alerting gets ignored.
+  Contrast `farside_daily`, which always has content and is asserted `>= 1`.
 - **An unregistered source passes.** Adding a scraper must not turn its first
   run red. The message says plainly that nothing was verified, so it cannot be
   mistaken for a check that ran.
