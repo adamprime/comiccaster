@@ -89,6 +89,22 @@ The backtest also retro-flagged CK at 119–129 entries on 2026-06-02..08 — th
 window immediately preceding user issues #148 and #151. This check would have
 caught that days before anyone reported it.
 
+### Confirmed in production, and a warning against tightening
+
+First full production run after the change (2026-08-05, `mini_master_update.sh`,
+commit `214173d376`) printed all eight count lines and finished ALL SUCCESS.
+
+That run also produced the strongest argument for leaving the thresholds alone:
+
+```
+✅ TinyView: 1 entries (minimum 1).
+```
+
+A legitimate light publication day, sitting exactly on its floor. **A minimum of
+2 would have opened a false issue on that very run.** If a future reader thinks
+1 looks suspiciously low and raises it, this is the counter-example — the
+observed range genuinely is 0–8.
+
 ### Two deliberate judgement calls
 
 - **`farside_new` is exempt** (`minimum: 0`), and this is not a masked bug. New
