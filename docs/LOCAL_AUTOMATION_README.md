@@ -18,7 +18,10 @@ An earlier hybrid design split scraping between a laptop (one source) and GitHub
 │    one script per source, all network-free                     │
 │                                                                │
 │  Invariant guard: each successful scrape must have written     │
-│  its dated JSON file. Missing file → logged failure.           │
+│  its dated JSON file AND filled it with a plausible number     │
+│  of entries. Missing or empty → logged failure.                │
+│                                                                │
+│  Preflights: CK session cookie, host auto-login config         │
 │                                                                │
 │  Phase 3 — commit and push (with recovery on rejection)        │
 │    save JSONs / fetch / reset --hard origin/main / restore     │
@@ -63,7 +66,9 @@ An earlier hybrid design split scraping between a laptop (one source) and GitHub
 | `scripts/generate_*.py` | Phase 2 generators; each reads `data/*.json` and writes to `public/feeds/*.xml` |
 | `scripts/report_pipeline_failures.py` | Opens / comments / closes the GitHub issue for each failing source. Runs in Actions, not on the host (see Failure alerting) |
 | `scripts/check_pipeline_heartbeat.py` | Dead-man's switch — alerts when no pipeline commit has landed in 20h |
-| `scripts/check_ck_session.py` | Reads the CK token expiry; used by the reauth script and the daily expiry alert |
+| `scripts/check_ck_session.py` | Reads the CK token *cookie expiry*. Its real value is verifying a reauth took; it cannot detect a server-side logout, because CK refreshes the expiry even on requests it rejects |
+| `scripts/check_scrape_counts.py` | Invariant guard's count half — asserts each scrape's JSON holds a plausible number of entries. Per-source minimums in `SOURCE_RULES`; register new sources there |
+| `scripts/check_host_config.py` | Verifies the host settings the LaunchAgents depend on (`kcpassword`, `autoLoginUser`, FileVault off, Tailscale start-on-login) while drift is still fixable remotely |
 | `.github/workflows/pipeline-alert.yml` | Dispatched by both passes; runs the reporter under `GITHUB_TOKEN` |
 | `.github/workflows/pipeline-heartbeat.yml` | Scheduled 11:00 UTC; runs the heartbeat check |
 | `scripts/reauth_comicskingdom.py` | Manual Comics Kingdom session refresh |
@@ -126,10 +131,11 @@ The pipeline runs **twice a day**: Pass 1 at 03:05 covers all seven sources, Pas
 3. SSH auth check against GitHub. On failure the run aborts cleanly, notifies, and dispatches a `preflight` alert — this abort happens *before* any scraping, so it would otherwise be the quietest failure of all.
 4. Phase 1 scrape (the long part — Comics Kingdom dominates runtime).
 5. Phase 2 feed generation (fast, no network).
-6. Invariant guard verifies every successful scrape wrote its dated JSON file.
-7. Phase 3 commit + push. If the first push is accepted, we're done.
-8. Netlify detects the push and deploys within ~30 seconds.
-9. The run dispatches `pipeline-alert.yml` with what failed and what it examined — on every run, success included, because that is what closes issues for sources that have recovered.
+6. Invariant guard verifies every successful scrape wrote its dated JSON file **and** that the file holds a plausible number of entries — existence alone was satisfiable by an empty scrape (see Empty and partial scrapes).
+7. Preflights that warn while there is still time to act: the CK session cookie, and the host auto-login/remote-access settings the LaunchAgents depend on.
+8. Phase 3 commit + push. If the first push is accepted, we're done.
+9. Netlify detects the push and deploys within ~30 seconds.
+10. The run dispatches `pipeline-alert.yml` with what failed and what it examined — on every run, success included, because that is what closes issues for sources that have recovered.
 
 ### Pass 2 — 13:00, GoComics only
 
@@ -160,7 +166,7 @@ Both passes are unattended, so the primary failure signal is a **GitHub issue**,
 - **One issue per failing source**, titled `[pipeline] <Source> <kind> failed` and labelled `pipeline-failure`.
 - **Recurrences comment** on the existing issue rather than opening duplicates.
 - **Issues close themselves** when that source next succeeds, with a "Recovered" comment.
-- **In scope:** scrape failures, invariant-guard violations, `git push` failures, and the SSH preflight abort. Feed-generation and `git fetch` failures are logged only.
+- **In scope:** scrape failures, invariant-guard violations (missing *or* empty/partial data), `git push` failures, the SSH preflight abort, the CK session warning, and host auto-login drift. Feed-generation and `git fetch` failures are logged only.
 
 Issues are identified by a `Pipeline-Failure-Key: <slug>` marker in the body, not by title or label — label-filtered listing on GitHub is eventually consistent and briefly omits freshly created issues.
 
@@ -230,6 +236,28 @@ A browser opens; complete the login flow and **let the script close it**. The sc
 
 If it instead prints `❌ Session expiry did NOT move`, the login did not produce a new token — re-run it. That silent no-op is what caused the 2026-07-28 outage, and it is invisible in the browser.
 
+**A green session line does not mean the session works.** `check_ck_session.py` reads the cookie's expiry, and CK refreshes that expiry on *any* request — including one it redirects to login. On 2026-08-05 it printed `✅ 7.0 days remaining` during the very run in which the scraper was turned away and the scrape failed. Treat it as "a cookie exists"; only a successful scrape proves the session is live.
+
+### Empty and partial scrapes
+
+A source can authenticate, run to completion, write a well-formed JSON file and put almost nothing in it. Until 2026-08-05 that passed the invariant guard, because the guard only asked whether the file existed — on 2026-08-03 TinyView wrote `[]` and the run reported ALL SUCCESS.
+
+Nothing downstream catches it either: feeds are built from a 90-day window, so a day that contributed nothing yields a structurally perfect, recently-updated feed that is merely one entry short. There is no empty feed to notice. Historically the alarm was a subscriber opening an issue.
+
+`scripts/check_scrape_counts.py` now asserts a per-source minimum. To check a file by hand:
+
+```bash
+python scripts/check_scrape_counts.py data/tinyview_2026-08-03.json
+```
+
+Recovery is a re-scrape plus that source's generator, then commit — the same steps as any single-source failure. Notes on the thresholds:
+
+- Minimums live in `SOURCE_RULES` and are set well below observed floors, to catch a collapse rather than police daily wobble. **Re-check them when a catalog changes** — both CK (119 → 153) and GoComics (~85 → ~250) have grown, which is why pre-2026-06 files trip the check.
+- `farside_new` is exempt at `minimum: 0`. It has published once in the life of the feed, so empty is its normal state, not a masked bug. `farside_daily` is the opposite and is asserted `>= 1`.
+- An unregistered source passes with a printed warning, so adding a scraper cannot turn its first run red. Register it in `SOURCE_RULES` or its count is never verified.
+
+Full write-up: `docs/solutions/logic-errors/silent-empty-scrape-passed-as-success.md`.
+
 ### LaunchAgent not firing
 
 ```bash
@@ -256,9 +284,13 @@ The master LaunchAgent is user-level (`~/Library/LaunchAgents/...`) and only fir
 
    The corresponding script lives in the repo at `scripts/catchup_master_update.sh`.
 
+   Note the canary is GoComics-specific: the catch-up agent recovers a run that **never happened**, not a run where one source failed. If today's `comics_<DATE>.json` exists it exits cleanly, so it is the wrong tool for a single-source recovery — re-run that source's scraper and generator instead.
+
+3. **Host-config preflight.** A macOS update can silently reset the login settings the LaunchAgents depend on, and the reset is invisible until the next reboot — by which point the host sits at the loginwindow with no Tailscale. `scripts/check_host_config.py` runs every Pass 1 and alerts under `autologin` while the box is still reachable and the fix is a minute in System Settings. Its alert is deliberately generic; run the script on the host for specifics. See `docs/solutions/logic-errors/power-outage-launchagents-never-load.md`.
+
 ### A `[pipeline]` issue arrived
 
-1. Read the issue: it names the source, the failure kind (`scrape`, `invariant`, `push`, `ssh`), and the run.
+1. Read the issue: it names the source, the failure kind (`scrape`, `invariant`, `push`, `ssh`, `cksession`, `autologin`), and the run.
 2. Pull the detail from the host log — the issue deliberately carries none:
 
    ```bash
@@ -296,7 +328,9 @@ Opens a real issue for a synthetic failure. Dispatch again with `--field failed=
 Useful sections to grep in `logs/master_update.log`:
 
 - `=== Phase 1:` — scrape progress
-- `=== Verifying scrape invariants ===` — per-source data file check
+- `=== Verifying scrape invariants ===` — per-source data file + entry-count check
+- `=== Checking Comics Kingdom session expiry ===` — cookie expiry only, not session health
+- `=== Checking host auto-login configuration ===` — `kcpassword` / FileVault / Tailscale drift
 - `=== Phase 3:` — commit + push
 - `Engaging reset-regenerate recovery` — push-conflict recovery kicked in
 

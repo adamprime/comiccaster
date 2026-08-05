@@ -34,6 +34,10 @@ ceremony; a new comic source or a pipeline change does.
 - A new source = a new scraper (Phase 1: fetch + parse one source, write
   `data/<src>_$DATE.json`) and a new generator (Phase 2: network-free, read the
   latest JSON, write `public/feeds/*.xml`). Mirror the existing pairs exactly.
+  Also register it in `SOURCE_RULES` (`scripts/check_scrape_counts.py`) with a
+  minimum entry count, or the invariant guard will never verify that its scrapes
+  actually produced data — an unregistered source passes with a warning by
+  design, so nothing turns red, and nothing is checked either.
 - Single responsibility: scrapers fetch + parse one source; feed shaping lives in
   `feed_generator.py`. Don't blur the two.
 

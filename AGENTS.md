@@ -69,6 +69,9 @@ python scripts/generate_mrboffo_feeds.py
    - `mini_master_pass2.sh` / `local_pass2_update.sh` - Pass 2 (13:00, GoComics only, `--merge` + rolling backfill)
    - `report_pipeline_failures.py` - Opens/comments/closes a GitHub issue per failing source (runs in Actions)
    - `check_pipeline_heartbeat.py` - Dead-man's switch for a pipeline that never ran
+   - `check_scrape_counts.py` - Invariant guard's count half; per-source minimums in `SOURCE_RULES`
+   - `check_ck_session.py` - CK cookie expiry (verifies a reauth took; cannot see a server-side logout)
+   - `check_host_config.py` - Host auto-login / remote-access settings the LaunchAgents depend on
    - `scrape_*.py` and authenticated scrapers — per-source scrapers (Phase 1), each writes `data/<src>_$DATE.json`
    - `generate_*.py` — per-source generators (Phase 2), network-free, read the latest scraped JSON and write `public/feeds/*.xml`
    - `backfill_gocomics_feeds.py` — manual rate-limited recovery
@@ -92,9 +95,10 @@ python scripts/generate_mrboffo_feeds.py
 Updates run on a dedicated always-on host, **twice daily** — Pass 1 at 03:05 (all sources) and Pass 2 at 13:00 (GoComics only, catching late political/editorial publishers):
 1. **Phase 1 — scrape** the seven sources (GoComics, Comics Kingdom, TinyView, New Yorker, Far Side, Creators Syndicate, Mr. Boffo), each writing to `data/<src>_$DATE.json`.
 2. **Phase 2 — generate** feeds from those JSONs. Each source has a dedicated generator; all are network-free.
-3. **Invariant guard:** every successful scrape must have written its dated JSON file; missing files surface as failures.
-4. **Phase 3 — commit and push.** On push rejection, recovery saves today's JSONs, resets to `origin/main`, restores them, and regenerates all feeds. Netlify auto-deploys on push.
-5. **Alerting.** Every run dispatches `pipeline-alert.yml` with what failed and what it examined — on success too, since that is what closes issues for recovered sources. Scrape, invariant, push, and SSH-preflight failures open a GitHub issue; feed generation and `git fetch` stay log-only.
+3. **Invariant guard:** every successful scrape must have written its dated JSON file **and** filled it with a plausible number of entries; missing *or* empty/partial files surface as failures. Existence alone was satisfiable by an empty scrape — see `docs/solutions/logic-errors/silent-empty-scrape-passed-as-success.md`.
+4. **Preflights:** the CK session cookie and the host auto-login settings, both of which warn while there is still time to act.
+5. **Phase 3 — commit and push.** On push rejection, recovery saves today's JSONs, resets to `origin/main`, restores them, and regenerates all feeds. Netlify auto-deploys on push.
+6. **Alerting.** Every run dispatches `pipeline-alert.yml` with what failed and what it examined — on success too, since that is what closes issues for recovered sources. Scrape, invariant, push, SSH-preflight, CK-session, and host-config failures open a GitHub issue; feed generation and `git fetch` stay log-only.
 
 The host **detects** failures but does not create the issues: GitHub sends no notification for an issue you author yourself, and the host authenticates as the repo owner. Issues are authored by `github-actions[bot]` instead. A separate scheduled heartbeat covers the case the reporter structurally cannot — a run that never happened. See `docs/LOCAL_AUTOMATION_README.md`.
 

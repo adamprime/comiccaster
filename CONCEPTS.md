@@ -27,7 +27,7 @@ The network-facing first phase of the daily update: each source is fetched and p
 The network-free second phase: each source's generator reads its latest scraped JSON and writes the feed XML. Safe to re-run during recovery because it never hits the network.
 
 ### Invariant guard
-The check between the Generate phase and the commit/push phase that asserts every scrape which reported success actually wrote its dated JSON snapshot; a missing file is surfaced as a failure rather than silently shipping a stale feed.
+The check between the Generate phase and the commit/push phase that asserts every scrape which reported success actually produced usable data, rather than silently shipping a stale feed. Two assertions: the dated JSON snapshot exists, **and** it holds a plausible number of entries for that source (per-source minimums in `scripts/check_scrape_counts.py`). The count half exists because existence alone was satisfiable by an empty file — on 2026-08-03 TinyView wrote `[]` and the run reported ALL SUCCESS. One source, `farside_new`, is exempt at a minimum of 0 because it genuinely publishes almost never.
 
 ### Reactive favorites page
 The GoComics profile/favorites page the authenticated scraper reads. It classifies each configured comic as updated (a `ComicViewer` container) versus not-issued (a `FeaturesNotIssued` entry) **as of the HTTP request time**, not as of the requested date. A `?date=` param selects which day's strips to show, but a strip only moves into the updated set once it has actually been syndicated. This request-time reactivity is why late-publishing comics are missed at scrape time yet appear on a later fetch of the same date — the root cause behind issues #138 and #164.
