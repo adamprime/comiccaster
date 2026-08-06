@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-06",
+  "scraped_at": "2026-08-06T08:34:16.756808+00:00",
+  "comics": [
+    {
+      "id": "22563",
+      "date": "2026-08-06",
+      "url": "https://www.thefarside.com/2026/08/06/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F29e8b100cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/29e8b100cdd50137c56b005056a9545d",
+      "caption": "\u201cHey! What\u2019s this Drosophila melanogaster doing in my soup?\u201d",
+      "title": "\u201cHey! What\u2019s this Drosophila melanogaster doing in my soup?\u201d"
+    },
+    {
+      "id": "22564",
+      "date": "2026-08-06",
+      "url": "https://www.thefarside.com/2026/08/06/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95b01b6158c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95b01b6158c311ea8bf6005056a9",
+      "caption": "\u201cBob, do you think I\u2019m sinking? ... Be\nhonest.\u201d",
+      "title": "\u201cBob, do you think I\u2019m sinking?"
+    },
+    {
+      "id": "22565",
+      "date": "2026-08-06",
+      "url": "https://www.thefarside.com/2026/08/06/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F37a4cca0e3af0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/37a4cca0e3af0137cd49005056a9545d",
+      "caption": "Crossing paths on their respective journeys of destiny, Johnny Appleseed and Irving Ragweed nod \u201chello.\u201d",
+      "title": "Crossing paths on their respective journeys of destiny, J..."
+    },
+    {
+      "id": "22566",
+      "date": "2026-08-06",
+      "url": "https://www.thefarside.com/2026/08/06/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F63444700cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/63444700cdd60137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22566"
+    },
+    {
+      "id": "22567",
+      "date": "2026-08-06",
+      "url": "https://www.thefarside.com/2026/08/06/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F63c90170e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/63c90170e9ef0137cf93005056a9545d",
+      "caption": "At the Vatican\u2019s movie theater",
+      "title": "At the Vatican\u2019s movie theater"
+    }
+  ]
+}
