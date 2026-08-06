@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "image_url": "https://featureassets.gocomics.com/assets/d956e6d073a9013fc24b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-06",
+    "url": "https://www.gocomics.com/stevebreen/2026/08/06",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/07ce81007356013fc23f005056a9545d?optimizer=image&width=2800&quality=85",
@@ -24,11 +32,27 @@
     "category": "political"
   },
   {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/56bf619073d3013fc252005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-06",
+    "url": "https://www.gocomics.com/kal/2026/08/06",
+    "category": "political"
+  },
+  {
     "name": "John Deering",
     "slug": "johndeering",
     "image_url": "https://featureassets.gocomics.com/assets/2e1b2ac0733d013fc22e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-06",
     "url": "https://www.gocomics.com/johndeering/2026/08/06",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/41f54df073dd013fc258005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-06",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/08/06",
     "category": "political"
   },
   {
@@ -45,6 +69,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/de0ee6407343013fc234005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-06",
     "url": "https://www.gocomics.com/jackohman/2026/08/06",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/1f6e8e5073e3013fc25d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-06",
+    "url": "https://www.gocomics.com/drewsheneman/2026/08/06",
     "category": "political"
   },
   {
@@ -1392,6 +1424,14 @@
     "category": "daily"
   },
   {
+    "name": "Maria s Day",
+    "slug": "marias-day",
+    "image_url": "https://featureassets.gocomics.com/assets/45e8136073d5013fc254005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-06",
+    "url": "https://www.gocomics.com/marias-day/2026/08/06",
+    "category": "daily"
+  },
+  {
     "name": "Maintaining",
     "slug": "maintaining",
     "image_url": "https://featureassets.gocomics.com/assets/07229ef05f03012ee3bf00163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -1613,6 +1653,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/5ed14c606776013fc382005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-06",
     "url": "https://www.gocomics.com/workingitout/2026/08/06",
+    "category": "daily"
+  },
+  {
+    "name": "Working Daze",
+    "slug": "working-daze",
+    "image_url": "https://featureassets.gocomics.com/assets/551937c073d5013fc254005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-06",
+    "url": "https://www.gocomics.com/working-daze/2026/08/06",
     "category": "daily"
   },
   {
