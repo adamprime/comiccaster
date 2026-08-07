@@ -78,9 +78,37 @@ class TestIsAuthenticated:
     def test_false_when_driver_get_raises(self):
         driver = MagicMock()
         driver.get.side_effect = Exception("renderer timeout")
-        # Current behavior: any exception returns False (the entire `except`
-        # block swallows everything).
         assert cki.is_authenticated(driver) is False
+
+    def test_navigation_error_is_reported_not_swallowed(self, capsys):
+        """The 2026-08-07 failure was invisible because `e` was never printed.
+
+        The log showed a START line, no END line, and "please run reauth
+        script" -- which was wrong advice: no reauth was needed, the run
+        self-healed. The exception text is the only thing that distinguishes
+        a transient navigation error from a genuinely dead session.
+        """
+        driver = MagicMock()
+        driver.get.side_effect = TimeoutError("renderer timeout")
+
+        assert cki.is_authenticated(driver) is False
+
+        out = capsys.readouterr().out
+        assert "renderer timeout" in out
+        assert "TimeoutError" in out
+
+    def test_login_redirect_is_distinguished_from_navigation_error(self, capsys):
+        """These need different operator responses, so they must read
+        differently: a login redirect wants a reauth, a navigation error
+        wants a retry."""
+        driver = MagicMock()
+        driver.current_url = "https://comicskingdom.com/login?redirect=/favorites"
+
+        assert cki.is_authenticated(driver) is False
+
+        out = capsys.readouterr().out.lower()
+        assert "login" in out
+        assert "navigation failed" not in out
 
 
 # --- authenticate_with_cookies ----------------------------------------------
@@ -548,3 +576,78 @@ class TestReauthScript:
             reauth.main()
 
         assert not (tmp_path / "unused.pkl").exists()
+
+
+# --- main(): authentication retry -------------------------------------------
+
+
+class TestAuthRetry:
+    """The first Chrome launch after an auto-update is unreliable.
+
+    2026-08-05 landed on the login page, 2026-08-07 threw on navigation, and
+    both self-healed on the next run — each costing a full day of Comics
+    Kingdom. The retry rebuilds the driver because what recovers is the next
+    *launch*, not the next navigation.
+    """
+
+    def _run_main(self, monkeypatch, tmp_path, auth_results):
+        monkeypatch.setattr(
+            sys, "argv",
+            ["prog", "--date", "2026-08-07", "--output-dir", str(tmp_path)],
+        )
+        drivers = [MagicMock(), MagicMock()]
+        made = []
+
+        def fake_setup(**_kw):
+            d = drivers[len(made)]
+            made.append(d)
+            return d
+
+        calls = {"auth": 0}
+
+        def fake_auth(*_a, **_kw):
+            result = auth_results[calls["auth"]]
+            calls["auth"] += 1
+            return result
+
+        with patch.object(cki, "setup_driver", side_effect=fake_setup), \
+             patch.object(cki, "authenticate_with_cookies", side_effect=fake_auth), \
+             patch.object(cki, "load_comics_catalog", return_value=[{"slug": "x"}]), \
+             patch.object(cki, "load_cookie_file_path", return_value=tmp_path / "c.pkl"), \
+             patch.object(cki, "scrape_all_comics", return_value=[{"slug": "x"}]):
+            rc = cki.main()
+        return rc, made, calls["auth"]
+
+    def test_retries_once_with_a_fresh_driver_and_succeeds(
+        self, monkeypatch, tmp_path, capsys
+    ):
+        rc, made, auth_calls = self._run_main(
+            monkeypatch, tmp_path, auth_results=[False, True]
+        )
+        assert rc == 0
+        assert auth_calls == 2
+        assert len(made) == 2, "retry must build a NEW driver, not reuse the old one"
+        assert "succeeded on retry" in capsys.readouterr().out
+
+    def test_first_driver_is_quit_before_retrying(self, monkeypatch, tmp_path):
+        _rc, made, _ = self._run_main(
+            monkeypatch, tmp_path, auth_results=[False, True]
+        )
+        made[0].quit.assert_called()
+
+    def test_gives_up_after_one_retry(self, monkeypatch, tmp_path, capsys):
+        rc, made, auth_calls = self._run_main(
+            monkeypatch, tmp_path, auth_results=[False, False]
+        )
+        assert rc == 1
+        assert auth_calls == 2, "must not retry forever"
+        assert len(made) == 2
+        assert "after retry" in capsys.readouterr().out
+
+    def test_no_retry_when_first_attempt_succeeds(self, monkeypatch, tmp_path):
+        rc, made, auth_calls = self._run_main(
+            monkeypatch, tmp_path, auth_results=[True]
+        )
+        assert rc == 0
+        assert auth_calls == 1
+        assert len(made) == 1, "a healthy run must not launch a second browser"

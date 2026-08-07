@@ -144,7 +144,14 @@ def load_cookies(driver, cookie_file):
 
 
 def is_authenticated(driver):
-    """Check if the current session is authenticated."""
+    """Check if the current session is authenticated.
+
+    Reports *why* it failed. The two failure modes need opposite responses and
+    used to be indistinguishable in the log -- on 2026-08-07 the exception was
+    caught and discarded, so a transient navigation error printed "please run
+    reauth script" and looked identical to a dead session. No reauth was
+    needed; the next run succeeded on its own.
+    """
     try:
         _log_timing("is_authenticated: driver.get(/favorites) START")
         driver.get("https://comicskingdom.com/favorites")
@@ -152,10 +159,15 @@ def is_authenticated(driver):
         time.sleep(2)
 
         if 'login' in driver.current_url:
+            print("   ↳ redirected to the login page — the session is not "
+                  "authenticated. A reauth is what fixes this.")
             return False
 
         return True
     except Exception as e:
+        print(f"   ↳ navigation failed: {type(e).__name__}: {e}")
+        print("   ↳ this is a browser/driver error, not a rejected session — "
+              "a retry usually clears it.")
         return False
 
 
@@ -455,11 +467,34 @@ def main():
     driver = setup_driver(show_browser=args.show_browser, use_profile=args.use_profile)
 
     try:
-        # Authenticate
+        # Authenticate, with one retry on a *fresh browser*.
+        #
+        # Chrome auto-updates, and the first launch afterwards migrates the
+        # profile (`Last Version` in the profile dir is how Chrome detects the
+        # bump). That first launch is unreliable: 2026-08-05 landed on the
+        # login page, 2026-08-07 threw on navigation. Both self-healed on the
+        # next run, and both cost a whole day of Comics Kingdom.
+        #
+        # The retry rebuilds the driver rather than just re-navigating, because
+        # what recovers is the *next launch* — by then migration is done. A
+        # re-navigation in the same session would not have fixed either day.
         if not authenticate_with_cookies(driver, cookie_file, use_profile=args.use_profile):
-            print("❌ Authentication failed")
-            driver.quit()
-            return 1
+            print("🔄 Retrying authentication once with a fresh browser "
+                  "(recovers the first launch after a Chrome update)...")
+            try:
+                driver.quit()
+            except Exception:
+                pass
+            driver = setup_driver(
+                show_browser=args.show_browser, use_profile=args.use_profile
+            )
+            if not authenticate_with_cookies(
+                driver, cookie_file, use_profile=args.use_profile
+            ):
+                print("❌ Authentication failed (after retry)")
+                driver.quit()
+                return 1
+            print("✅ Authentication succeeded on retry")
         
         # Scrape all comics
         results = scrape_all_comics(driver, comics, date_str)
