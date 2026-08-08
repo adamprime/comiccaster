@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-08-08",
+  "scraped_at": "2026-08-08T08:20:14.647504+00:00",
+  "comics": [
+    {
+      "id": "22573",
+      "date": "2026-08-08",
+      "url": "https://www.thefarside.com/2026/08/08/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F44e0c6d0e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/44e0c6d0e92e0137cf47005056a9545d",
+      "caption": "\u201cGive me a hand here, boys! It\u2019s young Will Hawkins! \u2026 Dang fool tried to ride into the sunset!\u201d",
+      "title": "\u201cGive me a hand here, boys! It\u2019s young Will Hawkins! \u2026 Da..."
+    },
+    {
+      "id": "22574",
+      "date": "2026-08-08",
+      "url": "https://www.thefarside.com/2026/08/08/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffa6cb670cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fa6cb670cdd60137c56b005056a9545d",
+      "caption": "\u201cHang on, Betty. \u2026 Someone\u2019s bound to see us eventually.\u201d",
+      "title": "\u201cHang on, Betty"
+    }
+  ]
+}
