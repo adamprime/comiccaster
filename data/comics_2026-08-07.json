@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/ad1416d074b4013fc296005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-07",
+    "url": "https://www.gocomics.com/tim-campbell/2026/08/07",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/875cba10717c013fc19d005056a9545d?optimizer=image&width=2800&quality=85",
@@ -16,11 +24,27 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/64e0c48074d4013fc2a5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-07",
+    "url": "https://www.gocomics.com/robrogers/2026/08/07",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/3778f320741f013fc279005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-07",
     "url": "https://www.gocomics.com/mikeluckovich/2026/08/07",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/35799fd074d4013fc2a5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-07",
+    "url": "https://www.gocomics.com/mattdavies/2026/08/07",
     "category": "political"
   },
   {
@@ -64,11 +88,27 @@
     "category": "political"
   },
   {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/af12f9a074b4013fc296005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-07",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/08/07",
+    "category": "political"
+  },
+  {
     "name": "Gary Varvel",
     "slug": "garyvarvel",
     "image_url": "https://featureassets.gocomics.com/assets/7865dea0745f013fc287005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-07",
     "url": "https://www.gocomics.com/garyvarvel/2026/08/07",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/ab21b98074b4013fc296005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-07",
+    "url": "https://www.gocomics.com/drewsheneman/2026/08/07",
     "category": "political"
   },
   {
