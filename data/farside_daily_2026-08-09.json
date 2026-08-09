@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-08-09",
+  "scraped_at": "2026-08-09T08:19:14.088303+00:00",
+  "comics": [
+    {
+      "id": "22575",
+      "date": "2026-08-09",
+      "url": "https://www.thefarside.com/2026/08/09/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F051aa280d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/051aa280d7410137c8a6005056a9545d",
+      "caption": "\u201cMmmmmm. \u2026 Nope \u2026 nope. \u2026 I don\u2019t like that at all. \u2026 Too many legs.\u201d",
+      "title": "\u201cMmmmmm"
+    },
+    {
+      "id": "22576",
+      "date": "2026-08-09",
+      "url": "https://www.thefarside.com/2026/08/09/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F716d0630e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/716d0630e92f0137cf47005056a9545d",
+      "caption": "Sumo temporaries",
+      "title": "Sumo temporaries"
+    }
+  ]
+}
