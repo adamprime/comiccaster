@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-10",
+  "scraped_at": "2026-08-10T08:19:05.191115+00:00",
+  "comics": [
+    {
+      "id": "22577",
+      "date": "2026-08-10",
+      "url": "https://www.thefarside.com/2026/08/10/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0ce86e50d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0ce86e50d7410137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22577"
+    },
+    {
+      "id": "22578",
+      "date": "2026-08-10",
+      "url": "https://www.thefarside.com/2026/08/10/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc7e12f00e85a0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c7e12f00e85a0137cedf005056a9545d",
+      "caption": "At the international meeting of the \nDidn\u2019t Like Dances with Wolves Society",
+      "title": "At the international meeting of the \nDidn\u2019t Like Dances w..."
+    },
+    {
+      "id": "22579",
+      "date": "2026-08-10",
+      "url": "https://www.thefarside.com/2026/08/10/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2ca37a10e85c0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2ca37a10e85c0137cedf005056a9545d",
+      "caption": "\u201cAnd now the weather\u2014well, doggone it, but I\u2019m afraid that\n cold front I told you about yesterday is just baaarrrely going to miss us.\u201d",
+      "title": "\u201cAnd now the weather\u2014well, doggone it, but I\u2019m afraid tha..."
+    },
+    {
+      "id": "22580",
+      "date": "2026-08-10",
+      "url": "https://www.thefarside.com/2026/08/10/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7a418450e92d0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7a418450e92d0137cf47005056a9545d",
+      "caption": "\u201cOoo! Look, Leon! An entire family of meatchucks!\u201d",
+      "title": "\u201cOoo! Look, Leon! An entire family of meatchucks!\u201d"
+    },
+    {
+      "id": "22581",
+      "date": "2026-08-10",
+      "url": "https://www.thefarside.com/2026/08/10/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F33dac590d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/33dac590d8ba0137c959005056a9545d",
+      "caption": "\u201cDon\u2019t listen to him, George. He didn\u2019t\ncatch it ... the stupid thing swerved to miss him and ran into a tree.\u201d",
+      "title": "\u201cDon\u2019t listen to him, George"
+    }
+  ]
+}
