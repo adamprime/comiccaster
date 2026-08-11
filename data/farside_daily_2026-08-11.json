@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-11",
+  "scraped_at": "2026-08-11T08:20:02.790050+00:00",
+  "comics": [
+    {
+      "id": "22582",
+      "date": "2026-08-11",
+      "url": "https://www.thefarside.com/2026/08/11/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9d455fd0d0be0137c62c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9d455fd0d0be0137c62c005056a9545d",
+      "caption": "\u201cHere\u2019s the last entry in Carlson\u2019s journal: \u2018Having won their confidence, tomorrow I shall test the humor of these giant but gentle primates with a simple joy-buzzer handshake.\u2019\u201d",
+      "title": "\u201cHere\u2019s the last entry in Carlson\u2019s journal: \u2018Having won ..."
+    },
+    {
+      "id": "22583",
+      "date": "2026-08-11",
+      "url": "https://www.thefarside.com/2026/08/11/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F35008900e85a0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/35008900e85a0137cedf005056a9545d",
+      "caption": "The dam bursts.",
+      "title": "The dam bursts"
+    },
+    {
+      "id": "22584",
+      "date": "2026-08-11",
+      "url": "https://www.thefarside.com/2026/08/11/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fbde143f0ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/bde143f0ea250137cfba005056a9545d",
+      "caption": "\u201cThe problem, Mr. Fudd, is that you\u2019ve been having a subliminal effect on everyone in the factory. We\u2019re proud of our product, \nMr. Fudd, and there\u2019s no company in the world that builds a \nfiner skwoo dwivuh. \u2026 Dang! Now you got me doing it!\u201d",
+      "title": "\u201cThe problem, Mr"
+    },
+    {
+      "id": "22585",
+      "date": "2026-08-11",
+      "url": "https://www.thefarside.com/2026/08/11/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95b4586958c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95b4586958c311ea8bf6005056a9",
+      "caption": "\u201cI love the desert.\u201d",
+      "title": "\u201cI love the desert"
+    },
+    {
+      "id": "22586",
+      "date": "2026-08-11",
+      "url": "https://www.thefarside.com/2026/08/11/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F10ef6bd002810138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/10ef6bd002810138d7bb005056a9545d",
+      "caption": "Dirk brings his family tree to class.",
+      "title": "Dirk brings his family tree to class"
+    }
+  ]
+}
