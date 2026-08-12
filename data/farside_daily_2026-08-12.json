@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-12",
+  "scraped_at": "2026-08-12T08:19:14.973456+00:00",
+  "comics": [
+    {
+      "id": "22587",
+      "date": "2026-08-12",
+      "url": "https://www.thefarside.com/2026/08/12/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4a4f737002810138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4a4f737002810138d7bb005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22587"
+    },
+    {
+      "id": "22588",
+      "date": "2026-08-12",
+      "url": "https://www.thefarside.com/2026/08/12/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd2e32e10d8b90137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d2e32e10d8b90137c959005056a9545d",
+      "caption": "Analyzing humor",
+      "title": "Analyzing humor"
+    },
+    {
+      "id": "22589",
+      "date": "2026-08-12",
+      "url": "https://www.thefarside.com/2026/08/12/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F872182d0e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/872182d0e9ee0137cf93005056a9545d",
+      "caption": "\u201cOh, the box of dead flies? Ramone gave them to me \nSaturday night during his courtship display. \u2026 \nOf course, they were already sucked dry.\u201d",
+      "title": "\u201cOh, the box of dead flies? Ramone gave them to me \nSatur..."
+    },
+    {
+      "id": "22590",
+      "date": "2026-08-12",
+      "url": "https://www.thefarside.com/2026/08/12/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe1bbb240e4790137cd9d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e1bbb240e4790137cd9d005056a9545d",
+      "caption": "\u201cDollar to a doughnut it\u2019s them Cyclops brothers again.\u201d",
+      "title": "\u201cDollar to a doughnut it\u2019s them Cyclops brothers again"
+    },
+    {
+      "id": "22591",
+      "date": "2026-08-12",
+      "url": "https://www.thefarside.com/2026/08/12/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F709509a0df0f0137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/709509a0df0f0137cbaf005056a9545d",
+      "caption": "\u201cAnd the next thing I knew, the whole ship just sunk right out from under me. So what\u2019s the deal with you? \u2026 You been here long or what?\u201d",
+      "title": "\u201cAnd the next thing I knew, the whole ship just sunk righ..."
+    }
+  ]
+}
