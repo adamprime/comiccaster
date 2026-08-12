@@ -1,5 +1,21 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/b328b4507855013fc355005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-12",
+    "url": "https://www.gocomics.com/two-party-opera/2026/08/12",
+    "category": "political"
+  },
+  {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/2569f3f0789a013fc364005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-12",
+    "url": "https://www.gocomics.com/tim-campbell/2026/08/12",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/e26b94b074b9013fc29a005056a9545d?optimizer=image&width=2800&quality=85",
@@ -40,11 +56,27 @@
     "category": "political"
   },
   {
+    "name": "Lisa Benson",
+    "slug": "lisabenson",
+    "image_url": "https://featureassets.gocomics.com/assets/2380eae0789a013fc364005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-12",
+    "url": "https://www.gocomics.com/lisabenson/2026/08/12",
+    "category": "political"
+  },
+  {
     "name": "John Deering",
     "slug": "johndeering",
     "image_url": "https://featureassets.gocomics.com/assets/c4c088707804013fc340005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-12",
     "url": "https://www.gocomics.com/johndeering/2026/08/12",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/3f618c307894013fc361005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-12",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/08/12",
     "category": "political"
   },
   {
@@ -56,11 +88,27 @@
     "category": "political"
   },
   {
+    "name": "Jeff Stahler",
+    "slug": "jeffstahler",
+    "image_url": "https://featureassets.gocomics.com/assets/330b1180789d013fc366005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-12",
+    "url": "https://www.gocomics.com/jeffstahler/2026/08/12",
+    "category": "political"
+  },
+  {
     "name": "Gary Varvel",
     "slug": "garyvarvel",
     "image_url": "https://featureassets.gocomics.com/assets/cfeda6e0781d013fc34a005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-12",
     "url": "https://www.gocomics.com/garyvarvel/2026/08/12",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/1dec61d0789a013fc364005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-12",
+    "url": "https://www.gocomics.com/drewsheneman/2026/08/12",
     "category": "political"
   },
   {
