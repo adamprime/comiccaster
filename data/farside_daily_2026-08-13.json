@@ -1,6 +1,6 @@
 {
   "target_date": "2026-08-13",
-  "scraped_at": "2026-08-13T08:19:35.859687+00:00",
+  "scraped_at": "2026-08-14T08:21:22.641943+00:00",
   "comics": [
     {
       "id": "22592",
@@ -42,10 +42,10 @@
       "id": "22596",
       "date": "2026-08-13",
       "url": "https://www.thefarside.com/2026/08/13/4",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
-      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
-      "caption": "",
-      "title": "The Far Side #22596"
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F23d53280ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/23d53280ea250137cfba005056a9545d",
+      "caption": "\u201cWell, this guidebook is worthless! It just says these people worshipped two gods: one who was all-knowing and one who was all-seeing\u2014but they don\u2019t tell you which is which, for crying out loud!\u201d",
+      "title": "\u201cWell, this guidebook is worthless! It just says these pe..."
     }
   ]
 }

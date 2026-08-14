@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-14",
+  "scraped_at": "2026-08-14T08:21:22.828459+00:00",
+  "comics": [
+    {
+      "id": "22597",
+      "date": "2026-08-14",
+      "url": "https://www.thefarside.com/2026/08/14/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3ca55c20b46c013aaa65005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3ca55c20b46c013aaa65005056a9545d",
+      "caption": "\u201cOh, quit worrying about it, Andrew. They\u2019re just love handles.\u201d",
+      "title": "\u201cOh, quit worrying about it, Andrew"
+    },
+    {
+      "id": "22598",
+      "date": "2026-08-14",
+      "url": "https://www.thefarside.com/2026/08/14/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F18abc580e85a0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/18abc580e85a0137cedf005056a9545d",
+      "caption": "Cattle drive quartets",
+      "title": "Cattle drive quartets"
+    },
+    {
+      "id": "22599",
+      "date": "2026-08-14",
+      "url": "https://www.thefarside.com/2026/08/14/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc6995850dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c6995850dcca0137caaf005056a9545d",
+      "caption": "\u201cWell, so that\u2019s it. ... I thought he was coming up awfully easy.\u201d",
+      "title": "\u201cWell, so that\u2019s it"
+    },
+    {
+      "id": "22600",
+      "date": "2026-08-14",
+      "url": "https://www.thefarside.com/2026/08/14/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F53a92080cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/53a92080cdd50137c56b005056a9545d",
+      "caption": "\u201cWell, they ain\u2019t free anymore, buddy.\u201d",
+      "title": "\u201cWell, they ain\u2019t free anymore, buddy"
+    },
+    {
+      "id": "22601",
+      "date": "2026-08-14",
+      "url": "https://www.thefarside.com/2026/08/14/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F239a7340e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/239a7340e92e0137cf47005056a9545d",
+      "caption": "\u201cLASSIE! \u2026 COME HOME! \u2026 LASSIE COME HOME!\u201d",
+      "title": "\u201cLASSIE! \u2026 COME HOME! \u2026 LASSIE COME HOME!\u201d"
+    }
+  ]
+}
