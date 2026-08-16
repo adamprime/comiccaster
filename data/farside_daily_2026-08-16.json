@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-08-16",
+  "scraped_at": "2026-08-16T08:29:31.315827+00:00",
+  "comics": [
+    {
+      "id": "22604",
+      "date": "2026-08-16",
+      "url": "https://www.thefarside.com/2026/08/16/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fae9cd8d0e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ae9cd8d0e3ae0137cd49005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22604"
+    },
+    {
+      "id": "22605",
+      "date": "2026-08-16",
+      "url": "https://www.thefarside.com/2026/08/16/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1de78dc0e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1de78dc0e3ae0137cd49005056a9545d",
+      "caption": "Although impolite, the other bears could never help staring at Larry\u2019s enormous deer gut.",
+      "title": "Although impolite, the other bears could never help stari..."
+    }
+  ]
+}
