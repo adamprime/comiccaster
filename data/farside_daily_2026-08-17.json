@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-17",
+  "scraped_at": "2026-08-17T08:19:06.196987+00:00",
+  "comics": [
+    {
+      "id": "22606",
+      "date": "2026-08-17",
+      "url": "https://www.thefarside.com/2026/08/17/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
+      "caption": "",
+      "title": "The Far Side #22606"
+    },
+    {
+      "id": "22607",
+      "date": "2026-08-17",
+      "url": "https://www.thefarside.com/2026/08/17/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
+      "caption": "",
+      "title": "The Far Side #22607"
+    },
+    {
+      "id": "22608",
+      "date": "2026-08-17",
+      "url": "https://www.thefarside.com/2026/08/17/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
+      "caption": "",
+      "title": "The Far Side #22608"
+    },
+    {
+      "id": "22609",
+      "date": "2026-08-17",
+      "url": "https://www.thefarside.com/2026/08/17/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
+      "caption": "",
+      "title": "The Far Side #22609"
+    },
+    {
+      "id": "22610",
+      "date": "2026-08-17",
+      "url": "https://www.thefarside.com/2026/08/17/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
+      "caption": "",
+      "title": "The Far Side #22610"
+    }
+  ]
+}

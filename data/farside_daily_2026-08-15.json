@@ -1,22 +1,22 @@
 {
   "target_date": "2026-08-15",
-  "scraped_at": "2026-08-16T08:29:31.136573+00:00",
+  "scraped_at": "2026-08-17T08:19:05.065192+00:00",
   "comics": [
     {
       "id": "22602",
       "date": "2026-08-15",
       "url": "https://www.thefarside.com/2026/08/15/0",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb35a84e0df100137cbaf005056a9545d",
-      "original_image_url": "https://featureassets.amuniversal.com/assets/b35a84e0df100137cbaf005056a9545d",
-      "caption": "\u201cWe should write that spot down.\u201d",
-      "title": "\u201cWe should write that spot down"
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
+      "caption": "",
+      "title": "The Far Side #22602"
     },
     {
       "id": "22603",
       "date": "2026-08-15",
       "url": "https://www.thefarside.com/2026/08/15/1",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fda1cf1f0027e0138d7ba005056a9545d",
-      "original_image_url": "https://featureassets.amuniversal.com/assets/da1cf1f0027e0138d7ba005056a9545d",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
       "caption": "",
       "title": "The Far Side #22603"
     }
