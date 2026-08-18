@@ -16,16 +16,28 @@ Reads the expiry straight out of the Chrome profile's cookie store. The store
 is copied before querying, so this is safe to run while Chrome holds the
 profile open and never mutates the operator's session.
 
-**What this cannot tell you.** It measures cookie expiry, which is not session
-health. CK refreshes that expiry on *any* visit, including one it redirects to
-the login page -- so a dead session keeps reporting "7.0 days remaining"
-indefinitely. On 2026-08-05 this printed a green line during the very run in
+**What this cannot tell you: there are two independent clocks.**
+
+  * the **client cookie expiry** -- what this script reads. CK rolls it forward
+    on *any* request, including ones it redirects to login.
+  * the **server session TTL** -- ~7 days from *login*, unaffected by traffic.
+    Only a reauth resets it, and only a real scrape can observe it.
+
+They are unrelated, so a dead session keeps reporting "7.0 days remaining"
+indefinitely -- on 2026-08-05 this printed a green line during the very run in
 which the scraper was rejected. A live session is proven only by a successful
 `is_authenticated` / scrape, so the passing message says so explicitly rather
 than implying health it never checked.
 
-The value that *is* real is `describe_renewal`: run after a reauth, it catches
-a login that looked fine in the browser but left no new token on disk.
+Do not conclude from the rolling expiry that pipeline traffic keeps the session
+alive; it does not. Every session-type CK failure to date lands on a Tue/Wed,
+tracking the operator's Monday reauth, not the pipeline's activity.
+
+Two things here *are* genuinely load-bearing:
+  * `describe_renewal` -- run after a reauth, catches a login that looked fine
+    in the browser but left no new token on disk (2026-07-28).
+  * the **missing-token** branch -- an absent token is unambiguous and fires a
+    real alert (2026-08-18, issue #188), unlike the expiry number.
 """
 
 import argparse

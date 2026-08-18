@@ -330,12 +330,13 @@ check_scrape_output "Creators"       "creators"      "data/creators_$DATE_STR.js
 check_scrape_output "Mr. Boffo"      "mrboffo"       "data/mrboffo_$DATE_STR.json"
 
 # Comics Kingdom session expiry check.
-# Reports the cookie's expiry only. CK refreshes that expiry on any visit --
-# including one it redirects to login -- so this can NOT detect a server-side
-# logout, and its green line is not evidence the session works (2026-08-05: it
-# read "7.0 days remaining" during the run where CK rejected the scraper). The
-# scrape itself is the real auth check; this covers the narrower case of a token
-# that ages out during a multi-day pipeline gap.
+# Reports the cookie's expiry, which is NOT session health -- two independent
+# clocks. CK rolls the cookie expiry forward on any visit (even ones it redirects
+# to login), while the server-side session dies ~7 days after *login* regardless
+# of traffic. So a green line here is not evidence the session works (2026-08-05:
+# it read "7.0 days remaining" during the run where CK rejected the scraper).
+# The scrape itself is the real auth check. What this genuinely catches is a
+# *missing* token, which is unambiguous (2026-08-18, issue #188).
 # `cksession` is in ALERT_COVERED, so the alert clears itself after a good reauth.
 echo ""
 echo "=== Checking Comics Kingdom session expiry ==="
