@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-18",
+  "scraped_at": "2026-08-18T08:12:41.522486+00:00",
+  "comics": [
+    {
+      "id": "22611",
+      "date": "2026-08-18",
+      "url": "https://www.thefarside.com/2026/08/18/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F04481a90d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/04481a90d8ba0137c959005056a9545d",
+      "caption": "On the next pass, however, Helen failed to clear the \nmountains.",
+      "title": "On the next pass, however, Helen failed to clear the \nmou..."
+    },
+    {
+      "id": "22612",
+      "date": "2026-08-18",
+      "url": "https://www.thefarside.com/2026/08/18/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F73faff40e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/73faff40e9ef0137cf93005056a9545d",
+      "caption": "\"Okay, Professor Big Mouth, we've all chipped in\u00a0\u2014\u00a0here\u2019s\nthe hundred bucks! ... But remember, you gotta kiss her on the lips! \u201d",
+      "title": "\"Okay, Professor Big Mouth, we've all chipped in\u00a0\u2014\u00a0here\u2019s..."
+    },
+    {
+      "id": "22613",
+      "date": "2026-08-18",
+      "url": "https://www.thefarside.com/2026/08/18/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fef2284d0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ef2284d0cdd30137c56b005056a9545d",
+      "caption": "\u201cI don\u2019t like the looks of this.\u201d",
+      "title": "\u201cI don\u2019t like the looks of this"
+    },
+    {
+      "id": "22614",
+      "date": "2026-08-18",
+      "url": "https://www.thefarside.com/2026/08/18/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3be03750e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3be03750e9ef0137cf93005056a9545d",
+      "caption": "With one glance, Luanne sized up the two males in their goldfinch necklaces.",
+      "title": "With one glance, Luanne sized up the two males in their g..."
+    },
+    {
+      "id": "22615",
+      "date": "2026-08-18",
+      "url": "https://www.thefarside.com/2026/08/18/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2467e730d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2467e730d7410137c8a6005056a9545d",
+      "caption": "\u201cI said I wasn\u2019t interested. \u2026 Now please remove your foot from the cave.\u201d",
+      "title": "\u201cI said I wasn\u2019t interested"
+    }
+  ]
+}

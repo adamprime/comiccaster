@@ -1,51 +1,51 @@
 {
   "target_date": "2026-08-17",
-  "scraped_at": "2026-08-17T08:19:06.196987+00:00",
+  "scraped_at": "2026-08-18T08:12:41.329460+00:00",
   "comics": [
     {
       "id": "22606",
       "date": "2026-08-17",
       "url": "https://www.thefarside.com/2026/08/17/0",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
-      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
-      "caption": "",
-      "title": "The Far Side #22606"
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F82b56130ab71013963c4005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/82b56130ab71013963c4005056a9545d",
+      "caption": "Mitch loses a dollar.",
+      "title": "Mitch loses a dollar"
     },
     {
       "id": "22607",
       "date": "2026-08-17",
       "url": "https://www.thefarside.com/2026/08/17/1",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
-      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
-      "caption": "",
-      "title": "The Far Side #22607"
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6b864ac0df0f0137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6b864ac0df0f0137cbaf005056a9545d",
+      "caption": "\u201cEd \u2026 the \u2018later\u2019 is back.\u201d",
+      "title": "\u201cEd \u2026 the \u2018later\u2019 is back"
     },
     {
       "id": "22608",
       "date": "2026-08-17",
       "url": "https://www.thefarside.com/2026/08/17/2",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
-      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
-      "caption": "",
-      "title": "The Far Side #22608"
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2d91de1002820138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2d91de1002820138d7bb005056a9545d",
+      "caption": "\u201cI\u2019m afraid you misunderstood. ... I said I\u2019d like a mango.\u201d",
+      "title": "\u201cI\u2019m afraid you misunderstood"
     },
     {
       "id": "22609",
       "date": "2026-08-17",
       "url": "https://www.thefarside.com/2026/08/17/3",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
-      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
-      "caption": "",
-      "title": "The Far Side #22609"
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb786bf70e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b786bf70e92e0137cf47005056a9545d",
+      "caption": "Revealing some of the mathematical computations every cartoonist must know.",
+      "title": "Revealing some of the mathematical computations every car..."
     },
     {
       "id": "22610",
       "date": "2026-08-17",
       "url": "https://www.thefarside.com/2026/08/17/4",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fsiteassets.thefarside.com%2Fcontent-error-missing-image.jpeg",
-      "original_image_url": "https://siteassets.thefarside.com/content-error-missing-image.jpeg",
-      "caption": "",
-      "title": "The Far Side #22610"
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe8633ca0d8b90137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e8633ca0d8b90137c959005056a9545d",
+      "caption": "\u201cWell, there is some irony in all this, you know. ... I mean, we both lose a contact at the same time?!\u201d",
+      "title": "\u201cWell, there is some irony in all this, you know"
     }
   ]
 }
