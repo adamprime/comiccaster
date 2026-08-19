@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-19",
+  "scraped_at": "2026-08-19T08:25:52.836630+00:00",
+  "comics": [
+    {
+      "id": "22616",
+      "date": "2026-08-19",
+      "url": "https://www.thefarside.com/2026/08/19/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F545205c0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/545205c0cdd30137c56b005056a9545d",
+      "caption": "\u201cSo \u2026 you wanna sell our pencils, do you?\u201d",
+      "title": "\u201cSo \u2026 you wanna sell our pencils, do you?\u201d"
+    },
+    {
+      "id": "22617",
+      "date": "2026-08-19",
+      "url": "https://www.thefarside.com/2026/08/19/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9331b230d7400137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9331b230d7400137c8a6005056a9545d",
+      "caption": "\u201cI don\u2019t like this, Wadsworth. \u2026 Bob never should\u2019ve been allowed out on the dance floor.\u201d",
+      "title": "\u201cI don\u2019t like this, Wadsworth"
+    },
+    {
+      "id": "22618",
+      "date": "2026-08-19",
+      "url": "https://www.thefarside.com/2026/08/19/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8fb07300e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8fb07300e92e0137cf47005056a9545d",
+      "caption": "Chicken sexual fantasies",
+      "title": "Chicken sexual fantasies"
+    },
+    {
+      "id": "22619",
+      "date": "2026-08-19",
+      "url": "https://www.thefarside.com/2026/08/19/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff0b35370cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f0b35370cdd40137c56b005056a9545d",
+      "caption": "\u201cHot oil! We need hot oil! \u2026 Forget the water balloons!\u201d",
+      "title": "\u201cHot oil! We need hot oil! \u2026 Forget the water balloons!\u201d"
+    },
+    {
+      "id": "22620",
+      "date": "2026-08-19",
+      "url": "https://www.thefarside.com/2026/08/19/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff229be30cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f229be30cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22620"
+    }
+  ]
+}
