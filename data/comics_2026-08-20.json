@@ -8,6 +8,22 @@
     "category": "political"
   },
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/0eeb17d07ee2013fc4dc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-20",
+    "url": "https://www.gocomics.com/robert-ariail/2026/08/20",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/c3e9c7707ee1013fc4db005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-20",
+    "url": "https://www.gocomics.com/nickanderson/2026/08/20",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/0aeaa6907e35013fc4a7005056a9545d?optimizer=image&width=2800&quality=85",
@@ -24,11 +40,27 @@
     "category": "political"
   },
   {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/0949ce507edc013fc4d7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-20",
+    "url": "https://www.gocomics.com/kal/2026/08/20",
+    "category": "political"
+  },
+  {
     "name": "John Deering",
     "slug": "johndeering",
     "image_url": "https://featureassets.gocomics.com/assets/8bb751307e6f013fc4c5005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-20",
     "url": "https://www.gocomics.com/johndeering/2026/08/20",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/619b76707ed9013fc4d6005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-20",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/08/20",
     "category": "political"
   },
   {
@@ -1704,6 +1736,14 @@
     "category": "daily"
   },
   {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/99c6ee207eb2013fc4cd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-20",
+    "url": "https://www.gocomics.com/tavicat/2026/08/20",
+    "category": "daily"
+  },
+  {
     "name": "Tarzan",
     "slug": "tarzan",
     "image_url": "https://featureassets.gocomics.com/assets/3a8136f00e7601312708001dd8b71c47?optimizer=image&width=2800&quality=85",
@@ -1765,6 +1805,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/5083c8d0774c013fc312005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-20",
     "url": "https://www.gocomics.com/speedbump/2026/08/20",
+    "category": "daily"
+  },
+  {
+    "name": "Snow Sez",
+    "slug": "snow-sez",
+    "image_url": "https://featureassets.gocomics.com/assets/39987e407ea3013fc4cc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-20",
+    "url": "https://www.gocomics.com/snow-sez/2026/08/20",
     "category": "daily"
   },
   {
