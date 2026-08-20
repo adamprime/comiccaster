@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-20",
+  "scraped_at": "2026-08-20T08:20:11.328358+00:00",
+  "comics": [
+    {
+      "id": "22621",
+      "date": "2026-08-20",
+      "url": "https://www.thefarside.com/2026/08/20/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F374cdf00027f0138d7ba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/374cdf00027f0138d7ba005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22621"
+    },
+    {
+      "id": "22622",
+      "date": "2026-08-20",
+      "url": "https://www.thefarside.com/2026/08/20/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd6bdb130e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d6bdb130e85b0137cedf005056a9545d",
+      "caption": "For many weeks, the two species had lived in mutual tolerance of one another. And then, without provocation, the hornets began throwing rocks at Ned\u2019s house.",
+      "title": "For many weeks, the two species had lived in mutual toler..."
+    },
+    {
+      "id": "22623",
+      "date": "2026-08-20",
+      "url": "https://www.thefarside.com/2026/08/20/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Feef9c160cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/eef9c160cdd40137c56b005056a9545d",
+      "caption": "\u201cHey, Richard! Your stupid dog\u2019s following us again!\u201d",
+      "title": "\u201cHey, Richard! Your stupid dog\u2019s following us again!\u201d"
+    },
+    {
+      "id": "22624",
+      "date": "2026-08-20",
+      "url": "https://www.thefarside.com/2026/08/20/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95b444b058c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95b444b058c311ea8bf6005056a9",
+      "caption": "",
+      "title": "The Far Side #22624"
+    },
+    {
+      "id": "22625",
+      "date": "2026-08-20",
+      "url": "https://www.thefarside.com/2026/08/20/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd762e990df0f0137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d762e990df0f0137cbaf005056a9545d",
+      "caption": "\u201cWell, I\u2019m not sure. \u2026 You don\u2019t carry any other styles?\u201d",
+      "title": "\u201cWell, I\u2019m not sure"
+    }
+  ]
+}
