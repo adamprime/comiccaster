@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-21",
+  "scraped_at": "2026-08-21T08:31:19.564167+00:00",
+  "comics": [
+    {
+      "id": "22626",
+      "date": "2026-08-21",
+      "url": "https://www.thefarside.com/2026/08/21/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd20738e0e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d20738e0e6f90137ce50005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22626"
+    },
+    {
+      "id": "22627",
+      "date": "2026-08-21",
+      "url": "https://www.thefarside.com/2026/08/21/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fad2ca8a0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ad2ca8a0cdd30137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22627"
+    },
+    {
+      "id": "22628",
+      "date": "2026-08-21",
+      "url": "https://www.thefarside.com/2026/08/21/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2d82cae0cdd70137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2d82cae0cdd70137c56b005056a9545d",
+      "caption": "\u201cSee, Barbara? There\u2019s no one in here, no one outside. ... I\u2019ll even open the drapes and have a look.\u201d",
+      "title": "\u201cSee, Barbara? There\u2019s no one in here, no one outside"
+    },
+    {
+      "id": "22629",
+      "date": "2026-08-21",
+      "url": "https://www.thefarside.com/2026/08/21/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F85844720d0be0137c62c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/85844720d0be0137c62c005056a9545d",
+      "caption": "Mermaid evolution",
+      "title": "Mermaid evolution"
+    },
+    {
+      "id": "22630",
+      "date": "2026-08-21",
+      "url": "https://www.thefarside.com/2026/08/21/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb00c30e0cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b00c30e0cdd40137c56b005056a9545d",
+      "caption": "\u201cAnd you should definitely stay away from short blondes and\ntall buildings.\u201d",
+      "title": "\u201cAnd you should definitely stay away from short blondes a..."
+    }
+  ]
+}
