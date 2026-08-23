@@ -1456,6 +1456,14 @@
     "category": "daily"
   },
   {
+    "name": "Snow Sez",
+    "slug": "snow-sez",
+    "image_url": "https://featureassets.gocomics.com/assets/2b9b9800814a013fc550005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-23",
+    "url": "https://www.gocomics.com/snow-sez/2026/08/23",
+    "category": "daily"
+  },
+  {
     "name": "Shoe",
     "slug": "shoe",
     "image_url": "https://featureassets.gocomics.com/assets/bf818c307195013fc1ab005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1549,6 +1557,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/4071b23071b0013fc1ba005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-23",
     "url": "https://www.gocomics.com/rabbitsagainstmagic/2026/08/23",
+    "category": "daily"
+  },
+  {
+    "name": "Questionable Quotebook",
+    "slug": "questionable-quotebook",
+    "image_url": "https://featureassets.gocomics.com/assets/db9263c0811e013fc54d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-23",
+    "url": "https://www.gocomics.com/questionable-quotebook/2026/08/23",
     "category": "daily"
   },
   {
