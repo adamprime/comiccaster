@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-24",
+  "scraped_at": "2026-08-24T08:19:10.839118+00:00",
+  "comics": [
+    {
+      "id": "22635",
+      "date": "2026-08-24",
+      "url": "https://www.thefarside.com/2026/08/24/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fdc799cb0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/dc799cb0cdd20137c56b005056a9545d",
+      "caption": "\u201cThank God! Those blasted crickets have finally stopped!\u201d",
+      "title": "\u201cThank God! Those blasted crickets have finally stopped!\u201d"
+    },
+    {
+      "id": "22636",
+      "date": "2026-08-24",
+      "url": "https://www.thefarside.com/2026/08/24/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff3c7bef0e6f70137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f3c7bef0e6f70137ce50005056a9545d",
+      "caption": "Our protagonist is about to check on the progress of her remodelers in this scene from Leona Helmsley Meets the Three Stooges .",
+      "title": "Our protagonist is about to check on the progress of her ..."
+    },
+    {
+      "id": "22637",
+      "date": "2026-08-24",
+      "url": "https://www.thefarside.com/2026/08/24/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa464a6e0df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a464a6e0df110137cbaf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22637"
+    },
+    {
+      "id": "22638",
+      "date": "2026-08-24",
+      "url": "https://www.thefarside.com/2026/08/24/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45f54958c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45f54958c311ea8bf6005056a9",
+      "caption": "Cartoon readings",
+      "title": "Cartoon readings"
+    },
+    {
+      "id": "22639",
+      "date": "2026-08-24",
+      "url": "https://www.thefarside.com/2026/08/24/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F23f24c20df120137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/23f24c20df120137cbaf005056a9545d",
+      "caption": "\u201cBarbara! I\u2019m going for help\u2014tread soup!\u201d",
+      "title": "\u201cBarbara! I\u2019m going for help\u2014tread soup!\u201d"
+    }
+  ]
+}
