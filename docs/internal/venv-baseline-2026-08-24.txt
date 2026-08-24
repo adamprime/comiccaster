@@ -1,0 +1,62 @@
+# Rollback baseline for the pipeline host venv, captured 2026-08-24.
+#
+# State: immediately after syncing venv/ to requirements.txt on main
+# (feedgen 1.0.0, selenium 4.47.0) with pytest green at 491 passed.
+# This is Stage 0 of docs/plans/2026-08-24-001-chore-metered-transitive-
+# dependency-refresh-plan.md -- the target to restore to if a staged
+# transitive upgrade regresses the scrapers.
+#
+# Restore:  venv/bin/python -m pip install -r docs/internal/venv-baseline-2026-08-24.txt
+#
+# Excludes the editable install of comiccaster itself (`pip install -e .`);
+# that comes from the working tree, not from this file.
+APScheduler==3.11.3
+attrs==26.1.0
+beautifulsoup4==4.15.0
+blinker==1.9.0
+brotli==1.2.0
+certifi==2026.2.25
+charset-normalizer==3.4.6
+click==8.3.1
+coverage==7.13.5
+feedgen==1.0.0
+feedparser==6.0.14
+feedparser-sgmllib==2.1.0
+Flask==3.1.3
+h11==0.16.0
+idna==3.11
+iniconfig==2.3.0
+itsdangerous==2.2.0
+Jinja2==3.1.6
+lxml==6.0.2
+MarkupSafe==3.0.3
+outcome==1.3.0.post0
+packaging==26.0
+pluggy==1.6.0
+Pygments==2.19.2
+PySocks==1.7.1
+pytest==9.1.1
+pytest-cov==7.1.0
+pytest-mock==3.15.1
+python-dateutil==2.9.0.post0
+python-dotenv==1.2.3
+pytz==2026.3.post1
+PyYAML==6.0.3
+requests==2.34.2
+requests-toolbelt==1.0.0
+selenium==4.47.0
+sgmllib3k==1.0.0
+six==1.17.0
+sniffio==1.3.1
+sortedcontainers==2.4.0
+soupsieve==2.8.3
+tls-client==1.0.1
+trio==0.33.0
+trio-websocket==0.12.2
+typing_extensions==4.15.0
+tzlocal==5.3.1
+urllib3==2.6.3
+webdriver-manager==4.1.2
+websocket-client==1.9.0
+Werkzeug==3.1.6
+wsproto==1.3.2
