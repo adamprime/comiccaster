@@ -406,3 +406,67 @@ class TestCatalogPath:
                 f"the generator. This indicates the generator is reading a stale "
                 f"catalog copy instead of public/."
             )
+
+
+class TestSourceOwnership:
+    """The generator must not write feeds for comics another source owns.
+
+    Both generate_gocomics_feeds.py and generate_comicskingdom_feeds.py write
+    public/feeds/<slug>.xml. generate_comicskingdom_feeds.py has always filtered
+    on `source == 'comicskingdom'`; this generator did not filter at all, so any
+    slug claimed by both sources flipped between them -- Comics Kingdom last in
+    pass 1, GoComics alone in pass 2. See
+    tests/test_catalog_source_integrity.py for the catalog-side invariant.
+    """
+
+    def test_absent_source_is_gocomics_owned(self):
+        """The catalog marks GoComics comics by omitting `source`."""
+        from scripts.generate_gocomics_feeds import owned_by_gocomics
+
+        assert owned_by_gocomics({'slug': 'garfield'})
+        assert owned_by_gocomics({'slug': 'garfield', 'source': None})
+        assert owned_by_gocomics({'slug': 'garfield', 'source': ''})
+        assert owned_by_gocomics({'slug': 'garfield', 'source': 'gocomics'})
+
+    def test_another_sources_comic_is_not_owned(self):
+        from scripts.generate_gocomics_feeds import owned_by_gocomics
+
+        assert not owned_by_gocomics({'slug': 'shoe', 'source': 'comicskingdom'})
+        assert not owned_by_gocomics({'slug': 'lunarbaboon', 'source': 'tinyview'})
+        assert not owned_by_gocomics({'slug': 'archie', 'source': 'creators'})
+
+    @patch('scripts.generate_gocomics_feeds.ComicFeedGenerator')
+    @patch('scripts.generate_gocomics_feeds.load_comics_catalog')
+    @patch('scripts.generate_gocomics_feeds.load_scraped_data')
+    def test_main_skips_foreign_source_comics(
+        self, mock_load_data, mock_load_catalog, mock_generator_cls
+    ):
+        """A comic owned by Comics Kingdom gets no feed written here.
+
+        Both comics have scraped data, so the only thing that can exclude the
+        Comics Kingdom one is the ownership filter.
+        """
+        mock_load_data.return_value = {
+            'garfield': [{'slug': 'garfield', 'date': '2026-08-24',
+                          'image_url': 'https://example.com/g.jpg',
+                          'url': 'https://www.gocomics.com/garfield/2026/08/24'}],
+            'shoe': [{'slug': 'shoe', 'date': '2026-08-24',
+                      'image_url': 'https://example.com/s.jpg',
+                      'url': 'https://www.gocomics.com/shoe/2026/08/24'}],
+        }
+        mock_load_catalog.return_value = [
+            {'name': 'Garfield', 'slug': 'garfield'},
+            {'name': 'Shoe', 'slug': 'shoe', 'source': 'comicskingdom'},
+        ]
+        generator = MagicMock()
+        generator.generate_feed.return_value = True
+        mock_generator_cls.return_value = generator
+
+        assert main() == 0
+
+        generated = [c.args[0]['slug'] for c in generator.generate_feed.call_args_list]
+        assert 'garfield' in generated
+        assert 'shoe' not in generated, (
+            "Wrote a feed for a Comics Kingdom comic -- generate_comicskingdom_feeds.py "
+            "writes the same path, so the two would overwrite each other every day."
+        )
