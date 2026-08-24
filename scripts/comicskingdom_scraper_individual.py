@@ -313,8 +313,14 @@ def load_comics_catalog():
     return ck_comics
 
 
-def scrape_comic_page(driver, comic_slug, date_str, debug=False):
-    """Scrape a single comic page."""
+def scrape_comic_page(driver, comic_slug, date_str, debug=False, feed_slug=None):
+    """Scrape a single comic page.
+
+    ``comic_slug`` is the identifier Comics Kingdom serves the strip under;
+    ``feed_slug`` is the identifier ComicCaster files it under. They differ only
+    when two sources run the same comic and each run needs its own feed -- see
+    the `source_slug` note in scrape_all_comics.
+    """
     global _SCRAPE_CALL_COUNT
     _SCRAPE_CALL_COUNT += 1
     url = f"https://comicskingdom.com/{comic_slug}/{date_str}"
@@ -391,7 +397,7 @@ def scrape_comic_page(driver, comic_slug, date_str, debug=False):
         
         comic_data = {
             'name': comic_name,
-            'slug': comic_slug,
+            'slug': feed_slug or comic_slug,
             'date': date_str,
             'url': url,
             'source': 'comicskingdom'
@@ -420,9 +426,16 @@ def scrape_all_comics(driver, comics, date_str):
     
     for i, comic in enumerate(comics, 1):
         slug = comic['slug']
+        # `source_slug` is the path Comics Kingdom serves this comic at, when it
+        # differs from the slug we file the feed under. Needed when GoComics and
+        # Comics Kingdom run the same comic at different points in its history:
+        # each run is a distinct work and needs its own feed, but upstream still
+        # only knows the one path. Defaults to slug, so 152 of 153 entries are
+        # unaffected.
+        source_slug = comic.get('source_slug') or slug
         print(f"[{i}/{len(comics)}] Scraping {comic['name']} ({slug})...")
-        
-        comic_data = scrape_comic_page(driver, slug, date_str, debug=False)
+
+        comic_data = scrape_comic_page(driver, source_slug, date_str, debug=False, feed_slug=slug)
         
         if comic_data:
             results.append(comic_data)
