@@ -1,90 +1,40 @@
 [
   {
-    "name": "Itchy Feet",
-    "slug": "itchy-feet",
-    "date": "2026-08-21",
-    "url": "https://tinyview.com/itchy-feet/2026/08/21/smell-test",
+    "name": "Fowl Language (TinyView)",
+    "slug": "fowl-language-tinyview",
+    "date": "2026-08-23",
+    "url": "https://tinyview.com/fowl-language/2026/08/23/zombie-immunity",
     "source": "tinyview",
     "images": [
       {
-        "url": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/preview.jpg",
+        "url": "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-header.jpg",
         "alt": "Cover Image",
         "title": ""
       },
       {
-        "url": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/1.jpg",
-        "alt": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/1.jpg",
+        "url": "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-1.jpg",
+        "alt": "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-1.jpg",
         "title": ""
       },
       {
-        "url": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/2.2.jpg",
-        "alt": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/2.2.jpg",
+        "url": "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-2.jpg",
+        "alt": "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-2.jpg",
         "title": ""
       },
       {
-        "url": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/3.jpg",
-        "alt": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/3.jpg",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/4.jpg",
-        "alt": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/4.jpg",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/bonus.jpg",
+        "url": "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-bonus.jpg",
         "alt": "bonus-panel-image",
         "title": ""
       }
     ],
     "image_urls": [
-      "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/preview.jpg",
-      "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/1.jpg",
-      "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/2.2.jpg",
-      "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/3.jpg",
-      "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/4.jpg",
-      "https://cdn.tinyview.com/itchy-feet/2026/08/21/smell-test/bonus.jpg"
-    ],
-    "image_count": 6,
-    "description": "In this age of AI everything, I love a good analog innovation.",
-    "title": "Smell Test"
-  },
-  {
-    "name": "Rob Rogers (TinyView)",
-    "slug": "rob-rogers",
-    "date": "2026-08-22",
-    "url": "https://tinyview.com/rob-rogers/2026/08/22/mail-in-ballot",
-    "source": "tinyview",
-    "images": [
-      {
-        "url": "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/Rogers_Header_260824.jpg",
-        "alt": "Cover Image",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/20260824_Mail_in_Ballot1.jpg",
-        "alt": "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/20260824_Mail_in_Ballot1.jpg",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/20260824_Mail_in_Ballot2.jpg",
-        "alt": "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/20260824_Mail_in_Ballot2.jpg",
-        "title": ""
-      },
-      {
-        "url": "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/20260824_Mail_in_Ballot.jpg",
-        "alt": "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/20260824_Mail_in_Ballot.jpg",
-        "title": ""
-      }
-    ],
-    "image_urls": [
-      "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/Rogers_Header_260824.jpg",
-      "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/20260824_Mail_in_Ballot1.jpg",
-      "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/20260824_Mail_in_Ballot2.jpg",
-      "https://cdn.tinyview.com/rob-rogers/2026/08/22/mail-in-ballot/20260824_Mail_in_Ballot.jpg"
+      "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-header.jpg",
+      "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-1.jpg",
+      "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-2.jpg",
+      "https://cdn.tinyview.com/fowl-language/2026/08/23/zombie-immunity/Zombie-immunity-bonus.jpg"
     ],
     "image_count": 4,
-    "description": "Trump continues to spread lies about election integrity and mail-in voting, while he also continues to vote by mail in Florida.",
-    "title": "Mail-in Ballot"
+    "description": "I guess the silver lining for some folks is that zombies  specifically hunt for people with brains.",
+    "title": "Zombie Immunity"
   }
 ]
