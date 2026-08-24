@@ -22,7 +22,6 @@ setup(
             "pytest-cov>=2.0.0",
             "pytest-flask>=1.2.0",
             "pytest-mock>=3.6.0",
-            "requests-mock>=1.11.0",
         ],
     },
     python_requires=">=3.10",
