@@ -17,9 +17,32 @@ related_docs:
 
 ## Status
 
-**Planned 2026-08-24, not executed.** Written after a dependency sweep found the
-host venv's `certifi` five months stale. Deliberately staged rather than done in
-one pass, because these packages sit directly under the scrapers.
+**Stage 0 and Stage 1 complete 2026-08-24. Stages 2-4 pending, one per day.**
+
+Written after a dependency sweep found the host venv's `certifi` five months
+stale. Deliberately staged rather than done in one pass, because these packages
+sit directly under the scrapers.
+
+### Progress log
+
+| Stage | Date | Result |
+|---|---|---|
+| 0 — baseline | 2026-08-24 | `docs/internal/venv-baseline-2026-08-24.txt`, 50 packages, captured after syncing venv to main (feedgen 1.0.0, selenium 4.47.0). |
+| 1 — certifi | 2026-08-24 | 2026.2.25 → 2026.7.22. `pip freeze` diff = exactly one line. Gate: 491 passed; 0 TLS failures across all 7 sources + the CK B2C login host; feed-regen diff 502/506 byte-identical. |
+| 2 — lxml, soupsieve | pending | earliest 2026-08-25, 09:00-11:00 |
+| 3 — urllib3, idna, charset-normalizer | pending | after Stage 2 is observed clean |
+| 4 — remainder | pending | after Stage 3 |
+
+**Note on the Stage 1 feed diff:** 4 of 506 feeds differed — `shoe`,
+`broomhilda`, `edge-city`, `pluggers`. This is **not** attributable to certifi.
+Those four slugs are scraped by both GoComics and Comics Kingdom, both
+generators write `public/feeds/<slug>.xml`, and the last writer wins. It is a
+pre-existing collision, tracked separately; see the "Incidental finding" section
+below. The remaining 502 were byte-identical, so the certifi gate is clean.
+
+A further 145 committed feeds had no regenerated counterpart — expected, since
+generators only emit feeds for comics present in that day's scrape, and the
+pipeline leaves untouched feeds in place.
 
 ## Summary
 
@@ -172,3 +195,35 @@ when the generated XML is wrong.
 - Adding a venv-drift preflight to the pipeline. Worth considering later, but it
   needs a decision on warn-vs-fail first, and a noisy new alert is worse than the
   drift it reports.
+
+
+## Incidental finding (not part of this plan)
+
+The Stage 1 feed-diff harness surfaced a pre-existing, subscriber-visible bug.
+
+`shoe`, `broomhilda`, `edge-city`, and `pluggers` are the **only 4 slugs scraped
+by both GoComics and Comics Kingdom**. Both generators write
+`public/feeds/<slug>.xml`, so the last generator to run owns the file:
+
+- **Pass 1 (03:05)** runs GoComics (`local_master_update.sh:232`) then Comics
+  Kingdom (`:241`) — Comics Kingdom wins.
+- **Pass 2 (13:00)** runs GoComics **only** (`local_pass2_update.sh:173`) — and
+  Comics Kingdom never runs to reclaim the file, so GoComics wins.
+
+Confirmed in git history — the first `<guid>` in `shoe.xml` alternates perfectly,
+every day, for as far back as checked:
+
+```
+08-24 03:21  comicskingdom.com
+08-23 13:02  www.gocomics.com
+08-23 03:20  comicskingdom.com
+08-22 13:02  www.gocomics.com
+...
+```
+
+Because the `<guid>`, `<link>`, and image URLs all change with the source, RSS
+readers see each flip as **new items** — subscribers to these 4 comics get every
+strip delivered twice a day from alternating sources.
+
+Fixing it needs a product decision (which source owns each of the 4 slugs), so it
+is deliberately not bundled into a dependency refresh.
