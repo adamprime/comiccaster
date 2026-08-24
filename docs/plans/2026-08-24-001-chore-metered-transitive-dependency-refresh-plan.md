@@ -17,7 +17,7 @@ related_docs:
 
 ## Status
 
-**Stage 0 and Stage 1 complete 2026-08-24. Stages 2-4 pending, one per day.**
+**Stages 0-2 complete 2026-08-24. Stages 3-4 pending.**
 
 Written after a dependency sweep found the host venv's `certifi` five months
 stale. Deliberately staged rather than done in one pass, because these packages
@@ -29,9 +29,31 @@ sit directly under the scrapers.
 |---|---|---|
 | 0 — baseline | 2026-08-24 | `docs/internal/venv-baseline-2026-08-24.txt`, 50 packages, captured after syncing venv to main (feedgen 1.0.0, selenium 4.47.0). |
 | 1 — certifi | 2026-08-24 | 2026.2.25 → 2026.7.22. `pip freeze` diff = exactly one line. Gate: 491 passed; 0 TLS failures across all 7 sources + the CK B2C login host; feed-regen diff 502/506 byte-identical. |
-| 2 — lxml, soupsieve | pending | earliest 2026-08-25, 09:00-11:00 |
-| 3 — urllib3, idna, charset-normalizer | pending | after Stage 2 is observed clean |
+| 2 — lxml, soupsieve | 2026-08-24 | 6.0.2→6.1.2 / 2.8.3→2.9.2. `pip freeze` diff = exactly 2 lines. Gate: 499 passed; live Creators scrape byte-identical to the morning's scrape on the old libs; 341/341 regenerated GoComics feeds byte-identical to the feeds Pass 2 had just committed on lxml 6.0.2. |
+| 3 — urllib3, idna, charset-normalizer | pending | after the 03:05 run validates Stage 2 |
 | 4 — remainder | pending | after Stage 3 |
+
+**Stage 2 was done the same day as Stage 1, against this plan's "one stage per
+day" rule.** The rule exists for attribution, and attribution was preserved:
+Stage 1 already had a full unattended-equivalent production run behind it (the
+12:01 Pass 1, all seven sources green on the new certifi), so a regression at
+03:05 is attributable to Stage 2 alone. Do not stack Stage 3 on top before that
+run happens -- there would then be two unvalidated groups in flight.
+
+**Stage 2's risk profile was smaller than this plan assumed.** The plan called
+lxml and soupsieve "the group most likely to change scraper output." That was
+wrong on inspection:
+
+* All 22 `BeautifulSoup(...)` calls use `'html.parser'`, not the lxml backend,
+  and nothing imports lxml directly. **lxml reaches production only via
+  `feedgen`** -- it writes feed XML, it does not parse scraped HTML. So the
+  decisive gate is the feed-XML diff, not a scrape diff.
+* **soupsieve** backs bs4's CSS selectors, and the codebase makes exactly one
+  `.select()` call: `comiccaster/loader.py:147`, selector `"ol li a"`. Verified
+  identical across versions including nested-`<ol>`, descendant-not-child,
+  `<ul>`-exclusion and empty-href cases.
+
+Check what actually imports a dependency before assigning it a blast radius.
 
 **Note on the Stage 1 feed diff:** 4 of 506 feeds differed — `shoe`,
 `broomhilda`, `edge-city`, `pluggers`. This is **not** attributable to certifi.
