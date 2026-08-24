@@ -13,9 +13,12 @@ updates:
       prefix: "pip"
       include: "scope"
 
-  # Node.js dependencies (for Netlify functions)
+  # Node.js dependencies. rss-parser is declared in the root package.json and
+  # is what functions/fetch-feed.js resolves at build time, so "/" is the
+  # directory that actually covers shipped code. functions/package.json
+  # declares no dependencies of its own.
   - package-ecosystem: "npm"
-    directory: "/functions"
+    directory: "/"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
