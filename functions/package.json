@@ -3,8 +3,5 @@
   "version": "1.0.0",
   "description": "Netlify functions for ComicCaster",
   "main": "index.js",
-  "dependencies": {
-    "rss": "^1.2.2",
-    "xml2js": "^0.6.2"
-  }
+  "dependencies": {}
 }
