@@ -17,7 +17,7 @@ related_docs:
 
 ## Status
 
-**Stages 0-2 complete 2026-08-24. Stages 3-4 pending.**
+**Stages 0-3 complete 2026-08-24. Stage 4 pending.**
 
 Written after a dependency sweep found the host venv's `certifi` five months
 stale. Deliberately staged rather than done in one pass, because these packages
@@ -30,15 +30,40 @@ sit directly under the scrapers.
 | 0 — baseline | 2026-08-24 | `docs/internal/venv-baseline-2026-08-24.txt`, 50 packages, captured after syncing venv to main (feedgen 1.0.0, selenium 4.47.0). |
 | 1 — certifi | 2026-08-24 | 2026.2.25 → 2026.7.22. `pip freeze` diff = exactly one line. Gate: 491 passed; 0 TLS failures across all 7 sources + the CK B2C login host; feed-regen diff 502/506 byte-identical. |
 | 2 — lxml, soupsieve | 2026-08-24 | 6.0.2→6.1.2 / 2.8.3→2.9.2. `pip freeze` diff = exactly 2 lines. Gate: 499 passed; live Creators scrape byte-identical to the morning's scrape on the old libs; 341/341 regenerated GoComics feeds byte-identical to the feeds Pass 2 had just committed on lxml 6.0.2. |
-| 3 — urllib3, idna, charset-normalizer | pending | after the 03:05 run validates Stage 2 |
-| 4 — remainder | pending | after Stage 3 |
+| 3 — urllib3, idna, charset-normalizer | 2026-08-24 | 2.6.3→2.7.0 / 3.11→3.19 / 3.4.6→3.5.1. `pip freeze` diff vs baseline = exactly 6 lines across all three stages. Gate: 499 passed; 0 TLS failures across all 7 sources + CK's B2C login host; a live Creators scrape byte-identical to the morning's committed scrape on the old stack; Selenium/ChromeDriver opened, loaded a real Comics Kingdom page and quit cleanly on urllib3 2.7.0. |
+| 4 — remainder | pending | after the 03:05 run validates Stages 2-3 |
 
-**Stage 2 was done the same day as Stage 1, against this plan's "one stage per
-day" rule.** The rule exists for attribution, and attribution was preserved:
-Stage 1 already had a full unattended-equivalent production run behind it (the
-12:01 Pass 1, all seven sources green on the new certifi), so a regression at
-03:05 is attributable to Stage 2 alone. Do not stack Stage 3 on top before that
-run happens -- there would then be two unvalidated groups in flight.
+**Stages 2 and 3 were both done on 2026-08-24, against this plan's "one stage
+per day" rule.** The rule exists for attribution, and attribution was preserved:
+Stage 1 had a full unattended-equivalent production run behind it (the 12:01
+Pass 1, all seven sources green on the new certifi).
+
+Stage 3 was then stacked on Stage 2 deliberately. The reason to serialize was
+that this plan assumed a weak per-stage gate; the gate that actually turned out
+to be available is much stronger than assumed -- a live scrape compared
+**byte-for-byte** against the same day's committed scrape, with a same-minute
+re-scrape on the old libraries as a control. That control matters: New Yorker's
+payload differed between the morning scrape and the afternoon one, which looks
+exactly like a parsing regression until you re-scrape on the OLD stack in the
+same minute and find it identical to the new one. The delta was upstream
+content drift. **Never compare against a scrape taken hours earlier and call
+the difference a regression.**
+
+Two groups (Stages 2 and 3) are therefore unvalidated in production until the
+03:05 run. If that run fails, bisect rather than guess:
+
+```bash
+# restore the known-good set, then re-apply one group at a time
+venv/bin/python -m pip install -r docs/internal/venv-baseline-2026-08-24.txt
+venv/bin/python -m pip install --upgrade certifi                  # Stage 1 (already proven)
+venv/bin/python -m pip install --upgrade lxml soupsieve           # Stage 2
+venv/bin/python -m pip install --upgrade urllib3 idna charset-normalizer  # Stage 3
+```
+
+**Stage 4 was deliberately NOT stacked further.** Three unvalidated groups before
+an unattended run is past the point where bisecting stays cheap, and Stage 4
+contains `tzlocal`, which APScheduler uses for timezone resolution in a pipeline
+whose dating is timezone-sensitive throughout. It earns its own attribution.
 
 **Stage 2's risk profile was smaller than this plan assumed.** The plan called
 lxml and soupsieve "the group most likely to change scraper output." That was
