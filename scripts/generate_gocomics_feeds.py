@@ -97,6 +97,23 @@ def load_scraped_data(days_back: int = 90) -> Dict[str, List[Dict]]:
     return indexed
 
 
+# A GoComics comic is marked by the ABSENCE of a `source` key -- that is how the
+# catalog has always identified them, and 463 entries depend on it. Every other
+# source stamps its own name.
+#
+# This matters because both generators write public/feeds/<slug>.xml. When a
+# slug is claimed by another source and this generator writes it anyway, the two
+# take turns clobbering each other: pass 1 ends with Comics Kingdom, pass 2 runs
+# GoComics alone, so the feed alternated source twice a day and subscribers got
+# every strip twice. See tests/test_catalog_source_integrity.py.
+GOCOMICS_SOURCES = {None, "", "gocomics"}
+
+
+def owned_by_gocomics(comic: Dict) -> bool:
+    """True when the catalog assigns this comic to GoComics (or to no source)."""
+    return comic.get("source") in GOCOMICS_SOURCES
+
+
 def load_comics_catalog() -> List[Dict]:
     """Load the full GoComics catalog (regular + political comics)."""
     comics = []
@@ -203,10 +220,17 @@ def main():
         output_dir="public/feeds",
     )
 
+    # Only write feeds for comics GoComics actually owns. Skipping the rest is
+    # what keeps another source's feed from being overwritten on this pass.
+    owned = [comic for comic in catalog if owned_by_gocomics(comic)]
+    foreign = len(catalog) - len(owned)
+    if foreign:
+        logger.info(f"Skipping {foreign} comics owned by another source")
+
     successful = 0
     skipped = 0
 
-    for comic in catalog:
+    for comic in owned:
         if generate_feed_for_comic(comic, scraped_data, generator):
             successful += 1
         else:
@@ -216,7 +240,7 @@ def main():
     logger.info("GoComics Feed Generation Complete")
     logger.info(f"  Updated: {successful}")
     logger.info(f"  Skipped (no data): {skipped}")
-    logger.info(f"  Total catalog: {len(catalog)}")
+    logger.info(f"  GoComics-owned: {len(owned)} of {len(catalog)} catalog entries")
     logger.info("=" * 60)
 
     return 0

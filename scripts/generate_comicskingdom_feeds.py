@@ -27,7 +27,13 @@ from comiccaster.feed_generator import ComicFeedGenerator
 def extract_live_comicskingdom_entries(comic_info: Dict, limit: int = 30) -> List[Dict]:
     """Fetch live entries for a Comics Kingdom comic from page bootstrap JSON."""
     slug = comic_info['slug']
-    base_path = f"/vintage/{slug}" if comic_info.get('source_variant') == 'vintage' else f"/{slug}"
+    # Upstream path may differ from the feed slug -- see `source_slug` in
+    # scripts/comicskingdom_scraper_individual.py.
+    source_slug = comic_info.get('source_slug') or slug
+    base_path = (
+        f"/vintage/{source_slug}" if comic_info.get('source_variant') == 'vintage'
+        else f"/{source_slug}"
+    )
     url = f"https://comicskingdom.com{base_path}"
 
     try:

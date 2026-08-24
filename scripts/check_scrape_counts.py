@@ -34,10 +34,13 @@ SOURCE_RULES = {
     # floor sits far below the range and only catches a real collapse.
     "comics":        {"payload": None,       "minimum": 100,
                       "note": "GoComics"},
-    # Fixed catalog: exactly 153 every day for 14 days. A partial scrape is
-    # therefore detectable with a tight floor.
+    # Fixed catalog, so a partial scrape is detectable with a tight floor.
+    # Was exactly 153/day; became 150 on 2026-08-24 when broomhilda, edge-city,
+    # pluggers and shoe moved to GoComics (they were mis-stamped as Comics
+    # Kingdom in 2025 and both sources were writing the same feed file) and
+    # edge-city-classic was added for CK's separate run of Edge City.
     "comicskingdom": {"payload": None,       "minimum": 140,
-                      "note": "Comics Kingdom (catalog of 153)"},
+                      "note": "Comics Kingdom (catalog of 150)"},
     # Genuinely variable 0-7 -- depends what publishers posted. `> 0` is the
     # only assertion the data supports, and it is exactly what 2026-08-03
     # needed.

@@ -549,8 +549,7 @@
     "url": "https://www.gocomics.com/broomhilda",
     "slug": "broomhilda",
     "position": 69,
-    "is_updated": true,
-    "source": "comicskingdom"
+    "is_updated": true
   },
   {
     "name": "The Buckets",
@@ -958,8 +957,17 @@
     "url": "https://www.gocomics.com/edge-city",
     "slug": "edge-city",
     "position": 120,
-    "is_updated": true,
-    "source": "comicskingdom"
+    "is_updated": true
+  },
+  {
+    "name": "Edge City Classic",
+    "author": "Terry and Patty LaBan",
+    "url": "https://comicskingdom.com/edge-city",
+    "slug": "edge-city-classic",
+    "source": "comicskingdom",
+    "source_slug": "edge-city",
+    "position": 120,
+    "is_updated": true
   },
   {
     "name": "Eek!",
@@ -1874,14 +1882,6 @@
     "is_updated": true
   },
   {
-    "name": "Lunarbaboon",
-    "author": "Christopher Grady",
-    "url": "https://www.gocomics.com/lunarbaboon",
-    "slug": "lunarbaboon",
-    "position": 237,
-    "is_updated": false
-  },
-  {
     "name": "Maintaining",
     "author": "Nate Creekmore",
     "url": "https://www.gocomics.com/maintaining",
@@ -2399,8 +2399,7 @@
     "url": "https://www.gocomics.com/pluggers",
     "slug": "pluggers",
     "position": 302,
-    "is_updated": true,
-    "source": "comicskingdom"
+    "is_updated": true
   },
   {
     "name": "Pooch Cafe",
@@ -2648,8 +2647,7 @@
     "url": "https://www.gocomics.com/shoe",
     "slug": "shoe",
     "position": 333,
-    "is_updated": true,
-    "source": "comicskingdom"
+    "is_updated": true
   },
   {
     "name": "Sketchshark Comics",
@@ -2998,7 +2996,7 @@
   {
     "name": "Wannabe",
     "author": "Luca Debus",
-    "url": "https://www.gocomics.com/wannabe",
+    "url": "https://comicskingdom.com/wannabe",
     "slug": "wannabe",
     "position": 377,
     "is_updated": true,

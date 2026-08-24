@@ -651,3 +651,55 @@ class TestAuthRetry:
         assert rc == 0
         assert auth_calls == 1
         assert len(made) == 1, "a healthy run must not launch a second browser"
+
+
+class TestSourceSlugSeparation:
+    """A comic's upstream path and its feed identity are separate things.
+
+    GoComics and Comics Kingdom both run Edge City, but at different points in
+    its history -- GoComics the 2011 sequence, Comics Kingdom the 2006 one.
+    Those are two distinct works, so each needs its own feed file, but Comics
+    Kingdom still only serves one path (/edge-city). `source_slug` carries the
+    upstream path while `slug` stays the feed identity.
+    """
+
+    def _soup_driver(self, html):
+        driver = MagicMock()
+        driver.page_source = html
+        driver.current_url = "https://comicskingdom.com/edge-city/2026-08-24"
+        return driver
+
+    def test_scrape_uses_source_slug_for_the_url_and_slug_for_the_record(self):
+        """Fetch /edge-city, but file the result under edge-city-classic."""
+        driver = self._soup_driver("<html><title>Edge City Comic Strip | Comics Kingdom</title></html>")
+
+        with patch.object(cki, 'scrape_comic_page', wraps=cki.scrape_comic_page) as spy:
+            with patch.object(cki, 'time') as _t:
+                _t.sleep = lambda *_: None
+                cki.scrape_all_comics(
+                    driver,
+                    [{'name': 'Edge City Classic', 'slug': 'edge-city-classic',
+                      'source_slug': 'edge-city'}],
+                    '2026-08-24',
+                )
+
+        assert spy.call_count == 1
+        args, kwargs = spy.call_args
+        assert args[1] == 'edge-city', (
+            "Scraper must request the upstream path from source_slug; "
+            f"requested {args[1]!r} instead."
+        )
+        assert kwargs.get('feed_slug') == 'edge-city-classic'
+
+    def test_source_slug_defaults_to_slug(self):
+        """Entries without source_slug are untouched -- 152 of 153 CK comics."""
+        driver = self._soup_driver("<html><title>Blondie | Comics Kingdom</title></html>")
+
+        with patch.object(cki, 'scrape_comic_page', wraps=cki.scrape_comic_page) as spy:
+            with patch.object(cki, 'time') as _t:
+                _t.sleep = lambda *_: None
+                cki.scrape_all_comics(driver, [{'name': 'Blondie', 'slug': 'blondie'}], '2026-08-24')
+
+        args, kwargs = spy.call_args
+        assert args[1] == 'blondie'
+        assert kwargs.get('feed_slug') == 'blondie'
