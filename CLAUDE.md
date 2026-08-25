@@ -38,6 +38,12 @@ ceremony; a new comic source or a pipeline change does.
   minimum entry count, or the invariant guard will never verify that its scrapes
   actually produced data — an unregistered source passes with a warning by
   design, so nothing turns red, and nothing is checked either.
+  Check the slug doesn't already belong to another source, too. A feed path is an
+  identity: two sources writing `public/feeds/<slug>.xml` silently overwrite each
+  other every run while the pipeline reports success. If two sources genuinely
+  carry the same comic, compare the actual strips before choosing — identical art
+  means pick one source, different runs mean give each its own slug (that's what
+  `source_slug` is for). `tests/test_catalog_source_integrity.py` enforces this.
 - Single responsibility: scrapers fetch + parse one source; feed shaping lives in
   `feed_generator.py`. Don't blur the two.
 

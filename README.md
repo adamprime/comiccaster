@@ -1,6 +1,6 @@
 # ComicCaster
 
-ComicCaster is a web application that generates RSS feeds for comics from multiple sources including GoComics, TinyView, Comics Kingdom, and The Far Side. It provides a unified interface to subscribe to your favorite comics through RSS.
+ComicCaster is a web application that generates RSS feeds for comics from multiple sources: GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, Creators Syndicate, and Mr. Boffo. It provides a unified interface to subscribe to your favorite comics through RSS.
 
 ## Features
 

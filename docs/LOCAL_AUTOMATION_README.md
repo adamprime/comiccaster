@@ -252,7 +252,7 @@ python scripts/check_scrape_counts.py data/tinyview_2026-08-03.json
 
 Recovery is a re-scrape plus that source's generator, then commit — the same steps as any single-source failure. Notes on the thresholds:
 
-- Minimums live in `SOURCE_RULES` and are set well below observed floors, to catch a collapse rather than police daily wobble. **Re-check them when a catalog changes** — both CK (119 → 153) and GoComics (~85 → ~250) have grown, which is why pre-2026-06 files trip the check.
+- Minimums live in `SOURCE_RULES` and are set well below observed floors, to catch a collapse rather than police daily wobble. **Re-check them when a catalog changes** — both CK (119 → 153 → 150) and GoComics (~85 → ~250) have moved, which is why pre-2026-06 files trip the check. CK's drop to 150 on 2026-08-24 is the worked example: four comics moved to GoComics and one was added, so the expected daily count changed even though nothing about the scraper did.
 - `farside_new` is exempt at `minimum: 0`. It has published once in the life of the feed, so empty is its normal state, not a masked bug. `farside_daily` is the opposite and is asserted `>= 1`.
 - An unregistered source passes with a printed warning, so adding a scraper cannot turn its first run red. Register it in `SOURCE_RULES` or its count is never verified.
 

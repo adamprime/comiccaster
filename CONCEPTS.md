@@ -13,6 +13,16 @@ A Source that ComicCaster scrapes itself and whose RSS feed ComicCaster generate
 ### External-RSS source
 A Source that already publishes its own native RSS feed; ComicCaster simply points subscribers at that publisher feed URL and runs no scrape/generate pipeline for it.
 
+### Feed identity
+The slug is the feed's identity: one slug means one file at `/feeds/<slug>.xml`, owned by exactly one feed-generating Source. Two Sources claiming the same slug is not a merge — each generator writes the whole file, so whichever runs last wins and the other's content is destroyed. Because the `<guid>` changes with the source, subscribers see each overwrite as new items and receive the same strip repeatedly. This is asserted in `tests/test_catalog_source_integrity.py` rather than left to convention, because the pipeline reports success either way.
+
+A comic's declared `source` is the authority on ownership, and its `url` must name the same host — the two disagreeing is the signature of a catalog entry that was bulk-edited without its url being updated.
+
+### Source slug
+The identifier a Source serves a comic under, when that differs from the slug ComicCaster files the feed under (`source_slug` in the catalog, defaulting to `slug`). Needed when two Sources carry genuinely different runs of the same comic: Comics Kingdom and GoComics both publish Edge City, but from different years of its archive, so each run is a distinct work needing its own feed while upstream still knows only one path.
+
+Two Sources carrying the same comic is not automatically two works. Establish which case you are in by comparing the actual strips — identical art means pick one Source and drop the other; genuinely different runs mean give each its own slug. The date printed in the artwork cannot settle it, since it carries no year.
+
 ### Reauth
 The manual, human-in-the-loop browser login that re-seeds the stored browser session an authenticated Source's scrape depends on. Distinct from an automated token refresh: the operator types the credentials themselves, because the upstream bot check rejects scripted fills, and the resulting session is written into a persistent browser profile that later unattended runs consume.
 

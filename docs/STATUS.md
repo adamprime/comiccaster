@@ -1,15 +1,15 @@
 # Project Status
-<!-- Updated: 2026-07-20 by Claude Code -->
+<!-- Updated: 2026-08-25 by Claude Code -->
 
 ## Project Overview
 ComicCaster aggregates comics from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, Creators Syndicate, Mr. Boffo, and first-party external RSS feeds into standards-compliant RSS feeds and OPML bundles. A Python pipeline handles scraping and feed generation where ComicCaster owns the feed; external RSS entries link directly to publisher-provided feeds. Netlify serves the static site and feed files.
 
 ## Current State
-Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with no observed regressions; daily runs report all-success on most days, with the expected weekly CK session refresh handled manually via `reauth_comicskingdom.py`. Since the last status update, the External RSS catalog (PR #139) and two-pass GoComics scrape (PR #140) both merged, **Mr. Boffo** was added as the seventh self-hosted source (PRs #154–159, including an HTTPS migration that dropped the image proxy), the Far Side proxy was hardened against SSRF (#156), and ChromeDriver now auto-resolves via webdriver-manager (#149). As of 2026-07-20, **all** Selenium scrapers resolve their driver via `build_chrome_driver` — the last raw-`webdriver.Chrome()` holdout (`tinyview_scraper_secure.py`, which the #149 migration missed and which the nightly TinyView pipeline imports) was closed, ending PATH-driver drift as a source of silent scrape gaps. No PRs are open. The dependency stream is current as of 2026-07-20 (pytest 9.1.1, selenium 4.46.0, actions/checkout v7, actions/setup-python v7).
+Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with no observed regressions; daily runs report all-success on most days, with the expected weekly CK session refresh handled manually via `reauth_comicskingdom.py`. Since the last status update, the External RSS catalog (PR #139) and two-pass GoComics scrape (PR #140) both merged, **Mr. Boffo** was added as the seventh self-hosted source (PRs #154–159, including an HTTPS migration that dropped the image proxy), the Far Side proxy was hardened against SSRF (#156), and ChromeDriver now auto-resolves via webdriver-manager (#149). As of 2026-07-20, **all** Selenium scrapers resolve their driver via `build_chrome_driver` — the last raw-`webdriver.Chrome()` holdout (`tinyview_scraper_secure.py`, which the #149 migration missed and which the nightly TinyView pipeline imports) was closed, ending PATH-driver drift as a source of silent scrape gaps. No PRs are open. The dependency stream is current as of 2026-08-25: **direct** deps (selenium 4.47.0, feedgen 1.0.0, pytest 9.1.1, pytz 2026.3.post1, feedparser 6.0.14, APScheduler 3.11.3, python-dotenv 1.2.3) and, for the first time, **transitive** deps too — the host venv's full 50-package set is now locked in `constraints.txt`, closing a drift channel that had left certifi five months stale while every signal in a dependency PR read as "shipped".
 
 **Phase:** Maintenance (active)
-**Last Session:** 2026-07-20
-**Last Session Summary:** Dependency merges + TinyView driver-drift fix. (1) Merged two green Dependabot PRs — #166 (actions/setup-python 6→7) and #167 (selenium 4.45.0→4.46.0); both low-risk (setup-python's removed inputs/EOL Pythons don't apply here, and CI ran the test matrix on the new versions). (2) Fixed the last raw-driver holdout: `tinyview_scraper_secure.py::setup_driver` now builds its driver via `build_chrome_driver` instead of raw `webdriver.Chrome()`. The 2026-06-09 (#149) migration missed this one, and because the nightly `tinyview_scraper_local_authenticated.py` imports `setup_driver` from it, that single raw constructor left the whole TinyView pipeline dependent on a PATH `chromedriver` — the root cause of a silent Jul 19–20 data gap after Chrome auto-updated 149→150. Added a guard test asserting the shared helper is used. Verified end-to-end: webdriver-manager auto-resolved chromedriver 150.0.7871.124 to match Chrome 150. (3) Recovered the gap — manual rescrape wrote `data/tinyview_2026-07-20.json` (4 comics) and regenerated/pushed the affected feeds (itchy-feet, nick-anderson, student-bill, the-other-end). (4) Captured the fix as `docs/solutions/best-practices/scrapers-must-use-build-chrome-driver.md`. Current suite: **341 tests** passing.
+**Last Session:** 2026-08-25
+**Last Session Summary:** Dependency sweep + a subscriber-visible feed bug found while doing it. (1) Cleared the entire Dependabot backlog and bumped feedgen 0.9.0 → 1.0.0, which had been frozen 2.5 years because closing PR #4 in 2025 permanently suppressed that version. (2) Found the host venv was two selenium minors behind `requirements.txt` — merging dependency PRs never touched `venv/`, so bumps weren't reaching production. (3) Ran a four-stage transitive refresh (certifi → lxml/soupsieve → urllib3/idna/charset-normalizer → the rest) and locked all 50 packages in `constraints.txt`. (4) Fixed a cross-source collision: four slugs were claimed by both GoComics and Comics Kingdom, so the two generators overwrote each other twice daily and subscribers got every strip twice. Edge City turned out to be two genuinely different runs (GoComics ©2011, CK ©2006), so CK's became `edge-city-classic`, backfilled to 87 entries. Current suite: **499 tests** passing.
 
 ## What's Working
 <!-- Features/systems that are shipped and stable. Keep this current. -->
@@ -21,9 +21,9 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 - Invariant guard between Phase 2 and Phase 3 catches silent scrape regressions (scrape reports success but its dated JSON is missing)
 - Comics Kingdom authentication uses a persistent Chrome profile at `~/.comicskingdom_chrome_profile` (Shape A); `reauth_comicskingdom.py` is the operator entry point for refresh
 - Chrome boundary instrumentation in `_individual` — timestamped log lines at every `driver.get` make hang-site localization a grep
-- 341-test suite passing across Python 3.10 / 3.11 / 3.12 (grew from 289 with the Mr. Boffo source, the external-RSS / two-pass GoComics work, TinyView profile-permission tests, and the TinyView driver-builder guard test)
+- 499-test suite passing across Python 3.10 / 3.11 / 3.12 (grew from 341 with catalog source-integrity guards, GoComics source-ownership tests, and `source_slug` coverage)
 - All seven Selenium scrapers build their driver via `comiccaster.webdriver_setup.build_chrome_driver` (webdriver-manager auto-matches ChromeDriver to installed Chrome); no production scraper depends on a PATH-pinned `chromedriver`
-- 312 GoComics feeds, ~153 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, 10 Creators feeds, and Mr. Boffo (single daily strip) updating daily
+- 461 GoComics feeds, 150 Comics Kingdom feeds, TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, 10 Creators feeds, and Mr. Boffo (single daily strip) updating daily. CK moved 153 → 150 on 2026-08-24: four comics (broomhilda, edge-city, pluggers, shoe) were reassigned to GoComics, and `edge-city-classic` was added for CK's separate run of Edge City
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled; **zero open CodeQL alerts**
 - Consistent comic strip sizing (max-width: 700px) and centering across all sources (#105)
@@ -42,7 +42,7 @@ _Nothing in flight. No open PRs; working tree clean on `main`._
 
 1. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
 
-_Cleared this session (2026-07-20): merged Dependabot #166 (actions/setup-python v7) and #167 (selenium 4.46.0); fixed the TinyView raw-driver holdout (now on `build_chrome_driver`, with a guard test); recovered the Jul 19–20 TinyView data gap; captured the driver solution doc._
+_Cleared 2026-08-24/25: merged all five open Dependabot PRs (#163, #170, #182, #186, #189) plus feedgen 1.0.0 (#192); pinned setup-chrome (#190); put the shipped npm dep under Dependabot (#191); fixed the cross-source feed collision (#193); completed a four-stage transitive refresh and locked it in `constraints.txt`._
 
 ## Open Decisions
 <!-- Architectural or product decisions that haven't been made yet. -->
@@ -62,7 +62,8 @@ _Cleared this session (2026-07-20): merged Dependabot #166 (actions/setup-python
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 341 passing, requires Python ≥3.10
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 499 passing, requires Python ≥3.10
+**Install (pipeline host):** `venv/bin/python -m pip install -r requirements.txt -c constraints.txt` — the constraints file pins transitives so the host venv is reproducible; CI deliberately installs unconstrained as a canary
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
 **Production pipeline:** see [docs/LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) and [docs/DEPLOYMENT.md](DEPLOYMENT.md)
@@ -92,6 +93,18 @@ Between Phase 2 and Phase 3, an invariant guard checks that every successful scr
 
 ## Session Log
 <!-- Brief log of recent sessions. Newest first. Delete entries older than 30 days. -->
+
+### 2026-08-24 / 2026-08-25
+- **Goal:** Clear the open Dependabot PRs, then whatever else the sweep turned up.
+- **Accomplished:**
+  - Merged all five open Dependabot PRs (#163 apscheduler, #170 pytz, #182 feedparser, #186 selenium 4.47.0, #189 python-dotenv) after testing the combined set in a throwaway venv rather than trusting five independent CI runs. #186/#189 needed a Dependabot rebase after the first merges.
+  - **feedgen 0.9.0 → 1.0.0 (#192).** It builds every feed we serve and had been stuck 2.5 years — Dependabot proposed it in PR #4, that PR was closed unmerged on 2025-06-25, and closing a Dependabot PR permanently suppresses that version. Verified beyond the (heavily mocked) unit suite: generated feed XML from real scraped data was byte-identical between versions once the timestamp was normalized. Same discovery pattern retired `requests-mock`, which was pinned, suppressed by the same 2025 batch-close, and used by zero tests.
+  - **The host venv had drifted from `requirements.txt`** (selenium 4.44.0 installed vs 4.46.0 pinned). CI installs fresh so it always tests the new version; Netlify redeploys on push; the nightly run keeps reporting ALL SUCCESS — none of which touch `venv/`, which is what the scrapers actually execute. Captured as `docs/solutions/best-practices/requirements-bumps-dont-reach-the-pipeline-venv.md`.
+  - **Four-stage transitive refresh**, one group at a time with a gate each: certifi; lxml/soupsieve; urllib3/idna/charset-normalizer; then the remainder incl. tzlocal. Ended with `constraints.txt` locking all 50 packages. Two findings worth keeping: lxml reaches production only through feedgen (all 22 BeautifulSoup calls use `'html.parser'`), so the feed-XML diff was the gate that mattered; and a New Yorker payload that looked like a parsing regression was upstream drift — proven by re-scraping on the OLD libraries in the same minute. A baseline taken hours earlier is not a control.
+  - **Fixed a cross-source feed collision (#193).** `broomhilda`, `edge-city`, `pluggers`, `shoe` were claimed by both GoComics and Comics Kingdom; both generators write `public/feeds/<slug>.xml`, so pass 1 (ending with CK) and pass 2 (GoComics alone) overwrote each other daily — changing `<guid>` each time, so subscribers received every strip twice. Root cause was two layers: commit `11e401b688` (2025-11-15) stamped `source: comicskingdom` onto pre-existing GoComics entries without updating their `url`, and `generate_gocomics_feeds.py` filtered on nothing while the CK generator had always filtered on `source`.
+  - **Edge City needed a different fix from the other three.** Broom Hilda / Pluggers / Shoe are identical strips from two distributors (perceptual correlation r≈0.99 same-day), so the tiebreak was delivery reliability — GoComics 83/83 days vs CK 79–80/83. Edge City is two genuinely different runs: GoComics ©2011, CK ©2006, with no correlation at any offset in a ±16-day window. CK's run became `edge-city-classic` via a new `source_slug` field, backfilled from 276 days of its own history (filed under the old shared slug) to 87 entries.
+  - Also: pinned `browser-actions/setup-chrome` to `@v2` (#190) — it was floating on `@latest` in the workflow that gates every PR; and pointed Dependabot's npm config at `/` (#191), which had been managing two unused packages while ignoring `rss-parser`, the only npm package that actually ships.
+- **Verification:** ran a full Pass 1 manually (all seven sources green) to prove the collision fix in production; the unattended 03:05 run on 08-25 then validated the dependency work — all 8 invariants passed, CK exactly 150, GoComics 243, no mojibake, no issues opened.
 
 ### 2026-07-20
 - **Goal:** Evaluate/merge Dependabot PRs #166 & #167; review this morning's TinyView reauth output.
