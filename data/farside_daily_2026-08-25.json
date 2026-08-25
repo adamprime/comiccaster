@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-25",
+  "scraped_at": "2026-08-25T08:19:40.983930+00:00",
+  "comics": [
+    {
+      "id": "22640",
+      "date": "2026-08-25",
+      "url": "https://www.thefarside.com/2026/08/25/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffcd28850cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fcd28850cdd40137c56b005056a9545d",
+      "caption": "\u201cGod help us all.\u201d",
+      "title": "\u201cGod help us all"
+    },
+    {
+      "id": "22641",
+      "date": "2026-08-25",
+      "url": "https://www.thefarside.com/2026/08/25/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F08b8a8e0fa860137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/08b8a8e0fa860137d52f005056a9545d",
+      "caption": "\u201cYou\u2019re damn lucky, Saunders. ... If that rhino had really respected you as an enemy, he\u2019d have done a helluva lot more than just walk up and slap your face.\u201d",
+      "title": "\u201cYou\u2019re damn lucky, Saunders"
+    },
+    {
+      "id": "22642",
+      "date": "2026-08-25",
+      "url": "https://www.thefarside.com/2026/08/25/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc4e1f3d0d83901396fe6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c4e1f3d0d83901396fe6005056a9545d",
+      "caption": "\u201cAnd when I got home, Harold\u2019s coat and hat were gone, his worries were on the doorstep, and Gladys Mitchell, my neighbor, says she saw him heading west, on the sunny side of the street.\u201d",
+      "title": "\u201cAnd when I got home, Harold\u2019s coat and hat were gone, hi..."
+    },
+    {
+      "id": "22643",
+      "date": "2026-08-25",
+      "url": "https://www.thefarside.com/2026/08/25/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8d2cc1a0e4780137cd9d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8d2cc1a0e4780137cd9d005056a9545d",
+      "caption": "The Squid family on vacation",
+      "title": "The Squid family on vacation"
+    },
+    {
+      "id": "22644",
+      "date": "2026-08-25",
+      "url": "https://www.thefarside.com/2026/08/25/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcd510f50d19e0137c68e005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cd510f50d19e0137c68e005056a9545d",
+      "caption": "Suddenly, a heated exchange took place between the king and the moat contractor.",
+      "title": "Suddenly, a heated exchange took place between the king a..."
+    }
+  ]
+}
