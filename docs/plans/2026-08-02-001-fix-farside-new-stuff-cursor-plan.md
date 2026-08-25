@@ -18,7 +18,12 @@ related_docs:
 
 ## Status
 
-**Root cause identified 2026-08-02. Not yet fixed — needs a product decision first.**
+**Root cause identified 2026-08-02. PARKED 2026-08-25 — no action needed for now.**
+
+The operator re-confirmed on 2026-08-25 that Far Side New Stuff has been completely
+static, so restoring the scraper would recover the existing back catalogue and nothing
+further. The decision to keep the feed still stands; only the work is deferred. Resume
+if New Stuff starts publishing again, or if the empty feed draws a complaint.
 
 Found incidentally while verifying repo state after the power-outage catch-up run.
 Unrelated to that outage.

@@ -40,7 +40,7 @@ _Nothing in flight. No open PRs; working tree clean on `main`._
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
 
-1. **Restore the Far Side New Stuff scrape** — `docs/plans/2026-08-02-001-fix-farside-new-stuff-cursor-plan.md`. The feed has been empty since launch; bot protection blocks the scraper. Keeping the feed is already decided; what's open is whether New Stuff is a browsable archive or a rotating window (which decides whether the cursor's `>` guard is correct), and that can't be settled until the block is cleared. Not urgent — `farside_new` is exempt at minimum 0 in `SOURCE_RULES` by design, so it never trips the guard.
+1. **(Parked 2026-08-25 — operator: no action needed.)** ~~Restore the Far Side New Stuff scrape~~ — `docs/plans/2026-08-02-001-fix-farside-new-stuff-cursor-plan.md`. The feed has been empty since launch; bot protection blocks the scraper. Keeping the feed is already decided; what's open is whether New Stuff is a browsable archive or a rotating window (which decides whether the cursor's `>` guard is correct), and that can't be settled until the block is cleared. Not urgent — `farside_new` is exempt at minimum 0 in `SOURCE_RULES` by design, so it never trips the guard. **The operator re-confirmed on 2026-08-25 that New Stuff has been completely static**, so a working scraper would recover the existing back catalogue and nothing more. Parked deliberately, not forgotten: pick it up only if New Stuff starts publishing again, or if the empty feed itself becomes a complaint.
 
 _Done 2026-08-05, previously listed here: **generalize the entry-count invariant across sources** — `298e547fdb` gave all 8 sources a minimum in `SOURCE_RULES`, so a scrape that writes a file but no data now fails._
 
