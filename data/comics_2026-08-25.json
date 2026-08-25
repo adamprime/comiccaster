@@ -1,10 +1,34 @@
 [
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/d4eb15c082c4013fc5a1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-25",
+    "url": "https://www.gocomics.com/robert-ariail/2026/08/25",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/3ce0dde082c5013fc5a1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-25",
+    "url": "https://www.gocomics.com/robrogers/2026/08/25",
+    "category": "political"
+  },
+  {
     "name": "Phil Hands",
     "slug": "phil-hands",
     "image_url": "https://featureassets.gocomics.com/assets/813978f0823d013fc588005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-25",
     "url": "https://www.gocomics.com/phil-hands/2026/08/25",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/c8b1548082d3013fc5a7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-25",
+    "url": "https://www.gocomics.com/nickanderson/2026/08/25",
     "category": "political"
   },
   {
@@ -16,11 +40,27 @@
     "category": "political"
   },
   {
+    "name": "Lalo Alcaraz",
+    "slug": "laloalcaraz",
+    "image_url": "https://featureassets.gocomics.com/assets/156abac082d0013fc5a5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-25",
+    "url": "https://www.gocomics.com/laloalcaraz/2026/08/25",
+    "category": "political"
+  },
+  {
     "name": "John Deering",
     "slug": "johndeering",
     "image_url": "https://featureassets.gocomics.com/assets/cc4b8a80825e013fc591005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-25",
     "url": "https://www.gocomics.com/johndeering/2026/08/25",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/c9ea8c6082d3013fc5a7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-25",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/08/25",
     "category": "political"
   },
   {
@@ -1336,6 +1376,14 @@
     "category": "daily"
   },
   {
+    "name": "Maria s Day",
+    "slug": "marias-day",
+    "image_url": "https://featureassets.gocomics.com/assets/5c83177082d0013fc5a5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-25",
+    "url": "https://www.gocomics.com/marias-day/2026/08/25",
+    "category": "daily"
+  },
+  {
     "name": "Maintaining",
     "slug": "maintaining",
     "image_url": "https://featureassets.gocomics.com/assets/0c7045a05eff012ee3bf00163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -1677,6 +1725,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/a4b451f07800013fc33d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-25",
     "url": "https://www.gocomics.com/ten-cats/2026/08/25",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/d7ba298082a1013fc598005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-25",
+    "url": "https://www.gocomics.com/tavicat/2026/08/25",
     "category": "daily"
   },
   {

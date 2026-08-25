@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/b650e760820c013fc572005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-23",
+    "url": "https://www.gocomics.com/nickanderson/2026/08/23",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/736210007f49013fc507005056a9545d?optimizer=image&width=2800&quality=85",
@@ -16,11 +24,27 @@
     "category": "political"
   },
   {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/f6c4c5a082cb013fc5a4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-23",
+    "url": "https://www.gocomics.com/mattdavies/2026/08/23",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/11be73107eee013fc4e2005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-23",
     "url": "https://www.gocomics.com/jeffstahler/2026/08/23",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/7f4657508210013fc575005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-23",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/08/23",
     "category": "political"
   },
   {
