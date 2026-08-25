@@ -1,0 +1,77 @@
+# Transitive dependency lock for the pipeline host, first written 2026-08-25.
+#
+# requirements.txt states what we DEPEND ON. This file records what actually
+# RESOLVED. Keeping them separate is deliberate: pinning transitives directly
+# in requirements.txt would conflate intent with resolution.
+#
+# Why this exists: pip will not advance a transitive dependency that is already
+# installed and still satisfies its range, so the host venv drifts silently and
+# is not reproducible from anything in the repo. On 2026-08-24 that had left
+# certifi five months stale -- a latent TLS risk against any source rotating to
+# a newly cross-signed root.
+#
+# Install the host venv with:
+#     venv/bin/python -m pip install -r requirements.txt -c constraints.txt
+#
+# To intentionally move transitives, upgrade them, verify, then regenerate:
+#     venv/bin/python -m pip freeze --exclude-editable > constraints.txt
+# (--exclude-editable matters: a plain freeze emits comiccaster itself as a
+# git+ssh URL pinned to an old SHA, which makes a restore try to re-clone.)
+#
+# CI deliberately does NOT use this file. CI installing unconstrained acts as a
+# canary for new transitive releases, while the host stays reproducible. A CI
+# failure the host does not reproduce means "a transitive broke us" -- worth
+# investigating before the next refresh.
+#
+# Verified 2026-08-25: pytest 499 passed; 341/341 regenerated feeds
+# byte-identical to production output; APScheduler timezone resolution unchanged.
+APScheduler==3.11.3
+attrs==26.1.0
+beautifulsoup4==4.15.0
+blinker==1.9.0
+brotli==1.2.0
+certifi==2026.7.22
+charset-normalizer==3.5.1
+click==8.4.2
+coverage==7.15.4
+feedgen==1.0.0
+feedparser==6.0.14
+feedparser-sgmllib==2.1.0
+Flask==3.1.3
+h11==0.16.0
+idna==3.19
+iniconfig==2.3.0
+itsdangerous==2.2.0
+Jinja2==3.1.6
+lxml==6.1.2
+MarkupSafe==3.0.3
+outcome==1.3.0.post0
+packaging==26.3
+pluggy==1.6.0
+Pygments==2.21.0
+PySocks==1.7.1
+pytest==9.1.1
+pytest-cov==7.1.0
+pytest-mock==3.15.1
+python-dateutil==2.9.0.post0
+python-dotenv==1.2.3
+pytz==2026.3.post1
+PyYAML==6.0.3
+requests==2.34.2
+requests-toolbelt==1.0.0
+selenium==4.47.0
+sgmllib3k==1.0.0
+six==1.17.0
+sniffio==1.3.1
+sortedcontainers==2.4.0
+soupsieve==2.9.2
+tls-client==1.0.1
+trio==0.33.0
+trio-websocket==0.12.2
+typing_extensions==4.16.0
+tzlocal==5.4.4
+urllib3==2.7.0
+webdriver-manager==4.1.2
+websocket-client==1.9.0
+Werkzeug==3.1.8
+wsproto==1.3.2

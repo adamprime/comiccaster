@@ -14,6 +14,10 @@ pip install -r requirements.txt
 pip install -e .
 npm install
 
+# On the pipeline host, install against the transitive lock so the venv is
+# reproducible (see constraints.txt for why):
+#   venv/bin/python -m pip install -r requirements.txt -c constraints.txt
+
 # Run tests
 pytest -v
 pytest -v --cov=comiccaster --cov-report=term-missing

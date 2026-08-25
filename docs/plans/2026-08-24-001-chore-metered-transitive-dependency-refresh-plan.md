@@ -17,7 +17,7 @@ related_docs:
 
 ## Status
 
-**Stages 0-3 complete 2026-08-24. Stage 4 pending.**
+**COMPLETE. Stages 0-3 on 2026-08-24, Stage 4 and constraints.txt on 2026-08-25.**
 
 Written after a dependency sweep found the host venv's `certifi` five months
 stale. Deliberately staged rather than done in one pass, because these packages
@@ -31,7 +31,9 @@ sit directly under the scrapers.
 | 1 — certifi | 2026-08-24 | 2026.2.25 → 2026.7.22. `pip freeze` diff = exactly one line. Gate: 491 passed; 0 TLS failures across all 7 sources + the CK B2C login host; feed-regen diff 502/506 byte-identical. |
 | 2 — lxml, soupsieve | 2026-08-24 | 6.0.2→6.1.2 / 2.8.3→2.9.2. `pip freeze` diff = exactly 2 lines. Gate: 499 passed; live Creators scrape byte-identical to the morning's scrape on the old libs; 341/341 regenerated GoComics feeds byte-identical to the feeds Pass 2 had just committed on lxml 6.0.2. |
 | 3 — urllib3, idna, charset-normalizer | 2026-08-24 | 2.6.3→2.7.0 / 3.11→3.19 / 3.4.6→3.5.1. `pip freeze` diff vs baseline = exactly 6 lines across all three stages. Gate: 499 passed; 0 TLS failures across all 7 sources + CK's B2C login host; a live Creators scrape byte-identical to the morning's committed scrape on the old stack; Selenium/ChromeDriver opened, loaded a real Comics Kingdom page and quit cleanly on urllib3 2.7.0. |
-| 4 — remainder | pending | after the 03:05 run validates Stages 2-3 |
+| — | 2026-08-25 | **Stages 2-3 VALIDATED** by the unattended 03:05 run (`ca35686b39`): all 8 invariants passed, Comics Kingdom exactly 150, GoComics 243, no mojibake, the 4 reassigned feeds still GoComics-only, zero pipeline issues. |
+| 4 — remainder | 2026-08-25 | click 8.3.1→8.4.2, Werkzeug 3.1.6→3.1.8, Pygments 2.19.2→2.21.0, coverage 7.13.5→7.15.4, packaging 26.0→26.3, typing_extensions 4.15.0→4.16.0, tzlocal 5.3.1→5.4.4, pip. Gate: tzlocal/APScheduler timezone resolution byte-identical before vs after (incl. both DST transition dates); 499 passed **with coverage enabled**, exercising the new coverage; 341/341 regenerated feeds byte-identical to what Pass 1 had committed that morning on the pre-Stage-4 set. |
+| structural — constraints.txt | 2026-08-25 | 50 packages locked. `pip install -r requirements.txt -c constraints.txt` dry-run resolves clean. CI deliberately left unconstrained as a canary. |
 
 **Stages 2 and 3 were both done on 2026-08-24, against this plan's "one stage
 per day" rule.** The rule exists for attribution, and attribution was preserved:
