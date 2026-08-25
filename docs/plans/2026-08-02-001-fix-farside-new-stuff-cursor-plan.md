@@ -152,6 +152,31 @@ after the access problem is solved, and only in light of decision 2 below.
    *permanently suppress* every lower-id comic — strictly worse than today. Confirm
    which before touching the cursor comparison.
 
+   **Evidence gathered 2026-08-25 — the "396 then 363" case is real, and intermittent.**
+   The dated scrape files record the cursor move explicitly. Across the last 14 days:
+
+   ```
+   08-12..08-20  396 -> 396   comics=0     (11 of 14 days: no movement)
+   08-21         396 -> 363   comics=0
+   08-24         396 -> 363   comics=0
+   08-25         396 -> 363   comics=0
+   ```
+
+   So ids **do** move backwards, exactly the pattern that would make a `>` guard
+   permanently suppress lower-id comics. But this does **not** settle the decision,
+   and should not be treated as proof of a rotating window: `comics` is empty on
+   every one of those days, so the scraper was blocked each time, and a `363` parsed
+   off a challenge interstitial is indistinguishable from a genuine lower id while
+   the block persists. A constant artifact would likely appear every day rather than
+   3 days in 14 — which is suggestive, not conclusive.
+
+   **Decision 2 is therefore blocked on decision 3, not independent of it.** Clear the
+   bot protection first; only then is the id trustworthy enough to classify.
+
+   (Note the cursor file never persists: the pipeline `git reset --hard`s it at the
+   start of every run, so it resets to 396 and re-moves each day. The 363 is never
+   committed, which is why this was invisible until someone watched a run.)
+
 3. **How to get past the challenge?** Prefer the approach this repo already uses for
    GoComics / Comics Kingdom / TinyView: a **persistent real Chrome profile** rather
    than a bare headless driver (see `docs/AUTHENTICATED_SCRAPING_README.md` and

@@ -40,7 +40,9 @@ _Nothing in flight. No open PRs; working tree clean on `main`._
 ## What's Next
 <!-- Prioritized backlog. Top item = next thing to work on. -->
 
-1. **Generalize entry-count invariant across sources** — deferred from the original CK reliability plan. Useful across GoComics, TinyView, Creators, etc. Revisit only if partial-scrape incidents become observed.
+1. **Restore the Far Side New Stuff scrape** — `docs/plans/2026-08-02-001-fix-farside-new-stuff-cursor-plan.md`. The feed has been empty since launch; bot protection blocks the scraper. Keeping the feed is already decided; what's open is whether New Stuff is a browsable archive or a rotating window (which decides whether the cursor's `>` guard is correct), and that can't be settled until the block is cleared. Not urgent — `farside_new` is exempt at minimum 0 in `SOURCE_RULES` by design, so it never trips the guard.
+
+_Done 2026-08-05, previously listed here: **generalize the entry-count invariant across sources** — `298e547fdb` gave all 8 sources a minimum in `SOURCE_RULES`, so a scrape that writes a file but no data now fails._
 
 _Cleared 2026-08-24/25: merged all five open Dependabot PRs (#163, #170, #182, #186, #189) plus feedgen 1.0.0 (#192); pinned setup-chrome (#190); put the shipped npm dep under Dependabot (#191); fixed the cross-source feed collision (#193); completed a four-stage transitive refresh and locked it in `constraints.txt`._
 
