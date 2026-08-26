@@ -1,10 +1,50 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/732b54f08357013fc5c9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/two-party-opera/2026/08/26",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/b2ec31b07efe013fc4ee005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-26",
     "url": "https://www.gocomics.com/ted-rall/2026/08/26",
+    "category": "political"
+  },
+  {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/a91c2e408396013fc5d7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/08/26",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/c26605a08398013fc5d9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/nickanderson/2026/08/26",
+    "category": "political"
+  },
+  {
+    "name": "Mike Lester",
+    "slug": "mike-lester",
+    "image_url": "https://featureassets.gocomics.com/assets/28edcd208387013fc5d1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/mike-lester/2026/08/26",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/57920750838b013fc5d2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/mattdavies/2026/08/26",
     "category": "political"
   },
   {
@@ -21,6 +61,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/0e8e74108324013fc5c2005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-26",
     "url": "https://www.gocomics.com/johndeering/2026/08/26",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/9142d7408394013fc5d5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/08/26",
     "category": "political"
   },
   {
@@ -480,11 +528,27 @@
     "category": "daily"
   },
   {
+    "name": "Bacon",
+    "slug": "bacon",
+    "image_url": "https://featureassets.gocomics.com/assets/8f51d0608369013fc5ca005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/bacon/2026/08/26",
+    "category": "daily"
+  },
+  {
     "name": "Back to B C",
     "slug": "back-to-bc",
     "image_url": "https://featureassets.gocomics.com/assets/94695a207007013fc168005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-26",
     "url": "https://www.gocomics.com/back-to-bc/2026/08/26",
+    "category": "daily"
+  },
+  {
+    "name": "Ike",
+    "slug": "backintheday",
+    "image_url": "https://featureassets.gocomics.com/assets/9451c8608369013fc5ca005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/backintheday/2026/08/26",
     "category": "daily"
   },
   {
@@ -621,6 +685,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/8194f4207c97013fc429005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-26",
     "url": "https://www.gocomics.com/9-chickweed-lane/2026/08/26",
+    "category": "daily"
+  },
+  {
+    "name": "1 And Done",
+    "slug": "1-and-done",
+    "image_url": "https://featureassets.gocomics.com/assets/9fbb1f208369013fc5ca005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/1-and-done/2026/08/26",
     "category": "daily"
   },
   {
@@ -816,6 +888,14 @@
     "category": "daily"
   },
   {
+    "name": "Geech",
+    "slug": "geech",
+    "image_url": "https://featureassets.gocomics.com/assets/d6d47d507442012ee3c400163e41dd5b?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/geech/2026/08/26",
+    "category": "daily"
+  },
+  {
     "name": "Gasoline Alley",
     "slug": "gasolinealley",
     "image_url": "https://featureassets.gocomics.com/assets/af946d307c7b013fc41e005056a9545d?optimizer=image&width=2800&quality=85",
@@ -973,6 +1053,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/99bbad30a5540131428e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-26",
     "url": "https://www.gocomics.com/familytree/2026/08/26",
+    "category": "daily"
+  },
+  {
+    "name": "Endtown",
+    "slug": "endtown",
+    "image_url": "https://featureassets.gocomics.com/assets/92687a408370013fc5cb005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-26",
+    "url": "https://www.gocomics.com/endtown/2026/08/26",
     "category": "daily"
   },
   {
