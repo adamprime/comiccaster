@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-26",
+  "scraped_at": "2026-08-26T08:20:35.960092+00:00",
+  "comics": [
+    {
+      "id": "22645",
+      "date": "2026-08-26",
+      "url": "https://www.thefarside.com/2026/08/26/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F10dce590dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/10dce590dcca0137caaf005056a9545d",
+      "caption": "Creative dog writing",
+      "title": "Creative dog writing"
+    },
+    {
+      "id": "22646",
+      "date": "2026-08-26",
+      "url": "https://www.thefarside.com/2026/08/26/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F050822a0e9f00137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/050822a0e9f00137cf93005056a9545d",
+      "caption": "\u201cYou\u2019re a right-brained sort of person, Mr. Sommersby\u2014very creative, artistic, etc. ... Unfortunately, I think I also see why you\u2019re having trouble figuring out your gas mileage.\u201d",
+      "title": "\u201cYou\u2019re a right-brained sort of person, Mr"
+    },
+    {
+      "id": "22647",
+      "date": "2026-08-26",
+      "url": "https://www.thefarside.com/2026/08/26/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F03b67d20dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/03b67d20dcca0137caaf005056a9545d",
+      "caption": "When flight mechanisms become flooded",
+      "title": "When flight mechanisms become flooded"
+    },
+    {
+      "id": "22648",
+      "date": "2026-08-26",
+      "url": "https://www.thefarside.com/2026/08/26/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5c99ed00d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5c99ed00d8ba0137c959005056a9545d",
+      "caption": "\u201cWell, she\u2019s done it to me again \u2026 Tuna fish!\u201d",
+      "title": "\u201cWell, she\u2019s done it to me again \u2026 Tuna fish!\u201d"
+    },
+    {
+      "id": "22649",
+      "date": "2026-08-26",
+      "url": "https://www.thefarside.com/2026/08/26/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F57d0d5a0e4860137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/57d0d5a0e4860137cda5005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22649"
+    }
+  ]
+}
