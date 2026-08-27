@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-27",
+  "scraped_at": "2026-08-27T08:19:26.125312+00:00",
+  "comics": [
+    {
+      "id": "22650",
+      "date": "2026-08-27",
+      "url": "https://www.thefarside.com/2026/08/27/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2587fb70fa840137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2587fb70fa840137d52f005056a9545d",
+      "caption": "\u201cWouldn\u2019t you know it! ... And always just before a big date!\u201d",
+      "title": "\u201cWouldn\u2019t you know it!"
+    },
+    {
+      "id": "22651",
+      "date": "2026-08-27",
+      "url": "https://www.thefarside.com/2026/08/27/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe3135b60df0f0137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e3135b60df0f0137cbaf005056a9545d",
+      "caption": "The livestock would gather every morning, hoping for one of Farmer Dan\u2019s popular \u201cairplane\u201d rides.",
+      "title": "The livestock would gather every morning, hoping for one ..."
+    },
+    {
+      "id": "22652",
+      "date": "2026-08-27",
+      "url": "https://www.thefarside.com/2026/08/27/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F30564090e4860137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/30564090e4860137cda5005056a9545d",
+      "caption": "\u201cI wasn\u2019t just whistling \u2018Dixie\u2019! \u2026 Sam, were you just whistling \u2018Dixie\u2019?\u201d",
+      "title": "\u201cI wasn\u2019t just whistling \u2018Dixie\u2019! \u2026 Sam, were you just wh..."
+    },
+    {
+      "id": "22653",
+      "date": "2026-08-27",
+      "url": "https://www.thefarside.com/2026/08/27/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe446c060df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e446c060df110137cbaf005056a9545d",
+      "caption": "\u201cWell, that does it! Look at our furniture! The Shuelers have visited us for the last time!\u201d",
+      "title": "\u201cWell, that does it! Look at our furniture! The Shuelers ..."
+    },
+    {
+      "id": "22654",
+      "date": "2026-08-27",
+      "url": "https://www.thefarside.com/2026/08/27/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2e4d97e0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2e4d97e0cdd50137c56b005056a9545d",
+      "caption": "\u201cAnd next, for show-and-tell, Bobby Henderson says he has something he found on the beach last summer. \u2026\u201d",
+      "title": "\u201cAnd next, for show-and-tell, Bobby Henderson says he has..."
+    }
+  ]
+}
