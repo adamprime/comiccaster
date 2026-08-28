@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/58ec923084fd013fc650005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-28",
+    "url": "https://www.gocomics.com/two-party-opera/2026/08/28",
+    "category": "political"
+  },
+  {
     "name": "Tim Campbell",
     "slug": "tim-campbell",
     "image_url": "https://featureassets.gocomics.com/assets/e468e8108495013fc63e005056a9545d?optimizer=image&width=2800&quality=85",
@@ -24,11 +32,51 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/8fb22f508529013fc660005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-28",
+    "url": "https://www.gocomics.com/robrogers/2026/08/28",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/1b8099c084af013fc649005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-28",
     "url": "https://www.gocomics.com/michaelramirez/2026/08/28",
+    "category": "political"
+  },
+  {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/4c00a8908527013fc65f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-28",
+    "url": "https://www.gocomics.com/kal/2026/08/28",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/17f524d0852b013fc662005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-28",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/08/28",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/026aa130851c013fc65c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-28",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/08/28",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/bdc1ef0084e9013fc64f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-28",
+    "url": "https://www.gocomics.com/garyvarvel/2026/08/28",
     "category": "political"
   },
   {
@@ -472,6 +520,14 @@
     "category": "daily"
   },
   {
+    "name": "Ike",
+    "slug": "backintheday",
+    "image_url": "https://featureassets.gocomics.com/assets/db3b07d08509013fc651005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-28",
+    "url": "https://www.gocomics.com/backintheday/2026/08/28",
+    "category": "daily"
+  },
+  {
     "name": "Baby Blues",
     "slug": "babyblues",
     "image_url": "https://featureassets.gocomics.com/assets/8adb01107d4b013fc45c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -605,6 +661,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/8493d3807c97013fc429005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-28",
     "url": "https://www.gocomics.com/9-chickweed-lane/2026/08/28",
+    "category": "daily"
+  },
+  {
+    "name": "1 And Done",
+    "slug": "1-and-done",
+    "image_url": "https://featureassets.gocomics.com/assets/e87999008509013fc651005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-28",
+    "url": "https://www.gocomics.com/1-and-done/2026/08/28",
     "category": "daily"
   },
   {

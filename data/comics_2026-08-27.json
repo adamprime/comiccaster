@@ -8,11 +8,27 @@
     "category": "political"
   },
   {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "image_url": "https://featureassets.gocomics.com/assets/c866030084e9013fc64f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-27",
+    "url": "https://www.gocomics.com/stevebreen/2026/08/27",
+    "category": "political"
+  },
+  {
     "name": "Rob Rogers",
     "slug": "robrogers",
     "image_url": "https://featureassets.gocomics.com/assets/d0004e108463013fc620005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-27",
     "url": "https://www.gocomics.com/robrogers/2026/08/27",
+    "category": "political"
+  },
+  {
+    "name": "Phil Hands",
+    "slug": "phil-hands",
+    "image_url": "https://featureassets.gocomics.com/assets/21505f408485013fc634005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-27",
+    "url": "https://www.gocomics.com/phil-hands/2026/08/27",
     "category": "political"
   },
   {
@@ -40,11 +56,27 @@
     "category": "political"
   },
   {
+    "name": "Matt Wuerker",
+    "slug": "mattwuerker",
+    "image_url": "https://featureassets.gocomics.com/assets/e8056eb08525013fc65e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-27",
+    "url": "https://www.gocomics.com/mattwuerker/2026/08/27",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/564cd9e083fc013fc60b005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-27",
     "url": "https://www.gocomics.com/michaelramirez/2026/08/27",
+    "category": "political"
+  },
+  {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/4a9a44708527013fc65f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-27",
+    "url": "https://www.gocomics.com/kal/2026/08/27",
     "category": "political"
   },
   {
@@ -56,11 +88,43 @@
     "category": "political"
   },
   {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/c83ccae08474013fc628005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-27",
+    "url": "https://www.gocomics.com/joelpett/2026/08/27",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/c54a21108498013fc640005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-27",
+    "url": "https://www.gocomics.com/joe-heller/2026/08/27",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/912c7ae0843c013fc612005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-27",
     "url": "https://www.gocomics.com/jeffstahler/2026/08/27",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/00bdda00851c013fc65c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-27",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/08/27",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/91c4fa60847b013fc62d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-27",
+    "url": "https://www.gocomics.com/henrypayne/2026/08/27",
     "category": "political"
   },
   {
@@ -72,19 +136,19 @@
     "category": "political"
   },
   {
-    "name": "Clay Jones",
-    "slug": "clayjones",
-    "image_url": "https://featureassets.gocomics.com/assets/9034f1f0839a013fc5dc005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-08-27",
-    "url": "https://www.gocomics.com/clayjones/2026/08/27",
-    "category": "political"
-  },
-  {
     "name": "Chip Bok",
     "slug": "chipbok",
     "image_url": "https://featureassets.gocomics.com/assets/345c93f083e3013fc607005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-27",
     "url": "https://www.gocomics.com/chipbok/2026/08/27",
+    "category": "political"
+  },
+  {
+    "name": "Clay Jones",
+    "slug": "clayjones",
+    "image_url": "https://featureassets.gocomics.com/assets/9034f1f0839a013fc5dc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-27",
+    "url": "https://www.gocomics.com/clayjones/2026/08/27",
     "category": "political"
   },
   {
