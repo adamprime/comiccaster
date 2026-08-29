@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-08-29",
+  "scraped_at": "2026-08-29T08:19:41.259382+00:00",
+  "comics": [
+    {
+      "id": "22660",
+      "date": "2026-08-29",
+      "url": "https://www.thefarside.com/2026/08/29/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe4000b40fa850137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e4000b40fa850137d52f005056a9545d",
+      "caption": "Abraham Lincoln\u2019s first car",
+      "title": "Abraham Lincoln\u2019s first car"
+    },
+    {
+      "id": "22661",
+      "date": "2026-08-29",
+      "url": "https://www.thefarside.com/2026/08/29/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F93252570cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/93252570cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22661"
+    }
+  ]
+}
