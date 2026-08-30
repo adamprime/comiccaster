@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-08-30",
+  "scraped_at": "2026-08-30T08:19:04.341117+00:00",
+  "comics": [
+    {
+      "id": "22662",
+      "date": "2026-08-30",
+      "url": "https://www.thefarside.com/2026/08/30/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F56705a50e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/56705a50e6f80137ce50005056a9545d",
+      "caption": "\u201cUh-oh. Carol\u2019s inviting us over for cake, and I\u2019m sure it\u2019s just loaded with palm oil.\u201d",
+      "title": "\u201cUh-oh"
+    },
+    {
+      "id": "22663",
+      "date": "2026-08-30",
+      "url": "https://www.thefarside.com/2026/08/30/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fad5848a0e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ad5848a0e3ae0137cd49005056a9545d",
+      "caption": "Through some unfortunate celestial error, Ernie is sent to Hog Heaven.",
+      "title": "Through some unfortunate celestial error, Ernie is sent t..."
+    }
+  ]
+}
