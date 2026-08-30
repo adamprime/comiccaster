@@ -1408,6 +1408,14 @@
     "category": "daily"
   },
   {
+    "name": "UFO",
+    "slug": "ufo",
+    "image_url": "https://featureassets.gocomics.com/assets/8a5a8ca0867d013fc69e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-30",
+    "url": "https://www.gocomics.com/ufo/2026/08/30",
+    "category": "daily"
+  },
+  {
     "name": "Tutelandia",
     "slug": "tutelandia",
     "image_url": "https://featureassets.gocomics.com/assets/40304c0083bc013fc5f3005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1581,6 +1589,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/491f24007cc8013fc43f005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-30",
     "url": "https://www.gocomics.com/rabbitsagainstmagic/2026/08/30",
+    "category": "daily"
+  },
+  {
+    "name": "Questionable Quotebook",
+    "slug": "questionable-quotebook",
+    "image_url": "https://featureassets.gocomics.com/assets/4939aa40868e013fc69f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-30",
+    "url": "https://www.gocomics.com/questionable-quotebook/2026/08/30",
     "category": "daily"
   },
   {
