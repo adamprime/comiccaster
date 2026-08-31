@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-08-31",
+  "scraped_at": "2026-08-31T08:19:11.377429+00:00",
+  "comics": [
+    {
+      "id": "22664",
+      "date": "2026-08-31",
+      "url": "https://www.thefarside.com/2026/08/31/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa858db40df0f0137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a858db40df0f0137cbaf005056a9545d",
+      "caption": "In God\u2019s den",
+      "title": "In God\u2019s den"
+    },
+    {
+      "id": "22665",
+      "date": "2026-08-31",
+      "url": "https://www.thefarside.com/2026/08/31/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe6c397c0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e6c397c0cdd50137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22665"
+    },
+    {
+      "id": "22666",
+      "date": "2026-08-31",
+      "url": "https://www.thefarside.com/2026/08/31/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6c8271c0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6c8271c0cdd50137c56b005056a9545d",
+      "caption": "\u201cThis is Harold Schwartz! ... Something horrible is happening out here!\u201d",
+      "title": "\u201cThis is Harold Schwartz!"
+    },
+    {
+      "id": "22667",
+      "date": "2026-08-31",
+      "url": "https://www.thefarside.com/2026/08/31/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F521af750dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/521af750dcca0137caaf005056a9545d",
+      "caption": "\u201cWhoopsies! \u2026 If this tomb does have a curse on it, Webster, I daresay we\u2019ll be the first to find out.\u201d",
+      "title": "\u201cWhoopsies! \u2026 If this tomb does have a curse on it, Webst..."
+    },
+    {
+      "id": "22668",
+      "date": "2026-08-31",
+      "url": "https://www.thefarside.com/2026/08/31/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F64bd7690d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/64bd7690d7410137c8a6005056a9545d",
+      "caption": "While Farmer Brown was away, the cows got into the kitchen and were having the time of their lives\u2014until Betsy\u2019s\n unwitting discovery.",
+      "title": "While Farmer Brown was away, the cows got into the kitche..."
+    }
+  ]
+}
