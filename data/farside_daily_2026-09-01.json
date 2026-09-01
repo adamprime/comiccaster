@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-01",
+  "scraped_at": "2026-09-01T08:19:24.887514+00:00",
+  "comics": [
+    {
+      "id": "22669",
+      "date": "2026-09-01",
+      "url": "https://www.thefarside.com/2026/09/01/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe01545c002800138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e01545c002800138d7bb005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22669"
+    },
+    {
+      "id": "22670",
+      "date": "2026-09-01",
+      "url": "https://www.thefarside.com/2026/09/01/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F66a21410e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/66a21410e9ef0137cf93005056a9545d",
+      "caption": "Entomological rodeos",
+      "title": "Entomological rodeos"
+    },
+    {
+      "id": "22671",
+      "date": "2026-09-01",
+      "url": "https://www.thefarside.com/2026/09/01/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F46b91dc0d7420137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/46b91dc0d7420137c8a6005056a9545d",
+      "caption": "\u201cNow this next slide, gentlemen, demonstrates the\n awesome power of our twenty megaton \u2026 for crying out\n loud! Not again!\u201d",
+      "title": "\u201cNow this next slide, gentlemen, demonstrates the\n awesom..."
+    },
+    {
+      "id": "22672",
+      "date": "2026-09-01",
+      "url": "https://www.thefarside.com/2026/09/01/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe4d6bd30cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e4d6bd30cdd60137c56b005056a9545d",
+      "caption": "\u201cWe\u2019re too late! \u2026 He jumped!\u201d",
+      "title": "\u201cWe\u2019re too late! \u2026 He jumped!\u201d"
+    },
+    {
+      "id": "22673",
+      "date": "2026-09-01",
+      "url": "https://www.thefarside.com/2026/09/01/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff4a713e0e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f4a713e0e92e0137cf47005056a9545d",
+      "caption": "Tensions mount on the Lewis and Clark expedition.",
+      "title": "Tensions mount on the Lewis and Clark expedition"
+    }
+  ]
+}
