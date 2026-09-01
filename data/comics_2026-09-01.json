@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/8fb0a820884b013fc6f9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/09/01",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/a017c3508703013fc6a9005056a9545d?optimizer=image&width=2800&quality=85",
@@ -24,11 +32,27 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/7729a0608849013fc6f7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/09/01",
+    "category": "political"
+  },
+  {
     "name": "Joe Heller",
     "slug": "joe-heller",
     "image_url": "https://featureassets.gocomics.com/assets/23cced2087ce013fc6e3005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-01",
     "url": "https://www.gocomics.com/joe-heller/2026/09/01",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/715072608851013fc6fc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/09/01",
     "category": "political"
   },
   {
@@ -125,6 +149,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/6a5a943057be013fc2bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-01",
     "url": "https://www.gocomics.com/cornered/2026/09/01",
+    "category": "daily"
+  },
+  {
+    "name": "Compu toon",
+    "slug": "compu-toon",
+    "image_url": "https://featureassets.gocomics.com/assets/b89076a08858013fc6ff005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/compu-toon/2026/09/01",
     "category": "daily"
   },
   {
@@ -792,6 +824,14 @@
     "category": "daily"
   },
   {
+    "name": "Gaturro",
+    "slug": "gaturro",
+    "image_url": "https://featureassets.gocomics.com/assets/6363e240884d013fc6fb005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/gaturro/2026/09/01",
+    "category": "daily"
+  },
+  {
     "name": "Gasoline Alley",
     "slug": "gasolinealley",
     "image_url": "https://featureassets.gocomics.com/assets/c74eb0008209013fc571005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1368,6 +1408,14 @@
     "category": "daily"
   },
   {
+    "name": "Maria s Day",
+    "slug": "marias-day",
+    "image_url": "https://featureassets.gocomics.com/assets/84a395808835013fc6ef005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/marias-day/2026/09/01",
+    "category": "daily"
+  },
+  {
     "name": "Maintaining",
     "slug": "maintaining",
     "image_url": "https://featureassets.gocomics.com/assets/542b31b05f04012ee3bf00163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -1592,6 +1640,14 @@
     "category": "daily"
   },
   {
+    "name": "Working Daze",
+    "slug": "working-daze",
+    "image_url": "https://featureassets.gocomics.com/assets/a68364808835013fc6ef005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/working-daze/2026/09/01",
+    "category": "daily"
+  },
+  {
     "name": "Wizard Of Id",
     "slug": "wizardofidespanol",
     "image_url": "https://featureassets.gocomics.com/assets/9d4d20d083b2013fc5ea005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1693,6 +1749,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/b13edd808486013fc635005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-01",
     "url": "https://www.gocomics.com/ten-cats/2026/09/01",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/3e1bd8c08818013fc6ee005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/tavicat/2026/09/01",
     "category": "daily"
   },
   {

@@ -24,11 +24,51 @@
     "category": "political"
   },
   {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "image_url": "https://featureassets.gocomics.com/assets/09752d7087bc013fc6db005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-31",
+    "url": "https://www.gocomics.com/stevebreen/2026/08/31",
+    "category": "political"
+  },
+  {
+    "name": "Pedro X Melina",
+    "slug": "pedroxmolina",
+    "image_url": "https://featureassets.gocomics.com/assets/f398cf1087c2013fc6de005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-31",
+    "url": "https://www.gocomics.com/pedroxmolina/2026/08/31",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/71e8bf408799013fc6ca005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-31",
+    "url": "https://www.gocomics.com/nickanderson/2026/08/31",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/766d65f087a8013fc6d0005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-31",
+    "url": "https://www.gocomics.com/mattdavies/2026/08/31",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/9ed10f408703013fc6a9005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-31",
     "url": "https://www.gocomics.com/michaelramirez/2026/08/31",
+    "category": "political"
+  },
+  {
+    "name": "M2 Bulls",
+    "slug": "m2bulls",
+    "image_url": "https://featureassets.gocomics.com/assets/0790121087bc013fc6db005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-31",
+    "url": "https://www.gocomics.com/m2bulls/2026/08/31",
     "category": "political"
   },
   {
@@ -45,6 +85,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/b11d5f00877e013fc6bd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-08-31",
     "url": "https://www.gocomics.com/joe-heller/2026/08/31",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/6fb654508851013fc6fc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-08-31",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/08/31",
     "category": "political"
   },
   {
