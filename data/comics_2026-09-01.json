@@ -8,6 +8,22 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/266e9c208865013fc706005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/robrogers/2026/09/01",
+    "category": "political"
+  },
+  {
+    "name": "Pedro X Melina",
+    "slug": "pedroxmolina",
+    "image_url": "https://featureassets.gocomics.com/assets/5882de00887b013fc712005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/pedroxmolina/2026/09/01",
+    "category": "political"
+  },
+  {
     "name": "Bill Bramhall",
     "slug": "bill-bramhall",
     "image_url": "https://featureassets.gocomics.com/assets/8fb0a820884b013fc6f9005056a9545d?optimizer=image&width=2800&quality=85",
@@ -16,11 +32,35 @@
     "category": "political"
   },
   {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/1a29fc908865013fc706005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/mattdavies/2026/09/01",
+    "category": "political"
+  },
+  {
+    "name": "Matt Wuerker",
+    "slug": "mattwuerker",
+    "image_url": "https://featureassets.gocomics.com/assets/a67532e08871013fc70d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/mattwuerker/2026/09/01",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/a017c3508703013fc6a9005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-01",
     "url": "https://www.gocomics.com/michaelramirez/2026/09/01",
+    "category": "political"
+  },
+  {
+    "name": "Lisa Benson",
+    "slug": "lisabenson",
+    "image_url": "https://featureassets.gocomics.com/assets/1e2dcfc0888c013fc717005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/lisabenson/2026/09/01",
     "category": "political"
   },
   {
@@ -40,6 +80,14 @@
     "category": "political"
   },
   {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/b5183ff08864013fc707005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/joelpett/2026/09/01",
+    "category": "political"
+  },
+  {
     "name": "Joe Heller",
     "slug": "joe-heller",
     "image_url": "https://featureassets.gocomics.com/assets/23cced2087ce013fc6e3005056a9545d?optimizer=image&width=2800&quality=85",
@@ -48,11 +96,35 @@
     "category": "political"
   },
   {
+    "name": "Jeff Stahler",
+    "slug": "jeffstahler",
+    "image_url": "https://featureassets.gocomics.com/assets/b503b0408858013fc6ff005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/jeffstahler/2026/09/01",
+    "category": "political"
+  },
+  {
     "name": "Jeff Danziger",
     "slug": "jeffdanziger",
     "image_url": "https://featureassets.gocomics.com/assets/715072608851013fc6fc005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-01",
     "url": "https://www.gocomics.com/jeffdanziger/2026/09/01",
+    "category": "political"
+  },
+  {
+    "name": "Jack Ohman",
+    "slug": "jackohman",
+    "image_url": "https://featureassets.gocomics.com/assets/1a9a0010888c013fc717005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/jackohman/2026/09/01",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/422b97508857013fc6fe005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-01",
+    "url": "https://www.gocomics.com/henrypayne/2026/09/01",
     "category": "political"
   },
   {

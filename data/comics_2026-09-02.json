@@ -1,10 +1,34 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/01c6b8d088e7013fc725005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-02",
+    "url": "https://www.gocomics.com/two-party-opera/2026/09/02",
+    "category": "political"
+  },
+  {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/3698af208912013fc72f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-02",
+    "url": "https://www.gocomics.com/tim-campbell/2026/09/02",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/937c05708519013fc659005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-02",
     "url": "https://www.gocomics.com/ted-rall/2026/09/02",
+    "category": "political"
+  },
+  {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/eb0a2e408918013fc734005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-02",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/09/02",
     "category": "political"
   },
   {
@@ -21,6 +45,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/d64fa8c088cd013fc724005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-02",
     "url": "https://www.gocomics.com/michaelramirez/2026/09/02",
+    "category": "political"
+  },
+  {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/3af7d0c08919013fc735005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-02",
+    "url": "https://www.gocomics.com/kal/2026/09/02",
     "category": "political"
   },
   {
@@ -1832,6 +1864,14 @@
     "category": "daily"
   },
   {
+    "name": "Studio Jantze",
+    "slug": "studio-jantze",
+    "image_url": "https://featureassets.gocomics.com/assets/3070b280891c013fc738005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-02",
+    "url": "https://www.gocomics.com/studio-jantze/2026/09/02",
+    "category": "daily"
+  },
+  {
     "name": "Strange Brew",
     "slug": "strangebrew",
     "image_url": "https://featureassets.gocomics.com/assets/d9d47e407d84013fc47d005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1909,6 +1949,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/f7da0a107669013fc2c6005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-02",
     "url": "https://www.gocomics.com/savage-chickens/2026/09/02",
+    "category": "daily"
+  },
+  {
+    "name": "Saturday Morning Breakfast Cereal",
+    "slug": "saturday-morning-breakfast-cereal",
+    "image_url": "https://featureassets.gocomics.com/assets/159422108911013fc72e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-02",
+    "url": "https://www.gocomics.com/saturday-morning-breakfast-cereal/2026/09/02",
     "category": "daily"
   },
   {
