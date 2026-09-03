@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-03",
+  "scraped_at": "2026-09-03T08:19:43.071418+00:00",
+  "comics": [
+    {
+      "id": "22679",
+      "date": "2026-09-03",
+      "url": "https://www.thefarside.com/2026/09/03/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F56096b90fa840137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/56096b90fa840137d52f005056a9545d",
+      "caption": "\u201cNo doubt about it, Ellington\u2014we\u2019ve mathematically expressed the purpose of the universe. God, how I love the thrill of\n scientific discovery!\u201d",
+      "title": "\u201cNo doubt about it, Ellington\u2014we\u2019ve mathematically expres..."
+    },
+    {
+      "id": "22680",
+      "date": "2026-09-03",
+      "url": "https://www.thefarside.com/2026/09/03/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3f90aff0e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3f90aff0e9ef0137cf93005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22680"
+    },
+    {
+      "id": "22681",
+      "date": "2026-09-03",
+      "url": "https://www.thefarside.com/2026/09/03/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F44ede130e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/44ede130e92f0137cf47005056a9545d",
+      "caption": "Testifying before a Senate subcommittee, the Hardy boys crack the Iran-Contra scandal.",
+      "title": "Testifying before a Senate subcommittee, the Hardy boys c..."
+    },
+    {
+      "id": "22682",
+      "date": "2026-09-03",
+      "url": "https://www.thefarside.com/2026/09/03/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1dcfe210d7420137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1dcfe210d7420137c8a6005056a9545d",
+      "caption": "No man is an island.",
+      "title": "No man is an island"
+    },
+    {
+      "id": "22683",
+      "date": "2026-09-03",
+      "url": "https://www.thefarside.com/2026/09/03/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F11315af0e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/11315af0e92e0137cf47005056a9545d",
+      "caption": "\u201cFor crying out loud! Look at this place! ... Well, this is one little satanic ritual that\u2019s coming to an end!\u201d",
+      "title": "\u201cFor crying out loud! Look at this place!"
+    }
+  ]
+}
