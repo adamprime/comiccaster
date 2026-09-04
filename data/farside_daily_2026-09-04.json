@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-04",
+  "scraped_at": "2026-09-04T08:19:54.611062+00:00",
+  "comics": [
+    {
+      "id": "22684",
+      "date": "2026-09-04",
+      "url": "https://www.thefarside.com/2026/09/04/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F28772f20e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/28772f20e6f90137ce50005056a9545d",
+      "caption": "\u201cOoo! That one got \u2019em stirred up, Zangorn! Let\u2019s blow!\u201d",
+      "title": "\u201cOoo! That one got \u2019em stirred up, Zangorn! Let\u2019s blow!\u201d"
+    },
+    {
+      "id": "22685",
+      "date": "2026-09-04",
+      "url": "https://www.thefarside.com/2026/09/04/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc098a6f0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c098a6f0cdd30137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22685"
+    },
+    {
+      "id": "22686",
+      "date": "2026-09-04",
+      "url": "https://www.thefarside.com/2026/09/04/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7930cd50d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7930cd50d8ba0137c959005056a9545d",
+      "caption": "People who don\u2019t know which end is up",
+      "title": "People who don\u2019t know which end is up"
+    },
+    {
+      "id": "22687",
+      "date": "2026-09-04",
+      "url": "https://www.thefarside.com/2026/09/04/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd79d1940fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d79d1940fa830137d52f005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22687"
+    },
+    {
+      "id": "22688",
+      "date": "2026-09-04",
+      "url": "https://www.thefarside.com/2026/09/04/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F98153ba0e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/98153ba0e6f90137ce50005056a9545d",
+      "caption": "The prenatal development of Curly",
+      "title": "The prenatal development of Curly"
+    }
+  ]
+}
