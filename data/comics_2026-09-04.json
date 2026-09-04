@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/5816a4508a79013fc797005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-04",
+    "url": "https://www.gocomics.com/two-party-opera/2026/09/04",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/960591608519013fc659005056a9545d?optimizer=image&width=2800&quality=85",
@@ -77,6 +85,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/c649ca1089e3013fc76d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-04",
     "url": "https://www.gocomics.com/jeffdanziger/2026/09/04",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/4f6456908a6b013fc796005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-04",
+    "url": "https://www.gocomics.com/garyvarvel/2026/09/04",
     "category": "political"
   },
   {
@@ -1845,6 +1861,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/4dd6da903f64013fc18c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-04",
     "url": "https://www.gocomics.com/super-fun-pak-comix/2026/09/04",
+    "category": "daily"
+  },
+  {
+    "name": "Studio Jantze",
+    "slug": "studio-jantze",
+    "image_url": "https://featureassets.gocomics.com/assets/0c963a008aa6013fc7a1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-04",
+    "url": "https://www.gocomics.com/studio-jantze/2026/09/04",
     "category": "daily"
   },
   {
