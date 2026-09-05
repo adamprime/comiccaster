@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-09-05",
+  "scraped_at": "2026-09-05T08:20:34.740698+00:00",
+  "comics": [
+    {
+      "id": "22689",
+      "date": "2026-09-05",
+      "url": "https://www.thefarside.com/2026/09/05/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F99e0eee0c1520137c0b4005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/99e0eee0c1520137c0b4005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22689"
+    },
+    {
+      "id": "22690",
+      "date": "2026-09-05",
+      "url": "https://www.thefarside.com/2026/09/05/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb754ef00c0b501396953005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b754ef00c0b501396953005056a9545d",
+      "caption": "\u201cWait! Wait! \u2026 Don\u2019t open that brand of beer!\u201d",
+      "title": "\u201cWait! Wait! \u2026 Don\u2019t open that brand of beer!\u201d"
+    }
+  ]
+}
