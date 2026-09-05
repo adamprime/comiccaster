@@ -26,6 +26,10 @@ import time
 # CSS class patterns used to locate elements on profile pages.
 _COMIC_CONTAINER_SELECTOR = '[class*="ComicViewer"]'
 _COMIC_CONTAINER_RE = re.compile(r'ComicViewer')
+
+# Markers of the Bunny Shield interstitial GoComics' CDN serves instead of the
+# page when it decides the client is a bot (first seen 2026-09-05, issue #198).
+_BOT_CHALLENGE_MARKERS = ('Establishing a secure connection', '/.bunny-shield/')
 _NOT_ISSUED_RE = re.compile(r'FeaturesNotIssued')
 
 
@@ -209,6 +213,11 @@ def _get_badge_name(img):
     return None
 
 
+def is_bot_challenge_page(html):
+    """True when ``html`` is the CDN's bot-challenge interstitial, not GoComics content."""
+    return any(marker in html for marker in _BOT_CHALLENGE_MARKERS)
+
+
 def extract_comics_from_page(driver, page_url, date_str):
     """Extract comics from a custom/profile page.
 
@@ -240,6 +249,10 @@ def extract_comics_from_page(driver, page_url, date_str):
     if not containers:
         debug_file = Path(f'/tmp/gocomics_debug_{date_str}.html')
         debug_file.write_text(driver.page_source)
+        if is_bot_challenge_page(driver.page_source):
+            print("  ❌ Page is a CDN bot challenge (Bunny Shield), not GoComics content. "
+                  "The browser was refused before reaching the page -- see "
+                  "docs/solutions/logic-errors/gocomics-bunny-shield-refuses-headless-chrome.md")
         print(f"  ⚠️  No comic containers found. Page source saved to {debug_file}")
     comics = []
     no_link_count = 0

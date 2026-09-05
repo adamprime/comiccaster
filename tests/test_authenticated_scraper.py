@@ -19,6 +19,7 @@ from scripts.authenticated_scraper_secure import (
     page_url_for_date,
     backfill_target_dates,
     run_backfill,
+    is_bot_challenge_page,
 )
 from datetime import date
 
@@ -520,3 +521,39 @@ class TestMergeWithExisting:
 
         slugs = {c.get('slug') for c in result}
         assert slugs == {'chipbok', 'nickanderson'}
+
+
+_BUNNY_SHIELD_HTML = """<html><head>
+    <title>Establishing a secure connection ...</title>
+    <link href="/.bunny-shield/assets/challenge-styles.css" rel="stylesheet">
+    <script src="/.bunny-shield/assets/shield-challenge.js"></script>
+</head>
+<body data-pow="abc#def#1788599274#ghi">
+    <iframe src="https://shield-templates-prod.b-cdn.net/33498/challenge.html"></iframe>
+    <div class="challenge-footer"><div class="status">Submitting...</div></div>
+</body></html>"""
+
+
+class TestBotChallengeDetection:
+    """A CDN bot-challenge interstitial must be named as such, not reported
+    as a page with no comics (2026-09-05, issue #198)."""
+
+    def test_bunny_shield_page_is_a_challenge(self):
+        assert is_bot_challenge_page(_BUNNY_SHIELD_HTML)
+
+    def test_profile_page_is_not_a_challenge(self):
+        html = _build_page_html(_make_comic_container('garfield', 'Garfield', 'img001'))
+        assert not is_bot_challenge_page(html)
+
+    def test_empty_profile_page_is_not_a_challenge(self):
+        assert not is_bot_challenge_page(_build_page_html(''))
+
+    def test_extract_names_the_challenge_and_returns_nothing(self, capsys):
+        driver = _mock_driver(_BUNNY_SHIELD_HTML)
+
+        comics = extract_comics_from_page(driver, 'https://example.com/page', '2026-09-05')
+
+        assert comics == []
+        out = capsys.readouterr().out
+        assert 'bot challenge' in out.lower()
+        assert 'No comic containers found' in out
