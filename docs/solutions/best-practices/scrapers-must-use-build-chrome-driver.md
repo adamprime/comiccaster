@@ -83,3 +83,6 @@ recovered the gap.
 - Incident origin: `comiccaster/webdriver_setup.py` module docstring.
 - `docs/solutions/logic-errors/comicskingdom-hang-diagnosis.md` — the
   persistent-profile (Shape A) pattern that TinyView already uses for auth.
+- `docs/solutions/logic-errors/gocomics-bunny-shield-refuses-headless-chrome.md` —
+  the builder also presents headless sessions as regular Chrome; a scraper that
+  bypasses it is refused by bot-shielded sources (GoComics, 2026-09-05).
