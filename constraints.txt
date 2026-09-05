@@ -32,7 +32,7 @@ blinker==1.9.0
 brotli==1.2.0
 certifi==2026.7.22
 charset-normalizer==3.5.1
-click==8.4.2
+click==8.5.0
 coverage==7.15.4
 feedgen==1.0.0
 feedparser==6.0.14
