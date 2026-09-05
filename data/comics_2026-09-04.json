@@ -24,11 +24,43 @@
     "category": "political"
   },
   {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "image_url": "https://featureassets.gocomics.com/assets/1467e7508ae9013fc7bf005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-04",
+    "url": "https://www.gocomics.com/stevebreen/2026/09/04",
+    "category": "political"
+  },
+  {
+    "name": "Scott Stantis",
+    "slug": "scottstantis",
+    "image_url": "https://featureassets.gocomics.com/assets/12138bc08ac6013fc7b0005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-04",
+    "url": "https://www.gocomics.com/scottstantis/2026/09/04",
+    "category": "political"
+  },
+  {
     "name": "Robert Ariail",
     "slug": "robert-ariail",
     "image_url": "https://featureassets.gocomics.com/assets/59804af089f7013fc777005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-04",
     "url": "https://www.gocomics.com/robert-ariail/2026/09/04",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/6d563e408abf013fc7ab005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-04",
+    "url": "https://www.gocomics.com/robrogers/2026/09/04",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/c6e9ff008acc013fc7b3005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-04",
+    "url": "https://www.gocomics.com/nickanderson/2026/09/04",
     "category": "political"
   },
   {
@@ -85,6 +117,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/c649ca1089e3013fc76d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-04",
     "url": "https://www.gocomics.com/jeffdanziger/2026/09/04",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/e0a684c08ac4013fc7af005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-04",
+    "url": "https://www.gocomics.com/henrypayne/2026/09/04",
     "category": "political"
   },
   {
