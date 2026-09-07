@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-07",
+  "scraped_at": "2026-09-07T08:29:02.978702+00:00",
+  "comics": [
+    {
+      "id": "22693",
+      "date": "2026-09-07",
+      "url": "https://www.thefarside.com/2026/09/07/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1702b210e3af0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1702b210e3af0137cd49005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22693"
+    },
+    {
+      "id": "22694",
+      "date": "2026-09-07",
+      "url": "https://www.thefarside.com/2026/09/07/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fdad9d5c0e85a0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/dad9d5c0e85a0137cedf005056a9545d",
+      "caption": "\u201cAl\u2019s All-in-One Talent Agency and Construction Company,\nmay I help you?\u201d",
+      "title": "\u201cAl\u2019s All-in-One Talent Agency and Construction Company,\n..."
+    },
+    {
+      "id": "22695",
+      "date": "2026-09-07",
+      "url": "https://www.thefarside.com/2026/09/07/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe4f3fcb0e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e4f3fcb0e9ee0137cf93005056a9545d",
+      "caption": "The magnificent Lipizzaner cows",
+      "title": "The magnificent Lipizzaner cows"
+    },
+    {
+      "id": "22696",
+      "date": "2026-09-07",
+      "url": "https://www.thefarside.com/2026/09/07/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa7e33f80e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a7e33f80e6f80137ce50005056a9545d",
+      "caption": "Common desert animal tracks",
+      "title": "Common desert animal tracks"
+    },
+    {
+      "id": "22697",
+      "date": "2026-09-07",
+      "url": "https://www.thefarside.com/2026/09/07/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa585e550df100137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a585e550df100137cbaf005056a9545d",
+      "caption": "\u201cI don\u2019t know what you\u2019re insinuating, Jane, but I haven\u2019t seen your Harold all day\u2014besides, surely\u00a0you know I would only devour my own husband!\u201d",
+      "title": "\u201cI don\u2019t know what you\u2019re insinuating, Jane, but I haven\u2019..."
+    }
+  ]
+}
