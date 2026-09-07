@@ -1,5 +1,13 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/751c65508ccc013fc7ed005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-07",
+    "url": "https://www.gocomics.com/two-party-opera/2026/09/07",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/4bf1e3908aa2013fc79e005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1765,6 +1773,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/d6a990a08a61013fc795005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-07",
     "url": "https://www.gocomics.com/toomuchcoffeeman/2026/09/07",
+    "category": "daily"
+  },
+  {
+    "name": "Tiny Sepuku",
+    "slug": "tinysepuku",
+    "image_url": "https://featureassets.gocomics.com/assets/a5c810408cd0013fc7ee005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-07",
+    "url": "https://www.gocomics.com/tinysepuku/2026/09/07",
     "category": "daily"
   },
   {
