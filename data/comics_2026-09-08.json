@@ -1,5 +1,21 @@
 [
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/b934a5308dc6013fc80d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-08",
+    "url": "https://www.gocomics.com/robert-ariail/2026/09/08",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/d158b8b08dcd013fc813005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-08",
+    "url": "https://www.gocomics.com/nickanderson/2026/09/08",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/65c629a08bcb013fc7d5005056a9545d?optimizer=image&width=2800&quality=85",
@@ -13,6 +29,30 @@
     "image_url": "https://featureassets.gocomics.com/assets/62b9d0408d55013fc7fc005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-08",
     "url": "https://www.gocomics.com/johndeering/2026/09/08",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/b9ea37008dcb013fc810005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-08",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/09/08",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/98854e708dd1013fc816005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-08",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/09/08",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/3c8f70208dcc013fc811005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-08",
+    "url": "https://www.gocomics.com/henrypayne/2026/09/08",
     "category": "political"
   },
   {
@@ -242,7 +282,7 @@
   {
     "name": "The Born Loser",
     "slug": "the-born-loser",
-    "image_url": "https://featureassets.gocomics.com/assets/93749f6089ed013fc772005056a9545d?optimizer=image&width=2800&quality=85",
+    "image_url": "https://featureassets.gocomics.com/assets/4a023e408dc2013fc80c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-08",
     "url": "https://www.gocomics.com/the-born-loser/2026/09/08",
     "category": "daily"
@@ -413,6 +453,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/e4dedc20877f013fc6be005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-08",
     "url": "https://www.gocomics.com/baldo/2026/09/08",
+    "category": "daily"
+  },
+  {
+    "name": "Bacon",
+    "slug": "bacon",
+    "image_url": "https://featureassets.gocomics.com/assets/552044008d98013fc803005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-08",
+    "url": "https://www.gocomics.com/bacon/2026/09/08",
     "category": "daily"
   },
   {
@@ -1568,6 +1616,14 @@
     "category": "daily"
   },
   {
+    "name": "Working Daze",
+    "slug": "working-daze",
+    "image_url": "https://featureassets.gocomics.com/assets/2b1794208dba013fc808005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-08",
+    "url": "https://www.gocomics.com/working-daze/2026/09/08",
+    "category": "daily"
+  },
+  {
     "name": "Wizard Of Id",
     "slug": "wizardofidespanol",
     "image_url": "https://featureassets.gocomics.com/assets/3216e240895f013fc756005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1645,6 +1701,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/d769af608a61013fc795005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-08",
     "url": "https://www.gocomics.com/toomuchcoffeeman/2026/09/08",
+    "category": "daily"
+  },
+  {
+    "name": "Thin Lines",
+    "slug": "thinlines",
+    "image_url": "https://featureassets.gocomics.com/assets/f31517908db9013fc808005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-08",
+    "url": "https://www.gocomics.com/thinlines/2026/09/08",
     "category": "daily"
   },
   {
