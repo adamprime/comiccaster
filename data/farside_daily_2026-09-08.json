@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-08",
+  "scraped_at": "2026-09-08T08:19:23.174851+00:00",
+  "comics": [
+    {
+      "id": "22709",
+      "date": "2026-09-08",
+      "url": "https://www.thefarside.com/2026/09/08/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F553d1260e4860137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/553d1260e4860137cda5005056a9545d",
+      "caption": "Suddenly, Dr. Morrissey\u2019s own creation, a hideous creature nine feet tall and bearing the heads of the Brady Bunch,\n turns against him.",
+      "title": "Suddenly, Dr"
+    },
+    {
+      "id": "22710",
+      "date": "2026-09-08",
+      "url": "https://www.thefarside.com/2026/09/08/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3e14bb10df100137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3e14bb10df100137cbaf005056a9545d",
+      "caption": "\u201cI\u2019m talking to you! \u2026 You\u2019re so \u2026 so \u2026 so\nthick-membraned sometimes.\u201d",
+      "title": "\u201cI\u2019m talking to you! \u2026 You\u2019re so \u2026 so \u2026 so\nthick-membrane..."
+    },
+    {
+      "id": "22711",
+      "date": "2026-09-08",
+      "url": "https://www.thefarside.com/2026/09/08/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd9af8bf0d8b90137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d9af8bf0d8b90137c959005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22711"
+    },
+    {
+      "id": "22712",
+      "date": "2026-09-08",
+      "url": "https://www.thefarside.com/2026/09/08/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fac9b2d00fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ac9b2d00fa830137d52f005056a9545d",
+      "caption": "\u201cSay, honey \u2026 didn\u2019t I meet you last night at the \nfeeding frenzy?\u201d",
+      "title": "\u201cSay, honey \u2026 didn\u2019t I meet you last night at the \nfeedin..."
+    },
+    {
+      "id": "22713",
+      "date": "2026-09-08",
+      "url": "https://www.thefarside.com/2026/09/08/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0d68db80e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0d68db80e9ef0137cf93005056a9545d",
+      "caption": "\u201cYou must be new here! ... That\u2019s Miss Crutchfield, and she\u2019s there to make sure nobody runs with scissors.\u201d",
+      "title": "\u201cYou must be new here!"
+    }
+  ]
+}
