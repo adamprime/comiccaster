@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-09",
+  "scraped_at": "2026-09-09T08:19:21.905994+00:00",
+  "comics": [
+    {
+      "id": "22704",
+      "date": "2026-09-09",
+      "url": "https://www.thefarside.com/2026/09/09/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1be46840d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1be46840d8ba0137c959005056a9545d",
+      "caption": "\u201cFor heaven\u2019s sake, Elroy! Now look where the earth is! \u2026 Move over and let me drive!\u201d",
+      "title": "\u201cFor heaven\u2019s sake, Elroy! Now look where the earth is! \u2026..."
+    },
+    {
+      "id": "22705",
+      "date": "2026-09-09",
+      "url": "https://www.thefarside.com/2026/09/09/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1763bae0e4860137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1763bae0e4860137cda5005056a9545d",
+      "caption": "Scenes from the entomology underworld",
+      "title": "Scenes from the entomology underworld"
+    },
+    {
+      "id": "22706",
+      "date": "2026-09-09",
+      "url": "https://www.thefarside.com/2026/09/09/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff4bac170ea240137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f4bac170ea240137cfba005056a9545d",
+      "caption": "\u201cWhat? MacDougal is being promoted over me? \u2026 Well, that does it! I won\u2019t take no orders from no stinkin\u2019 sodbuster!\u201d",
+      "title": "\u201cWhat? MacDougal is being promoted over me? \u2026 Well, that ..."
+    },
+    {
+      "id": "22707",
+      "date": "2026-09-09",
+      "url": "https://www.thefarside.com/2026/09/09/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F85732810df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/85732810df110137cbaf005056a9545d",
+      "caption": "When snakes dream they\u2019re crawling",
+      "title": "When snakes dream they\u2019re crawling"
+    },
+    {
+      "id": "22708",
+      "date": "2026-09-09",
+      "url": "https://www.thefarside.com/2026/09/09/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2085abe0d1a90137c692005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2085abe0d1a90137c692005056a9545d",
+      "caption": "\u201cThose, sire, are the uncommon folk.\u201d",
+      "title": "\u201cThose, sire, are the uncommon folk"
+    }
+  ]
+}
