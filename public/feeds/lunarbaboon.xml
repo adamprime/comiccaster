@@ -1,31 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lunarbaboon - TinyView</title><link>https://tinyview.com/lunarbaboon</link><description>Daily Lunarbaboon comic strip by Christopher Grady from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/lunarbaboon.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 08 Sep 2026 08:21:00 +0000</lastBuildDate><ttl>1440</ttl><item><title>Lunarbaboon</title><link>https://tinyview.com/lunarbaboon/2026/09/06/strenuous</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Some days are tougher than others&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Lunarbaboon - TinyView</title><link>https://tinyview.com/lunarbaboon</link><description>Daily Lunarbaboon comic strip by Christopher Grady from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/lunarbaboon.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 10 Sep 2026 08:21:26 +0000</lastBuildDate><ttl>1440</ttl><item><title>Lunarbaboon</title><link>https://tinyview.com/lunarbaboon/2026/09/07/weird</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;This is an old one, but the weird drawings are still coming in. I'll always be proud of a butt drawing.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/preview-4.jpg" alt="Cover Image" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/07/weird/previewnew-copy.jpg" alt="Cover Image" style="max-width: 100%; height: auto;" loading="lazy"&gt;
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Cover Image&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel1-25.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel1-25.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/07/weird/panel1weirdo-copy.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/07/weird/panel1weirdo-copy.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel2-23.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel2-23.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/07/weird/panel2weirdo-copy.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/07/weird/panel2weirdo-copy.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel3-24.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel3-24.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/07/weird/panel3weirdo-copy.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/07/weird/panel3weirdo-copy.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel4-25.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel4-25.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel5-22.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel5-22.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel6-20.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/panel6-20.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/06/strenuous/bonuspanel-17.jpg" alt="bonus-panel-image" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;bonus-panel-image&lt;/div&gt;
+        &lt;img src="https://cdn.tinyview.com/lunarbaboon/2026/09/07/weird/panel4weirdo-copy.jpg" alt="https://cdn.tinyview.com/lunarbaboon/2026/09/07/weird/panel4weirdo-copy.jpg" style="max-width: 100%; height: auto;" loading="lazy"&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/lunarbaboon/2026/09/06/strenuous</guid><pubDate>Sun, 06 Sep 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/lunarbaboon/2026/09/07/weird</guid><pubDate>Mon, 07 Sep 2026 23:59:59 +0000</pubDate></item></channel></rss>

@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-10",
+  "scraped_at": "2026-09-10T08:19:43.078338+00:00",
+  "comics": [
+    {
+      "id": "22714",
+      "date": "2026-09-10",
+      "url": "https://www.thefarside.com/2026/09/10/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffbe8b0a0ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fbe8b0a0ea250137cfba005056a9545d",
+      "caption": "The curse of mad scientist\u2019s block",
+      "title": "The curse of mad scientist\u2019s block"
+    },
+    {
+      "id": "22715",
+      "date": "2026-09-10",
+      "url": "https://www.thefarside.com/2026/09/10/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F66a869a0dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/66a869a0dcc90137caaf005056a9545d",
+      "caption": "\u201cAs if we all knew where we\u2019re going.\u201d",
+      "title": "\u201cAs if we all knew where we\u2019re going"
+    },
+    {
+      "id": "22716",
+      "date": "2026-09-10",
+      "url": "https://www.thefarside.com/2026/09/10/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc87f9d80e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c87f9d80e6f80137ce50005056a9545d",
+      "caption": "Early shell games",
+      "title": "Early shell games"
+    },
+    {
+      "id": "22717",
+      "date": "2026-09-10",
+      "url": "https://www.thefarside.com/2026/09/10/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd44a93a0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d44a93a0cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22717"
+    },
+    {
+      "id": "22718",
+      "date": "2026-09-10",
+      "url": "https://www.thefarside.com/2026/09/10/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F329623c0ea260137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/329623c0ea260137cfba005056a9545d",
+      "caption": "\u201cWell, I\u2019d recommend either the chicken-fried steak or maybe the seafood platter. But look\u2014I gotta be honest with ya\u2014nothin\u2019 we serve is exactly what I\u2019d call food for the gods.\u201d",
+      "title": "\u201cWell, I\u2019d recommend either the chicken-fried steak or ma..."
+    }
+  ]
+}
