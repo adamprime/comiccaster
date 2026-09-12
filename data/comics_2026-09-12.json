@@ -872,6 +872,14 @@
     "category": "daily"
   },
   {
+    "name": "Endtown",
+    "slug": "endtown",
+    "image_url": "https://featureassets.gocomics.com/assets/08fd314090b6013fc8fc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-12",
+    "url": "https://www.gocomics.com/endtown/2026/09/12",
+    "category": "daily"
+  },
+  {
     "name": "The Elderberries",
     "slug": "theelderberries",
     "image_url": "https://featureassets.gocomics.com/assets/97b71af0266e012ea5cb00163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -1429,6 +1437,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/e470098089c7013fc764005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-12",
     "url": "https://www.gocomics.com/justo-y-franco/2026/09/12",
+    "category": "daily"
+  },
+  {
+    "name": "Street Scene",
+    "slug": "street-scene",
+    "image_url": "https://featureassets.gocomics.com/assets/382427e090e4013fc8fe005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-12",
+    "url": "https://www.gocomics.com/street-scene/2026/09/12",
     "category": "daily"
   },
   {

@@ -32,6 +32,22 @@
     "category": "political"
   },
   {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "image_url": "https://featureassets.gocomics.com/assets/c999dc90908a013fc8f8005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-11",
+    "url": "https://www.gocomics.com/stevebreen/2026/09/11",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/d77f7800903e013fc8e0005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-11",
+    "url": "https://www.gocomics.com/robrogers/2026/09/11",
+    "category": "political"
+  },
+  {
     "name": "Nick Anderson",
     "slug": "nickanderson",
     "image_url": "https://featureassets.gocomics.com/assets/1a64a2008f75013fc8a3005056a9545d?optimizer=image&width=2800&quality=85",
@@ -45,6 +61,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/acb264708ece013fc878005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-11",
     "url": "https://www.gocomics.com/mikeluckovich/2026/09/11",
+    "category": "political"
+  },
+  {
+    "name": "Mike Lester",
+    "slug": "mike-lester",
+    "image_url": "https://featureassets.gocomics.com/assets/8a735ef09038013fc8dc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-11",
+    "url": "https://www.gocomics.com/mike-lester/2026/09/11",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/7eacfb709038013fc8dc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-11",
+    "url": "https://www.gocomics.com/mattdavies/2026/09/11",
     "category": "political"
   },
   {
