@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-09-13",
+  "scraped_at": "2026-09-13T08:19:05.606425+00:00",
+  "comics": [
+    {
+      "id": "22726",
+      "date": "2026-09-13",
+      "url": "https://www.thefarside.com/2026/09/13/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2161c9c0d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2161c9c0d7410137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22726"
+    },
+    {
+      "id": "22727",
+      "date": "2026-09-13",
+      "url": "https://www.thefarside.com/2026/09/13/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5dd5a8e0e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5dd5a8e0e9ef0137cf93005056a9545d",
+      "caption": "Once again, Vernon has a good shirt ruined by a cheap pocket octopus.",
+      "title": "Once again, Vernon has a good shirt ruined by a cheap poc..."
+    }
+  ]
+}
