@@ -1,5 +1,13 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/3d6bca90924b013fc91f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-14",
+    "url": "https://www.gocomics.com/two-party-opera/2026/09/14",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/cd9ea8a09031013fc8d9005056a9545d?optimizer=image&width=2800&quality=85",
@@ -13,6 +21,38 @@
     "image_url": "https://featureassets.gocomics.com/assets/b2bd0b8091fb013fc917005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-14",
     "url": "https://www.gocomics.com/michaelramirez/2026/09/14",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/cf476ad09284013fc928005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-14",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/09/14",
+    "category": "political"
+  },
+  {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/b72311109282013fc926005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-14",
+    "url": "https://www.gocomics.com/joelpett/2026/09/14",
+    "category": "political"
+  },
+  {
+    "name": "Jack Ohman",
+    "slug": "jackohman",
+    "image_url": "https://featureassets.gocomics.com/assets/97a164209288013fc92b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-14",
+    "url": "https://www.gocomics.com/jackohman/2026/09/14",
+    "category": "political"
+  },
+  {
+    "name": "Henry Payne",
+    "slug": "henrypayne",
+    "image_url": "https://featureassets.gocomics.com/assets/0439d3d09282013fc925005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-14",
+    "url": "https://www.gocomics.com/henrypayne/2026/09/14",
     "category": "political"
   },
   {
@@ -773,6 +813,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/384894e08dc8013fc80e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-14",
     "url": "https://www.gocomics.com/grand-avenue/2026/09/14",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/8ef765e09268013fc921005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-14",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/09/14",
     "category": "daily"
   },
   {
@@ -1765,6 +1813,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/dbd071708a61013fc795005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-14",
     "url": "https://www.gocomics.com/toomuchcoffeeman/2026/09/14",
+    "category": "daily"
+  },
+  {
+    "name": "Tiny Sepuku",
+    "slug": "tinysepuku",
+    "image_url": "https://featureassets.gocomics.com/assets/6e6c8270924f013fc920005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-14",
+    "url": "https://www.gocomics.com/tinysepuku/2026/09/14",
+    "category": "daily"
+  },
+  {
+    "name": "Thin Lines",
+    "slug": "thinlines",
+    "image_url": "https://featureassets.gocomics.com/assets/7e9ca5809268013fc921005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-14",
+    "url": "https://www.gocomics.com/thinlines/2026/09/14",
     "category": "daily"
   },
   {
