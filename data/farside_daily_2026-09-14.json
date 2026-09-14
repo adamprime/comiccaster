@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-14",
+  "scraped_at": "2026-09-14T08:19:18.860030+00:00",
+  "comics": [
+    {
+      "id": "22728",
+      "date": "2026-09-14",
+      "url": "https://www.thefarside.com/2026/09/14/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd9e30180cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d9e30180cdd40137c56b005056a9545d",
+      "caption": "\u201cHoney, the Merrimonts are here. \u2026 They\u2019d like to come down and see your ape-man project.\u201d",
+      "title": "\u201cHoney, the Merrimonts are here"
+    },
+    {
+      "id": "22729",
+      "date": "2026-09-14",
+      "url": "https://www.thefarside.com/2026/09/14/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa0d7c770dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a0d7c770dcca0137caaf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22729"
+    },
+    {
+      "id": "22730",
+      "date": "2026-09-14",
+      "url": "https://www.thefarside.com/2026/09/14/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb1714fd0d0ea0137c64d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b1714fd0d0ea0137c64d005056a9545d",
+      "caption": "\u201cYou sure you\u2019re supposed to be doin\u2019 that, Mitch?\u201d",
+      "title": "\u201cYou sure you\u2019re supposed to be doin\u2019 that, Mitch?\u201d"
+    },
+    {
+      "id": "22731",
+      "date": "2026-09-14",
+      "url": "https://www.thefarside.com/2026/09/14/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2c37e2a0ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2c37e2a0ea250137cfba005056a9545d",
+      "caption": "\u201cNow, if you all would examine the chart, you will\nnotice that\u2014well, well \u2026 seems Mr. Sparky has found\nsomething more engrossing than this meeting.\u201d",
+      "title": "\u201cNow, if you all would examine the chart, you will\nnotice..."
+    },
+    {
+      "id": "22732",
+      "date": "2026-09-14",
+      "url": "https://www.thefarside.com/2026/09/14/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fdfeef2c0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/dfeef2c0cdd50137c56b005056a9545d",
+      "caption": "\u201cFor crying out loud! \u2026 You\u2019re always hearing something moving around downstairs!\u201d",
+      "title": "\u201cFor crying out loud! \u2026 You\u2019re always hearing something m..."
+    }
+  ]
+}
