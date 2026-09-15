@@ -1,5 +1,13 @@
 [
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/c879ad009349013fc959005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/nickanderson/2026/09/15",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/4abdc2808ffc013fc8c2005056a9545d?optimizer=image&width=2800&quality=85",
@@ -13,6 +21,30 @@
     "image_url": "https://featureassets.gocomics.com/assets/58a9ce009305013fc94e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-15",
     "url": "https://www.gocomics.com/m2bulls/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/c9bc5c309349013fc959005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/fd75e220934a013fc95a005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/joe-heller/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/bfc2e0509351013fc95d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/09/15",
     "category": "political"
   },
   {
@@ -1685,6 +1717,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/e7d5c4c09060013fc8ef005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-15",
     "url": "https://www.gocomics.com/ten-cats/2026/09/15",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/04725e10931d013fc951005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/tavicat/2026/09/15",
     "category": "daily"
   },
   {
