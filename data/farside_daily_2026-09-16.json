@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-16",
+  "scraped_at": "2026-09-16T08:19:27.839266+00:00",
+  "comics": [
+    {
+      "id": "22738",
+      "date": "2026-09-16",
+      "url": "https://www.thefarside.com/2026/09/16/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb846ebd0e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b846ebd0e85b0137cedf005056a9545d",
+      "caption": "\u201cVoil\u00e1! \u2026 Your new dream home! If you like it, I can get a crew mixing wood fibers and saliva as early as tomorrow.\u201d",
+      "title": "\u201cVoil\u00e1! \u2026 Your new dream home! If you like it, I can get ..."
+    },
+    {
+      "id": "22739",
+      "date": "2026-09-16",
+      "url": "https://www.thefarside.com/2026/09/16/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F11f1a160d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/11f1a160d8bb0137c959005056a9545d",
+      "caption": "\u201cFoster! You better get over here if you want to see Meeher\u2019s hangnail magnified 500 times.\u201d",
+      "title": "\u201cFoster! You better get over here if you want to see Meeh..."
+    },
+    {
+      "id": "22740",
+      "date": "2026-09-16",
+      "url": "https://www.thefarside.com/2026/09/16/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1d84ae10df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1d84ae10df110137cbaf005056a9545d",
+      "caption": "\u201cUh-oh. \u2026 The Beaumonts\u2019 mouth is on fire.\u201d",
+      "title": "\u201cUh-oh"
+    },
+    {
+      "id": "22741",
+      "date": "2026-09-16",
+      "url": "https://www.thefarside.com/2026/09/16/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F04c4b9e0fa860137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/04c4b9e0fa860137d52f005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22741"
+    },
+    {
+      "id": "22742",
+      "date": "2026-09-16",
+      "url": "https://www.thefarside.com/2026/09/16/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F63c4baf0ab71013963c4005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/63c4baf0ab71013963c4005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22742"
+    }
+  ]
+}
