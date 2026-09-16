@@ -1,10 +1,66 @@
 [
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/2c04fe109376013fc96e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/robert-ariail/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/63080420937f013fc96e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/robrogers/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Pedro X Melina",
+    "slug": "pedroxmolina",
+    "image_url": "https://featureassets.gocomics.com/assets/6fd59fa0938c013fc974005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/pedroxmolina/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/095638f09365013fc965005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/09/15",
+    "category": "political"
+  },
+  {
     "name": "Nick Anderson",
     "slug": "nickanderson",
     "image_url": "https://featureassets.gocomics.com/assets/c879ad009349013fc959005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-15",
     "url": "https://www.gocomics.com/nickanderson/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Mike Lester",
+    "slug": "mike-lester",
+    "image_url": "https://featureassets.gocomics.com/assets/d1c399709357013fc95f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/mike-lester/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/50420c90937f013fc96e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/mattdavies/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Matt Wuerker",
+    "slug": "mattwuerker",
+    "image_url": "https://featureassets.gocomics.com/assets/6d8a1a809371013fc96c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/mattwuerker/2026/09/15",
     "category": "political"
   },
   {
@@ -40,11 +96,27 @@
     "category": "political"
   },
   {
+    "name": "Jeff Stahler",
+    "slug": "jeffstahler",
+    "image_url": "https://featureassets.gocomics.com/assets/72f67de0937f013fc96e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/jeffstahler/2026/09/15",
+    "category": "political"
+  },
+  {
     "name": "Jeff Danziger",
     "slug": "jeffdanziger",
     "image_url": "https://featureassets.gocomics.com/assets/bfc2e0509351013fc95d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-15",
     "url": "https://www.gocomics.com/jeffdanziger/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Jack Ohman",
+    "slug": "jackohman",
+    "image_url": "https://featureassets.gocomics.com/assets/a8e39300937b013fc96f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/jackohman/2026/09/15",
     "category": "political"
   },
   {
@@ -69,6 +141,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/4214ecb092c3013fc946005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-15",
     "url": "https://www.gocomics.com/claybennett/2026/09/15",
+    "category": "political"
+  },
+  {
+    "name": "Chris Britt",
+    "slug": "chrisbritt",
+    "image_url": "https://featureassets.gocomics.com/assets/de80b6c0938d013fc975005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-15",
+    "url": "https://www.gocomics.com/chrisbritt/2026/09/15",
     "category": "political"
   },
   {
