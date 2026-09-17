@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-17",
+  "scraped_at": "2026-09-17T08:19:23.463097+00:00",
+  "comics": [
+    {
+      "id": "22743",
+      "date": "2026-09-17",
+      "url": "https://www.thefarside.com/2026/09/17/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd02960e0dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d02960e0dcca0137caaf005056a9545d",
+      "caption": "\u201cCummings! Schneider! You\u2019ve got plenty of research to work on \u2026 and for the last time, stop playing with those plastic models!\u201d",
+      "title": "\u201cCummings! Schneider! You\u2019ve got plenty of research to wo..."
+    },
+    {
+      "id": "22744",
+      "date": "2026-09-17",
+      "url": "https://www.thefarside.com/2026/09/17/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3c019c80a61b01396268005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3c019c80a61b01396268005056a9545d",
+      "caption": "Pet tricks on other planets",
+      "title": "Pet tricks on other planets"
+    },
+    {
+      "id": "22745",
+      "date": "2026-09-17",
+      "url": "https://www.thefarside.com/2026/09/17/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fca573700cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ca573700cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22745"
+    },
+    {
+      "id": "22746",
+      "date": "2026-09-17",
+      "url": "https://www.thefarside.com/2026/09/17/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F364400d0d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/364400d0d7410137c8a6005056a9545d",
+      "caption": "\u201cNow now, Billy. \u2026 How could you have seen a monster if you can\u2019t even describe him?\u201d",
+      "title": "\u201cNow now, Billy"
+    },
+    {
+      "id": "22747",
+      "date": "2026-09-17",
+      "url": "https://www.thefarside.com/2026/09/17/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fdf3e4e70e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/df3e4e70e85b0137cedf005056a9545d",
+      "caption": "By blending in with the ostrich\u2019s eggs, Hare Krishnas are subsequently raised by the adult birds.",
+      "title": "By blending in with the ostrich\u2019s eggs, Hare Krishnas are..."
+    }
+  ]
+}
