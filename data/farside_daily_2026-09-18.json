@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-18",
+  "scraped_at": "2026-09-18T08:19:27.684383+00:00",
+  "comics": [
+    {
+      "id": "22748",
+      "date": "2026-09-18",
+      "url": "https://www.thefarside.com/2026/09/18/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2ffaf790a61b01396268005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2ffaf790a61b01396268005056a9545d",
+      "caption": "\u201cSay \u2026 you\u2019re not Bob! \u2026 You look like him, but you\u2019re certainly not him!\u201d",
+      "title": "\u201cSay \u2026 you\u2019re not Bob! \u2026 You look like him, but you\u2019re ce..."
+    },
+    {
+      "id": "22749",
+      "date": "2026-09-18",
+      "url": "https://www.thefarside.com/2026/09/18/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F369d1c00d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/369d1c00d8bb0137c959005056a9545d",
+      "caption": "Fire is invented.",
+      "title": "Fire is invented"
+    },
+    {
+      "id": "22750",
+      "date": "2026-09-18",
+      "url": "https://www.thefarside.com/2026/09/18/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F46be1b60cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/46be1b60cdd30137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22750"
+    },
+    {
+      "id": "22751",
+      "date": "2026-09-18",
+      "url": "https://www.thefarside.com/2026/09/18/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9377cb10d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9377cb10d8bb0137c959005056a9545d",
+      "caption": "\u201cIt\u2019s the mailman, doc. He scares me.\u201d",
+      "title": "\u201cIt\u2019s the mailman, doc"
+    },
+    {
+      "id": "22752",
+      "date": "2026-09-18",
+      "url": "https://www.thefarside.com/2026/09/18/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2d0bd530e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2d0bd530e3ae0137cd49005056a9545d",
+      "caption": "\u201cBlow, Howie, blow! \u2026 Yeah, yeah, yeah! You\u2019re cookin\u2019 now, Howie! \u2026 All right! \u2026 Charlie Parker, move over! \u2026 Yeah!\u201d",
+      "title": "\u201cBlow, Howie, blow! \u2026 Yeah, yeah, yeah! You\u2019re cookin\u2019 no..."
+    }
+  ]
+}
