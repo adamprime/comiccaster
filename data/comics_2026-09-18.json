@@ -1,5 +1,165 @@
 [
   {
+    "name": "Tom The Dancing Bug",
+    "slug": "tomthedancingbug",
+    "image_url": "https://featureassets.gocomics.com/assets/2a480d009425013fc997005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/tomthedancingbug/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/917ff3e09560013fc9f1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/two-party-opera/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Ted Rall",
+    "slug": "ted-rall",
+    "image_url": "https://featureassets.gocomics.com/assets/d3a696909031013fc8d9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/ted-rall/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "image_url": "https://featureassets.gocomics.com/assets/970069e095d0013fca16005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/stevebreen/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/d8d6938095bc013fca0d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/robrogers/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Phil Hands",
+    "slug": "phil-hands",
+    "image_url": "https://featureassets.gocomics.com/assets/dd0cf2a095a4013fc9fc005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/phil-hands/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Mike Lester",
+    "slug": "mike-lester",
+    "image_url": "https://featureassets.gocomics.com/assets/0072b84095d6013fca1a005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/mike-lester/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/af6557c095bc013fca0d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/mattdavies/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Michael Ramirez",
+    "slug": "michaelramirez",
+    "image_url": "https://featureassets.gocomics.com/assets/6f3d31c095e9013fca23005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/michaelramirez/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "M2 Bulls",
+    "slug": "m2bulls",
+    "image_url": "https://featureassets.gocomics.com/assets/20aafbb095c8013fca13005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/m2bulls/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Lalo Alcaraz",
+    "slug": "laloalcaraz",
+    "image_url": "https://featureassets.gocomics.com/assets/614d1a8095bb013fca0b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/laloalcaraz/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/2f190d7094d6013fc9ca005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/kal/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "John Deering",
+    "slug": "johndeering",
+    "image_url": "https://featureassets.gocomics.com/assets/8c6b49f0942d013fc99b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/johndeering/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/1770d62095a1013fc9fa005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/36da63009520013fc9e9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/joe-heller/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/35e1e8909520013fc9e9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/garyvarvel/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Gary Markstein",
+    "slug": "garymarkstein",
+    "image_url": "https://featureassets.gocomics.com/assets/df2818b095f1013fca25005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/garymarkstein/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Doonesbury",
+    "slug": "doonesbury",
+    "image_url": "https://featureassets.gocomics.com/assets/07a6baa08dda013fc81b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/doonesbury/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Clay Jones",
+    "slug": "clayjones",
+    "image_url": "https://featureassets.gocomics.com/assets/c55dd73094cd013fc9c6005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/clayjones/2026/09/18",
+    "category": "political"
+  },
+  {
+    "name": "Clay Bennett",
+    "slug": "claybennett",
+    "image_url": "https://featureassets.gocomics.com/assets/c0b47540951e013fc9e8005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-18",
+    "url": "https://www.gocomics.com/claybennett/2026/09/18",
+    "category": "political"
+  },
+  {
     "name": "Street Scene",
     "slug": "street-scene",
     "image_url": "https://featureassets.gocomics.com/assets/c69c77f08b90013fc7cf005056a9545d?optimizer=image&width=2800&quality=85",
@@ -117,14 +277,6 @@
     "image_url": "https://featureassets.gocomics.com/assets/debbb0608a61013fc795005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-18",
     "url": "https://www.gocomics.com/toomuchcoffeeman/2026/09/18",
-    "category": "daily"
-  },
-  {
-    "name": "Tom The Dancing Bug",
-    "slug": "tomthedancingbug",
-    "image_url": "https://featureassets.gocomics.com/assets/2a480d009425013fc997005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/tomthedancingbug/2026/09/18",
     "category": "daily"
   },
   {
@@ -430,78 +582,6 @@
     "date": "2026-09-18",
     "url": "https://www.gocomics.com/yaffle/2026/09/18",
     "category": "daily"
-  },
-  {
-    "name": "Two Party Opera",
-    "slug": "two-party-opera",
-    "image_url": "https://featureassets.gocomics.com/assets/917ff3e09560013fc9f1005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/two-party-opera/2026/09/18",
-    "category": "political"
-  },
-  {
-    "name": "Ted Rall",
-    "slug": "ted-rall",
-    "image_url": "https://featureassets.gocomics.com/assets/d3a696909031013fc8d9005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/ted-rall/2026/09/18",
-    "category": "political"
-  },
-  {
-    "name": "Kevin Kallaugher",
-    "slug": "kal",
-    "image_url": "https://featureassets.gocomics.com/assets/2f190d7094d6013fc9ca005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/kal/2026/09/18",
-    "category": "political"
-  },
-  {
-    "name": "John Deering",
-    "slug": "johndeering",
-    "image_url": "https://featureassets.gocomics.com/assets/8c6b49f0942d013fc99b005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/johndeering/2026/09/18",
-    "category": "political"
-  },
-  {
-    "name": "Joe Heller",
-    "slug": "joe-heller",
-    "image_url": "https://featureassets.gocomics.com/assets/36da63009520013fc9e9005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/joe-heller/2026/09/18",
-    "category": "political"
-  },
-  {
-    "name": "Gary Varvel",
-    "slug": "garyvarvel",
-    "image_url": "https://featureassets.gocomics.com/assets/35e1e8909520013fc9e9005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/garyvarvel/2026/09/18",
-    "category": "political"
-  },
-  {
-    "name": "Doonesbury",
-    "slug": "doonesbury",
-    "image_url": "https://featureassets.gocomics.com/assets/07a6baa08dda013fc81b005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/doonesbury/2026/09/18",
-    "category": "political"
-  },
-  {
-    "name": "Clay Jones",
-    "slug": "clayjones",
-    "image_url": "https://featureassets.gocomics.com/assets/c55dd73094cd013fc9c6005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/clayjones/2026/09/18",
-    "category": "political"
-  },
-  {
-    "name": "Clay Bennett",
-    "slug": "claybennett",
-    "image_url": "https://featureassets.gocomics.com/assets/c0b47540951e013fc9e8005056a9545d?optimizer=image&width=2800&quality=85",
-    "date": "2026-09-18",
-    "url": "https://www.gocomics.com/claybennett/2026/09/18",
-    "category": "political"
   },
   {
     "name": "Curses",
