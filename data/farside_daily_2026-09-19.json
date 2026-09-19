@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-09-19",
+  "scraped_at": "2026-09-19T08:18:51.001523+00:00",
+  "comics": [
+    {
+      "id": "22753",
+      "date": "2026-09-19",
+      "url": "https://www.thefarside.com/2026/09/19/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc46effc0fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c46effc0fa830137d52f005056a9545d",
+      "caption": "\u201cWell, what the? \u2026 I thought I smelled something.\u201d",
+      "title": "\u201cWell, what the? \u2026 I thought I smelled something"
+    },
+    {
+      "id": "22754",
+      "date": "2026-09-19",
+      "url": "https://www.thefarside.com/2026/09/19/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffa7e5710cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fa7e5710cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22754"
+    }
+  ]
+}
