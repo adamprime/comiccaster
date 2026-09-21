@@ -1,5 +1,13 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/bc414630980a013fca61005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/two-party-opera/2026/09/21",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/1e781c3094d2013fc9c8005056a9545d?optimizer=image&width=2800&quality=85",
@@ -8,11 +16,27 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/dfdd23009802013fca5e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/nickanderson/2026/09/21",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/6337edf09773013fca41005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-21",
     "url": "https://www.gocomics.com/michaelramirez/2026/09/21",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/f82780409804013fca5f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/09/21",
     "category": "political"
   },
   {
@@ -853,6 +877,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/2a252d209283013fc927005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-21",
     "url": "https://www.gocomics.com/thefuscobrothers/2026/09/21",
+    "category": "daily"
+  },
+  {
+    "name": "Fur Babies",
+    "slug": "furbabies",
+    "image_url": "https://featureassets.gocomics.com/assets/1e381cf097d5013fca4f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/furbabies/2026/09/21",
     "category": "daily"
   },
   {
@@ -1925,6 +1957,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/02f17a20766a013fc2c6005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-21",
     "url": "https://www.gocomics.com/savage-chickens/2026/09/21",
+    "category": "daily"
+  },
+  {
+    "name": "Saturday Morning Breakfast Cereal",
+    "slug": "saturday-morning-breakfast-cereal",
+    "image_url": "https://featureassets.gocomics.com/assets/a681bd70980e013fca62005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/saturday-morning-breakfast-cereal/2026/09/21",
     "category": "daily"
   },
   {
