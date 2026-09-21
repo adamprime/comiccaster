@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-21",
+  "scraped_at": "2026-09-21T08:18:52.394037+00:00",
+  "comics": [
+    {
+      "id": "22757",
+      "date": "2026-09-21",
+      "url": "https://www.thefarside.com/2026/09/21/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff53bc650cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f53bc650cdd50137c56b005056a9545d",
+      "caption": "\u201cHey, buddy \u2026 you wanna buy a hoofed mammal?\u201d",
+      "title": "\u201cHey, buddy \u2026 you wanna buy a hoofed mammal?\u201d"
+    },
+    {
+      "id": "22758",
+      "date": "2026-09-21",
+      "url": "https://www.thefarside.com/2026/09/21/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0c919fe0e4870137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0c919fe0e4870137cda5005056a9545d",
+      "caption": "Pinocchio in his later years",
+      "title": "Pinocchio in his later years"
+    },
+    {
+      "id": "22759",
+      "date": "2026-09-21",
+      "url": "https://www.thefarside.com/2026/09/21/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F09b659c0dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/09b659c0dcc90137caaf005056a9545d",
+      "caption": "\u201cWhoa, back off, Bobby Joe. \u2026 That\u2019s just your reflection.\u201d",
+      "title": "\u201cWhoa, back off, Bobby Joe"
+    },
+    {
+      "id": "22761",
+      "date": "2026-09-21",
+      "url": "https://www.thefarside.com/2026/09/21/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0b3b6e50dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0b3b6e50dcc90137caaf005056a9545d",
+      "caption": "\u201cAnd what is this , Nurse Wilkens? I distinctly asked for the big scalpel! \u2026 Big scalpel! Big scalpel!\u201d",
+      "title": "\u201cAnd what is this , Nurse Wilkens? I distinctly asked for..."
+    },
+    {
+      "id": "22762",
+      "date": "2026-09-21",
+      "url": "https://www.thefarside.com/2026/09/21/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5dafade0fa840137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5dafade0fa840137d52f005056a9545d",
+      "caption": "\u201cI don\u2019t seeeeee \u2026 Wait! There it is! Oo! I hate those little slivers that stand straight up and down.\u201d",
+      "title": "\u201cI don\u2019t seeeeee \u2026 Wait! There it is! Oo! I hate those li..."
+    }
+  ]
+}
