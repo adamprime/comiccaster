@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-22",
+  "scraped_at": "2026-09-22T08:19:38.937453+00:00",
+  "comics": [
+    {
+      "id": "22763",
+      "date": "2026-09-22",
+      "url": "https://www.thefarside.com/2026/09/22/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4929a8b0b46c013aaa65005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4929a8b0b46c013aaa65005056a9545d",
+      "caption": "Night of the Living Dead Chipmunks",
+      "title": "Night of the Living Dead Chipmunks"
+    },
+    {
+      "id": "22764",
+      "date": "2026-09-22",
+      "url": "https://www.thefarside.com/2026/09/22/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Faf999c20cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/af999c20cdd60137c56b005056a9545d",
+      "caption": "Evolution of the dog",
+      "title": "Evolution of the dog"
+    },
+    {
+      "id": "22765",
+      "date": "2026-09-22",
+      "url": "https://www.thefarside.com/2026/09/22/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fdd390d70fa870137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/dd390d70fa870137d531005056a9545d",
+      "caption": "\u201cOkay, okay! Calm down, everyone! \u2026 This monster\u2014would you say he was bigger or smaller than your building? \u2026 You can talk it over.\u201d",
+      "title": "\u201cOkay, okay! Calm down, everyone! \u2026 This monster\u2014would yo..."
+    },
+    {
+      "id": "22766",
+      "date": "2026-09-22",
+      "url": "https://www.thefarside.com/2026/09/22/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1fa284f0dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1fa284f0dcc90137caaf005056a9545d",
+      "caption": "\u201cDang! My hat!\u201d",
+      "title": "\u201cDang! My hat!\u201d"
+    },
+    {
+      "id": "22767",
+      "date": "2026-09-22",
+      "url": "https://www.thefarside.com/2026/09/22/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6cf6e6a0dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6cf6e6a0dcca0137caaf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22767"
+    }
+  ]
+}
