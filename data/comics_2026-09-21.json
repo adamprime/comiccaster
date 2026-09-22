@@ -16,6 +16,22 @@
     "category": "political"
   },
   {
+    "name": "Pedro X Melina",
+    "slug": "pedroxmolina",
+    "image_url": "https://featureassets.gocomics.com/assets/a8a697d09832013fca71005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/pedroxmolina/2026/09/21",
+    "category": "political"
+  },
+  {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/8ad98b809811013fca64005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/09/21",
+    "category": "political"
+  },
+  {
     "name": "Nick Anderson",
     "slug": "nickanderson",
     "image_url": "https://featureassets.gocomics.com/assets/dfdd23009802013fca5e005056a9545d?optimizer=image&width=2800&quality=85",
@@ -40,11 +56,35 @@
     "category": "political"
   },
   {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/5291f5c09831013fca70005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/joe-heller/2026/09/21",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/215ac8409811013fca63005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/09/21",
+    "category": "political"
+  },
+  {
     "name": "Doonesbury",
     "slug": "doonesbury",
     "image_url": "https://featureassets.gocomics.com/assets/634f69309354013fc95e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-21",
     "url": "https://www.gocomics.com/doonesbury/2026/09/21",
+    "category": "political"
+  },
+  {
+    "name": "Chris Britt",
+    "slug": "chrisbritt",
+    "image_url": "https://featureassets.gocomics.com/assets/042638a0985e013fca7c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-21",
+    "url": "https://www.gocomics.com/chrisbritt/2026/09/21",
     "category": "political"
   },
   {

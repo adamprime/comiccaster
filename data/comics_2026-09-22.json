@@ -1,10 +1,26 @@
 [
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/238f274098c4013fca8c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-22",
+    "url": "https://www.gocomics.com/robert-ariail/2026/09/22",
+    "category": "political"
+  },
+  {
     "name": "Nick Anderson",
     "slug": "nickanderson",
     "image_url": "https://featureassets.gocomics.com/assets/363ef6209820013fca6a005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-22",
     "url": "https://www.gocomics.com/nickanderson/2026/09/22",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/82f61e8098ca013fca8f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-22",
+    "url": "https://www.gocomics.com/mattdavies/2026/09/22",
     "category": "political"
   },
   {
@@ -16,11 +32,27 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/534a251098d2013fca95005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-22",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/09/22",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/6ca949c0981b013fca68005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-22",
     "url": "https://www.gocomics.com/jeffstahler/2026/09/22",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/72f8d4d098d3013fca96005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-22",
+    "url": "https://www.gocomics.com/garyvarvel/2026/09/22",
     "category": "political"
   },
   {
@@ -416,6 +448,14 @@
     "category": "daily"
   },
   {
+    "name": "Ike",
+    "slug": "backintheday",
+    "image_url": "https://featureassets.gocomics.com/assets/0b9161d098a1013fca82005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-22",
+    "url": "https://www.gocomics.com/backintheday/2026/09/22",
+    "category": "daily"
+  },
+  {
     "name": "Baby Blues",
     "slug": "babyblues",
     "image_url": "https://featureassets.gocomics.com/assets/332a8ba09353013fc95e005056a9545d?optimizer=image&width=2800&quality=85",
@@ -549,6 +589,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/9a4166108f77013fc8a5005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-22",
     "url": "https://www.gocomics.com/9-chickweed-lane/2026/09/22",
+    "category": "daily"
+  },
+  {
+    "name": "1 And Done",
+    "slug": "1-and-done",
+    "image_url": "https://featureassets.gocomics.com/assets/24048e5098a1013fca82005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-22",
+    "url": "https://www.gocomics.com/1-and-done/2026/09/22",
     "category": "daily"
   },
   {
@@ -1685,6 +1733,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/9c213920983c013fca74005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-09-22",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/09/22",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/9585d17098a2013fca83005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-22",
+    "url": "https://www.gocomics.com/tavicat/2026/09/22",
     "category": "daily"
   },
   {
