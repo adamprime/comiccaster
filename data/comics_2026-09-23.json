@@ -48,6 +48,14 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/1c54f6d09993013fcad5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-23",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/09/23",
+    "category": "political"
+  },
+  {
     "name": "Jen Sorensen",
     "slug": "jen-sorensen",
     "image_url": "https://featureassets.gocomics.com/assets/db348ab098d7013fca98005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1893,6 +1901,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/f4a88d60c5ea012e2f9000163e41dd5b?optimizer=image&width=2800&quality=85",
     "date": "2026-09-23",
     "url": "https://www.gocomics.com/skinhorse/2026/09/23",
+    "category": "daily"
+  },
+  {
+    "name": "Shoe",
+    "slug": "shoe",
+    "image_url": "https://featureassets.gocomics.com/assets/6af7f6209990013fcad3005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-09-23",
+    "url": "https://www.gocomics.com/shoe/2026/09/23",
     "category": "daily"
   },
   {
