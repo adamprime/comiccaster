@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-23",
+  "scraped_at": "2026-09-23T08:19:35.372946+00:00",
+  "comics": [
+    {
+      "id": "22768",
+      "date": "2026-09-23",
+      "url": "https://www.thefarside.com/2026/09/23/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe41c8cf0d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e41c8cf0d8ba0137c959005056a9545d",
+      "caption": "\u201cGee \u2026 look at all the little black dots.\u201d",
+      "title": "\u201cGee \u2026 look at all the little black dots"
+    },
+    {
+      "id": "22769",
+      "date": "2026-09-23",
+      "url": "https://www.thefarside.com/2026/09/23/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F087e1830dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/087e1830dcc90137caaf005056a9545d",
+      "caption": "How entomologists pass away",
+      "title": "How entomologists pass away"
+    },
+    {
+      "id": "22770",
+      "date": "2026-09-23",
+      "url": "https://www.thefarside.com/2026/09/23/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3d8bbf40d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3d8bbf40d8bb0137c959005056a9545d",
+      "caption": "\u201cListen \u2026 I\u2019m fed up with this \u2018weeding out the sick and the old\u2019 business. \u2026 I want something in its prime.\u201d",
+      "title": "\u201cListen \u2026 I\u2019m fed up with this \u2018weeding out the sick and ..."
+    },
+    {
+      "id": "22771",
+      "date": "2026-09-23",
+      "url": "https://www.thefarside.com/2026/09/23/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5a01b0f0cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5a01b0f0cdd60137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22771"
+    },
+    {
+      "id": "22772",
+      "date": "2026-09-23",
+      "url": "https://www.thefarside.com/2026/09/23/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe5848b00cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e5848b00cdd30137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22772"
+    }
+  ]
+}
