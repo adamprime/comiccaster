@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-25",
+  "scraped_at": "2026-09-25T08:19:52.826621+00:00",
+  "comics": [
+    {
+      "id": "22778",
+      "date": "2026-09-25",
+      "url": "https://www.thefarside.com/2026/09/25/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F665077b0d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/665077b0d8bb0137c959005056a9545d",
+      "caption": "The mysterious intuition of some animals",
+      "title": "The mysterious intuition of some animals"
+    },
+    {
+      "id": "22779",
+      "date": "2026-09-25",
+      "url": "https://www.thefarside.com/2026/09/25/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcb76ff90e92d0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cb76ff90e92d0137cf47005056a9545d",
+      "caption": "Centaur rodeos",
+      "title": "Centaur rodeos"
+    },
+    {
+      "id": "22780",
+      "date": "2026-09-25",
+      "url": "https://www.thefarside.com/2026/09/25/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F925b7e00d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/925b7e00d8bb0137c959005056a9545d",
+      "caption": "\u201cBedtime, Leroy. Here comes your animal blanket.\"",
+      "title": "\u201cBedtime, Leroy"
+    },
+    {
+      "id": "22781",
+      "date": "2026-09-25",
+      "url": "https://www.thefarside.com/2026/09/25/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fdbcaf220e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/dbcaf220e3ae0137cd49005056a9545d",
+      "caption": "Rocking the anthropological world, a second \u201cLucy\u201d is discovered in southern Uganda.",
+      "title": "Rocking the anthropological world, a second \u201cLucy\u201d is dis..."
+    },
+    {
+      "id": "22782",
+      "date": "2026-09-25",
+      "url": "https://www.thefarside.com/2026/09/25/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fbab99a30e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/bab99a30e3ae0137cd49005056a9545d",
+      "caption": "The Etch A Sketch division at work",
+      "title": "The Etch A Sketch division at work"
+    }
+  ]
+}
