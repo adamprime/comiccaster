@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-09-26",
+  "scraped_at": "2026-09-26T08:20:04.164287+00:00",
+  "comics": [
+    {
+      "id": "22783",
+      "date": "2026-09-26",
+      "url": "https://www.thefarside.com/2026/09/26/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3d255480cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3d255480cdd40137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22783"
+    },
+    {
+      "id": "22784",
+      "date": "2026-09-26",
+      "url": "https://www.thefarside.com/2026/09/26/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffd343940dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/fd343940dcca0137caaf005056a9545d",
+      "caption": "\u201cAre you serious? Look at our arms! If anything, I\u2019m twice as tan as you are.\u201d",
+      "title": "\u201cAre you serious? Look at our arms! If anything, I\u2019m twic..."
+    }
+  ]
+}
