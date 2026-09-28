@@ -8,6 +8,7 @@ verification in Unit 3.
 """
 
 import io
+import json
 import os
 import pickle
 import sys
@@ -703,3 +704,34 @@ class TestSourceSlugSeparation:
         args, kwargs = spy.call_args
         assert args[1] == 'blondie'
         assert kwargs.get('feed_slug') == 'blondie'
+
+
+# --- load_comics_catalog ----------------------------------------------------
+
+
+class TestLoadComicsCatalog:
+    """The scraper reads Comics Kingdom entries from both public/ catalogs.
+
+    It read only public/comics_list.json until 2026-09-28, so the editorial
+    cartoonists listed only in public/political_comics_list.json (mike-smith,
+    lee-judge, ...) were never scraped and their feeds 404'd.
+    """
+
+    PROJECT_ROOT = Path(__file__).parent.parent
+
+    def test_includes_political_catalog_entries_without_duplicates(self, monkeypatch):
+        political = json.loads(
+            (self.PROJECT_ROOT / 'public' / 'political_comics_list.json').read_text()
+        )
+        political_ck = {c['slug'] for c in political if c.get('source') == 'comicskingdom'}
+        assert 'mike-smith' in political_ck, "fixture assumption: mike-smith is a political CK entry"
+
+        monkeypatch.chdir(self.PROJECT_ROOT)
+        slugs = [c['slug'] for c in cki.load_comics_catalog()]
+
+        missing = sorted(political_ck - set(slugs))
+        assert not missing, (
+            f"Political-tab Comics Kingdom comics the scraper never visits: {missing}"
+        )
+        duplicated = sorted({s for s in slugs if slugs.count(s) > 1})
+        assert not duplicated, f"Slugs the scraper would visit twice: {duplicated}"

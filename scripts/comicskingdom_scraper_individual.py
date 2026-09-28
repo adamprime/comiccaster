@@ -19,6 +19,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
+from comiccaster.comicskingdom_catalog import load_comicskingdom_catalog
 from comiccaster.webdriver_setup import build_chrome_driver
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -300,16 +301,10 @@ def wait_for_manual_login(driver):
 
 
 def load_comics_catalog():
-    """Load Comics Kingdom comics from catalog."""
-    catalog_path = Path('public/comics_list.json')
-    
-    with open(catalog_path, 'r') as f:
-        all_comics = json.load(f)
-    
-    # Filter for Comics Kingdom comics
-    ck_comics = [c for c in all_comics if c.get('source') == 'comicskingdom']
-    
-    print(f"📚 Loaded {len(ck_comics)} Comics Kingdom comics from catalog")
+    """Load Comics Kingdom comics from the daily and political catalogs."""
+    ck_comics = load_comicskingdom_catalog()
+
+    print(f"📚 Loaded {len(ck_comics)} Comics Kingdom comics from catalog (daily + political)")
     return ck_comics
 
 

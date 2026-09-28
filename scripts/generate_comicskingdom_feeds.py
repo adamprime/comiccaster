@@ -21,6 +21,7 @@ import requests
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+from comiccaster.comicskingdom_catalog import load_comicskingdom_catalog
 from comiccaster.feed_generator import ComicFeedGenerator
 
 
@@ -158,16 +159,10 @@ def load_scraped_data(days_back: int = 90) -> Dict[str, List[Dict]]:
 
 
 def load_comics_list() -> List[Dict]:
-    """Load Comics Kingdom comics from catalog."""
-    comics_file = Path('public/comics_list.json')
-    
-    with open(comics_file, 'r') as f:
-        all_comics = json.load(f)
-    
-    # Filter for Comics Kingdom comics
-    ck_comics = [c for c in all_comics if c.get('source') == 'comicskingdom']
-    
-    print(f"✅ Found {len(ck_comics)} Comics Kingdom comics in catalog")
+    """Load Comics Kingdom comics from the daily and political catalogs."""
+    ck_comics = load_comicskingdom_catalog()
+
+    print(f"✅ Found {len(ck_comics)} Comics Kingdom comics in catalog (daily + political)")
     return ck_comics
 
 

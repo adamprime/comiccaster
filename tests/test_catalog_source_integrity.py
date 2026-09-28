@@ -19,6 +19,7 @@ pointing at gocomics.com. These tests encode the invariant that edit broke.
 """
 
 import json
+import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -133,4 +134,174 @@ def test_no_slug_is_claimed_by_two_feed_generating_sources():
         "write public/feeds/<slug>.xml, so whichever runs last wins and the feed "
         "flips source between passes:\n  "
         + "\n  ".join(f"{slug}: {claims}" for slug, claims in sorted(contested.items()))
+    )
+
+
+# --- Daily vs political placement (R8) and Comics Kingdom loading (R9) -------
+#
+# The daily and political catalogs are two website tabs *and* two loader
+# inputs. A slug listed in both is a comic its loaders may pick up twice: for
+# Comics Kingdom that is a double scrape and a feed whose political flag
+# depends on which entry ran last. Mallard Fillmore and Brilliant Mind of
+# Edison Lee got into both lists because the Comics Kingdom loaders read only
+# the daily list, so the political-only cartoonists were never scraped and the
+# "fix" was to copy entries across.
+
+DAILY = "comics_list.json"
+POLITICAL = "political_comics_list.json"
+
+# GoComics strips deliberately listed on both tabs. The GoComics loader keys its
+# work on scraped data, not on catalog entries, so a shared slug there is one
+# feed. A Comics Kingdom slug can never be excused this way (KTD3): its loaders
+# walk the catalog, so a shared slug is scraped twice.
+DAILY_AND_POLITICAL_ALLOWLIST = frozenset(
+    {"doonesbury", "tomthedancingbug", "brian-mcfadden", "think"}
+)
+
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+sys.path.insert(0, str(PROJECT_ROOT))
+
+
+def _catalog(filename):
+    """The entries of one catalog file, as _entries() yields them."""
+    return [comic for name, comic in _entries() if name == filename]
+
+
+def _by_slug(catalog):
+    return {comic["slug"]: comic for comic in catalog}
+
+
+def _overlap_violations(daily, political, allowlist):
+    """Slugs in both lists that the allowlist does not excuse.
+
+    An allowlisted slug is only excused while it is GoComics-owned in *both*
+    lists -- allowlisting a Comics Kingdom slug must not silence the check.
+    """
+    daily_by_slug, political_by_slug = _by_slug(daily), _by_slug(political)
+    violations = []
+    for slug in sorted(daily_by_slug.keys() & political_by_slug.keys()):
+        sources = (
+            f"daily source={_source_of(daily_by_slug[slug])}, "
+            f"political source={_source_of(political_by_slug[slug])}"
+        )
+        if slug not in allowlist:
+            violations.append(f"{slug}: listed in both, not an allowed exception ({sources})")
+        elif not (
+            _source_of(daily_by_slug[slug]) == GOCOMICS
+            and _source_of(political_by_slug[slug]) == GOCOMICS
+        ):
+            violations.append(
+                f"{slug}: allowlisted, but only GoComics strips may be in both ({sources})"
+            )
+    return violations
+
+
+def _stale_allowlist(daily, political, allowlist):
+    """Allowlisted slugs that are no longer in both lists."""
+    in_both = _by_slug(daily).keys() & _by_slug(political).keys()
+    return sorted(set(allowlist) - in_both)
+
+
+def _ck_slugs(catalog):
+    return [comic["slug"] for comic in catalog if comic.get("source") == "comicskingdom"]
+
+
+def test_no_slug_is_in_both_daily_and_political_catalogs():
+    """R8: each comic lives on one tab, bar four named GoComics strips."""
+    violations = _overlap_violations(
+        _catalog(DAILY), _catalog(POLITICAL), DAILY_AND_POLITICAL_ALLOWLIST
+    )
+    assert not violations, (
+        f"Slugs listed in both {DAILY} and {POLITICAL}. Move each to the one tab "
+        "it belongs on; a Comics Kingdom comic in both is scraped twice:\n  "
+        + "\n  ".join(violations)
+    )
+
+
+def test_daily_and_political_allowlist_is_not_stale():
+    """KTD3: an allowlisted slug that left one list must leave the allowlist."""
+    stale = _stale_allowlist(_catalog(DAILY), _catalog(POLITICAL), DAILY_AND_POLITICAL_ALLOWLIST)
+    assert not stale, (
+        f"Allowlisted slugs no longer in both {DAILY} and {POLITICAL} -- drop them "
+        f"from DAILY_AND_POLITICAL_ALLOWLIST: {stale}"
+    )
+
+
+@pytest.mark.parametrize(
+    "daily, political, allowlist, flagged",
+    [
+        pytest.param(
+            [{"slug": "ck-both", "source": "comicskingdom"}],
+            [{"slug": "ck-both", "source": "comicskingdom"}],
+            {"ck-both"},
+            ["ck-both"],
+            id="comicskingdom-slug-fails-even-when-allowlisted",
+        ),
+        pytest.param(
+            [{"slug": "gc-ok"}, {"slug": "gc-bad", "source": "gocomics"}],
+            [{"slug": "gc-ok", "source": ""}, {"slug": "gc-bad"}],
+            {"gc-ok"},
+            ["gc-bad"],
+            id="allowlisted-gocomics-passes-unlisted-gocomics-fails",
+        ),
+        pytest.param(
+            [{"slug": "mixed"}],
+            [{"slug": "mixed", "source": "comicskingdom"}],
+            {"mixed"},
+            ["mixed"],
+            id="allowlisted-slug-must-be-gocomics-in-both-lists",
+        ),
+    ],
+)
+def test_overlap_check_honours_the_allowlist_only_for_gocomics(daily, political, allowlist, flagged):
+    """Pins the guard's own rule (KTD3), which the real catalogs cannot exercise."""
+    violations = _overlap_violations(daily, political, allowlist)
+    assert [v.split(":")[0] for v in violations] == flagged
+
+
+def test_stale_allowlist_check_flags_a_slug_in_only_one_list():
+    daily = [{"slug": "still-both"}, {"slug": "daily-only-now"}]
+    political = [{"slug": "still-both"}]
+    assert _stale_allowlist(daily, political, {"still-both", "daily-only-now"}) == ["daily-only-now"]
+
+
+def _scraper_loader():
+    import comicskingdom_scraper_individual
+
+    return comicskingdom_scraper_individual.load_comics_catalog()
+
+
+def _generator_loader():
+    import generate_comicskingdom_feeds
+
+    return generate_comicskingdom_feeds.load_comics_list()
+
+
+@pytest.mark.parametrize(
+    "load",
+    [
+        pytest.param(_scraper_loader, id="scraper-load_comics_catalog"),
+        pytest.param(_generator_loader, id="generator-load_comics_list"),
+    ],
+)
+def test_every_comicskingdom_entry_is_loaded_exactly_once(load, monkeypatch):
+    """R4/R5/R9: both Comics Kingdom loaders cover both catalogs, once each.
+
+    A catalog entry the loader skips is a comic that is listed on the site but
+    never scraped -- its feed 404s. A slug returned twice is scraped twice.
+    """
+    expected = set(_ck_slugs(_catalog(DAILY))) | set(_ck_slugs(_catalog(POLITICAL)))
+
+    monkeypatch.chdir(PROJECT_ROOT)
+    loaded = [comic["slug"] for comic in load()]
+
+    missing = sorted(expected - set(loaded))
+    duplicated = sorted({slug for slug in loaded if loaded.count(slug) > 1})
+    unexpected = sorted(set(loaded) - expected)
+    assert not (missing or duplicated or unexpected), (
+        f"Comics Kingdom loader disagrees with the source=comicskingdom entries in "
+        f"{DAILY} + {POLITICAL} ({len(expected)} slugs):\n"
+        f"  never loaded (listed on the site, never scraped): {missing}\n"
+        f"  loaded more than once (scraped twice): {duplicated}\n"
+        f"  loaded but not a Comics Kingdom catalog entry: {unexpected}"
     )

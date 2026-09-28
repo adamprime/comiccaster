@@ -3624,14 +3624,6 @@
     "is_updated": false
   },
   {
-    "name": "John Branch",
-    "slug": "john-branch",
-    "url": "https://comicskingdom.com/?post_type=ck_comic&p=7389789",
-    "source": "comicskingdom",
-    "position": 456,
-    "is_updated": false
-  },
-  {
     "name": "Judge Parker",
     "slug": "judge-parker",
     "url": "https://comicskingdom.com/judge-parker",
@@ -4112,14 +4104,6 @@
     "is_updated": false
   },
   {
-    "name": "Willy Black",
-    "slug": "willy-black",
-    "url": "https://comicskingdom.com/willy-black",
-    "source": "comicskingdom",
-    "position": 517,
-    "is_updated": false
-  },
-  {
     "name": "Willy Black (Spanish)",
     "slug": "willy-black-spanish",
     "url": "https://comicskingdom.com/willy-black-spanish",
@@ -4573,15 +4557,6 @@
     "is_updated": false,
     "source": "creators",
     "source_slug": "wizard-of-id-spanish"
-  },
-  {
-    "name": "Mallard Fillmore",
-    "author": "Bruce Tinsley",
-    "url": "https://comicskingdom.com/mallard-fillmore",
-    "slug": "mallard-fillmore",
-    "position": 567,
-    "is_updated": true,
-    "source": "comicskingdom"
   },
   {
     "name": "The Ancients",
