@@ -28,6 +28,13 @@
     "source": "tinyview"
   },
   {
+    "name": "Boids Adventures",
+    "slug": "boids",
+    "author": "Dave McElfatrick",
+    "url": "https://tinyview.com/boids",
+    "source": "tinyview"
+  },
+  {
     "name": "Brief Histories",
     "slug": "brief-histories",
     "author": "Brief Histories",
@@ -98,6 +105,13 @@
     "source": "tinyview"
   },
   {
+    "name": "Graphic Rage",
+    "slug": "graphic-rage",
+    "author": "Aubrey Hirsch",
+    "url": "https://tinyview.com/graphic-rage",
+    "source": "tinyview"
+  },
+  {
     "name": "Heart and Brain",
     "slug": "heart-and-brain",
     "author": "The Awkward Yeti",
@@ -119,6 +133,13 @@
     "source": "tinyview"
   },
   {
+    "name": "Kowal Comics",
+    "slug": "kowal-comics",
+    "author": "Steph Kowal",
+    "url": "https://tinyview.com/kowal-comics",
+    "source": "tinyview"
+  },
+  {
     "name": "Lunarbaboon",
     "slug": "lunarbaboon",
     "author": "Christopher Grady",
@@ -130,6 +151,13 @@
     "slug": "matt-bors-tinyview",
     "author": "Matt Bors",
     "url": "https://tinyview.com/matt-bors",
+    "source": "tinyview"
+  },
+  {
+    "name": "Mr. Lovenstein",
+    "slug": "mrlovenstein",
+    "author": "J. L. Westover",
+    "url": "https://tinyview.com/mrlovenstein",
     "source": "tinyview"
   },
   {
@@ -179,6 +207,13 @@
     "slug": "say-their-names",
     "author": "Say Their Names",
     "url": "https://tinyview.com/say-their-names",
+    "source": "tinyview"
+  },
+  {
+    "name": "Skull Pizza",
+    "slug": "skullpizza",
+    "author": "Steve Lewis",
+    "url": "https://tinyview.com/skullpizza",
     "source": "tinyview"
   },
   {
