@@ -26,6 +26,9 @@ from urllib.parse import urlparse
 import pytest
 
 PROJECT_ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+sys.path.insert(0, str(PROJECT_ROOT))
+
 PUBLIC = PROJECT_ROOT / "public"
 
 CATALOG_FILES = [
@@ -149,6 +152,9 @@ def test_no_slug_is_claimed_by_two_feed_generating_sources():
 
 DAILY = "comics_list.json"
 POLITICAL = "political_comics_list.json"
+# A derived UI filter list for the Spanish tab, not a loader input -- see
+# docs/solutions/ui-bugs/spanish-ui-filter-missing-comics-source-list-mismatch.md.
+SPANISH = "spanish_comics_list.json"
 
 # GoComics strips deliberately listed on both tabs. The GoComics loader keys its
 # work on scraped data, not on catalog entries, so a shared slug there is one
@@ -157,9 +163,6 @@ POLITICAL = "political_comics_list.json"
 DAILY_AND_POLITICAL_ALLOWLIST = frozenset(
     {"doonesbury", "tomthedancingbug", "brian-mcfadden", "think"}
 )
-
-sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
-sys.path.insert(0, str(PROJECT_ROOT))
 
 
 def _catalog(filename):
@@ -277,13 +280,13 @@ def _generator_loader():
     return generate_comicskingdom_feeds.load_comics_list()
 
 
-@pytest.mark.parametrize(
-    "load",
-    [
-        pytest.param(_scraper_loader, id="scraper-load_comics_catalog"),
-        pytest.param(_generator_loader, id="generator-load_comics_list"),
-    ],
-)
+CK_LOADERS = [
+    pytest.param(_scraper_loader, id="scraper-load_comics_catalog"),
+    pytest.param(_generator_loader, id="generator-load_comics_list"),
+]
+
+
+@pytest.mark.parametrize("load", CK_LOADERS)
 def test_every_comicskingdom_entry_is_loaded_exactly_once(load, monkeypatch):
     """R4/R5/R9: both Comics Kingdom loaders cover both catalogs, once each.
 
@@ -304,4 +307,29 @@ def test_every_comicskingdom_entry_is_loaded_exactly_once(load, monkeypatch):
         f"  never loaded (listed on the site, never scraped): {missing}\n"
         f"  loaded more than once (scraped twice): {duplicated}\n"
         f"  loaded but not a Comics Kingdom catalog entry: {unexpected}"
+    )
+
+
+@pytest.mark.parametrize("load", CK_LOADERS)
+def test_every_spanish_comicskingdom_entry_is_loaded(load, monkeypatch):
+    """A Comics Kingdom comic on the Spanish tab must be one the loaders build.
+
+    The Comics Kingdom loaders read only the daily and political catalogs, never
+    the Spanish one. A Comics Kingdom entry that exists only in the Spanish list
+    shows on the Spanish tab but is never scraped, so its feed 404s: the bug R9
+    fixed for the political tab, coming back through a third list.
+    """
+    spanish = set(_ck_slugs(_catalog(SPANISH)))
+
+    monkeypatch.chdir(PROJECT_ROOT)
+    loaded = {comic["slug"] for comic in load()}
+
+    never_loaded = sorted(spanish - loaded)
+    assert not never_loaded, (
+        f"source=comicskingdom entries in {SPANISH} that the Comics Kingdom loader "
+        f"never loads (shown on the Spanish tab, never scraped, feed 404s): "
+        f"{never_loaded}\n"
+        f"{SPANISH} is a derived UI filter list the loaders do not read. Add each "
+        f"comic to {DAILY} or {POLITICAL} (see docs/solutions/ui-bugs/"
+        f"spanish-ui-filter-missing-comics-source-list-mismatch.md)."
     )
