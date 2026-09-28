@@ -64,9 +64,14 @@ class TestCountEntries:
 
 class TestEvaluate:
     def test_healthy_count_passes(self):
-        ok, detail = evaluate('comicskingdom', 153)
+        ok, detail = evaluate('comicskingdom', 156)
         assert ok
-        assert '153' in detail
+        assert '156' in detail
+
+    def test_comicskingdom_floor_tracks_the_156_comic_catalog(self):
+        """156 since 2026-09-28; the floor keeps a ~94% margin, as 140 of 150 did."""
+        assert not evaluate('comicskingdom', 145)[0]
+        assert evaluate('comicskingdom', 146)[0]
 
     def test_empty_scrape_fails(self):
         """The 2026-08-03 TinyView case: wrote `[]`, reported ALL SUCCESS."""
@@ -75,7 +80,7 @@ class TestEvaluate:
         assert '0' in detail
 
     def test_partial_scrape_fails_for_a_fixed_catalog(self):
-        """CK's catalog is 153 every day; 12 means the scrape broke midway."""
+        """CK's catalog is 156 every day; 12 means the scrape broke midway."""
         ok, _ = evaluate('comicskingdom', 12)
         assert not ok
 
@@ -114,7 +119,7 @@ class TestEvaluate:
 
 class TestMain:
     def test_exit_zero_on_healthy_file(self, tmp_path, capsys):
-        f = write(tmp_path, 'comicskingdom_2026-08-05.json', [{}] * 153)
+        f = write(tmp_path, 'comicskingdom_2026-08-05.json', [{}] * 156)
         assert main([str(f)]) == 0
         assert '✅' in capsys.readouterr().out
 

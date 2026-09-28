@@ -19,6 +19,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
+from comiccaster.comicskingdom_catalog import load_comicskingdom_catalog
 from comiccaster.webdriver_setup import build_chrome_driver
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -300,16 +301,10 @@ def wait_for_manual_login(driver):
 
 
 def load_comics_catalog():
-    """Load Comics Kingdom comics from catalog."""
-    catalog_path = Path('public/comics_list.json')
-    
-    with open(catalog_path, 'r') as f:
-        all_comics = json.load(f)
-    
-    # Filter for Comics Kingdom comics
-    ck_comics = [c for c in all_comics if c.get('source') == 'comicskingdom']
-    
-    print(f"📚 Loaded {len(ck_comics)} Comics Kingdom comics from catalog")
+    """Load Comics Kingdom comics from the daily and political catalogs."""
+    ck_comics = load_comicskingdom_catalog()
+
+    print(f"📚 Loaded {len(ck_comics)} Comics Kingdom comics from catalog (daily + political)")
     return ck_comics
 
 
@@ -430,7 +425,7 @@ def scrape_all_comics(driver, comics, date_str):
         # differs from the slug we file the feed under. Needed when GoComics and
         # Comics Kingdom run the same comic at different points in its history:
         # each run is a distinct work and needs its own feed, but upstream still
-        # only knows the one path. Defaults to slug, so 152 of 153 entries are
+        # only knows the one path. Defaults to slug, so 155 of 156 entries are
         # unaffected.
         source_slug = comic.get('source_slug') or slug
         print(f"[{i}/{len(comics)}] Scraping {comic['name']} ({slug})...")

@@ -653,15 +653,6 @@
     "publishing_frequency": null
   },
   {
-    "name": "The Brilliant Mind Of Edison Lee",
-    "slug": "brilliant-mind-of-edison-lee",
-    "url": "https://comicskingdom.com/brilliant-mind-of-edison-lee",
-    "source": "comicskingdom",
-    "is_political": true,
-    "position": 66,
-    "is_updated": false
-  },
-  {
     "name": "David M. Hitch",
     "slug": "david-m-hitch",
     "url": "https://comicskingdom.com/david-m-hitch",
@@ -701,6 +692,7 @@
     "name": "Mallard Fillmore",
     "slug": "mallard-fillmore",
     "url": "https://comicskingdom.com/mallard-fillmore",
+    "author": "Bruce Tinsley",
     "source": "comicskingdom",
     "is_political": true,
     "position": 74,
@@ -722,6 +714,24 @@
     "source": "comicskingdom",
     "is_political": true,
     "position": 76,
+    "is_updated": false
+  },
+  {
+    "name": "John Branch",
+    "slug": "john-branch",
+    "url": "https://comicskingdom.com/john-branch",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 77,
+    "is_updated": false
+  },
+  {
+    "name": "Willy Black",
+    "slug": "willy-black",
+    "url": "https://comicskingdom.com/willy-black",
+    "source": "comicskingdom",
+    "is_political": true,
+    "position": 78,
     "is_updated": false
   }
 ]
