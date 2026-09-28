@@ -693,7 +693,7 @@ class TestSourceSlugSeparation:
         assert kwargs.get('feed_slug') == 'edge-city-classic'
 
     def test_source_slug_defaults_to_slug(self):
-        """Entries without source_slug are untouched -- 152 of 153 CK comics."""
+        """Entries without source_slug are untouched -- 155 of 156 CK comics."""
         driver = self._soup_driver("<html><title>Blondie | Comics Kingdom</title></html>")
 
         with patch.object(cki, 'scrape_comic_page', wraps=cki.scrape_comic_page) as spy:

@@ -39,8 +39,11 @@ SOURCE_RULES = {
     # pluggers and shoe moved to GoComics (they were mis-stamped as Comics
     # Kingdom in 2025 and both sources were writing the same feed file) and
     # edge-city-classic was added for CK's separate run of Edge City.
-    "comicskingdom": {"payload": None,       "minimum": 140,
-                      "note": "Comics Kingdom (catalog of 150)"},
+    # Became 156 on 2026-09-28 when the CK loaders began reading the political
+    # catalog too: six cartoonists listed only there had never been scraped.
+    # The floor rose with it, keeping the ~94% margin 140 of 150 gave.
+    "comicskingdom": {"payload": None,       "minimum": 146,
+                      "note": "Comics Kingdom (catalog of 156)"},
     # Genuinely variable 0-7 -- depends what publishers posted. `> 0` is the
     # only assertion the data supports, and it is exactly what 2026-08-03
     # needed.

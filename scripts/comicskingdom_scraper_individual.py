@@ -425,7 +425,7 @@ def scrape_all_comics(driver, comics, date_str):
         # differs from the slug we file the feed under. Needed when GoComics and
         # Comics Kingdom run the same comic at different points in its history:
         # each run is a distinct work and needs its own feed, but upstream still
-        # only knows the one path. Defaults to slug, so 152 of 153 entries are
+        # only knows the one path. Defaults to slug, so 155 of 156 entries are
         # unaffected.
         source_slug = comic.get('source_slug') or slug
         print(f"[{i}/{len(comics)}] Scraping {comic['name']} ({slug})...")
