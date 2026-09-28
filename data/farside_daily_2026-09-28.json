@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-28",
+  "scraped_at": "2026-09-28T08:19:50.880004+00:00",
+  "comics": [
+    {
+      "id": "22787",
+      "date": "2026-09-28",
+      "url": "https://www.thefarside.com/2026/09/28/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F081d899002810138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/081d899002810138d7bb005056a9545d",
+      "caption": "\u201cC\u2019mon, c\u2019mon\u2014it\u2019s either one or the other.\u201d",
+      "title": "\u201cC\u2019mon, c\u2019mon\u2014it\u2019s either one or the other"
+    },
+    {
+      "id": "22788",
+      "date": "2026-09-28",
+      "url": "https://www.thefarside.com/2026/09/28/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F84b2ecd0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/84b2ecd0cdd20137c56b005056a9545d",
+      "caption": "\u201cHe bit the Godfather.\u201d",
+      "title": "\u201cHe bit the Godfather"
+    },
+    {
+      "id": "22789",
+      "date": "2026-09-28",
+      "url": "https://www.thefarside.com/2026/09/28/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F19333460cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/19333460cdd40137c56b005056a9545d",
+      "caption": "\u201cOh, Mrs. Oswald ... you\u2019ve forgotten something again.\u201d",
+      "title": "\u201cOh, Mrs"
+    },
+    {
+      "id": "22790",
+      "date": "2026-09-28",
+      "url": "https://www.thefarside.com/2026/09/28/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2fda5ab0ea260137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2fda5ab0ea260137cfba005056a9545d",
+      "caption": "Professor Wainwright\u2019s painstaking field research to decode the language of bears comes to a sudden and horrific end.",
+      "title": "Professor Wainwright\u2019s painstaking field research to deco..."
+    },
+    {
+      "id": "22791",
+      "date": "2026-09-28",
+      "url": "https://www.thefarside.com/2026/09/28/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F63d659b0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/63d659b0cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22791"
+    }
+  ]
+}
