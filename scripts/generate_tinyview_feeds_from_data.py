@@ -163,51 +163,51 @@ def load_tinyview_comics_list(catalog_path) -> Dict[str, dict]:
         return {}
 
 
-def generate_feed_for_comic(comic_slug, comic_entries, comic_metadata, output_dir='public/feeds'):
+def generate_feed_for_comic(slug, strips, comic_metadata, output_dir='public/feeds'):
     """Write one comic's feed from its usable strips. Returns True when written."""
     try:
-        if comic_slug not in comic_metadata:
-            logger.warning(f"No metadata found for {comic_slug}, skipping")
+        if slug not in comic_metadata:
+            logger.warning(f"No metadata found for {slug}, skipping")
             return False
 
-        comic_info = comic_metadata[comic_slug].copy()
+        comic_info = comic_metadata[slug].copy()
         comic_info['source'] = 'tinyview'
 
         feed_entries = []
-        for entry in comic_entries:
-            if not entry.get('images'):
+        for strip in strips:
+            if not strip.get('images'):
                 continue
 
             # 23:59:59 so TinyView comics sort at the top of their day, just before
             # the next day's Comics Kingdom/GoComics entries.
-            strip_date = parse_strip_date(entry['date'])
+            strip_date = parse_strip_date(strip['date'])
             pub_datetime = datetime(
                 strip_date.year, strip_date.month, strip_date.day, 23, 59, 59, tzinfo=pytz.UTC
             )
 
             feed_entries.append({
-                'title': entry.get('name', f"{comic_info['name']} - {entry['date']}"),
-                'url': entry['url'],
+                'title': strip.get('name', f"{comic_info['name']} - {strip['date']}"),
+                'url': strip['url'],
                 'pub_date': pub_datetime,
-                'description': entry.get('description', ''),
-                'image_url': entry['images'][0]['url'],
-                'images': entry['images'],
+                'description': strip.get('description', ''),
+                'image_url': strip['images'][0]['url'],
+                'images': strip['images'],
             })
 
         # Never replace a feed with an empty one.
         if not feed_entries:
-            logger.info(f"No usable strips for {comic_slug}; leaving its feed untouched")
+            logger.info(f"No usable strips for {slug}; leaving its feed untouched")
             return False
 
         feed_gen = ComicFeedGenerator(output_dir=str(output_dir))
         if feed_gen.generate_feed(comic_info, feed_entries):
-            logger.info(f"Generated feed for {comic_info['name']} at {Path(output_dir) / f'{comic_slug}.xml'} with {len(feed_entries)} entries")
+            logger.info(f"Generated feed for {comic_info['name']} at {Path(output_dir) / f'{slug}.xml'} with {len(feed_entries)} entries")
             return True
         logger.error(f"Failed to generate feed for {comic_info['name']}")
         return False
 
     except Exception as e:
-        logger.error(f"Error generating feed for {comic_slug}: {e}")
+        logger.error(f"Error generating feed for {slug}: {e}")
         return False
 
 

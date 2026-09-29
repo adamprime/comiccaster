@@ -161,7 +161,7 @@ def no_browser(scraper):
 
 def run_nightly(data_dir, comics, scraper, days_back=90):
     """Load what is recorded in ``data_dir``, then run the scrape over ``comics``."""
-    recorded = tvl.load_existing_data(str(data_dir))
+    recorded = tvl.load_recorded_strips(str(data_dir))
     with no_browser(scraper):
         return tvl.scrape_all_comics_authenticated(comics, DATE, days_back, recorded)
 
@@ -189,7 +189,7 @@ class TestLoadExistingData:
             saved_record('kowal-comics', address('kowal-comics', '2025/11/14', 'old-strip')),
         ])
 
-        recorded = tvl.load_existing_data(str(tmp_path))
+        recorded = tvl.load_recorded_strips(str(tmp_path))
 
         assert recorded == {
             bella(4),
@@ -204,7 +204,7 @@ class TestLoadExistingData:
             saved_record('kowal-comics', bella(4)),
         ])
 
-        assert tvl.load_existing_data(str(tmp_path)) == {bella(3), bella(4)}
+        assert tvl.load_recorded_strips(str(tmp_path)) == {bella(3), bella(4)}
 
     def test_addresses_are_canonical(self, tmp_path):
         write_saved(tmp_path, 'tinyview_2026-09-25.json', [
@@ -212,16 +212,16 @@ class TestLoadExistingData:
             saved_record('kowal-comics', bella(3) + '/'),
         ])
 
-        assert tvl.load_existing_data(str(tmp_path)) == {bella(3), bella(4)}
+        assert tvl.load_recorded_strips(str(tmp_path)) == {bella(3), bella(4)}
 
     def test_no_saved_files_means_nothing_recorded(self, tmp_path):
-        assert tvl.load_existing_data(str(tmp_path)) == set()
+        assert tvl.load_recorded_strips(str(tmp_path)) == set()
 
     def test_an_unreadable_file_is_skipped_and_the_rest_still_count(self, tmp_path, capsys):
         write_saved(tmp_path, 'tinyview_2026-09-25.json', [saved_record('kowal-comics', bella(4))])
         (tmp_path / 'tinyview_2026-09-26.json').write_text('{not json')
 
-        assert tvl.load_existing_data(str(tmp_path)) == {bella(4)}
+        assert tvl.load_recorded_strips(str(tmp_path)) == {bella(4)}
         assert 'tinyview_2026-09-26.json' in capsys.readouterr().out
 
 
@@ -325,7 +325,7 @@ class TestScrapeByAddress:
 
     def test_the_browser_is_closed_at_the_end(self, tmp_path):
         scraper = StubScraper({'kowal-comics': [listed(bella(5))]})
-        recorded = tvl.load_existing_data(str(tmp_path))
+        recorded = tvl.load_recorded_strips(str(tmp_path))
 
         with no_browser(scraper) as driver:
             tvl.scrape_all_comics_authenticated([KOWAL], DATE, 90, recorded)

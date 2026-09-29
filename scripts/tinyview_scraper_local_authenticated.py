@@ -35,7 +35,7 @@ def load_comics_catalog():
     return comics
 
 
-def load_existing_data(data_dir='data'):
+def load_recorded_strips(data_dir='data'):
     """Return the canonical address of every strip saved in any TinyView data file.
 
     A strip is recorded by its own address, never by its date: several strips can
@@ -253,6 +253,11 @@ def merge_with_existing(output_file, new_strips):
     A same-day rerun must not erase what an earlier run saved (and a rerun that
     finds nothing must not leave ``[]`` behind for the count guard). The existing
     record wins for an address present in both.
+
+    Same shape as merge_with_existing in authenticated_scraper_secure.py (GoComics),
+    deliberately different in two ways: the key is the strip address, since several
+    TinyView strips share a slug and date, and the existing record wins rather than
+    the new one, so a published strip's content never changes.
     """
     if not output_file.exists():
         return new_strips
@@ -304,7 +309,7 @@ def main():
         sys.exit(1)
     
     # Addresses of strips already saved, so they aren't scraped again
-    recorded = load_existing_data(args.output_dir)
+    recorded = load_recorded_strips(args.output_dir)
     
     # Scrape all comics (authenticated)
     results = scrape_all_comics_authenticated(comics, date_str, args.days_back, recorded)
