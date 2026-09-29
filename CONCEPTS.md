@@ -13,8 +13,13 @@ A Source that ComicCaster scrapes itself and whose RSS feed ComicCaster generate
 ### External-RSS source
 A Source that already publishes its own native RSS feed; ComicCaster simply points subscribers at that publisher feed URL and runs no scrape/generate pipeline for it.
 
+### Catalog
+The lists that say which comics ComicCaster offers. Each list does two jobs at once: it is a tab on the website (Daily, Political, TinyView, Spanish, external), and it is an input that a Source's scrape and generate steps may or may not read. A comic's list decides which tab shows it; its Source decides who builds its feed.
+
+The two jobs are independent, so a comic can sit on a tab that no loader for its Source reads. It then appears on the site with a feed link that never resolves, while every pipeline run reports success. Hence three rules. Each Source's loaders read every list its entries can live in. Each comic lives in exactly one of the Daily and Political lists, apart from a named handful deliberately shown on both. A derived list, such as the Spanish filter built from the Daily list, is covered by a check rather than read by a loader. A list drifting away from one of its consumers has recurred often enough that these rules are asserted by tests, not left to convention.
+
 ### Feed identity
-The slug is the feed's identity: one slug means one file at `/feeds/<slug>.xml`, owned by exactly one feed-generating Source. Two Sources claiming the same slug is not a merge — each generator writes the whole file, so whichever runs last wins and the other's content is destroyed. Because the `<guid>` changes with the source, subscribers see each overwrite as new items and receive the same strip repeatedly. This is asserted in `tests/test_catalog_source_integrity.py` rather than left to convention, because the pipeline reports success either way.
+The slug is the feed's identity: one slug means one file at `/feeds/<slug>.xml`, owned by exactly one feed-generating Source. Two Sources claiming the same slug is not a merge — each generator writes the whole file, so whichever runs last wins and the other's content is destroyed. Because the `<guid>` changes with the source, subscribers see each overwrite as new items and receive the same strip repeatedly. This is asserted by the catalog integrity tests rather than left to convention, because the pipeline reports success either way.
 
 A comic's declared `source` is the authority on ownership, and its `url` must name the same host — the two disagreeing is the signature of a catalog entry that was bulk-edited without its url being updated.
 
