@@ -224,6 +224,23 @@ class TestLoadExistingData:
         assert tvl.load_recorded_strips(str(tmp_path)) == {bella(4)}
         assert 'tinyview_2026-09-26.json' in capsys.readouterr().out
 
+    def test_a_malformed_entry_does_not_cost_the_rest_of_its_file(self, tmp_path):
+        write_saved(tmp_path, 'tinyview_2026-09-25.json', [
+            'not a record',
+            {'url': 42},
+            saved_record('kowal-comics', bella(4)),
+        ])
+        write_saved(tmp_path, 'tinyview_2026-09-26.json', [
+            saved_record('adhdinos', address('adhdinos', '2026/09/23', 'taking-chances'), name='ADHDinos'),
+        ])
+
+        recorded = tvl.load_recorded_strips(str(tmp_path))
+
+        assert recorded == {
+            bella(4),
+            address('adhdinos', '2026/09/23', 'taking-chances'),
+        }
+
 
 # --- The nightly scrape -------------------------------------------------------
 

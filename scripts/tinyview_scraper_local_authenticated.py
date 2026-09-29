@@ -35,6 +35,25 @@ def load_comics_catalog():
     return comics
 
 
+def canonical_addresses(records):
+    """Return the canonical address of every well-formed record in ``records``.
+
+    A record that is not a dict, or whose 'url' is not a non-empty string, is
+    skipped rather than raising: one malformed record must not cost the rest of
+    the file (load_recorded_strips) or the whole merge (merge_with_existing)
+    every address it holds.
+    """
+    addresses = set()
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        url = record.get('url')
+        if not isinstance(url, str) or not url:
+            continue
+        addresses.add(canonical_strip_url(url))
+    return addresses
+
+
 def load_recorded_strips(data_dir='data'):
     """Return the canonical address of every strip saved in any TinyView data file.
 
@@ -60,10 +79,7 @@ def load_recorded_strips(data_dir='data'):
             with open(json_file, 'r') as f:
                 data = json.load(f)
 
-            for comic in data:
-                url = comic.get('url')
-                if url:
-                    recorded.add(canonical_strip_url(url))
+            recorded.update(canonical_addresses(data))
 
         except Exception as e:
             print(f"  ⚠️  Error loading {json_file}: {e}")
@@ -270,10 +286,7 @@ def merge_with_existing(output_file, new_strips):
         print(f"⚠️  Could not read existing {output_file}: {e}; using this run's strips only")
         return new_strips
 
-    existing_addresses = {
-        canonical_strip_url(strip['url']) for strip in existing
-        if isinstance(strip, dict) and strip.get('url')
-    }
+    existing_addresses = canonical_addresses(existing)
     added = [strip for strip in new_strips if canonical_strip_url(strip['url']) not in existing_addresses]
     merged = existing + added
     print(
