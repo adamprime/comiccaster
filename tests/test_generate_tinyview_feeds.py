@@ -190,6 +190,23 @@ class TestHistoryWindow:
         assert legacy, "a strip saved with a legacy YYYY/MM/DD date must be included"
         assert legacy[0]['pub_date'] == 'Sat, 19 Sep 2026 23:59:59 +0000'
 
+    def test_strip_dated_on_the_window_start_but_saved_in_an_earlier_named_file_is_included(
+        self, repo
+    ):
+        # A scraper run with a past --date can save a strip under an older file
+        # name than the strip's own date. Here the only copy of the window-start
+        # strip lives in a file named one day before window_start; it must still
+        # be read and kept, not dropped by a file-name pre-filter.
+        save_day(repo, DAY_BEFORE_WINDOW, [strip('nick-anderson', WINDOW_START, 'late-saved')])
+        save_day(repo, NEWEST, [strip('nick-anderson', NEWEST, 'today')])
+
+        assert build(repo) == 0
+
+        assert strip_url('nick-anderson', WINDOW_START, 'late-saved') in guids(repo, 'nick-anderson'), (
+            "a strip dated exactly on the window start must count even when its only "
+            "saved copy sits in a file named a day (or more) earlier"
+        )
+
     def test_window_is_anchored_on_the_newest_data_file_not_the_clock(self, repo):
         # Recovery regeneration must not depend on when it runs (R5).
         save_day(repo, '2025-11-01', [strip('nick-anderson', '2025-10-31', 'autumn')])

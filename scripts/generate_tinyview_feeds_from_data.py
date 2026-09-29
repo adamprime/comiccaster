@@ -128,10 +128,7 @@ def load_window_strips(data_dir) -> Dict[str, List[dict]]:
     logger.info(f"Strip window: {window_start} to {newest} (newest data file {files[-1][1].name})")
 
     strips: Dict[str, Tuple[date, dict]] = {}
-    for file_date, path in files:
-        # A strip is never dated after the file that saved it.
-        if file_date < window_start:
-            continue
+    for _, path in files:
         for position, record in enumerate(read_data_file(path)):
             try:
                 strip_date, address, record = own_strip(record)
