@@ -39,10 +39,10 @@ A reauth counts as successful only if it *persisted* a new session. A browser sh
 The network-facing first phase of the daily update: each source is fetched and parsed, writing a dated JSON snapshot per source. The only phase that touches the live comic sites.
 
 ### Generate phase
-The network-free second phase: each source's generator reads its latest scraped JSON and writes the feed XML. Safe to re-run during recovery because it never hits the network.
+The network-free second phase: each source's generator reads its saved scraped JSON (the newest snapshot, or the recent snapshots its Feed window spans) and writes the feed XML. Safe to re-run during recovery because it never hits the network.
 
 ### Invariant guard
-The check between the Generate phase and the commit/push phase that asserts every scrape which reported success actually produced usable data, rather than silently shipping a stale feed. Two assertions: the dated JSON snapshot exists, **and** it holds a plausible number of entries for that source (per-source minimums in `scripts/check_scrape_counts.py`). The count half exists because existence alone was satisfiable by an empty file — on 2026-08-03 TinyView wrote `[]` and the run reported ALL SUCCESS. One source, `farside_new`, is exempt at a minimum of 0 because it genuinely publishes almost never.
+The check between the Generate phase and the commit/push phase that asserts every scrape which reported success actually produced usable data, rather than silently shipping a stale feed. Two assertions: the dated JSON snapshot exists, **and** it holds a plausible number of entries for that source (each source sets its own minimum). The count half exists because existence alone was satisfiable by an empty file, which once let a scrape that saved nothing pass as a successful run. The Far Side's New Stuff feed is exempt from the count, because it genuinely publishes almost never.
 
 ### Reactive favorites page
 The GoComics profile/favorites page the authenticated scraper reads. It classifies each configured comic as updated (a `ComicViewer` container) versus not-issued (a `FeaturesNotIssued` entry) **as of the HTTP request time**, not as of the requested date. A `?date=` param selects which day's strips to show, but a strip only moves into the updated set once it has actually been syndicated. This request-time reactivity is why late-publishing comics are missed at scrape time yet appear on a later fetch of the same date — the root cause behind issues #138 and #164.
@@ -71,3 +71,10 @@ A source whose image lives at a single fixed path overwritten in place each day 
 
 ### Feed window
 The number of recent days of strips a generated feed includes. Bounded by what the source's archive can actually serve: a source with distinct per-strip URLs supports a multi-day window, while a single-overwritten-image source supports a window of one.
+
+A feed holds its window only if its generator reads every snapshot the window spans. A scrape that saves each strip once writes only that night's new strips, so a generator rebuilding from the newest snapshot alone shrinks every feed to its latest strip, while the pipeline still reports success. The window is measured in strip dates, not in snapshot files, since days with nothing new and outages leave gaps in the files.
+
+### Strip identity
+What makes one strip distinct from another: its own per-strip address where the source has one, or its fetch date where the strip lives at a single address overwritten each day. Never the strip's date on its own, because several strips can share a date, as in a multi-part story posted together.
+
+The identity is the item's `<guid>`, so a published strip's identity must never change; a change reaches subscribers as a re-delivery (see Feed identity). A scraper decides a strip is already recorded, and a generator deduplicates, by this identity, and a strip's images are the ones stored under its own address rather than everything posted that day.

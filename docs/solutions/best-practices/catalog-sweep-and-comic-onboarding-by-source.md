@@ -1,6 +1,7 @@
 ---
 title: "Sweeping every Source's catalog for missing comics, and how to add one"
 date: 2026-09-29
+last_updated: 2026-09-29
 category: best-practices
 module: comic-sources
 problem_type: best_practice
@@ -278,9 +279,13 @@ non-vintage titles only.
    `git add -f public/feeds/*.xml` (`local_pass2_update.sh:121`), and Pass 1 adds
    `data/*.json` too (`local_master_update.sh:414`). A feed you built
    earlier ships in the pipeline's commit, unpreviewed.
-3. **The operator previews the raw XML before it ships.** Send the raw XML; the
-   operator views it in codebeautify.org/rssviewer, because a deploy preview can't
-   show an un-merged feed (auto memory [claude]).
+3. **The operator previews each feed before it ships.** A deploy preview can't
+   show an un-merged feed. Render the feeds instead with
+   `python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --open`.
+   It writes one HTML page with every item's guid, date, link and images. It flags
+   duplicate or missing guids, and it marks each item new, changed or missing
+   against `main`. Raw XML in codebeautify.org/rssviewer also works, but that
+   viewer shows no images (auto memory [claude]).
 4. Commit the catalog edit (`feat:`) separately from the data and feeds
    (`chore:`), staging explicit paths.
 
@@ -291,24 +296,27 @@ non-vintage titles only.
   that path is what gets fetched.
 - Build: `python scripts/tinyview_scraper_local_authenticated.py --date $DATE --days-back 90`,
   then `python scripts/generate_tinyview_feeds_from_data.py`.
-- **30-day caveat.** The pipeline passes `--days-back 90`
-  (`scripts/local_master_update.sh:177`), but `fetch_comic_page` re-finds each
-  strip with `get_recent_comics(comic_slug, days_back=30)`
-  (`comiccaster/tinyview_scraper.py:252`). A strip older than 30 days is listed,
-  then dropped. A comic that hasn't posted in 30 days gets no feed file, and its
-  link on the site 404s until it posts again.
-- **Feed contents.** The generator reads only the newest `data/tinyview_*.json`
-  (`scripts/generate_tinyview_feeds_from_data.py:42`). `generate_feed` writes the
-  whole file from those entries (`comiccaster/feed_generator.py:331-382`). The
-  scraper skips any strip already recorded anywhere in `data/`
-  (`scripts/tinyview_scraper_local_authenticated.py:97-104`). So a new feed
-  starts with up to 30 days of strips, and each later rebuild carries only the
-  newest ones.
-- **A same-day rerun rewrites `data/tinyview_<today>.json`** (`:258-261`) and can
-  pick up new strips for comics you didn't add. Commit that data file together
-  with every feed it regenerated. Once `data/` records a strip, the scraper never
-  fetches it again, so a feed left behind loses the strip for good (ee779fb6b2
-  shipped ADHDinos for this reason).
+- **Feed contents.** The pipeline lists 90 days of strips (`--days-back 90`,
+  `scripts/local_master_update.sh:177`) and fetches each new one by its own
+  address. The generator builds each feed from every strip dated within 90 days
+  of the newest `data/tinyview_YYYY-MM-DD.json`, reading every data file
+  (`WINDOW_DAYS` and `load_window_strips` in
+  `scripts/generate_tinyview_feeds_from_data.py`). So a new comic's feed starts
+  with its last 90 days of strips and keeps them as they age. A comic with no
+  strip in that window gets no feed file, and its link on the site 404s until it
+  posts again. An existing feed is never emptied. Until PR #212 the generator
+  read only the newest file, so every TinyView feed held one strip; see
+  `docs/solutions/logic-errors/tinyview-feed-history-collapsed-to-one-strip.md`.
+- **The scraper records each strip once, by its address**, across all of
+  `data/`. The run ends with `Listed but not recorded: N`; anything but 0 means a
+  listed strip showed none of its own panels and will be retried the next night.
+- **A same-day rerun merges into `data/tinyview_<today>.json`**
+  (`merge_with_existing`, `scripts/tinyview_scraper_local_authenticated.py:266`);
+  records already in the file win. It can pick up new strips for comics you
+  didn't add, so commit that data file together with every feed it regenerated.
+  Before PR #212 a feed left behind lost the strip for good (ee779fb6b2 shipped
+  ADHDinos for this reason). Now the next night's regeneration picks it up, but
+  shipping them together keeps each feed matched to its data.
 
 **GoComics: two steps, both required**
 - The scraper never reads the catalog. It reads the account's favorites pages,
@@ -377,8 +385,9 @@ non-vintage titles only.
 
 The catalog went out in commit 655e8165bb and the feeds in ee779fb6b2, built
 after Pass 2 and previewed by the operator. Graphic Rage's last post was
-2026-07-14, outside the 30-day window, so it shipped listed without a feed. It
-gets one when it next posts.
+2026-07-14, outside the scraper's then-effective 30-day lookup, so it shipped
+listed without a feed. It got its first feed on 2026-09-29, from the catch-up
+after PR #212 (commit a65f53186e).
 
 ### Dormant, not broken
 

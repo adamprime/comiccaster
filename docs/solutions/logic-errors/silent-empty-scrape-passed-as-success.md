@@ -1,6 +1,7 @@
 ---
 title: A scrape that produced nothing passed as success — existence checks aren't data checks
 date: 2026-08-05
+last_updated: 2026-09-29
 category: logic-errors
 module: pipeline
 problem_type: silent-failure
@@ -36,7 +37,10 @@ No issue, no alert, nobody told. It had happened ~10 times over nine months.
 
 This is the part that makes it genuinely invisible rather than merely unnoticed.
 
-The feed generator builds each feed from a **90-day window**. A day that
+The feed generator builds each feed from a **90-day window**. (TinyView's did
+not when this was written: it read only the newest data file, so each TinyView
+feed held one strip until PR #212 — see
+`tinyview-feed-history-collapsed-to-one-strip.md`.) A day that
 contributed nothing therefore produces a feed that is structurally perfect,
 recently updated, and one entry short. There is no empty feed to spot, no error
 to grep, no visual tell. The only observable is a strip that never showed up —

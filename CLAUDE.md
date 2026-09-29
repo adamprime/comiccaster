@@ -33,7 +33,11 @@ ceremony; a new comic source or a pipeline change does.
   two-phase scrape/generate pair — don't grow an `if/elif` chain.
 - A new source = a new scraper (Phase 1: fetch + parse one source, write
   `data/<src>_$DATE.json`) and a new generator (Phase 2: network-free, read the
-  latest JSON, write `public/feeds/*.xml`). Mirror the existing pairs exactly.
+  saved JSON, write `public/feeds/*.xml`). Mirror the existing pairs exactly.
+  A scraper that records each item only once leaves just the new items in each
+  day's file, so its generator must read every file in the feed's window, not
+  only the newest. Reading only the newest cut every TinyView feed to one strip
+  for ten months.
   Also register it in `SOURCE_RULES` (`scripts/check_scrape_counts.py`) with a
   minimum entry count, or the invariant guard will never verify that its scrapes
   actually produced data — an unregistered source passes with a warning by
