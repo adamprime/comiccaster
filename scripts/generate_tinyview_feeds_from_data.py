@@ -1,206 +1,262 @@
 #!/usr/bin/env python3
 """
 Generate TinyView RSS feeds from pre-scraped JSON data.
-Reads from data/tinyview_*.json files and generates feeds.
+
+Each feed carries every usable strip saved with a strip date in the 90 days up
+to the newest ``data/tinyview_YYYY-MM-DD.json`` (the boundary day counts as
+inside). The window is anchored on the data rather than the clock, so rebuilding
+from the same files gives the same feeds on any host and in pipeline recovery.
+
+- Strips are identified by their canonical address. Data files are read oldest
+  to newest and the earliest-recorded usable copy of a strip wins, so a
+  published item never swaps its content for a later copy.
+- Each strip keeps only the images under its own strip folder on the TinyView
+  CDN; a record carrying a same-date sibling's panels loses them.
+- A comic with no usable strip in the window is not written at all: its existing
+  feed file stays byte-identical and no new one is created.
+
+Item fields are derived as they were when this script read only the newest data
+file: the guid is the strip address, the title is the record's ``name``, and the
+pub date is the strip date at 23:59:59 UTC.
 """
 
 import sys
 import os
 import json
 import logging
-from datetime import datetime, timedelta
-import pytz
+import re
+from datetime import date, datetime, timedelta
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Tuple
+
+import pytz
 
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from comiccaster.feed_generator import ComicFeedGenerator
+from comiccaster.tinyview_strips import canonical_strip_url, image_belongs_to_strip
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+WINDOW_DAYS = 90
 
-def find_latest_tinyview_data():
-    """Find the most recent TinyView data file."""
-    data_dir = Path('data')
-    
-    if not data_dir.exists():
+# Strict on purpose: data/tinyview_2025-11-16_backup.json must not be read.
+DATA_FILE_NAME = re.compile(r'^tinyview_(\d{4}-\d{2}-\d{2})\.json$')
+
+
+def parse_strip_date(value) -> date:
+    """Parse a saved strip date: ``YYYY-MM-DD``, or the legacy ``YYYY/MM/DD``."""
+    return datetime.strptime(str(value).replace('/', '-'), '%Y-%m-%d').date()
+
+
+def find_tinyview_data_files(data_dir) -> List[Tuple[date, Path]]:
+    """Return every strictly named TinyView data file with its date, oldest first."""
+    data_dir = Path(data_dir)
+    if not data_dir.is_dir():
         logger.error(f"Data directory not found: {data_dir}")
-        return None
-    
-    # Find all tinyview JSON files
-    tinyview_files = list(data_dir.glob('tinyview_*.json'))
-    
-    if not tinyview_files:
-        logger.warning("No TinyView data files found in data/")
-        return None
-    
-    # Sort by filename (which includes date) and get the latest
-    latest_file = sorted(tinyview_files)[-1]
-    logger.info(f"Found latest TinyView data: {latest_file}")
-    
-    return latest_file
+        return []
+
+    files = []
+    for path in data_dir.glob('tinyview_*.json'):
+        match = DATA_FILE_NAME.match(path.name)
+        if not match:
+            continue
+        try:
+            files.append((parse_strip_date(match.group(1)), path))
+        except ValueError:
+            logger.warning(f"Skipping {path}: its name is not a real date")
+    files.sort()
+    return files
 
 
-def load_tinyview_data(data_file):
-    """Load TinyView data from JSON file."""
+def read_data_file(path: Path) -> list:
+    """Return the records saved in one data file, or [] with a warning if unreadable."""
     try:
-        with open(data_file, 'r') as f:
-            data = json.load(f)
-        
-        logger.info(f"Loaded {len(data)} comics from {data_file}")
-        return data
-    except Exception as e:
-        logger.error(f"Error loading data from {data_file}: {e}")
-        return None
+        with open(path, 'r') as f:
+            records = json.load(f)
+    except (OSError, ValueError) as e:
+        logger.warning(f"Skipping unreadable data file {path}: {e}")
+        return []
+    if not isinstance(records, list):
+        logger.warning(f"Skipping data file {path}: expected a list of strips, got {type(records).__name__}")
+        return []
+    return records
 
 
-def load_tinyview_comics_list():
-    """Load TinyView comics metadata."""
-    comics_list_path = Path('public/tinyview_comics_list.json')
-    
+def own_strip(record) -> Tuple[date, str, dict]:
+    """Return (strip date, canonical address, record with only its own images).
+
+    Raises ValueError, KeyError or TypeError for a record that is not a strip.
+    A record with no images of its own comes back with an empty ``images`` list.
+    """
+    if not isinstance(record, dict):
+        raise ValueError(f"not a strip record: {record!r:.80}")
+    slug, url = record['slug'], record['url']
+    if not isinstance(slug, str) or not isinstance(url, str):
+        raise ValueError(f"slug and url must be text: {slug!r}, {url!r}")
+    strip_date = parse_strip_date(record['date'])
+
+    images = record.get('images') or []
+    if not isinstance(images, list):
+        raise ValueError(f"images must be a list, got {type(images).__name__}")
+    images = [
+        image for image in images
+        if isinstance(image, dict)
+        and isinstance(image.get('url'), str)
+        and image_belongs_to_strip(image['url'], url)
+    ]
+    return strip_date, canonical_strip_url(url), {**record, 'images': images}
+
+
+def load_window_strips(data_dir) -> Dict[str, List[dict]]:
+    """Load every usable strip in the window, grouped by feed slug.
+
+    Each record's images are narrowed to its own strip folder. Records are
+    deduplicated by canonical address (the earliest-recorded usable copy wins)
+    and ordered by (strip date, canonical address), so same-date siblings come
+    out in one fixed order whichever file saved them first.
+    """
+    files = find_tinyview_data_files(data_dir)
+    if not files:
+        return {}
+
+    newest = files[-1][0]
+    window_start = newest - timedelta(days=WINDOW_DAYS)
+    logger.info(f"Strip window: {window_start} to {newest} (newest data file {files[-1][1].name})")
+
+    strips: Dict[str, Tuple[date, dict]] = {}
+    for _, path in files:
+        for position, record in enumerate(read_data_file(path)):
+            try:
+                strip_date, address, record = own_strip(record)
+            except (KeyError, TypeError, ValueError) as e:
+                logger.warning(f"Skipping malformed record #{position} in {path}: {e!r}")
+                continue
+            if strip_date < window_start or not record['images'] or address in strips:
+                continue
+            strips[address] = (strip_date, record)
+
+    grouped: Dict[str, List[dict]] = {}
+    for address, (strip_date, record) in sorted(strips.items(), key=lambda item: (item[1][0], item[0])):
+        grouped.setdefault(record['slug'], []).append(record)
+    return grouped
+
+
+def load_tinyview_comics_list(catalog_path) -> Dict[str, dict]:
+    """Load TinyView comics metadata, keyed by feed slug."""
     try:
-        with open(comics_list_path, 'r') as f:
+        with open(catalog_path, 'r') as f:
             comics = json.load(f)
-        
-        # Create lookup dictionary by slug
+
         comics_dict = {comic['slug']: comic for comic in comics}
         logger.info(f"Loaded metadata for {len(comics_dict)} TinyView comics")
-        
+
         return comics_dict
     except Exception as e:
         logger.error(f"Error loading comics list: {e}")
         return {}
 
 
-def group_comics_by_slug(comics_data):
-    """Group comics by slug."""
-    grouped = {}
-    
-    for comic in comics_data:
-        slug = comic['slug']
-        if slug not in grouped:
-            grouped[slug] = []
-        grouped[slug].append(comic)
-    
-    # Sort each group by date (newest first)
-    for slug in grouped:
-        grouped[slug].sort(key=lambda x: x['date'], reverse=True)
-    
-    return grouped
-
-
-def generate_feed_for_comic(comic_slug, comic_entries, comic_metadata):
-    """Generate RSS feed for a single comic."""
+def generate_feed_for_comic(slug, strips, comic_metadata, output_dir='public/feeds'):
+    """Write one comic's feed from its usable strips. Returns True when written."""
     try:
-        # Get comic info from metadata
-        if comic_slug not in comic_metadata:
-            logger.warning(f"No metadata found for {comic_slug}, skipping")
+        if slug not in comic_metadata:
+            logger.warning(f"No metadata found for {slug}, skipping")
             return False
-        
-        comic_info = comic_metadata[comic_slug].copy()
+
+        comic_info = comic_metadata[slug].copy()
         comic_info['source'] = 'tinyview'
-        
-        # Convert entries to feed format
+
         feed_entries = []
-        for entry in comic_entries:
-            # Skip entries with no images (weekly comics on non-update days)
-            if not entry.get('images') or len(entry['images']) == 0:
+        for strip in strips:
+            if not strip.get('images'):
                 continue
-            
-            # Parse date and set time to 23:59:59 so TinyView comics sort at top of their day
-            # This ensures they appear just before the next day's Comics Kingdom/GoComics entries
-            date_str = entry['date'].replace('/', '-')
-            pub_datetime = datetime.strptime(date_str, '%Y-%m-%d').replace(
-                hour=23, minute=59, second=59, tzinfo=pytz.UTC
+
+            # 23:59:59 so TinyView comics sort at the top of their day, just before
+            # the next day's Comics Kingdom/GoComics entries.
+            strip_date = parse_strip_date(strip['date'])
+            pub_datetime = datetime(
+                strip_date.year, strip_date.month, strip_date.day, 23, 59, 59, tzinfo=pytz.UTC
             )
-            
-            feed_entry = {
-                'title': entry.get('name', f"{comic_info['name']} - {entry['date']}"),
-                'url': entry['url'],
+
+            feed_entries.append({
+                'title': strip.get('name', f"{comic_info['name']} - {strip['date']}"),
+                'url': strip['url'],
                 'pub_date': pub_datetime,
-                'description': entry.get('description', ''),
-                'image_url': entry['images'][0]['url'] if entry['images'] else '',
-                'images': entry['images']
-            }
-            feed_entries.append(feed_entry)
-        
-        # Generate the feed
-        feed_gen = ComicFeedGenerator(output_dir='public/feeds')
-        success = feed_gen.generate_feed(comic_info, feed_entries)
-        
-        if success:
-            logger.info(f"Generated feed for {comic_info['name']} at public/feeds/{comic_slug}.xml with {len(feed_entries)} entries")
-            return True
-        else:
-            logger.error(f"Failed to generate feed for {comic_info['name']}")
+                'description': strip.get('description', ''),
+                'image_url': strip['images'][0]['url'],
+                'images': strip['images'],
+            })
+
+        # Never replace a feed with an empty one.
+        if not feed_entries:
+            logger.info(f"No usable strips for {slug}; leaving its feed untouched")
             return False
-            
+
+        feed_gen = ComicFeedGenerator(output_dir=str(output_dir))
+        if feed_gen.generate_feed(comic_info, feed_entries):
+            logger.info(f"Generated feed for {comic_info['name']} at {Path(output_dir) / f'{slug}.xml'} with {len(feed_entries)} entries")
+            return True
+        logger.error(f"Failed to generate feed for {comic_info['name']}")
+        return False
+
     except Exception as e:
-        logger.error(f"Error generating feed for {comic_slug}: {e}")
+        logger.error(f"Error generating feed for {slug}: {e}")
         return False
 
 
-def main():
-    """Main function to generate all TinyView feeds."""
+def main(data_dir='data', output_dir='public/feeds', catalog_path='public/tinyview_comics_list.json'):
+    """Generate every TinyView feed that has a usable strip in the window."""
     logger.info("=" * 80)
     logger.info("TinyView Feed Generation")
     logger.info("=" * 80)
-    
-    # Find latest data file
-    data_file = find_latest_tinyview_data()
-    if not data_file:
-        logger.error("No TinyView data files found. Run tinyview_scraper_local.py first.")
+
+    strips_by_slug = load_window_strips(data_dir)
+    if not strips_by_slug:
+        logger.error(f"No usable TinyView strips found in {data_dir}. Run the TinyView scraper first.")
         logger.info("\n⚠️  Skipping TinyView feed generation")
         return 0  # Exit successfully (don't fail the workflow)
-    
-    # Load data
-    comics_data = load_tinyview_data(data_file)
-    if not comics_data:
-        logger.error("Failed to load TinyView data")
-        return 0  # Exit successfully
-    
-    # Load comics metadata
-    comics_metadata = load_tinyview_comics_list()
+
+    comics_metadata = load_tinyview_comics_list(catalog_path)
     if not comics_metadata:
         logger.error("Failed to load TinyView comics metadata")
         return 0  # Exit successfully
-    
-    # Group comics by slug
-    grouped_comics = group_comics_by_slug(comics_data)
-    logger.info(f"\nGenerating feeds for {len(grouped_comics)} TinyView comics...")
-    
-    # Generate feeds
+
+    logger.info(f"\nGenerating feeds for {len(strips_by_slug)} TinyView comics...")
+
     success_count = 0
     skipped_count = 0
-    
-    for slug, entries in grouped_comics.items():
+    failed_count = 0
+
+    for slug, strips in sorted(strips_by_slug.items()):
         print(f"  Processing {slug}...", end=' ')
-        
+
         if slug not in comics_metadata:
-            print(f"⚠️  No metadata")
+            logger.warning(f"No catalog entry for TinyView slug {slug}; skipping its {len(strips)} strip(s)")
+            print("⚠️  No metadata")
             skipped_count += 1
             continue
-        
-        if generate_feed_for_comic(slug, entries, comics_metadata):
-            print(f"✅ {comics_metadata[slug]['name']}")
+
+        if generate_feed_for_comic(slug, strips, comics_metadata, output_dir):
+            print(f"✅ {comics_metadata[slug]['name']} ({len(strips)} strips)")
             success_count += 1
         else:
-            print(f"❌ Failed")
-    
-    # Summary
+            print("❌ Failed")
+            failed_count += 1
+
     logger.info("\n" + "=" * 80)
     logger.info("✅ Feed Generation Complete!")
     logger.info("=" * 80)
     logger.info(f"Successful: {success_count}")
-    logger.info(f"Skipped (no data): {skipped_count}")
-    logger.info(f"Total: {len(grouped_comics)}")
-    logger.info(f"\nFeeds saved to: public/feeds/")
+    logger.info(f"Skipped (no metadata): {skipped_count}")
+    logger.info(f"Failed: {failed_count}")
+    logger.info(f"Total: {len(strips_by_slug)}")
+    logger.info(f"\nFeeds saved to: {output_dir}/")
     logger.info("=" * 80)
-    
+
     return 0
 
 

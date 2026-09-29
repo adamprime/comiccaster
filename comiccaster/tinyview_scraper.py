@@ -1,27 +1,64 @@
 """
-Tinyview comic scraper: fetches and parses comic pages, extracting comic
-images from the Tinyview CDN for both single- and multi-image comics.
+Tinyview comic scraper: fetches a strip's page from the address it was listed
+under and extracts that strip's own panel images from the Tinyview CDN, for both
+single- and multi-image comics.
 """
 
 import logging
 import time
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
-from urllib.parse import urljoin, urlparse
+from urllib.parse import parse_qs, unquote, urljoin, urlparse
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from bs4 import BeautifulSoup
 
 from .base_scraper import BaseScraper
+from .tinyview_strips import canonical_strip_url, image_belongs_to_strip
 from .webdriver_setup import build_chrome_driver
 
 logger = logging.getLogger(__name__)
+
+
+def _unproxied(src: str) -> str:
+    """Return the CDN address behind a Next.js image-proxy ``src``, else ``src`` itself.
+
+    Format: /_next/image?url=https%3A%2F%2Fcdn.tinyview.com%2F...&w=1080&q=100
+    """
+    if '/_next/image?url=' in src:
+        try:
+            query_params = parse_qs(urlparse(src).query)
+            if 'url' in query_params:
+                return unquote(query_params['url'][0])
+        except Exception:
+            pass
+    return src
+
+
+def _own_panel_url(src: str, strip_url: str) -> Optional[str]:
+    """Return the panel address ``src`` shows when it is one of ``strip_url``'s own panels.
+
+    A strip page also shows panels of other strips filed under the same date, so an
+    image counts only when it sits under the strip's own CDN folder, whether the
+    page serves it directly or through the image proxy. Banner, profile and
+    external-link images are page furniture, not panels.
+    """
+    url = _unproxied(src)
+    try:
+        if not image_belongs_to_strip(url, strip_url):
+            return None
+    except ValueError:  # malformed address, e.g. a broken IPv6 host
+        return None
+    path = urlparse(url).path
+    if '/banner.jpg' in path or 'profile' in path.strip('/').split('/') or 'external-link' in path:
+        logger.debug(f"Skipping non-panel image: {src}")
+        return None
+    return url
 
 
 class TinyviewScraper(BaseScraper):
@@ -237,33 +274,39 @@ class TinyviewScraper(BaseScraper):
         
         return []
 
-    def fetch_comic_page(self, comic_slug: str, date: str) -> Optional[tuple]:
+    def _count_own_panels(self, strip_url: str) -> int:
+        """Count the images on the open page that are ``strip_url``'s own panels."""
+        soup = BeautifulSoup(self.driver.page_source, 'html.parser')
+        return sum(1 for img in soup.find_all('img') if _own_panel_url(img.get('src', ''), strip_url))
+
+    def fetch_comic_page(self, comic_slug: str, date: str, *,
+                         strip_url: Optional[str] = None) -> Optional[tuple]:
         """
-        Fetch a specific comic page using Selenium with retry logic and error handling.
-        
+        Fetch one strip's page using Selenium with retry logic and error handling.
+
         Args:
             comic_slug (str): The slug of the comic to fetch (e.g., 'nick-anderson', 'adhdinos').
             date (str): The date in YYYY/MM/DD format.
-            
-        Returns:
-            Optional[tuple]: A tuple of (html_content, comic_url), or None if fetching fails.
-        """
-        # Use get_recent_comics to locate the entry matching the requested date.
-        recent_comics = self.get_recent_comics(comic_slug, days_back=30)
+            strip_url (str): The address the strip was listed under. That page is loaded
+                directly. Without it, the series listing is searched for the first strip
+                filed under ``date``. Keyword-only, so the title slug older callers pass
+                third can never become an address.
 
-        target_comic = None
-        for comic in recent_comics:
-            if comic['date'] == date:
-                target_comic = comic
-                break
-        
-        if not target_comic:
-            logger.warning(f"No comic found for {comic_slug} on {date}")
-            return None
-        
-        # Fetch the specific comic page
-        strip_url = target_comic['url']
-        
+        Returns:
+            Optional[tuple]: A tuple of (html_content, strip_url), where strip_url is the
+            address loaded, or None if fetching fails.
+        """
+        if strip_url is None:
+            # Only the date is known: take the first strip the listing files under it.
+            target_comic = next(
+                (comic for comic in self.get_recent_comics(comic_slug) if comic['date'] == date),
+                None,
+            )
+            if not target_comic:
+                logger.warning(f"No comic found for {comic_slug} on {date}")
+                return None
+            strip_url = target_comic['url']
+
         # Retry logic with exponential backoff
         for attempt in range(self.max_retries):
             try:
@@ -277,24 +320,23 @@ class TinyviewScraper(BaseScraper):
                 # Wait for the strip page to load initially
                 time.sleep(2)
                 
-                # Wait for panels, which load via JavaScript.
+                # Wait for the strip's own panels, which load via JavaScript. Sibling
+                # strips' panels on the same page must not end the wait early.
                 try:
-                    # Wait up to 5 seconds for the first comic image to appear.
+                    # Wait up to 5 seconds for the first panel to appear.
                     WebDriverWait(self.driver, 5).until(
-                        lambda driver: len(driver.find_elements(By.CSS_SELECTOR, 
-                            f'img[src*="cdn.tinyview.com/{comic_slug}/{date}"]')) > 0
+                        lambda _driver: self._count_own_panels(strip_url) > 0
                     )
-                    
+
                     # Some comics load panels progressively; wait until the
-                    # image count stops growing.
+                    # panel count stops growing.
                     previous_count = 0
                     stable_count = 0
                     max_wait_iterations = 10  # Max 10 seconds additional wait
-                    
+
                     for _ in range(max_wait_iterations):
-                        current_count = len(self.driver.find_elements(By.CSS_SELECTOR, 
-                            f'img[src*="cdn.tinyview.com/{comic_slug}/{date}"]'))
-                        
+                        current_count = self._count_own_panels(strip_url)
+
                         if current_count == previous_count:
                             stable_count += 1
                             # Stable for 2 iterations means loading is done.
@@ -308,7 +350,7 @@ class TinyviewScraper(BaseScraper):
                         previous_count = current_count
                         time.sleep(1)
                     
-                except:
+                except Exception:
                     # If wait fails, continue anyway - some comics might not have dynamic loading
                     logger.debug(f"Dynamic content wait timed out for {strip_url}")
                 
@@ -343,118 +385,53 @@ class TinyviewScraper(BaseScraper):
         # This should never be reached, but just in case
         return None
     
-    def extract_images(self, html_content: str, comic_slug: str, date: str) -> List[Dict[str, str]]:
+    def extract_images(self, html_content: str, comic_slug: str, date: str, *,
+                       strip_url: Optional[str] = None) -> List[Dict[str, str]]:
         """
-        Extract comic image URLs from the HTML content.
+        Extract the strip's own panel images from its page.
 
         Args:
-            html_content (str): The HTML content of the comic page.
-            comic_slug (str): The comic slug, used to identify matching images.
-            date (str): The date in YYYY/MM/DD format, used to match the image path.
+            html_content (str): The HTML content of the strip's page.
+            comic_slug (str): The comic slug (unused; kept for the BaseScraper interface).
+            date (str): The date in YYYY/MM/DD format (unused; kept for the BaseScraper interface).
+            strip_url (str): The strip's address. Only images under its own CDN folder
+                are kept (see comiccaster.tinyview_strips). Without it no image can be
+                attributed to a strip, and nothing is returned.
 
         Returns:
-            List[Dict[str, str]]: List of dictionaries containing image data.
+            List[Dict[str, str]]: List of dictionaries containing image data, in page order.
         """
+        if not strip_url:
+            logger.warning(f"No strip address for {comic_slug} on {date}; no image can be attributed")
+            return []
+
         soup = BeautifulSoup(html_content, 'html.parser')
         images = []
         seen_urls = set()  # Track unique images to avoid duplicates
-
         all_imgs = soup.find_all('img')
-        
-        for img in all_imgs:
-            src = img.get('src', '')
-            
-            # Decode Next.js optimized images
-            # Format: /_next/image?url=https%3A%2F%2Fcdn.tinyview.com%2F...&w=1080&q=100
-            actual_url = src
-            if '/_next/image?url=' in src:
-                try:
-                    from urllib.parse import parse_qs, unquote
-                    parsed = urlparse(src)
-                    query_params = parse_qs(parsed.query)
-                    if 'url' in query_params:
-                        actual_url = unquote(query_params['url'][0])
-                except:
-                    # If decoding fails, use original URL
-                    pass
-            
-            # Match on the parsed hostname, not a substring, to avoid look-alike URLs.
-            try:
-                parsed_url = urlparse(actual_url)
-                if parsed_url.hostname == 'cdn.tinyview.com':
-                    # Filter out generic Tinyview images (promotional, UI elements, etc.)
-                    path_lower = parsed_url.path.lower()
-                    skip_paths = ['/tinyview/app/', '/tinyview/subscribe/', '/tinyview/influence-points/']
-                    if any(path_lower.startswith(skip) for skip in skip_paths):
-                        logger.debug(f"Skipping non-comic image: {src}")
-                        continue
-                    
-                    # A comic image's path includes the comic slug as a segment.
-                    path_segments = parsed_url.path.strip('/').split('/')
-                    if comic_slug in path_segments:
-                        # Skip profile images and other non-comic images
-                        if 'profile' in path_segments or 'external-link' in parsed_url.path:
-                            logger.debug(f"Skipping non-comic image: {src}")
-                            continue
-                        
-                        # Keep only images under the comic's date directory (date is YYYY/MM/DD).
-                        date_parts = date.split('/')
-                        if len(date_parts) == 3:
-                            date_path = f"{comic_slug}/{date}"
 
-                            if date_path in parsed_url.path:
-                                # Skip banner images - they're not the actual comic panels
-                                if '/banner.jpg' in parsed_url.path:
-                                    logger.debug(f"Skipping banner image: {actual_url}")
-                                    continue
-                                
-                                if actual_url not in seen_urls:
-                                    seen_urls.add(actual_url)
-                                    image_data = {
-                                        'url': actual_url,
-                                        'alt': img.get('alt', ''),
-                                        'title': img.get('title', '')
-                                    }
-                                    images.append(image_data)
-                                    logger.info(f"Found comic image for date {date}: {actual_url}")
-                                else:
-                                    logger.debug(f"Skipping duplicate image: {src}")
-                            else:
-                                logger.debug(f"Image not in date directory {date_path}: {src}")
-                        else:
-                            logger.debug(f"Invalid date format: {date}")
-                    else:
-                        logger.debug(f"Skipping image not matching comic slug: {src}")
-            except:
-                # Skip invalid URLs
-                pass
-        
-        # Fallback: if no CDN images found, check lazy-loading data-src attributes.
-        if not images:
+        def collect(attribute: str, label: str) -> None:
             for img in all_imgs:
-                data_src = img.get('data-src', '')
-                if data_src:
-                    try:
-                        parsed_url = urlparse(data_src)
-                        # Accept tinyview.com or any *.tinyview.com host.
-                        if parsed_url.hostname and (parsed_url.hostname == 'tinyview.com' or
-                                                    parsed_url.hostname.endswith('.tinyview.com')):
-                            # Skip duplicates
-                            if data_src not in seen_urls:
-                                seen_urls.add(data_src)
-                                image_data = {
-                                    'url': data_src,
-                                    'alt': img.get('alt', ''),
-                                    'title': img.get('title', '')
-                                }
-                                images.append(image_data)
-                                logger.info(f"Found comic image (data-src): {data_src}")
-                            else:
-                                logger.debug(f"Skipping duplicate image (data-src): {data_src}")
-                    except:
-                        # Skip invalid URLs
-                        pass
-        
+                panel_url = _own_panel_url(img.get(attribute, ''), strip_url)
+                if not panel_url:
+                    continue
+                if panel_url in seen_urls:
+                    logger.debug(f"Skipping duplicate image{label}: {panel_url}")
+                    continue
+                seen_urls.add(panel_url)
+                images.append({
+                    'url': panel_url,
+                    'alt': img.get('alt', ''),
+                    'title': img.get('title', '')
+                })
+                logger.info(f"Found comic image{label} for {strip_url}: {panel_url}")
+
+        collect('src', '')
+        # Fallback: lazy-loading pages keep a panel's address in data-src until it
+        # scrolls into view. The same own-folder rule applies.
+        if not images:
+            collect('data-src', ' (data-src)')
+
         return images
     
     def extract_metadata(self, html_content: str, comic_slug: str, date: str) -> Dict[str, any]:
@@ -516,33 +493,37 @@ class TinyviewScraper(BaseScraper):
         
         return metadata
     
-    def scrape_comic(self, comic_slug: str, date: str) -> Optional[Dict[str, Any]]:
+    def scrape_comic(self, comic_slug: str, date: str, *,
+                     strip_url: Optional[str] = None) -> Optional[Dict[str, Any]]:
         """
-        Main method to scrape a comic page and extract its images and metadata.
+        Main method to scrape a strip's page and extract its own images and metadata.
         
         Args:
             comic_slug (str): The slug of the comic to scrape.
             date (str): The date in YYYY/MM/DD format.
+            strip_url (str): The address the strip was listed under; see fetch_comic_page.
             
         Returns:
-            Optional[Dict[str, Any]]: Dictionary containing the comic data, or None if scraping fails.
+            Optional[Dict[str, Any]]: Dictionary containing the comic data, with the strip's
+            canonical address as 'url', or None if scraping fails or the page shows none of
+            the strip's own panels (so the next run retries it).
         """
         try:
             if not comic_slug or not date:
                 logger.error(f"Invalid parameters: comic_slug='{comic_slug}', date='{date}'")
                 return None
 
-            fetch_result = self.fetch_comic_page(comic_slug, date)
+            fetch_result = self.fetch_comic_page(comic_slug, date, strip_url=strip_url)
             if not fetch_result:
                 logger.warning(f"No HTML content retrieved for {comic_slug} on {date}")
                 return None
             
-            # Unpack the HTML content and the actual comic URL
+            # The address loaded: the one given, or the date lookup's find.
             html_content, strip_url = fetch_result
             
-            images = self.extract_images(html_content, comic_slug, date)
+            images = self.extract_images(html_content, comic_slug, date, strip_url=strip_url)
             if not images:
-                logger.warning(f"No comic images found for {comic_slug} on {date}")
+                logger.warning(f"No images under the strip's own folder for {strip_url}; not recording it")
                 return None
 
             metadata = self.extract_metadata(html_content, comic_slug, date)
@@ -552,7 +533,7 @@ class TinyviewScraper(BaseScraper):
                 'comic_slug': comic_slug,
                 'date': date,
                 'title': metadata.get('title', f'{comic_slug} - {date}'),
-                'url': strip_url,
+                'url': canonical_strip_url(strip_url),
                 'images': images,
                 'image_count': len(images),
                 'published_date': metadata.get('published_date', datetime.now()),
@@ -606,7 +587,7 @@ def main():
         
         # Test 2: ADHDinos (potentially multiple images)
         print("\n=== Testing ADHDinos (multiple images) ===")
-        result = scraper.scrape_comic('adhdinos', '2025/01/15', 'comic-title-here')
+        result = scraper.scrape_comic('adhdinos', '2025/01/15')
         if result:
             print(f"\nSuccessfully scraped ADHDinos comic:")
             print(f"Title: {result.get('title')}")

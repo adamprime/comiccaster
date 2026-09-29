@@ -21,6 +21,7 @@ load_dotenv()
 
 from tinyview_scraper_secure import setup_driver, is_authenticated, load_config_from_env
 from comiccaster.tinyview_scraper import TinyviewScraper
+from comiccaster.tinyview_strips import canonical_strip_url
 
 
 def load_comics_catalog():
@@ -34,97 +35,121 @@ def load_comics_catalog():
     return comics
 
 
-def load_existing_data(data_dir='data'):
-    """Load all existing TinyView data files to avoid re-scraping."""
+def canonical_addresses(records):
+    """Return the canonical address of every well-formed record in ``records``.
+
+    A record that is not a dict, or whose 'url' is not a non-empty string, is
+    skipped rather than raising: one malformed record must not cost the rest of
+    the file (load_recorded_strips) or the whole merge (merge_with_existing)
+    every address it holds.
+    """
+    addresses = set()
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        url = record.get('url')
+        if not isinstance(url, str) or not url:
+            continue
+        addresses.add(canonical_strip_url(url))
+    return addresses
+
+
+def load_recorded_strips(data_dir='data'):
+    """Return the canonical address of every strip saved in any TinyView data file.
+
+    A strip is recorded by its own address, never by its date: several strips can
+    share a date (Kowal Comics' five-part "Bella" is all filed under 2026/09/24), and
+    keying on the date skipped every sibling once one of them was saved.
+    """
     data_path = Path(data_dir)
-    existing_data = {}  # slug -> set of dates
-    
-    # Find all tinyview JSON files
-    json_files = list(data_path.glob('tinyview_*.json'))
-    
+    recorded = set()
+
+    # Every saved file counts, including tinyview_2025-11-16_backup.json, which
+    # can only add addresses.
+    json_files = sorted(data_path.glob('tinyview_*.json'))
+
     if not json_files:
         print("📭 No existing data files found")
-        return existing_data
-    
+        return recorded
+
     print(f"📂 Loading existing data from {len(json_files)} file(s)...")
-    
+
     for json_file in json_files:
         try:
             with open(json_file, 'r') as f:
                 data = json.load(f)
-            
-            for comic in data:
-                slug = comic.get('slug')
-                date = comic.get('date')  # YYYY-MM-DD format
-                
-                if slug and date:
-                    if slug not in existing_data:
-                        existing_data[slug] = set()
-                    existing_data[slug].add(date)
-                    
+
+            recorded.update(canonical_addresses(data))
+
         except Exception as e:
             print(f"  ⚠️  Error loading {json_file}: {e}")
             continue
-    
-    total_comics = sum(len(dates) for dates in existing_data.values())
-    print(f"✅ Loaded {total_comics} existing comics across {len(existing_data)} series")
-    
-    return existing_data
+
+    print(f"✅ Loaded {len(recorded)} recorded strip address(es)")
+
+    return recorded
 
 
-def scrape_comic_with_scraper(scraper, comic_slug, comic_name, days_back=15, existing_dates=None, feed_slug=None):
-    """Scrape a single comic using the authenticated TinyviewScraper.
-    
+def scrape_comic_with_scraper(scraper, comic_slug, comic_name, days_back=15, recorded=None, feed_slug=None):
+    """Scrape one series' listed strips that are not yet recorded, each by its own address.
+
     Args:
         scraper: TinyviewScraper instance
         comic_slug: The TinyView URL path slug (used for scraping)
         comic_name: Display name of the comic
         days_back: How many days to look back
-        existing_dates: Set of dates already scraped
+        recorded: Canonical addresses of strips already saved
         feed_slug: The slug to use in output data (for feed generation). Defaults to comic_slug.
+
+    Returns:
+        (records, not_recorded): the saved-record dicts for newly scraped strips, and the
+        addresses of listed strips that were attempted but not recorded (the page showed
+        none of the strip's own panels, or scraping failed). The next run retries those.
     """
     if feed_slug is None:
         feed_slug = comic_slug
-    
+    recorded = recorded or set()
+
+    results = []
+    not_recorded = []
+
     try:
         print(f"  Fetching recent comics...")
         recent_comics = scraper.get_recent_comics(comic_slug, days_back=days_back)
-        
+
         if not recent_comics:
             print(f"  ⚠️  No recent comics found")
-            return []
-        
-        # Filter out dates we already have
-        if existing_dates:
-            original_count = len(recent_comics)
-            recent_comics = [
-                c for c in recent_comics 
-                if c['date'].replace('/', '-') not in existing_dates
-            ]
-            skipped = original_count - len(recent_comics)
-            if skipped > 0:
-                print(f"  ⏭️  Skipping {skipped} already-scraped comic(s)")
-        
-        if not recent_comics:
-            print(f"  ✅ All recent comics already scraped")
-            return []
-        
-        print(f"  Found {len(recent_comics)} new comic(s) to scrape")
-        
-        # Scrape each comic
-        results = []
+            return results, not_recorded
+
+        # One entry per strip: the listing can repeat a link (e.g. once more with
+        # a #comments fragment), and the canonical address names the strip.
+        listed = {}
         for comic_data in recent_comics:
+            listed.setdefault(canonical_strip_url(comic_data['url']), comic_data)
+
+        new_strips = [(address, data) for address, data in listed.items() if address not in recorded]
+        skipped = len(listed) - len(new_strips)
+        if skipped > 0:
+            print(f"  ⏭️  Skipping {skipped} already-recorded strip(s)")
+
+        if not new_strips:
+            print(f"  ✅ All recent comics already scraped")
+            return results, not_recorded
+
+        print(f"  Found {len(new_strips)} new comic(s) to scrape")
+
+        for address, comic_data in new_strips:
             try:
-                print(f"    Scraping {comic_data['date']}...")
-                result = scraper.scrape_comic(comic_slug, comic_data['date'])
-                
+                print(f"    Scraping {address}...")
+                result = scraper.scrape_comic(comic_slug, comic_data['date'], strip_url=address)
+
                 if result:
                     # Convert to serializable format matching Comics Kingdom pattern
                     comic_json = {
                         'name': comic_name,
                         'slug': feed_slug,  # Use feed_slug for output (may differ from TinyView URL path)
                         'date': result['date'].replace('/', '-'),  # Convert to YYYY-MM-DD
-                        'url': result['url'],
+                        'url': address,  # The listed address, not wherever the browser ended up
                         'source': 'tinyview',
                         'images': result['images'],
                         'image_urls': [img['url'] for img in result['images']],  # Add for compatibility
@@ -135,21 +160,31 @@ def scrape_comic_with_scraper(scraper, comic_slug, comic_name, days_back=15, exi
                     results.append(comic_json)
                     print(f"    ✅ {len(result['images'])} image(s)")
                 else:
+                    not_recorded.append(address)
                     print(f"    ⚠️  Failed to scrape")
-                    
+
             except Exception as e:
+                not_recorded.append(address)
                 print(f"    ❌ Error: {e}")
                 continue
-        
-        return results
-        
+
     except Exception as e:
         print(f"  ❌ Error: {e}")
-        return []
+
+    if not_recorded:
+        print(f"  ⚠️  {len(not_recorded)} listed strip(s) not recorded:")
+        for address in not_recorded:
+            print(f"      {address}")
+
+    return results, not_recorded
 
 
-def scrape_all_comics_authenticated(comics, date_str, days_back=15, existing_data=None):
-    """Scrape all comics using one authenticated browser session."""
+def scrape_all_comics_authenticated(comics, date_str, days_back=15, recorded=None):
+    """Scrape all comics using one authenticated browser session.
+
+    ``recorded`` is the set of canonical strip addresses already saved; those strips
+    are not fetched again.
+    """
     print(f"\n{'='*80}")
     print(f"Scraping {len(comics)} TinyView comics (authenticated)")
     print(f"Looking back {days_back} days from {date_str}")
@@ -180,6 +215,7 @@ def scrape_all_comics_authenticated(comics, date_str, days_back=15, existing_dat
         scraper.driver = driver  # Use the shared authenticated driver
         
         all_results = []
+        all_not_recorded = []
         
         for i, comic in enumerate(comics, 1):
             slug = comic['slug']
@@ -196,10 +232,9 @@ def scrape_all_comics_authenticated(comics, date_str, days_back=15, existing_dat
             print(f"[{i}/{len(comics)}] Scraping {name} ({tinyview_slug})...")
             
             try:
-                # Get existing dates for this comic (use original slug for data tracking)
-                existing_dates = existing_data.get(slug, set()) if existing_data else set()
-                
-                results = scrape_comic_with_scraper(scraper, tinyview_slug, name, days_back, existing_dates, feed_slug=slug)
+                results, not_recorded = scrape_comic_with_scraper(
+                    scraper, tinyview_slug, name, days_back, recorded, feed_slug=slug)
+                all_not_recorded.extend(not_recorded)
                 
                 if results:
                     all_results.extend(results)
@@ -214,6 +249,11 @@ def scrape_all_comics_authenticated(comics, date_str, days_back=15, existing_dat
         print(f"\n{'='*80}")
         print(f"Scraping Complete!")
         print(f"Total new comics scraped: {len(all_results)}")
+        # Every listed strip should end up recorded; anything named here is retried
+        # by the next run. Operators grep this line to confirm a run captured all.
+        print(f"Listed but not recorded: {len(all_not_recorded)}")
+        for address in all_not_recorded:
+            print(f"  {address}")
         print("=" * 80)
         
         return all_results
@@ -221,6 +261,39 @@ def scrape_all_comics_authenticated(comics, date_str, days_back=15, existing_dat
     finally:
         print("\nClosing browser...")
         driver.quit()
+
+
+def merge_with_existing(output_file, new_strips):
+    """Add this run's strips to the day's existing file, keyed by strip address.
+
+    A same-day rerun must not erase what an earlier run saved (and a rerun that
+    finds nothing must not leave ``[]`` behind for the count guard). The existing
+    record wins for an address present in both.
+
+    Same shape as merge_with_existing in authenticated_scraper_secure.py (GoComics),
+    deliberately different in two ways: the key is the strip address, since several
+    TinyView strips share a slug and date, and the existing record wins rather than
+    the new one, so a published strip's content never changes.
+    """
+    if not output_file.exists():
+        return new_strips
+    try:
+        with open(output_file) as f:
+            existing = json.load(f)
+        if not isinstance(existing, list):
+            raise ValueError(f"expected a list of strips, got {type(existing).__name__}")
+    except (json.JSONDecodeError, OSError, ValueError) as e:
+        print(f"⚠️  Could not read existing {output_file}: {e}; using this run's strips only")
+        return new_strips
+
+    existing_addresses = canonical_addresses(existing)
+    added = [strip for strip in new_strips if canonical_strip_url(strip['url']) not in existing_addresses]
+    merged = existing + added
+    print(
+        f"🔀 Merge: {len(existing)} already in {output_file.name} + "
+        f"{len(added)} new = {len(merged)} total"
+    )
+    return merged
 
 
 def main():
@@ -248,14 +321,16 @@ def main():
         print("❌ No comics loaded")
         sys.exit(1)
     
-    # Load existing data to avoid re-scraping
-    existing_data = load_existing_data(args.output_dir)
+    # Addresses of strips already saved, so they aren't scraped again
+    recorded = load_recorded_strips(args.output_dir)
     
     # Scrape all comics (authenticated)
-    results = scrape_all_comics_authenticated(comics, date_str, args.days_back, existing_data)
+    results = scrape_all_comics_authenticated(comics, date_str, args.days_back, recorded)
     
-    # Save to JSON file (matching Comics Kingdom pattern)
+    # Save to JSON file (matching Comics Kingdom pattern), adding to any earlier
+    # run's strips for the same day
     output_file = output_dir / f'tinyview_{date_str}.json'
+    results = merge_with_existing(output_file, results)
     
     with open(output_file, 'w') as f:
         json.dump(results, f, indent=2)
