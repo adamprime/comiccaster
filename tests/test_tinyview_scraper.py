@@ -956,3 +956,34 @@ class TestTinyviewStripByAddress:
             assert scraper.scrape_comic(self.SERIES, self.DATE, strip_url=self.PART1) is None
 
         assert [call.args for call in mock_driver.get.call_args_list] == [(self.PART1,)]
+
+    def test_panel_wait_timeout_is_caught_when_page_shows_only_siblings_panels(self):
+        # A strip's page can render only a same-date sibling's panels and none of
+        # its own (Part 2's page here never shows any Part 2 art). The wait on
+        # _count_own_panels(strip_url) > 0 then never succeeds, so WebDriverWait
+        # times out; that timeout must be caught, not left to propagate, so the
+        # already-loaded page is still returned.
+        scraper = self._scraper()
+        page = _strip_page(*self.PART1_PANELS)  # only the sibling's own panels
+        pages = {self.PART2: page}
+
+        with _driving(scraper, FakeDriver(pages)) as driver:
+            result = scraper.fetch_comic_page(self.SERIES, self.DATE, strip_url=self.PART2)
+
+        assert driver.visited == [self.PART2]
+        assert result == (page, self.PART2)
+
+    def test_strip_whose_own_panels_never_load_is_not_recorded(self):
+        # R8, exercised through the real fetch path rather than a patched
+        # fetch_comic_page: when the panel wait times out because the page never
+        # shows the strip's own panels, scrape_comic must still end up with no
+        # images attributable to the strip and return None, instead of recording
+        # a sibling's art under this address.
+        scraper = self._scraper()
+        page = _strip_page(*self.PART1_PANELS)  # only the sibling's own panels
+        pages = {self.PART2: page}
+
+        with _driving(scraper, FakeDriver(pages)):
+            result = scraper.scrape_comic(self.SERIES, self.DATE, strip_url=self.PART2)
+
+        assert result is None
