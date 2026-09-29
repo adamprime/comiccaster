@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-09-29",
+  "scraped_at": "2026-09-29T08:23:57.375517+00:00",
+  "comics": [
+    {
+      "id": "22792",
+      "date": "2026-09-29",
+      "url": "https://www.thefarside.com/2026/09/29/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F30a062b0d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/30a062b0d0f70137c652005056a9545d",
+      "caption": "In the hallway of the Old Cartoonists\u2019 Home",
+      "title": "In the hallway of the Old Cartoonists\u2019 Home"
+    },
+    {
+      "id": "22793",
+      "date": "2026-09-29",
+      "url": "https://www.thefarside.com/2026/09/29/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F277fd020e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/277fd020e92e0137cf47005056a9545d",
+      "caption": "\u201cSo please welcome our keynote speaker, Professor Melvin Fenwick\u2014the man who, back in 1952, first coined the now common phrase: \u2018Fools! I\u2019ll destroy them all!\u2019\u201d",
+      "title": "\u201cSo please welcome our keynote speaker, Professor Melvin ..."
+    },
+    {
+      "id": "22794",
+      "date": "2026-09-29",
+      "url": "https://www.thefarside.com/2026/09/29/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F80f255d0dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/80f255d0dcca0137caaf005056a9545d",
+      "caption": "Stupid clerks",
+      "title": "Stupid clerks"
+    },
+    {
+      "id": "22795",
+      "date": "2026-09-29",
+      "url": "https://www.thefarside.com/2026/09/29/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F27c28bd0e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/27c28bd0e92f0137cf47005056a9545d",
+      "caption": "\u201cConfession time, Mona\u2014I\u2019ve led you astray.\u201d",
+      "title": "\u201cConfession time, Mona\u2014I\u2019ve led you astray"
+    },
+    {
+      "id": "22796",
+      "date": "2026-09-29",
+      "url": "https://www.thefarside.com/2026/09/29/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F04585120cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/04585120cdd30137c56b005056a9545d",
+      "caption": "\u201cAnd the last gladiator left alive will win the contest. But first \u2026 the egg-toss!\u201d",
+      "title": "\u201cAnd the last gladiator left alive will win the contest"
+    }
+  ]
+}
