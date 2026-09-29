@@ -49,6 +49,10 @@ python scripts/generate_newyorker_feeds.py
 python scripts/generate_farside_feeds.py
 python scripts/generate_creators_feeds.py
 python scripts/generate_mrboffo_feeds.py
+
+# Visual check of feed XML before it ships: writes one HTML page (fields, checks,
+# images); --against marks items new/changed/missing vs a git ref or a directory
+python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --open
 ```
 
 ## Architecture
@@ -79,6 +83,7 @@ python scripts/generate_mrboffo_feeds.py
    - `scrape_*.py` and authenticated scrapers — per-source scrapers (Phase 1), each writes `data/<src>_$DATE.json`
    - `generate_*.py` — per-source generators (Phase 2), network-free, read the latest scraped JSON and write `public/feeds/*.xml`
    - `backfill_gocomics_feeds.py` — manual rate-limited recovery
+   - `preview_feeds.py` — renders feed XML as an HTML page for a visual check before shipping (read-only)
    - `reauth_comicskingdom.py` — session refresh for Comics Kingdom
 
 4. **functions/** - Netlify serverless functions
