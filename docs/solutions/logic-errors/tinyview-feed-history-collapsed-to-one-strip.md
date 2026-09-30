@@ -1,6 +1,7 @@
 ---
 title: "TinyView feeds held only the newest strip, and strips sharing a date were lost"
 date: 2026-09-29
+last_updated: 2026-09-30
 category: logic-errors
 module: tinyview
 problem_type: logic_error
@@ -354,11 +355,14 @@ exactly the case this fix exists for.
   `test_a_rerun_that_finds_nothing_new_leaves_the_file_as_it_was` (`:444`) and
   `test_the_existing_record_wins_for_the_same_address` (`:452`).
 - **Known residuals:**
-  - **#214 (open).** The retry paths call `close_driver()`
-    (`comiccaster/tinyview_scraper.py:257,270,367,380`). That quits the logged-in
-    profile driver the nightly script injected. The next `setup_driver()` builds a
-    headless Chrome with no profile and `--disable-images` (`:94`), and that browser
-    serves the rest of the run.
+  - **#214 (fixed).** A retry used to quit the logged-in browser the nightly script
+    handed over and start a logged-out, image-less one for the rest of the run. The
+    scraper now borrows that browser (`TinyviewScraper(driver=...)`): a retry
+    reuses it, and a dead session raises `BrowserSessionLost`. The nightly run then
+    stops, saves the strips recorded before the loss, prints `Browser session lost
+    at [i/N]`, and exits 1 so the pipeline alerts. Still invisible: a login the
+    server expires mid-run while the browser stays healthy, since pages keep loading
+    and nothing raises.
   - **A partial first capture is permanent.** Recorded addresses are never fetched
     again, and the earliest copy wins. After a catch-up, compare each strip's image
     count with its `cdn.tinyview.com/<folder>/index.json`.
