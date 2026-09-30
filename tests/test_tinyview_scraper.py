@@ -1003,12 +1003,11 @@ class _BorrowedBrowser(FakeDriver):
         self.quit_calls = 0
 
     def get(self, url):
-        self.visited.append(url)
         pending = self.failures.get(url)
         if pending:
+            self.visited.append(url)
             raise pending.pop(0)
-        self._url = url
-        self._stage = 0
+        super().get(url)
 
     @property
     def current_url(self):
