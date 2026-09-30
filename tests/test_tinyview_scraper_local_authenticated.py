@@ -21,6 +21,7 @@ import pytest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
+from comiccaster.tinyview_scraper import BrowserSessionLost
 from comiccaster.tinyview_strips import canonical_strip_url, strip_folder
 
 # Importing the script runs load_dotenv() (there and in tinyview_scraper_secure),
@@ -94,10 +95,13 @@ class StubScraper:
     first listed strip filed under that date.
     """
 
-    def __init__(self, listings, empty=(), raising=(), untitled=(), reported_urls=None):
+    def __init__(self, listings, empty=(), raising=(), untitled=(), reported_urls=None,
+                 lost=(), lost_listing=()):
         self.listings = listings
         self.empty = set(empty)
         self.raising = set(raising)
+        self.lost = set(lost)  # addresses whose page load finds the browser session dead
+        self.lost_listing = set(lost_listing)  # series whose listing load finds it dead
         self.untitled = set(untitled)
         self.reported_urls = reported_urls or {}
         self.listing_calls = []
@@ -106,6 +110,8 @@ class StubScraper:
 
     def get_recent_comics(self, comic_slug, days_back=90):
         self.listing_calls.append((comic_slug, days_back))
+        if comic_slug in self.lost_listing:
+            raise BrowserSessionLost('invalid session id')
         return [dict(entry) for entry in self.listings.get(comic_slug, [])]
 
     def scrape_comic(self, comic_slug, date, *, strip_url=None):
@@ -120,6 +126,8 @@ class StubScraper:
             return None
         if loaded in self.raising:
             raise RuntimeError('page crashed')
+        if loaded in self.lost:
+            raise BrowserSessionLost('invalid session id')
         folder = strip_folder(loaded)
         panel = f'https://cdn.tinyview.com/{folder}/1.jpg'
         result = {
@@ -526,3 +534,78 @@ class TestSameDayRerunEndToEnd:
 
         assert rerun.scrape_calls == []
         assert read_saved(tmp_path) == first
+
+
+# --- A browser session that dies mid-run (#214) --------------------------------
+
+
+def adhdinos_strip():
+    return address('adhdinos', '2026/09/28', 'naptime')
+
+
+class TestLostBrowserSession:
+    """The run keeps the logged-in browser it started with; if that browser dies, the run stops.
+
+    A replacement browser would be logged out, so every later strip could be saved with
+    only its preview panels, for good. Stopping and failing lets the pipeline alert fire.
+    """
+
+    def test_the_scraper_borrows_the_logged_in_browser(self, tmp_path):
+        scraper = StubScraper({'kowal-comics': [listed(bella(5))]})
+
+        with no_browser(scraper) as driver:
+            tvl.scrape_all_comics_authenticated([KOWAL], DATE, 90, set())
+            tvl.TinyviewScraper.assert_called_once_with(driver=driver)
+
+    def test_a_lost_session_stops_the_run_and_hands_back_what_was_recorded(self, tmp_path, capsys):
+        scraper = StubScraper({
+            'adhdinos': [listed(adhdinos_strip())],
+            'kowal-comics': [listed(bella(5))],
+            'fowl-language': [listed(address('fowl-language', '2026/09/28', 'politician'))],
+        }, lost={bella(5)})
+
+        with no_browser(scraper) as driver, pytest.raises(tvl.ScrapeStopped) as stopped:
+            tvl.scrape_all_comics_authenticated([ADHDINOS, KOWAL, FOWL], DATE, 90, set())
+
+        assert [record['url'] for record in stopped.value.results] == [adhdinos_strip()]
+        assert [slug for slug, _ in scraper.listing_calls] == ['adhdinos', 'kowal-comics']
+        assert 'Browser session lost at [2/3] Kowal Comics' in capsys.readouterr().out
+        driver.quit.assert_called_once()
+
+    def test_a_session_lost_while_listing_a_series_stops_the_run(self, tmp_path):
+        scraper = StubScraper({'adhdinos': [listed(adhdinos_strip())]}, lost_listing={'kowal-comics'})
+
+        with no_browser(scraper), pytest.raises(tvl.ScrapeStopped) as stopped:
+            tvl.scrape_all_comics_authenticated([ADHDINOS, KOWAL, FOWL], DATE, 90, set())
+
+        assert [record['url'] for record in stopped.value.results] == [adhdinos_strip()]
+        assert [slug for slug, _ in scraper.listing_calls] == ['adhdinos', 'kowal-comics']
+
+    def test_main_saves_what_was_recorded_and_exits_nonzero(self, tmp_path, monkeypatch, capsys):
+        earlier = saved_record('kowal-comics', bella(4))
+        write_saved(tmp_path, f'tinyview_{DATE}.json', [earlier])
+        scraper = StubScraper({
+            'adhdinos': [listed(adhdinos_strip())],
+            'kowal-comics': [listed(bella(5))],
+        }, lost={bella(5)})
+        monkeypatch.setattr(sys, 'argv', [
+            'tinyview_scraper_local_authenticated.py',
+            '--date', DATE, '--days-back', '90', '--output-dir', str(tmp_path)])
+        monkeypatch.setattr(tvl, 'load_comics_catalog', lambda: [ADHDINOS, KOWAL])
+
+        with no_browser(scraper):
+            assert tvl.main() == 1
+
+        saved = read_saved(tmp_path)
+        assert [record['url'] for record in saved] == [bella(4), adhdinos_strip()]
+        assert saved[0] == earlier
+
+    def test_a_browser_that_fails_to_close_does_not_cost_the_run(self, tmp_path, capsys):
+        scraper = StubScraper({'kowal-comics': [listed(bella(5))]})
+
+        with no_browser(scraper) as driver:
+            driver.quit.side_effect = RuntimeError('chrome not reachable')
+            results = tvl.scrape_all_comics_authenticated([KOWAL], DATE, 90, set())
+
+        assert [record['url'] for record in results] == [bella(5)]
+        assert 'Could not close the browser' in capsys.readouterr().out
