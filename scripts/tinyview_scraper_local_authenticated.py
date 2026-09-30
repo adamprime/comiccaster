@@ -20,8 +20,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from tinyview_scraper_secure import setup_driver, is_authenticated, load_config_from_env
-from comiccaster.tinyview_scraper import TinyviewScraper
+from comiccaster.tinyview_scraper import BrowserSessionLost, TinyviewScraper
 from comiccaster.tinyview_strips import canonical_strip_url
+
+
+class ScrapeStopped(Exception):
+    """The run stopped early; ``results`` holds the strips recorded before it did."""
+
+    def __init__(self, results):
+        super().__init__(f"stopped after recording {len(results)} strip(s)")
+        self.results = results
 
 
 def load_comics_catalog():
@@ -163,11 +171,15 @@ def scrape_comic_with_scraper(scraper, comic_slug, comic_name, days_back=15, rec
                     not_recorded.append(address)
                     print(f"    ⚠️  Failed to scrape")
 
+            except BrowserSessionLost:
+                raise
             except Exception as e:
                 not_recorded.append(address)
                 print(f"    ❌ Error: {e}")
                 continue
 
+    except BrowserSessionLost:
+        raise
     except Exception as e:
         print(f"  ❌ Error: {e}")
 
@@ -183,7 +195,9 @@ def scrape_all_comics_authenticated(comics, date_str, days_back=15, recorded=Non
     """Scrape all comics using one authenticated browser session.
 
     ``recorded`` is the set of canonical strip addresses already saved; those strips
-    are not fetched again.
+    are not fetched again. If the browser session dies, the run stops and raises
+    ScrapeStopped with the strips recorded before it (the series in progress is
+    retried next run): carrying on in a new browser would be logged out.
     """
     print(f"\n{'='*80}")
     print(f"Scraping {len(comics)} TinyView comics (authenticated)")
@@ -210,9 +224,8 @@ def scrape_all_comics_authenticated(comics, date_str, days_back=15, recorded=Non
         print("✅ Authenticated successfully!")
         print("=" * 80 + "\n")
         
-        # Create scraper with the authenticated driver
-        scraper = TinyviewScraper()
-        scraper.driver = driver  # Use the shared authenticated driver
+        # The scraper borrows the authenticated browser: it retries on it and never replaces it
+        scraper = TinyviewScraper(driver=driver)
         
         all_results = []
         all_not_recorded = []
@@ -242,6 +255,11 @@ def scrape_all_comics_authenticated(comics, date_str, days_back=15, recorded=Non
                 else:
                     print(f"  ⚠️  No new comics")
                     
+            except BrowserSessionLost as e:
+                print(f"\n❌ Browser session lost at [{i}/{len(comics)}] {name}; stopping the run: {e}")
+                print(f"   Keeping the {len(all_results)} strip(s) recorded before it; "
+                      f"everything else is retried next run.")
+                raise ScrapeStopped(all_results) from e
             except Exception as e:
                 print(f"  ❌ Error: {e}")
                 continue
@@ -260,7 +278,11 @@ def scrape_all_comics_authenticated(comics, date_str, days_back=15, recorded=Non
         
     finally:
         print("\nClosing browser...")
-        driver.quit()
+        try:
+            driver.quit()
+        except Exception as e:
+            # A dead session can fail to close; that must not cost the strips already scraped.
+            print(f"⚠️  Could not close the browser: {e}")
 
 
 def merge_with_existing(output_file, new_strips):
@@ -325,7 +347,12 @@ def main():
     recorded = load_recorded_strips(args.output_dir)
     
     # Scrape all comics (authenticated)
-    results = scrape_all_comics_authenticated(comics, date_str, args.days_back, recorded)
+    try:
+        results = scrape_all_comics_authenticated(comics, date_str, args.days_back, recorded)
+        stopped = False
+    except ScrapeStopped as stop:
+        results = stop.results
+        stopped = True
     
     # Save to JSON file (matching Comics Kingdom pattern), adding to any earlier
     # run's strips for the same day
@@ -336,6 +363,10 @@ def main():
         json.dump(results, f, indent=2)
     
     print(f"\n💾 Saved {len(results)} comics to {output_file}")
+    if stopped:
+        # Non-zero, so the pipeline records a TinyView scrape failure and alerts.
+        print("\n❌ TinyView scrape stopped early: the browser session was lost.")
+        return 1
     print(f"\n✅ Success! Data ready for GitHub Actions to process.")
     
     return 0
