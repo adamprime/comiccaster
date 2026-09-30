@@ -1112,6 +1112,29 @@ class TestBorrowedBrowser:
 
         assert browser.visited == [self.LISTING]
 
+    def test_a_dead_session_behind_a_strip_load_timeout_stops_the_scrape(self):
+        from comiccaster.tinyview_scraper import BrowserSessionLost
+        browser = _BorrowedBrowser({self.STRIP: _strip_page(*self.PANELS)},
+                                   failures={self.STRIP: [TimeoutException('page load')]})
+        browser.dead = True
+
+        with self._borrowing(browser) as scraper, pytest.raises(BrowserSessionLost):
+            scraper.fetch_comic_page(self.SERIES, self.DATE, strip_url=self.STRIP)
+
+        assert browser.visited == [self.STRIP]
+
+    def test_a_dead_session_behind_a_listing_error_stops_the_scrape(self):
+        from selenium.common.exceptions import WebDriverException
+        from comiccaster.tinyview_scraper import BrowserSessionLost
+        browser = _BorrowedBrowser({self.LISTING: self._listing_page()},
+                                   failures={self.LISTING: [WebDriverException('chrome not reachable')]})
+        browser.dead = True
+
+        with self._borrowing(browser) as scraper, pytest.raises(BrowserSessionLost):
+            scraper.get_recent_comics(self.SERIES)
+
+        assert browser.visited == [self.LISTING]
+
     def test_a_dead_session_on_the_last_attempt_still_stops_the_scrape(self):
         # Retries used up with the session alive give up on this strip; if the
         # session has died by then, the run must still hear about it.
