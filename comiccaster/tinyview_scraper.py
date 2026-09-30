@@ -61,17 +61,30 @@ def _own_panel_url(src: str, strip_url: str) -> Optional[str]:
     return url
 
 
+class BrowserSessionLost(Exception):
+    """The browser the scraper was handed has stopped answering.
+
+    Raised instead of starting a replacement, which would carry on without the
+    lender's login and with images disabled. The run should stop instead.
+    """
+
+
 class TinyviewScraper(BaseScraper):
     """Handles scraping individual comic pages from Tinyview."""
     
-    def __init__(self, max_retries: int = 3):
+    def __init__(self, max_retries: int = 3, driver=None):
         """Initialize the TinyviewScraper.
         
         Args:
             max_retries: Maximum number of retries for failed requests
+            driver: A browser to use instead of starting one, such as the nightly
+                run's logged-in session. The scraper borrows it: a failed page load is
+                retried on it, it is never quit or replaced, and BrowserSessionLost is
+                raised if its session dies.
         """
         super().__init__(base_url="https://tinyview.com")
-        self.driver = None
+        self.driver = driver
+        self._owns_driver = driver is None
         self.max_retries = max_retries
     
     def get_source_name(self) -> str:
@@ -158,10 +171,22 @@ class TinyviewScraper(BaseScraper):
                 raise Exception(f"Both Chrome and Firefox WebDriver initialization failed. Chrome: {chrome_error}, Firefox: {firefox_error}")
     
     def close_driver(self):
-        """Close the Selenium WebDriver."""
-        if self.driver:
+        """Close the Selenium WebDriver, unless it was borrowed: its lender closes that one."""
+        if self.driver and self._owns_driver:
             self.driver.quit()
             self.driver = None
+
+    def _check_borrowed_session(self):
+        """After a failed page load, raise BrowserSessionLost if a borrowed browser is dead.
+
+        A browser this scraper started is replaced on retry instead, so it isn't checked.
+        """
+        if self._owns_driver:
+            return
+        try:
+            self.driver.current_url
+        except Exception as e:
+            raise BrowserSessionLost(f"the browser session stopped answering: {e}") from e
     
     def get_recent_comics(self, comic_slug: str, days_back: int = 90) -> List[Dict[str, str]]:
         """
@@ -248,12 +273,13 @@ class TinyviewScraper(BaseScraper):
                 
             except TimeoutException as e:
                 logger.warning(f"Timeout on attempt {attempt + 1}/{self.max_retries} for {comic_main_url}: {e}")
+                self._check_borrowed_session()
                 if attempt < self.max_retries - 1:
                     # Exponential backoff: wait 2^attempt seconds
                     wait_time = 2 ** attempt
                     logger.info(f"Retrying in {wait_time} seconds...")
                     time.sleep(wait_time)
-                    # Close and reopen driver for clean retry
+                    # Start a fresh browser for the retry (a borrowed one is kept)
                     self.close_driver()
                 else:
                     logger.error(f"All {self.max_retries} attempts failed for {comic_main_url}")
@@ -261,12 +287,13 @@ class TinyviewScraper(BaseScraper):
                     
             except Exception as e:
                 logger.error(f"Error on attempt {attempt + 1}/{self.max_retries} for {comic_main_url}: {e}")
+                self._check_borrowed_session()
                 if attempt < self.max_retries - 1:
                     # Exponential backoff
                     wait_time = 2 ** attempt
                     logger.info(f"Retrying in {wait_time} seconds...")
                     time.sleep(wait_time)
-                    # Close and reopen driver for clean retry
+                    # Start a fresh browser for the retry (a borrowed one is kept)
                     self.close_driver()
                 else:
                     logger.error(f"All {self.max_retries} attempts failed for {comic_main_url}")
@@ -358,12 +385,13 @@ class TinyviewScraper(BaseScraper):
                 
             except TimeoutException as e:
                 logger.warning(f"Timeout on attempt {attempt + 1}/{self.max_retries} for {strip_url}: {e}")
+                self._check_borrowed_session()
                 if attempt < self.max_retries - 1:
                     # Exponential backoff: wait 2^attempt seconds
                     wait_time = 2 ** attempt
                     logger.info(f"Retrying in {wait_time} seconds...")
                     time.sleep(wait_time)
-                    # Close and reopen driver for clean retry
+                    # Start a fresh browser for the retry (a borrowed one is kept)
                     self.close_driver()
                 else:
                     logger.error(f"All {self.max_retries} attempts failed for {strip_url}")
@@ -371,12 +399,13 @@ class TinyviewScraper(BaseScraper):
                     
             except Exception as e:
                 logger.error(f"Error on attempt {attempt + 1}/{self.max_retries} for {strip_url}: {e}")
+                self._check_borrowed_session()
                 if attempt < self.max_retries - 1:
                     # Exponential backoff
                     wait_time = 2 ** attempt
                     logger.info(f"Retrying in {wait_time} seconds...")
                     time.sleep(wait_time)
-                    # Close and reopen driver for clean retry
+                    # Start a fresh browser for the retry (a borrowed one is kept)
                     self.close_driver()
                 else:
                     logger.error(f"All {self.max_retries} attempts failed for {strip_url}")
@@ -548,7 +577,9 @@ class TinyviewScraper(BaseScraper):
             logger.info(f"Successfully scraped {comic_slug} for {date}: {len(images)} images found")
             
             return result
-            
+
+        except BrowserSessionLost:
+            raise
         except Exception as e:
             logger.error(f"Unexpected error scraping {comic_slug} for {date}: {e}")
             return None

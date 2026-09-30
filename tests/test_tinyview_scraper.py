@@ -987,3 +987,202 @@ class TestTinyviewStripByAddress:
             result = scraper.scrape_comic(self.SERIES, self.DATE, strip_url=self.PART2)
 
         assert result is None
+
+
+class _BorrowedBrowser(FakeDriver):
+    """The nightly run's logged-in browser: page loads can fail, and its session can die.
+
+    ``failures`` maps an address to the errors its next loads raise, one per load.
+    Once ``dead`` is set, every command fails the way a lost session does.
+    """
+
+    def __init__(self, pages, failures=None):
+        super().__init__(pages)
+        self.failures = {url: list(errors) for url, errors in (failures or {}).items()}
+        self.dead = False
+        self.quit_calls = 0
+
+    def get(self, url):
+        self.visited.append(url)
+        pending = self.failures.get(url)
+        if pending:
+            raise pending.pop(0)
+        self._url = url
+        self._stage = 0
+
+    @property
+    def current_url(self):
+        if self.dead:
+            from selenium.common.exceptions import InvalidSessionIdException
+            raise InvalidSessionIdException('invalid session id')
+        return self._url
+
+    def quit(self):
+        self.quit_calls += 1
+
+
+class TestBorrowedBrowser:
+    """A browser handed to the scraper is used for the whole run, never swapped out (#214).
+
+    The nightly run hands over its logged-in TinyView browser. Replacing it on a retry
+    started a logged-out, image-less headless Chrome that served the rest of the run.
+    """
+
+    SERIES = 'kowal-comics'
+    DATE = '2026/09/24'
+    STRIP = 'https://tinyview.com/kowal-comics/2026/09/24/bella-part-1'
+    PANELS = [f'https://cdn.tinyview.com/kowal-comics/2026/09/24/bella-part-1/{n}.jpg' for n in (1, 2)]
+    LISTING = 'https://tinyview.com/kowal-comics'
+
+    @contextmanager
+    def _borrowing(self, browser):
+        """A scraper lent ``browser``; starting any other browser fails the test."""
+        from comiccaster.tinyview_scraper import TinyviewScraper
+        scraper = TinyviewScraper(driver=browser)
+        started = AssertionError('started a new browser')
+        with patch('comiccaster.tinyview_scraper.build_chrome_driver', side_effect=started) as chrome, \
+             patch('comiccaster.tinyview_scraper.webdriver.Firefox', side_effect=started) as firefox, \
+             patch('time.sleep', side_effect=browser.advance), \
+             patch('comiccaster.tinyview_scraper.WebDriverWait', _WaitOnce):
+            yield scraper
+        chrome.assert_not_called()
+        firefox.assert_not_called()
+
+    def _listing_page(self):
+        return _listing(self.SERIES, (datetime.now(), 'today'))
+
+    def test_a_failed_strip_load_is_retried_on_the_same_browser(self):
+        from selenium.common.exceptions import WebDriverException
+        page = _strip_page(*self.PANELS)
+        browser = _BorrowedBrowser({self.STRIP: page},
+                                   failures={self.STRIP: [WebDriverException('net::ERR_CONNECTION_RESET')]})
+
+        with self._borrowing(browser) as scraper:
+            result = scraper.fetch_comic_page(self.SERIES, self.DATE, strip_url=self.STRIP)
+
+        assert result == (page, self.STRIP)
+        assert browser.visited == [self.STRIP, self.STRIP]
+        assert scraper.driver is browser
+        assert browser.quit_calls == 0
+
+    def test_a_timed_out_strip_load_is_retried_on_the_same_browser(self):
+        page = _strip_page(*self.PANELS)
+        browser = _BorrowedBrowser({self.STRIP: page}, failures={self.STRIP: [TimeoutException('page load')]})
+
+        with self._borrowing(browser) as scraper:
+            result = scraper.fetch_comic_page(self.SERIES, self.DATE, strip_url=self.STRIP)
+
+        assert result == (page, self.STRIP)
+        assert browser.visited == [self.STRIP, self.STRIP]
+        assert browser.quit_calls == 0
+
+    def test_a_failed_listing_load_is_retried_on_the_same_browser(self):
+        from selenium.common.exceptions import WebDriverException
+        browser = _BorrowedBrowser({self.LISTING: self._listing_page()},
+                                   failures={self.LISTING: [TimeoutException('page load'),
+                                                            WebDriverException('tab crashed')]})
+
+        with self._borrowing(browser) as scraper:
+            recent = scraper.get_recent_comics(self.SERIES)
+
+        assert [comic['title'] for comic in recent] == ['today']
+        assert browser.visited == [self.LISTING] * 3
+        assert browser.quit_calls == 0
+
+    def test_a_dead_session_on_a_strip_load_stops_the_scrape(self):
+        from selenium.common.exceptions import WebDriverException
+        from comiccaster.tinyview_scraper import BrowserSessionLost
+        browser = _BorrowedBrowser({self.STRIP: _strip_page(*self.PANELS)},
+                                   failures={self.STRIP: [WebDriverException('chrome not reachable')]})
+        browser.dead = True
+
+        with self._borrowing(browser) as scraper, pytest.raises(BrowserSessionLost):
+            scraper.fetch_comic_page(self.SERIES, self.DATE, strip_url=self.STRIP)
+
+        assert browser.visited == [self.STRIP]  # no retry on a dead session
+        assert browser.quit_calls == 0
+
+    def test_a_dead_session_on_a_listing_load_stops_the_scrape(self):
+        from comiccaster.tinyview_scraper import BrowserSessionLost
+        browser = _BorrowedBrowser({self.LISTING: self._listing_page()},
+                                   failures={self.LISTING: [TimeoutException('page load')]})
+        browser.dead = True
+
+        with self._borrowing(browser) as scraper, pytest.raises(BrowserSessionLost):
+            scraper.get_recent_comics(self.SERIES)
+
+        assert browser.visited == [self.LISTING]
+
+    def test_a_dead_session_on_the_last_attempt_still_stops_the_scrape(self):
+        # Retries used up with the session alive give up on this strip; if the
+        # session has died by then, the run must still hear about it.
+        from selenium.common.exceptions import WebDriverException
+        from comiccaster.tinyview_scraper import BrowserSessionLost
+        browser = _BorrowedBrowser({self.STRIP: _strip_page(*self.PANELS)},
+                                   failures={self.STRIP: [WebDriverException('reset')] * 3})
+        original_get = browser.get
+
+        def get_then_die(url):
+            if len(browser.visited) == 2:
+                browser.dead = True
+            original_get(url)
+
+        browser.get = get_then_die
+        with self._borrowing(browser) as scraper, pytest.raises(BrowserSessionLost):
+            scraper.fetch_comic_page(self.SERIES, self.DATE, strip_url=self.STRIP)
+
+        assert browser.visited == [self.STRIP] * 3
+
+    def test_scrape_comic_lets_a_lost_session_through(self):
+        from selenium.common.exceptions import WebDriverException
+        from comiccaster.tinyview_scraper import BrowserSessionLost
+        browser = _BorrowedBrowser({self.STRIP: _strip_page(*self.PANELS)},
+                                   failures={self.STRIP: [WebDriverException('chrome not reachable')]})
+        browser.dead = True
+
+        with self._borrowing(browser) as scraper, pytest.raises(BrowserSessionLost):
+            scraper.scrape_comic(self.SERIES, self.DATE, strip_url=self.STRIP)
+
+    def test_retries_used_up_on_a_live_session_give_up_on_that_strip_only(self):
+        from selenium.common.exceptions import WebDriverException
+        browser = _BorrowedBrowser({self.STRIP: _strip_page(*self.PANELS)},
+                                   failures={self.STRIP: [WebDriverException('reset')] * 3})
+
+        with self._borrowing(browser) as scraper:
+            assert scraper.scrape_comic(self.SERIES, self.DATE, strip_url=self.STRIP) is None
+
+        assert browser.visited == [self.STRIP] * 3
+        assert browser.quit_calls == 0
+
+    def test_closing_the_scraper_leaves_a_borrowed_browser_to_its_lender(self):
+        from comiccaster.tinyview_scraper import TinyviewScraper
+        browser = _BorrowedBrowser({})
+        scraper = TinyviewScraper(driver=browser)
+
+        scraper.close_driver()
+        scraper.__del__()
+
+        assert browser.quit_calls == 0
+        assert scraper.driver is browser
+
+    def test_a_browser_the_scraper_started_is_still_replaced_on_retry(self):
+        # Unchanged for a scraper that owns its browser: close it and start another.
+        from selenium.common.exceptions import WebDriverException
+        from comiccaster.tinyview_scraper import TinyviewScraper
+        page = _strip_page(*self.PANELS)
+        first = _BorrowedBrowser({self.STRIP: page}, failures={self.STRIP: [WebDriverException('reset')]})
+        second = _BorrowedBrowser({self.STRIP: page})
+        started = iter([first, second])
+        scraper = TinyviewScraper()
+
+        def start():
+            scraper.driver = next(started)
+
+        with patch.object(scraper, 'setup_driver', side_effect=start), \
+             patch('time.sleep', side_effect=lambda _s=None: scraper.driver and scraper.driver.advance()), \
+             patch('comiccaster.tinyview_scraper.WebDriverWait', _WaitOnce):
+            result = scraper.fetch_comic_page(self.SERIES, self.DATE, strip_url=self.STRIP)
+
+        assert result == (page, self.STRIP)
+        assert first.quit_calls == 1
+        assert scraper.driver is second
