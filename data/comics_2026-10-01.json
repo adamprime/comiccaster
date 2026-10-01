@@ -40,6 +40,14 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/2682af209fd6013fcc2f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-01",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/10/01",
+    "category": "political"
+  },
+  {
     "name": "Joe Heller",
     "slug": "joe-heller",
     "image_url": "https://featureassets.gocomics.com/assets/238649a09f64013fcc21005056a9545d?optimizer=image&width=2800&quality=85",
@@ -64,6 +72,14 @@
     "category": "political"
   },
   {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/04b822109fdc013fcc32005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-01",
+    "url": "https://www.gocomics.com/drewsheneman/2026/10/01",
+    "category": "political"
+  },
+  {
     "name": "Doonesbury",
     "slug": "doonesbury",
     "image_url": "https://featureassets.gocomics.com/assets/c2a371c098db013fca9d005056a9545d?optimizer=image&width=2800&quality=85",
@@ -77,6 +93,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/32e859309f3b013fcc11005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-01",
     "url": "https://www.gocomics.com/clayjones/2026/10/01",
+    "category": "political"
+  },
+  {
+    "name": "Chris Britt",
+    "slug": "chrisbritt",
+    "image_url": "https://featureassets.gocomics.com/assets/7de722a09fdd013fcc35005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-01",
+    "url": "https://www.gocomics.com/chrisbritt/2026/10/01",
     "category": "political"
   },
   {
@@ -1781,6 +1805,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/de88576099a9013fcae0005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-01",
     "url": "https://www.gocomics.com/super-fun-pak-comix/2026/10/01",
+    "category": "daily"
+  },
+  {
+    "name": "Studio Jantze",
+    "slug": "studio-jantze",
+    "image_url": "https://featureassets.gocomics.com/assets/22f84e209fd5013fcc2e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-01",
+    "url": "https://www.gocomics.com/studio-jantze/2026/10/01",
     "category": "daily"
   },
   {
