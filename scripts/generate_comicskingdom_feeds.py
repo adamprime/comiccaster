@@ -118,8 +118,9 @@ def load_window_strips(files: List[Tuple[date, Path]]) -> Dict[str, List[Dict]]:
             if key not in first_sightings:
                 first_sightings[key] = (file_date, record)
 
+    # Files are read oldest first, so first sightings are already in date order.
     grouped: Dict[str, List[Dict]] = {}
-    for (slug, _), (file_date, record) in sorted(first_sightings.items(), key=lambda item: item[1][0]):
+    for (slug, _), (file_date, record) in first_sightings.items():
         if file_date >= window_start:
             grouped.setdefault(slug, []).append(record)
     return grouped
