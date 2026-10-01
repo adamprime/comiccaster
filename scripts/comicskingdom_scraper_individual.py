@@ -447,7 +447,12 @@ def main():
     parser = argparse.ArgumentParser(
         description='Comics Kingdom scraper - visits individual comic pages'
     )
-    parser.add_argument('--date', help='Date in YYYY-MM-DD format (defaults to today)')
+    parser.add_argument(
+        '--date',
+        help='Date in YYYY-MM-DD format (defaults to today). Do not scrape a past '
+             'date: Comics Kingdom answers with its newest post, which would be '
+             'saved under the wrong date and become permanent strip identity (#207).',
+    )
     parser.add_argument('--output-dir', default='data', help='Output directory for JSON files')
     parser.add_argument('--show-browser', action='store_true', help='Show browser window')
     parser.add_argument(
