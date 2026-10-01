@@ -43,6 +43,10 @@ WINDOW_DAYS = 90
 # Strict on purpose: a backup or misnamed file must not be read or anchor the window.
 DATA_FILE_NAME = re.compile(r'^comicskingdom_(\d{4}-\d{2}-\d{2})\.json$')
 
+# A record saved before post dates took its name from the page title, which ends
+# in a date exactly when the page had no post of its own for the requested date.
+DATED_NAME = re.compile(r' \d{4}-\d{2}-\d{2}$')
+
 
 def find_comicskingdom_data_files(data_dir) -> List[Tuple[date, Path]]:
     """Return every strictly named Comics Kingdom data file with its date, oldest first."""
@@ -96,13 +100,30 @@ def check_record(record) -> None:
             raise ValueError("image_urls is not a list of text")
     elif 'image_url' in record and not isinstance(record['image_url'], str):
         raise ValueError("image_url is not text")
+    if 'post_date' in record:
+        post_date = record['post_date']
+        try:
+            # strptime alone accepts '2026-10-1', which would make a second guid.
+            exact = datetime.strptime(post_date, '%Y-%m-%d').strftime('%Y-%m-%d') == post_date
+        except (TypeError, ValueError):
+            exact = False
+        if not exact:
+            raise ValueError(f"post_date is not a YYYY-MM-DD date: {post_date!r:.40}")
 
 
-def load_window_strips(files: List[Tuple[date, Path]]) -> Dict[str, List[Dict]]:
-    """First-sighting records in the window, grouped by slug, oldest first.
+def load_window_strips(
+    files: List[Tuple[date, Path]]
+) -> Tuple[Dict[str, List[Dict]], Dict[str, List[Dict]]]:
+    """The strips each comic lists in the window, as two dicts by slug, oldest first.
 
-    Every file is read, oldest first, and the first record holding a slug's image
-    set is that strip's first sighting. Later copies of the set are ignored.
+    Every file is read, oldest first.
+
+    - Old records (no ``post_date``): the first record holding a slug's image set
+      is that strip's first sighting, listed when its file is in the window.
+      Later copies of the set are ignored.
+    - Post-dated records: one strip per slug and post date, listed when the post
+      date is in the window. The earliest file's record supplies the images, so an
+      item never changes once published.
     """
     newest = files[-1][0]
     window_start = newest - timedelta(days=WINDOW_DAYS - 1)
@@ -110,6 +131,7 @@ def load_window_strips(files: List[Tuple[date, Path]]) -> Dict[str, List[Dict]]:
           f"window {window_start} to {newest} (newest data file {files[-1][1].name})")
 
     first_sightings: Dict[Tuple[str, Tuple[str, ...]], Tuple[date, Dict]] = {}
+    posts: Dict[Tuple[str, str], Dict] = {}
     for file_date, path in files:
         for position, record in enumerate(read_data_file(path)):
             try:
@@ -120,16 +142,24 @@ def load_window_strips(files: List[Tuple[date, Path]]) -> Dict[str, List[Dict]]:
             images = image_urls(record)
             if not images:
                 continue
+            if 'post_date' in record:
+                posts.setdefault((record['slug'], record['post_date']), record)
+                continue
             key = (record['slug'], tuple(sorted(images)))
             if key not in first_sightings:
                 first_sightings[key] = (file_date, record)
 
     # Files are read oldest first, so first sightings are already in date order.
-    grouped: Dict[str, List[Dict]] = {}
+    old: Dict[str, List[Dict]] = {}
     for (slug, _), (file_date, record) in first_sightings.items():
         if file_date >= window_start:
-            grouped.setdefault(slug, []).append(record)
-    return grouped
+            old.setdefault(slug, []).append(record)
+
+    posted: Dict[str, List[Dict]] = {}
+    for (slug, post_date), record in sorted(posts.items()):
+        if date.fromisoformat(post_date) >= window_start:
+            posted.setdefault(slug, []).append(record)
+    return old, posted
 
 
 def load_comics_list(catalog_dir='public') -> List[Dict]:
@@ -140,27 +170,64 @@ def load_comics_list(catalog_dir='public') -> List[Dict]:
     return ck_comics
 
 
-def generate_feed_for_comic(comic_info: Dict, strips: List[Dict], generator: ComicFeedGenerator) -> bool:
-    """Write one comic's feed from its first-sighted strips. Returns True when written.
+def strip_entry(comic_info: Dict, strip: Dict, day: str, link: str, guid: str) -> Dict:
+    """One feed item for a strip, dated ``day`` (YYYY-MM-DD)."""
+    urls = image_urls(strip)
+    if 'image_urls' in strip:
+        images = [{'url': url, 'alt': f"{comic_info['name']} - Panel {i + 1}"}
+                  for i, url in enumerate(urls)]
+    else:
+        images = [{'url': urls[0], 'alt': comic_info['name']}]
+    return {
+        'title': f"{comic_info['name']} - {day}",
+        'url': link,
+        'images': images,
+        'pub_date': datetime.strptime(day, '%Y-%m-%d').replace(tzinfo=pytz.UTC),
+        'description': f"Comic strip for {day}",
+        'id': guid,
+    }
+
+
+def feed_entries(comic_info: Dict, old_strips: List[Dict], posted_strips: List[Dict]) -> List[Dict]:
+    """One comic's items: its old first sightings, then its post-dated strips.
+
+    A post-dated strip's guid and link are ``https://comicskingdom.com/<source
+    slug>/<post date>``. When an old item already holds that guid, the old
+    record's saved name decides, never the image sets:
+
+    - no trailing date: the old page had a post of its own that night, so it is
+      the same strip and the published item stands alone;
+    - a trailing date: the old item holds an earlier strip saved a night late, so
+      the post-dated strip is listed as well, under its guid plus ``#post``.
+    """
+    entries = [strip_entry(comic_info, strip, strip['date'], strip['url'], strip['url'])
+               for strip in old_strips]
+
+    # The first old item with a guid is the one the feed keeps.
+    old_names: Dict[str, object] = {}
+    for strip in old_strips:
+        old_names.setdefault(strip['url'], strip.get('name'))
+
+    source_slug = comic_info.get('source_slug') or comic_info['slug']
+    for strip in posted_strips:
+        link = f"https://comicskingdom.com/{source_slug}/{strip['post_date']}"
+        guid = link
+        if guid in old_names:
+            name = old_names[guid]
+            if not (isinstance(name, str) and DATED_NAME.search(name)):
+                continue
+            guid += '#post'
+        entries.append(strip_entry(comic_info, strip, strip['post_date'], link, guid))
+    return entries
+
+
+def generate_feed_for_comic(comic_info: Dict, old_strips: List[Dict], posted_strips: List[Dict],
+                            generator: ComicFeedGenerator) -> bool:
+    """Write one comic's feed from its strips in the window. Returns True when written.
 
     With no strip to list the feed is not written, so an existing file stays as it is.
     """
-    entries = []
-    for strip in strips:
-        urls = image_urls(strip)
-        if 'image_urls' in strip:
-            images = [{'url': url, 'alt': f"{comic_info['name']} - Panel {i + 1}"}
-                      for i, url in enumerate(urls)]
-        else:
-            images = [{'url': urls[0], 'alt': comic_info['name']}]
-        entries.append({
-            'title': f"{comic_info['name']} - {strip['date']}",
-            'url': strip['url'],
-            'images': images,
-            'pub_date': datetime.strptime(strip['date'], '%Y-%m-%d').replace(tzinfo=pytz.UTC),
-            'description': f"Comic strip for {strip['date']}",
-            'id': strip['url'],
-        })
+    entries = feed_entries(comic_info, old_strips, posted_strips)
 
     # Never replace a feed with an empty one.
     if not entries:
@@ -178,7 +245,7 @@ def generate_feed_for_comic(comic_info: Dict, strips: List[Dict], generator: Com
 
 
 def main(data_dir='data', output_dir='public/feeds', catalog_dir='public'):
-    """Generate every Comics Kingdom feed with a strip first sighted in the window."""
+    """Generate every Comics Kingdom feed with a strip to list in the window."""
     print("="*80)
     print("Comics Kingdom Feed Generator")
     print("="*80)
@@ -190,7 +257,7 @@ def main(data_dir='data', output_dir='public/feeds', catalog_dir='public'):
         print(f"❌ No Comics Kingdom data files found in {data_dir}/. Run scraper first:")
         print("   python scripts/comicskingdom_scraper_individual.py")
         return 1
-    strips_by_slug = load_window_strips(files)
+    old_by_slug, posted_by_slug = load_window_strips(files)
     print()
 
     print("Step 2: Loading Comics Kingdom comics from catalog...")
@@ -211,10 +278,11 @@ def main(data_dir='data', output_dir='public/feeds', catalog_dir='public'):
     failed = 0
 
     for comic in comics_list:
-        strips = strips_by_slug.get(comic['slug'], [])
-        if not strips:
+        old_strips = old_by_slug.get(comic['slug'], [])
+        posted_strips = posted_by_slug.get(comic['slug'], [])
+        if not old_strips and not posted_strips:
             untouched += 1
-        elif generate_feed_for_comic(comic, strips, generator):
+        elif generate_feed_for_comic(comic, old_strips, posted_strips, generator):
             written += 1
         else:
             failed += 1

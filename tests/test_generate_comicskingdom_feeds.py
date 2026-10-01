@@ -266,6 +266,21 @@ CK_DAILY = [
     # Owned by GoComics; old Comics Kingdom data still carries it.
     {'name': 'Broom-Hilda', 'slug': 'broomhilda',
      'url': 'https://www.gocomics.com/broomhilda'},
+    # Served at a path other than its slug.
+    {'name': 'Edge City', 'slug': 'edge-city-classic', 'source': 'comicskingdom',
+     'source_slug': 'edge-city', 'url': 'https://comicskingdom.com/edge-city'},
+    # Reposted daily under the day's date.
+    {'name': 'Bringing Up Father', 'slug': 'bringing-up-father', 'source': 'comicskingdom',
+     'source_variant': 'vintage', 'url': 'https://comicskingdom.com/vintage/bringing-up-father'},
+    # Shows the same 2023 post every night.
+    {'name': 'Pros & Cons', 'slug': 'pros-cons', 'source': 'comicskingdom',
+     'url': 'https://comicskingdom.com/pros-cons'},
+]
+
+CK_POLITICAL = [
+    # Uploads after the nightly run, so its strips first appear the night after their date.
+    {'name': 'David M. Hitch', 'slug': 'david-m-hitch', 'source': 'comicskingdom',
+     'url': 'https://comicskingdom.com/david-m-hitch', 'is_political': True},
 ]
 
 
@@ -278,10 +293,15 @@ def _image(slug, tag):
     return f'https://wp.comicskingdom.com/uploads/{slug}-{tag}.jpg'
 
 
-def ck_record(slug, day, images):
-    """One saved record, shaped like comicskingdom_scraper_individual.py's output."""
+def ck_record(slug, day, images, post_date=None, post_url=None, name=None):
+    """One saved record, shaped like comicskingdom_scraper_individual.py's output.
+
+    Without ``post_date`` it has the format saved before posts were recorded.
+    ``name`` stands in for an old record's page-title name, which ends in a
+    date when the page had no post of its own for ``day``.
+    """
     record = {
-        'name': slug.replace('-', ' ').title(),
+        'name': name or slug.replace('-', ' ').title(),
         'slug': slug,
         'date': day,
         'url': f'https://comicskingdom.com/{slug}/{day}',
@@ -291,13 +311,16 @@ def ck_record(slug, day, images):
         record['image_url'] = images[0]
     else:
         record['image_urls'] = list(images)
+    if post_date is not None:
+        record['post_date'] = post_date
+        record['post_url'] = post_url or f'https://comicskingdom.com/{slug}/{post_date}'
     return record
 
 
 @pytest.fixture
 def ck_repo(tmp_path, monkeypatch):
     """A repo-shaped tree with the generator's default paths relative to it."""
-    _write_catalogs(tmp_path, daily=CK_DAILY, political=[])
+    _write_catalogs(tmp_path, daily=CK_DAILY, political=CK_POLITICAL)
     (tmp_path / 'data').mkdir()
     (tmp_path / 'public' / 'feeds').mkdir()
     monkeypatch.chdir(tmp_path)
@@ -339,6 +362,11 @@ def ck_items(repo, slug):
 
 def ck_guids(repo, slug):
     return [item['guid'] for item in ck_items(repo, slug)]
+
+
+def ck_item_bytes(repo, slug):
+    """Each item exactly as written to the feed file."""
+    return re.findall(rb'<item>.*?</item>', ck_feed(repo, slug).read_bytes(), re.DOTALL)
 
 
 def ck_url(slug, day):
@@ -528,7 +556,12 @@ class TestDataFiles:
          'image_urls': [_image('blondie', 'a'), 7]},
         {'slug': 'blondie', 'date': '2026-09-15', 'url': ck_url('blondie', '2026-09-15'),
          'image_url': None},
-    ], ids=['not-a-dict', 'impossible-date', 'null-image-list', 'non-text-image', 'null-image'])
+        {'slug': 'blondie', 'date': '2026-09-15', 'url': ck_url('blondie', '2026-09-15'),
+         'image_url': _image('blondie', 'a'), 'post_date': '2026-09-1'},
+        {'slug': 'blondie', 'date': '2026-09-15', 'url': ck_url('blondie', '2026-09-15'),
+         'image_url': _image('blondie', 'a'), 'post_date': None},
+    ], ids=['not-a-dict', 'impossible-date', 'null-image-list', 'non-text-image', 'null-image',
+            'unpadded-post-date', 'null-post-date'])
     def test_malformed_record_anywhere_in_history_is_skipped_with_a_warning(
         self, ck_repo, caplog, broken
     ):
@@ -583,3 +616,200 @@ class TestMainPaths:
                         catalog_dir=repo / 'public') == 0
 
         assert (repo / 'out' / 'blondie.xml').exists()
+
+
+class TestPostDatedStrips:
+    """KTD5: a record with a post date is one strip per comic and post date."""
+
+    @pytest.mark.parametrize('post_tag', ['w41', 'w41-post-asset'],
+                             ids=['same-images', 'different-images'])
+    def test_merge_night_keeps_the_published_item_byte_identical(self, ck_repo, post_tag):
+        # AE1: posted Sunday 10-11, saved that night in the old format, up all week.
+        image = _image('mostly-gravy', 'w41')
+        save_ck_day(ck_repo, '2026-10-11', [ck_record('mostly-gravy', '2026-10-11', [image])])
+        for day in _days('2026-10-12', 3):
+            save_ck_day(ck_repo, day, [ck_record('mostly-gravy', day, [image],
+                                                 name='Mostly Gravy 2026-10-11')])
+        build_ck()
+        published = ck_item_bytes(ck_repo, 'mostly-gravy')
+        assert len(published) == 1
+
+        # The first post-dated files record the same post, whatever images they carry.
+        for day in _days('2026-10-15', 3):
+            save_ck_day(ck_repo, day, [ck_record('mostly-gravy', day,
+                                                 [_image('mostly-gravy', post_tag)],
+                                                 post_date='2026-10-11')])
+        assert build_ck() == 0
+
+        assert ck_item_bytes(ck_repo, 'mostly-gravy') == published
+
+    def test_repeat_of_an_old_post_lists_nothing_and_leaves_the_feed_as_is(self, ck_repo, capsys):
+        # AE2: Pros & Cons shows its 2023-07-31 post every night.
+        existing = ck_feed(ck_repo, 'pros-cons')
+        existing.write_bytes(b'<rss><channel><title>published earlier</title></channel></rss>')
+        before = existing.read_bytes()
+        for day in _days('2026-09-29', 3):
+            save_ck_day(ck_repo, day, [ck_record('pros-cons', day, [_image('pros-cons', '2023-07-31')],
+                                                 post_date='2023-07-31', name='Pros & Cons')])
+
+        assert build_ck() == 0
+
+        assert existing.read_bytes() == before
+        ck_comics = sum(c.get('source') == 'comicskingdom' for c in CK_DAILY + CK_POLITICAL)
+        assert re.search(rf'^Untouched\b.*: {ck_comics}$', capsys.readouterr().out, re.M), (
+            "every Comics Kingdom comic, Pros & Cons included, must be counted untouched"
+        )
+
+    def test_strip_recorded_on_three_nights_keeps_the_first_nights_images(self, ck_repo):
+        # Comics Kingdom later renames a strip's images to resized copies.
+        panels = [_image('blondie', '0929-p1'), _image('blondie', '0929-p2')]
+        renamed = [url.replace('.jpg', '-661x630.jpg') for url in panels]
+        save_ck_day(ck_repo, '2026-09-29',
+                    [ck_record('blondie', '2026-09-29', panels, post_date='2026-09-29')])
+        for day in ('2026-09-30', NEWEST):
+            save_ck_day(ck_repo, day, [ck_record('blondie', day, renamed, post_date='2026-09-29')])
+
+        build_ck()
+
+        [item] = ck_items(ck_repo, 'blondie')
+        assert item['guid'] == ck_url('blondie', '2026-09-29')
+        assert item['images'] == panels
+        assert item['alts'] == ['Blondie - Panel 1', 'Blondie - Panel 2']
+
+    def test_post_date_on_the_windows_first_day_is_listed_and_the_day_before_is_not(self, ck_repo):
+        save_ck_day(ck_repo, NEWEST, [
+            ck_record('blondie', NEWEST, [_image('blondie', 'edge')], post_date=WINDOW_START),
+            ck_record('mostly-gravy', NEWEST, [_image('mostly-gravy', 'old')],
+                      post_date=DAY_BEFORE_WINDOW),
+        ])
+
+        build_ck()
+
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', WINDOW_START)]
+        assert not ck_feed(ck_repo, 'mostly-gravy').exists()
+
+    def test_item_is_addressed_by_the_source_slug_and_dated_by_its_post(self, ck_repo):
+        image = _image('edge-city', '0930')
+        record = ck_record('edge-city-classic', NEWEST, [image], post_date='2026-09-30',
+                           post_url=ck_url('edge-city', '2026-09-30'), name='Edge City')
+        record['url'] = ck_url('edge-city', NEWEST)  # requested at its source slug
+        save_ck_day(ck_repo, NEWEST, [record])
+
+        build_ck()
+
+        [item] = ck_items(ck_repo, 'edge-city-classic')
+        assert item['guid'] == 'https://comicskingdom.com/edge-city/2026-09-30'
+        assert item['guid_is_permalink'] == 'false'
+        assert item['link'] == 'https://comicskingdom.com/edge-city/2026-09-30'
+        assert item['title'] == 'Edge City - 2026-09-30'
+        assert item['pub_date'] == 'Wed, 30 Sep 2026 00:00:00 +0000'
+        assert 'Comic strip for 2026-09-30' in item['description']
+        assert item['images'] == [image]
+        assert item['alts'] == ['Edge City']
+
+    def test_bringing_up_father_gets_one_item_a_day_across_the_switch(self, ck_repo):
+        old_nights = _days('2026-07-01', 92)  # 07-01 .. 09-30, saved before posts were recorded
+        new_nights = _days(NEWEST, 5)  # 10-01 .. 10-05, each night's own post
+        for day in old_nights:
+            save_ck_day(ck_repo, day, [ck_record('bringing-up-father', day, [_image('buf', day)],
+                                                 name='Bringing Up Father')])
+        for day in new_nights:
+            save_ck_day(ck_repo, day, [ck_record('bringing-up-father', day,
+                                                 [_image('buf-post', day)], post_date=day)])
+
+        build_ck()
+
+        guids = ck_guids(ck_repo, 'bringing-up-father')
+        assert len(guids) == len(set(guids))
+        window = _days('2026-07-08', 90)  # the 90 dates ending on 10-05
+        assert sorted(guids) == [ck_url('bringing-up-father', day) for day in window]
+
+    def test_late_sighting_is_sent_again_under_its_post_date(self, ck_repo):
+        # The known re-send the pre-switch check counts: the old format first saw
+        # this strip on 10-12, the night after its post date, so the addresses differ.
+        image = _image('david-m-hitch', '1011')
+        save_ck_day(ck_repo, '2026-10-12', [ck_record('david-m-hitch', '2026-10-12', [image],
+                                                      name='David M. Hitch 2026-10-11')])
+        save_ck_day(ck_repo, '2026-10-13', [ck_record('david-m-hitch', '2026-10-13', [image],
+                                                      post_date='2026-10-11',
+                                                      name='David M. Hitch')])
+
+        build_ck()
+
+        assert ck_guids(ck_repo, 'david-m-hitch') == [
+            ck_url('david-m-hitch', '2026-10-12'), ck_url('david-m-hitch', '2026-10-11'),
+        ]
+
+    def test_late_uploader_keeps_its_old_items_and_gains_its_new_strip(self, ck_repo):
+        # The old pages for 10-13 and 10-14 had no post of their own and showed the
+        # day before's strip, so each old item holds an earlier strip than its address.
+        save_ck_day(ck_repo, '2026-10-13', [ck_record('david-m-hitch', '2026-10-13',
+                                                      [_image('david-m-hitch', '1012')],
+                                                      name='David M. Hitch 2026-10-12')])
+        save_ck_day(ck_repo, '2026-10-14', [ck_record('david-m-hitch', '2026-10-14',
+                                                      [_image('david-m-hitch', '1013')],
+                                                      name='David M. Hitch 2026-10-13')])
+        build_ck()
+        published = ck_item_bytes(ck_repo, 'david-m-hitch')
+
+        save_ck_day(ck_repo, '2026-10-15', [ck_record('david-m-hitch', '2026-10-15',
+                                                      [_image('david-m-hitch', '1014')],
+                                                      post_date='2026-10-14',
+                                                      name='David M. Hitch')])
+        build_ck()
+
+        written = ck_item_bytes(ck_repo, 'david-m-hitch')
+        assert len(written) == 3
+        assert set(published) <= set(written), "an old item changed"
+        [new] = [i for i in ck_items(ck_repo, 'david-m-hitch') if i['guid'].endswith('#post')]
+        assert new['guid'] == 'https://comicskingdom.com/david-m-hitch/2026-10-14#post'
+        assert new['link'] == 'https://comicskingdom.com/david-m-hitch/2026-10-14'
+        assert new['title'] == 'David M. Hitch - 2026-10-14'
+        assert new['pub_date'] == 'Wed, 14 Oct 2026 00:00:00 +0000'
+        assert new['images'] == [_image('david-m-hitch', '1014')]
+
+    @pytest.mark.parametrize('old_name, post_tag, expected', [
+        # The old page had a post of its own: the same strip, so the published item stands.
+        ('David M. Hitch', '1014-post-asset', [ck_url('david-m-hitch', '2026-10-14')]),
+        # The old page showed an earlier strip: both are listed, even with matching images.
+        ('David M. Hitch 2026-10-13', '1014', [ck_url('david-m-hitch', '2026-10-14'),
+                                               ck_url('david-m-hitch', '2026-10-14') + '#post']),
+    ], ids=['undated-name', 'dated-name'])
+    def test_shared_address_is_decided_by_the_old_items_name_not_its_images(
+        self, ck_repo, old_name, post_tag, expected
+    ):
+        save_ck_day(ck_repo, '2026-10-14', [ck_record('david-m-hitch', '2026-10-14',
+                                                      [_image('david-m-hitch', '1014')],
+                                                      name=old_name)])
+        build_ck()
+        published = ck_item_bytes(ck_repo, 'david-m-hitch')
+
+        save_ck_day(ck_repo, '2026-10-15', [ck_record('david-m-hitch', '2026-10-15',
+                                                      [_image('david-m-hitch', post_tag)],
+                                                      post_date='2026-10-14',
+                                                      name='David M. Hitch')])
+        build_ck()
+
+        assert sorted(ck_guids(ck_repo, 'david-m-hitch')) == sorted(expected)
+        assert set(published) <= set(ck_item_bytes(ck_repo, 'david-m-hitch'))
+
+    @pytest.mark.parametrize('bad_post_date', ['2026-10-1', None], ids=['unpadded', 'null'])
+    def test_malformed_post_date_is_skipped_and_never_read_as_old(
+        self, ck_repo, caplog, bad_post_date
+    ):
+        save_ck_day(ck_repo, '2026-09-30', [ck_record('blondie', '2026-09-30',
+                                                      [_image('blondie', '0930')],
+                                                      post_date='2026-09-30')])
+        bad = ck_record('blondie', NEWEST, [_image('blondie', '1001')], post_date=NEWEST)
+        bad['post_date'] = bad_post_date
+        path = save_ck_day(ck_repo, NEWEST, [
+            bad,
+            ck_record('mostly-gravy', NEWEST, [_image('mostly-gravy', '1001')], post_date=NEWEST),
+        ])
+
+        with caplog.at_level(logging.WARNING):
+            assert build_ck() == 0
+
+        assert [w for w in _warnings_naming(caplog, path.name) if 'post_date' in w.getMessage()]
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', '2026-09-30')]
+        assert ck_guids(ck_repo, 'mostly-gravy') == [ck_url('mostly-gravy', NEWEST)]
