@@ -17,7 +17,10 @@ set, dated by its first sighting: the earliest
   file's date: post-dated strips by post date, older ones by first sighting.
   The window is anchored on the data, not the clock.
 - A post-dated strip keeps its earliest record's images, so a published item
-  never changes when Comics Kingdom later renames or splits its images.
+  does not change when Comics Kingdom later renames or splits its images. A
+  backfill becomes the earliest record, so backfill a missed night promptly (the
+  next day): a later one swaps the published item's images to the backfill's
+  copies, under the same guid, so nothing is re-sent.
 - Where an older item already holds a post-dated strip's address, the older
   record's saved name decides: no trailing date means the same strip and the
   published item stands; a trailing date means the older item is an earlier
@@ -27,7 +30,10 @@ set, dated by its first sighting: the earliest
 
 Records saved before #216 still rest on first sighting, so until the last of
 them leaves the window, never overwrite, relabel or delete an existing Comics
-Kingdom data file. Backfilling a missing night is safe.
+Kingdom data file. Backfilling a missing night is safe only on or after the
+first post-dated data file. A missing night from before then stays a gap until
+it leaves the 90-date window: backfilling it would re-send, under their post
+dates, strips that older records saved a night late.
 """
 
 import json
@@ -303,7 +309,7 @@ def main(data_dir='data', output_dir='public/feeds', catalog_dir='public'):
     print("✅ Feed Generation Complete!")
     print("="*80)
     print(f"Written: {written}")
-    print(f"Untouched (no strip first sighted in the window): {untouched}")
+    print(f"Untouched (no strip to list in the window): {untouched}")
     print(f"Failed: {failed}")
     print(f"Total: {len(comics_list)}")
     print()

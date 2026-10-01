@@ -525,9 +525,12 @@ def main():
         '--date',
         help='Date in YYYY-MM-DD format (defaults to today). A past date shows the '
              'post on or before it, and records carry that post\'s own date, so '
-             'backfilling a missed night is safe. Never overwrite an existing data '
-             'file: records saved before #216 still rest on first sighting '
-             '(CONCEPTS.md "Strip identity").',
+             'backfilling a missed night on or after the first post-dated data file '
+             'is safe. A missed night from before then stays a gap until it leaves '
+             'the 90-date window: backfilling it would re-send strips older records '
+             'saved a night late. Never overwrite an existing data file: records '
+             'saved before #216 still rest on first sighting (CONCEPTS.md "Strip '
+             'identity").',
     )
     parser.add_argument('--output-dir', default='data', help='Output directory for JSON files')
     parser.add_argument('--show-browser', action='store_true', help='Show browser window')

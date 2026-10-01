@@ -472,7 +472,7 @@ class TestDateWindow:
 
 
 class TestUntouchedFeeds:
-    """R4: a comic with nothing first sighted in the window keeps its feed file as is."""
+    """R4: a comic with no strip to list in the window keeps its feed file as is."""
 
     def test_dormant_comic_keeps_its_feed_byte_identical(self, ck_repo):
         # AE1: one image, first sighted before the window, saved every night since.
@@ -768,6 +768,35 @@ class TestPostDatedStrips:
         assert new['title'] == 'David M. Hitch - 2026-10-14'
         assert new['pub_date'] == 'Wed, 14 Oct 2026 00:00:00 +0000'
         assert new['images'] == [_image('david-m-hitch', '1014')]
+
+    def test_backfilling_a_night_before_the_switch_resends_late_strips(self, ck_repo):
+        # The hazard the docs warn about. The old format saved each strip a night
+        # late, and the night of 10-03 was missed; 10-05 is the first post-dated file.
+        for day, posted in (('2026-10-01', '2026-09-30'), ('2026-10-02', '2026-10-01'),
+                            ('2026-10-04', '2026-10-03')):
+            save_ck_day(ck_repo, day, [ck_record('david-m-hitch', day,
+                                                 [_image('david-m-hitch', posted)],
+                                                 name=f'David M. Hitch {posted}')])
+        save_ck_day(ck_repo, '2026-10-05', [ck_record('david-m-hitch', '2026-10-05',
+                                                      [_image('david-m-hitch', '2026-10-04')],
+                                                      post_date='2026-10-04',
+                                                      name='David M. Hitch')])
+        build_ck()
+        strip = [_image('david-m-hitch', '2026-10-03')]
+        assert [i['guid'] for i in ck_items(ck_repo, 'david-m-hitch') if i['images'] == strip] == [
+            ck_url('david-m-hitch', '2026-10-04'),
+        ]
+
+        # Backfilling 10-03 records the strip posted that night, which the 10-04
+        # old item already delivered, so it is sent again under its post date.
+        save_ck_day(ck_repo, '2026-10-03', [ck_record('david-m-hitch', '2026-10-03', strip,
+                                                      post_date='2026-10-03',
+                                                      name='David M. Hitch')])
+        build_ck()
+
+        assert [i['guid'] for i in ck_items(ck_repo, 'david-m-hitch') if i['images'] == strip] == [
+            ck_url('david-m-hitch', '2026-10-04'), ck_url('david-m-hitch', '2026-10-03'),
+        ]
 
     @pytest.mark.parametrize('old_name, post_tag, expected', [
         # The old page had a post of its own: the same strip, so the published item stands.
