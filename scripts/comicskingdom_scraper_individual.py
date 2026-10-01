@@ -2,6 +2,10 @@
 """
 Comics Kingdom scraper - visits individual comic pages.
 More reliable than trying to parse the favorites page.
+
+Each comic's dated page embeds its own data (`__NEXT_DATA__`), which names the
+post the page displays. That post -- its date, address and images -- is what
+gets recorded; nothing is read from the rendered DOM.
 """
 
 import sys
@@ -12,12 +16,12 @@ import argparse
 import pickle
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlsplit, urlunsplit
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup
 
 from comiccaster.comicskingdom_catalog import load_comicskingdom_catalog
 from comiccaster.webdriver_setup import build_chrome_driver
@@ -308,13 +312,120 @@ def load_comics_catalog():
     return ck_comics
 
 
-def scrape_comic_page(driver, comic_slug, date_str, debug=False, feed_slug=None):
-    """Scrape a single comic page.
+_NEXT_DATA = re.compile(
+    r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', re.S
+)
+_YMD = re.compile(r'\d{4}-\d{2}-\d{2}')
+
+
+def extract_displayed_post(page_source, source_slug, date_str):
+    """Return the post a comic's dated page displays, or why it shows none.
+
+    The page embeds its data in ``__NEXT_DATA__``. Under
+    ``props.pageProps.fallback`` it keeps the ``ck_comic`` query it ran for
+    this page: the posts of ``ck_feature:"<source slug>"`` on or before
+    ``before_ymd:"<date>"``, newest first. The first of them is the post on
+    screen. The query is matched on those two fields only -- never on
+    ``per_page``, which is 10 for strips and 1 for episodic comics -- and never
+    on the post's own slug, because vintage posts carry another feature's
+    prefix (``beetle-bailey-1-1967-10-01`` belongs to ``beetle-bailey-vintage``).
+
+    Returns ``(post, None)`` or ``(None, reason)``. ``post`` holds
+    ``post_date`` (YYYY-MM-DD, cross-checked against the date in the post's
+    link), ``post_url`` (the link, on comicskingdom.com) and ``image_urls``:
+    the post's panels in order, else its single image, never the ``featured``
+    thumbnail. A post dated after ``date_str`` (premium early access) is
+    rejected. Pure: no driver, no network, and nothing is read from
+    ``pageProps.session``.
+    """
+    match = _NEXT_DATA.search(page_source or '')
+    if not match:
+        return None, 'no __NEXT_DATA__'
+    try:
+        next_data = json.loads(match.group(1))
+    except ValueError:
+        return None, 'unreadable __NEXT_DATA__'
+
+    page_props = (next_data.get('props') or {}).get('pageProps') or {}
+    fallback = page_props.get('fallback') or {}
+    wanted = (
+        'postType:"ck_comic"',
+        f'ck_feature:"{source_slug}"',
+        f'before_ymd:"{date_str}"',
+    )
+    key = next((k for k in fallback if all(w in k for w in wanted)), None)
+    if key is None:
+        return None, f'no query for {source_slug} on {date_str}'
+
+    value = fallback[key]
+    posts = value.get('result') if isinstance(value, dict) else value
+    if not posts:
+        return None, 'empty result'
+    post = posts[0]
+
+    post_date = str(post.get('date') or '')[:10]
+    if not _YMD.fullmatch(post_date):
+        return None, 'no post date'
+    link = urlsplit(post.get('link') or '')
+    link_date = link.path.rstrip('/').rsplit('/', 1)[-1]
+    if link_date != post_date:
+        return None, f'date mismatch: post {post_date}, link {link_date or "none"}'
+    if post_date > date_str:
+        return None, f'early access: post dated {post_date}, after {date_str}'
+
+    assets = post.get('assets') or {}
+    image_urls = [p.get('url') for p in assets.get('panels') or [] if p.get('url')]
+    single = (assets.get('single') or {}).get('url')
+    if not image_urls and single:
+        image_urls = [single]
+    if not image_urls:
+        return None, 'no images'
+
+    if link.netloc == 'wp.comicskingdom.com':
+        link = link._replace(netloc='comicskingdom.com')
+    return {
+        'post_date': post_date,
+        'post_url': urlunsplit(link),
+        'image_urls': image_urls,
+    }, None
+
+
+_DATA_FILE = re.compile(r'comicskingdom_(\d{4}-\d{2}-\d{2})\.json')
+
+
+def load_recorded_posts(data_dir, date_str):
+    """Return the (slug, post_date) pairs saved in data files dated before ``date_str``.
+
+    Used only to count repeats in the run's totals. Records saved before post
+    dates were recorded carry none and add nothing; an unreadable file is
+    skipped.
+    """
+    recorded = set()
+    for path in Path(data_dir).glob('comicskingdom_*.json'):
+        match = _DATA_FILE.fullmatch(path.name)
+        if not match or match.group(1) >= date_str:
+            continue
+        try:
+            records = json.loads(path.read_text())
+            recorded.update(
+                (r.get('slug'), r['post_date']) for r in records if 'post_date' in r
+            )
+        except Exception:
+            continue
+    return recorded
+
+
+def scrape_comic_page(driver, comic_slug, date_str, name, feed_slug=None):
+    """Record the post a comic's page displays for ``date_str``.
 
     ``comic_slug`` is the identifier Comics Kingdom serves the strip under;
     ``feed_slug`` is the identifier ComicCaster files it under. They differ only
     when two sources run the same comic and each run needs its own feed -- see
-    the `source_slug` note in scrape_all_comics.
+    the `source_slug` note in scrape_all_comics. ``name`` is the catalog name.
+
+    Returns ``(record, None)``, or ``(None, reason)`` when the page shows no
+    post. ``date`` and ``url`` are the requested night and page; ``post_date``
+    and ``post_url`` are the displayed post's own.
     """
     global _SCRAPE_CALL_COUNT
     _SCRAPE_CALL_COUNT += 1
@@ -327,98 +438,51 @@ def scrape_comic_page(driver, comic_slug, date_str, debug=False, feed_slug=None)
         if _SCRAPE_CALL_COUNT <= 5:
             _log_timing(f"scrape_comic_page[{_SCRAPE_CALL_COUNT}]: driver.get({comic_slug}) END")
         time.sleep(2)
-        
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
-        
-        # Find comic strip images - look in the main comic reader container
-        # Comics Kingdom uses specific containers for today's comic:
-        # - .comic-reader-item or .ck-multiple-panel-reader contains today's panels
-        # - Parent containers may have archive/navigation images
-        
-        image_urls = []
-        
-        # Try to find the comic reader container first
-        comic_container = soup.find('div', class_=lambda x: x and ('comic-reader-item' in x or 'ck-multiple-panel-reader' in x))
-        
-        if not comic_container:
-            # Fallback: look for any container with class containing "comic" or "reader"
-            comic_container = soup.find('div', class_=lambda x: x and any(keyword in x.lower() for keyword in ['comic', 'reader', 'strip']))
-        
-        if not comic_container:
-            # Last resort: use entire page
-            if debug:
-                print(f"    ⚠️  Could not find comic container, using entire page")
-            comic_container = soup
-        
-        # Find all images within the comic container
-        images = comic_container.find_all('img')
-        
-        for img in images:
-            src = img.get('src', '')
-            
-            # Skip if not a Comics Kingdom image
-            if 'wp.comicskingdom.com' not in src:
-                continue
-            
-            # Extract actual URL if Next.js optimized
-            actual_url = src
-            if 'url=' in src:
-                match = re.search(r'url=([^&]+)', src)
-                if match:
-                    import urllib.parse
-                    actual_url = urllib.parse.unquote(match.group(1))
-            
-            image_urls.append(actual_url)
-        
-        if debug and image_urls:
-            print(f"    Found {len(image_urls)} image(s) in comic container")
-        
-        if not image_urls:
-            if debug:
-                print(f"    No images found with date {date_str}")
-            return None
-        
-        if debug:
-            print(f"    Found {len(image_urls)} images with today's date")
-        
-        # Get comic name from page title or slug
-        comic_name = comic_slug.replace('-', ' ').title()
-        title_tag = soup.find('title')
-        if title_tag:
-            # Extract name from title like "Blondie Comic Strip 2025-11-15 | Comics Kingdom"
-            title_text = title_tag.text
-            if '|' in title_text:
-                comic_name = title_text.split('|')[0].strip().replace(' Comic Strip', '').replace(f' {date_str}', '')
-        
-        comic_data = {
-            'name': comic_name,
-            'slug': feed_slug or comic_slug,
-            'date': date_str,
-            'url': url,
-            'source': 'comicskingdom'
-        }
-        
-        if len(image_urls) == 1:
-            comic_data['image_url'] = image_urls[0]
-        else:
-            comic_data['image_urls'] = image_urls
-        
-        return comic_data
-        
+
+        post, reason = extract_displayed_post(driver.page_source, comic_slug, date_str)
     except Exception as e:
         print(f"  ⚠️  Error scraping {comic_slug}: {e}")
-        return None
+        return None, f"error ({type(e).__name__})"
+
+    if post is None:
+        return None, reason
+
+    record = {
+        'name': name,
+        'slug': feed_slug or comic_slug,
+        'date': date_str,
+        'url': url,
+        'source': 'comicskingdom',
+        'post_date': post['post_date'],
+        'post_url': post['post_url'],
+    }
+    image_urls = post['image_urls']
+    if len(image_urls) == 1:
+        record['image_url'] = image_urls[0]
+    else:
+        record['image_urls'] = image_urls
+    return record, None
 
 
-def scrape_all_comics(driver, comics, date_str):
-    """Scrape all comics sequentially."""
+def scrape_all_comics(driver, comics, date_str, recorded_posts=None):
+    """Record every comic's displayed post, then print the run's totals.
+
+    Every displayed post is recorded, a repeat of an older post included; its
+    ``post_date`` tells the two apart. ``recorded_posts`` holds the
+    (slug, post_date) pairs earlier data files already hold
+    (load_recorded_posts): a record matching one counts as a repeat. A post
+    dated before tonight can still be new -- late uploaders' strips first
+    appear the night after their post date.
+    """
+    recorded_posts = recorded_posts or set()
     print(f"\n{'='*80}")
     print(f"Scraping {len(comics)} Comics Kingdom comics for {date_str}")
     print("="*80)
-    
+
     results = []
-    success_count = 0
-    
+    repeats = 0
+    not_recorded = []
+
     for i, comic in enumerate(comics, 1):
         slug = comic['slug']
         # `source_slug` is the path Comics Kingdom serves this comic at, when it
@@ -430,16 +494,26 @@ def scrape_all_comics(driver, comics, date_str):
         source_slug = comic.get('source_slug') or slug
         print(f"[{i}/{len(comics)}] Scraping {comic['name']} ({slug})...")
 
-        comic_data = scrape_comic_page(driver, source_slug, date_str, debug=False, feed_slug=slug)
-        
-        if comic_data:
-            results.append(comic_data)
-            success_count += 1
-        
+        record, reason = scrape_comic_page(
+            driver, source_slug, date_str, name=comic['name'], feed_slug=slug
+        )
+
+        if record:
+            results.append(record)
+            if (slug, record['post_date']) in recorded_posts:
+                repeats += 1
+        else:
+            not_recorded.append((slug, reason))
+
         # Small delay between requests
         time.sleep(0.5)
-    
-    print(f"\n✅ Successfully scraped {success_count}/{len(comics)} comics")
+
+    # Greppable totals. Repeats are a subset of Recorded.
+    print(f"\nRecorded: {len(results)} of {len(comics)}")
+    print(f"Repeats: {repeats}")
+    print(f"Not recorded: {len(not_recorded)}")
+    for slug, reason in not_recorded:
+        print(f"  - {slug}: {reason}")
     return results
 
 
@@ -476,6 +550,9 @@ def main():
     # Load comics catalog
     comics = load_comics_catalog()
 
+    # Posts earlier nights already saved, so the totals can count repeats
+    recorded_posts = load_recorded_posts(output_dir, date_str)
+
     # Setup Chrome
     driver = setup_driver(show_browser=args.show_browser, use_profile=args.use_profile)
 
@@ -510,7 +587,7 @@ def main():
             print("✅ Authentication succeeded on retry")
         
         # Scrape all comics
-        results = scrape_all_comics(driver, comics, date_str)
+        results = scrape_all_comics(driver, comics, date_str, recorded_posts)
         
         if not results:
             print("⚠️  No comics scraped")
