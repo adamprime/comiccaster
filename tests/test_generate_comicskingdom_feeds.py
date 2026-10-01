@@ -5,17 +5,18 @@ so the Comics Kingdom cartoonists listed only in public/political_comics_list.js
 were never scraped and their feeds 404'd. These tests pin that both catalogs are
 read, through one shared helper, with each slug loaded once.
 
-No test here may reach comicskingdom.com: every generator run replaces the
-module's `requests` and its live-fetch fallback.
+No test here may reach comicskingdom.com. The generator has no network path
+(TestNetworkFree), so its runs stay offline without patching.
 """
 
 import json
 import logging
 import os
+import re
 import sys
+from datetime import date, timedelta
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from unittest.mock import MagicMock
 
 import pytest
 
@@ -182,22 +183,23 @@ class TestComicsKingdomCatalogHelper:
         )
 
 
+class TestNetworkFree:
+    """Phase 2 generators never reach the network (AGENTS.md); #207 removed CK's live fallback."""
+
+    def test_generator_has_no_network_path(self):
+        assert not hasattr(gen, 'requests'), "the CK generator must not import requests"
+        assert not hasattr(gen, 'extract_live_comicskingdom_entries'), (
+            "the CK generator must not fetch comicskingdom.com when a comic has no data"
+        )
+
+
 class TestMainGeneratesPoliticalFeeds:
     """Integration: main() over a tmp_path writes a political-only comic's feed."""
 
     DATE = '2026-09-28'
 
-    @pytest.fixture
-    def offline(self, monkeypatch):
-        """Replace every network path in the generator and hand back the doubles."""
-        fake_requests = MagicMock()
-        live_fetch = MagicMock(return_value=[])
-        monkeypatch.setattr(gen, 'requests', fake_requests)
-        monkeypatch.setattr(gen, 'extract_live_comicskingdom_entries', live_fetch)
-        return fake_requests, live_fetch
-
     def test_political_only_comic_gets_a_feed_with_the_political_category(
-        self, tmp_path, monkeypatch, offline
+        self, tmp_path, monkeypatch
     ):
         _write_catalogs(
             tmp_path,
@@ -206,6 +208,8 @@ class TestMainGeneratesPoliticalFeeds:
                  'url': 'https://www.gocomics.com/garfield'},
                 {'name': 'Blondie', 'slug': 'blondie', 'source': 'comicskingdom',
                  'url': 'https://comicskingdom.com/blondie'},
+                {'name': 'Zits', 'slug': 'zits', 'source': 'comicskingdom',
+                 'url': 'https://comicskingdom.com/zits'},
             ],
             political=[
                 {'name': 'Mike Smith', 'slug': 'mike-smith', 'source': 'comicskingdom',
@@ -236,7 +240,346 @@ class TestMainGeneratesPoliticalFeeds:
         assert 'Political Comics' in categories, (
             f"mike-smith's feed lacks the political category; channel categories: {categories}"
         )
+        assert not (tmp_path / 'public' / 'feeds' / 'zits.xml').exists(), (
+            "a catalog comic with no scraped data must get no feed file"
+        )
 
-        fake_requests, live_fetch = offline
-        fake_requests.get.assert_not_called()
-        live_fetch.assert_not_called()
+
+# --- #207: first-sighting identity and the 90-date window -------------------
+#
+# Comics Kingdom serves its newest post for any date, so the scraper saves a
+# strip again every night under that night's address. Each strip is identified
+# by its image set and dated by its first sighting in all saved history; a feed
+# lists the strips first sighted in the 90 dates ending on the newest data file.
+
+NEWEST = '2026-10-01'
+WINDOW_START = '2026-07-04'  # 89 days before NEWEST: the window's first day
+DAY_BEFORE_WINDOW = '2026-07-03'  # 90 days before NEWEST
+
+CK_DAILY = [
+    {'name': 'Blondie', 'slug': 'blondie', 'source': 'comicskingdom',
+     'url': 'https://comicskingdom.com/blondie'},
+    {'name': 'Mostly Gravy', 'slug': 'mostly-gravy', 'source': 'comicskingdom',
+     'url': 'https://comicskingdom.com/mostly-gravy'},
+    {'name': 'Secret Agent X-9', 'slug': 'secret-agent-x-9', 'source': 'comicskingdom',
+     'url': 'https://comicskingdom.com/secret-agent-x-9'},
+    # Owned by GoComics; old Comics Kingdom data still carries it.
+    {'name': 'Broom-Hilda', 'slug': 'broomhilda',
+     'url': 'https://www.gocomics.com/broomhilda'},
+]
+
+
+def _days(first, count):
+    start = date.fromisoformat(first)
+    return [(start + timedelta(days=n)).isoformat() for n in range(count)]
+
+
+def _image(slug, tag):
+    return f'https://wp.comicskingdom.com/uploads/{slug}-{tag}.jpg'
+
+
+def ck_record(slug, day, images):
+    """One saved record, shaped like comicskingdom_scraper_individual.py's output."""
+    record = {
+        'name': slug.replace('-', ' ').title(),
+        'slug': slug,
+        'date': day,
+        'url': f'https://comicskingdom.com/{slug}/{day}',
+        'source': 'comicskingdom',
+    }
+    if len(images) == 1:
+        record['image_url'] = images[0]
+    else:
+        record['image_urls'] = list(images)
+    return record
+
+
+@pytest.fixture
+def ck_repo(tmp_path, monkeypatch):
+    """A repo-shaped tree with the generator's default paths relative to it."""
+    _write_catalogs(tmp_path, daily=CK_DAILY, political=[])
+    (tmp_path / 'data').mkdir()
+    (tmp_path / 'public' / 'feeds').mkdir()
+    monkeypatch.chdir(tmp_path)
+    return tmp_path
+
+
+def save_ck_day(repo, day, records, filename=None):
+    path = repo / 'data' / (filename or f'comicskingdom_{day}.json')
+    path.write_text(json.dumps(records))
+    return path
+
+
+def build_ck():
+    """Run the generator the way the pipeline does: no arguments, repo as cwd."""
+    return gen.main()
+
+
+def ck_feed(repo, slug):
+    return repo / 'public' / 'feeds' / f'{slug}.xml'
+
+
+def ck_items(repo, slug):
+    channel = ET.parse(ck_feed(repo, slug)).getroot().find('channel')
+    items = []
+    for item in channel.findall('item'):
+        description = item.findtext('description') or ''
+        items.append({
+            'title': item.findtext('title'),
+            'link': item.findtext('link'),
+            'guid': item.findtext('guid'),
+            'guid_is_permalink': item.find('guid').get('isPermaLink'),
+            'pub_date': item.findtext('pubDate'),
+            'description': description,
+            'images': re.findall(r'<img src="([^"]+)"', description),
+            'alts': re.findall(r'alt="([^"]+)"', description),
+        })
+    return items
+
+
+def ck_guids(repo, slug):
+    return [item['guid'] for item in ck_items(repo, slug)]
+
+
+def ck_url(slug, day):
+    return f'https://comicskingdom.com/{slug}/{day}'
+
+
+class TestFirstSighting:
+    """R1, R2: one item per image set, dated and addressed by its first sighting."""
+
+    def test_strip_saved_on_seven_nights_is_listed_once_from_its_first_night(self, ck_repo):
+        # AE2: a weekly strip stays up all week and is saved every night.
+        week = _days('2026-09-24', 7)
+        for day in week:
+            save_ck_day(ck_repo, day, [ck_record('mostly-gravy', day, [_image('mostly-gravy', 'w39')])])
+
+        assert build_ck() == 0
+
+        items = ck_items(ck_repo, 'mostly-gravy')
+        assert [i['guid'] for i in items] == [ck_url('mostly-gravy', '2026-09-24')]
+        assert items[0]['title'] == 'Mostly Gravy - 2026-09-24'
+        assert items[0]['pub_date'] == 'Thu, 24 Sep 2026 00:00:00 +0000'
+        assert items[0]['alts'] == ['Mostly Gravy']
+
+    def test_a_later_night_holding_the_same_image_adds_no_item(self, ck_repo):
+        # A weekly comic: a new strip every 7 days, each saved every night it stays up.
+        # Its history runs past 90 days, so the earliest copies age out of the window.
+        nights = _days('2026-06-01', 122)  # 2026-06-01 .. 2026-09-30
+        for n, day in enumerate(nights):
+            image = _image('mostly-gravy', f'week{n // 7}')
+            save_ck_day(ck_repo, day, [ck_record('mostly-gravy', day, [image])])
+        build_ck()
+        before = ck_guids(ck_repo, 'mostly-gravy')
+
+        last_image = _image('mostly-gravy', f'week{(len(nights) - 1) // 7}')
+        save_ck_day(ck_repo, NEWEST, [ck_record('mostly-gravy', NEWEST, [last_image])])
+        build_ck()
+        after = ck_guids(ck_repo, 'mostly-gravy')
+
+        assert set(after) <= set(before), (
+            f"re-delivered under new guids: {sorted(set(after) - set(before))}"
+        )
+        # Only a strip first sighted on the day that left the window may drop out.
+        assert set(before) - set(after) <= {ck_url('mostly-gravy', DAY_BEFORE_WINDOW)}
+
+    def test_image_order_does_not_make_a_new_strip(self, ck_repo):
+        panels = [_image('blondie', 'p1'), _image('blondie', 'p2')]
+        save_ck_day(ck_repo, '2026-09-30', [ck_record('blondie', '2026-09-30', panels)])
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, list(reversed(panels)))])
+
+        build_ck()
+
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', '2026-09-30')]
+
+    def test_item_fields_match_the_committed_feed(self, ck_repo):
+        # Literal values from public/feeds/blondie.xml for 2026-10-01 (R2: unchanged derivation).
+        panels = [
+            'https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/10/Y2tCbG9uZGllLUVORy02NjY4NjQ1.jpg',
+            'https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/10/Y2tCbG9uZGllLUVORy02NjY4NjUx.jpg',
+            'https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production/2026/10/Y2tCbG9uZGllLUVORy02NjY4NjUz.jpg',
+        ]
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, panels)])
+
+        build_ck()
+
+        [item] = ck_items(ck_repo, 'blondie')
+        assert item['guid'] == 'https://comicskingdom.com/blondie/2026-10-01'
+        assert item['guid_is_permalink'] == 'false'
+        assert item['link'] == 'https://comicskingdom.com/blondie/2026-10-01'
+        assert item['title'] == 'Blondie - 2026-10-01'
+        assert item['pub_date'] == 'Thu, 01 Oct 2026 00:00:00 +0000'
+        assert 'Comic strip for 2026-10-01' in item['description']
+        assert item['images'] == panels
+        assert item['alts'] == ['Blondie - Panel 1', 'Blondie - Panel 2', 'Blondie - Panel 3']
+
+
+class TestDateWindow:
+    """R3, KTD3: the 90 dates ending on the newest data file, anchored on the data."""
+
+    def test_window_first_day_is_inside_and_the_day_before_is_not(self, ck_repo):
+        save_ck_day(ck_repo, DAY_BEFORE_WINDOW,
+                    [ck_record('blondie', DAY_BEFORE_WINDOW, [_image('blondie', 'old')])])
+        save_ck_day(ck_repo, WINDOW_START,
+                    [ck_record('blondie', WINDOW_START, [_image('blondie', 'edge')])])
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'new')])])
+
+        build_ck()
+
+        assert ck_guids(ck_repo, 'blondie') == [
+            ck_url('blondie', NEWEST), ck_url('blondie', WINDOW_START),
+        ]
+
+    def test_window_is_anchored_on_the_newest_data_file_not_the_clock(self, ck_repo):
+        # Rebuilding old data (e.g. in push-rejection recovery) gives the same feed any day.
+        save_ck_day(ck_repo, '2025-11-15', [ck_record('blondie', '2025-11-15', [_image('blondie', 'a')])])
+        save_ck_day(ck_repo, '2026-01-10', [ck_record('blondie', '2026-01-10', [_image('blondie', 'b')])])
+
+        build_ck()
+
+        assert ck_guids(ck_repo, 'blondie') == [
+            ck_url('blondie', '2026-01-10'), ck_url('blondie', '2025-11-15'),
+        ]
+
+
+class TestUntouchedFeeds:
+    """R4: a comic with nothing first sighted in the window keeps its feed file as is."""
+
+    def test_dormant_comic_keeps_its_feed_byte_identical(self, ck_repo):
+        # AE1: one image, first sighted before the window, saved every night since.
+        image = _image('secret-agent-x-9', 'only')
+        for day in ['2026-06-20'] + _days(DAY_BEFORE_WINDOW, 91):
+            save_ck_day(ck_repo, day, [ck_record('secret-agent-x-9', day, [image])])
+        existing = ck_feed(ck_repo, 'secret-agent-x-9')
+        existing.write_bytes(b'<rss><channel><title>published earlier</title></channel></rss>')
+        before = existing.read_bytes()
+
+        assert build_ck() == 0
+
+        assert existing.read_bytes() == before
+
+    def test_comic_with_nothing_in_the_window_and_no_feed_gets_no_file(self, ck_repo):
+        image = _image('secret-agent-x-9', 'only')
+        for day in (DAY_BEFORE_WINDOW, WINDOW_START, NEWEST):
+            save_ck_day(ck_repo, day, [ck_record('secret-agent-x-9', day, [image])])
+
+        build_ck()
+
+        assert not ck_feed(ck_repo, 'secret-agent-x-9').exists()
+
+    def test_slug_not_owned_by_the_ck_catalog_gets_no_feed(self, ck_repo):
+        save_ck_day(ck_repo, NEWEST, [
+            ck_record('broomhilda', NEWEST, [_image('broomhilda', 'x')]),
+            ck_record('blondie', NEWEST, [_image('blondie', 'x')]),
+        ])
+
+        build_ck()
+
+        assert ck_feed(ck_repo, 'blondie').exists()
+        assert not ck_feed(ck_repo, 'broomhilda').exists()
+
+
+class TestDataFiles:
+    """R7, R8, KTD6: only strictly named files are read; bad input is skipped and named."""
+
+    def test_unreadable_file_is_skipped_with_a_warning_naming_it(self, ck_repo, caplog):
+        # AE3
+        save_ck_day(ck_repo, '2026-09-30', [ck_record('blondie', '2026-09-30', [_image('blondie', 'a')])])
+        broken = ck_repo / 'data' / 'comicskingdom_2026-09-15.json'
+        broken.write_text('{"truncated": ')
+        save_ck_day(ck_repo, NEWEST, [ck_record('mostly-gravy', NEWEST, [_image('mostly-gravy', 'a')])])
+
+        with caplog.at_level(logging.WARNING):
+            assert build_ck() == 0
+
+        assert _warnings_naming(caplog, broken.name)
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', '2026-09-30')]
+        assert ck_guids(ck_repo, 'mostly-gravy') == [ck_url('mostly-gravy', NEWEST)]
+
+    def test_file_holding_an_object_is_skipped_with_a_warning_naming_it(self, ck_repo, caplog):
+        odd = save_ck_day(ck_repo, '2026-09-30', {'blondie': 'not a list of records'})
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'a')])])
+
+        with caplog.at_level(logging.WARNING):
+            assert build_ck() == 0
+
+        assert _warnings_naming(caplog, odd.name)
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', NEWEST)]
+
+    def test_record_missing_its_url_is_skipped_with_a_warning(self, ck_repo, caplog):
+        broken = ck_record('blondie', '2026-09-30', [_image('blondie', 'a')])
+        del broken['url']
+        path = save_ck_day(ck_repo, '2026-09-30', [broken])
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'b')])])
+
+        with caplog.at_level(logging.WARNING):
+            assert build_ck() == 0
+
+        assert _warnings_naming(caplog, path.name)
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', NEWEST)]
+
+    @pytest.mark.parametrize('broken', [
+        'not a record',
+        {'slug': 'blondie', 'date': '2026-09-31', 'url': ck_url('blondie', '2026-09-31'),
+         'image_url': _image('blondie', 'a')},
+        {'slug': 'blondie', 'date': '2026-09-15', 'url': ck_url('blondie', '2026-09-15'),
+         'image_urls': None},
+        {'slug': 'blondie', 'date': '2026-09-15', 'url': ck_url('blondie', '2026-09-15'),
+         'image_urls': [_image('blondie', 'a'), 7]},
+        {'slug': 'blondie', 'date': '2026-09-15', 'url': ck_url('blondie', '2026-09-15'),
+         'image_url': None},
+    ], ids=['not-a-dict', 'impossible-date', 'null-image-list', 'non-text-image', 'null-image'])
+    def test_malformed_record_anywhere_in_history_is_skipped_with_a_warning(
+        self, ck_repo, caplog, broken
+    ):
+        # History is read in full, so one bad record must never stop every CK feed.
+        path = save_ck_day(ck_repo, '2026-05-01', [broken])
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'b')])])
+
+        with caplog.at_level(logging.WARNING):
+            assert build_ck() == 0
+
+        assert _warnings_naming(caplog, path.name)
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', NEWEST)]
+
+    def test_file_named_with_an_impossible_date_is_skipped_with_a_warning(self, ck_repo, caplog):
+        save_ck_day(ck_repo, '2026-13-45', [ck_record('blondie', '2026-09-30', [_image('blondie', 'x')])])
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'b')])])
+
+        with caplog.at_level(logging.WARNING):
+            assert build_ck() == 0
+
+        assert _warnings_naming(caplog, 'comicskingdom_2026-13-45.json')
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', NEWEST)]
+
+    def test_no_data_files_fails_the_run(self, ck_repo):
+        # The pipeline records CK generation as failed only from this exit code.
+        assert build_ck() == 1
+
+    def test_backup_file_is_not_read_and_does_not_anchor_the_window(self, ck_repo):
+        save_ck_day(ck_repo, '2026-08-01', [ck_record('blondie', '2026-08-01', [_image('blondie', 'real')])])
+        save_ck_day(ck_repo, NEWEST, [ck_record('mostly-gravy', NEWEST, [_image('mostly-gravy', 'a')])])
+        save_ck_day(ck_repo, '2027-03-01',
+                    [ck_record('blondie', '2027-03-01', [_image('blondie', 'from-backup')])],
+                    filename='comicskingdom_2027-03-01_backup.json')
+
+        build_ck()
+
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', '2026-08-01')]
+
+
+class TestMainPaths:
+    """KTD5: main() takes its directories, defaulting to the pipeline's paths."""
+
+    def test_main_reads_and_writes_the_directories_it_is_given(self, tmp_path, monkeypatch):
+        repo = tmp_path / 'elsewhere'
+        _write_catalogs(repo, daily=CK_DAILY, political=[])
+        (repo / 'data').mkdir()
+        (repo / 'out').mkdir()
+        save_ck_day(repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'a')])])
+        monkeypatch.chdir(tmp_path)
+
+        assert gen.main(data_dir=repo / 'data', output_dir=repo / 'out',
+                        catalog_dir=repo / 'public') == 0
+
+        assert (repo / 'out' / 'blondie.xml').exists()

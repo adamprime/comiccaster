@@ -39,7 +39,7 @@ A reauth counts as successful only if it *persisted* a new session. A browser sh
 The network-facing first phase of the daily update: each source is fetched and parsed, writing a dated JSON snapshot per source. The only phase that touches the live comic sites.
 
 ### Generate phase
-The network-free second phase: each source's generator reads its saved scraped JSON (the newest snapshot, or the recent snapshots its Feed window spans) and writes the feed XML. Safe to re-run during recovery because it never hits the network.
+The network-free second phase: each source's generator reads its saved scraped JSON (the newest snapshot, the recent snapshots its Feed window spans, or, for Comics Kingdom, every snapshot ever saved) and writes the feed XML. Safe to re-run during recovery because it never hits the network.
 
 ### Invariant guard
 The check between the Generate phase and the commit/push phase that asserts every scrape which reported success actually produced usable data, rather than silently shipping a stale feed. Two assertions: the dated JSON snapshot exists, **and** it holds a plausible number of entries for that source (each source sets its own minimum). The count half exists because existence alone was satisfiable by an empty file, which once let a scrape that saved nothing pass as a successful run. The Far Side's New Stuff feed is exempt from the count, because it genuinely publishes almost never.
@@ -74,7 +74,13 @@ The number of recent days of strips a generated feed includes. Bounded by what t
 
 A feed holds its window only if its generator reads every snapshot the window spans. A scrape that saves each strip once writes only that night's new strips, so a generator rebuilding from the newest snapshot alone shrinks every feed to its latest strip, while the pipeline still reports success. The window is measured in strip dates, not in snapshot files, since days with nothing new and outages leave gaps in the files.
 
+A feed with nothing in its window is left as it is rather than emptied: its generator does not write it, so its last items stay published until the comic posts again.
+
 ### Strip identity
 What makes one strip distinct from another: its own per-strip address where the source has one, or its fetch date where the strip lives at a single address overwritten each day. Never the strip's date on its own, because several strips can share a date, as in a multi-part story posted together.
 
 The identity is the item's `<guid>`, so a published strip's identity must never change; a change reaches subscribers as a re-delivery (see Feed identity). A scraper decides a strip is already recorded, and a generator deduplicates, by this identity, and a strip's images are the ones stored under its own address rather than everything posted that day.
+
+Comics Kingdom fits neither case. Its per-date address names only the night ComicCaster fetched it, because the site serves its newest post for any date, so a strip that stays up for a week is saved under seven addresses. There a strip's identity is its image set, dated and addressed by its first sighting: the earliest saved snapshot that holds it. That makes the saved Comics Kingdom history load-bearing, so it is append-only. Never scrape a past date (the site answers with its newest post, saved under the wrong date), re-run a night's scrape into the data directory after its feed has shipped (send a manual run to another output directory), relabel records after their feed has shipped, or delete old snapshots; each of these can move a strip's first sighting and re-deliver it.
+
+The rule is Comics Kingdom's alone. GoComics records carry the publisher's own date in their address, so the same strip always gets the same identity, and its merges and backfills (Two-pass scrape, Rolling backfill) are safe.

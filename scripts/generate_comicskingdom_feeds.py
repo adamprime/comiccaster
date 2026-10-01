@@ -2,21 +2,31 @@
 """
 Generate RSS feeds for Comics Kingdom comics from scraped data.
 
-This script:
-1. Loads scraped Comics Kingdom data (JSON)
-2. Loads comics list to see which comics need feeds
-3. Generates/updates RSS feeds for Comics Kingdom comics
+Comics Kingdom serves its newest post for any date, so the scraper saves the
+same strip again every night it stays up, each time under that night's address
+(issue #207). A strip is therefore identified by its image set, and dated by
+its first sighting: the earliest ``data/comicskingdom_YYYY-MM-DD.json`` that
+holds it, read across all saved history.
+
+- Each feed lists the strips first sighted in the 90 dates ending on the newest
+  data file's date. The window is anchored on the data, not the clock.
+- An item's guid, title and pub date come from the first-sighting record, so a
+  later copy of the same strip never comes back under a new guid.
+- A comic with nothing first sighted in the window is not written at all: its
+  existing feed file stays byte-identical and no new one is created.
+
+Because identity rests on all history, saved Comics Kingdom data must stay
+append-only: no past-date scrapes, no relabeled records, no deleted files.
 """
 
 import json
-import sys
-import html
+import logging
 import re
+import sys
+from datetime import date, datetime, timedelta
 from pathlib import Path
-from datetime import datetime
 import pytz
-from typing import List, Dict
-import requests
+from typing import Dict, List, Tuple
 
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -24,305 +34,203 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from comiccaster.comicskingdom_catalog import load_comicskingdom_catalog
 from comiccaster.feed_generator import ComicFeedGenerator
 
+logger = logging.getLogger(__name__)
 
-def extract_live_comicskingdom_entries(comic_info: Dict, limit: int = 30) -> List[Dict]:
-    """Fetch live entries for a Comics Kingdom comic from page bootstrap JSON."""
-    slug = comic_info['slug']
-    # Upstream path may differ from the feed slug -- see `source_slug` in
-    # scripts/comicskingdom_scraper_individual.py.
-    source_slug = comic_info.get('source_slug') or slug
-    base_path = (
-        f"/vintage/{source_slug}" if comic_info.get('source_variant') == 'vintage'
-        else f"/{source_slug}"
-    )
-    url = f"https://comicskingdom.com{base_path}"
+# The window's first day is newest - (WINDOW_DAYS - 1), so a gap-free window
+# holds exactly the 90 newest data files.
+WINDOW_DAYS = 90
 
-    try:
-        response = requests.get(
-            url,
-            headers={'User-Agent': 'Mozilla/5.0'},
-            timeout=30,
-        )
-        response.raise_for_status()
-    except Exception as e:
-        print(f"  ⚠️  Live fetch failed for {slug}: {e}")
-        return []
+# Strict on purpose: a backup or misnamed file must not be read or anchor the window.
+DATA_FILE_NAME = re.compile(r'^comicskingdom_(\d{4}-\d{2}-\d{2})\.json$')
 
-    match = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', response.text, re.S)
-    if not match:
-        return []
 
-    try:
-        next_data = json.loads(match.group(1))
-    except Exception:
-        return []
-
-    fallback = next_data.get('props', {}).get('pageProps', {}).get('fallback', {})
-    posts = []
-
-    for value in fallback.values():
-        result = value.get('result') if isinstance(value, dict) else None
-        if isinstance(result, list) and result and isinstance(result[0], dict) and 'date' in result[0]:
-            posts = result
-            break
-
-    entries = []
-    seen_ids = set()
-
-    for post in posts[:limit]:
-        post_date = (post.get('date') or '')[:10]
-        if not post_date:
+def find_comicskingdom_data_files(data_dir) -> List[Tuple[date, Path]]:
+    """Return every strictly named Comics Kingdom data file with its date, oldest first."""
+    files = []
+    for path in Path(data_dir).glob('comicskingdom_*.json'):
+        match = DATA_FILE_NAME.match(path.name)
+        if not match:
             continue
-
-        assets = post.get('assets') or {}
-        image_url = (
-            (assets.get('single') or {}).get('url')
-            or (assets.get('featured') or {}).get('url')
-        )
-        if not image_url:
-            continue
-
-        post_url = post.get('link') or f"https://comicskingdom.com{base_path}/{post_date}"
-        entry_id = post_url
-        if entry_id in seen_ids:
-            continue
-        seen_ids.add(entry_id)
-
-        title_raw = (post.get('title') or {}).get('rendered') if isinstance(post.get('title'), dict) else None
-        title_text = html.unescape(re.sub(r'<[^>]+>', '', title_raw or '')).strip()
-        title = title_text or f"{comic_info['name']} - {post_date}"
-
         try:
-            pub_date = datetime.strptime(post_date, '%Y-%m-%d').replace(tzinfo=pytz.UTC)
+            files.append((date.fromisoformat(match.group(1)), path))
         except ValueError:
-            continue
-
-        entries.append({
-            'title': title,
-            'url': post_url,
-            'images': [{'url': image_url, 'alt': comic_info['name']}],
-            'pub_date': pub_date,
-            'description': f"Comic strip for {post_date}",
-            'id': entry_id,
-        })
-
-    entries.sort(key=lambda x: x['pub_date'])
-    return entries
+            logger.warning(f"Skipping {path}: its name is not a real date")
+    files.sort()
+    return files
 
 
-def load_scraped_data(days_back: int = 90) -> Dict[str, List[Dict]]:
-    """Load scraped Comics Kingdom data from multiple days and group by slug.
+def read_data_file(path: Path) -> list:
+    """Return the records saved in one data file, or [] with a warning if unreadable."""
+    try:
+        with open(path, 'r') as f:
+            records = json.load(f)
+    except (OSError, ValueError) as e:
+        logger.warning(f"Skipping unreadable data file {path}: {e}")
+        return []
+    if not isinstance(records, list):
+        logger.warning(f"Skipping data file {path}: expected a list of records, got {type(records).__name__}")
+        return []
+    return records
 
-    Args:
-        days_back: Number of days to load (default 90)
-    
-    Returns:
-        Dict mapping slug -> list of comic entries (newest first)
+
+def image_urls(record: Dict) -> List[str]:
+    """The record's strip images: ``image_urls`` for a multi-panel strip, else ``image_url``."""
+    if 'image_urls' in record:
+        return list(record['image_urls'])
+    if 'image_url' in record:
+        return [record['image_url']]
+    return []
+
+
+def check_record(record) -> None:
+    """Raise ValueError unless the record has the fields an item is built from."""
+    if not isinstance(record, dict):
+        raise ValueError(f"not a record: {record!r:.80}")
+    for field in ('slug', 'url', 'date'):
+        if not isinstance(record.get(field), str):
+            raise ValueError(f"{field} missing or not text")
+    datetime.strptime(record['date'], '%Y-%m-%d')
+    if 'image_urls' in record:
+        urls = record['image_urls']
+        if not isinstance(urls, list) or not all(isinstance(url, str) for url in urls):
+            raise ValueError("image_urls is not a list of text")
+    elif 'image_url' in record and not isinstance(record['image_url'], str):
+        raise ValueError("image_url is not text")
+
+
+def load_window_strips(files: List[Tuple[date, Path]]) -> Dict[str, List[Dict]]:
+    """First-sighting records in the window, grouped by slug, oldest first.
+
+    Every file is read, oldest first, and the first record holding a slug's image
+    set is that strip's first sighting. Later copies of the set are ignored.
     """
-    data_dir = Path('data')
-    data_files = sorted(data_dir.glob('comicskingdom_*.json'), reverse=True)
-    
-    if not data_files:
-        print(f"❌ No Comics Kingdom data files found in data/")
-        return {}
-    
-    # Load up to days_back most recent files
-    files_to_load = data_files[:days_back]
-    
-    print(f"📂 Loading Comics Kingdom data from {len(files_to_load)} day(s)...")
-    
-    # Index by slug, with each slug containing a list of entries (one per day)
-    indexed = {}
-    total_loaded = 0
-    
-    for data_file in files_to_load:
-        date_from_file = data_file.stem.replace('comicskingdom_', '')
-        
-        try:
-            with open(data_file, 'r') as f:
-                comics = json.load(f)
-            
-            for comic in comics:
-                slug = comic.get('slug')
-                if slug:
-                    if slug not in indexed:
-                        indexed[slug] = []
-                    indexed[slug].append(comic)
-                    total_loaded += 1
-            
-            print(f"  ✅ {date_from_file}: {len(comics)} comics")
-        except Exception as e:
-            print(f"  ⚠️  Error loading {data_file.name}: {e}")
-    
-    print(f"✅ Loaded {total_loaded} total entries for {len(indexed)} unique comics")
-    return indexed
+    newest = files[-1][0]
+    window_start = newest - timedelta(days=WINDOW_DAYS - 1)
+    print(f"📂 Reading {len(files)} Comics Kingdom data file(s); "
+          f"window {window_start} to {newest} (newest data file {files[-1][1].name})")
+
+    first_sightings: Dict[Tuple[str, Tuple[str, ...]], Tuple[date, Dict]] = {}
+    for file_date, path in files:
+        for position, record in enumerate(read_data_file(path)):
+            try:
+                check_record(record)
+            except ValueError as e:
+                logger.warning(f"Skipping malformed record #{position} in {path}: {e}")
+                continue
+            images = image_urls(record)
+            if not images:
+                continue
+            key = (record['slug'], tuple(sorted(images)))
+            if key not in first_sightings:
+                first_sightings[key] = (file_date, record)
+
+    # Files are read oldest first, so first sightings are already in date order.
+    grouped: Dict[str, List[Dict]] = {}
+    for (slug, _), (file_date, record) in first_sightings.items():
+        if file_date >= window_start:
+            grouped.setdefault(slug, []).append(record)
+    return grouped
 
 
-def load_comics_list() -> List[Dict]:
+def load_comics_list(catalog_dir='public') -> List[Dict]:
     """Load Comics Kingdom comics from the daily and political catalogs."""
-    ck_comics = load_comicskingdom_catalog()
+    ck_comics = load_comicskingdom_catalog(catalog_dir)
 
     print(f"✅ Found {len(ck_comics)} Comics Kingdom comics in catalog (daily + political)")
     return ck_comics
 
 
-def generate_feed_for_comic(comic_info: Dict, scraped_data: Dict[str, List[Dict]], generator: ComicFeedGenerator) -> bool:
-    """Generate/update feed for a single comic with multiple days of entries."""
-    slug = comic_info['slug']
-    
-    # Check if we have scraped data for this comic
-    if slug not in scraped_data:
-        live_entries = extract_live_comicskingdom_entries(comic_info)
-        if not live_entries:
-            print(f"  ⚠️  No scraped data for {slug}")
-            return False
+def generate_feed_for_comic(comic_info: Dict, strips: List[Dict], generator: ComicFeedGenerator) -> bool:
+    """Write one comic's feed from its first-sighted strips. Returns True when written.
 
-        try:
-            success = generator.generate_feed(comic_info, live_entries)
-            if success:
-                print(f"  ✅ {comic_info['name']} ({len(live_entries)} live entries)")
-                return True
-            print(f"  ❌ Failed: {comic_info['name']}")
-            return False
-        except Exception as e:
-            print(f"  ❌ Error generating live feed for {comic_info['name']}: {e}")
-            return False
-    
-    # Get all entries for this comic (from multiple days)
-    comic_entries = scraped_data[slug]
-    
-    # Sort entries by date (oldest first) so we keep the first occurrence of each image
-    comic_entries_sorted = sorted(comic_entries, key=lambda x: x.get('date', ''))
-    
-    # Create feed entries for each day, deduplicating by image URL
+    With no strip to list the feed is not written, so an existing file stays as it is.
+    """
     entries = []
-    seen_image_urls = set()  # Track unique images to avoid duplicates for weekly comics
-    
-    for scraped_comic in comic_entries_sorted:
-        # Handle both single and multiple images per day
-        images = []
-        image_urls_for_entry = []
-        
-        if 'image_urls' in scraped_comic:
-            # Multiple images
-            for i, url in enumerate(scraped_comic['image_urls']):
-                images.append({
-                    'url': url,
-                    'alt': f"{comic_info['name']} - Panel {i+1}"
-                })
-                image_urls_for_entry.append(url)
-        elif 'image_url' in scraped_comic:
-            # Single image
-            images.append({
-                'url': scraped_comic['image_url'],
-                'alt': comic_info['name']
-            })
-            image_urls_for_entry.append(scraped_comic['image_url'])
+    for strip in strips:
+        urls = image_urls(strip)
+        if 'image_urls' in strip:
+            images = [{'url': url, 'alt': f"{comic_info['name']} - Panel {i + 1}"}
+                      for i, url in enumerate(urls)]
         else:
-            # Skip entries with no images
-            continue
-        
-        # Skip if images list is empty (weekly comics on non-update days)
-        if not images:
-            continue
-        
-        # Create a signature from all image URLs for this entry
-        image_signature = tuple(sorted(image_urls_for_entry))
-        
-        # Skip if we've already seen this exact set of images (handles weekly comics)
-        if image_signature in seen_image_urls:
-            continue
-        seen_image_urls.add(image_signature)
-        
-        # Create feed entry from scraped data
-        entry = {
-            'title': f"{comic_info['name']} - {scraped_comic['date']}",
-            'url': scraped_comic['url'],
-            'images': images,  # Support multiple images
-            'pub_date': datetime.strptime(scraped_comic['date'], '%Y-%m-%d').replace(tzinfo=pytz.UTC),
-            'description': f"Comic strip for {scraped_comic['date']}",
-            'id': scraped_comic['url']
-        }
-        entries.append(entry)
-    
+            images = [{'url': urls[0], 'alt': comic_info['name']}]
+        entries.append({
+            'title': f"{comic_info['name']} - {strip['date']}",
+            'url': strip['url'],
+            'images': images,
+            'pub_date': datetime.strptime(strip['date'], '%Y-%m-%d').replace(tzinfo=pytz.UTC),
+            'description': f"Comic strip for {strip['date']}",
+            'id': strip['url'],
+        })
+
+    # Never replace a feed with an empty one.
     if not entries:
-        print(f"  ⚠️  No valid entries for {slug}")
         return False
-    
-    # Sort entries by date (oldest first) because feedgen reverses the order
-    # This results in newest first in the RSS output
-    entries.sort(key=lambda x: x['pub_date'], reverse=False)
-    
-    # Generate/update feed with ALL entries (multiple days)
+
     try:
-        success = generator.generate_feed(comic_info, entries)
-        if success:
-            print(f"  ✅ {comic_info['name']} ({len(entries)} days)")
+        if generator.generate_feed(comic_info, entries):
+            print(f"  ✅ {comic_info['name']} ({len(entries)} strips)")
             return True
-        else:
-            print(f"  ❌ Failed: {comic_info['name']}")
-            return False
+        print(f"  ❌ Failed: {comic_info['name']}")
+        return False
     except Exception as e:
         print(f"  ❌ Error generating feed for {comic_info['name']}: {e}")
         return False
 
 
-def main():
-    """Main function."""
+def main(data_dir='data', output_dir='public/feeds', catalog_dir='public'):
+    """Generate every Comics Kingdom feed with a strip first sighted in the window."""
     print("="*80)
     print("Comics Kingdom Feed Generator")
     print("="*80)
     print()
-    
-    # Load scraped data
+
     print("Step 1: Loading scraped Comics Kingdom data...")
-    scraped_data = load_scraped_data()
-    if not scraped_data:
-        print("❌ No scraped data available. Run scraper first:")
+    files = find_comicskingdom_data_files(data_dir)
+    if not files:
+        print(f"❌ No Comics Kingdom data files found in {data_dir}/. Run scraper first:")
         print("   python scripts/comicskingdom_scraper_individual.py")
         return 1
+    strips_by_slug = load_window_strips(files)
     print()
-    
-    # Load comics list
+
     print("Step 2: Loading Comics Kingdom comics from catalog...")
-    comics_list = load_comics_list()
+    comics_list = load_comics_list(catalog_dir)
     if not comics_list:
         print("❌ No Comics Kingdom comics in catalog")
         return 1
     print()
-    
-    # Initialize feed generator
+
     print("Step 3: Generating feeds...")
     generator = ComicFeedGenerator(
         base_url="https://comicskingdom.com",
-        output_dir="public/feeds"
+        output_dir=str(output_dir)
     )
-    
-    successful = 0
+
+    written = 0
+    untouched = 0
     failed = 0
-    
+
     for comic in comics_list:
-        if generate_feed_for_comic(comic, scraped_data, generator):
-            successful += 1
+        strips = strips_by_slug.get(comic['slug'], [])
+        if not strips:
+            untouched += 1
+        elif generate_feed_for_comic(comic, strips, generator):
+            written += 1
         else:
             failed += 1
-    
+
     print()
     print("="*80)
     print("✅ Feed Generation Complete!")
     print("="*80)
-    print(f"Successful: {successful}")
-    print(f"Skipped (no data): {failed}")
+    print(f"Written: {written}")
+    print(f"Untouched (no strip first sighted in the window): {untouched}")
+    print(f"Failed: {failed}")
     print(f"Total: {len(comics_list)}")
     print()
-    if failed > 0:
-        print(f"ℹ️  {failed} comics skipped - no updates today or not favorited on Comics Kingdom")
-        print()
-    print("Feeds saved to: public/feeds/")
+    print(f"Feeds saved to: {output_dir}/")
     print("="*80)
-    
-    # Always exit successfully - missing data is expected for comics that didn't update
-    # or aren't favorited on the Comics Kingdom website
+
     return 0
 
 

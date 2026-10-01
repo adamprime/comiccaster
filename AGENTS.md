@@ -81,7 +81,7 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
    - `check_ck_session.py` - CK cookie expiry (verifies a reauth took; cannot see a server-side logout)
    - `check_host_config.py` - Host auto-login / remote-access settings the LaunchAgents depend on
    - `scrape_*.py` and authenticated scrapers — per-source scrapers (Phase 1), each writes `data/<src>_$DATE.json`
-   - `generate_*.py` — per-source generators (Phase 2), network-free, read the saved scraped JSON (the newest snapshot, or every snapshot in the feed's window) and write `public/feeds/*.xml`
+   - `generate_*.py` — per-source generators (Phase 2), network-free, read the saved scraped JSON (the newest snapshot, every snapshot in the feed's window, or — Comics Kingdom — all saved history, which must therefore stay append-only) and write `public/feeds/*.xml`
    - `backfill_gocomics_feeds.py` — manual rate-limited recovery
    - `preview_feeds.py` — renders feed XML as an HTML page for a visual check before shipping (read-only)
    - `reauth_comicskingdom.py` — session refresh for Comics Kingdom
