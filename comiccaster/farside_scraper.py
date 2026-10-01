@@ -12,7 +12,7 @@ import re
 import time
 from datetime import datetime
 from typing import Dict, List, Optional, Any
-from urllib.parse import urljoin, quote
+from urllib.parse import urljoin, urlparse, quote
 import requests
 from bs4 import BeautifulSoup
 import pytz
@@ -95,6 +95,14 @@ class FarsideScraper(BaseScraper):
                 logger.info(f"Fetching {url} (attempt {attempt + 1}/{self.max_retries})")
                 response = self.session.get(url, timeout=self.timeout)
                 response.raise_for_status()
+                # A date the site hasn't published yet 302s to the homepage,
+                # which shows the newest dose that IS out. Returning that would
+                # file yesterday's comics under today's date (2026-05-28,
+                # 2026-10-01). Not transient, so no retry: the next run's
+                # 3-day window picks the date up once it's published.
+                if self.source_type == 'farside-daily' and f'/{date}' not in urlparse(response.url).path:
+                    logger.warning(f"{url} redirected to {response.url}; {date} not published yet")
+                    return None
                 return response.text
             except requests.RequestException as e:
                 logger.warning(f"Request failed (attempt {attempt + 1}/{self.max_retries}): {e}")
