@@ -5,8 +5,8 @@ so the Comics Kingdom cartoonists listed only in public/political_comics_list.js
 were never scraped and their feeds 404'd. These tests pin that both catalogs are
 read, through one shared helper, with each slug loaded once.
 
-No test here may reach comicskingdom.com: every generator run replaces the
-module's `requests` and its live-fetch fallback.
+No test here may reach comicskingdom.com. The generator has no network path
+(TestNetworkFree), so its runs stay offline without patching.
 """
 
 import json
@@ -15,7 +15,6 @@ import os
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from unittest.mock import MagicMock
 
 import pytest
 
@@ -182,22 +181,23 @@ class TestComicsKingdomCatalogHelper:
         )
 
 
+class TestNetworkFree:
+    """Phase 2 generators never reach the network (AGENTS.md); #207 removed CK's live fallback."""
+
+    def test_generator_has_no_network_path(self):
+        assert not hasattr(gen, 'requests'), "the CK generator must not import requests"
+        assert not hasattr(gen, 'extract_live_comicskingdom_entries'), (
+            "the CK generator must not fetch comicskingdom.com when a comic has no data"
+        )
+
+
 class TestMainGeneratesPoliticalFeeds:
     """Integration: main() over a tmp_path writes a political-only comic's feed."""
 
     DATE = '2026-09-28'
 
-    @pytest.fixture
-    def offline(self, monkeypatch):
-        """Replace every network path in the generator and hand back the doubles."""
-        fake_requests = MagicMock()
-        live_fetch = MagicMock(return_value=[])
-        monkeypatch.setattr(gen, 'requests', fake_requests)
-        monkeypatch.setattr(gen, 'extract_live_comicskingdom_entries', live_fetch)
-        return fake_requests, live_fetch
-
     def test_political_only_comic_gets_a_feed_with_the_political_category(
-        self, tmp_path, monkeypatch, offline
+        self, tmp_path, monkeypatch
     ):
         _write_catalogs(
             tmp_path,
@@ -206,6 +206,8 @@ class TestMainGeneratesPoliticalFeeds:
                  'url': 'https://www.gocomics.com/garfield'},
                 {'name': 'Blondie', 'slug': 'blondie', 'source': 'comicskingdom',
                  'url': 'https://comicskingdom.com/blondie'},
+                {'name': 'Zits', 'slug': 'zits', 'source': 'comicskingdom',
+                 'url': 'https://comicskingdom.com/zits'},
             ],
             political=[
                 {'name': 'Mike Smith', 'slug': 'mike-smith', 'source': 'comicskingdom',
@@ -236,7 +238,6 @@ class TestMainGeneratesPoliticalFeeds:
         assert 'Political Comics' in categories, (
             f"mike-smith's feed lacks the political category; channel categories: {categories}"
         )
-
-        fake_requests, live_fetch = offline
-        fake_requests.get.assert_not_called()
-        live_fetch.assert_not_called()
+        assert not (tmp_path / 'public' / 'feeds' / 'zits.xml').exists(), (
+            "a catalog comic with no scraped data must get no feed file"
+        )
