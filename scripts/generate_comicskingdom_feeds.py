@@ -90,6 +90,12 @@ def check_record(record) -> None:
         if not isinstance(record.get(field), str):
             raise ValueError(f"{field} missing or not text")
     datetime.strptime(record['date'], '%Y-%m-%d')
+    if 'image_urls' in record:
+        urls = record['image_urls']
+        if not isinstance(urls, list) or not all(isinstance(url, str) for url in urls):
+            raise ValueError("image_urls is not a list of text")
+    elif 'image_url' in record and not isinstance(record['image_url'], str):
+        raise ValueError("image_url is not text")
 
 
 def load_window_strips(files: List[Tuple[date, Path]]) -> Dict[str, List[Dict]]:
@@ -202,12 +208,16 @@ def main(data_dir='data', output_dir='public/feeds', catalog_dir='public'):
 
     written = 0
     untouched = 0
+    failed = 0
 
     for comic in comics_list:
-        if generate_feed_for_comic(comic, strips_by_slug.get(comic['slug'], []), generator):
+        strips = strips_by_slug.get(comic['slug'], [])
+        if not strips:
+            untouched += 1
+        elif generate_feed_for_comic(comic, strips, generator):
             written += 1
         else:
-            untouched += 1
+            failed += 1
 
     print()
     print("="*80)
@@ -215,6 +225,7 @@ def main(data_dir='data', output_dir='public/feeds', catalog_dir='public'):
     print("="*80)
     print(f"Written: {written}")
     print(f"Untouched (no strip first sighted in the window): {untouched}")
+    print(f"Failed: {failed}")
     print(f"Total: {len(comics_list)}")
     print()
     print(f"Feeds saved to: {output_dir}/")

@@ -360,6 +360,7 @@ class TestFirstSighting:
         assert [i['guid'] for i in items] == [ck_url('mostly-gravy', '2026-09-24')]
         assert items[0]['title'] == 'Mostly Gravy - 2026-09-24'
         assert items[0]['pub_date'] == 'Thu, 24 Sep 2026 00:00:00 +0000'
+        assert items[0]['alts'] == ['Mostly Gravy']
 
     def test_a_later_night_holding_the_same_image_adds_no_item(self, ck_repo):
         # A weekly comic: a new strip every 7 days, each saved every night it stays up.
@@ -379,6 +380,8 @@ class TestFirstSighting:
         assert set(after) <= set(before), (
             f"re-delivered under new guids: {sorted(set(after) - set(before))}"
         )
+        # Only a strip first sighted on the day that left the window may drop out.
+        assert set(before) - set(after) <= {ck_url('mostly-gravy', DAY_BEFORE_WINDOW)}
 
     def test_image_order_does_not_make_a_new_strip(self, ck_repo):
         panels = [_image('blondie', 'p1'), _image('blondie', 'p2')]
@@ -514,6 +517,44 @@ class TestDataFiles:
 
         assert _warnings_naming(caplog, path.name)
         assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', NEWEST)]
+
+    @pytest.mark.parametrize('broken', [
+        'not a record',
+        {'slug': 'blondie', 'date': '2026-09-31', 'url': ck_url('blondie', '2026-09-31'),
+         'image_url': _image('blondie', 'a')},
+        {'slug': 'blondie', 'date': '2026-09-15', 'url': ck_url('blondie', '2026-09-15'),
+         'image_urls': None},
+        {'slug': 'blondie', 'date': '2026-09-15', 'url': ck_url('blondie', '2026-09-15'),
+         'image_urls': [_image('blondie', 'a'), 7]},
+        {'slug': 'blondie', 'date': '2026-09-15', 'url': ck_url('blondie', '2026-09-15'),
+         'image_url': None},
+    ], ids=['not-a-dict', 'impossible-date', 'null-image-list', 'non-text-image', 'null-image'])
+    def test_malformed_record_anywhere_in_history_is_skipped_with_a_warning(
+        self, ck_repo, caplog, broken
+    ):
+        # History is read in full, so one bad record must never stop every CK feed.
+        path = save_ck_day(ck_repo, '2026-05-01', [broken])
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'b')])])
+
+        with caplog.at_level(logging.WARNING):
+            assert build_ck() == 0
+
+        assert _warnings_naming(caplog, path.name)
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', NEWEST)]
+
+    def test_file_named_with_an_impossible_date_is_skipped_with_a_warning(self, ck_repo, caplog):
+        save_ck_day(ck_repo, '2026-13-45', [ck_record('blondie', '2026-09-30', [_image('blondie', 'x')])])
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'b')])])
+
+        with caplog.at_level(logging.WARNING):
+            assert build_ck() == 0
+
+        assert _warnings_naming(caplog, 'comicskingdom_2026-13-45.json')
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', NEWEST)]
+
+    def test_no_data_files_fails_the_run(self, ck_repo):
+        # The pipeline records CK generation as failed only from this exit code.
+        assert build_ck() == 1
 
     def test_backup_file_is_not_read_and_does_not_anchor_the_window(self, ck_repo):
         save_ck_day(ck_repo, '2026-08-01', [ck_record('blondie', '2026-08-01', [_image('blondie', 'real')])])
