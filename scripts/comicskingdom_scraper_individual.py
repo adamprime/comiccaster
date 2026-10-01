@@ -523,9 +523,11 @@ def main():
     )
     parser.add_argument(
         '--date',
-        help='Date in YYYY-MM-DD format (defaults to today). Do not scrape a past '
-             'date: Comics Kingdom answers with its newest post, which would be '
-             'saved under the wrong date and become permanent strip identity (#207).',
+        help='Date in YYYY-MM-DD format (defaults to today). A past date shows the '
+             'post on or before it, and records carry that post\'s own date, so '
+             'backfilling a missed night is safe. Never overwrite an existing data '
+             'file: records saved before #216 still rest on first sighting '
+             '(CONCEPTS.md "Strip identity").',
     )
     parser.add_argument('--output-dir', default='data', help='Output directory for JSON files')
     parser.add_argument('--show-browser', action='store_true', help='Show browser window')

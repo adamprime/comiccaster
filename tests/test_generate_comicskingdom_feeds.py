@@ -247,10 +247,11 @@ class TestMainGeneratesPoliticalFeeds:
 
 # --- #207: first-sighting identity and the 90-date window -------------------
 #
-# Comics Kingdom serves its newest post for any date, so the scraper saves a
-# strip again every night under that night's address. Each strip is identified
-# by its image set and dated by its first sighting in all saved history; a feed
-# lists the strips first sighted in the 90 dates ending on the newest data file.
+# A dated page shows the newest post on or before its date, so the scraper saved
+# a strip again every night under that night's address. Records from before
+# #216 carry no post date: each such strip is identified by its image set and
+# dated by its first sighting in all saved history; a feed lists the strips
+# first sighted in the 90 dates ending on the newest data file.
 
 NEWEST = '2026-10-01'
 WINDOW_START = '2026-07-04'  # 89 days before NEWEST: the window's first day

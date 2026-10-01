@@ -2,21 +2,32 @@
 """
 Generate RSS feeds for Comics Kingdom comics from scraped data.
 
-Comics Kingdom serves its newest post for any date, so the scraper saves the
-same strip again every night it stays up, each time under that night's address
-(issue #207). A strip is therefore identified by its image set, and dated by
-its first sighting: the earliest ``data/comicskingdom_YYYY-MM-DD.json`` that
-holds it, read across all saved history.
+A Comics Kingdom dated page shows the newest post on or before its date, so the
+scraper records the same strip every night it stays up. Since #216 each record
+carries the displayed post's own date (``post_date``), and a feature has at most
+one post per date, so a post-dated strip is identified by its comic and post
+date, under the guid ``https://comicskingdom.com/<source slug>/<post date>``.
 
-- Each feed lists the strips first sighted in the 90 dates ending on the newest
-  data file's date. The window is anchored on the data, not the clock.
-- An item's guid, title and pub date come from the first-sighting record, so a
-  later copy of the same strip never comes back under a new guid.
-- A comic with nothing first sighted in the window is not written at all: its
-  existing feed file stays byte-identical and no new one is created.
+Records saved before #216 have no post date. For them a strip is still its image
+set, dated by its first sighting: the earliest
+``data/comicskingdom_YYYY-MM-DD.json`` holding it, read across all saved history
+(issue #207).
 
-Because identity rests on all history, saved Comics Kingdom data must stay
-append-only: no past-date scrapes, no relabeled records, no deleted files.
+- Each feed lists the strips dated in the 90 dates ending on the newest data
+  file's date: post-dated strips by post date, older ones by first sighting.
+  The window is anchored on the data, not the clock.
+- A post-dated strip keeps its earliest record's images, so a published item
+  never changes when Comics Kingdom later renames or splits its images.
+- Where an older item already holds a post-dated strip's address, the older
+  record's saved name decides: no trailing date means the same strip and the
+  published item stands; a trailing date means the older item is an earlier
+  strip saved a night late, and the new strip is listed under its guid + #post.
+- A comic with nothing in the window is not written at all: its existing feed
+  file stays byte-identical and no new one is created.
+
+Records saved before #216 still rest on first sighting, so until the last of
+them leaves the window, never overwrite, relabel or delete an existing Comics
+Kingdom data file. Backfilling a missing night is safe.
 """
 
 import json
