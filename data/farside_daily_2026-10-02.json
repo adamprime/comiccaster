@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-02",
+  "scraped_at": "2026-10-02T14:19:31.909542+00:00",
+  "comics": [
+    {
+      "id": "22807",
+      "date": "2026-10-02",
+      "url": "https://www.thefarside.com/2026/10/02/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F69cca920cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/69cca920cdd20137c56b005056a9545d",
+      "caption": "\u201c\u2026 And then the creatures yanked him out of the ground, skinned him alive, boiled him, and ate him. The end. Now go to sleep! \u201d",
+      "title": "\u201c\u2026 And then the creatures yanked him out of the ground, s..."
+    },
+    {
+      "id": "22808",
+      "date": "2026-10-02",
+      "url": "https://www.thefarside.com/2026/10/02/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F10b12ec0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/10b12ec0cdd30137c56b005056a9545d",
+      "caption": "\u201cSo! You\u2019ve been fighting again! \u2026 And in your new suit, too!\u201d",
+      "title": "\u201cSo! You\u2019ve been fighting again! \u2026 And in your new suit, ..."
+    },
+    {
+      "id": "22809",
+      "date": "2026-10-02",
+      "url": "https://www.thefarside.com/2026/10/02/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc0b721f0dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c0b721f0dcca0137caaf005056a9545d",
+      "caption": "Although an unexplained phenomenon, there is a place on the outskirts of Mayfield, Nebraska, where the sun does not shine.",
+      "title": "Although an unexplained phenomenon, there is a place on t..."
+    },
+    {
+      "id": "22810",
+      "date": "2026-10-02",
+      "url": "https://www.thefarside.com/2026/10/02/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1e8a8a10e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1e8a8a10e92e0137cf47005056a9545d",
+      "caption": "Concepts of hell",
+      "title": "Concepts of hell"
+    },
+    {
+      "id": "22811",
+      "date": "2026-10-02",
+      "url": "https://www.thefarside.com/2026/10/02/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fdd737f60e8590137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/dd737f60e8590137cedf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22811"
+    }
+  ]
+}
