@@ -24,11 +24,27 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/16b4a520a0c0013fcc7f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-02",
+    "url": "https://www.gocomics.com/robrogers/2026/10/02",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/e53936f0a00f013fcc51005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-02",
     "url": "https://www.gocomics.com/mikeluckovich/2026/10/02",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/e83d44f0a0bf013fcc7f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-02",
+    "url": "https://www.gocomics.com/mattdavies/2026/10/02",
     "category": "political"
   },
   {
@@ -61,6 +77,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/3e73d0009fd8013fcc30005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-02",
     "url": "https://www.gocomics.com/joey-weatherford/2026/10/02",
+    "category": "political"
+  },
+  {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/d76ae990a0c0013fcc80005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-02",
+    "url": "https://www.gocomics.com/joelpett/2026/10/02",
     "category": "political"
   },
   {
