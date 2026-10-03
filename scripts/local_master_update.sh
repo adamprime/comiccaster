@@ -13,6 +13,22 @@ cd "$REPO_DIR"
 LOG_FILE="$REPO_DIR/logs/master_update.log"
 mkdir -p "$REPO_DIR/logs"
 
+# Shared pipeline lock. Pass 1, Pass 2, catch-up and the Far Side morning pass
+# all reset, commit and push in this checkout, so no two may run at once. The
+# script re-runs itself under macOS lockf; the kernel drops the lock when the
+# run exits, so there is no stale-lock cleanup, and lockf does not hand it to
+# child processes such as a lingering Chrome. Taking it here rather than in the
+# mini_* wrapper also covers direct manual runs. See LOCAL_AUTOMATION_README.md.
+if [ -z "${PIPELINE_LOCK_HELD:-}" ]; then
+    PIPELINE_LOCK_HELD=1 /usr/bin/lockf -k -t 1800 "$REPO_DIR/logs/pipeline.lock" \
+        /bin/bash "$REPO_DIR/scripts/$(basename "${BASH_SOURCE[0]}")" "$@"
+    lock_rc=$?
+    if [ "$lock_rc" -eq 75 ]; then
+        echo "$(date) - Pass 1 did not run: the pipeline lock stayed held for 30 minutes" >> "$LOG_FILE"
+    fi
+    exit 0
+fi
+
 # Rotate log if it exceeds 10MB
 if [ -f "$LOG_FILE" ] && [ $(stat -f%z "$LOG_FILE" 2>/dev/null || echo 0) -gt 10485760 ]; then
     mv "$LOG_FILE" "$LOG_FILE.prev"
