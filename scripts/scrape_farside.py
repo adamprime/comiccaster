@@ -15,8 +15,16 @@ Writes two kinds of snapshots:
 
 Side effects: data/farside_new_last_id.txt is updated to the archive's
 current max id. See scripts/generate_farside_feeds.py for feed rendering.
+
+Usage:
+  scrape_farside.py                             3-day Daily Dose window + New Stuff
+  scrape_farside.py --daily-only                3-day Daily Dose window only
+  scrape_farside.py --daily-only --date DATE    one Daily Dose date (YYYY-MM-DD) only;
+                                                exits 1 if the site hasn't published it
+  scrape_farside.py --new-stuff-only            New Stuff only
 """
 
+import argparse
 import json
 import logging
 import os
@@ -76,18 +84,24 @@ def scrape_daily():
     any_success = False
     for days_ago in range(2, -1, -1):
         target = now_eastern - timedelta(days=days_ago)
-        date_slash = target.strftime('%Y/%m/%d')
-        date_dash = target.strftime('%Y-%m-%d')
-        logger.info(f"Scraping target date {date_dash}...")
-        result = scraper.scrape_daily_dose(date_slash)
-        if not result or 'comics' not in result:
-            logger.warning(f"  scrape returned no comics for {date_dash}")
-            continue
-        comics = result['comics']
-        logger.info(f"  scraped {len(comics)} comics")
-        save_daily_snapshot(date_dash, comics)
-        any_success = True
+        if scrape_daily_date(scraper, target):
+            any_success = True
     return any_success
+
+
+def scrape_daily_date(scraper, target):
+    """Scrape one target date's Daily Dose; save it only if the site has it."""
+    date_slash = target.strftime('%Y/%m/%d')
+    date_dash = target.strftime('%Y-%m-%d')
+    logger.info(f"Scraping target date {date_dash}...")
+    result = scraper.scrape_daily_dose(date_slash)
+    if not result or 'comics' not in result:
+        logger.warning(f"  scrape returned no comics for {date_dash}")
+        return False
+    comics = result['comics']
+    logger.info(f"  scraped {len(comics)} comics")
+    save_daily_snapshot(date_dash, comics)
+    return True
 
 
 def load_cursor():
@@ -182,8 +196,36 @@ def scrape_new_stuff():
     return True
 
 
-def main():
+def parse_date(value):
+    try:
+        return datetime.strptime(value, '%Y-%m-%d').date()
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"not a YYYY-MM-DD date: {value!r}")
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument('--daily-only', action='store_true',
+                      help='scrape the Daily Dose only, never New Stuff')
+    mode.add_argument('--new-stuff-only', action='store_true',
+                      help='scrape New Stuff only, never the Daily Dose')
+    parser.add_argument('--date', type=parse_date,
+                        help='with --daily-only: scrape only this date (YYYY-MM-DD)')
+    args = parser.parse_args(argv)
+    if args.date and not args.daily_only:
+        parser.error('--date requires --daily-only')
+
     logger.info("Starting Far Side scrape")
+
+    if args.daily_only and args.date:
+        scraper = ScraperFactory.get_scraper('farside-daily')
+        return 0 if scrape_daily_date(scraper, args.date) else 1
+    if args.daily_only:
+        return 0 if scrape_daily() else 1
+    if args.new_stuff_only:
+        return 0 if scrape_new_stuff() else 1
 
     daily_ok = scrape_daily()
     new_ok = scrape_new_stuff()

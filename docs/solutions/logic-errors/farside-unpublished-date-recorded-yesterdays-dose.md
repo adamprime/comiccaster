@@ -73,6 +73,13 @@ we decided the occasional self-closing issue was cheaper than weakening the
 guard. If it becomes noisy, the fix belongs in the guard, not in writing a
 placeholder file.
 
+**Update 2026-10-03:** it became noisy. The site published late on 10-01, 10-02
+and 10-03 in a row, so the guard and the delivery both moved. Pass 1 now checks
+yesterday's `farside_daily` file, and a Far Side morning pass retries today's
+dose every 30 minutes from 03:30 to 12:00, ships it on the first slot that
+finds it, and alerts only from the noon slot. Still no placeholder file. See
+"Far Side morning pass" in `docs/LOCAL_AUTOMATION_README.md`.
+
 ## Prevention
 
 - When a scraper requests a URL that names its target (a date, a slug), check

@@ -13,6 +13,22 @@ cd "$REPO_DIR"
 LOG_FILE="$REPO_DIR/logs/master_update.log"
 mkdir -p "$REPO_DIR/logs"
 
+# Shared pipeline lock. Pass 1, Pass 2, catch-up and the Far Side morning pass
+# all reset, commit and push in this checkout, so no two may run at once. The
+# script re-runs itself under macOS lockf; the kernel drops the lock when the
+# run exits, so there is no stale-lock cleanup, and lockf does not hand it to
+# child processes such as a lingering Chrome. Taking it here rather than in the
+# mini_* wrapper also covers direct manual runs. See LOCAL_AUTOMATION_README.md.
+if [ -z "${PIPELINE_LOCK_HELD:-}" ]; then
+    PIPELINE_LOCK_HELD=1 /usr/bin/lockf -k -t 1800 "$REPO_DIR/logs/pipeline.lock" \
+        /bin/bash "$REPO_DIR/scripts/$(basename "${BASH_SOURCE[0]}")" "$@"
+    lock_rc=$?
+    if [ "$lock_rc" -eq 75 ]; then
+        echo "$(date) - Pass 1 did not run: the pipeline lock stayed held for 30 minutes" >> "$LOG_FILE"
+    fi
+    exit 0
+fi
+
 # Rotate log if it exceeds 10MB
 if [ -f "$LOG_FILE" ] && [ $(stat -f%z "$LOG_FILE" 2>/dev/null || echo 0) -gt 10485760 ]; then
     mv "$LOG_FILE" "$LOG_FILE.prev"
@@ -32,10 +48,13 @@ FAILURES=()
 FAILED_KEYS=()
 
 # Sources this run examines, so the reporter knows what it may auto-close.
-# Pass 1 covers everything; Pass 2 covers GoComics only.
+# Pass 1 covers everything; Pass 2 covers GoComics only; the Far Side morning
+# pass covers `farside` only. `farside` means the Daily Dose in every pass, and
+# New Stuff has its own `farside-new` slug, so a New Stuff problem can neither
+# be closed by the morning pass nor share an issue with the Daily Dose.
 # `preflight` is included because reaching the end of a run proves it passed,
 # which is what auto-closes a preflight issue from a previous run.
-ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,creators,mrboffo,push,preflight,cksession,branch,autologin"
+ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,farside-new,creators,mrboffo,push,preflight,cksession,branch,autologin"
 
 # Load environment variables (.env has GoComics credentials)
 if [ -f "$REPO_DIR/.env" ]; then
@@ -184,12 +203,21 @@ fi
 
 echo ""
 echo "[4/7] Scraping Far Side..."
-if python scripts/scrape_farside.py; then
+# Two invocations so each failure maps to its own slug: the Daily Dose window
+# is `farside` (shared with the morning pass), New Stuff is `farside-new`.
+if python scripts/scrape_farside.py --daily-only; then
     echo "✅ Far Side scraping succeeded"
 else
     echo "❌ Far Side scraping failed"
     FAILURES+=("Far Side scraping")
     FAILED_KEYS+=("farside:scrape")
+fi
+if python scripts/scrape_farside.py --new-stuff-only; then
+    echo "✅ Far Side New Stuff scraping succeeded"
+else
+    echo "❌ Far Side New Stuff scraping failed"
+    FAILURES+=("Far Side New Stuff scraping")
+    FAILED_KEYS+=("farside-new:scrape")
 fi
 
 echo ""
@@ -290,6 +318,11 @@ else
     FAILURES+=("Mr. Boffo feed generation")
 fi
 
+# Host-local yesterday. Pass 1 runs at 03:05, usually before the site has
+# published today's Daily Dose -- the morning pass ships that later -- so the
+# Far Side checks below verify yesterday's dose. Push recovery reuses it too.
+FS_YESTERDAY=$(date -v-1d +%Y-%m-%d 2>/dev/null || python3 -c "from datetime import date, timedelta; print((date.today()-timedelta(days=1)).isoformat())")
+
 # Invariant guard: if a scraper reported success, its daily data file must exist.
 # Catches silent regressions where a scraper exits 0 but skipped writing output.
 # Violations surface as additional FAILURES entries; the pipeline still commits
@@ -305,7 +338,8 @@ check_scrape_output() {
     if [ ! -f "$file" ]; then
         echo "❌ Invariant violation: $source scrape reported success but $file is missing"
         FAILURES+=("$source invariant ($(basename "$file") missing)")
-        # Far Side is checked twice; a duplicate slug collapses to one issue.
+        # A slug can be reported twice (`farside` also has the morning-pass
+        # check below); the reporter collapses duplicates to one issue.
         FAILED_KEYS+=("$slug:invariant")
     else
         echo "✅ $source: $(basename "$file") present"
@@ -324,10 +358,33 @@ check_scrape_output "GoComics"       "gocomics"      "data/comics_$DATE_STR.json
 check_scrape_output "Comics Kingdom" "comicskingdom" "data/comicskingdom_$DATE_STR.json"
 check_scrape_output "TinyView"       "tinyview"      "data/tinyview_$DATE_STR.json"
 check_scrape_output "New Yorker"     "newyorker"     "data/newyorker_$DATE_STR.json"
-check_scrape_output "Far Side"       "farside"       "data/farside_daily_$DATE_STR.json"
-check_scrape_output "Far Side"       "farside"       "data/farside_new_$DATE_STR.json"
+check_scrape_output "Far Side"       "farside"       "data/farside_daily_$FS_YESTERDAY.json"
+check_scrape_output "Far Side New Stuff" "farside-new" "data/farside_new_$DATE_STR.json"
 check_scrape_output "Creators"       "creators"      "data/creators_$DATE_STR.json"
 check_scrape_output "Mr. Boffo"      "mrboffo"       "data/mrboffo_$DATE_STR.json"
+
+# Did the Far Side morning pass reach a final outcome for yesterday? A missing
+# one means its LaunchAgent stopped firing or died mid-slot, and nothing else
+# would notice. Independent of tonight's scrape, so it always runs. The helper
+# decides when the log cannot answer yet (exit 2, skip). Exit 1 is a miss; any
+# other code is a broken check and must not pass as a skip.
+echo ""
+echo "=== Checking Far Side morning pass for $FS_YESTERDAY ==="
+FS_MORNING_REASON=$(python scripts/farside_morning.py check-terminal --date "$FS_YESTERDAY" 2>&1)
+FS_MORNING_RC=$?
+case "$FS_MORNING_RC" in
+    0)
+        echo "✅ Far Side morning pass: $FS_MORNING_REASON"
+        ;;
+    2)
+        echo "ℹ️  Far Side morning pass check skipped: $FS_MORNING_REASON"
+        ;;
+    *)
+        echo "❌ Far Side morning pass recorded no final outcome for $FS_YESTERDAY (exit $FS_MORNING_RC): $FS_MORNING_REASON"
+        FAILURES+=("Far Side morning pass (no final outcome for $FS_YESTERDAY)")
+        FAILED_KEYS+=("farside:morning-pass")
+        ;;
+esac
 
 # Comics Kingdom session expiry check.
 # Reports the cookie's expiry, which is NOT session health -- two independent
@@ -411,7 +468,17 @@ verify_push_landed() {
     return 1
 }
 
-git add -f data/*.json public/feeds/*.xml
+# The New Stuff cursor is tracked; commit its advance with the data it
+# describes, or it sits modified all morning and the morning pass refuses to
+# sync a checkout with an unexpected tracked change.
+stage_pipeline_data() {
+    git add -f data/*.json public/feeds/*.xml
+    if [ -f data/farside_new_last_id.txt ]; then
+        git add -f data/farside_new_last_id.txt
+    fi
+}
+
+stage_pipeline_data
 
 if git diff --staged --quiet; then
     echo "ℹ️  No changes to commit"
@@ -430,10 +497,10 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
         # Save today's scrape data files. These are authoritative pipeline inputs
         # and the one piece of state we cannot recreate without re-scraping.
         # Far Side daily scrapes the site's 3-day serving window each run, so we
-        # preserve all three target-date snapshots our scrape produced.
+        # preserve all three target-date snapshots our scrape produced, plus
+        # the New Stuff cursor that matches today's New Stuff file.
         STAGING=$(mktemp -d)
         echo "📦 Staging same-day scrape data to $STAGING"
-        FS_YESTERDAY=$(date -v-1d +%Y-%m-%d 2>/dev/null || python3 -c "from datetime import date, timedelta; print((date.today()-timedelta(days=1)).isoformat())")
         FS_DAYBEFORE=$(date -v-2d +%Y-%m-%d 2>/dev/null || python3 -c "from datetime import date, timedelta; print((date.today()-timedelta(days=2)).isoformat())")
         for f in \
             "data/comics_$DATE_STR.json" \
@@ -444,6 +511,7 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
             "data/farside_daily_$FS_YESTERDAY.json" \
             "data/farside_daily_$FS_DAYBEFORE.json" \
             "data/farside_new_$DATE_STR.json" \
+            "data/farside_new_last_id.txt" \
             "data/creators_$DATE_STR.json" \
             "data/mrboffo_$DATE_STR.json"; do
             if [ -f "$f" ]; then
@@ -458,7 +526,7 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
 
         # Restore saved scrape data on top of the reset state.
         echo "📦 Restoring saved scrape data"
-        for f in "$STAGING"/*.json; do
+        for f in "$STAGING"/*; do
             [ -f "$f" ] || continue
             cp -p "$f" "data/$(basename "$f")"
             echo "  restored $(basename "$f")"
@@ -476,7 +544,7 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
         python scripts/generate_creators_feeds.py           || FAILURES+=("Creators regen in recovery")
         python scripts/generate_mrboffo_feeds.py            || FAILURES+=("Mr. Boffo regen in recovery")
 
-        git add -f data/*.json public/feeds/*.xml
+        stage_pipeline_data
         if git diff --staged --quiet; then
             echo "ℹ️  No changes after regeneration; nothing more to push"
             PUSH_OK=true

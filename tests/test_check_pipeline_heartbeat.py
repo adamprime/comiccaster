@@ -47,6 +47,14 @@ class TestFindLatestPipelineCommit:
         out = log((NOW - HOUR, "Update comic feeds for 2026-07-27 (recovery after push conflict)"))
         assert find_latest_pipeline_commit(out)[0] == NOW - HOUR
 
+    def test_ignores_farside_morning_commits(self):
+        """The Far Side morning pass commits mid-morning; it must not hide a dead Pass 1."""
+        out = log(
+            (NOW - HOUR, "Far Side Daily Dose for 2026-10-04"),
+            (NOW - 30 * HOUR, "Update all comic feeds for 2026-07-26"),
+        )
+        assert find_latest_pipeline_commit(out)[0] == NOW - 30 * HOUR
+
     def test_ignores_non_pipeline_commits(self):
         """A human code commit must not mask a dead pipeline."""
         out = log(

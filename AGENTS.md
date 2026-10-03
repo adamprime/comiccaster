@@ -75,6 +75,8 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
    - `mini_master_update.sh` - Pass 1 production entrypoint (sets host-specific environment, execs the tracked master update)
    - `local_master_update.sh` - Pass 1 orchestrator (03:05, all seven sources)
    - `mini_master_pass2.sh` / `local_pass2_update.sh` - Pass 2 (13:00, GoComics only, `--merge` + rolling backfill)
+   - `mini_farside_morning.sh` / `local_farside_morning.sh` - Far Side morning pass (every 30 min, 03:30-12:00; ships today's Daily Dose on the first slot that finds it; only the noon slot alerts)
+   - `farside_morning.py` - The morning pass's unit-tested decisions (slot, ship decision, safe-sync, slot log) and Pass 1's check that yesterday's morning pass finished
    - `report_pipeline_failures.py` - Opens/comments/closes a GitHub issue per failing source (runs in Actions)
    - `check_pipeline_heartbeat.py` - Dead-man's switch for a pipeline that never ran
    - `check_scrape_counts.py` - Invariant guard's count half; per-source minimums in `SOURCE_RULES`
@@ -91,7 +93,7 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
    - `fetch-feed.js` - Feed preview functionality
 
 5. **.github/workflows/** - CI and alerting
-   - `pipeline-alert.yml` - Dispatched by both passes; creates failure issues as `github-actions[bot]`
+   - `pipeline-alert.yml` - Dispatched by Pass 1, Pass 2 and the Far Side morning pass; creates failure issues as `github-actions[bot]`
    - `pipeline-heartbeat.yml` - Scheduled; alerts when no pipeline commit lands within 20h
    - `tests.yml` - pytest on 3.10/3.11/3.12 for PRs to `main`
 
@@ -101,15 +103,15 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
 
 ### Feed Update Process
 
-Updates run on a dedicated always-on host, **twice daily** — Pass 1 at 03:05 (all sources) and Pass 2 at 13:00 (GoComics only, catching late political/editorial publishers):
+Updates run on a dedicated always-on host, on three schedules — Pass 1 at 03:05 (all sources), the Far Side morning pass every 30 minutes from 03:30 to 12:00 (Daily Dose only, catching a late publish), and Pass 2 at 13:00 (GoComics only, catching late political/editorial publishers). A shared lock (`logs/pipeline.lock`) keeps them from overlapping. Pass 1 runs every step below; Pass 2 and the morning pass run a subset for their one source:
 1. **Phase 1 — scrape** the seven sources (GoComics, Comics Kingdom, TinyView, New Yorker, Far Side, Creators Syndicate, Mr. Boffo), each writing to `data/<src>_$DATE.json`.
 2. **Phase 2 — generate** feeds from those JSONs. Each source has a dedicated generator; all are network-free.
-3. **Invariant guard:** every successful scrape must have written its dated JSON file **and** filled it with a plausible number of entries; missing *or* empty/partial files surface as failures. Existence alone was satisfiable by an empty scrape — see `docs/solutions/logic-errors/silent-empty-scrape-passed-as-success.md`.
+3. **Invariant guard:** every successful scrape must have written its dated JSON file **and** filled it with a plausible number of entries; missing *or* empty/partial files surface as failures. Existence alone was satisfiable by an empty scrape — see `docs/solutions/logic-errors/silent-empty-scrape-passed-as-success.md`. The Far Side Daily Dose is checked for yesterday, since the morning pass ships today's, along with the morning pass's final outcome for yesterday in `logs/farside_morning_slots.log`.
 4. **Preflights:** the CK session cookie and the host auto-login settings, both of which warn while there is still time to act.
 5. **Phase 3 — commit and push.** On push rejection, recovery saves today's JSONs, resets to `origin/main`, restores them, and regenerates all feeds. Netlify auto-deploys on push.
-6. **Alerting.** Every run dispatches `pipeline-alert.yml` with what failed and what it examined — on success too, since that is what closes issues for recovered sources. Scrape, invariant, push, SSH-preflight, CK-session, and host-config failures open a GitHub issue; feed generation and `git fetch` stay log-only.
+6. **Alerting.** Every run dispatches `pipeline-alert.yml` with what failed and what it examined — on success too, since that is what closes issues for recovered sources. Scrape, invariant, push, SSH-preflight, CK-session, and host-config failures open a GitHub issue; feed generation and `git fetch` stay log-only. The morning pass dispatches only from the slot that ships the Daily Dose and from a noon slot that could not; earlier slots never alert, and it reports `covered=farside` only.
 
-The host **detects** failures but does not create the issues: GitHub sends no notification for an issue you author yourself, and the host authenticates as the repo owner. Issues are authored by `github-actions[bot]` instead. A separate scheduled heartbeat covers the case the reporter structurally cannot — a run that never happened. See `docs/LOCAL_AUTOMATION_README.md`.
+The host **detects** failures but does not create the issues: GitHub sends no notification for an issue you author yourself, and the host authenticates as the repo owner. Issues are authored by `github-actions[bot]` instead. A separate scheduled heartbeat covers the case the reporter structurally cannot — a run that never happened. It counts Pass 1 and Pass 2 commits only, so a morning-pass commit cannot mask a dead Pass 1. See `docs/LOCAL_AUTOMATION_README.md`.
 
 See [docs/LOCAL_AUTOMATION_README.md](docs/LOCAL_AUTOMATION_README.md) for the operational details.
 

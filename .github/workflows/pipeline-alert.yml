@@ -18,7 +18,7 @@ on:
   workflow_dispatch:
     inputs:
       run:
-        description: 'Which run reported this (pass1, pass2, preflight)'
+        description: 'Which run reported this (pass1, pass2, farside-morning, preflight)'
         required: true
       date:
         description: 'Run date, YYYY-MM-DD'

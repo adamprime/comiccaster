@@ -404,3 +404,54 @@ class TestSourceNames:
 
     def test_unknown_slug_falls_back_to_the_slug(self):
         assert 'mystery' in issue_title('mystery', 'scrape')
+
+
+class TestFarSideSlugs:
+    """`farside` is the Daily Dose; New Stuff has its own `farside-new` slug.
+
+    The Daily Dose is examined by Pass 1 and by the morning pass, which covers
+    `farside` alone. Neither may close an issue for something it did not
+    examine.
+    """
+
+    def test_daily_dose_run_closes_farside_and_leaves_new_stuff_open(self, gh_mock):
+        gh_mock.side_effect = gh_responder(
+            open_issues={'farside': 61, 'farside-new': 62}
+        )
+
+        report(['farside'], {}, run='farside-morning', date='2026-10-03')
+
+        closed = calls_of(gh_mock, 'issue', 'close')
+        assert [c[2] for c in closed] == ['61']
+        commented = calls_of(gh_mock, 'issue', 'comment')
+        assert [c[2] for c in commented] == ['61']
+
+    def test_daily_dose_run_leaves_push_and_preflight_open(self, gh_mock):
+        gh_mock.side_effect = gh_responder(
+            open_issues={'push': 70, 'preflight': 71}
+        )
+
+        report(['farside'], {}, run='farside-morning', date='2026-10-03')
+
+        assert calls_of(gh_mock, 'issue', 'close') == []
+        assert calls_of(gh_mock, 'issue', 'comment') == []
+
+    def test_new_stuff_slug_has_its_own_display_name(self, gh_mock):
+        report(['farside-new'], {'farside-new': 'scrape'}, run='pass1', date='2026-10-03')
+
+        created = calls_of(gh_mock, 'issue', 'create')
+        assert len(created) == 1
+        title = created[0][created[0].index('--title') + 1]
+        assert title == '[pipeline] Far Side New Stuff scrape failed'
+        body = created[0][created[0].index('--body') + 1]
+        assert f'{MARKER_PREFIX}farside-new' in body
+
+    def test_morning_pass_failure_opens_a_far_side_issue_naming_the_kind(self, gh_mock):
+        report(['farside'], {'farside': 'morning-pass'}, run='pass1', date='2026-10-03')
+
+        created = calls_of(gh_mock, 'issue', 'create')
+        assert len(created) == 1
+        title = created[0][created[0].index('--title') + 1]
+        assert title == '[pipeline] Far Side morning-pass failed'
+        body = created[0][created[0].index('--body') + 1]
+        assert f'{MARKER_PREFIX}farside\n' in body

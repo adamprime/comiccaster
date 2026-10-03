@@ -24,6 +24,17 @@ cd "$REPO_DIR"
 LOG_FILE="$REPO_DIR/logs/pass2_update.log"
 mkdir -p "$REPO_DIR/logs"
 
+# Shared pipeline lock; see local_master_update.sh for the rationale.
+if [ -z "${PIPELINE_LOCK_HELD:-}" ]; then
+    PIPELINE_LOCK_HELD=1 /usr/bin/lockf -k -t 1800 "$REPO_DIR/logs/pipeline.lock" \
+        /bin/bash "$REPO_DIR/scripts/$(basename "${BASH_SOURCE[0]}")" "$@"
+    lock_rc=$?
+    if [ "$lock_rc" -eq 75 ]; then
+        echo "$(date) - Pass 2 did not run: the pipeline lock stayed held for 30 minutes" >> "$LOG_FILE"
+    fi
+    exit 0
+fi
+
 # Rotate log if it exceeds 10MB
 if [ -f "$LOG_FILE" ] && [ $(stat -f%z "$LOG_FILE" 2>/dev/null || echo 0) -gt 10485760 ]; then
     mv "$LOG_FILE" "$LOG_FILE.prev"
