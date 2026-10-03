@@ -126,18 +126,23 @@ if ! git fetch -q origin main 2>/dev/null; then
     stop_slot fetch-failed fetch
 fi
 
+# Judged with this slot's own finality: before noon, a short dose that Pass 1
+# or a catch-up run committed is not yet the full dose, so it is re-scraped
+# (safe-sync exempts and carries our own tracked daily file, so it can ship).
 SHIPPED_COPY="$(mktemp)"
 if git show "origin/main:$DAILY" > "$SHIPPED_COPY" 2>/dev/null; then
-    evaluate "$SHIPPED_COPY" --final
+    evaluate "$SHIPPED_COPY" "${FINAL_ARGS[@]}"
+    rm -f "$SHIPPED_COPY"
     if [ "$DECISION" = "ship" ]; then
         echo "✅ $DAILY is already on origin/main ($COUNT strips)"
         log_slot already-shipped "$COUNT"
         echo "================================================================================"
         exit 0
     fi
-    echo "⚠️  origin/main has $DAILY but it fails the count guard; re-scraping"
+    echo "⚠️  origin/main has $DAILY but it is not yet a complete dose ($COUNT strips); re-scraping"
+else
+    rm -f "$SHIPPED_COPY"
 fi
-rm -f "$SHIPPED_COPY"
 
 # --- 2. Scrape today's Daily Dose only ---------------------------------------
 # Writes $DAILY only when the site has published the date; never touches other
@@ -164,7 +169,15 @@ fi
 BRANCH="$(git branch --show-current)"
 HEAD_IS_ANCESTOR=0
 git merge-base --is-ancestor HEAD origin/main 2>/dev/null && HEAD_IS_ANCESTOR=1
-SAFE_OUT="$(git status --porcelain --untracked-files=no \
+# Capture git status before piping it: without pipefail a failing status would
+# reach the helper as empty input, which reads as a clean checkout.
+STATUS_OUT="$(git status --porcelain --untracked-files=no)"
+STATUS_RC=$?
+if [ "$STATUS_RC" -ne 0 ]; then
+    echo "⏸  git status failed (exit $STATUS_RC); leaving the checkout untouched"
+    stop_slot deferred-checkout checkout "$COUNT"
+fi
+SAFE_OUT="$(printf '%s' "$STATUS_OUT" \
     | "$PY" "$HELPER" safe-sync --date "$SLOT_DATE" --branch "$BRANCH" --head-is-ancestor "$HEAD_IS_ANCESTOR")"
 if [ "$SAFE_OUT" != "SAFE=1" ]; then
     echo "⏸  Checkout is not safe to sync (${SAFE_OUT:-no verdict}); leaving it untouched"
@@ -180,8 +193,10 @@ git reset -q --hard origin/main
 cp "$CARRY_DIR/$(basename "$DAILY")" "$DAILY"
 rm -rf "$CARRY_DIR"
 
+# On failure restore only the two feeds the generator writes; any other feed
+# is not ours to touch.
 if ! "$PY" scripts/generate_farside_feeds.py; then
-    git checkout -- public/feeds/ 2>/dev/null
+    git checkout -- public/feeds/farside-daily.xml public/feeds/farside-new.xml 2>/dev/null
     stop_slot generate-failed generate "$COUNT"
 fi
 
@@ -193,9 +208,14 @@ BODY="Found by the $(date +%H:%M) slot."
 
 git add -f "$DAILY" public/feeds/farside-daily.xml
 if ! git commit -q -m "Far Side Daily Dose for $SLOT_DATE" -m "$BODY" -- "$DAILY" public/feeds/farside-daily.xml; then
-    git reset -q --hard origin/main
+    # No commit of ours exists, and the operator may have edited since the
+    # safe-sync check, so no --hard reset: unstage our two paths and restore the
+    # feeds the generator rewrote (safe-sync proved they were clean beforehand).
+    git reset -q -- "$DAILY" public/feeds/farside-daily.xml 2>/dev/null
+    git checkout -- public/feeds/farside-daily.xml public/feeds/farside-new.xml 2>/dev/null
     stop_slot commit-failed commit "$COUNT"
 fi
+OUR_COMMIT="$(git rev-parse HEAD)"
 # The generator rewrites the New Stuff feed too; it is not ours to ship.
 git checkout -- public/feeds/farside-new.xml 2>/dev/null
 
@@ -226,8 +246,16 @@ if push_with_watchdog && verify_push_landed; then
     exit 0
 fi
 
-# Drop only our own commit (KTD4 guaranteed there was nothing else); the next
-# slot finds the dose missing from origin/main and retries from scratch.
+# Drop only our own commit; the next slot finds the dose missing from
+# origin/main and retries from scratch. Generation, commit, the push watchdog
+# and the verify fetch all ran after the safe-sync check, so the operator may
+# have committed or edited since: undo only while HEAD is still our commit, and
+# with --keep, which refuses to overwrite local modifications. Otherwise leave
+# the checkout exactly as it is.
 echo "❌ Push failed or did not land"
-git reset -q --hard origin/main
+if [ -n "$OUR_COMMIT" ] && [ "$(git rev-parse HEAD 2>/dev/null)" = "$OUR_COMMIT" ] && git reset -q --keep origin/main; then
+    echo "↩️  Dropped our unpushed commit $(printf '%s' "$OUR_COMMIT" | cut -c1-7)"
+else
+    echo "⚠️  Checkout left as-is: HEAD moved or local changes block the undo; unpushed commit ${OUR_COMMIT:-unknown} may remain"
+fi
 stop_slot push-failed push "$COUNT"

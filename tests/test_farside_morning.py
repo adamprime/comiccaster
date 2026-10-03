@@ -436,6 +436,18 @@ class TestMainCheckTerminal:
         assert code == 2
         assert out.count('\n') == 1
 
+    def test_unreadable_log_exits_1(self, tmp_path, capsys):
+        """A log that exists but can't be read must alert, not read as skip.
+
+        A directory raises IsADirectoryError -- an OSError that is not
+        FileNotFoundError -- so this holds even when CI runs as root.
+        """
+        log = tmp_path / 'slots.log'
+        log.mkdir()
+        code, out = run(capsys, ['check-terminal', '--date', '2026-10-06', '--log', str(log)])
+        assert code == 1
+        assert 'unreadable' in out
+
     def test_no_older_entries_exits_2(self, tmp_path, capsys):
         log = self.write_log(tmp_path, (at(TUESDAY, 6, 0), TUESDAY, 'unpublished', 0))
         code, _ = run(capsys, ['check-terminal', '--date', '2026-10-06', '--log', str(log)])
