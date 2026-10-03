@@ -14,10 +14,11 @@ State machine, evaluated per source in --covered:
     healthy, open issue       -> comment and close it
     healthy, no open issue    -> nothing
 
---covered is what makes this safe to run from both passes. Pass 2 scrapes
+--covered is what makes this safe to run from every pass. Pass 2 scrapes
 GoComics only, so it covers only GoComics; without that scoping it would
 auto-close a Comics Kingdom issue merely because CK wasn't in its failure
-list -- CK isn't healthy, it simply wasn't examined.
+list -- CK isn't healthy, it simply wasn't examined. The Far Side morning
+pass likewise covers only `farside`.
 
 Runs in GitHub Actions, not on the pipeline host, so issues are authored by
 github-actions[bot]. That is not incidental: GitHub sends no notification for

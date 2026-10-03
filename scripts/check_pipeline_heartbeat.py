@@ -10,10 +10,12 @@ This is the dead-man's switch for that case. It deliberately runs on GitHub
 Actions rather than on the Mini -- a heartbeat hosted on the machine it is
 monitoring dies with it.
 
-Health signal: the pipeline commits feed updates to main on every successful
-run (twice daily). If no *pipeline* commit has landed within --stale-hours, the
+Health signal: Pass 1 (03:05) and Pass 2 (13:00) commit feed updates to main
+on every successful run. If no such commit has landed within --stale-hours, the
 pipeline is presumed down. Human commits are ignored on purpose: a code push at
-midnight must not mask a pipeline that stopped running.
+midnight must not mask a pipeline that stopped running. So are the Far Side
+morning pass's "Far Side Daily Dose for" commits: that pass runs on its own
+LaunchAgent, and its mid-morning commit must not mask a dead Pass 1.
 
 Reuses the reporter's issue machinery, so a heartbeat alert opens, comments,
 and auto-closes exactly like a source failure -- and clears itself as soon as
@@ -34,12 +36,13 @@ from report_pipeline_failures import report  # noqa: E402
 HEARTBEAT_SLUG = "heartbeat"
 
 # Pass 1 runs at 03:05 and Pass 2 at 13:00, so a healthy repo sees a pipeline
-# commit every day. 20h tolerates a normal daily cadence plus schedule drift
+# commit every day. The Far Side morning pass is not a heartbeat source. 20h tolerates a normal daily cadence plus schedule drift
 # while still catching a wholly missed night.
 DEFAULT_STALE_HOURS = 20
 
-# Commit subjects the pipeline itself writes (see local_master_update.sh and
-# local_pass2_update.sh). Matched as prefixes.
+# Commit subjects Pass 1 and Pass 2 write (see local_master_update.sh and
+# local_pass2_update.sh). Matched as prefixes. The morning pass's subject,
+# "Far Side Daily Dose for", must stay outside this list.
 PIPELINE_COMMIT_PATTERNS = (
     "Update all comic feeds for",
     "Update comic feeds for",
@@ -111,7 +114,9 @@ def main(argv=None) -> int:
             "No pipeline commit has landed in the expected window, which means "
             "the daily run did not happen at all -- not that a source failed. "
             "Check that the Mac Mini is awake and online and that the LaunchAgents "
-            "(com.comiccaster.master / com.comiccaster.pass2) are loaded."
+            "(com.comiccaster.master / com.comiccaster.pass2) are loaded. "
+            "Far Side morning-pass commits are not counted, so this can fire on a "
+            "day the Far Side Daily Dose shipped."
         )
         failed = {HEARTBEAT_SLUG: "heartbeat"}
     else:

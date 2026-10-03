@@ -93,7 +93,7 @@ comiccaster/
 
 ## Feed Updates
 
-Feeds are updated twice daily and committed to the repository. The workflow:
+Feeds are updated daily and committed to the repository. The workflow:
 1. Runs update scripts to fetch latest comics from each source
 2. Detects and includes only current daily comics (not reruns)
 3. Commits updated feed files to the repository
@@ -101,7 +101,8 @@ Feeds are updated twice daily and committed to the repository. The workflow:
 5. Failures open a GitHub issue; a scheduled heartbeat catches a run that never happened at all
 
 A second pass re-scrapes GoComics later in the day to pick up political and editorial
-cartoonists who publish after the overnight window.
+cartoonists who publish after the overnight window. The Far Side's Daily Dose is retried
+every 30 minutes through the morning, because the site publishes it at an unpredictable hour.
 
 ### Key Features
 
