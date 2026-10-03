@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Open, update, and close GitHub issues for pipeline failures.
 
-The daily pipeline is unattended (03:05 and 13:00), so its macOS desktop
-notification is effectively invisible. This turns a failure into a durable,
-remote alert: one GitHub issue per failing source, identified by a
-"Pipeline-Failure-Key: <slug>" line in the issue body.
+The daily pipeline is unattended (03:05, 13:00, and the Far Side morning
+pass's half-hour slots), so its macOS desktop notification is effectively
+invisible. This turns a failure into a durable, remote alert: one GitHub
+issue per failing source, identified by a "Pipeline-Failure-Key: <slug>" line
+in the issue body.
 
 State machine, evaluated per source in --covered:
 
@@ -42,12 +43,15 @@ MARKER_PREFIX = "Pipeline-Failure-Key: "
 
 # Display names for the pipeline's stable slugs. `push` and `preflight` are
 # pseudo-sources: whole-run failures that aren't tied to one comic source.
+# `farside` is the Daily Dose in every pass (Pass 1 and the morning pass both
+# examine it); New Stuff is `farside-new`, examined by Pass 1 only.
 SOURCE_NAMES = {
     "gocomics": "GoComics",
     "comicskingdom": "Comics Kingdom",
     "tinyview": "TinyView",
     "newyorker": "New Yorker",
     "farside": "Far Side",
+    "farside-new": "Far Side New Stuff",
     "creators": "Creators",
     "mrboffo": "Mr. Boffo",
     "push": "Git push",
