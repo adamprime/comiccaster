@@ -139,7 +139,7 @@ PR #208, merged 2026-09-28.
 
 Both scripts call it through their old wrapper names,
 `scripts/comicskingdom_scraper_individual.py:303` and
-`scripts/generate_comicskingdom_feeds.py:161`, so tests that patch the wrappers
+`scripts/generate_comicskingdom_feeds.py:135`, so tests that patch the wrappers
 by name keep working.
 
 **2. One list per comic.**
@@ -158,8 +158,8 @@ Result: 147 daily + 9 political = 156 Comics Kingdom comics.
 loader read, so all three stop being scraped. **Revert them together.**
 
 **4. No subscriber re-delivery.** Moved entries kept `name` exactly. Item titles
-come from `name` (`scripts/generate_comicskingdom_feeds.py:239`) and guids from
-the scraped per-date URL (`:244`), so moving an entry between lists changes
+come from `name` (`scripts/generate_comicskingdom_feeds.py:157`) and guids from
+the scraped per-date URL (`:162`), so moving an entry between lists changes
 neither. This was measured, not assumed: regenerating the four moved feeds gave
 identical guid+title sets (90 / 16 / 14 / 90 items).
 
@@ -279,11 +279,11 @@ silo.
 
 ## Related
 
-- Issue #207 is a separate problem and is **not** fixed here. Comics Kingdom
-  serves its latest strip for any date, and the generator's 90-file dedup window
-  rolls a repeated image forward a day each night, so about 60 Comics Kingdom
-  feeds re-deliver one ~90-day-old strip nightly. The dormant `ed-gamble` and
-  `mike-shelton` feeds will join that group after ~90 days.
+- Issue #207 was a separate problem, not fixed here; PR #217 fixed it later.
+  Comics Kingdom serves its latest strip for any date, and the generator's
+  90-file dedup window rolled a repeated image forward a day each night, so about
+  60 Comics Kingdom feeds re-delivered an old strip nightly. See
+  `docs/solutions/logic-errors/comicskingdom-feeds-redelivered-aging-strips.md`.
 - `docs/solutions/logic-errors/silent-empty-scrape-passed-as-success.md` has the
   same "ALL SUCCESS while wrong" shape. A guard can only verify the work it was
   handed, not whether it was handed all of it.

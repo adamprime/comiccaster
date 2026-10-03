@@ -1,7 +1,7 @@
 ---
 title: "TinyView feeds held only the newest strip, and strips sharing a date were lost"
 date: 2026-09-29
-last_updated: 2026-09-30
+last_updated: 2026-10-03
 category: logic-errors
 module: tinyview
 problem_type: logic_error
@@ -83,8 +83,9 @@ code had not changed since 2025-12-06.
 The same plan's Key Decisions say generators "merge new entries into existing feed
 XML (preserving old entries)" (`:40`). `generate_feed` does no merging. It starts a
 new feed (`comiccaster/feed_generator.py:343`) and writes the whole file
-(`:382`). GoComics and Comics Kingdom reach 90 items only because their generators
-load 90 files. So #113 raised only the TinyView scraper's lookback, from 15 to 90
+(`:382`). GoComics and Comics Kingdom reached 90 items only because their generators
+loaded 90 files (the Comics Kingdom generator has read all saved history since
+PR #217). So #113 raised only the TinyView scraper's lookback, from 15 to 90
 days, and TinyView feeds stayed at one item.
 
 **The guard counted files, not feed length.** TinyView's count floor is 1
@@ -303,9 +304,11 @@ scraper assumes exists.
   arrive in.
 
 **Why not the Comics Kingdom shape (dedup by image).** Dedup by image across a
-file-count window is what causes #207, where Comics Kingdom rolls a repeated image
-forward one day each night and re-delivers an old strip. A strip's address never
-changes, so deduping by address has nothing to roll.
+file-count window is what caused #207, where Comics Kingdom rolled a repeated image
+forward one day each night and re-delivered an old strip. PR #217 fixed that by
+dating each image set from its first sighting in all saved history
+(`docs/solutions/logic-errors/comicskingdom-feeds-redelivered-aging-strips.md`). A
+TinyView strip's address never changes, so deduping by address has nothing to roll.
 
 **Why not `update_feed`.** It carries the old entries over but drops every entry
 that shares the new entry's date (`feed_generator.py:321`). Same-date siblings are
@@ -371,6 +374,8 @@ exactly the case this fix exists for.
 
 - `docs/solutions/logic-errors/comicskingdom-political-comics-never-loaded.md`: the
   guid-continuity measurement repeated here, and #207's image-dedup shape.
+- `docs/solutions/logic-errors/comicskingdom-feeds-redelivered-aging-strips.md`: the
+  Comics Kingdom twin of this fix (#207, PR #217), dated by first sighting.
 - `docs/solutions/logic-errors/two-sources-one-feed-file-slug-collision.md`: a
   changed guid reaches subscribers as a re-delivery.
 - `docs/solutions/best-practices/verify-postconditions-not-success-signals.md`:

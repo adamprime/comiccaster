@@ -344,7 +344,7 @@ non-vintage titles only.
   both lists through `load_comicskingdom_catalog`
   (`comiccaster/comicskingdom_catalog.py:22`). Set `source_slug` when CK's path
   differs from the feed slug. Vintage titles take `source_variant: "vintage"`, and
-  their feeds are subject to the open issue #207.
+  their feeds are subject to open issue #216 (vintage feeds stuck on one strip).
 - Keep the catalog size in the `SOURCE_RULES` note, and the ~94% floor, in step
   (`scripts/check_scrape_counts.py:45-46`), as e520b129fb did.
 
@@ -408,7 +408,7 @@ Running §2 against the saved 2026-09-28 `/features` page reports
 `the-little-king` (vintage, Otto Soglow). It is in no catalog and is not a known
 exclusion. The sweep's link-based pass couldn't see it, because its only link is
 `/vintage/the-little-king/1958-12-28`. It is undecided as of this writing, and
-adding it would give #207's vintage problem another feed.
+adding it would give the vintage problem tracked in #216 another feed.
 
 ## Related
 
