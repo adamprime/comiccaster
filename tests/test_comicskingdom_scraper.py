@@ -23,6 +23,170 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 import comicskingdom_scraper_individual as cki
 
 
+# --- Comics Kingdom page fixtures -------------------------------------------
+#
+# Shaped like the anonymous captures of 2026-10-01 (`props.pageProps.session`
+# null). Query keys and asset URLs are copied verbatim from them. A logged-in
+# page carries session.accessToken and session.user, so raw logged-in page
+# source never becomes a fixture: anonymous_page() refuses any page that has a
+# session.
+
+UPLOADS = 'https://wp.comicskingdom.com/comicskingdom-redesign-uploads-production'
+
+ZITS_QUERY = '#url:"/wp-json/wp/v2/posts",args:#sourceUrl:"https://wp.comicskingdom.com",postType:"ck_comic",per_page:10,order:"desc",date_inclusive:true,ck_feature:"zits",before_ymd:"2026-10-01",_embed:true,,'
+ZITS_SLUG_QUERY = '#url:"/wp-json/wp/v2/posts",args:#sourceUrl:"https://wp.comicskingdom.com",slug:"zits-2026-10-01",postType:"ck_comic",_embed:true,,'
+ZITS_FEATURE = '#url:"/wp-json/wp/v2/posts",args:#sourceUrl:"https://wp.comicskingdom.com",slug:"zits",postType:"ck_feature",_embed:true,,'
+PROS_CONS_QUERY = '#url:"/wp-json/wp/v2/posts",args:#sourceUrl:"https://wp.comicskingdom.com",postType:"ck_comic",per_page:10,order:"desc",date_inclusive:true,ck_feature:"pros-cons",before_ymd:"2026-10-01",_embed:true,,'
+POPEYE_QUERY = '#url:"/wp-json/wp/v2/posts",args:#sourceUrl:"https://wp.comicskingdom.com",postType:"ck_comic",per_page:1,order:"desc",date_inclusive:true,ck_feature:"eye-lie-popeye",before_ymd:"2026-10-01",_embed:true,,'
+BUF_QUERY = '#url:"/wp-json/wp/v2/posts",args:#sourceUrl:"https://wp.comicskingdom.com",postType:"ck_comic",per_page:10,order:"desc",date_inclusive:true,ck_feature:"bringing-up-father",before_ymd:"2026-10-01",_embed:true,,'
+BEETLE_QUERY = '#url:"/wp-json/wp/v2/posts",args:#sourceUrl:"https://wp.comicskingdom.com",postType:"ck_comic",per_page:10,order:"desc",date_inclusive:true,ck_feature:"beetle-bailey-vintage",before_ymd:"1967-10-01",_embed:true,,'
+# Same shape, for the comic Comics Kingdom serves at /edge-city.
+EDGE_CITY_QUERY = '#url:"/wp-json/wp/v2/posts",args:#sourceUrl:"https://wp.comicskingdom.com",postType:"ck_comic",per_page:10,order:"desc",date_inclusive:true,ck_feature:"edge-city",before_ymd:"2026-08-24",_embed:true,,'
+APP_KEY = '#url:"/wp-json/headless-wp/v1/app",args:#sourceUrl:"https://wp.comicskingdom.com",,'
+
+ZITS_1001_PANELS = [
+    f'{UPLOADS}/2026/10/Y2taaXRzLUVORy02NjY5NDE1.jpg',
+    f'{UPLOADS}/2026/10/Y2taaXRzLUVORy02NjY5NDE5.jpg',
+]
+POPEYE_PANELS = [
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzc5NQ.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzgxNw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzgyNw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg0MQ.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg0Nw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzgzOQ.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg1Mw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzgzNw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzc5Nw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzgxMw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg1MQ.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzgzNQ.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg0Mw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg1OQ.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg0OQ.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg1NQ.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzgyMw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg1Nw.jpg',
+    f'{UPLOADS}/2026/05/Y2tFeWUgTGllIFBvcGV5ZS1FTkctNjExMzg0NQ.jpg',
+]
+
+
+def _post(post_id, date, link, panels=(), single='', featured='', slug=None):
+    """A ck_comic post as the page embeds it, trimmed to the fields that matter."""
+    return {
+        'id': post_id,
+        'date': f'{date}T00:00:00',
+        'link': link,
+        'slug': slug or f"{link.rstrip('/').split('/')[-2]}-{date}",
+        'title': {'rendered': date},
+        'assets': {
+            'featured': {'url': featured, 'width': 500, 'height': 500},
+            'single': {'url': single, 'width': 2048 if single else 0},
+            'panels': [{'url': u, 'width': 2047, 'height': 1301} for u in panels],
+        },
+    }
+
+
+def _result(*posts):
+    """A fallback query value: Comics Kingdom wraps the post list in `result`."""
+    return {'result': list(posts), 'pageInfo': {'totalItems': len(posts)}, 'queriedObject': {}}
+
+
+ZITS_1001 = _post(
+    7693423, '2026-10-01', 'https://wp.comicskingdom.com/zits/2026-10-01',
+    panels=ZITS_1001_PANELS,
+    single=f'{UPLOADS}/2026/10/Y2taaXRzLUVORy02NjMyMjA3.jpg',
+    featured=f'{UPLOADS}/2026/10/Y2taaXRzLUVORy02NjY5NDE1.jpg',
+)
+ZITS_0930 = _post(
+    7693420, '2026-09-30', 'https://wp.comicskingdom.com/zits/2026-09-30',
+    panels=[
+        f'{UPLOADS}/2026/09/Y2taaXRzLUVORy02NjY5NDA3.jpg',
+        f'{UPLOADS}/2026/09/Y2taaXRzLUVORy02NjY5NDA5.jpg',
+        f'{UPLOADS}/2026/09/Y2taaXRzLUVORy02NjY5Mzk1.jpg',
+    ],
+    single=f'{UPLOADS}/2026/09/Y2taaXRzLUVORy02NjMyMjA5.jpg',
+    featured=f'{UPLOADS}/2026/09/Y2taaXRzLUVORy02NjY5NDA3.jpg',
+)
+PROS_CONS_0731 = _post(
+    249907, '2023-07-31', 'https://wp.comicskingdom.com/pros-cons/2023-07-31',
+    panels=[
+        f'{UPLOADS}/2023/07/Pros-amp-Cons.ENG_.2023-07-31.1.jpeg',
+        f'{UPLOADS}/2023/07/Pros-amp-Cons.ENG_.2023-07-31.2.jpeg',
+        f'{UPLOADS}/2023/07/Pros-amp-Cons.ENG_.2023-07-31.3.jpeg',
+    ],
+    single=f'{UPLOADS}/2023/07/Pros-amp-Cons.ENG_.2023-07-31.jpeg',
+    featured=f'{UPLOADS}/2023/07/Pros-amp-Cons.ENG_.2023-07-31.1-500x500.jpeg',
+)
+POPEYE_EPISODE = _post(
+    7550015, '2026-05-13', 'https://wp.comicskingdom.com/eye-lie-popeye/2026-05-13',
+    panels=POPEYE_PANELS, single='', featured=POPEYE_PANELS[0],
+)
+BUF_1001 = _post(
+    7693066, '2026-10-01', 'https://wp.comicskingdom.com/vintage/bringing-up-father/2026-10-01',
+    panels=[],
+    single=f'{UPLOADS}/2026/10/Y2tCcmluZ2luZyBVcCBGYXRoZXIgKFZpbnRhZ2UpLUVORy02NjAwMTE1.jpg',
+    featured=f'{UPLOADS}/2026/10/Y2tCcmluZ2luZyBVcCBGYXRoZXIgKFZpbnRhZ2UpLUVORy02NjAwMTE1-500x500.jpg',
+    slug='bringing-up-father-2026-10-01',
+)
+BEETLE_1967 = _post(
+    5643991, '1967-10-01', 'https://wp.comicskingdom.com/vintage/beetle-bailey-vintage/1967-10-01',
+    panels=[],
+    single=f'{UPLOADS}/1967/10/Beetle-Bailey.ENG_.1967-10-01.jpeg',
+    featured=f'{UPLOADS}/1967/10/Beetle-Bailey.ENG_.1967-10-01-500x500.jpeg',
+    slug='beetle-bailey-1-1967-10-01',
+)
+
+
+def _next_data(fallback, page='/[...path]'):
+    return {
+        'props': {'pageProps': {'fallback': fallback, 'session': None, 'postType': 'ck_comic'}},
+        'page': page,
+    }
+
+
+def _html(next_data):
+    """Serialize a page the way Comics Kingdom embeds its data."""
+    return (
+        '<!DOCTYPE html><html><head><title>Comics Kingdom</title></head><body>'
+        '<div id="__next"></div>'
+        '<script id="__NEXT_DATA__" type="application/json">'
+        + json.dumps(next_data)
+        + '</script></body></html>'
+    )
+
+
+def anonymous_page(next_data):
+    """The only way a fixture page is built: it must carry no session."""
+    assert next_data['props']['pageProps']['session'] is None, (
+        "fixture pages must be anonymous-shaped: a logged-in page carries "
+        "session.accessToken and session.user"
+    )
+    return _html(next_data)
+
+
+def ck_page(queries):
+    """A dated comic page holding `queries`, plus the keys every page has."""
+    fallback = dict(queries)
+    fallback[APP_KEY] = {'settings': {}}
+    fallback['@seo'] = {'title': 'Comics Kingdom'}
+    return anonymous_page(_next_data(fallback))
+
+
+ZITS_PAGE = ck_page({
+    ZITS_SLUG_QUERY: {'result': ZITS_1001, 'pageInfo': {}, 'queriedObject': {}},
+    ZITS_QUERY: _result(ZITS_1001, ZITS_0930),
+    ZITS_FEATURE: {'result': {'id': 1, 'slug': 'zits', 'link': 'https://wp.comicskingdom.com/zits'}},
+})
+PROS_CONS_PAGE = ck_page({PROS_CONS_QUERY: _result(PROS_CONS_0731)})
+POPEYE_PAGE = ck_page({POPEYE_QUERY: _result(POPEYE_EPISODE)})
+BUF_PAGE = ck_page({BUF_QUERY: _result(BUF_1001)})
+BEETLE_PAGE = ck_page({BEETLE_QUERY: _result(BEETLE_1967)})
+NOT_FOUND_PAGE = anonymous_page(_next_data(
+    {APP_KEY: {'settings': {}}, '@seo': {'title': 'Page not found'}}, page='/404'
+))
+
+
 # --- load_cookies -----------------------------------------------------------
 
 
@@ -672,7 +836,7 @@ class TestSourceSlugSeparation:
 
     def test_scrape_uses_source_slug_for_the_url_and_slug_for_the_record(self):
         """Fetch /edge-city, but file the result under edge-city-classic."""
-        driver = self._soup_driver("<html><title>Edge City Comic Strip | Comics Kingdom</title></html>")
+        driver = self._soup_driver(NOT_FOUND_PAGE)
 
         with patch.object(cki, 'scrape_comic_page', wraps=cki.scrape_comic_page) as spy:
             with patch.object(cki, 'time') as _t:
@@ -694,7 +858,7 @@ class TestSourceSlugSeparation:
 
     def test_source_slug_defaults_to_slug(self):
         """Entries without source_slug are untouched -- 155 of 156 CK comics."""
-        driver = self._soup_driver("<html><title>Blondie | Comics Kingdom</title></html>")
+        driver = self._soup_driver(NOT_FOUND_PAGE)
 
         with patch.object(cki, 'scrape_comic_page', wraps=cki.scrape_comic_page) as spy:
             with patch.object(cki, 'time') as _t:
@@ -704,6 +868,465 @@ class TestSourceSlugSeparation:
         args, kwargs = spy.call_args
         assert args[1] == 'blondie'
         assert kwargs.get('feed_slug') == 'blondie'
+
+
+# --- extract_displayed_post (U1) --------------------------------------------
+
+
+class TestExtractDisplayedPost:
+    """The page's own data names the post it displays for the requested date.
+
+    `props.pageProps.fallback` keeps the `ck_comic` query the page ran:
+    posts of `ck_feature:"<source slug>"` on or before `before_ymd:"<date>"`,
+    newest first. Its first post is the one on screen. Nothing else on the
+    page -- archive thumbnails, other features, `featured` crops -- may reach
+    a record (#216).
+    """
+
+    def test_daily_post_with_two_panels(self):
+        post, reason = cki.extract_displayed_post(ZITS_PAGE, 'zits', '2026-10-01')
+
+        assert reason is None
+        assert post == {
+            'post_date': '2026-10-01',
+            'post_url': 'https://comicskingdom.com/zits/2026-10-01',
+            'image_urls': ZITS_1001_PANELS,
+        }
+
+    def test_post_without_panels_uses_its_single_image_never_featured(self):
+        post, reason = cki.extract_displayed_post(BUF_PAGE, 'bringing-up-father', '2026-10-01')
+
+        assert reason is None
+        assert post['image_urls'] == [BUF_1001['assets']['single']['url']]
+        assert post['post_url'] == 'https://comicskingdom.com/vintage/bringing-up-father/2026-10-01'
+
+    def test_episodic_page_returns_the_episode_with_every_panel(self):
+        """Episodic comics run their query with per_page:1; the match ignores per_page."""
+        post, reason = cki.extract_displayed_post(POPEYE_PAGE, 'eye-lie-popeye', '2026-10-01')
+
+        assert reason is None
+        assert post['post_date'] == '2026-05-13'
+        assert post['post_url'] == 'https://comicskingdom.com/eye-lie-popeye/2026-05-13'
+        assert post['image_urls'] == POPEYE_PANELS
+        assert len(post['image_urls']) == 19
+
+    def test_repeat_returns_the_older_post_date(self):
+        """Pros & Cons has shown its 2023-07-31 strip every night since."""
+        post, reason = cki.extract_displayed_post(PROS_CONS_PAGE, 'pros-cons', '2026-10-01')
+
+        assert reason is None
+        assert post['post_date'] == '2023-07-31'
+        assert post['post_url'] == 'https://comicskingdom.com/pros-cons/2023-07-31'
+
+    def test_query_for_a_different_feature_is_ignored(self):
+        post, reason = cki.extract_displayed_post(PROS_CONS_PAGE, 'zits', '2026-10-01')
+
+        assert post is None
+        assert reason.startswith('no query')
+
+    def test_query_for_a_different_date_is_ignored(self):
+        post, reason = cki.extract_displayed_post(ZITS_PAGE, 'zits', '2026-09-30')
+
+        assert post is None
+        assert reason.startswith('no query')
+
+    def test_match_uses_the_source_slug(self):
+        """edge-city-classic is filed under its own feed but served at /edge-city."""
+        page = ck_page({EDGE_CITY_QUERY: _result(_post(
+            100, '2026-08-24', 'https://wp.comicskingdom.com/edge-city/2026-08-24',
+            single=f'{UPLOADS}/2026/08/edge-city.jpg',
+        ))})
+
+        post, reason = cki.extract_displayed_post(page, 'edge-city', '2026-08-24')
+        assert reason is None
+        assert post['post_date'] == '2026-08-24'
+
+        post, reason = cki.extract_displayed_post(page, 'edge-city-classic', '2026-08-24')
+        assert post is None
+        assert reason.startswith('no query')
+
+    def test_vintage_post_matches_through_its_query_key_not_its_slug(self):
+        """The post's slug starts beetle-bailey-1-; ownership comes from the key."""
+        assert BEETLE_1967['slug'].startswith('beetle-bailey-1-')
+
+        post, reason = cki.extract_displayed_post(BEETLE_PAGE, 'beetle-bailey-vintage', '1967-10-01')
+
+        assert reason is None
+        assert post == {
+            'post_date': '1967-10-01',
+            'post_url': 'https://comicskingdom.com/vintage/beetle-bailey-vintage/1967-10-01',
+            'image_urls': [f'{UPLOADS}/1967/10/Beetle-Bailey.ENG_.1967-10-01.jpeg'],
+        }
+
+    def test_post_dated_after_the_requested_date_is_rejected(self):
+        """Premium early access must never be recorded."""
+        early = _post(
+            7693500, '2026-10-02', 'https://wp.comicskingdom.com/zits/2026-10-02',
+            panels=[f'{UPLOADS}/2026/10/early.jpg'],
+        )
+        page = ck_page({ZITS_QUERY: _result(early, ZITS_1001)})
+
+        post, reason = cki.extract_displayed_post(page, 'zits', '2026-10-01')
+
+        assert post is None
+        assert 'early access' in reason
+
+    def test_post_with_neither_panels_nor_single_is_not_recorded(self):
+        bare = _post(
+            7693423, '2026-10-01', 'https://wp.comicskingdom.com/zits/2026-10-01',
+            panels=[], single='', featured=f'{UPLOADS}/2026/10/thumb-500x500.jpg',
+        )
+        page = ck_page({ZITS_QUERY: _result(bare)})
+
+        post, reason = cki.extract_displayed_post(page, 'zits', '2026-10-01')
+
+        assert post is None
+        assert reason == 'no images'
+
+    def test_404_page_has_no_comic_query(self):
+        post, reason = cki.extract_displayed_post(NOT_FOUND_PAGE, 'zits', '2026-10-01')
+
+        assert post is None
+        assert reason.startswith('no query')
+
+    def test_empty_result_gives_a_reason(self):
+        page = ck_page({ZITS_QUERY: _result()})
+
+        post, reason = cki.extract_displayed_post(page, 'zits', '2026-10-01')
+
+        assert post is None
+        assert reason == 'empty result'
+
+    def test_query_value_may_be_a_bare_post_list(self):
+        page = ck_page({ZITS_QUERY: [ZITS_1001, ZITS_0930]})
+
+        post, reason = cki.extract_displayed_post(page, 'zits', '2026-10-01')
+
+        assert reason is None
+        assert post['image_urls'] == ZITS_1001_PANELS
+
+    def test_invalid_json_gives_a_reason_and_raises_nothing(self):
+        page = '<script id="__NEXT_DATA__" type="application/json">{"props": </script>'
+
+        post, reason = cki.extract_displayed_post(page, 'zits', '2026-10-01')
+
+        assert post is None
+        assert reason
+
+    def test_page_without_next_data_gives_a_reason_and_raises_nothing(self):
+        """A firewall or challenge page has no __NEXT_DATA__ at all."""
+        page = '<html><head><title>Just a moment...</title></head><body></body></html>'
+
+        post, reason = cki.extract_displayed_post(page, 'zits', '2026-10-01')
+
+        assert post is None
+        assert reason
+
+    def test_post_date_is_the_date_part_of_its_timestamp(self):
+        assert ZITS_1001['date'] == '2026-10-01T00:00:00'
+
+        post, _ = cki.extract_displayed_post(ZITS_PAGE, 'zits', '2026-10-01')
+
+        assert post['post_date'] == '2026-10-01'
+
+    def test_link_whose_date_disagrees_is_rejected(self):
+        mislinked = _post(
+            7693423, '2026-10-01', 'https://wp.comicskingdom.com/zits/2026-09-30',
+            panels=ZITS_1001_PANELS,
+        )
+        page = ck_page({ZITS_QUERY: _result(mislinked)})
+
+        post, reason = cki.extract_displayed_post(page, 'zits', '2026-10-01')
+
+        assert post is None
+        assert 'mismatch' in reason
+
+    def test_post_without_a_date_is_rejected(self):
+        undated = dict(ZITS_1001)
+        del undated['date']
+        page = ck_page({ZITS_QUERY: _result(undated)})
+
+        post, reason = cki.extract_displayed_post(page, 'zits', '2026-10-01')
+
+        assert post is None
+        assert reason == 'no post date'
+
+    def test_fixture_helper_refuses_a_page_with_a_session(self):
+        next_data = _next_data({ZITS_QUERY: _result(ZITS_1001)})
+        next_data['props']['pageProps']['session'] = {'user': {}, 'accessToken': 'x'}
+
+        with pytest.raises(AssertionError):
+            anonymous_page(next_data)
+
+
+# --- session values never leak ----------------------------------------------
+
+SENTINEL_TOKEN = 'SENTINEL-TOKEN-XYZ'
+SENTINEL_EMAIL = 'sentinel@example.invalid'
+SENTINEL_NAME = 'SENTINEL-USER-NAME'
+
+
+def _logged_in_zits_page():
+    """A page shaped like a logged-in one, holding obviously fake session values.
+
+    Built outside anonymous_page() on purpose: it is the one fixture that
+    carries a session, and every value in it is a sentinel.
+    """
+    next_data = _next_data({ZITS_QUERY: _result(ZITS_1001)})
+    next_data['props']['pageProps']['session'] = {
+        'user': {'name': SENTINEL_NAME, 'email': SENTINEL_EMAIL},
+        'expires': '2099-01-01T00:00:00.000Z',
+        'accessToken': SENTINEL_TOKEN,
+    }
+    return _html(next_data)
+
+
+class _PageDriver:
+    """A browser stand-in that serves a fixed page source per requested URL."""
+
+    def __init__(self, pages):
+        self.pages = pages
+        self.page_source = ''
+        self.requested = []
+
+    def get(self, url):
+        self.requested.append(url)
+        self.page_source = self.pages[url]
+
+    def quit(self):
+        pass
+
+
+def _run_main_with_pages(monkeypatch, tmp_path, catalog, pages, date='2026-10-01'):
+    """Run main() end to end against canned pages: no browser, no network."""
+    monkeypatch.setattr(
+        sys, 'argv', ['prog', '--date', date, '--output-dir', str(tmp_path)],
+    )
+    monkeypatch.setattr(cki.time, 'sleep', lambda *_a, **_kw: None)
+    driver = _PageDriver(pages)
+    with patch.object(cki, 'setup_driver', side_effect=lambda **_kw: driver), \
+         patch.object(cki, 'authenticate_with_cookies', return_value=True), \
+         patch.object(cki, 'load_comics_catalog', return_value=catalog), \
+         patch.object(cki, 'load_cookie_file_path', return_value=tmp_path / 'c.pkl'):
+        rc = cki.main()
+    return rc, driver
+
+
+class TestSessionNeverLeaks:
+    """A logged-in page carries session.accessToken and session.user.
+
+    Those values are read in-process only; they must never reach a record,
+    the data file, or the run's output.
+    """
+
+    SENTINELS = (SENTINEL_TOKEN, SENTINEL_EMAIL, SENTINEL_NAME)
+
+    def test_extraction_result_holds_no_session_values(self):
+        result = cki.extract_displayed_post(_logged_in_zits_page(), 'zits', '2026-10-01')
+
+        assert result[0] is not None, "the page's post should still be read"
+        for value in self.SENTINELS:
+            assert value not in repr(result)
+
+    def test_session_values_never_reach_records_or_output(
+        self, monkeypatch, tmp_path, capsys
+    ):
+        rc, _ = _run_main_with_pages(
+            monkeypatch, tmp_path,
+            catalog=[{'name': 'Zits', 'slug': 'zits'}],
+            pages={'https://comicskingdom.com/zits/2026-10-01': _logged_in_zits_page()},
+        )
+
+        assert rc == 0
+        written = (tmp_path / 'comicskingdom_2026-10-01.json').read_text()
+        out = capsys.readouterr()
+        for value in self.SENTINELS:
+            assert value not in written
+            assert value not in out.out
+            assert value not in out.err
+
+
+# --- scraper records the displayed post (U2) --------------------------------
+
+
+def _scrape(monkeypatch, catalog, pages, date='2026-10-01', recorded_posts=None):
+    monkeypatch.setattr(cki.time, 'sleep', lambda *_a, **_kw: None)
+    driver = _PageDriver(pages)
+    return cki.scrape_all_comics(driver, catalog, date, recorded_posts)
+
+
+ZITS = {'name': 'Zits', 'slug': 'zits'}
+PROS_CONS = {'name': 'Pros & Cons', 'slug': 'pros-cons'}
+BUF = {'name': 'Bringing Up Father', 'slug': 'bringing-up-father'}
+EDGE_CITY_CLASSIC = {'name': 'Edge City Classic', 'slug': 'edge-city-classic',
+                     'source_slug': 'edge-city'}
+
+
+class TestRecordsDisplayedPost:
+    """Each record names the requested night and the post the page displayed."""
+
+    def test_record_carries_the_request_and_the_post(self, monkeypatch):
+        results = _scrape(
+            monkeypatch, [ZITS],
+            {'https://comicskingdom.com/zits/2026-10-01': ZITS_PAGE},
+        )
+
+        assert results == [{
+            'name': 'Zits',
+            'slug': 'zits',
+            'date': '2026-10-01',
+            'url': 'https://comicskingdom.com/zits/2026-10-01',
+            'source': 'comicskingdom',
+            'post_date': '2026-10-01',
+            'post_url': 'https://comicskingdom.com/zits/2026-10-01',
+            'image_urls': ZITS_1001_PANELS,
+        }]
+
+    def test_name_comes_from_the_catalog(self, monkeypatch):
+        results = _scrape(
+            monkeypatch, [{'name': 'Bringing Up Father (Vintage)', 'slug': 'bringing-up-father'}],
+            {'https://comicskingdom.com/bringing-up-father/2026-10-01': BUF_PAGE},
+        )
+
+        assert results[0]['name'] == 'Bringing Up Father (Vintage)'
+
+    def test_one_image_post_yields_image_url(self, monkeypatch):
+        results = _scrape(
+            monkeypatch, [BUF],
+            {'https://comicskingdom.com/bringing-up-father/2026-10-01': BUF_PAGE},
+        )
+
+        assert results[0]['image_url'] == BUF_1001['assets']['single']['url']
+        assert 'image_urls' not in results[0]
+
+    def test_repeat_is_recorded_with_its_older_post_date(self, monkeypatch):
+        results = _scrape(
+            monkeypatch, [PROS_CONS],
+            {'https://comicskingdom.com/pros-cons/2026-10-01': PROS_CONS_PAGE},
+        )
+
+        assert len(results) == 1
+        assert results[0]['date'] == '2026-10-01'
+        assert results[0]['post_date'] == '2023-07-31'
+        assert results[0]['post_url'] == 'https://comicskingdom.com/pros-cons/2023-07-31'
+
+    def test_page_without_a_displayed_post_yields_no_record_and_is_named(
+        self, monkeypatch, capsys
+    ):
+        results = _scrape(
+            monkeypatch, [ZITS],
+            {'https://comicskingdom.com/zits/2026-10-01': NOT_FOUND_PAGE},
+        )
+
+        assert results == []
+        out = capsys.readouterr().out
+        assert 'Not recorded: 1' in out
+        named = [line for line in out.splitlines() if 'zits' in line and 'no query' in line]
+        assert named, f"totals must name the slug and reason:\n{out}"
+
+    def test_navigation_error_is_not_recorded_and_is_named(self, monkeypatch, capsys):
+        monkeypatch.setattr(cki.time, 'sleep', lambda *_a, **_kw: None)
+        driver = MagicMock()
+        driver.get.side_effect = TimeoutError('renderer timeout')
+
+        results = cki.scrape_all_comics(driver, [ZITS], '2026-10-01')
+
+        assert results == []
+        out = capsys.readouterr().out
+        assert 'Not recorded: 1' in out
+        assert any('zits' in line and 'TimeoutError' in line for line in out.splitlines())
+
+    def test_totals_count_recorded_repeats_and_not_recorded(
+        self, monkeypatch, tmp_path, capsys
+    ):
+        # An earlier night already holds Pros & Cons' 2023-07-31 strip, and an
+        # old-format Zits record (no post_date) that must not count.
+        (tmp_path / 'comicskingdom_2026-09-30.json').write_text(json.dumps([
+            {'slug': 'pros-cons', 'date': '2026-09-30', 'post_date': '2023-07-31'},
+            {'slug': 'zits', 'date': '2026-09-30'},
+        ]))
+        late_zits = ck_page({ZITS_QUERY: _result(ZITS_0930)})
+
+        results = _scrape(
+            monkeypatch, [ZITS, PROS_CONS, BUF, EDGE_CITY_CLASSIC],
+            {
+                # Zits uploaded 09-30's strip late: its post date is before
+                # tonight, but no earlier file holds it, so it is new.
+                'https://comicskingdom.com/zits/2026-10-01': late_zits,
+                'https://comicskingdom.com/pros-cons/2026-10-01': PROS_CONS_PAGE,
+                'https://comicskingdom.com/bringing-up-father/2026-10-01': BUF_PAGE,
+                'https://comicskingdom.com/edge-city/2026-10-01': NOT_FOUND_PAGE,
+            },
+            recorded_posts=cki.load_recorded_posts(tmp_path, '2026-10-01'),
+        )
+
+        assert [r['slug'] for r in results] == ['zits', 'pros-cons', 'bringing-up-father']
+        assert results[0]['post_date'] == '2026-09-30'
+        out = capsys.readouterr().out
+        assert 'Recorded: 3 of 4' in out
+        assert 'Repeats: 1' in out
+        assert 'Not recorded: 1' in out
+        assert any('edge-city-classic' in line and 'no query' in line
+                   for line in out.splitlines())
+
+    def test_main_writes_records_that_carry_post_date(self, monkeypatch, tmp_path):
+        rc, driver = _run_main_with_pages(
+            monkeypatch, tmp_path,
+            catalog=[ZITS, PROS_CONS, EDGE_CITY_CLASSIC],
+            pages={
+                'https://comicskingdom.com/zits/2026-10-01': ZITS_PAGE,
+                'https://comicskingdom.com/pros-cons/2026-10-01': PROS_CONS_PAGE,
+                'https://comicskingdom.com/edge-city/2026-10-01': NOT_FOUND_PAGE,
+            },
+        )
+
+        assert rc == 0
+        records = json.loads((tmp_path / 'comicskingdom_2026-10-01.json').read_text())
+        assert [r['slug'] for r in records] == ['zits', 'pros-cons']
+        assert all(r.get('post_date') for r in records)
+        # One page load per comic.
+        assert len(driver.requested) == 3
+
+    def test_main_exits_nonzero_when_nothing_is_recorded(self, monkeypatch, tmp_path):
+        rc, _ = _run_main_with_pages(
+            monkeypatch, tmp_path,
+            catalog=[ZITS],
+            pages={'https://comicskingdom.com/zits/2026-10-01': NOT_FOUND_PAGE},
+        )
+
+        assert rc == 1
+        assert not (tmp_path / 'comicskingdom_2026-10-01.json').exists()
+
+
+class TestLoadRecordedPosts:
+    """Earlier data files say which (comic, post date) pairs are repeats."""
+
+    def test_reads_pairs_from_files_dated_before_the_run(self, tmp_path):
+        (tmp_path / 'comicskingdom_2026-09-29.json').write_text(json.dumps([
+            {'slug': 'zits', 'post_date': '2026-09-29'},
+        ]))
+        (tmp_path / 'comicskingdom_2026-09-30.json').write_text(json.dumps([
+            {'slug': 'pros-cons', 'post_date': '2023-07-31'},
+            {'slug': 'blondie', 'date': '2026-09-30'},  # old format: no post_date
+        ]))
+        # Tonight's own file and later ones are not "earlier".
+        (tmp_path / 'comicskingdom_2026-10-01.json').write_text(json.dumps([
+            {'slug': 'zits', 'post_date': '2026-10-01'},
+        ]))
+
+        assert cki.load_recorded_posts(tmp_path, '2026-10-01') == {
+            ('zits', '2026-09-29'),
+            ('pros-cons', '2023-07-31'),
+        }
+
+    def test_unreadable_files_are_skipped_silently(self, tmp_path, capsys):
+        (tmp_path / 'comicskingdom_2026-09-28.json').write_text('{not json')
+        (tmp_path / 'comicskingdom_2026-09-29.json').write_text(json.dumps([
+            {'slug': 'zits', 'post_date': '2026-09-29'},
+        ]))
+
+        assert cki.load_recorded_posts(tmp_path, '2026-10-01') == {('zits', '2026-09-29')}
+        assert capsys.readouterr().out == ''
 
 
 # --- load_comics_catalog ----------------------------------------------------
