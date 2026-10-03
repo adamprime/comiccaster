@@ -36,7 +36,7 @@ from report_pipeline_failures import report  # noqa: E402
 HEARTBEAT_SLUG = "heartbeat"
 
 # Pass 1 runs at 03:05 and Pass 2 at 13:00, so a healthy repo sees a pipeline
-# commit every day. The Far Side morning pass is not a heartbeat source. 20h tolerates a normal daily cadence plus schedule drift
+# commit every day. 20h tolerates a normal daily cadence plus schedule drift
 # while still catching a wholly missed night.
 DEFAULT_STALE_HOURS = 20
 

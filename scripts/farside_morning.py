@@ -21,6 +21,8 @@ makes is delegated here:
   * log            -- append one line per slot to logs/farside_morning_slots.log
                       (timestamp with UTC offset, date, outcome, count), so the
                       publish window can be read straight off the log.
+  * last-miss      -- when the last slot found a date's dose unpublished or
+                      incomplete; the shipping commit records it.
   * check-terminal -- for Pass 1: did the morning pass reach a terminal outcome
                       for a date? Skipped when the log cannot answer yet.
 
@@ -55,6 +57,8 @@ WEEKDAY_COUNT = 5
 WEEKEND_COUNT = 2
 
 TERMINAL_OUTCOMES = frozenset({"already-shipped", "shipped", "final-unshipped"})
+# Slots that found the site had not yet published the full dose.
+MISS_OUTCOMES = frozenset({"unpublished", "incomplete"})
 
 # argparse exits 2 on a usage error, which is also check-terminal's "skip".
 # A broken invocation from Pass 1 must not read as a legitimate skip.
@@ -204,6 +208,15 @@ def terminal_status(log_text, day):
     )
 
 
+def last_miss(log_text, day):
+    """Timestamp of the last slot that found `day`'s dose unpublished or
+    incomplete, or None. The shipping commit names it, so the commit itself
+    records the publish window."""
+    misses = [e for e in map(parse_log_line, (log_text or "").splitlines())
+              if e and e.date == day and e.outcome in MISS_OUTCOMES]
+    return misses[-1].timestamp if misses else None
+
+
 # --- CLI ----------------------------------------------------------------------
 
 class _Parser(argparse.ArgumentParser):
@@ -272,6 +285,11 @@ def _build_parser():
     p.add_argument("--now", type=_aware_datetime)
     p.add_argument("--log", type=Path, default=DEFAULT_LOG)
 
+    p = sub.add_parser("last-miss",
+                       help="print when the last slot missed a date's dose, if any")
+    p.add_argument("--date", required=True, type=_iso_date)
+    p.add_argument("--log", type=Path, default=DEFAULT_LOG)
+
     p = sub.add_parser("check-terminal",
                        help="exit 0 terminal, 1 not terminal, 2 skip")
     p.add_argument("--date", required=True, type=_iso_date)
@@ -294,7 +312,8 @@ def main(argv=None) -> int:
 
     if args.command == "evaluate":
         decision, count = evaluate_dose_file(args.file, args.date, args.final)
-        print(f"DECISION={decision} COUNT={count}")
+        print(f"DECISION={decision}")
+        print(f"COUNT={count}")
         return 0
 
     if args.command == "safe-sync":
@@ -309,6 +328,16 @@ def main(argv=None) -> int:
         args.log.parent.mkdir(parents=True, exist_ok=True)
         with args.log.open("a") as fh:
             fh.write(line + "\n")
+        return 0
+
+    if args.command == "last-miss":
+        try:
+            text = args.log.read_text()
+        except OSError:
+            text = None
+        stamp = last_miss(text, args.date)
+        if stamp:
+            print(stamp.isoformat())
         return 0
 
     # check-terminal

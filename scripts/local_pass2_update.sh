@@ -24,12 +24,7 @@ cd "$REPO_DIR"
 LOG_FILE="$REPO_DIR/logs/pass2_update.log"
 mkdir -p "$REPO_DIR/logs"
 
-# Shared pipeline lock. Pass 1, Pass 2, catch-up and the Far Side morning pass
-# all reset, commit and push in this checkout, so no two may run at once. The
-# script re-runs itself under macOS lockf; the kernel drops the lock when the
-# run exits, so there is no stale-lock cleanup, and lockf does not hand it to
-# child processes such as a lingering Chrome. Taking it here rather than in the
-# mini_* wrapper also covers direct manual runs. See LOCAL_AUTOMATION_README.md.
+# Shared pipeline lock; see local_master_update.sh for the rationale.
 if [ -z "${PIPELINE_LOCK_HELD:-}" ]; then
     PIPELINE_LOCK_HELD=1 /usr/bin/lockf -k -t 1800 "$REPO_DIR/logs/pipeline.lock" \
         /bin/bash "$REPO_DIR/scripts/$(basename "${BASH_SOURCE[0]}")" "$@"

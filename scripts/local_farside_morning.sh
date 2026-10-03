@@ -113,8 +113,8 @@ stop_slot() {
 evaluate() {
     local out
     out="$("$PY" "$HELPER" evaluate --file "$1" --date "$SLOT_DATE" "${@:2}")"
-    DECISION="$(printf '%s\n' "$out" | sed -n 's/^DECISION=\([a-z]*\).*/\1/p')"
-    COUNT="$(printf '%s\n' "$out" | sed -n 's/.*COUNT=\([0-9]*\).*/\1/p')"
+    DECISION="$(printf '%s\n' "$out" | sed -n 's/^DECISION=//p')"
+    COUNT="$(printf '%s\n' "$out" | sed -n 's/^COUNT=//p')"
     [ -n "$DECISION" ] || DECISION=unshippable
     [ -n "$COUNT" ] || COUNT=0
 }
@@ -126,11 +126,9 @@ if ! git fetch -q origin main 2>/dev/null; then
     stop_slot fetch-failed fetch
 fi
 
-if git cat-file -e "origin/main:$DAILY" 2>/dev/null; then
-    SHIPPED_COPY="$(mktemp)"
-    git show "origin/main:$DAILY" > "$SHIPPED_COPY"
+SHIPPED_COPY="$(mktemp)"
+if git show "origin/main:$DAILY" > "$SHIPPED_COPY" 2>/dev/null; then
     evaluate "$SHIPPED_COPY" --final
-    rm -f "$SHIPPED_COPY"
     if [ "$DECISION" = "ship" ]; then
         echo "✅ $DAILY is already on origin/main ($COUNT strips)"
         log_slot already-shipped "$COUNT"
@@ -139,6 +137,7 @@ if git cat-file -e "origin/main:$DAILY" 2>/dev/null; then
     fi
     echo "⚠️  origin/main has $DAILY but it fails the count guard; re-scraping"
 fi
+rm -f "$SHIPPED_COPY"
 
 # --- 2. Scrape today's Daily Dose only ---------------------------------------
 # Writes $DAILY only when the site has published the date; never touches other
@@ -188,8 +187,7 @@ fi
 
 # Name the slot that found the dose and the last one that missed it, so the
 # commit itself records the publish window.
-SLOT_LOG="$REPO_DIR/logs/farside_morning_slots.log"
-LAST_MISS="$(awk -F'\t' -v d="$SLOT_DATE" '$2 == d && ($3 == "unpublished" || $3 == "incomplete") { t = $1 } END { print t }' "$SLOT_LOG" 2>/dev/null)"
+LAST_MISS="$("$PY" "$HELPER" last-miss --date "$SLOT_DATE")"
 BODY="Found by the $(date +%H:%M) slot."
 [ -n "$LAST_MISS" ] && BODY="$BODY The last slot that missed it ran at $LAST_MISS."
 

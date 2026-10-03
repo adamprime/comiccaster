@@ -23,6 +23,7 @@ from scripts.farside_morning import (
     evaluate_dose_file,
     expected_count,
     format_log_line,
+    last_miss,
     is_final_slot,
     main,
     parse_log_line,
@@ -288,23 +289,23 @@ class TestMainEvaluate:
     def test_ship(self, tmp_path, capsys):
         p = dose(tmp_path, MONDAY, 5)
         code, out = run(capsys, ['evaluate', '--file', str(p), '--date', '2026-10-05'])
-        assert (code, out) == (0, 'DECISION=ship COUNT=5\n')
+        assert (code, out) == (0, 'DECISION=ship\nCOUNT=5\n')
 
     def test_incomplete(self, tmp_path, capsys):
         p = dose(tmp_path, MONDAY, 3)
         code, out = run(capsys, ['evaluate', '--file', str(p), '--date', '2026-10-05'])
-        assert (code, out) == (0, 'DECISION=incomplete COUNT=3\n')
+        assert (code, out) == (0, 'DECISION=incomplete\nCOUNT=3\n')
 
     def test_final_ships_short_dose(self, tmp_path, capsys):
         p = dose(tmp_path, MONDAY, 3)
         code, out = run(capsys, ['evaluate', '--file', str(p),
                                  '--date', '2026-10-05', '--final'])
-        assert (code, out) == (0, 'DECISION=ship COUNT=3\n')
+        assert (code, out) == (0, 'DECISION=ship\nCOUNT=3\n')
 
     def test_missing_file_is_unshippable(self, tmp_path, capsys):
         code, out = run(capsys, ['evaluate', '--file', str(tmp_path / 'nope.json'),
                                  '--date', '2026-10-05', '--final'])
-        assert (code, out) == (0, 'DECISION=unshippable COUNT=0\n')
+        assert (code, out) == (0, 'DECISION=unshippable\nCOUNT=0\n')
 
 
 class TestMainSafeSync:
@@ -371,6 +372,42 @@ class TestMainLog:
                   '--count', '0', '--log', str(log)])
         assert exc.value.code != 0
         assert not log.exists()
+
+
+class TestLastMiss:
+    def lines(self, *entries):
+        return "\n".join(format_log_line(at(day, h, m), day, outcome, n)
+                         for day, h, m, outcome, n in entries)
+
+    def test_returns_the_last_unpublished_or_incomplete_slot_for_the_date(self):
+        text = self.lines(
+            (MONDAY, 4, 0, 'unpublished', 0),
+            (MONDAY, 4, 30, 'incomplete', 3),
+            (MONDAY, 5, 0, 'deferred-checkout', 5),
+            (MONDAY, 5, 30, 'shipped', 5),
+        )
+        assert last_miss(text, MONDAY) == at(MONDAY, 4, 30)
+
+    def test_ignores_other_dates(self):
+        sunday = MONDAY - timedelta(days=1)
+        text = self.lines((sunday, 11, 30, 'unpublished', 0), (MONDAY, 3, 30, 'shipped', 5))
+        assert last_miss(text, MONDAY) is None
+
+    def test_none_without_a_log(self):
+        assert last_miss(None, MONDAY) is None
+
+
+class TestMainLastMiss:
+    def test_prints_the_last_miss_timestamp(self, capsys, tmp_path):
+        log = tmp_path / 'slots.log'
+        log.write_text(format_log_line(at(MONDAY, 4, 0), MONDAY, 'unpublished', 0) + '\n')
+        code, out = run(capsys, ['last-miss', '--date', '2026-10-05', '--log', str(log)])
+        assert (code, out) == (0, '2026-10-05T04:00:00-05:00\n')
+
+    def test_prints_nothing_when_no_slot_missed(self, capsys, tmp_path):
+        code, out = run(capsys, ['last-miss', '--date', '2026-10-05',
+                                 '--log', str(tmp_path / 'absent.log')])
+        assert (code, out) == (0, '')
 
 
 class TestMainCheckTerminal:
