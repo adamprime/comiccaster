@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-10-04",
+  "scraped_at": "2026-10-04T11:30:04.647470+00:00",
+  "comics": [
+    {
+      "id": "22814",
+      "date": "2026-10-04",
+      "url": "https://www.thefarside.com/2026/10/04/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2304d4e074330137a50b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2304d4e074330137a50b005056a9545d",
+      "caption": "Darrell suspected someone had once again slipped him a trick spoon with the concave side reversed.",
+      "title": "Darrell suspected someone had once again slipped him a tr..."
+    },
+    {
+      "id": "22815",
+      "date": "2026-10-04",
+      "url": "https://www.thefarside.com/2026/10/04/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F822595f0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/822595f0cdd30137c56b005056a9545d",
+      "caption": "\u201cYou moron! ... I told you it was only a mirage!\u201d",
+      "title": "\u201cYou moron!"
+    }
+  ]
+}
