@@ -24,11 +24,27 @@
     "category": "political"
   },
   {
+    "name": "M2 Bulls",
+    "slug": "m2bulls",
+    "image_url": "https://featureassets.gocomics.com/assets/8493e3e0a299013fccb9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-04",
+    "url": "https://www.gocomics.com/m2bulls/2026/10/04",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/8c594540a0c1013fcc81005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-04",
     "url": "https://www.gocomics.com/jeffstahler/2026/10/04",
+    "category": "political"
+  },
+  {
+    "name": "Jack Ohman",
+    "slug": "jackohman",
+    "image_url": "https://featureassets.gocomics.com/assets/adceaca0a300013fccc8005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-04",
+    "url": "https://www.gocomics.com/jackohman/2026/10/04",
     "category": "political"
   },
   {
