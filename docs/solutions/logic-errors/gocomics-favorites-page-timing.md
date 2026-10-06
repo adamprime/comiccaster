@@ -5,6 +5,7 @@ category: logic-errors
 tags: [scraping, gocomics, timing, political-cartoons, favorites-page, page-state, backfill]
 stack: [python, selenium, beautifulsoup]
 github_issues: [138, 164]
+last_updated: 2026-10-06
 ---
 
 ## Problem
@@ -49,7 +50,7 @@ Two-pass GoComics scrape:
 - **Pass 1 — 03:20 CT (unchanged):** captures overnight-syndicated content.
 - **Pass 2 — 13:00 CT / 14:00 ET (new):** re-fetches the GoComics favorites pages and merges new slugs into the same-day `data/comics_$DATE.json`. Pass 2 entries win for slugs present in both passes; pass 1's slugs not seen in pass 2 are preserved.
 
-Pass 2 is GoComics-only — the other five sources (Comics Kingdom, TinyView, Far Side, New Yorker, Creators) don't use a single reactive favorites page, so their existing timing is fine.
+Pass 2 is GoComics-only — the other sources don't use a single reactive favorites page. Far Side later turned out to need its own later pass anyway: from 2026-10-01 thefarside.com published the Daily Dose after Pass 1, and a separate morning retry pass now ships it (see `docs/solutions/logic-errors/farside-late-publish-morning-retry-pass.md`).
 
 13:00 CT (14:00 ET) was chosen as a balance: late enough that the mid-morning Eastern publishing wave has finished (14:00 ET), early enough that feeds refresh well before evening RSS consumption. The two-pass design is self-tuning — once we have a few weeks of pass-2 data, the gap between pass 1 and pass 2 captures tells us whether to shift pass 2 earlier or later.
 

@@ -16,6 +16,7 @@ applies_when:
   - "A Far Side Daily Dose day in the feed repeats the previous day's comics"
   - "Changing how the Far Side scraper fetches dated pages"
 tags: [farside, redirect, upstream-timing, silent-wrong-data, feed-guid]
+last_updated: 2026-10-06
 ---
 
 # Far Side Daily Dose recorded yesterday's comics under today's date when the site published late
@@ -27,7 +28,8 @@ tags: [farside, redirect, upstream-timing, silent-wrong-data, feed-guid]
 out. `requests` follows the redirect silently, so the scraper parsed the
 homepage and filed yesterday's five comics under today's date. The scraper now
 treats a dated fetch that lands off its date as "not published yet" and writes
-no file for that date. The next run's 3-day window records it once it exists.
+no file for that date. Since PR #220 the Far Side morning pass records it the
+same morning, as soon as the site publishes it (see the update below).
 
 ## Problem
 
@@ -60,12 +62,13 @@ that date (it already did this for an empty scrape). Tests:
 `tests/test_farside_scraper.py`.
 
 Skipping the date is better than writing it later. The unpublished date first
-shows up in the next run, under guids no reader has seen, so subscribers get
-the real comics a day late instead of never.
+shows up in a later run, under guids no reader has seen, so subscribers get
+the real comics late instead of never. (Before the morning pass, "later" meant
+the next day's Pass 1; it now means the next 30-minute morning slot.)
 
-## Known side effect
+## Known side effect (superseded 2026-10-03)
 
-The invariant guard in `scripts/local_master_update.sh` expects
+Until the morning pass, the invariant guard in `scripts/local_master_update.sh` expects
 `data/farside_daily_$DATE_STR.json`. On a late-publish morning that file won't
 exist, so the run opens a Far Side invariant issue ("... is missing"). The next
 run writes the file and closes the issue. At about 2 occurrences in 169 days,
@@ -78,7 +81,9 @@ and 10-03 in a row, so the guard and the delivery both moved. Pass 1 now checks
 yesterday's `farside_daily` file, and a Far Side morning pass retries today's
 dose every 30 minutes from 03:30 to 12:00, ships it on the first slot that
 finds it, and alerts only from the noon slot. Still no placeholder file. See
-"Far Side morning pass" in `docs/LOCAL_AUTOMATION_README.md`.
+`docs/solutions/logic-errors/farside-late-publish-morning-retry-pass.md` and
+"Far Side morning pass" in `docs/LOCAL_AUTOMATION_README.md`. Measured over
+10-04 to 10-06, the site publishes between 05:30 and 06:30 CDT.
 
 ## Prevention
 

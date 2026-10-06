@@ -14,6 +14,7 @@ applies_when:
 tags: [launchd, launchagent, power-outage, auto-login, filevault, tailscale, remote-access, heartbeat, catchup]
 stack: [macos, launchd, tailscale]
 github_issues: [181]
+last_updated: 2026-10-06
 ---
 
 ## TL;DR
@@ -24,7 +25,7 @@ failed — nothing was attempted. A power outage rebooted the mini at
 window for ~25h.
 
 The pipeline runs as **LaunchAgents** (`~/Library/LaunchAgents/com.comiccaster.master`,
-`.pass2`, `.catchup`). LaunchAgents load on **GUI login**, not at boot. No login
+`.pass2`, `.catchup`, and since 2026-10-03 `.farside`, the Far Side morning pass). LaunchAgents load on **GUI login**, not at boot. No login
 → no agents → no runs, with nothing written to any log to say so.
 
 The same root cause cut off remote access: Tailscale (how the host is normally
@@ -175,6 +176,8 @@ Both safety nets behaved exactly as designed and did the recovery:
 - **`pipeline-heartbeat.yml`** opened issue #181, which is the *only* mechanism that
   can report a run that never happened — the host itself was off and structurally
   could not report anything. It self-clears once a fresh pipeline commit lands.
+  Since 2026-10-03 only Pass 1 and Pass 2 commits count; a Far Side morning-pass
+  commit does not clear it (`scripts/check_pipeline_heartbeat.py`).
 
 ## Verification reboot (2026-08-02) — the whole chain, confirmed
 

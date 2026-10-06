@@ -158,9 +158,11 @@ Result: 147 daily + 9 political = 156 Comics Kingdom comics.
 loader read, so all three stop being scraped. **Revert them together.**
 
 **4. No subscriber re-delivery.** Moved entries kept `name` exactly. Item titles
-come from `name` (`scripts/generate_comicskingdom_feeds.py:157`) and guids from
-the scraped per-date URL (`:162`), so moving an entry between lists changes
-neither. This was measured, not assumed: regenerating the four moved feeds gave
+came from `name` (`scripts/generate_comicskingdom_feeds.py:157` at the time) and
+guids from the scraped per-date URL (`:162`), so moving an entry between lists
+changed neither. Since PR #218, a post-dated item's title takes the catalog
+`name` and its guid the comic's source slug and post date, so a list move still
+changes neither. This was measured, not assumed: regenerating the four moved feeds gave
 identical guid+title sets (90 / 16 / 14 / 90 items).
 
 **5. Tests.** All offline and in the default run. The 11 guard tests were red on

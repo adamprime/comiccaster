@@ -21,13 +21,16 @@ applies_when:
 tags: [comics-kingdom, strip-identity, feed-window, dedup, guid, redelivery, append-only-history]
 related_components: [scripts/preview_feeds.py, CONCEPTS.md, AGENTS.md]
 related_issues: [207, 212, 216, 217, 218]
+last_updated: 2026-10-06
 ---
 
 # Comics Kingdom feeds re-delivered aging strips as their oldest copy left the 90-file window
 
+> **Since PR #218 (2026-10-03):** records saved from `data/comicskingdom_2026-10-04.json` on carry the displayed post's own date, and the generator identifies them by comic and post date. The first-sighting identity described here now governs only records saved before that file, until the last of them leaves the window with the 2027-01-01 run. See `docs/solutions/logic-errors/comicskingdom-scraper-recorded-the-page-not-the-post.md` and `CONCEPTS.md` ("Strip identity").
+
 ## Problem
 
-Comics Kingdom feeds re-delivered strips readers already had, about 60 items a night across the CK feeds (issue #207). Comics Kingdom serves its newest post for any date, so a strip that stays up is saved again every night under a new address. The generator deduplicated images only inside its 90-file window, so whenever a strip's earliest copy left that window, the next night's copy went out as a new item.
+Comics Kingdom feeds re-delivered strips readers already had, about 60 items a night across the CK feeds (issue #207). Comics Kingdom serves its newest post on or before any requested date, so a strip that stays up is saved again every night under a new address. The generator deduplicated images only inside its 90-file window, so whenever a strip's earliest copy left that window, the next night's copy went out as a new item.
 
 ## Symptoms
 
@@ -41,7 +44,7 @@ Comics Kingdom feeds re-delivered strips readers already had, about 60 items a n
 
 ### Deduplicating by image inside a file-count window (the old rule)
 
-The scraper builds each record's address, and so its guid, from the scrape date: `url = f"https://comicskingdom.com/{comic_slug}/{date_str}"` (`scripts/comicskingdom_scraper_individual.py:321`, stored as the record's `url` at `:397`). The generator before PR #217 loaded only the 90 newest files (`files_to_load = data_files[:days_back]`, pre-#217 `scripts/generate_comicskingdom_feeds.py:130`). It skipped an image set it had already seen, but only among those files (`seen_image_urls`, pre-#217 `:199`-`:235`). Image dedup was the right idea. The window it ran inside was the problem: each night the oldest file dropped out, the earliest copy of a long-running strip went with it, and the next copy, with a guid one day later, became "first".
+The scraper builds each record's address, and so its guid, from the scrape date: `url = f"https://comicskingdom.com/{comic_slug}/{date_str}"` (pre-#218 `scripts/comicskingdom_scraper_individual.py:321`, stored as the record's `url` at `:397`; the record's `url` still means the page loaded, but post-dated guids now come from the post date). The generator before PR #217 loaded only the 90 newest files (`files_to_load = data_files[:days_back]`, pre-#217 `scripts/generate_comicskingdom_feeds.py:130`). It skipped an image set it had already seen, but only among those files (`seen_image_urls`, pre-#217 `:199`-`:235`). Image dedup was the right idea. The window it ran inside was the problem: each night the oldest file dropped out, the earliest copy of a long-running strip went with it, and the next copy, with a guid one day later, became "first".
 
 ### The first plan's window: newest minus 90 days, copied from TinyView
 
@@ -59,7 +62,7 @@ The 37 feeds with nothing first sighted in the window (32 vintage, 5 dormant) co
 
 ## Solution
 
-Fixed in PR #217, merged 2026-10-01, all in `scripts/generate_comicskingdom_feeds.py`.
+Fixed in PR #217, merged 2026-10-01, all in `scripts/generate_comicskingdom_feeds.py`. Line numbers in this section are as of PR #217; PR #218 moved them, and the rules below now apply to records without `post_date`.
 
 **Identity is the feed slug plus the sorted image URLs, dated by first sighting across all saved history.** Every strictly named file is read, oldest first. The first record that holds a given key supplies the item, and later copies are ignored (`:112`-`:125`):
 
@@ -101,7 +104,7 @@ On gap-free data this holds exactly the 90 newest files. Rebuilding old data on 
 
 ## Why This Works
 
-The root cause was that a CK guid names the night ComicCaster fetched a strip, not the strip itself. Comics Kingdom answers any date with its newest post, so a strip up for N nights is saved under N addresses. Any rule that picks "the earliest copy I can currently see" from a sliding view will pick a later copy once the real first one slides out. First sighting fixes this by computing the earliest copy over all saved history, which only ever grows. A strip's first sighting cannot move as long as history is only appended to, so its guid is the same every night. When that first sighting leaves the window, the strip leaves the feed, and no later copy can take its place, because later copies are never candidates.
+The root cause was that a CK guid names the night ComicCaster fetched a strip, not the strip itself. Comics Kingdom answers any date with its newest post on or before that date, so a strip up for N nights is saved under N addresses. Any rule that picks "the earliest copy I can currently see" from a sliding view will pick a later copy once the real first one slides out. First sighting fixes this by computing the earliest copy over all saved history, which only ever grows. A strip's first sighting cannot move as long as history is only appended to, so its guid is the same every night. When that first sighting leaves the window, the strip leaves the feed, and no later copy can take its place, because later copies are never candidates.
 
 GoComics never had the problem. Its record address carries the publisher's own date: the URL is built from the favorites-page date (`scripts/authenticated_scraper_secure.py:299`, page chosen by date at `:141`), and that page lists only comics that published that day. So one strip is always one address, and the GoComics generator's plain 90-file window (`scripts/generate_gocomics_feeds.py:44`, `:50`) is safe. Checked on 2026-10-01: the last 90 GoComics files held 22,693 records with 0 images under two dates, and 71 non-daily slugs appear only on their publish days.
 
@@ -109,18 +112,17 @@ GoComics never had the problem. Its record address carries the publisher's own d
 
 ### Saved Comics Kingdom history is append-only
 
-Because identity now rests on all history, editing old CK data can move a strip's first sighting and re-deliver it. The rules:
+Because first-sighting identity rests on all history, editing old CK data can move a strip's first sighting and re-deliver it. Since PR #218 the rules are date-bound: they protect records saved before `data/comicskingdom_2026-10-04.json`, and lapse with the 2027-01-01 run, when the last of them leaves the window. `CONCEPTS.md` ("Strip identity") is the authority. Until then:
 
-- Never scrape a past date. CK answers with its newest post, which gets saved under the wrong date.
 - Never re-run a night's scrape into `data/` after its feed has shipped. Send manual runs to another `--output-dir`.
-- Never relabel records after their feed has shipped.
-- Never delete snapshots.
+- Never relabel records, and never overwrite or delete a snapshot.
+- Backfill a missing night only if it is on or after 2026-10-04, and do it the next day. A past-date page shows the post on or before that date, and post-dated records never create first sightings. A missing night from before 2026-10-04 stays a gap: backfilling it would re-send, under their post dates, strips the old format saved a night late.
+
+(Before PR #218 the first rule here was "never scrape a past date", because the old scraper saved whatever the page showed under the requested date.)
 
 Git shows three past edits of this kind, as data-history evidence: 8c97da6a62 (edge-city-classic relabeled across 276 files), 96f12e8205 (a restore after conflict markers reached `data/comicskingdom_2026-04-16.json`) and ced5958eeb (the 2026-02-27 file cut from 152 to 12 records).
 
-The rule is written down, not enforced in code (the operator's call). It appears in four places: `CONCEPTS.md:84` ("Strip identity"), `AGENTS.md:84` (the `generate_*.py` line), the CK scraper's `--date` help (`scripts/comicskingdom_scraper_individual.py:451`-`:455`), and the generator's docstring (`scripts/generate_comicskingdom_feeds.py:18`-`:19`). It applies to Comics Kingdom only. GoComics Pass 2 merges and rolling or manual backfills stay safe (`CONCEPTS.md:86`).
-
-PR #218 (part 1 of #216) records CK's own post date and may later narrow this rule. It is open and unmerged as of 2026-10-03, so the rule stands as written above.
+The rule is written down, not enforced in code (the operator's call). It appears in four places: `CONCEPTS.md` ("Strip identity"), `AGENTS.md` (the `generate_*.py` line), the CK scraper's `--date` help (`scripts/comicskingdom_scraper_individual.py:525`-`:533`), and the generator's docstring (`scripts/generate_comicskingdom_feeds.py:31`-`:36`). It applies to Comics Kingdom only. GoComics Pass 2 merges and rolling or manual backfills stay safe (`CONCEPTS.md:86`).
 
 ### Verifying a change to the CK generator
 
@@ -148,10 +150,12 @@ PR #218 (part 1 of #216) records CK's own post date and may later narrow this ru
 
 Any scraper change that records different image URLs for an unchanged strip re-delivers one item per affected feed, because the new URL set is a new first sighting. See the warning on #216: https://github.com/adamprime/comiccaster/issues/216#issuecomment-5933153024. Before shipping such a change, run the scratch-regeneration check above on data that includes the changed records. Expect, and accept explicitly, one new guid per affected feed.
 
+PR #218 was that change. It switched identity to post dates instead of new image sets, so the scratch check predicted only 6 re-sends at the switch, and production matched exactly. See `docs/solutions/logic-errors/comicskingdom-scraper-recorded-the-page-not-the-post.md`. For post-dated records, check a night for re-sends by (slug, post_date), not by image set.
+
 ## Related Issues
 
 - Issue #207 (closed by PR #217); plan `docs/plans/2026-10-01-0837-fix-ck-first-sighting-identity-plan.md`.
-- Issue #216 (open): vintage feeds stuck on one strip, the scraper's repeat copies and the promo-image fallback. PR #218, its first part, is open.
+- Issue #216 (open for part 2, vintage reruns): vintage feeds stuck on one strip, the scraper's repeat copies and the promo-image fallback. PR #218, its first part, merged 2026-10-03; see `docs/solutions/logic-errors/comicskingdom-scraper-recorded-the-page-not-the-post.md`.
 - `docs/solutions/logic-errors/tinyview-feed-history-collapsed-to-one-strip.md`: the precedent (#212) this fix mirrors, and where #207 was first named as the CK analogue.
 - `docs/solutions/logic-errors/comicskingdom-political-comics-never-loaded.md`: same generator; its guid-continuity measurement is the method reused here.
 - `docs/solutions/logic-errors/two-sources-one-feed-file-slug-collision.md`: another way a changed guid reaches subscribers as a re-delivery.
