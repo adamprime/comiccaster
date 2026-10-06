@@ -22,6 +22,7 @@ update_farside_feeds.py:
   (to sidestep feed-generator date-based dedup).
 """
 
+import argparse
 import glob
 import json
 import logging
@@ -230,7 +231,24 @@ def generate_new_stuff_feed():
 
 # -- Entry point ------------------------------------------------------------
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description='Generate The Far Side RSS feeds from scraped data.')
+    parser.add_argument(
+        '--daily-only', action='store_true',
+        help='Generate only the Daily Dose feed and leave New Stuff untouched. The '
+             'morning pass ships the Daily Dose alone, so a New Stuff problem must '
+             'not stop it (or rewrite a feed it does not ship).',
+    )
+    args = parser.parse_args(argv)
+
+    if args.daily_only:
+        logger.info("Generating the Far Side Daily Dose feed")
+        if generate_daily_feed():
+            logger.info("Far Side Daily Dose feed generation complete")
+            return 0
+        logger.error("Far Side Daily Dose feed generation failed")
+        return 1
+
     logger.info("Generating Far Side feeds")
     daily_ok = generate_daily_feed()
     new_ok = generate_new_stuff_feed()

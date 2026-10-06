@@ -5,6 +5,7 @@ the generator should produce the same entry list regardless of when it runs.
 """
 
 import importlib.util
+import json
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -146,3 +147,36 @@ class TestBuildNewStuffEntries:
         entries = gen.build_new_stuff_entries(scraped_at, [_fake_comic(1)])
         assert 'thefarside.com/new-stuff' in entries[0]['description']
         assert 'See all new work' in entries[0]['description']
+
+
+# --- main: --daily-only ------------------------------------------------------
+
+
+@pytest.fixture
+def farside_repo(tmp_path, monkeypatch):
+    """A repo-shaped tree: one valid Daily Dose snapshot, a corrupt New Stuff one."""
+    (tmp_path / 'data').mkdir()
+    (tmp_path / 'public' / 'feeds').mkdir(parents=True)
+    (tmp_path / 'data' / 'farside_daily_2026-10-06.json').write_text(json.dumps({
+        'target_date': '2026-10-06', 'scraped_at': '2026-10-06T11:00:00+00:00',
+        'comics': [_fake_comic(i) for i in range(5)],
+    }))
+    (tmp_path / 'data' / 'farside_new_2026-10-06.json').write_text('{ not json')
+    monkeypatch.chdir(tmp_path)
+    return tmp_path
+
+
+class TestMain:
+    def test_a_broken_new_stuff_snapshot_fails_the_full_run(self, farside_repo):
+        with pytest.raises(json.JSONDecodeError):
+            gen.main([])
+
+    def test_daily_only_ships_the_dose_whatever_new_stuff_holds(self, farside_repo):
+        new_feed = farside_repo / 'public' / 'feeds' / 'farside-new.xml'
+        new_feed.write_text('<rss>published earlier</rss>')
+
+        assert gen.main(['--daily-only']) == 0
+
+        daily = (farside_repo / 'public' / 'feeds' / 'farside-daily.xml').read_text()
+        assert daily.count('<item>') == 5
+        assert new_feed.read_text() == '<rss>published earlier</rss>'
