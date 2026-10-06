@@ -1396,7 +1396,7 @@ JUNGLE_JIM_GAP_PAGE = ck_page({_ck_query('jungle-jim-sundays', '1933-12-27'): _r
 class TestRerunPath:
     """On and after its anchor, a fixed vintage archive loads its archive date."""
 
-    def test_delivered_rerun_records_the_archive_strip(self, monkeypatch):
+    def test_delivered_rerun_records_the_archive_strip(self, monkeypatch, capsys):
         # AE4: the anchor night delivers the range's first strip.
         results = _scrape(monkeypatch, [BEETLE_RERUN], {BEETLE_RERUN_URL: BEETLE_RERUN_PAGE},
                           date='2026-10-19')
@@ -1412,6 +1412,9 @@ class TestRerunPath:
             'rerun_date': '1953-10-05',
             'image_url': f'{UPLOADS}/1953/10/Beetle-Bailey.ENG_.1953-10-05.jpeg',
         }]
+        out = capsys.readouterr().out
+        assert 'Reruns delivered: 1' in out
+        assert 'Rerun gaps: 0' in out
 
     def test_gap_is_recorded_without_images_and_named(self, monkeypatch, capsys):
         # AE5: a Sunday-only series on a Wednesday.

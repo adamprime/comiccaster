@@ -69,7 +69,7 @@ Records carrying `rerun_date` are routed before any other rule (`load_window_str
 - pubDate: the delivery date.
 - Window: the delivery (file) date.
 
-Gaps are never listed. Once a series has a delivered rerun in the window, its feed lists reruns only. That matters at go-live: the ~89 in-window nights recorded the frozen strip under its post date, and listing those would flood the feed.
+Gaps are never listed. Once a series has a delivered rerun in the window, its feed lists reruns only. That matters at go-live: records saved before 2026-10-04 carry no post date, so the frozen strip is still first-sighted inside the window and would otherwise sit beside the reruns. (The post-dated nights of the frozen strip list nothing on their own, because its post date is decades outside the window.)
 
 ## Why This Matters
 
@@ -171,6 +171,12 @@ Comics Kingdom's own `ck_first_date`/`ck_last_date` were wrong for many series. 
 - Judge Parker: 1968–72, 1972–80 and a thin 1980–81.
 
 **Weekday cadence.** Daily-only series (Mon–Sat) deliver nothing on Sundays: the Sunday archive date has no strip of its own, so it is a gap. The same applies to the eight Sunday-only series on weekdays. Most nights therefore show eight or more gaps, and Sundays show one for each daily-only series, all of them by design. Gaps beyond that pattern mean a hole inside a range.
+
+## Known limits
+
+- **A night of all gaps stays green.** Gap records count toward the guard's 146-of-156 floor, so if Comics Kingdom ever served an earlier strip for every requested archive date, all 32 series would record gaps, no vintage feed would gain an item, and the pipeline would pass. The only signal is the log line `Reruns delivered: N`. The plan deliberately left out a delivery alert ("reconsider if reruns go quiet unnoticed"). The mirror case is loud: if the vintage pages stopped loading, 32 comics would be "Not recorded" and 124 < 146 trips the guard.
+- **The catalog does not decide what a feed lists; the data does.** If Comics Kingdom resumes posting a vintage series and its rerun fields are removed, rerun records already in the window keep that feed on reruns only for up to 90 days. Removing a series from reruns also means updating `REPOSTED_VINTAGE` and the count in the integrity test.
+- **Checking a night for re-sends.** The #218 watch matched new guids on (slug, post_date). A rerun's identity is (slug, delivery date), and a later loop re-delivers the same print date on purpose, so check reruns by delivery date, not by post date or image set.
 
 ## Deferred
 

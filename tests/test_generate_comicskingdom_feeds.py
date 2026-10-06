@@ -900,12 +900,16 @@ class TestReruns:
             'ck-rerun-beetle-bailey-vintage-2026-09-01', 'ck-rerun-beetle-bailey-vintage-2026-10-01']
 
     def test_go_live_lists_only_the_reruns_not_the_frozen_strip(self, ck_repo):
-        # The flood regression: 89 in-window nights recorded the frozen 1967 strip
-        # with its post date, then three reruns arrive. Only the reruns are listed.
+        # Go-live as it really lands: the window still holds old-format nights whose
+        # frozen strip is first sighted inside it, then post-dated nights of the same
+        # 1967 post, then three reruns. Only the reruns are listed; without the
+        # reruns-only rule the frozen first sighting would sit beside them.
         nights = _days(WINDOW_START, 90)
-        for day in nights[:-3]:
-            save_ck_day(ck_repo, day, [ck_record('beetle-bailey-vintage', day,
-                                                 [_image('beetle-bailey-vintage', 'frozen')],
+        frozen = [_image('beetle-bailey-vintage', 'frozen')]
+        for day in nights[:40]:
+            save_ck_day(ck_repo, day, [ck_record('beetle-bailey-vintage', day, frozen)])
+        for day in nights[40:-3]:
+            save_ck_day(ck_repo, day, [ck_record('beetle-bailey-vintage', day, frozen,
                                                  post_date='1967-12-31')])
         archive = ['1953-10-05', '1953-10-06', '1953-10-07']
         for day, print_day in zip(nights[-3:], archive):
@@ -915,6 +919,28 @@ class TestReruns:
 
         assert sorted(ck_guids(ck_repo, 'beetle-bailey-vintage')) == [
             f'ck-rerun-beetle-bailey-vintage-{day}' for day in nights[-3:]]
+
+    def test_a_rerun_before_the_window_is_not_listed(self, ck_repo):
+        save_ck_day(ck_repo, DAY_BEFORE_WINDOW,
+                    [rerun_record('beetle-bailey-vintage', DAY_BEFORE_WINDOW, '1953-10-05')])
+        save_ck_day(ck_repo, WINDOW_START,
+                    [rerun_record('beetle-bailey-vintage', WINDOW_START, '1953-10-06')])
+        save_ck_day(ck_repo, NEWEST, [rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-07')])
+
+        build_ck()
+
+        assert sorted(ck_guids(ck_repo, 'beetle-bailey-vintage')) == [
+            f'ck-rerun-beetle-bailey-vintage-{WINDOW_START}', f'ck-rerun-beetle-bailey-vintage-{NEWEST}']
+
+    def test_a_series_whose_only_rerun_left_the_window_is_not_written(self, ck_repo):
+        save_ck_day(ck_repo, DAY_BEFORE_WINDOW,
+                    [rerun_record('beetle-bailey-vintage', DAY_BEFORE_WINDOW, '1953-10-05')])
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'b')],
+                                                post_date=NEWEST)])
+
+        build_ck()
+
+        assert not ck_feed(ck_repo, 'beetle-bailey-vintage').exists()
 
     def test_old_post_dated_and_rerun_records_list_only_reruns(self, ck_repo):
         save_ck_day(ck_repo, '2026-09-28', [ck_record('beetle-bailey-vintage', '2026-09-28',

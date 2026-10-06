@@ -227,9 +227,9 @@ def rerun_entries(comic_info: Dict, reruns: Sequence[Dict]) -> List[Dict]:
     """One item per delivered rerun, identified by its comic and delivery date.
 
     Guid ``ck-rerun-<slug>-<delivery date>``, so a later loop that delivers the
-    same archive date again is a new item. Link: the strip's archive page. The
-    title and description carry the print date; pubDate is the delivery date.
-    The link is the record's ``url``: the archive page the scraper loaded.
+    same archive date again is a new item. The title and description carry the
+    print date; pubDate is the delivery date. The link is the record's ``url``:
+    the archive page the scraper loaded.
     """
     entries = []
     for strip in reruns:
@@ -245,7 +245,8 @@ def feed_entries(comic_info: Dict, old_strips: List[Dict], posted_strips: List[D
     """One comic's items: its old first sightings, then its post-dated strips.
 
     A rerun series with a delivered rerun in the window lists its reruns only,
-    so the frozen strip it showed every night before go-live drops out.
+    so the frozen strip it showed every night before go-live (still first-sighted
+    inside the window by records saved before post dates) drops out.
 
     A post-dated strip's guid and link are ``https://comicskingdom.com/<source
     slug>/<post date>``. When an old item already holds that guid, the old
