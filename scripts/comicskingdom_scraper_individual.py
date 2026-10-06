@@ -14,7 +14,7 @@ import json
 import re
 import argparse
 import pickle
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 from selenium import webdriver
@@ -24,6 +24,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from comiccaster.comicskingdom_catalog import load_comicskingdom_catalog
+from comiccaster.comicskingdom_reruns import archive_date, rerun_schedule
 from comiccaster.webdriver_setup import build_chrome_driver
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -415,7 +416,7 @@ def load_recorded_posts(data_dir, date_str):
     return recorded
 
 
-def scrape_comic_page(driver, comic_slug, date_str, name, feed_slug=None):
+def scrape_comic_page(driver, comic_slug, date_str, name, feed_slug=None, rerun_date=None):
     """Record the post a comic's page displays for ``date_str``.
 
     ``comic_slug`` is the identifier Comics Kingdom serves the strip under;
@@ -426,10 +427,19 @@ def scrape_comic_page(driver, comic_slug, date_str, name, feed_slug=None):
     Returns ``(record, None)``, or ``(None, reason)`` when the page shows no
     post. ``date`` and ``url`` are the requested night and page; ``post_date``
     and ``post_url`` are the displayed post's own.
+
+    ``rerun_date`` (YYYY-MM-DD) is the archive date a rerun series delivers
+    tonight (comiccaster/comicskingdom_reruns.py). The page loaded is then that
+    date's vintage archive page, and the record carries ``rerun_date``. When the
+    archive has no strip of its own on that date, the page shows an earlier one:
+    the record keeps both dates and no images, so nothing is delivered.
     """
     global _SCRAPE_CALL_COUNT
     _SCRAPE_CALL_COUNT += 1
-    url = f"https://comicskingdom.com/{comic_slug}/{date_str}"
+    if rerun_date:
+        url = f"https://comicskingdom.com/vintage/{comic_slug}/{rerun_date}"
+    else:
+        url = f"https://comicskingdom.com/{comic_slug}/{date_str}"
 
     try:
         if _SCRAPE_CALL_COUNT <= 5:
@@ -439,7 +449,7 @@ def scrape_comic_page(driver, comic_slug, date_str, name, feed_slug=None):
             _log_timing(f"scrape_comic_page[{_SCRAPE_CALL_COUNT}]: driver.get({comic_slug}) END")
         time.sleep(2)
 
-        post, reason = extract_displayed_post(driver.page_source, comic_slug, date_str)
+        post, reason = extract_displayed_post(driver.page_source, comic_slug, rerun_date or date_str)
     except Exception as e:
         print(f"  ⚠️  Error scraping {comic_slug}: {e}")
         return None, f"error ({type(e).__name__})"
@@ -456,6 +466,10 @@ def scrape_comic_page(driver, comic_slug, date_str, name, feed_slug=None):
         'post_date': post['post_date'],
         'post_url': post['post_url'],
     }
+    if rerun_date:
+        record['rerun_date'] = rerun_date
+        if post['post_date'] != rerun_date:
+            return record, None
     image_urls = post['image_urls']
     if len(image_urls) == 1:
         record['image_url'] = image_urls[0]
@@ -473,8 +487,14 @@ def scrape_all_comics(driver, comics, date_str, recorded_posts=None):
     (load_recorded_posts): a record matching one counts as a repeat. A post
     dated before tonight can still be new -- late uploaders' strips first
     appear the night after their post date.
+
+    A rerun series on or after its anchor loads its scheduled archive date
+    instead (scrape_comic_page's ``rerun_date``), still one page per comic. Its
+    record is delivered when the archive has a strip of its own that date, and
+    a gap otherwise; reruns are totalled apart from repeats.
     """
     recorded_posts = recorded_posts or set()
+    night = date.fromisoformat(date_str)
     print(f"\n{'='*80}")
     print(f"Scraping {len(comics)} Comics Kingdom comics for {date_str}")
     print("="*80)
@@ -482,6 +502,8 @@ def scrape_all_comics(driver, comics, date_str, recorded_posts=None):
     results = []
     repeats = 0
     not_recorded = []
+    delivered = []
+    gaps = []
 
     for i, comic in enumerate(comics, 1):
         slug = comic['slug']
@@ -494,13 +516,20 @@ def scrape_all_comics(driver, comics, date_str, recorded_posts=None):
         source_slug = comic.get('source_slug') or slug
         print(f"[{i}/{len(comics)}] Scraping {comic['name']} ({slug})...")
 
+        schedule = rerun_schedule(comic)
+        rerun = archive_date(schedule, night) if schedule else None
+        rerun_date = rerun.isoformat() if rerun else None
+
         record, reason = scrape_comic_page(
-            driver, source_slug, date_str, name=comic['name'], feed_slug=slug
+            driver, source_slug, date_str, name=comic['name'], feed_slug=slug,
+            rerun_date=rerun_date,
         )
 
         if record:
             results.append(record)
-            if (slug, record['post_date']) in recorded_posts:
+            if rerun_date:
+                (delivered if record['post_date'] == rerun_date else gaps).append((slug, rerun_date))
+            elif (slug, record['post_date']) in recorded_posts:
                 repeats += 1
         else:
             not_recorded.append((slug, reason))
@@ -514,6 +543,12 @@ def scrape_all_comics(driver, comics, date_str, recorded_posts=None):
     print(f"Not recorded: {len(not_recorded)}")
     for slug, reason in not_recorded:
         print(f"  - {slug}: {reason}")
+    print(f"Reruns delivered: {len(delivered)}")
+    for slug, rerun_date in delivered:
+        print(f"  - {slug}: {rerun_date}")
+    print(f"Rerun gaps: {len(gaps)}")
+    for slug, rerun_date in gaps:
+        print(f"  - {slug}: no strip dated {rerun_date}")
     return results
 
 
