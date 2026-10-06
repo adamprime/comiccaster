@@ -58,7 +58,7 @@ A LaunchAgent, `com.comiccaster.farside`, runs `scripts/mini_farside_morning.sh`
 3. Fetches refs and checks `origin/main`'s copy of today's file. If that is already a complete dose, it logs `already-shipped` and exits.
 4. Scrapes today's Daily Dose only (`scrape_farside.py --daily-only --date <today>`) and judges it. A dose ships at exactly 5 strips Monday to Friday and 2 on Saturday and Sunday (`farside_morning.py:81-104`). The noon slot ships anything that passes the guard's minimum.
 5. To ship, it runs the SSH preflight, then the safe-sync check. The checkout must be on `main`, its HEAD an ancestor of `origin/main`, with no tracked changes except the slot's own daily file. Then it resets to `origin/main`, carrying its own file across, and regenerates.
-6. Commits exactly two paths, `data/farside_daily_<date>.json` and `public/feeds/farside-daily.xml`, as `Far Side Daily Dose for <date>`. The body names the last slot that missed. It restores `farside-new.xml`, which the generator also rewrites, then pushes and verifies the push landed.
+6. Commits exactly two paths, `data/farside_daily_<date>.json` and `public/feeds/farside-daily.xml`, as `Far Side Daily Dose for <date>`. The body names the last slot that missed. It regenerates the Daily Dose feed only (`--daily-only`), then pushes and verifies the push landed.
 
 **Alerting and Pass 1:**
 
@@ -109,12 +109,13 @@ PR #220 lists the review findings it did not apply. Notable ones:
 
 - fetches and `ssh -T` have no timeout while holding the lock;
 - a noon slot whose lock wait times out dispatches nothing;
-- `generate_farside_feeds.py` exits 1 when only the New Stuff half fails, which would block every slot from shipping;
 - `check-terminal` skips silently if the slot log is deleted.
+
+A fourth, fixed on 2026-10-06: `generate_farside_feeds.py` exited 1 when only the New Stuff half failed (a corrupt New Stuff snapshot), which would have stopped every slot from shipping the dose. The morning pass now runs it with `--daily-only`, which never touches New Stuff; `tests/test_farside_generator.py` pins it.
 
 ### Tests
 
-`tests/test_farside_morning.py` covers the slot date, finality, the weekday and weekend counts, the ship decision, the safe-sync verdicts, the log format and `check-terminal`'s exit codes, including an unreadable log. `tests/test_scrape_farside.py` covers the scraper's new flags. `tests/test_check_pipeline_heartbeat.py` pins that morning commits are ignored. `tests/test_report_pipeline_failures.py` covers the `farside-new` slug.
+`tests/test_farside_morning.py` covers the slot date, finality, the weekday and weekend counts, the ship decision, the safe-sync verdicts, the log format and `check-terminal`'s exit codes, including an unreadable log. `tests/test_scrape_farside.py` covers the scraper's new flags, and `tests/test_farside_generator.py` the generator's `--daily-only`. `tests/test_check_pipeline_heartbeat.py` pins that morning commits are ignored. `tests/test_report_pipeline_failures.py` covers the `farside-new` slug.
 
 ## Related Issues
 

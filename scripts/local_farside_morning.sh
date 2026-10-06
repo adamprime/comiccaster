@@ -193,10 +193,10 @@ git reset -q --hard origin/main
 cp "$CARRY_DIR/$(basename "$DAILY")" "$DAILY"
 rm -rf "$CARRY_DIR"
 
-# On failure restore only the two feeds the generator writes; any other feed
-# is not ours to touch.
-if ! "$PY" scripts/generate_farside_feeds.py; then
-    git checkout -- public/feeds/farside-daily.xml public/feeds/farside-new.xml 2>/dev/null
+# Daily Dose only: a broken New Stuff snapshot must not stop the dose shipping.
+# On failure restore the one feed the generator wrote.
+if ! "$PY" scripts/generate_farside_feeds.py --daily-only; then
+    git checkout -- public/feeds/farside-daily.xml 2>/dev/null
     stop_slot generate-failed generate "$COUNT"
 fi
 
@@ -210,14 +210,12 @@ git add -f "$DAILY" public/feeds/farside-daily.xml
 if ! git commit -q -m "Far Side Daily Dose for $SLOT_DATE" -m "$BODY" -- "$DAILY" public/feeds/farside-daily.xml; then
     # No commit of ours exists, and the operator may have edited since the
     # safe-sync check, so no --hard reset: unstage our two paths and restore the
-    # feeds the generator rewrote (safe-sync proved they were clean beforehand).
+    # feed the generator rewrote (safe-sync proved it was clean beforehand).
     git reset -q -- "$DAILY" public/feeds/farside-daily.xml 2>/dev/null
-    git checkout -- public/feeds/farside-daily.xml public/feeds/farside-new.xml 2>/dev/null
+    git checkout -- public/feeds/farside-daily.xml 2>/dev/null
     stop_slot commit-failed commit "$COUNT"
 fi
 OUR_COMMIT="$(git rev-parse HEAD)"
-# The generator rewrites the New Stuff feed too; it is not ours to ship.
-git checkout -- public/feeds/farside-new.xml 2>/dev/null
 
 push_with_watchdog() {
     ( exec git push origin main ) &
