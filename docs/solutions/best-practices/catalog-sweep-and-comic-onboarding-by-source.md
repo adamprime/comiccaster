@@ -343,8 +343,10 @@ non-vintage titles only.
   `political_comics_list.json`, never both. Since PR #208, both CK scripts load
   both lists through `load_comicskingdom_catalog`
   (`comiccaster/comicskingdom_catalog.py:22`). Set `source_slug` when CK's path
-  differs from the feed slug. Vintage titles take `source_variant: "vintage"`, and
-  their feeds are subject to open issue #216 (vintage feeds stuck on one strip).
+  differs from the feed slug. Vintage titles take `source_variant: "vintage"`. A fixed
+  archive (one whose newest post no longer moves) also needs measured
+  `rerun_start`/`rerun_end`/`rerun_anchor` values, or its feed stays frozen on one
+  strip: see `docs/solutions/best-practices/comicskingdom-vintage-reruns.md`.
 - Keep the catalog size in the `SOURCE_RULES` note, and the ~94% floor, in step
   (`scripts/check_scrape_counts.py:45-46`), as e520b129fb did.
 
@@ -407,8 +409,9 @@ after PR #212 (commit a65f53186e).
 Running §2 against the saved 2026-09-28 `/features` page reports
 `the-little-king` (vintage, Otto Soglow). It is in no catalog and is not a known
 exclusion. The sweep's link-based pass couldn't see it, because its only link is
-`/vintage/the-little-king/1958-12-28`. It is undecided as of this writing, and
-adding it would give the vintage problem tracked in #216 another feed.
+`/vintage/the-little-king/1958-12-28`. It is undecided as of this writing. Adding it
+now means measuring its archive and giving it rerun values like the other fixed
+archives (`docs/solutions/best-practices/comicskingdom-vintage-reruns.md`).
 
 ## Related
 

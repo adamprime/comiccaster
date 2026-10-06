@@ -333,3 +333,72 @@ def test_every_spanish_comicskingdom_entry_is_loaded(load, monkeypatch):
         f"comic to {DAILY} or {POLITICAL} (see docs/solutions/ui-bugs/"
         f"spanish-ui-filter-missing-comics-source-list-mismatch.md)."
     )
+
+
+# --- Vintage reruns (#216) -------------------------------------------------
+#
+# 32 of Comics Kingdom's 33 vintage series are fixed archives that ComicCaster
+# replays on its own schedule (comiccaster/comicskingdom_reruns.py). Bringing Up
+# Father is vintage too, but Comics Kingdom still reposts it daily, so it must
+# never be rerun.
+
+REPOSTED_VINTAGE = {"bringing-up-father"}
+
+# Daily and Sunday halves of one strip. Each pair shares its archive-to-delivery
+# offset and its loop length, so a story's Sunday page arrives in the same week
+# as its dailies, on every loop.
+RERUN_PAIRS = [
+    ("the-phantom-vintage", "the-phantom-vintage-sunday"),
+    ("flash-gordon-vintage", "flash-gordon-vintage-sunday"),
+    ("mandrake-the-magician-vintage", "mandrake-the-magician-vintage-sunday"),
+    ("tiger-vintage", "tiger-vintage-sunday"),
+]
+
+
+def _rerun_entries():
+    from comiccaster.comicskingdom_reruns import rerun_schedule
+    return {comic["slug"]: rerun_schedule(comic)
+            for _, comic in _entries() if rerun_schedule(comic) is not None}
+
+
+def test_every_fixed_vintage_archive_is_rerun_and_nothing_else_is():
+    fixed = {comic["slug"] for _, comic in _entries()
+             if comic.get("source") == "comicskingdom"
+             and comic.get("source_variant") == "vintage"
+             and comic["slug"] not in REPOSTED_VINTAGE}
+    rerun = set(_rerun_entries())
+    assert len(fixed) == 32
+    assert rerun == fixed, (
+        f"fixed vintage archives without a rerun schedule: {sorted(fixed - rerun)}\n"
+        f"rerun schedules on other comics: {sorted(rerun - fixed)}"
+    )
+
+
+def test_every_rerun_schedule_is_well_formed():
+    urls = {comic["slug"]: comic["url"] for _, comic in _entries()}
+    problems = []
+    for slug, schedule in _rerun_entries().items():
+        if schedule.start > schedule.end:
+            problems.append(f"{slug}: start {schedule.start} is after end {schedule.end}")
+        if schedule.anchor.weekday() != schedule.start.weekday():
+            problems.append(f"{slug}: anchor {schedule.anchor} is not on the start's weekday")
+        if urls[slug] != f"https://comicskingdom.com/vintage/{slug}":
+            problems.append(f"{slug}: url {urls[slug]} is not its vintage archive")
+    assert not problems, "\n".join(problems)
+
+
+@pytest.mark.parametrize("daily,sunday", RERUN_PAIRS)
+def test_paired_daily_and_sunday_archives_stay_in_step(daily, sunday):
+    schedules = _rerun_entries()
+    d, s = schedules[daily], schedules[sunday]
+    assert d.start - d.anchor == s.start - s.anchor, "the pair maps one delivery day to different archive weeks"
+    assert d.loop_days == s.loop_days, "the pair would drift apart after the first loop"
+
+
+def test_the_comicskingdom_loader_carries_the_rerun_fields(monkeypatch):
+    from comiccaster.comicskingdom_catalog import load_comicskingdom_catalog
+    from comiccaster.comicskingdom_reruns import rerun_schedule
+    monkeypatch.chdir(PROJECT_ROOT)
+    loaded = {comic["slug"]: comic for comic in load_comicskingdom_catalog("public")}
+    assert rerun_schedule(loaded["beetle-bailey-vintage"]) == _rerun_entries()["beetle-bailey-vintage"]
+    assert rerun_schedule(loaded["bringing-up-father"]) is None

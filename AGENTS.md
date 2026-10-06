@@ -64,6 +64,7 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
    - `scraper_factory.py` - Factory pattern for selecting appropriate scraper
    - `*_scraper.py` - Source-specific scrapers
    - `loader.py` - Comic configuration management
+   - `comicskingdom_reruns.py` - Calendar schedule that replays Comics Kingdom's fixed vintage archives (`CONCEPTS.md` "Rerun schedule")
    - `web_interface.py` - Flask web application
 
 2. **public/** - Static files served by Netlify

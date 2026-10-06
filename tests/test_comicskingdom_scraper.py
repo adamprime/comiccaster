@@ -1358,3 +1358,108 @@ class TestLoadComicsCatalog:
         )
         duplicated = sorted({s for s in slugs if slugs.count(s) > 1})
         assert not duplicated, f"Slugs the scraper would visit twice: {duplicated}"
+
+
+# --- vintage reruns (U9) -----------------------------------------------------
+
+
+def _ck_query(feature, before):
+    return ('#url:"/wp-json/wp/v2/posts",args:#sourceUrl:"https://wp.comicskingdom.com",'
+            f'postType:"ck_comic",per_page:10,order:"desc",date_inclusive:true,'
+            f'ck_feature:"{feature}",before_ymd:"{before}",_embed:true,,')
+
+
+BEETLE_RERUN = {'name': 'Beetle Bailey Vintage', 'slug': 'beetle-bailey-vintage',
+                'source_variant': 'vintage', 'rerun_start': '1953-10-05',
+                'rerun_end': '1967-12-31', 'rerun_anchor': '2026-10-19'}
+JUNGLE_JIM_RERUN = {'name': 'Jungle Jim Sundays', 'slug': 'jungle-jim-sundays',
+                    'source_variant': 'vintage', 'rerun_start': '1933-12-24',
+                    'rerun_end': '1941-12-28', 'rerun_anchor': '2026-10-11'}
+BUF_VINTAGE = {'name': 'Bringing Up Father', 'slug': 'bringing-up-father',
+               'source_variant': 'vintage'}
+
+BEETLE_19531005 = _post(
+    5640001, '1953-10-05', 'https://wp.comicskingdom.com/vintage/beetle-bailey-vintage/1953-10-05',
+    single=f'{UPLOADS}/1953/10/Beetle-Bailey.ENG_.1953-10-05.jpeg', slug='beetle-bailey-1-1953-10-05',
+)
+JUNGLE_JIM_19331224 = _post(
+    5650001, '1933-12-24', 'https://wp.comicskingdom.com/vintage/jungle-jim-sundays/1933-12-24',
+    single=f'{UPLOADS}/1933/12/Jungle-Jim.ENG_.1933-12-24.jpeg',
+)
+BEETLE_RERUN_URL = 'https://comicskingdom.com/vintage/beetle-bailey-vintage/1953-10-05'
+BEETLE_RERUN_PAGE = ck_page({_ck_query('beetle-bailey-vintage', '1953-10-05'): _result(BEETLE_19531005)})
+# Wednesday 2026-10-14 maps to Wednesday 1933-12-27; the page shows the Sunday before.
+JUNGLE_JIM_GAP_URL = 'https://comicskingdom.com/vintage/jungle-jim-sundays/1933-12-27'
+JUNGLE_JIM_GAP_PAGE = ck_page({_ck_query('jungle-jim-sundays', '1933-12-27'): _result(JUNGLE_JIM_19331224)})
+
+
+class TestRerunPath:
+    """On and after its anchor, a fixed vintage archive loads its archive date."""
+
+    def test_delivered_rerun_records_the_archive_strip(self, monkeypatch, capsys):
+        # AE4: the anchor night delivers the range's first strip.
+        results = _scrape(monkeypatch, [BEETLE_RERUN], {BEETLE_RERUN_URL: BEETLE_RERUN_PAGE},
+                          date='2026-10-19')
+
+        assert results == [{
+            'name': 'Beetle Bailey Vintage',
+            'slug': 'beetle-bailey-vintage',
+            'date': '2026-10-19',
+            'url': BEETLE_RERUN_URL,
+            'source': 'comicskingdom',
+            'post_date': '1953-10-05',
+            'post_url': BEETLE_RERUN_URL,
+            'rerun_date': '1953-10-05',
+            'image_url': f'{UPLOADS}/1953/10/Beetle-Bailey.ENG_.1953-10-05.jpeg',
+        }]
+        out = capsys.readouterr().out
+        assert 'Reruns delivered: 1' in out
+        assert 'Rerun gaps: 0' in out
+
+    def test_gap_is_recorded_without_images_and_named(self, monkeypatch, capsys):
+        # AE5: a Sunday-only series on a Wednesday.
+        results = _scrape(monkeypatch, [JUNGLE_JIM_RERUN], {JUNGLE_JIM_GAP_URL: JUNGLE_JIM_GAP_PAGE},
+                          date='2026-10-14')
+
+        assert len(results) == 1
+        record = results[0]
+        assert record['rerun_date'] == '1933-12-27'
+        assert record['post_date'] == '1933-12-24'
+        assert 'image_url' not in record and 'image_urls' not in record
+        out = capsys.readouterr().out
+        assert 'Recorded: 1 of 1' in out
+        assert 'Reruns delivered: 0' in out
+        assert 'Rerun gaps: 1' in out
+        assert any('jungle-jim-sundays' in line and '1933-12-27' in line for line in out.splitlines())
+
+    def test_the_night_before_the_anchor_takes_the_ordinary_path(self, monkeypatch):
+        frozen = ck_page({_ck_query('beetle-bailey-vintage', '2026-10-18'): _result(BEETLE_1967)})
+        results = _scrape(monkeypatch, [BEETLE_RERUN],
+                          {'https://comicskingdom.com/beetle-bailey-vintage/2026-10-18': frozen},
+                          date='2026-10-18')
+
+        assert results[0]['url'] == 'https://comicskingdom.com/beetle-bailey-vintage/2026-10-18'
+        assert results[0]['post_date'] == '1967-10-01'
+        assert 'rerun_date' not in results[0]
+
+    def test_a_comic_without_rerun_fields_never_reruns(self, monkeypatch):
+        results = _scrape(monkeypatch, [BUF_VINTAGE],
+                          {'https://comicskingdom.com/bringing-up-father/2026-10-01': BUF_PAGE})
+
+        assert 'rerun_date' not in results[0]
+        assert results[0]['url'] == 'https://comicskingdom.com/bringing-up-father/2026-10-01'
+
+    def test_one_page_load_per_comic_and_reruns_in_the_written_file(self, monkeypatch, tmp_path):
+        zits_1019 = ck_page({_ck_query('zits', '2026-10-19'): _result(ZITS_1001)})
+        rc, driver = _run_main_with_pages(
+            monkeypatch, tmp_path,
+            catalog=[ZITS, BEETLE_RERUN],
+            pages={'https://comicskingdom.com/zits/2026-10-19': zits_1019,
+                   BEETLE_RERUN_URL: BEETLE_RERUN_PAGE},
+            date='2026-10-19',
+        )
+
+        assert rc == 0
+        assert len(driver.requested) == 2
+        records = json.loads((tmp_path / 'comicskingdom_2026-10-19.json').read_text())
+        assert [r.get('rerun_date') for r in records] == [None, '1953-10-05']

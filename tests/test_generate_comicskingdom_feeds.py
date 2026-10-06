@@ -276,6 +276,9 @@ CK_DAILY = [
     # Shows the same 2023 post every night.
     {'name': 'Pros & Cons', 'slug': 'pros-cons', 'source': 'comicskingdom',
      'url': 'https://comicskingdom.com/pros-cons'},
+    # A fixed archive that ComicCaster reruns.
+    {'name': 'Beetle Bailey Vintage', 'slug': 'beetle-bailey-vintage', 'source': 'comicskingdom',
+     'source_variant': 'vintage', 'url': 'https://comicskingdom.com/vintage/beetle-bailey-vintage'},
 ]
 
 CK_POLITICAL = [
@@ -843,3 +846,141 @@ class TestPostDatedStrips:
         assert [w for w in _warnings_naming(caplog, path.name) if 'post_date' in w.getMessage()]
         assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', '2026-09-30')]
         assert ck_guids(ck_repo, 'mostly-gravy') == [ck_url('mostly-gravy', NEWEST)]
+
+
+def rerun_record(slug, delivery, archive, post_date=None, images=None):
+    """A record from the scraper's rerun path. A gap shows another date's post and has no images."""
+    post_date = post_date or archive
+    url = f'https://comicskingdom.com/vintage/{slug}/{archive}'
+    record = {'name': slug.replace('-', ' ').title(), 'slug': slug, 'date': delivery, 'url': url,
+              'source': 'comicskingdom', 'post_date': post_date,
+              'post_url': f'https://comicskingdom.com/vintage/{slug}/{post_date}', 'rerun_date': archive}
+    if post_date == archive:
+        record['image_url'] = (images or [_image(slug, archive)])[0]
+    return record
+
+
+class TestReruns:
+    """KTD10: a rerun is identified by its comic and delivery date."""
+
+    def test_delivered_rerun_is_one_item_dated_by_delivery_and_titled_by_print_date(self, ck_repo):
+        # AE4: listed although its print date is decades outside the window.
+        save_ck_day(ck_repo, NEWEST, [rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-05')])
+
+        assert build_ck() == 0
+
+        [item] = ck_items(ck_repo, 'beetle-bailey-vintage')
+        assert item['guid'] == 'ck-rerun-beetle-bailey-vintage-2026-10-01'
+        assert item['guid_is_permalink'] == 'false'
+        assert item['link'] == 'https://comicskingdom.com/vintage/beetle-bailey-vintage/1953-10-05'
+        assert item['title'] == 'Beetle Bailey Vintage - 1953-10-05'
+        assert item['pub_date'] == 'Thu, 01 Oct 2026 00:00:00 +0000'
+        assert item['images'] == [_image('beetle-bailey-vintage', '1953-10-05')]
+
+    def test_a_gap_is_never_listed_and_an_all_gap_feed_stays_byte_identical(self, ck_repo):
+        # AE5
+        existing = ck_feed(ck_repo, 'beetle-bailey-vintage')
+        existing.write_bytes(b'<rss><channel><title>frozen</title></channel></rss>')
+        before = existing.read_bytes()
+        save_ck_day(ck_repo, NEWEST, [rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-11',
+                                                   post_date='1953-10-10')])
+
+        assert build_ck() == 0
+
+        assert existing.read_bytes() == before
+
+    def test_the_same_archive_date_on_two_loops_is_two_items(self, ck_repo):
+        # AE6: a later loop delivers the first strip again, as a new item.
+        save_ck_day(ck_repo, '2026-09-01', [rerun_record('beetle-bailey-vintage', '2026-09-01', '1953-10-05')])
+        save_ck_day(ck_repo, NEWEST, [rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-05')])
+
+        build_ck()
+
+        assert sorted(ck_guids(ck_repo, 'beetle-bailey-vintage')) == [
+            'ck-rerun-beetle-bailey-vintage-2026-09-01', 'ck-rerun-beetle-bailey-vintage-2026-10-01']
+
+    def test_go_live_lists_only_the_reruns_not_the_frozen_strip(self, ck_repo):
+        # Go-live as it really lands: the window still holds old-format nights whose
+        # frozen strip is first sighted inside it, then post-dated nights of the same
+        # 1967 post, then three reruns. Only the reruns are listed; without the
+        # reruns-only rule the frozen first sighting would sit beside them.
+        nights = _days(WINDOW_START, 90)
+        frozen = [_image('beetle-bailey-vintage', 'frozen')]
+        for day in nights[:40]:
+            save_ck_day(ck_repo, day, [ck_record('beetle-bailey-vintage', day, frozen)])
+        for day in nights[40:-3]:
+            save_ck_day(ck_repo, day, [ck_record('beetle-bailey-vintage', day, frozen,
+                                                 post_date='1967-12-31')])
+        archive = ['1953-10-05', '1953-10-06', '1953-10-07']
+        for day, print_day in zip(nights[-3:], archive):
+            save_ck_day(ck_repo, day, [rerun_record('beetle-bailey-vintage', day, print_day)])
+
+        build_ck()
+
+        assert sorted(ck_guids(ck_repo, 'beetle-bailey-vintage')) == [
+            f'ck-rerun-beetle-bailey-vintage-{day}' for day in nights[-3:]]
+
+    def test_a_rerun_before_the_window_is_not_listed(self, ck_repo):
+        save_ck_day(ck_repo, DAY_BEFORE_WINDOW,
+                    [rerun_record('beetle-bailey-vintage', DAY_BEFORE_WINDOW, '1953-10-05')])
+        save_ck_day(ck_repo, WINDOW_START,
+                    [rerun_record('beetle-bailey-vintage', WINDOW_START, '1953-10-06')])
+        save_ck_day(ck_repo, NEWEST, [rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-07')])
+
+        build_ck()
+
+        assert sorted(ck_guids(ck_repo, 'beetle-bailey-vintage')) == [
+            f'ck-rerun-beetle-bailey-vintage-{WINDOW_START}', f'ck-rerun-beetle-bailey-vintage-{NEWEST}']
+
+    def test_a_series_whose_only_rerun_left_the_window_is_not_written(self, ck_repo):
+        save_ck_day(ck_repo, DAY_BEFORE_WINDOW,
+                    [rerun_record('beetle-bailey-vintage', DAY_BEFORE_WINDOW, '1953-10-05')])
+        save_ck_day(ck_repo, NEWEST, [ck_record('blondie', NEWEST, [_image('blondie', 'b')],
+                                                post_date=NEWEST)])
+
+        build_ck()
+
+        assert not ck_feed(ck_repo, 'beetle-bailey-vintage').exists()
+
+    def test_old_post_dated_and_rerun_records_list_only_reruns(self, ck_repo):
+        save_ck_day(ck_repo, '2026-09-28', [ck_record('beetle-bailey-vintage', '2026-09-28',
+                                                      [_image('beetle-bailey-vintage', 'old')])])
+        save_ck_day(ck_repo, '2026-09-29', [ck_record('beetle-bailey-vintage', '2026-09-29',
+                                                      [_image('beetle-bailey-vintage', 'frozen')],
+                                                      post_date='1967-12-31')])
+        save_ck_day(ck_repo, NEWEST, [rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-05')])
+
+        build_ck()
+
+        assert ck_guids(ck_repo, 'beetle-bailey-vintage') == ['ck-rerun-beetle-bailey-vintage-2026-10-01']
+
+    def test_bringing_up_fathers_post_dated_records_list_normally(self, ck_repo):
+        save_ck_day(ck_repo, NEWEST, [
+            ck_record('bringing-up-father', NEWEST, [_image('buf', NEWEST)], post_date=NEWEST),
+            rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-05'),
+        ])
+
+        build_ck()
+
+        assert ck_guids(ck_repo, 'bringing-up-father') == [ck_url('bringing-up-father', NEWEST)]
+
+    def test_malformed_rerun_date_is_skipped_with_a_warning(self, ck_repo, caplog):
+        record = rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-05')
+        record['rerun_date'] = '1953-10-5'
+        save_ck_day(ck_repo, NEWEST, [record])
+
+        build_ck()
+
+        assert not ck_feed(ck_repo, 'beetle-bailey-vintage').exists()
+        assert _warnings_naming(caplog, 'rerun_date')
+
+    def test_rerun_record_without_a_post_date_is_skipped_not_fatal(self, ck_repo):
+        broken = rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-05')
+        del broken['post_date']
+        save_ck_day(ck_repo, NEWEST, [broken, ck_record('blondie', NEWEST, [_image('blondie', 'b')],
+                                                        post_date=NEWEST)])
+
+        assert build_ck() == 0
+
+        assert not ck_feed(ck_repo, 'beetle-bailey-vintage').exists()
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', NEWEST)]
