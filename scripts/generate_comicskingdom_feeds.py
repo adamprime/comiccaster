@@ -27,6 +27,11 @@ set, dated by its first sighting: the earliest
   strip saved a night late, and the new strip is listed under its guid + #post.
 - A comic with nothing in the window is not written at all: its existing feed
   file stays byte-identical and no new one is created.
+- A vintage rerun record (``rerun_date``, comiccaster/comicskingdom_reruns.py)
+  is one strip per comic and delivery night, guid
+  ``ck-rerun-<slug>-<delivery date>``, listed only when the archive had a strip
+  of its own that date. Once a series has a rerun in the window, its feed lists
+  reruns only.
 
 Records saved before #216 still rest on first sighting, so until the last of
 them leaves the window, never overwrite, relabel or delete an existing Comics

@@ -565,7 +565,8 @@ def main():
              'the 90-date window: backfilling it would re-send strips older records '
              'saved a night late. Never overwrite an existing data file: records '
              'saved before #216 still rest on first sighting (CONCEPTS.md "Strip '
-             'identity").',
+             'identity"). A vintage rerun series loads the archive date its '
+             'schedule gives for this date (CONCEPTS.md "Rerun schedule").',
     )
     parser.add_argument('--output-dir', default='data', help='Output directory for JSON files')
     parser.add_argument('--show-browser', action='store_true', help='Show browser window')
