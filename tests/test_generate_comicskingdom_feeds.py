@@ -947,3 +947,14 @@ class TestReruns:
 
         assert not ck_feed(ck_repo, 'beetle-bailey-vintage').exists()
         assert _warnings_naming(caplog, 'rerun_date')
+
+    def test_rerun_record_without_a_post_date_is_skipped_not_fatal(self, ck_repo):
+        broken = rerun_record('beetle-bailey-vintage', NEWEST, '1953-10-05')
+        del broken['post_date']
+        save_ck_day(ck_repo, NEWEST, [broken, ck_record('blondie', NEWEST, [_image('blondie', 'b')],
+                                                        post_date=NEWEST)])
+
+        assert build_ck() == 0
+
+        assert not ck_feed(ck_repo, 'beetle-bailey-vintage').exists()
+        assert ck_guids(ck_repo, 'blondie') == [ck_url('blondie', NEWEST)]

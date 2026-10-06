@@ -48,12 +48,13 @@ import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
 import pytz
-from typing import Dict, List, Tuple
+from typing import Dict, List, Sequence, Tuple
 
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from comiccaster.comicskingdom_catalog import load_comicskingdom_catalog
+from comiccaster.comicskingdom_reruns import is_delivered
 from comiccaster.feed_generator import ComicFeedGenerator
 
 logger = logging.getLogger(__name__)
@@ -171,7 +172,7 @@ def load_window_strips(
                 continue
             images = image_urls(record)
             if 'rerun_date' in record:
-                if images and record['post_date'] == record['rerun_date'] and file_date >= window_start:
+                if images and is_delivered(record) and file_date >= window_start:
                     reruns.setdefault(record['slug'], []).append(record)
                 continue
             if not images:
@@ -222,26 +223,25 @@ def strip_entry(comic_info: Dict, strip: Dict, day: str, link: str, guid: str) -
     }
 
 
-def rerun_entries(comic_info: Dict, reruns: List[Dict]) -> List[Dict]:
+def rerun_entries(comic_info: Dict, reruns: Sequence[Dict]) -> List[Dict]:
     """One item per delivered rerun, identified by its comic and delivery date.
 
     Guid ``ck-rerun-<slug>-<delivery date>``, so a later loop that delivers the
     same archive date again is a new item. Link: the strip's archive page. The
     title and description carry the print date; pubDate is the delivery date.
+    The link is the record's ``url``: the archive page the scraper loaded.
     """
-    source_slug = comic_info.get('source_slug') or comic_info['slug']
     entries = []
     for strip in reruns:
-        link = f"https://comicskingdom.com/vintage/{source_slug}/{strip['rerun_date']}"
         guid = f"ck-rerun-{comic_info['slug']}-{strip['date']}"
-        entry = strip_entry(comic_info, strip, strip['rerun_date'], link, guid)
+        entry = strip_entry(comic_info, strip, strip['rerun_date'], strip['url'], guid)
         entry['pub_date'] = datetime.strptime(strip['date'], '%Y-%m-%d').replace(tzinfo=pytz.UTC)
         entries.append(entry)
     return entries
 
 
 def feed_entries(comic_info: Dict, old_strips: List[Dict], posted_strips: List[Dict],
-                 reruns: List[Dict] = ()) -> List[Dict]:
+                 reruns: Sequence[Dict] = ()) -> List[Dict]:
     """One comic's items: its old first sightings, then its post-dated strips.
 
     A rerun series with a delivered rerun in the window lists its reruns only,
@@ -281,7 +281,7 @@ def feed_entries(comic_info: Dict, old_strips: List[Dict], posted_strips: List[D
 
 
 def generate_feed_for_comic(comic_info: Dict, old_strips: List[Dict], posted_strips: List[Dict],
-                            generator: ComicFeedGenerator, reruns: List[Dict] = ()) -> bool:
+                            generator: ComicFeedGenerator, reruns: Sequence[Dict] = ()) -> bool:
     """Write one comic's feed from its strips in the window. Returns True when written.
 
     With no strip to list the feed is not written, so an existing file stays as it is.

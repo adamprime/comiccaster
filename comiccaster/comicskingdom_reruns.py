@@ -59,3 +59,22 @@ def archive_date(schedule: RerunSchedule, delivery: date) -> Optional[date]:
         return None
     offset = (delivery - schedule.anchor).days % schedule.loop_days
     return schedule.start + timedelta(days=offset)
+
+
+def scheduled_archive_date(comic: Dict, delivery: date) -> Optional[date]:
+    """The archive date the catalog entry delivers on ``delivery``, or None.
+
+    None for a comic that is not rerun, and for a rerun series before its anchor.
+    """
+    schedule = rerun_schedule(comic)
+    return archive_date(schedule, delivery) if schedule else None
+
+
+def is_delivered(record: Dict) -> bool:
+    """True when a rerun record holds its archive date's own strip.
+
+    Otherwise it is a gap: the archive had no strip that date and the page showed
+    an earlier one. The scraper saves a gap without images, and the generator
+    never lists it.
+    """
+    return record.get('post_date') == record.get('rerun_date')

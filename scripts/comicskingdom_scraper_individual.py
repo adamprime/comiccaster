@@ -24,7 +24,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from comiccaster.comicskingdom_catalog import load_comicskingdom_catalog
-from comiccaster.comicskingdom_reruns import archive_date, rerun_schedule
+from comiccaster.comicskingdom_reruns import is_delivered, scheduled_archive_date
 from comiccaster.webdriver_setup import build_chrome_driver
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -468,7 +468,7 @@ def scrape_comic_page(driver, comic_slug, date_str, name, feed_slug=None, rerun_
     }
     if rerun_date:
         record['rerun_date'] = rerun_date
-        if post['post_date'] != rerun_date:
+        if not is_delivered(record):
             return record, None
     image_urls = post['image_urls']
     if len(image_urls) == 1:
@@ -516,8 +516,7 @@ def scrape_all_comics(driver, comics, date_str, recorded_posts=None):
         source_slug = comic.get('source_slug') or slug
         print(f"[{i}/{len(comics)}] Scraping {comic['name']} ({slug})...")
 
-        schedule = rerun_schedule(comic)
-        rerun = archive_date(schedule, night) if schedule else None
+        rerun = scheduled_archive_date(comic, night)
         rerun_date = rerun.isoformat() if rerun else None
 
         record, reason = scrape_comic_page(
@@ -528,7 +527,7 @@ def scrape_all_comics(driver, comics, date_str, recorded_posts=None):
         if record:
             results.append(record)
             if rerun_date:
-                (delivered if record['post_date'] == rerun_date else gaps).append((slug, rerun_date))
+                (delivered if is_delivered(record) else gaps).append((slug, rerun_date))
             elif (slug, record['post_date']) in recorded_posts:
                 repeats += 1
         else:
@@ -544,11 +543,11 @@ def scrape_all_comics(driver, comics, date_str, recorded_posts=None):
     for slug, reason in not_recorded:
         print(f"  - {slug}: {reason}")
     print(f"Reruns delivered: {len(delivered)}")
-    for slug, rerun_date in delivered:
-        print(f"  - {slug}: {rerun_date}")
+    for slug, archive in delivered:
+        print(f"  - {slug}: {archive}")
     print(f"Rerun gaps: {len(gaps)}")
-    for slug, rerun_date in gaps:
-        print(f"  - {slug}: no strip dated {rerun_date}")
+    for slug, archive in gaps:
+        print(f"  - {slug}: no strip dated {archive}")
     return results
 
 
