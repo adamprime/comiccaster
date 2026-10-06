@@ -2,7 +2,7 @@ requests==2.34.2
 tls-client==1.0.1
 beautifulsoup4==4.15.0
 feedgen==1.0.0
-python-dotenv==1.2.3
+python-dotenv==1.2.4
 APScheduler==3.11.3
 selenium==4.48.0
 webdriver-manager==4.1.2
