@@ -103,6 +103,14 @@ def image_urls(record: Dict) -> List[str]:
     return []
 
 
+def _is_exact_date(value) -> bool:
+    """True for a YYYY-MM-DD date. strptime alone accepts '2026-10-1', which would make a second guid."""
+    try:
+        return datetime.strptime(value, '%Y-%m-%d').strftime('%Y-%m-%d') == value
+    except (TypeError, ValueError):
+        return False
+
+
 def check_record(record) -> None:
     """Raise ValueError unless the record has the fields an item is built from."""
     if not isinstance(record, dict):
@@ -117,23 +125,22 @@ def check_record(record) -> None:
             raise ValueError("image_urls is not a list of text")
     elif 'image_url' in record and not isinstance(record['image_url'], str):
         raise ValueError("image_url is not text")
-    if 'post_date' in record:
-        post_date = record['post_date']
-        try:
-            # strptime alone accepts '2026-10-1', which would make a second guid.
-            exact = datetime.strptime(post_date, '%Y-%m-%d').strftime('%Y-%m-%d') == post_date
-        except (TypeError, ValueError):
-            exact = False
-        if not exact:
-            raise ValueError(f"post_date is not a YYYY-MM-DD date: {post_date!r:.40}")
+    for field in ('post_date', 'rerun_date'):
+        if field in record and not _is_exact_date(record[field]):
+            raise ValueError(f"{field} is not a YYYY-MM-DD date: {record[field]!r:.40}")
 
 
 def load_window_strips(
     files: List[Tuple[date, Path]]
-) -> Tuple[Dict[str, List[Dict]], Dict[str, List[Dict]]]:
-    """The strips each comic lists in the window, as two dicts by slug, oldest first.
+) -> Tuple[Dict[str, List[Dict]], Dict[str, List[Dict]], Dict[str, List[Dict]]]:
+    """The strips each comic lists in the window, as three dicts by slug, oldest first.
 
     Every file is read, oldest first.
+
+    - Rerun records (``rerun_date``, checked before anything else): one item per
+      slug and delivery night, listed when its file is in the window and the
+      archive had a strip of its own that date. A gap record carries an earlier
+      post and no images, and is never listed.
 
     - Old records (no ``post_date``): the first record holding a slug's image set
       is that strip's first sighting, listed when its file is in the window.
@@ -149,6 +156,7 @@ def load_window_strips(
 
     first_sightings: Dict[Tuple[str, Tuple[str, ...]], Tuple[date, Dict]] = {}
     posts: Dict[Tuple[str, str], Dict] = {}
+    reruns: Dict[str, List[Dict]] = {}
     for file_date, path in files:
         for position, record in enumerate(read_data_file(path)):
             try:
@@ -157,6 +165,10 @@ def load_window_strips(
                 logger.warning(f"Skipping malformed record #{position} in {path}: {e}")
                 continue
             images = image_urls(record)
+            if 'rerun_date' in record:
+                if images and record['post_date'] == record['rerun_date'] and file_date >= window_start:
+                    reruns.setdefault(record['slug'], []).append(record)
+                continue
             if not images:
                 continue
             if 'post_date' in record:
@@ -176,7 +188,7 @@ def load_window_strips(
     for (slug, post_date), record in sorted(posts.items()):
         if date.fromisoformat(post_date) >= window_start:
             posted.setdefault(slug, []).append(record)
-    return old, posted
+    return old, posted, reruns
 
 
 def load_comics_list(catalog_dir='public') -> List[Dict]:
@@ -205,8 +217,30 @@ def strip_entry(comic_info: Dict, strip: Dict, day: str, link: str, guid: str) -
     }
 
 
-def feed_entries(comic_info: Dict, old_strips: List[Dict], posted_strips: List[Dict]) -> List[Dict]:
+def rerun_entries(comic_info: Dict, reruns: List[Dict]) -> List[Dict]:
+    """One item per delivered rerun, identified by its comic and delivery date.
+
+    Guid ``ck-rerun-<slug>-<delivery date>``, so a later loop that delivers the
+    same archive date again is a new item. Link: the strip's archive page. The
+    title and description carry the print date; pubDate is the delivery date.
+    """
+    source_slug = comic_info.get('source_slug') or comic_info['slug']
+    entries = []
+    for strip in reruns:
+        link = f"https://comicskingdom.com/vintage/{source_slug}/{strip['rerun_date']}"
+        guid = f"ck-rerun-{comic_info['slug']}-{strip['date']}"
+        entry = strip_entry(comic_info, strip, strip['rerun_date'], link, guid)
+        entry['pub_date'] = datetime.strptime(strip['date'], '%Y-%m-%d').replace(tzinfo=pytz.UTC)
+        entries.append(entry)
+    return entries
+
+
+def feed_entries(comic_info: Dict, old_strips: List[Dict], posted_strips: List[Dict],
+                 reruns: List[Dict] = ()) -> List[Dict]:
     """One comic's items: its old first sightings, then its post-dated strips.
+
+    A rerun series with a delivered rerun in the window lists its reruns only,
+    so the frozen strip it showed every night before go-live drops out.
 
     A post-dated strip's guid and link are ``https://comicskingdom.com/<source
     slug>/<post date>``. When an old item already holds that guid, the old
@@ -217,6 +251,9 @@ def feed_entries(comic_info: Dict, old_strips: List[Dict], posted_strips: List[D
     - a trailing date: the old item holds an earlier strip saved a night late, so
       the post-dated strip is listed as well, under its guid plus ``#post``.
     """
+    if reruns:
+        return rerun_entries(comic_info, reruns)
+
     entries = [strip_entry(comic_info, strip, strip['date'], strip['url'], strip['url'])
                for strip in old_strips]
 
@@ -239,12 +276,12 @@ def feed_entries(comic_info: Dict, old_strips: List[Dict], posted_strips: List[D
 
 
 def generate_feed_for_comic(comic_info: Dict, old_strips: List[Dict], posted_strips: List[Dict],
-                            generator: ComicFeedGenerator) -> bool:
+                            generator: ComicFeedGenerator, reruns: List[Dict] = ()) -> bool:
     """Write one comic's feed from its strips in the window. Returns True when written.
 
     With no strip to list the feed is not written, so an existing file stays as it is.
     """
-    entries = feed_entries(comic_info, old_strips, posted_strips)
+    entries = feed_entries(comic_info, old_strips, posted_strips, reruns)
 
     # Never replace a feed with an empty one.
     if not entries:
@@ -274,7 +311,7 @@ def main(data_dir='data', output_dir='public/feeds', catalog_dir='public'):
         print(f"❌ No Comics Kingdom data files found in {data_dir}/. Run scraper first:")
         print("   python scripts/comicskingdom_scraper_individual.py")
         return 1
-    old_by_slug, posted_by_slug = load_window_strips(files)
+    old_by_slug, posted_by_slug, reruns_by_slug = load_window_strips(files)
     print()
 
     print("Step 2: Loading Comics Kingdom comics from catalog...")
@@ -297,9 +334,10 @@ def main(data_dir='data', output_dir='public/feeds', catalog_dir='public'):
     for comic in comics_list:
         old_strips = old_by_slug.get(comic['slug'], [])
         posted_strips = posted_by_slug.get(comic['slug'], [])
-        if not old_strips and not posted_strips:
+        reruns = reruns_by_slug.get(comic['slug'], [])
+        if not old_strips and not posted_strips and not reruns:
             untouched += 1
-        elif generate_feed_for_comic(comic, old_strips, posted_strips, generator):
+        elif generate_feed_for_comic(comic, old_strips, posted_strips, generator, reruns):
             written += 1
         else:
             failed += 1
