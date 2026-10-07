@@ -1,6 +1,6 @@
 {
   "target_date": "2026-10-05",
-  "scraped_at": "2026-10-06T08:20:59.506071+00:00",
+  "scraped_at": "2026-10-07T08:20:51.788241+00:00",
   "comics": [
     {
       "id": "22816",
@@ -24,8 +24,8 @@
       "id": "22818",
       "date": "2026-10-05",
       "url": "https://www.thefarside.com/2026/10/05/2",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F882f9380e6f90137ce50005056a9545d",
-      "original_image_url": "https://featureassets.amuniversal.com/assets/882f9380e6f90137ce50005056a9545d",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fwww.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://www.thefarside.com/content-error-missing-image.jpeg",
       "caption": "",
       "title": "The Far Side #22818"
     },
@@ -33,19 +33,19 @@
       "id": "22819",
       "date": "2026-10-05",
       "url": "https://www.thefarside.com/2026/10/05/3",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fde1800e0e85b0137cedf005056a9545d",
-      "original_image_url": "https://featureassets.amuniversal.com/assets/de1800e0e85b0137cedf005056a9545d",
-      "caption": "\u201cHey! I got news for you, sweetheart! \u2026 I am the lowest form of life on earth!\u201d",
-      "title": "\u201cHey! I got news for you, sweetheart! \u2026 I am the lowest f..."
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fwww.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://www.thefarside.com/content-error-missing-image.jpeg",
+      "caption": "",
+      "title": "The Far Side #22819"
     },
     {
       "id": "22820",
       "date": "2026-10-05",
       "url": "https://www.thefarside.com/2026/10/05/4",
-      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F573bee30cdd60137c56b005056a9545d",
-      "original_image_url": "https://featureassets.amuniversal.com/assets/573bee30cdd60137c56b005056a9545d",
-      "caption": "\u201cSee, Agnes? \u2026 It\u2019s just Kevin.\u201d",
-      "title": "\u201cSee, Agnes? \u2026 It\u2019s just Kevin"
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Fwww.thefarside.com%2Fcontent-error-missing-image.jpeg",
+      "original_image_url": "https://www.thefarside.com/content-error-missing-image.jpeg",
+      "caption": "",
+      "title": "The Far Side #22820"
     }
   ]
 }

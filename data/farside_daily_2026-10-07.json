@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-07",
+  "scraped_at": "2026-10-07T08:20:52.068688+00:00",
+  "comics": [
+    {
+      "id": "22826",
+      "date": "2026-10-07",
+      "url": "https://www.thefarside.com/2026/10/07/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb68760d0e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b68760d0e6f90137ce50005056a9545d",
+      "caption": "And with Johnny\u2019s revelation, Mr. Goodman\u2019s popularity in the neighborhood suddenly plummeted.",
+      "title": "And with Johnny\u2019s revelation, Mr"
+    },
+    {
+      "id": "22827",
+      "date": "2026-10-07",
+      "url": "https://www.thefarside.com/2026/10/07/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7978e840e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7978e840e3ae0137cd49005056a9545d",
+      "caption": "\u201cConsider yourself fortunate, Belsky. \u2026 As curses go, that sure beats having your descendants strangled in the night by a walking corpse.\u201d",
+      "title": "\u201cConsider yourself fortunate, Belsky"
+    },
+    {
+      "id": "22828",
+      "date": "2026-10-07",
+      "url": "https://www.thefarside.com/2026/10/07/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc70683e0ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c70683e0ea250137cfba005056a9545d",
+      "caption": "At the Crabbiness Research Institute",
+      "title": "At the Crabbiness Research Institute"
+    },
+    {
+      "id": "22829",
+      "date": "2026-10-07",
+      "url": "https://www.thefarside.com/2026/10/07/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcff149a0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cff149a0cdd20137c56b005056a9545d",
+      "caption": "\u201cOkay \u2026 on the count of three, everybody rattles.\u201d",
+      "title": "\u201cOkay \u2026 on the count of three, everybody rattles"
+    },
+    {
+      "id": "22830",
+      "date": "2026-10-07",
+      "url": "https://www.thefarside.com/2026/10/07/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4b49edd0e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4b49edd0e92e0137cf47005056a9545d",
+      "caption": "Modern art critic",
+      "title": "Modern art critic"
+    }
+  ]
+}
