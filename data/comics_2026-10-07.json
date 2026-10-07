@@ -1,5 +1,13 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/5bd717d0a454013fcd34005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-07",
+    "url": "https://www.gocomics.com/two-party-opera/2026/10/07",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/013beff09ff7013fcc45005056a9545d?optimizer=image&width=2800&quality=85",
@@ -16,6 +24,14 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/b78f08b0a499013fcd43005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-07",
+    "url": "https://www.gocomics.com/nickanderson/2026/10/07",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/a11e1120a3fd013fcd1e005056a9545d?optimizer=image&width=2800&quality=85",
@@ -29,6 +45,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/d46aacb0a3d6013fcd05005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-07",
     "url": "https://www.gocomics.com/jen-sorensen/2026/10/07",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/3372d010a477013fcd37005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-07",
+    "url": "https://www.gocomics.com/joe-heller/2026/10/07",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Stahler",
+    "slug": "jeffstahler",
+    "image_url": "https://featureassets.gocomics.com/assets/40935a30a49a013fcd45005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-07",
+    "url": "https://www.gocomics.com/jeffstahler/2026/10/07",
     "category": "political"
   },
   {
@@ -1301,6 +1333,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/c47a5d309d78013fcb90005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-07",
     "url": "https://www.gocomics.com/nancy/2026/10/07",
+    "category": "daily"
+  },
+  {
+    "name": "Myth Tickle",
+    "slug": "mythtickle",
+    "image_url": "https://featureassets.gocomics.com/assets/d2744ed0a498013fcd42005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-07",
+    "url": "https://www.gocomics.com/mythtickle/2026/10/07",
     "category": "daily"
   },
   {
