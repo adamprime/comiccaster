@@ -1,0 +1,1755 @@
+{
+  "scraped_at": "2026-10-08T08:22:15.172272+00:00",
+  "comics": [
+    {
+      "slug": "creators-archie",
+      "feature_id": "174",
+      "read_url": "https://www.creators.com/read/archie",
+      "releases": [
+        {
+          "release_date": "2026-10-08",
+          "full": "https://cdn.alphacomedy.com/34/2026/10_08_26_998fb89ff6022925c71679ce9e55551a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/10_08_26_998fb89ff6022925c71679ce9e55551a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/10/26/422744",
+          "title": "Archie for Oct 08, 2026"
+        },
+        {
+          "release_date": "2026-10-07",
+          "full": "https://cdn.alphacomedy.com/34/2026/10_07_26_f092a07fe705be464544d61e599f7b68.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/10_07_26_f092a07fe705be464544d61e599f7b68_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/10/26/422747",
+          "title": "Archie for Oct 07, 2026"
+        },
+        {
+          "release_date": "2026-10-06",
+          "full": "https://cdn.alphacomedy.com/34/2026/10_06_26_9d2187413414928006ea41756700684a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/10_06_26_9d2187413414928006ea41756700684a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/10/26/422745",
+          "title": "Archie for Oct 06, 2026"
+        },
+        {
+          "release_date": "2026-10-05",
+          "full": "https://cdn.alphacomedy.com/34/2026/10_05_26_ad6165fb7a791b64ba421d633950cbfa.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/10_05_26_ad6165fb7a791b64ba421d633950cbfa_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/10/26/422743",
+          "title": "Archie for Oct 05, 2026"
+        },
+        {
+          "release_date": "2026-10-04",
+          "full": "https://cdn.alphacomedy.com/34/2026/10_04_26_669d77c0e47506a92a2578c90a9c3604.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/10_04_26_669d77c0e47506a92a2578c90a9c3604_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/10/26/422913",
+          "title": "Archie for Oct 04, 2026"
+        },
+        {
+          "release_date": "2026-10-03",
+          "full": "https://cdn.alphacomedy.com/34/2026/10_03_26_61d31ed1568b9a8a7612e4e2c6c83b5a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/10_03_26_61d31ed1568b9a8a7612e4e2c6c83b5a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/10/26/422285",
+          "title": "Archie for Oct 03, 2026"
+        },
+        {
+          "release_date": "2026-10-02",
+          "full": "https://cdn.alphacomedy.com/34/2026/10_02_26_9f289c58e0c790fd9b902ab327bb8e8c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/10_02_26_9f289c58e0c790fd9b902ab327bb8e8c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/10/26/422286",
+          "title": "Archie for Oct 02, 2026"
+        },
+        {
+          "release_date": "2026-10-01",
+          "full": "https://cdn.alphacomedy.com/34/2026/10_01_26_4d89af3ccf8314d05db082784c48a37c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/10_01_26_4d89af3ccf8314d05db082784c48a37c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/10/26/422282",
+          "title": "Archie for Oct 01, 2026"
+        },
+        {
+          "release_date": "2026-09-30",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_30_26_79767ca7ef2936d6dbe602eda55a0788.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_30_26_79767ca7ef2936d6dbe602eda55a0788_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422284",
+          "title": "Archie for Sep 30, 2026"
+        },
+        {
+          "release_date": "2026-09-29",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_29_26_22bc6d8cec6a11f0ffa7f09c04c965a7.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_29_26_22bc6d8cec6a11f0ffa7f09c04c965a7_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422281",
+          "title": "Archie for Sep 29, 2026"
+        },
+        {
+          "release_date": "2026-09-28",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_28_26_892f7c7ed928483bf7e8a6964cd2e215.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_28_26_892f7c7ed928483bf7e8a6964cd2e215_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422289",
+          "title": "Archie for Sep 28, 2026"
+        },
+        {
+          "release_date": "2026-09-27",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_27_26_c4b4a08ad38d348da3f43e5264979b37.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_27_26_c4b4a08ad38d348da3f43e5264979b37_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422574",
+          "title": "Archie for Sep 27, 2026"
+        },
+        {
+          "release_date": "2026-09-26",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_26_26_21b6fcc294602515eaea61d36e4f9787.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_26_26_21b6fcc294602515eaea61d36e4f9787_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422280",
+          "title": "Archie for Sep 26, 2026"
+        },
+        {
+          "release_date": "2026-09-25",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_25_26_81c6fdeace7d8babf6ff9556bfba764e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_25_26_81c6fdeace7d8babf6ff9556bfba764e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422287",
+          "title": "Archie for Sep 25, 2026"
+        },
+        {
+          "release_date": "2026-09-24",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_24_26_53530a623c6c2d4f113254e265991e18.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_24_26_53530a623c6c2d4f113254e265991e18_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422290",
+          "title": "Archie for Sep 24, 2026"
+        },
+        {
+          "release_date": "2026-09-23",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_23_26_5ec6c828b9529678106067f7c82d509d.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_23_26_5ec6c828b9529678106067f7c82d509d_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422279",
+          "title": "Archie for Sep 23, 2026"
+        },
+        {
+          "release_date": "2026-09-22",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_22_26_f5d5bf79906f96aa36fe36d043bbf90b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_22_26_f5d5bf79906f96aa36fe36d043bbf90b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422283",
+          "title": "Archie for Sep 22, 2026"
+        },
+        {
+          "release_date": "2026-09-21",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_21_26_94df411198ef38c26223d2224645c86c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_21_26_94df411198ef38c26223d2224645c86c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/422288",
+          "title": "Archie for Sep 21, 2026"
+        },
+        {
+          "release_date": "2026-09-20",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_20_26_336ad4cf3669e6ea838d45b128143156.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_20_26_336ad4cf3669e6ea838d45b128143156_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/421969",
+          "title": "Archie for Sep 20, 2026"
+        },
+        {
+          "release_date": "2026-09-19",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_19_26_97d5cadca948b1b3ce37d1fb1f82c7c0.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_19_26_97d5cadca948b1b3ce37d1fb1f82c7c0_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/420532",
+          "title": "Archie for Sep 19, 2026"
+        },
+        {
+          "release_date": "2026-09-18",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_18_26_d5fc5724220983c9843cf4a5f319b523.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_18_26_d5fc5724220983c9843cf4a5f319b523_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/420520",
+          "title": "Archie for Sep 18, 2026"
+        },
+        {
+          "release_date": "2026-09-17",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_17_26_30c5991a524b2d00dbdf85a611ed4a14.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_17_26_30c5991a524b2d00dbdf85a611ed4a14_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/420535",
+          "title": "Archie for Sep 17, 2026"
+        },
+        {
+          "release_date": "2026-09-16",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_16_26_42a5154b7bcc06fa4d5461fa378ec2a2.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_16_26_42a5154b7bcc06fa4d5461fa378ec2a2_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/420519",
+          "title": "Archie for Sep 16, 2026"
+        },
+        {
+          "release_date": "2026-09-15",
+          "full": "https://cdn.alphacomedy.com/34/2026/09_15_26_44a7cde8de010c2dfb80dd032c26210a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/34/2026/09_15_26_44a7cde8de010c2dfb80dd032c26210a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie/09/26/420517",
+          "title": "Archie for Sep 15, 2026"
+        }
+      ]
+    },
+    {
+      "slug": "archie-spanish",
+      "feature_id": "594",
+      "read_url": "https://www.creators.com/read/archie-spanish",
+      "releases": [
+        {
+          "release_date": "2026-10-08",
+          "full": "https://cdn.alphacomedy.com/49/2026/10_08_26_6534152dd2826fbb8e13ca3614901f04.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/10_08_26_6534152dd2826fbb8e13ca3614901f04_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/10/26/424427",
+          "title": "Archie Spanish for Oct 08, 2026"
+        },
+        {
+          "release_date": "2026-10-07",
+          "full": "https://cdn.alphacomedy.com/49/2026/10_07_26_5637940acb5071bed1d99c73eec3c61f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/10_07_26_5637940acb5071bed1d99c73eec3c61f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/10/26/424440",
+          "title": "Archie Spanish for Oct 07, 2026"
+        },
+        {
+          "release_date": "2026-10-06",
+          "full": "https://cdn.alphacomedy.com/49/2026/10_06_26_b58118101e215fb6f21d84a95fbdc5ce.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/10_06_26_b58118101e215fb6f21d84a95fbdc5ce_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/10/26/424437",
+          "title": "Archie Spanish for Oct 06, 2026"
+        },
+        {
+          "release_date": "2026-10-05",
+          "full": "https://cdn.alphacomedy.com/49/2026/10_05_26_5dc3423107acc6a139c61df6bf34ccf0.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/10_05_26_5dc3423107acc6a139c61df6bf34ccf0_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/10/26/424432",
+          "title": "Archie Spanish for Oct 05, 2026"
+        },
+        {
+          "release_date": "2026-10-04",
+          "full": "https://cdn.alphacomedy.com/49/2026/10_04_26_0176ef1a7d8039dd81c77f87e17c8388.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/10_04_26_0176ef1a7d8039dd81c77f87e17c8388_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/10/26/424420",
+          "title": "Archie Spanish for Oct 04, 2026"
+        },
+        {
+          "release_date": "2026-10-03",
+          "full": "https://cdn.alphacomedy.com/49/2026/10_03_26_c58e0eaee1114ad65f66834a51b3eb7b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/10_03_26_c58e0eaee1114ad65f66834a51b3eb7b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/10/26/424040",
+          "title": "Archie Spanish for Oct 03, 2026"
+        },
+        {
+          "release_date": "2026-10-02",
+          "full": "https://cdn.alphacomedy.com/49/2026/10_02_26_3c15dc87988fd40e2385c77e9b9599dc.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/10_02_26_3c15dc87988fd40e2385c77e9b9599dc_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/10/26/424042",
+          "title": "Archie Spanish for Oct 02, 2026"
+        },
+        {
+          "release_date": "2026-10-01",
+          "full": "https://cdn.alphacomedy.com/49/2026/10_01_26_65cfaa063cb6143fd44ff0c38c6e22b7.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/10_01_26_65cfaa063cb6143fd44ff0c38c6e22b7_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/10/26/424041",
+          "title": "Archie Spanish for Oct 01, 2026"
+        },
+        {
+          "release_date": "2026-09-30",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_30_26_8d84819417890e271e3cead47ee22ce8.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_30_26_8d84819417890e271e3cead47ee22ce8_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/424043",
+          "title": "Archie Spanish for Sep 30, 2026"
+        },
+        {
+          "release_date": "2026-09-29",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_29_26_02c9d00c75490675db43664079e93c1e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_29_26_02c9d00c75490675db43664079e93c1e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/424036",
+          "title": "Archie Spanish for Sep 29, 2026"
+        },
+        {
+          "release_date": "2026-09-28",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_28_26_8b2882500322a9fea36c38adb38a1131.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_28_26_8b2882500322a9fea36c38adb38a1131_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/424039",
+          "title": "Archie Spanish for Sep 28, 2026"
+        },
+        {
+          "release_date": "2026-09-27",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_27_26_25690f7b37369ab9a23ef5a539ad556b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_27_26_25690f7b37369ab9a23ef5a539ad556b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/424031",
+          "title": "Archie Spanish for Sep 27, 2026"
+        },
+        {
+          "release_date": "2026-09-26",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_26_26_6271fb9c73c137efeb6ff82c45ccee4d.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_26_26_6271fb9c73c137efeb6ff82c45ccee4d_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423732",
+          "title": "Archie Spanish for Sep 26, 2026"
+        },
+        {
+          "release_date": "2026-09-25",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_25_26_7810f20257d9a4318f82f6c66a296567.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_25_26_7810f20257d9a4318f82f6c66a296567_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423735",
+          "title": "Archie Spanish for Sep 25, 2026"
+        },
+        {
+          "release_date": "2026-09-24",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_24_26_a9b0a1b6010af3aab8bba8e02a67b76f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_24_26_a9b0a1b6010af3aab8bba8e02a67b76f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423724",
+          "title": "Archie Spanish for Sep 24, 2026"
+        },
+        {
+          "release_date": "2026-09-23",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_23_26_ef3ca3470af21eb13a9798f9787dc367.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_23_26_ef3ca3470af21eb13a9798f9787dc367_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423723",
+          "title": "Archie Spanish for Sep 23, 2026"
+        },
+        {
+          "release_date": "2026-09-22",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_22_26_7ba0f8a45d414b5a616b244c0b3b7725.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_22_26_7ba0f8a45d414b5a616b244c0b3b7725_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423731",
+          "title": "Archie Spanish for Sep 22, 2026"
+        },
+        {
+          "release_date": "2026-09-21",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_21_26_4cb649e9216e443062e95a5c06ca4b37.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_21_26_4cb649e9216e443062e95a5c06ca4b37_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423728",
+          "title": "Archie Spanish for Sep 21, 2026"
+        },
+        {
+          "release_date": "2026-09-20",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_20_26_a14e59aa7126351825fa436f8f40cc70.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_20_26_a14e59aa7126351825fa436f8f40cc70_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423725",
+          "title": "Archie Spanish for Sep 20, 2026"
+        },
+        {
+          "release_date": "2026-09-19",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_19_26_b091daa0c66d8685d1cbe3c9171a189f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_19_26_b091daa0c66d8685d1cbe3c9171a189f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423200",
+          "title": "Archie Spanish for Sep 19, 2026"
+        },
+        {
+          "release_date": "2026-09-18",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_18_26_ac28169f5bda4a6f565e8abbe0ebe682.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_18_26_ac28169f5bda4a6f565e8abbe0ebe682_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423209",
+          "title": "Archie Spanish for Sep 18, 2026"
+        },
+        {
+          "release_date": "2026-09-17",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_17_26_8d29f962003a7783dfb11701c151d44a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_17_26_8d29f962003a7783dfb11701c151d44a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423202",
+          "title": "Archie Spanish for Sep 17, 2026"
+        },
+        {
+          "release_date": "2026-09-16",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_16_26_ecae1ba663a96da69093f1a5427beedb.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_16_26_ecae1ba663a96da69093f1a5427beedb_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423207",
+          "title": "Archie Spanish for Sep 16, 2026"
+        },
+        {
+          "release_date": "2026-09-15",
+          "full": "https://cdn.alphacomedy.com/49/2026/09_15_26_d900ceb4c786448ec7abe04437bf11c9.jpg",
+          "thumb": "https://cdn.alphacomedy.com/49/2026/09_15_26_d900ceb4c786448ec7abe04437bf11c9_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/archie-spanish/09/26/423215",
+          "title": "Archie Spanish for Sep 15, 2026"
+        }
+      ]
+    },
+    {
+      "slug": "caption-it",
+      "feature_id": "1107",
+      "read_url": "https://www.creators.com/read/caption-it",
+      "releases": [
+        {
+          "release_date": "2026-10-04",
+          "full": "https://cdn.alphacomedy.com/53/2026/10_04_26_a41d0c02ed7109f9674a5a04d401f20f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/10_04_26_a41d0c02ed7109f9674a5a04d401f20f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/10/26/423249",
+          "title": "Caption It! for Oct 04, 2026"
+        },
+        {
+          "release_date": "2026-09-27",
+          "full": "https://cdn.alphacomedy.com/53/2026/09_27_26_d85d923bb0bd544b3e630d7feeeaaa0f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/09_27_26_d85d923bb0bd544b3e630d7feeeaaa0f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/09/26/422739",
+          "title": "Caption It! for Sep 27, 2026"
+        },
+        {
+          "release_date": "2026-09-20",
+          "full": "https://cdn.alphacomedy.com/53/2026/09_20_26_83e72d0200c48e6dc6fccb225ea41d01.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/09_20_26_83e72d0200c48e6dc6fccb225ea41d01_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/09/26/421878",
+          "title": "Caption It! for Sep 20, 2026"
+        },
+        {
+          "release_date": "2026-09-13",
+          "full": "https://cdn.alphacomedy.com/53/2026/09_13_26_a9123fea117dffdea460533414c338d3.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/09_13_26_a9123fea117dffdea460533414c338d3_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/09/26/421620",
+          "title": "Caption It! for Sep 13, 2026"
+        },
+        {
+          "release_date": "2026-09-06",
+          "full": "https://cdn.alphacomedy.com/53/2026/09_06_26_554659a31dc089dae72f1c005943f3cb.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/09_06_26_554659a31dc089dae72f1c005943f3cb_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/09/26/421550",
+          "title": "Caption It! for Sep 06, 2026"
+        },
+        {
+          "release_date": "2026-08-30",
+          "full": "https://cdn.alphacomedy.com/53/2026/08_30_26_4dfdc0afab041464c156a88ebcffa2ca.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/08_30_26_4dfdc0afab041464c156a88ebcffa2ca_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/08/26/420732",
+          "title": "Caption It! for Aug 30, 2026"
+        },
+        {
+          "release_date": "2026-08-23",
+          "full": "https://cdn.alphacomedy.com/53/2026/08_23_26_41c8c88b318a03f0957ace64077ab5bb.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/08_23_26_41c8c88b318a03f0957ace64077ab5bb_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/08/26/420091",
+          "title": "Caption It! for Aug 23, 2026"
+        },
+        {
+          "release_date": "2026-08-16",
+          "full": "https://cdn.alphacomedy.com/53/2026/08_16_26_bd8702f567b3d2933494c060ca460c31.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/08_16_26_bd8702f567b3d2933494c060ca460c31_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/08/26/419533",
+          "title": "Caption It! for Aug 16, 2026"
+        },
+        {
+          "release_date": "2026-08-09",
+          "full": "https://cdn.alphacomedy.com/53/2026/08_09_26_e59bb87f3588b12684d83406dce41572.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/08_09_26_e59bb87f3588b12684d83406dce41572_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/08/26/419447",
+          "title": "Caption It! for Aug 09, 2026"
+        },
+        {
+          "release_date": "2026-08-02",
+          "full": "https://cdn.alphacomedy.com/53/2026/08_02_26_a963ebac072423d1a40a406b88d7cbd6.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/08_02_26_a963ebac072423d1a40a406b88d7cbd6_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/08/26/419008",
+          "title": "Caption It! for Aug 02, 2026"
+        },
+        {
+          "release_date": "2026-07-26",
+          "full": "https://cdn.alphacomedy.com/53/2026/07_26_26_83484b0c72ff3c9b7e17ded9b042e1b5.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/07_26_26_83484b0c72ff3c9b7e17ded9b042e1b5_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/07/26/418501",
+          "title": "Caption It! for Jul 26, 2026"
+        },
+        {
+          "release_date": "2026-07-19",
+          "full": "https://cdn.alphacomedy.com/53/2026/07_19_26_e167a47c1ddaf248e03cb86cb707d878.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/07_19_26_e167a47c1ddaf248e03cb86cb707d878_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/07/26/418099",
+          "title": "Caption It! for Jul 19, 2026"
+        },
+        {
+          "release_date": "2026-07-12",
+          "full": "https://cdn.alphacomedy.com/53/2026/07_12_26_fd8a7a07f5a89a87b5f6121bad814ba7.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/07_12_26_fd8a7a07f5a89a87b5f6121bad814ba7_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/07/26/417615",
+          "title": "Caption It! for Jul 12, 2026"
+        },
+        {
+          "release_date": "2026-07-05",
+          "full": "https://cdn.alphacomedy.com/53/2026/07_05_26_8188974a2c9779831480c51eab17fb35.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/07_05_26_8188974a2c9779831480c51eab17fb35_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/07/26/417202",
+          "title": "Caption It! for Jul 05, 2026"
+        },
+        {
+          "release_date": "2026-06-28",
+          "full": "https://cdn.alphacomedy.com/53/2026/06_28_26_a5542c22059b3e63a1524842bb8ed4ee.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/06_28_26_a5542c22059b3e63a1524842bb8ed4ee_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/06/26/417053",
+          "title": "Caption It! for Jun 28, 2026"
+        },
+        {
+          "release_date": "2026-06-21",
+          "full": "https://cdn.alphacomedy.com/53/2026/06_21_26_be729200f3b026f88c02da74b9b2d19c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/06_21_26_be729200f3b026f88c02da74b9b2d19c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/06/26/416580",
+          "title": "Caption It! for Jun 21, 2026"
+        },
+        {
+          "release_date": "2026-06-14",
+          "full": "https://cdn.alphacomedy.com/53/2026/06_14_26_84bd7bef8d2e6b4df6bca7aa27a6cfe2.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/06_14_26_84bd7bef8d2e6b4df6bca7aa27a6cfe2_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/06/26/415968",
+          "title": "Caption It! for Jun 14, 2026"
+        },
+        {
+          "release_date": "2026-06-07",
+          "full": "https://cdn.alphacomedy.com/53/2026/06_07_26_12a1bc09f31721d93aa1df470f70666e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/06_07_26_12a1bc09f31721d93aa1df470f70666e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/06/26/415686",
+          "title": "Caption It! for Jun 07, 2026"
+        },
+        {
+          "release_date": "2026-05-31",
+          "full": "https://cdn.alphacomedy.com/53/2026/05_31_26_7be30ad1f6ec68af60e968e75f6a6b0f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/05_31_26_7be30ad1f6ec68af60e968e75f6a6b0f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/05/26/415275",
+          "title": "Caption It! for May 31, 2026"
+        },
+        {
+          "release_date": "2026-05-24",
+          "full": "https://cdn.alphacomedy.com/53/2026/05_24_26_69b921ecd5c9a3f38f4559ce03bc4569.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/05_24_26_69b921ecd5c9a3f38f4559ce03bc4569_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/05/26/414767",
+          "title": "Caption It! for May 24, 2026"
+        },
+        {
+          "release_date": "2026-05-17",
+          "full": "https://cdn.alphacomedy.com/53/2026/05_17_26_84f3562f83481234b970830385b36c3d.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/05_17_26_84f3562f83481234b970830385b36c3d_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/05/26/414278",
+          "title": "Caption It! for May 17, 2026"
+        },
+        {
+          "release_date": "2026-05-10",
+          "full": "https://cdn.alphacomedy.com/53/2026/05_10_26_d04ab06d298cc4281508cc73e5e6a680.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/05_10_26_d04ab06d298cc4281508cc73e5e6a680_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/05/26/413726",
+          "title": "Caption It! for May 10, 2026"
+        },
+        {
+          "release_date": "2026-05-03",
+          "full": "https://cdn.alphacomedy.com/53/2026/05_03_26_1e6cac9758dad7ef3a1ea4fea9afa475.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/05_03_26_1e6cac9758dad7ef3a1ea4fea9afa475_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/05/26/413302",
+          "title": "Caption It! for May 03, 2026"
+        },
+        {
+          "release_date": "2026-04-26",
+          "full": "https://cdn.alphacomedy.com/53/2026/04_26_26_f08641960dfb68764c41a2edc61d0b05.jpg",
+          "thumb": "https://cdn.alphacomedy.com/53/2026/04_26_26_f08641960dfb68764c41a2edc61d0b05_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/caption-it/04/26/413087",
+          "title": "Caption It! for Apr 26, 2026"
+        }
+      ]
+    },
+    {
+      "slug": "flo-and-friends",
+      "feature_id": "159",
+      "read_url": "https://www.creators.com/read/flo-and-friends",
+      "releases": [
+        {
+          "release_date": "2026-10-08",
+          "full": "https://cdn.alphacomedy.com/20/2026/10_08_26_a8aca34e5a56ea6179b7337ae9dbf19d.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/10_08_26_a8aca34e5a56ea6179b7337ae9dbf19d_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/10/26/423941",
+          "title": "Flo & Friends for Oct 08, 2026"
+        },
+        {
+          "release_date": "2026-10-07",
+          "full": "https://cdn.alphacomedy.com/20/2026/10_07_26_1ede1d67bbc661e135d34068d9252a45.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/10_07_26_1ede1d67bbc661e135d34068d9252a45_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/10/26/423942",
+          "title": "Flo & Friends for Oct 07, 2026"
+        },
+        {
+          "release_date": "2026-10-06",
+          "full": "https://cdn.alphacomedy.com/20/2026/10_06_26_8880ee58773402dd1e94fe2ac1bc2eb8.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/10_06_26_8880ee58773402dd1e94fe2ac1bc2eb8_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/10/26/423938",
+          "title": "Flo & Friends for Oct 06, 2026"
+        },
+        {
+          "release_date": "2026-10-05",
+          "full": "https://cdn.alphacomedy.com/20/2026/10_05_26_b4a4e958b620a671eebbc8049082ffa6.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/10_05_26_b4a4e958b620a671eebbc8049082ffa6_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/10/26/423939",
+          "title": "Flo & Friends for Oct 05, 2026"
+        },
+        {
+          "release_date": "2026-10-04",
+          "full": "https://cdn.alphacomedy.com/20/2026/10_04_26_619eb4fcbbc8a5d74ab314c4bf429dae.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/10_04_26_619eb4fcbbc8a5d74ab314c4bf429dae_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/10/26/423422",
+          "title": "Flo & Friends for Oct 04, 2026"
+        },
+        {
+          "release_date": "2026-10-03",
+          "full": "https://cdn.alphacomedy.com/20/2026/10_03_26_a7e42ffbebe1cf2845e3846d527aba03.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/10_03_26_a7e42ffbebe1cf2845e3846d527aba03_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/10/26/423621",
+          "title": "Flo & Friends for Oct 03, 2026"
+        },
+        {
+          "release_date": "2026-10-02",
+          "full": "https://cdn.alphacomedy.com/20/2026/10_02_26_d3b2c59e4c8c20ce6b3ec3949197ffaf.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/10_02_26_d3b2c59e4c8c20ce6b3ec3949197ffaf_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/10/26/423625",
+          "title": "Flo & Friends for Oct 02, 2026"
+        },
+        {
+          "release_date": "2026-10-01",
+          "full": "https://cdn.alphacomedy.com/20/2026/10_01_26_eee0af67df0bf57464474d0da0c598be.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/10_01_26_eee0af67df0bf57464474d0da0c598be_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/10/26/423627",
+          "title": "Flo & Friends for Oct 01, 2026"
+        },
+        {
+          "release_date": "2026-09-30",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_30_26_f751b123f2c54c535f09be4c8ecfb3a0.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_30_26_f751b123f2c54c535f09be4c8ecfb3a0_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/423624",
+          "title": "Flo & Friends for Sep 30, 2026"
+        },
+        {
+          "release_date": "2026-09-29",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_29_26_3a1c4974c610f9b12ef310b4c64a1d92.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_29_26_3a1c4974c610f9b12ef310b4c64a1d92_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/423623",
+          "title": "Flo & Friends for Sep 29, 2026"
+        },
+        {
+          "release_date": "2026-09-28",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_28_26_647b612c5194703b31358e9d12fe8fc0.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_28_26_647b612c5194703b31358e9d12fe8fc0_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/423626",
+          "title": "Flo & Friends for Sep 28, 2026"
+        },
+        {
+          "release_date": "2026-09-27",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_27_26_e94b7e212c17c3b58af3b951547b454a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_27_26_e94b7e212c17c3b58af3b951547b454a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422567",
+          "title": "Flo & Friends for Sep 27, 2026"
+        },
+        {
+          "release_date": "2026-09-26",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_26_26_4613a2eaee5428e087f74ac3db94fdcc.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_26_26_4613a2eaee5428e087f74ac3db94fdcc_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422874",
+          "title": "Flo & Friends for Sep 26, 2026"
+        },
+        {
+          "release_date": "2026-09-25",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_25_26_2d360e2a3405cad7c728bd37a5b8718c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_25_26_2d360e2a3405cad7c728bd37a5b8718c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422869",
+          "title": "Flo & Friends for Sep 25, 2026"
+        },
+        {
+          "release_date": "2026-09-24",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_24_26_b9c744e91d2ca888a70d546e9cb516ed.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_24_26_b9c744e91d2ca888a70d546e9cb516ed_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422873",
+          "title": "Flo & Friends for Sep 24, 2026"
+        },
+        {
+          "release_date": "2026-09-23",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_23_26_c8a1bfd68dda73e5bc5beabd3555a9bf.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_23_26_c8a1bfd68dda73e5bc5beabd3555a9bf_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422875",
+          "title": "Flo & Friends for Sep 23, 2026"
+        },
+        {
+          "release_date": "2026-09-22",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_22_26_f8b60632f75e1253b17875c39908932e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_22_26_f8b60632f75e1253b17875c39908932e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422868",
+          "title": "Flo & Friends for Sep 22, 2026"
+        },
+        {
+          "release_date": "2026-09-21",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_21_26_1f4486e520e2e7775e12c858abdaf435.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_21_26_1f4486e520e2e7775e12c858abdaf435_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422878",
+          "title": "Flo & Friends for Sep 21, 2026"
+        },
+        {
+          "release_date": "2026-09-20",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_20_26_ed2a55cd59506878fb6bb7a2ea18929b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_20_26_ed2a55cd59506878fb6bb7a2ea18929b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/421971",
+          "title": "Flo & Friends for Sep 20, 2026"
+        },
+        {
+          "release_date": "2026-09-19",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_19_26_b427dc2d2b2994d21eb5278461309bc4.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_19_26_b427dc2d2b2994d21eb5278461309bc4_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422209",
+          "title": "Flo & Friends for Sep 19, 2026"
+        },
+        {
+          "release_date": "2026-09-18",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_18_26_268f281da653595c2266b48a5ff6c68f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_18_26_268f281da653595c2266b48a5ff6c68f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422211",
+          "title": "Flo & Friends for Sep 18, 2026"
+        },
+        {
+          "release_date": "2026-09-17",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_17_26_095667c02bb5f1fc95ff95f221a1ac98.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_17_26_095667c02bb5f1fc95ff95f221a1ac98_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422204",
+          "title": "Flo & Friends for Sep 17, 2026"
+        },
+        {
+          "release_date": "2026-09-16",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_16_26_6476f26e1ff3327245471b4f976fe762.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_16_26_6476f26e1ff3327245471b4f976fe762_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422208",
+          "title": "Flo & Friends for Sep 16, 2026"
+        },
+        {
+          "release_date": "2026-09-15",
+          "full": "https://cdn.alphacomedy.com/20/2026/09_15_26_825c05216c9259f52d927311a75a118c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/20/2026/09_15_26_825c05216c9259f52d927311a75a118c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/flo-and-friends/09/26/422210",
+          "title": "Flo & Friends for Sep 15, 2026"
+        }
+      ]
+    },
+    {
+      "slug": "heathcliff-spanish",
+      "feature_id": "596",
+      "read_url": "https://www.creators.com/read/heathcliff-spanish",
+      "releases": [
+        {
+          "release_date": "2026-10-08",
+          "full": "https://cdn.alphacomedy.com/48/2026/10_08_26_067dde8e4ea5ab10a6263e4eb25675e7.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/10_08_26_067dde8e4ea5ab10a6263e4eb25675e7_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/10/26/424423",
+          "title": "Heathcliff Spanish for Oct 08, 2026"
+        },
+        {
+          "release_date": "2026-10-07",
+          "full": "https://cdn.alphacomedy.com/48/2026/10_07_26_7a3ee3e6db44ca72a792f197101d5711.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/10_07_26_7a3ee3e6db44ca72a792f197101d5711_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/10/26/424418",
+          "title": "Heathcliff Spanish for Oct 07, 2026"
+        },
+        {
+          "release_date": "2026-10-06",
+          "full": "https://cdn.alphacomedy.com/48/2026/10_06_26_90cca64ee96e09d39b9940b90d0742d9.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/10_06_26_90cca64ee96e09d39b9940b90d0742d9_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/10/26/424439",
+          "title": "Heathcliff Spanish for Oct 06, 2026"
+        },
+        {
+          "release_date": "2026-10-05",
+          "full": "https://cdn.alphacomedy.com/48/2026/10_05_26_f57ef83625fa6c9cec1ff6e4a9a0409c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/10_05_26_f57ef83625fa6c9cec1ff6e4a9a0409c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/10/26/424426",
+          "title": "Heathcliff Spanish for Oct 05, 2026"
+        },
+        {
+          "release_date": "2026-10-03",
+          "full": "https://cdn.alphacomedy.com/48/2026/10_03_26_bbefdb5408b0a27dfacfdd56f97b8bbb.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/10_03_26_bbefdb5408b0a27dfacfdd56f97b8bbb_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/10/26/424037",
+          "title": "Heathcliff Spanish for Oct 03, 2026"
+        },
+        {
+          "release_date": "2026-10-02",
+          "full": "https://cdn.alphacomedy.com/48/2026/10_02_26_842273e0688fd5af585c61c3109e84fd.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/10_02_26_842273e0688fd5af585c61c3109e84fd_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/10/26/424030",
+          "title": "Heathcliff Spanish for Oct 02, 2026"
+        },
+        {
+          "release_date": "2026-10-01",
+          "full": "https://cdn.alphacomedy.com/48/2026/10_01_26_d0d8475e289c2e0ec1e5466dbfb27e40.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/10_01_26_d0d8475e289c2e0ec1e5466dbfb27e40_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/10/26/424045",
+          "title": "Heathcliff Spanish for Oct 01, 2026"
+        },
+        {
+          "release_date": "2026-09-30",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_30_26_a394b0da18c0069ec4048ea2cb7a7f97.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_30_26_a394b0da18c0069ec4048ea2cb7a7f97_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/424029",
+          "title": "Heathcliff Spanish for Sep 30, 2026"
+        },
+        {
+          "release_date": "2026-09-29",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_29_26_e1393740f9f841e485dbe3f2d8b66612.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_29_26_e1393740f9f841e485dbe3f2d8b66612_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/424038",
+          "title": "Heathcliff Spanish for Sep 29, 2026"
+        },
+        {
+          "release_date": "2026-09-28",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_28_26_5bc6b8586f396f8f2328cf3c0e96c04f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_28_26_5bc6b8586f396f8f2328cf3c0e96c04f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/424027",
+          "title": "Heathcliff Spanish for Sep 28, 2026"
+        },
+        {
+          "release_date": "2026-09-26",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_26_26_da11e6d0d26ab5839916fba399568f92.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_26_26_da11e6d0d26ab5839916fba399568f92_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423730",
+          "title": "Heathcliff Spanish for Sep 26, 2026"
+        },
+        {
+          "release_date": "2026-09-25",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_25_26_ac9f374391e27343b4bbc4c7a19078d1.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_25_26_ac9f374391e27343b4bbc4c7a19078d1_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423734",
+          "title": "Heathcliff Spanish for Sep 25, 2026"
+        },
+        {
+          "release_date": "2026-09-24",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_24_26_b1306c77702bbd0e1ce88fc2c69115b6.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_24_26_b1306c77702bbd0e1ce88fc2c69115b6_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423738",
+          "title": "Heathcliff Spanish for Sep 24, 2026"
+        },
+        {
+          "release_date": "2026-09-23",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_23_26_d0363452748c4645c3167cfa3960844e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_23_26_d0363452748c4645c3167cfa3960844e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423736",
+          "title": "Heathcliff Spanish for Sep 23, 2026"
+        },
+        {
+          "release_date": "2026-09-22",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_22_26_a33483191a25f51ae714b128a3bc9517.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_22_26_a33483191a25f51ae714b128a3bc9517_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423726",
+          "title": "Heathcliff Spanish for Sep 22, 2026"
+        },
+        {
+          "release_date": "2026-09-21",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_21_26_96687e3c12d5fa4c9adb9eb77f91364b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_21_26_96687e3c12d5fa4c9adb9eb77f91364b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423729",
+          "title": "Heathcliff Spanish for Sep 21, 2026"
+        },
+        {
+          "release_date": "2026-09-19",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_19_26_e01e1b23e9fc14fea2161fca116737dd.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_19_26_e01e1b23e9fc14fea2161fca116737dd_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423214",
+          "title": "Heathcliff Spanish for Sep 19, 2026"
+        },
+        {
+          "release_date": "2026-09-18",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_18_26_b42dd0fd9d5515ec3498b25cd7191fcc.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_18_26_b42dd0fd9d5515ec3498b25cd7191fcc_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423206",
+          "title": "Heathcliff Spanish for Sep 18, 2026"
+        },
+        {
+          "release_date": "2026-09-17",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_17_26_7c5eda49403be0cd7a88a9ded6728f0f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_17_26_7c5eda49403be0cd7a88a9ded6728f0f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423218",
+          "title": "Heathcliff Spanish for Sep 17, 2026"
+        },
+        {
+          "release_date": "2026-09-16",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_16_26_f3e9bb9be037e42bac59624dbafff81d.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_16_26_f3e9bb9be037e42bac59624dbafff81d_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423216",
+          "title": "Heathcliff Spanish for Sep 16, 2026"
+        },
+        {
+          "release_date": "2026-09-15",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_15_26_bb4ca0dfb55cc4767affca81e5eb85c4.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_15_26_bb4ca0dfb55cc4767affca81e5eb85c4_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423201",
+          "title": "Heathcliff Spanish for Sep 15, 2026"
+        },
+        {
+          "release_date": "2026-09-14",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_14_26_50ac940b054face693d351e31cfe14a2.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_14_26_50ac940b054face693d351e31cfe14a2_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/423205",
+          "title": "Heathcliff Spanish for Sep 14, 2026"
+        },
+        {
+          "release_date": "2026-09-12",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_12_26_3611f5cb07fc681a4aa5ddac4b52d26b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_12_26_3611f5cb07fc681a4aa5ddac4b52d26b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/422885",
+          "title": "Heathcliff Spanish for Sep 12, 2026"
+        },
+        {
+          "release_date": "2026-09-11",
+          "full": "https://cdn.alphacomedy.com/48/2026/09_11_26_2f93dd1de429b254cb7edba63a72eb04.jpg",
+          "thumb": "https://cdn.alphacomedy.com/48/2026/09_11_26_2f93dd1de429b254cb7edba63a72eb04_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/heathcliff-spanish/09/26/422888",
+          "title": "Heathcliff Spanish for Sep 11, 2026"
+        }
+      ]
+    },
+    {
+      "slug": "humor-me",
+      "feature_id": "1141",
+      "read_url": "https://www.creators.com/read/humor-me",
+      "releases": [
+        {
+          "release_date": "2026-10-03",
+          "full": "https://cdn.alphacomedy.com/55/2026/10_03_26_dfa4acfcc158521c884c719a07804071.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/10_03_26_dfa4acfcc158521c884c719a07804071_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/10/26/424304",
+          "title": "Humor Me for Oct 03, 2026"
+        },
+        {
+          "release_date": "2026-09-26",
+          "full": "https://cdn.alphacomedy.com/55/2026/09_26_26_4fa4fa2a69f8dc98e737c2d61f90d599.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/09_26_26_4fa4fa2a69f8dc98e737c2d61f90d599_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/09/26/423913",
+          "title": "Humor Me for Sep 26, 2026"
+        },
+        {
+          "release_date": "2026-09-19",
+          "full": "https://cdn.alphacomedy.com/55/2026/09_19_26_3082998db0e93c949586e4d3ab63a905.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/09_19_26_3082998db0e93c949586e4d3ab63a905_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/09/26/423479",
+          "title": "Humor Me for Sep 19, 2026"
+        },
+        {
+          "release_date": "2026-09-12",
+          "full": "https://cdn.alphacomedy.com/55/2026/09_12_26_894117e43e86e017b8211488f54af95c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/09_12_26_894117e43e86e017b8211488f54af95c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/09/26/423133",
+          "title": "Humor Me for Sep 12, 2026"
+        },
+        {
+          "release_date": "2026-09-05",
+          "full": "https://cdn.alphacomedy.com/55/2026/09_05_26_9a4f76b0aa403c9da5fdface089c5179.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/09_05_26_9a4f76b0aa403c9da5fdface089c5179_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/09/26/422674",
+          "title": "Humor Me for Sep 05, 2026"
+        },
+        {
+          "release_date": "2026-08-29",
+          "full": "https://cdn.alphacomedy.com/55/2026/08_29_26_ae0bc751b6b252c42320506311de489f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/08_29_26_ae0bc751b6b252c42320506311de489f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/08/26/422215",
+          "title": "Humor Me for Aug 29, 2026"
+        },
+        {
+          "release_date": "2026-08-22",
+          "full": "https://cdn.alphacomedy.com/55/2026/08_22_26_cc9d00c98c4f0234797c007e74e885c2.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/08_22_26_cc9d00c98c4f0234797c007e74e885c2_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/08/26/421734",
+          "title": "Humor Me for Aug 22, 2026"
+        },
+        {
+          "release_date": "2026-08-15",
+          "full": "https://cdn.alphacomedy.com/55/2026/08_15_26_25ceb8c4afd5e2d89aaed2f8c5663af6.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/08_15_26_25ceb8c4afd5e2d89aaed2f8c5663af6_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/08/26/421263",
+          "title": "Humor Me for Aug 15, 2026"
+        },
+        {
+          "release_date": "2026-08-08",
+          "full": "https://cdn.alphacomedy.com/55/2026/08_08_26_009ca3b3c3f3f67b91c5585076283b06.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/08_08_26_009ca3b3c3f3f67b91c5585076283b06_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/08/26/420875",
+          "title": "Humor Me for Aug 08, 2026"
+        },
+        {
+          "release_date": "2026-08-01",
+          "full": "https://cdn.alphacomedy.com/55/2026/08_01_26_ef99a66718675fb7f6f04ac2733e644a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/08_01_26_ef99a66718675fb7f6f04ac2733e644a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/08/26/420410",
+          "title": "Humor Me for Aug 01, 2026"
+        },
+        {
+          "release_date": "2026-07-25",
+          "full": "https://cdn.alphacomedy.com/55/2026/07_25_26_374f2b25f1df8c04ca04fa560d8f1bfb.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/07_25_26_374f2b25f1df8c04ca04fa560d8f1bfb_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/07/26/419962",
+          "title": "Humor Me for Jul 25, 2026"
+        },
+        {
+          "release_date": "2026-07-11",
+          "full": "https://cdn.alphacomedy.com/55/2026/07_11_26_86ad46f2e173bf8adf9260889ded91c5.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/07_11_26_86ad46f2e173bf8adf9260889ded91c5_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/07/26/419053",
+          "title": "Humor Me for Jul 11, 2026"
+        },
+        {
+          "release_date": "2026-07-04",
+          "full": "https://cdn.alphacomedy.com/55/2026/07_04_26_399da8ee51e4fa8ab596ad7b89ee16d4.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/07_04_26_399da8ee51e4fa8ab596ad7b89ee16d4_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/07/26/418724",
+          "title": "Humor Me for Jul 04, 2026"
+        },
+        {
+          "release_date": "2026-06-27",
+          "full": "https://cdn.alphacomedy.com/55/2026/06_27_26_57f09df01aa472a6324c9dd01d197ccd.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/06_27_26_57f09df01aa472a6324c9dd01d197ccd_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/06/26/418277",
+          "title": "Humor Me for Jun 27, 2026"
+        },
+        {
+          "release_date": "2026-06-20",
+          "full": "https://cdn.alphacomedy.com/55/2026/06_20_26_f5ab409012378c64e66fc97a522087e8.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/06_20_26_f5ab409012378c64e66fc97a522087e8_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/06/26/417882",
+          "title": "Humor Me for Jun 20, 2026"
+        },
+        {
+          "release_date": "2026-06-13",
+          "full": "https://cdn.alphacomedy.com/55/2026/06_13_26_84a4560c0a4aa1d7bddd8e787d92422e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/06_13_26_84a4560c0a4aa1d7bddd8e787d92422e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/06/26/417452",
+          "title": "Humor Me for Jun 13, 2026"
+        },
+        {
+          "release_date": "2026-06-06",
+          "full": "https://cdn.alphacomedy.com/55/2026/06_06_26_65863cfcc25aa4f4938ad65046a075df.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/06_06_26_65863cfcc25aa4f4938ad65046a075df_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/06/26/416960",
+          "title": "Humor Me for Jun 06, 2026"
+        },
+        {
+          "release_date": "2026-05-30",
+          "full": "https://cdn.alphacomedy.com/55/2026/05_30_26_d852241602b1d2a3b38bacf56a9f16c0.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/05_30_26_d852241602b1d2a3b38bacf56a9f16c0_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/05/26/416488",
+          "title": "Humor Me for May 30, 2026"
+        },
+        {
+          "release_date": "2026-05-23",
+          "full": "https://cdn.alphacomedy.com/55/2026/05_23_26_fb8dd9b7460dcad6b065fc40a99953d3.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/05_23_26_fb8dd9b7460dcad6b065fc40a99953d3_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/05/26/416148",
+          "title": "Humor Me for May 23, 2026"
+        },
+        {
+          "release_date": "2026-05-16",
+          "full": "https://cdn.alphacomedy.com/55/2026/05_16_26_744e35e5db884e57534e0304a06bb9a6.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/05_16_26_744e35e5db884e57534e0304a06bb9a6_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/05/26/415678",
+          "title": "Humor Me for May 16, 2026"
+        },
+        {
+          "release_date": "2026-05-09",
+          "full": "https://cdn.alphacomedy.com/55/2026/05_09_26_e632ddc429206bb6790b41540f3fc570.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/05_09_26_e632ddc429206bb6790b41540f3fc570_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/05/26/415257",
+          "title": "Humor Me for May 09, 2026"
+        },
+        {
+          "release_date": "2026-05-02",
+          "full": "https://cdn.alphacomedy.com/55/2026/05_02_26_91ae967f4d1f2c49814b060ee8379e2c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/05_02_26_91ae967f4d1f2c49814b060ee8379e2c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/05/26/414981",
+          "title": "Humor Me for May 02, 2026"
+        },
+        {
+          "release_date": "2026-04-25",
+          "full": "https://cdn.alphacomedy.com/55/2026/04_25_26_11a5c517d0d403363615b22cf3315412.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/04_25_26_11a5c517d0d403363615b22cf3315412_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/04/26/414423",
+          "title": "Humor Me for Apr 25, 2026"
+        },
+        {
+          "release_date": "2026-04-18",
+          "full": "https://cdn.alphacomedy.com/55/2026/04_18_26_99f960087d7ae7f5385d5bae2b54ad9a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/55/2026/04_18_26_99f960087d7ae7f5385d5bae2b54ad9a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/humor-me/04/26/413934",
+          "title": "Humor Me for Apr 18, 2026"
+        }
+      ]
+    },
+    {
+      "slug": "rugrats",
+      "feature_id": "171",
+      "read_url": "https://www.creators.com/read/rugrats",
+      "releases": [
+        {
+          "release_date": "2026-10-08",
+          "full": "https://cdn.alphacomedy.com/50/2026/10_08_26_9f36e70b327bcc1172c93fd503faf838.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/10_08_26_9f36e70b327bcc1172c93fd503faf838_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/10/26/423693",
+          "title": "Rugrats for Oct 08, 2026"
+        },
+        {
+          "release_date": "2026-10-07",
+          "full": "https://cdn.alphacomedy.com/50/2026/10_07_26_5e7cbe4d75bd35154103f0cfd52d7ec8.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/10_07_26_5e7cbe4d75bd35154103f0cfd52d7ec8_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/10/26/423692",
+          "title": "Rugrats for Oct 07, 2026"
+        },
+        {
+          "release_date": "2026-10-06",
+          "full": "https://cdn.alphacomedy.com/50/2026/10_06_26_be828874c798295f87e0382c0d898085.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/10_06_26_be828874c798295f87e0382c0d898085_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/10/26/423705",
+          "title": "Rugrats for Oct 06, 2026"
+        },
+        {
+          "release_date": "2026-10-05",
+          "full": "https://cdn.alphacomedy.com/50/2026/10_05_26_f3b18158551af7228f2e63ecf1833cbb.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/10_05_26_f3b18158551af7228f2e63ecf1833cbb_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/10/26/423688",
+          "title": "Rugrats for Oct 05, 2026"
+        },
+        {
+          "release_date": "2026-10-04",
+          "full": "https://cdn.alphacomedy.com/50/2026/10_04_26_2a916d3c8a6d151bc3fe385d7c7da3fe.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/10_04_26_2a916d3c8a6d151bc3fe385d7c7da3fe_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/10/26/423237",
+          "title": "Rugrats for Oct 04, 2026"
+        },
+        {
+          "release_date": "2026-10-03",
+          "full": "https://cdn.alphacomedy.com/50/2026/10_03_26_16817d094ff9460e7dfbf1af94c51a29.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/10_03_26_16817d094ff9460e7dfbf1af94c51a29_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/10/26/423709",
+          "title": "Rugrats for Oct 03, 2026"
+        },
+        {
+          "release_date": "2026-10-02",
+          "full": "https://cdn.alphacomedy.com/50/2026/10_02_26_d1d606680990d6b878fd8e097395e469.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/10_02_26_d1d606680990d6b878fd8e097395e469_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/10/26/423712",
+          "title": "Rugrats for Oct 02, 2026"
+        },
+        {
+          "release_date": "2026-10-01",
+          "full": "https://cdn.alphacomedy.com/50/2026/10_01_26_d4f50b4281f86bd6f7d5f6c31215dd64.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/10_01_26_d4f50b4281f86bd6f7d5f6c31215dd64_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/10/26/423703",
+          "title": "Rugrats for Oct 01, 2026"
+        },
+        {
+          "release_date": "2026-09-30",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_30_26_aaf2d327f2edd7731c326927f6441bc5.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_30_26_aaf2d327f2edd7731c326927f6441bc5_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/423696",
+          "title": "Rugrats for Sep 30, 2026"
+        },
+        {
+          "release_date": "2026-09-29",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_29_26_3a75b607da55f88e79be44c697ba3bc2.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_29_26_3a75b607da55f88e79be44c697ba3bc2_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/423689",
+          "title": "Rugrats for Sep 29, 2026"
+        },
+        {
+          "release_date": "2026-09-28",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_28_26_6272bb15162dd43e17811aa45d3b37ab.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_28_26_6272bb15162dd43e17811aa45d3b37ab_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/423695",
+          "title": "Rugrats for Sep 28, 2026"
+        },
+        {
+          "release_date": "2026-09-27",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_27_26_7ef6f790a411e153854d6d256f8f8d1e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_27_26_7ef6f790a411e153854d6d256f8f8d1e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/422422",
+          "title": "Rugrats for Sep 27, 2026"
+        },
+        {
+          "release_date": "2026-09-26",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_26_26_a24f22786d1b8c7a062b9c6af1b03f90.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_26_26_a24f22786d1b8c7a062b9c6af1b03f90_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/423029",
+          "title": "Rugrats for Sep 26, 2026"
+        },
+        {
+          "release_date": "2026-09-25",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_25_26_77a7313dd7925e3dba7a6bdf174ef2f0.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_25_26_77a7313dd7925e3dba7a6bdf174ef2f0_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/423025",
+          "title": "Rugrats for Sep 25, 2026"
+        },
+        {
+          "release_date": "2026-09-24",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_24_26_75d0286e0a0fc05e87a94d8b987fc04b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_24_26_75d0286e0a0fc05e87a94d8b987fc04b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/423026",
+          "title": "Rugrats for Sep 24, 2026"
+        },
+        {
+          "release_date": "2026-09-23",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_23_26_369853425f1a733faa118ce10d4e142c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_23_26_369853425f1a733faa118ce10d4e142c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/423023",
+          "title": "Rugrats for Sep 23, 2026"
+        },
+        {
+          "release_date": "2026-09-22",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_22_26_35436befafc726f3617d35fe580a587e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_22_26_35436befafc726f3617d35fe580a587e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/423035",
+          "title": "Rugrats for Sep 22, 2026"
+        },
+        {
+          "release_date": "2026-09-21",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_21_26_5633c088efc3103a1e901ea4a758424e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_21_26_5633c088efc3103a1e901ea4a758424e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/423031",
+          "title": "Rugrats for Sep 21, 2026"
+        },
+        {
+          "release_date": "2026-09-20",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_20_26_c223c0294390f1fc2cc174bd7c24924c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_20_26_c223c0294390f1fc2cc174bd7c24924c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/421871",
+          "title": "Rugrats for Sep 20, 2026"
+        },
+        {
+          "release_date": "2026-09-19",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_19_26_dc7d52a2bc96e8b0d58a45233688c5b4.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_19_26_dc7d52a2bc96e8b0d58a45233688c5b4_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/422087",
+          "title": "Rugrats for Sep 19, 2026"
+        },
+        {
+          "release_date": "2026-09-18",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_18_26_811742592ca9fb4195437d85660996e9.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_18_26_811742592ca9fb4195437d85660996e9_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/422076",
+          "title": "Rugrats for Sep 18, 2026"
+        },
+        {
+          "release_date": "2026-09-17",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_17_26_7193ea4612ad28067bc8a4ec34a38204.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_17_26_7193ea4612ad28067bc8a4ec34a38204_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/422100",
+          "title": "Rugrats for Sep 17, 2026"
+        },
+        {
+          "release_date": "2026-09-16",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_16_26_7b676ce9a602bcbbf906a2cc57210431.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_16_26_7b676ce9a602bcbbf906a2cc57210431_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/422075",
+          "title": "Rugrats for Sep 16, 2026"
+        },
+        {
+          "release_date": "2026-09-15",
+          "full": "https://cdn.alphacomedy.com/50/2026/09_15_26_ad7684a2d5bcd10845e1063fca1350d6.jpg",
+          "thumb": "https://cdn.alphacomedy.com/50/2026/09_15_26_ad7684a2d5bcd10845e1063fca1350d6_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/rugrats/09/26/422088",
+          "title": "Rugrats for Sep 15, 2026"
+        }
+      ]
+    },
+    {
+      "slug": "shrimp-and-grits",
+      "feature_id": "1149",
+      "read_url": "https://www.creators.com/read/shrimp-and-grits",
+      "releases": [
+        {
+          "release_date": "2026-10-08",
+          "full": "https://cdn.alphacomedy.com/59/2026/10_08_26_7bc6bfdda2978a6c94887c52963a74fe.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/10_08_26_7bc6bfdda2978a6c94887c52963a74fe_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/10/26/423755",
+          "title": "Shrimp and Grits for Oct 08, 2026"
+        },
+        {
+          "release_date": "2026-10-07",
+          "full": "https://cdn.alphacomedy.com/59/2026/10_07_26_de428009be895d485a6c037f09b1de21.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/10_07_26_de428009be895d485a6c037f09b1de21_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/10/26/423779",
+          "title": "Shrimp and Grits for Oct 07, 2026"
+        },
+        {
+          "release_date": "2026-10-06",
+          "full": "https://cdn.alphacomedy.com/59/2026/10_06_26_e96078954d803b70088caaadcdd50cee.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/10_06_26_e96078954d803b70088caaadcdd50cee_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/10/26/423772",
+          "title": "Shrimp and Grits for Oct 06, 2026"
+        },
+        {
+          "release_date": "2026-10-05",
+          "full": "https://cdn.alphacomedy.com/59/2026/10_05_26_e36745068354e1237ee97db666d54a25.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/10_05_26_e36745068354e1237ee97db666d54a25_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/10/26/423789",
+          "title": "Shrimp and Grits for Oct 05, 2026"
+        },
+        {
+          "release_date": "2026-10-04",
+          "full": "https://cdn.alphacomedy.com/59/2026/10_04_26_285bf64413bde345152d4554ea096854.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/10_04_26_285bf64413bde345152d4554ea096854_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/10/26/422908",
+          "title": "Shrimp and Grits for Oct 04, 2026"
+        },
+        {
+          "release_date": "2026-10-03",
+          "full": "https://cdn.alphacomedy.com/59/2026/10_03_26_c9b2f43f57df4e15abc8cb6b9ad74ade.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/10_03_26_c9b2f43f57df4e15abc8cb6b9ad74ade_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/10/26/423697",
+          "title": "Shrimp and Grits for Oct 03, 2026"
+        },
+        {
+          "release_date": "2026-10-02",
+          "full": "https://cdn.alphacomedy.com/59/2026/10_02_26_156fc14b5c91a39e7b2f782fbd35656e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/10_02_26_156fc14b5c91a39e7b2f782fbd35656e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/10/26/423708",
+          "title": "Shrimp and Grits for Oct 02, 2026"
+        },
+        {
+          "release_date": "2026-10-01",
+          "full": "https://cdn.alphacomedy.com/59/2026/10_01_26_0ba49e4457ad25345c4a23a86afa3a45.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/10_01_26_0ba49e4457ad25345c4a23a86afa3a45_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/10/26/423683",
+          "title": "Shrimp and Grits for Oct 01, 2026"
+        },
+        {
+          "release_date": "2026-09-30",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_30_26_12c07bdbc0f2f12275a744f39f445f90.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_30_26_12c07bdbc0f2f12275a744f39f445f90_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/423701",
+          "title": "Shrimp and Grits for Sep 30, 2026"
+        },
+        {
+          "release_date": "2026-09-29",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_29_26_c41f6f1ea8ebde426ac27595ed5da31e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_29_26_c41f6f1ea8ebde426ac27595ed5da31e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/423706",
+          "title": "Shrimp and Grits for Sep 29, 2026"
+        },
+        {
+          "release_date": "2026-09-28",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_28_26_5981967272d8ab1b94eb0e440d780873.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_28_26_5981967272d8ab1b94eb0e440d780873_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/423687",
+          "title": "Shrimp and Grits for Sep 28, 2026"
+        },
+        {
+          "release_date": "2026-09-27",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_27_26_9a4cf9e3199ef1dc61a8140f312b7467.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_27_26_9a4cf9e3199ef1dc61a8140f312b7467_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/422423",
+          "title": "Shrimp and Grits for Sep 27, 2026"
+        },
+        {
+          "release_date": "2026-09-26",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_26_26_762f668eb91d06413277e5620a33d127.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_26_26_762f668eb91d06413277e5620a33d127_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/423143",
+          "title": "Shrimp and Grits for Sep 26, 2026"
+        },
+        {
+          "release_date": "2026-09-25",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_25_26_7c988118fda93a442d60bb29b43ba825.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_25_26_7c988118fda93a442d60bb29b43ba825_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/423139",
+          "title": "Shrimp and Grits for Sep 25, 2026"
+        },
+        {
+          "release_date": "2026-09-24",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_24_26_30ceaba7a1d7902dce93482e23c6cc24.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_24_26_30ceaba7a1d7902dce93482e23c6cc24_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/423141",
+          "title": "Shrimp and Grits for Sep 24, 2026"
+        },
+        {
+          "release_date": "2026-09-23",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_23_26_ef2448cdf748c4d33c701710775abf6e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_23_26_ef2448cdf748c4d33c701710775abf6e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/423140",
+          "title": "Shrimp and Grits for Sep 23, 2026"
+        },
+        {
+          "release_date": "2026-09-22",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_22_26_311a41615340da3c684a62e2a4b14946.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_22_26_311a41615340da3c684a62e2a4b14946_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/423142",
+          "title": "Shrimp and Grits for Sep 22, 2026"
+        },
+        {
+          "release_date": "2026-09-21",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_21_26_7296e6edf9147c696de41a40610c73eb.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_21_26_7296e6edf9147c696de41a40610c73eb_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/423138",
+          "title": "Shrimp and Grits for Sep 21, 2026"
+        },
+        {
+          "release_date": "2026-09-20",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_20_26_e946dfa1ec22c6b2bf6677ebf60b260b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_20_26_e946dfa1ec22c6b2bf6677ebf60b260b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/421881",
+          "title": "Shrimp and Grits for Sep 20, 2026"
+        },
+        {
+          "release_date": "2026-09-19",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_19_26_424dd038d65de7d047f00e97b101f516.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_19_26_424dd038d65de7d047f00e97b101f516_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/422222",
+          "title": "Shrimp and Grits for Sep 19, 2026"
+        },
+        {
+          "release_date": "2026-09-18",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_18_26_a3cc1ef4af5301d1249f5f421140bacf.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_18_26_a3cc1ef4af5301d1249f5f421140bacf_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/422216",
+          "title": "Shrimp and Grits for Sep 18, 2026"
+        },
+        {
+          "release_date": "2026-09-17",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_17_26_15dcd1240176bec521a0cb756c20342c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_17_26_15dcd1240176bec521a0cb756c20342c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/422217",
+          "title": "Shrimp and Grits for Sep 17, 2026"
+        },
+        {
+          "release_date": "2026-09-16",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_16_26_7b10a76d6f168dbb33cf9e8dd47311c7.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_16_26_7b10a76d6f168dbb33cf9e8dd47311c7_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/422250",
+          "title": "Shrimp and Grits for Sep 16, 2026"
+        },
+        {
+          "release_date": "2026-09-15",
+          "full": "https://cdn.alphacomedy.com/59/2026/09_15_26_294a5ffd6124dc4b0745132f1edf452a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/59/2026/09_15_26_294a5ffd6124dc4b0745132f1edf452a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/shrimp-and-grits/09/26/422240",
+          "title": "Shrimp and Grits for Sep 15, 2026"
+        }
+      ]
+    },
+    {
+      "slug": "spectickles",
+      "feature_id": "933",
+      "read_url": "https://www.creators.com/read/spectickles",
+      "releases": [
+        {
+          "release_date": "2026-10-08",
+          "full": "https://cdn.alphacomedy.com/51/2026/10_08_26_5b4ef05c6b30cb9efd17e3387231529f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/10_08_26_5b4ef05c6b30cb9efd17e3387231529f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/10/26/423763",
+          "title": "Spectickles for Oct 08, 2026"
+        },
+        {
+          "release_date": "2026-10-07",
+          "full": "https://cdn.alphacomedy.com/51/2026/10_07_26_559de7fa1a9821230047f0bb1e2ce0b4.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/10_07_26_559de7fa1a9821230047f0bb1e2ce0b4_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/10/26/423780",
+          "title": "Spectickles for Oct 07, 2026"
+        },
+        {
+          "release_date": "2026-10-06",
+          "full": "https://cdn.alphacomedy.com/51/2026/10_06_26_0281b4247116f8d09b0ae31f90ffd3a4.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/10_06_26_0281b4247116f8d09b0ae31f90ffd3a4_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/10/26/423770",
+          "title": "Spectickles for Oct 06, 2026"
+        },
+        {
+          "release_date": "2026-10-05",
+          "full": "https://cdn.alphacomedy.com/51/2026/10_05_26_6766d388f491a7a4a743d0a995ce2f42.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/10_05_26_6766d388f491a7a4a743d0a995ce2f42_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/10/26/423757",
+          "title": "Spectickles for Oct 05, 2026"
+        },
+        {
+          "release_date": "2026-10-03",
+          "full": "https://cdn.alphacomedy.com/51/2026/10_03_26_9a53872b15690ecf8f99875e76118f9b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/10_03_26_9a53872b15690ecf8f99875e76118f9b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/10/26/423756",
+          "title": "Spectickles for Oct 03, 2026"
+        },
+        {
+          "release_date": "2026-10-02",
+          "full": "https://cdn.alphacomedy.com/51/2026/10_02_26_ea9637835829beed3bf44ecb3b720f81.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/10_02_26_ea9637835829beed3bf44ecb3b720f81_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/10/26/423771",
+          "title": "Spectickles for Oct 02, 2026"
+        },
+        {
+          "release_date": "2026-10-01",
+          "full": "https://cdn.alphacomedy.com/51/2026/10_01_26_39b5bd50e6b599dd6e4a8ceaf2f61309.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/10_01_26_39b5bd50e6b599dd6e4a8ceaf2f61309_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/10/26/423769",
+          "title": "Spectickles for Oct 01, 2026"
+        },
+        {
+          "release_date": "2026-09-30",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_30_26_f3a56dcf59e82d4e0341f19c8d028cc6.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_30_26_f3a56dcf59e82d4e0341f19c8d028cc6_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/423762",
+          "title": "Spectickles for Sep 30, 2026"
+        },
+        {
+          "release_date": "2026-09-29",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_29_26_eef2f55315bd2aa9104a7b1f2900fbed.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_29_26_eef2f55315bd2aa9104a7b1f2900fbed_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/423758",
+          "title": "Spectickles for Sep 29, 2026"
+        },
+        {
+          "release_date": "2026-09-28",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_28_26_72d97e99f5d84541a31f18ea33bf2bed.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_28_26_72d97e99f5d84541a31f18ea33bf2bed_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/423777",
+          "title": "Spectickles for Sep 28, 2026"
+        },
+        {
+          "release_date": "2026-09-26",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_26_26_e41e6a30eb90492cbc59baace4243a3e.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_26_26_e41e6a30eb90492cbc59baace4243a3e_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/423149",
+          "title": "Spectickles for Sep 26, 2026"
+        },
+        {
+          "release_date": "2026-09-25",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_25_26_5e39a0e07e9e893930cf2e83c78a4b3c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_25_26_5e39a0e07e9e893930cf2e83c78a4b3c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/423147",
+          "title": "Spectickles for Sep 25, 2026"
+        },
+        {
+          "release_date": "2026-09-24",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_24_26_6d3d39d588ed99dc58d58c5368cad1dc.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_24_26_6d3d39d588ed99dc58d58c5368cad1dc_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/423145",
+          "title": "Spectickles for Sep 24, 2026"
+        },
+        {
+          "release_date": "2026-09-23",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_23_26_e3b3fc2c7ebc8bad1baff548783101d3.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_23_26_e3b3fc2c7ebc8bad1baff548783101d3_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/423148",
+          "title": "Spectickles for Sep 23, 2026"
+        },
+        {
+          "release_date": "2026-09-22",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_22_26_2756ea99a630b98039361d3f99a80c87.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_22_26_2756ea99a630b98039361d3f99a80c87_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/423150",
+          "title": "Spectickles for Sep 22, 2026"
+        },
+        {
+          "release_date": "2026-09-21",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_21_26_f665e69dfcf5b9561d3d5a42e1e16053.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_21_26_f665e69dfcf5b9561d3d5a42e1e16053_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/423146",
+          "title": "Spectickles for Sep 21, 2026"
+        },
+        {
+          "release_date": "2026-09-19",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_19_26_ea07849949e964f9f50c3ec9b25881d2.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_19_26_ea07849949e964f9f50c3ec9b25881d2_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/422228",
+          "title": "Spectickles for Sep 19, 2026"
+        },
+        {
+          "release_date": "2026-09-18",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_18_26_692cda9619f325b13adb84afab69ce0d.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_18_26_692cda9619f325b13adb84afab69ce0d_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/422224",
+          "title": "Spectickles for Sep 18, 2026"
+        },
+        {
+          "release_date": "2026-09-17",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_17_26_aa54158e933809cf647d1db1438ebc4d.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_17_26_aa54158e933809cf647d1db1438ebc4d_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/422223",
+          "title": "Spectickles for Sep 17, 2026"
+        },
+        {
+          "release_date": "2026-09-16",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_16_26_05bec3e1f2a1781841d3b29cff272c17.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_16_26_05bec3e1f2a1781841d3b29cff272c17_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/422232",
+          "title": "Spectickles for Sep 16, 2026"
+        },
+        {
+          "release_date": "2026-09-15",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_15_26_ec7b6a1b2cd51167bc612655ef4ef1df.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_15_26_ec7b6a1b2cd51167bc612655ef4ef1df_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/422239",
+          "title": "Spectickles for Sep 15, 2026"
+        },
+        {
+          "release_date": "2026-09-14",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_14_26_c7980d841880a53323f10243d8a81100.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_14_26_c7980d841880a53323f10243d8a81100_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/422220",
+          "title": "Spectickles for Sep 14, 2026"
+        },
+        {
+          "release_date": "2026-09-12",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_12_26_ae799bd574d52c1f95180275b9fb6784.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_12_26_ae799bd574d52c1f95180275b9fb6784_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/422229",
+          "title": "Spectickles for Sep 12, 2026"
+        },
+        {
+          "release_date": "2026-09-11",
+          "full": "https://cdn.alphacomedy.com/51/2026/09_11_26_fcf3847d742b9f32ec9298231fa0424a.jpg",
+          "thumb": "https://cdn.alphacomedy.com/51/2026/09_11_26_fcf3847d742b9f32ec9298231fa0424a_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/spectickles/09/26/422221",
+          "title": "Spectickles for Sep 11, 2026"
+        }
+      ]
+    },
+    {
+      "slug": "wizard-of-id-spanish",
+      "feature_id": "590",
+      "read_url": "https://www.creators.com/read/wizard-of-id-spanish",
+      "releases": [
+        {
+          "release_date": "2026-10-08",
+          "full": "https://cdn.alphacomedy.com/47/2026/10_08_26_391779301a85d86f175402873de77af1.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/10_08_26_391779301a85d86f175402873de77af1_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/10/26/424436",
+          "title": "Wizard of Id Spanish for Oct 08, 2026"
+        },
+        {
+          "release_date": "2026-10-07",
+          "full": "https://cdn.alphacomedy.com/47/2026/10_07_26_c81d6bfe22d93a0f99489cb37d48934c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/10_07_26_c81d6bfe22d93a0f99489cb37d48934c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/10/26/424441",
+          "title": "Wizard of Id Spanish for Oct 07, 2026"
+        },
+        {
+          "release_date": "2026-10-06",
+          "full": "https://cdn.alphacomedy.com/47/2026/10_06_26_56556bd70fe9a9e6aa1ba9569346547b.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/10_06_26_56556bd70fe9a9e6aa1ba9569346547b_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/10/26/424417",
+          "title": "Wizard of Id Spanish for Oct 06, 2026"
+        },
+        {
+          "release_date": "2026-10-05",
+          "full": "https://cdn.alphacomedy.com/47/2026/10_05_26_13563a567f5581b7d49b4eae7e9fb9e8.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/10_05_26_13563a567f5581b7d49b4eae7e9fb9e8_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/10/26/424434",
+          "title": "Wizard of Id Spanish for Oct 05, 2026"
+        },
+        {
+          "release_date": "2026-10-03",
+          "full": "https://cdn.alphacomedy.com/47/2026/10_03_26_bf5c85ab0769eed0471266d3f6ed9d2c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/10_03_26_bf5c85ab0769eed0471266d3f6ed9d2c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/10/26/424035",
+          "title": "Wizard of Id Spanish for Oct 03, 2026"
+        },
+        {
+          "release_date": "2026-10-02",
+          "full": "https://cdn.alphacomedy.com/47/2026/10_02_26_271dbb58b87f669bd6236b9a46a63bf3.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/10_02_26_271dbb58b87f669bd6236b9a46a63bf3_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/10/26/424044",
+          "title": "Wizard of Id Spanish for Oct 02, 2026"
+        },
+        {
+          "release_date": "2026-10-01",
+          "full": "https://cdn.alphacomedy.com/47/2026/10_01_26_abaf7baa8c5b9458058a8e37a55117bd.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/10_01_26_abaf7baa8c5b9458058a8e37a55117bd_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/10/26/424033",
+          "title": "Wizard of Id Spanish for Oct 01, 2026"
+        },
+        {
+          "release_date": "2026-09-30",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_30_26_94ba25a0425fbefb591188e05a8870e7.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_30_26_94ba25a0425fbefb591188e05a8870e7_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/424028",
+          "title": "Wizard of Id Spanish for Sep 30, 2026"
+        },
+        {
+          "release_date": "2026-09-29",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_29_26_a2f5677118525510f6f61853b31c59e7.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_29_26_a2f5677118525510f6f61853b31c59e7_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/424034",
+          "title": "Wizard of Id Spanish for Sep 29, 2026"
+        },
+        {
+          "release_date": "2026-09-28",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_28_26_e5c80fc07d7245ff8ed69feb5544180c.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_28_26_e5c80fc07d7245ff8ed69feb5544180c_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/424032",
+          "title": "Wizard of Id Spanish for Sep 28, 2026"
+        },
+        {
+          "release_date": "2026-09-26",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_26_26_b6594a243872b02dd2aa029555525a14.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_26_26_b6594a243872b02dd2aa029555525a14_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423722",
+          "title": "Wizard of Id Spanish for Sep 26, 2026"
+        },
+        {
+          "release_date": "2026-09-25",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_25_26_e2ed03c347f25e4bc8c40f07313dec36.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_25_26_e2ed03c347f25e4bc8c40f07313dec36_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423733",
+          "title": "Wizard of Id Spanish for Sep 25, 2026"
+        },
+        {
+          "release_date": "2026-09-24",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_24_26_79f9a737dca7ae4c6e81a1104007e349.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_24_26_79f9a737dca7ae4c6e81a1104007e349_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423737",
+          "title": "Wizard of Id Spanish for Sep 24, 2026"
+        },
+        {
+          "release_date": "2026-09-23",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_23_26_7d3f21474a4a121135666f9a0c78be66.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_23_26_7d3f21474a4a121135666f9a0c78be66_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423721",
+          "title": "Wizard of Id Spanish for Sep 23, 2026"
+        },
+        {
+          "release_date": "2026-09-22",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_22_26_71980f4bd313e8a81d19a5e763b49d56.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_22_26_71980f4bd313e8a81d19a5e763b49d56_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423727",
+          "title": "Wizard of Id Spanish for Sep 22, 2026"
+        },
+        {
+          "release_date": "2026-09-21",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_21_26_558e0ba29cc827fec05bc779f9d420d3.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_21_26_558e0ba29cc827fec05bc779f9d420d3_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423720",
+          "title": "Wizard of Id Spanish for Sep 21, 2026"
+        },
+        {
+          "release_date": "2026-09-19",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_19_26_75fbd8547f66f3859aafe27aad4cf0a6.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_19_26_75fbd8547f66f3859aafe27aad4cf0a6_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423204",
+          "title": "Wizard of Id Spanish for Sep 19, 2026"
+        },
+        {
+          "release_date": "2026-09-18",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_18_26_7b3d0457e3e36ce72e055f161219bae3.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_18_26_7b3d0457e3e36ce72e055f161219bae3_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423217",
+          "title": "Wizard of Id Spanish for Sep 18, 2026"
+        },
+        {
+          "release_date": "2026-09-17",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_17_26_d8da461c0ca4d8a4c82257140bbfbaf0.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_17_26_d8da461c0ca4d8a4c82257140bbfbaf0_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423208",
+          "title": "Wizard of Id Spanish for Sep 17, 2026"
+        },
+        {
+          "release_date": "2026-09-16",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_16_26_2749ac204e7afda24a86babd0ee7791f.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_16_26_2749ac204e7afda24a86babd0ee7791f_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423213",
+          "title": "Wizard of Id Spanish for Sep 16, 2026"
+        },
+        {
+          "release_date": "2026-09-15",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_15_26_cfdfcfde99c8809dbc434e80b92cabde.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_15_26_cfdfcfde99c8809dbc434e80b92cabde_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423212",
+          "title": "Wizard of Id Spanish for Sep 15, 2026"
+        },
+        {
+          "release_date": "2026-09-14",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_14_26_fb9ebbf72e10a7be5e3cd927ac68a085.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_14_26_fb9ebbf72e10a7be5e3cd927ac68a085_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/423211",
+          "title": "Wizard of Id Spanish for Sep 14, 2026"
+        },
+        {
+          "release_date": "2026-09-12",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_12_26_704088eb3cddfcc8587689c86fb59d33.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_12_26_704088eb3cddfcc8587689c86fb59d33_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/422901",
+          "title": "Wizard of Id Spanish for Sep 12, 2026"
+        },
+        {
+          "release_date": "2026-09-11",
+          "full": "https://cdn.alphacomedy.com/47/2026/09_11_26_40198779189e20c28d2c43d769f54c15.jpg",
+          "thumb": "https://cdn.alphacomedy.com/47/2026/09_11_26_40198779189e20c28d2c43d769f54c15_thumb.jpg",
+          "formatted_url": "https://www.creators.com/read/wizard-of-id-spanish/09/26/422886",
+          "title": "Wizard of Id Spanish for Sep 11, 2026"
+        }
+      ]
+    }
+  ]
+}

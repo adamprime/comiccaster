@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-08",
+  "scraped_at": "2026-10-08T08:20:45.300365+00:00",
+  "comics": [
+    {
+      "id": "22831",
+      "date": "2026-10-08",
+      "url": "https://www.thefarside.com/2026/10/08/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F13150aa0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/13150aa0cdd50137c56b005056a9545d",
+      "caption": "\u201cOkay, Pete! Start the pressure nice and easy.\u201d",
+      "title": "\u201cOkay, Pete! Start the pressure nice and easy"
+    },
+    {
+      "id": "22832",
+      "date": "2026-10-08",
+      "url": "https://www.thefarside.com/2026/10/08/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1f2443d0df120137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1f2443d0df120137cbaf005056a9545d",
+      "caption": "\u201cAnd here we are last summer going south. \u2026 Wait a minute, Irene! We went north last summer! The stupid slide\u2019s\n in backwards!\u201d",
+      "title": "\u201cAnd here we are last summer going south"
+    },
+    {
+      "id": "22833",
+      "date": "2026-10-08",
+      "url": "https://www.thefarside.com/2026/10/08/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F255ea800cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/255ea800cdd30137c56b005056a9545d",
+      "caption": "\u201cAnd that goes for Lancelot, Galahad, and the rest of you guys\u2014no more stickin\u2019 your gum under the table.\u201d",
+      "title": "\u201cAnd that goes for Lancelot, Galahad, and the rest of you..."
+    },
+    {
+      "id": "22834",
+      "date": "2026-10-08",
+      "url": "https://www.thefarside.com/2026/10/08/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9c2feb30d8b90137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9c2feb30d8b90137c959005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22834"
+    },
+    {
+      "id": "22835",
+      "date": "2026-10-08",
+      "url": "https://www.thefarside.com/2026/10/08/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8653be60cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8653be60cdd20137c56b005056a9545d",
+      "caption": "\u201cThat does it! \u2026 I\u2019m going to go up there and give those \npeople hell! \u201d",
+      "title": "\u201cThat does it! \u2026 I\u2019m going to go up there and give those ..."
+    }
+  ]
+}
