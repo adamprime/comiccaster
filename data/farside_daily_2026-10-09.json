@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-09",
+  "scraped_at": "2026-10-09T08:21:04.374009+00:00",
+  "comics": [
+    {
+      "id": "22836",
+      "date": "2026-10-09",
+      "url": "https://www.thefarside.com/2026/10/09/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F43cf59a0e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/43cf59a0e3ae0137cd49005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22836"
+    },
+    {
+      "id": "22837",
+      "date": "2026-10-09",
+      "url": "https://www.thefarside.com/2026/10/09/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F848500a0d0d10137c639005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/848500a0d0d10137c639005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22837"
+    },
+    {
+      "id": "22838",
+      "date": "2026-10-09",
+      "url": "https://www.thefarside.com/2026/10/09/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8c9b31e0d0be0137c62c005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8c9b31e0d0be0137c62c005056a9545d",
+      "caption": "\u201cHarold! The dog\u2019s trying to blow up the house again! Catch him in the act or he\u2019ll never learn!\u201d",
+      "title": "\u201cHarold! The dog\u2019s trying to blow up the house again! Cat..."
+    },
+    {
+      "id": "22839",
+      "date": "2026-10-09",
+      "url": "https://www.thefarside.com/2026/10/09/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F34318400fa880137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/34318400fa880137d531005056a9545d",
+      "caption": "In the longest hour of his life, Morty takes the dare \nof his sloth buddies and crosses the Autobahn.",
+      "title": "In the longest hour of his life, Morty takes the dare \nof..."
+    },
+    {
+      "id": "22840",
+      "date": "2026-10-09",
+      "url": "https://www.thefarside.com/2026/10/09/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcca073d0e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cca073d0e92e0137cf47005056a9545d",
+      "caption": "Things from Ipanema",
+      "title": "Things from Ipanema"
+    }
+  ]
+}
