@@ -8,11 +8,27 @@
     "category": "political"
   },
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/e505ff00a5f1013fcda9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-09",
+    "url": "https://www.gocomics.com/two-party-opera/2026/10/09",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/0378d3209ff7013fcc45005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-09",
     "url": "https://www.gocomics.com/ted-rall/2026/10/09",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/542a7660a62b013fcdb6005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-09",
+    "url": "https://www.gocomics.com/robrogers/2026/10/09",
     "category": "political"
   },
   {
@@ -29,6 +45,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/28175d20a523013fcd70005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-09",
     "url": "https://www.gocomics.com/michaelramirez/2026/10/09",
+    "category": "political"
+  },
+  {
+    "name": "Kevin Kallaugher",
+    "slug": "kal",
+    "image_url": "https://featureassets.gocomics.com/assets/3cc4efa0a621013fcdb2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-09",
+    "url": "https://www.gocomics.com/kal/2026/10/09",
     "category": "political"
   },
   {
@@ -789,6 +813,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/62ebcb10f307013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-09",
     "url": "https://www.gocomics.com/globetrotter/2026/10/09",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/315db190a60f013fcdac005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-09",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/10/09",
     "category": "daily"
   },
   {
