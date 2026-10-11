@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-10-11",
+  "scraped_at": "2026-10-11T08:20:15.190524+00:00",
+  "comics": [
+    {
+      "id": "22845",
+      "date": "2026-10-11",
+      "url": "https://www.thefarside.com/2026/10/11/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95b4395e58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95b4395e58c311ea8bf6005056a9",
+      "caption": "\u201cOh, yeah? ... How\u2019d you like your nose unflattened?\u201d",
+      "title": "\u201cOh, yeah?"
+    },
+    {
+      "id": "22846",
+      "date": "2026-10-11",
+      "url": "https://www.thefarside.com/2026/10/11/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F62d24bf0e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/62d24bf0e85b0137cedf005056a9545d",
+      "caption": "Unwittingly, Raymond wanders into the\nhive\u2019s company picnic.",
+      "title": "Unwittingly, Raymond wanders into the\nhive\u2019s company picnic"
+    }
+  ]
+}
