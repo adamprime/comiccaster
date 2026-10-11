@@ -104,6 +104,14 @@
     "category": "daily"
   },
   {
+    "name": "Cow Town",
+    "slug": "cowtown",
+    "image_url": "https://featureassets.gocomics.com/assets/8a4bf740a7c1013fcdf1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-11",
+    "url": "https://www.gocomics.com/cowtown/2026/10/11",
+    "category": "daily"
+  },
+  {
     "name": "Cornered",
     "slug": "cornered",
     "image_url": "https://featureassets.gocomics.com/assets/36ae7aa06db2013fc40b005056a9545d?optimizer=image&width=2800&quality=85",
@@ -597,6 +605,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/66d09c50f307013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-11",
     "url": "https://www.gocomics.com/globetrotter/2026/10/11",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/a80ce1e0a7ba013fcdf0005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-11",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/10/11",
     "category": "daily"
   },
   {
