@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-12",
+  "scraped_at": "2026-10-12T08:20:21.927908+00:00",
+  "comics": [
+    {
+      "id": "22847",
+      "date": "2026-10-12",
+      "url": "https://www.thefarside.com/2026/10/12/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F91632fb0d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/91632fb0d7410137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22847"
+    },
+    {
+      "id": "22848",
+      "date": "2026-10-12",
+      "url": "https://www.thefarside.com/2026/10/12/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F59f87870e9ee0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/59f87870e9ee0137cf93005056a9545d",
+      "caption": "Monday night in the woods",
+      "title": "Monday night in the woods"
+    },
+    {
+      "id": "22849",
+      "date": "2026-10-12",
+      "url": "https://www.thefarside.com/2026/10/12/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F24f49fb0d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/24f49fb0d0f70137c652005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22849"
+    },
+    {
+      "id": "22850",
+      "date": "2026-10-12",
+      "url": "https://www.thefarside.com/2026/10/12/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc236cb60cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c236cb60cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22850"
+    },
+    {
+      "id": "22851",
+      "date": "2026-10-12",
+      "url": "https://www.thefarside.com/2026/10/12/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95b4400e58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95b4400e58c311ea8bf6005056a9",
+      "caption": "\u201cWell, that\u2019s an interesting bit of\ntrivia\u2014I guess I do only dream in black and white.\u201d",
+      "title": "\u201cWell, that\u2019s an interesting bit of\ntrivia\u2014I guess I do o..."
+    }
+  ]
+}
