@@ -1,5 +1,13 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/645a60b0a84d013fce07005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-12",
+    "url": "https://www.gocomics.com/two-party-opera/2026/10/12",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/bf4c8400a57b013fcd8d005056a9545d?optimizer=image&width=2800&quality=85",
@@ -16,11 +24,27 @@
     "category": "political"
   },
   {
+    "name": "M2 Bulls",
+    "slug": "m2bulls",
+    "image_url": "https://featureassets.gocomics.com/assets/fc24cfd0a84b013fce06005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-12",
+    "url": "https://www.gocomics.com/m2bulls/2026/10/12",
+    "category": "political"
+  },
+  {
     "name": "John Deering",
     "slug": "johndeering",
     "image_url": "https://featureassets.gocomics.com/assets/83a909d0a81c013fce01005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-12",
     "url": "https://www.gocomics.com/johndeering/2026/10/12",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/72dec1e0a885013fce14005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-12",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/10/12",
     "category": "political"
   },
   {
@@ -544,6 +568,14 @@
     "category": "daily"
   },
   {
+    "name": "Amanda The Great",
+    "slug": "amanda-the-great",
+    "image_url": "https://featureassets.gocomics.com/assets/85e6d140a871013fce0c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-12",
+    "url": "https://www.gocomics.com/amanda-the-great/2026/10/12",
+    "category": "daily"
+  },
+  {
     "name": "Alley Oop",
     "slug": "alley-oop",
     "image_url": "https://featureassets.gocomics.com/assets/faf91da09f32013fcc0f005056a9545d?optimizer=image&width=2800&quality=85",
@@ -765,6 +797,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/787fb640a3c4013fccfd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-12",
     "url": "https://www.gocomics.com/grand-avenue/2026/10/12",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/17db2070a865013fce0a005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-12",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/10/12",
     "category": "daily"
   },
   {
@@ -1584,6 +1624,14 @@
     "category": "daily"
   },
   {
+    "name": "Lards World Peace Tips",
+    "slug": "lards-world-peace-tips",
+    "image_url": "https://featureassets.gocomics.com/assets/0d8b9c90a849013fce05005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-12",
+    "url": "https://www.gocomics.com/lards-world-peace-tips/2026/10/12",
+    "category": "daily"
+  },
+  {
     "name": "La Cucaracha",
     "slug": "la-cucaracha-en-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/79a52b50a4a2013fcd49005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1725,6 +1773,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/18dd0980a2bb013fccc0005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-12",
     "url": "https://www.gocomics.com/toomuchcoffeeman/2026/10/12",
+    "category": "daily"
+  },
+  {
+    "name": "Tiny Sepuku",
+    "slug": "tinysepuku",
+    "image_url": "https://featureassets.gocomics.com/assets/c6503a60a855013fce08005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-12",
+    "url": "https://www.gocomics.com/tinysepuku/2026/10/12",
     "category": "daily"
   },
   {
