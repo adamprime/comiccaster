@@ -112,7 +112,7 @@ All requests came from the scraper's logged-in Chrome profile, outside pipeline 
 4. **Dense series** (coverage at or near 100% of the strip's cadence) take their first real post to their last post. Some first posts are not real and were skipped:
    - placeholders dated 1900–1910 (Johnny Hazard, Secret Agent X-9, Tiger and Tiger Sundays);
    - a stray: Beetle Bailey's single 1950-09-04 post, before its real start on 1953-10-05.
-5. **Gappy series** were listed date by date at 100 per page. Each took its longest stretch with no hole over 14 days (21 for Sundays).
+5. **Gappy series** were listed date by date at 100 per page. Each took its longest stretch with no hole over 14 days (21 for Sundays). That rule cannot tell a weekly run from a daily one, since a Sunday-only stretch never has a hole over 7 days. Apartment 3-G's chosen stretch began with 2¾ years of Sunday pages only (1996-01-07 to early October 1998), and the first week of reruns showed it: Monday and Tuesday were gaps. It was re-anchored on 2026-10-13 to start at 1998-10-11, with anchor 2026-10-18. Its one delivered item from the old start (1996-01-07, delivered 2026-10-11) keeps its guid. When measuring a new range, check that the stretch's coverage matches the strip's cadence, not just that it has no long holes.
 6. **Pairs** share one week grid. The dailies run Monday to Saturday, and the Sunday half runs one day later at each end. Both halves therefore share an offset and a loop length, and a story's Sunday page lands in its dailies' week.
 
 Comics Kingdom's own `ck_first_date`/`ck_last_date` were wrong for many series. Don't use them as ranges:
@@ -123,11 +123,11 @@ Comics Kingdom's own `ck_first_date`/`ck_last_date` were wrong for many series. 
 - Quincy says 1973–1984, against posts from 1971 to 1986.
 - The Phantom says 1945–1958, against posts from 1943 to 1959.
 
-### Per-series values (anchors assume go-live 2026-10-07)
+### Per-series values (anchors assume go-live 2026-10-07; Apartment 3-G re-anchored 2026-10-13)
 
 | Series | Kind | CK posts (oldest – latest) | Posts | CK's own range fields | Rerun range | L (days) | Anchor |
 |---|---|---|---|---|---|---|---|
-| `apartment-3-g_1` | gappy | 1970-01-01 – 2015-11-22 | 9075 | 1970-01-01 – 1978-12-30 | 1996-01-07 – 2015-11-22 | 7266 | 2026-10-11 |
+| `apartment-3-g_1` | gappy | 1970-01-01 – 2015-11-22 | 9075 | 1970-01-01 – 1978-12-30 | 1998-10-11 – 2015-11-22 | 6258 | 2026-10-18 |
 | `barney-google-and-snuffy-smith-vintage` | dense | 1936-01-01 – 1949-12-31 | 4839 | 1938-01-01 – 1949-12-31 | 1936-01-01 – 1949-12-31 | 5117 | 2026-10-07 |
 | `beetle-bailey-vintage` | dense | 1950-09-04 – 1967-12-31 | 5028 | 1956-01-02 – 1967-12-30 | 1953-10-05 – 1967-12-31 | 5201 | 2026-10-12 |
 | `big-ben-bolt` | dense | 1950-02-20 – 1963-12-31 | 4938 | 1950-02-20 – 1963-12-31 | 1950-02-20 – 1963-12-31 | 5068 | 2026-10-12 |
@@ -165,7 +165,7 @@ Comics Kingdom's own `ck_first_date`/`ck_last_date` were wrong for many series. 
 - Prince Valiant Sundays: 59 posts in 1937–38, then nothing until 1980.
 - Thimble Theater: 1929–31, then only a few months of 1937.
 - Krazy Kat: 1922, then 1936–44.
-- Apartment 3-G: 1970–73 and 1974–78, then 1996–2015.
+- Apartment 3-G: 1970–73 and 1974–78, then 1996–2015, but Sundays only until October 1998. The range starts at the first daily week, 1998-10-11; see below.
 - King of the Royal Mounted: 1937–45, then 1948–51.
 - Mark Trail: six strips in July 1971, then 1972–74. The plan's AE6 example used 1971-07-05; the measured start is 1972-01-01.
 - Judge Parker: 1968–72, 1972–80 and a thin 1980–81.
