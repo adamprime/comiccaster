@@ -1,10 +1,26 @@
 [
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/63aeca10a952013fce52005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-13",
+    "url": "https://www.gocomics.com/tim-campbell/2026/10/13",
+    "category": "political"
+  },
+  {
     "name": "Robert Ariail",
     "slug": "robert-ariail",
     "image_url": "https://featureassets.gocomics.com/assets/e57b9b60a8a8013fce28005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-13",
     "url": "https://www.gocomics.com/robert-ariail/2026/10/13",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/6ccc9480a94a013fce4d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-13",
+    "url": "https://www.gocomics.com/nickanderson/2026/10/13",
     "category": "political"
   },
   {
@@ -21,6 +37,30 @@
     "image_url": "https://featureassets.gocomics.com/assets/4be6a290a8cc013fce36005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-13",
     "url": "https://www.gocomics.com/lisabenson/2026/10/13",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/6e266710a94a013fce4d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-13",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/10/13",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/65752620a952013fce52005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-13",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/10/13",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/6e36f9a0a90f013fce41005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-13",
+    "url": "https://www.gocomics.com/garyvarvel/2026/10/13",
     "category": "political"
   },
   {
@@ -728,6 +768,14 @@
     "category": "daily"
   },
   {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/acceb890a928013fce42005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-13",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/10/13",
+    "category": "daily"
+  },
+  {
     "name": "Ginger Meggs",
     "slug": "gingermeggs-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/28ce7cd0e873012e2fb600163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -949,6 +997,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/c74e2f40a5540131428e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-13",
     "url": "https://www.gocomics.com/familytree/2026/10/13",
+    "category": "daily"
+  },
+  {
+    "name": "Endtown",
+    "slug": "endtown",
+    "image_url": "https://featureassets.gocomics.com/assets/870cb8d0a936013fce47005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-13",
+    "url": "https://www.gocomics.com/endtown/2026/10/13",
     "category": "daily"
   },
   {
@@ -1600,6 +1656,14 @@
     "category": "daily"
   },
   {
+    "name": "Wizard of Id Classics",
+    "slug": "wizard-of-id-classics",
+    "image_url": "https://featureassets.gocomics.com/assets/bf960510a92f013fce43005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-13",
+    "url": "https://www.gocomics.com/wizard-of-id-classics/2026/10/13",
+    "category": "daily"
+  },
+  {
     "name": "Wizard Of Id",
     "slug": "wizardofid",
     "image_url": "https://featureassets.gocomics.com/assets/928c48e0a31b013fccd5005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1717,6 +1781,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/ebf91a6099a9013fcae0005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-13",
     "url": "https://www.gocomics.com/super-fun-pak-comix/2026/10/13",
+    "category": "daily"
+  },
+  {
+    "name": "Studio Jantze",
+    "slug": "studio-jantze",
+    "image_url": "https://featureassets.gocomics.com/assets/69a56320a94f013fce50005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-13",
+    "url": "https://www.gocomics.com/studio-jantze/2026/10/13",
     "category": "daily"
   },
   {
