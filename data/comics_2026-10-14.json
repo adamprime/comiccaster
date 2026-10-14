@@ -1,5 +1,13 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/8a7b3420a9db013fce7a005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-14",
+    "url": "https://www.gocomics.com/two-party-opera/2026/10/14",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/c255b600a57b013fcd8d005056a9545d?optimizer=image&width=2800&quality=85",
@@ -21,6 +29,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/2e463710a971013fce60005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-14",
     "url": "https://www.gocomics.com/robert-ariail/2026/10/14",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/12932470aa1e013fce8d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-14",
+    "url": "https://www.gocomics.com/nickanderson/2026/10/14",
     "category": "political"
   },
   {
@@ -56,11 +72,27 @@
     "category": "political"
   },
   {
+    "name": "Jeff Stahler",
+    "slug": "jeffstahler",
+    "image_url": "https://featureassets.gocomics.com/assets/a814a600aa19013fce8a005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-14",
+    "url": "https://www.gocomics.com/jeffstahler/2026/10/14",
+    "category": "political"
+  },
+  {
     "name": "Jeff Danziger",
     "slug": "jeffdanziger",
     "image_url": "https://featureassets.gocomics.com/assets/4c2dd440a97c013fce64005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-14",
     "url": "https://www.gocomics.com/jeffdanziger/2026/10/14",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/2fa13a90aa13013fce87005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-14",
+    "url": "https://www.gocomics.com/drewsheneman/2026/10/14",
     "category": "political"
   },
   {
@@ -800,6 +832,14 @@
     "category": "daily"
   },
   {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/d3526e20a9f8013fce7d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-14",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/10/14",
+    "category": "daily"
+  },
+  {
     "name": "Ginger Meggs",
     "slug": "gingermeggs-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/27e4a790e873012e2fb600163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -885,6 +925,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/0cf2e56097cd013d817d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-14",
     "url": "https://www.gocomics.com/funky-winkerbean/2026/10/14",
+    "category": "daily"
+  },
+  {
+    "name": "Frog Applause",
+    "slug": "frogapplause",
+    "image_url": "https://featureassets.gocomics.com/assets/3fb28660aa01013fce7f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-14",
+    "url": "https://www.gocomics.com/frogapplause/2026/10/14",
     "category": "daily"
   },
   {
@@ -1765,6 +1813,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/6d318a80a95d013fce57005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-14",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/10/14",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/f4170380a9e3013fce7c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-14",
+    "url": "https://www.gocomics.com/tavicat/2026/10/14",
     "category": "daily"
   },
   {
