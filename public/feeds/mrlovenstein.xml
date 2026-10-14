@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Mr. Lovenstein - TinyView</title><link>https://tinyview.com/mrlovenstein</link><description>Daily Mr. Lovenstein comic strip by J. L. Westover from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/mrlovenstein.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 13 Oct 2026 08:13:19 +0000</lastBuildDate><ttl>1440</ttl><item><title>Mr. Lovenstein</title><link>https://tinyview.com/mrlovenstein/2026/10/05/book-vs-phone</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Mr. Lovenstein - TinyView</title><link>https://tinyview.com/mrlovenstein</link><description>Daily Mr. Lovenstein comic strip by J. L. Westover from TinyView</description><atom:link href="https://comiccaster.xyz/feeds/mrlovenstein.xml" rel="self" type="application/rss+xml"/><category>TinyView</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 14 Oct 2026 08:23:12 +0000</lastBuildDate><ttl>1440</ttl><item><title>Mr. Lovenstein</title><link>https://tinyview.com/mrlovenstein/2026/10/05/book-vs-phone</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;I made a new book! Back the kickstarter ❤️ it's guaranteed to smell better than your phone.&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.tinyview.com/mrlovenstein/2026/10/05/book-vs-phone/1.png" alt="https://cdn.tinyview.com/mrlovenstein/2026/10/05/book-vs-phone/1.png" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -398,23 +398,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Moon Shot&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/mrlovenstein/2026/07/20/moon-shot</guid><pubDate>Mon, 20 Jul 2026 23:59:59 +0000</pubDate></item><item><title>Mr. Lovenstein</title><link>https://tinyview.com/mrlovenstein/2026/07/15/butterfly-effect</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;103% Scientifically Accurate.&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/mrlovenstein/2026/07/15/butterfly-effect/1.png" alt="https://cdn.tinyview.com/mrlovenstein/2026/07/15/butterfly-effect/1.png" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/mrlovenstein/2026/07/15/butterfly-effect/2.png" alt="https://cdn.tinyview.com/mrlovenstein/2026/07/15/butterfly-effect/2.png" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/mrlovenstein/2026/07/15/butterfly-effect/3.png" alt="https://cdn.tinyview.com/mrlovenstein/2026/07/15/butterfly-effect/3.png" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/mrlovenstein/2026/07/15/butterfly-effect/4.png" alt="https://cdn.tinyview.com/mrlovenstein/2026/07/15/butterfly-effect/4.png" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-    &lt;/div&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.tinyview.com/mrlovenstein/2026/07/15/butterfly-effect/Preview-Banner.png" alt="Butterfly Effect" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Butterfly Effect&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://tinyview.com/mrlovenstein/2026/07/15/butterfly-effect</guid><pubDate>Wed, 15 Jul 2026 23:59:59 +0000</pubDate></item></channel></rss>
+</description><guid isPermaLink="false">https://tinyview.com/mrlovenstein/2026/07/20/moon-shot</guid><pubDate>Mon, 20 Jul 2026 23:59:59 +0000</pubDate></item></channel></rss>

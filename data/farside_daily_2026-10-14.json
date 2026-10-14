@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-14",
+  "scraped_at": "2026-10-14T08:21:10.898621+00:00",
+  "comics": [
+    {
+      "id": "22857",
+      "date": "2026-10-14",
+      "url": "https://www.thefarside.com/2026/10/14/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F126708b0e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/126708b0e9ef0137cf93005056a9545d",
+      "caption": "Now at your local feed store",
+      "title": "Now at your local feed store"
+    },
+    {
+      "id": "22858",
+      "date": "2026-10-14",
+      "url": "https://www.thefarside.com/2026/10/14/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7ab92040e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7ab92040e6f90137ce50005056a9545d",
+      "caption": "In a recurring nightmare, Arsenio Hall sees himself walk onstage wearing golf clothes.",
+      "title": "In a recurring nightmare, Arsenio Hall sees himself walk ..."
+    },
+    {
+      "id": "22859",
+      "date": "2026-10-14",
+      "url": "https://www.thefarside.com/2026/10/14/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff7c2d330cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f7c2d330cdd30137c56b005056a9545d",
+      "caption": "\u201cHere he comes again \u2026 and he\u2019s carrying the thundertooth.\u201d",
+      "title": "\u201cHere he comes again \u2026 and he\u2019s carrying the thundertooth"
+    },
+    {
+      "id": "22860",
+      "date": "2026-10-14",
+      "url": "https://www.thefarside.com/2026/10/14/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5d25e3d0cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5d25e3d0cdd40137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22860"
+    },
+    {
+      "id": "22861",
+      "date": "2026-10-14",
+      "url": "https://www.thefarside.com/2026/10/14/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1598be90dccb0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1598be90dccb0137caaf005056a9545d",
+      "caption": "Late at night, his own stomach would foil Gordon\u2019s attempt\nat dieting.",
+      "title": "Late at night, his own stomach would foil Gordon\u2019s attemp..."
+    }
+  ]
+}
