@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-15",
+  "scraped_at": "2026-10-15T08:20:45.638739+00:00",
+  "comics": [
+    {
+      "id": "22862",
+      "date": "2026-10-15",
+      "url": "https://www.thefarside.com/2026/10/15/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F84a543e0e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/84a543e0e92e0137cf47005056a9545d",
+      "caption": "With the surgical team passed out, and with help from the observation deck, hospital custodian Leonard Knudson suddenly became responsible for bringing Mr. Gruenfeld \u201chome.\u201d",
+      "title": "With the surgical team passed out, and with help from the..."
+    },
+    {
+      "id": "22863",
+      "date": "2026-10-15",
+      "url": "https://www.thefarside.com/2026/10/15/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F34764180cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/34764180cdd60137c56b005056a9545d",
+      "caption": "\u201cFor crying out loud! \u2026 We were supposed to turn south after that last mountain range!\u201d",
+      "title": "\u201cFor crying out loud! \u2026 We were supposed to turn south af..."
+    },
+    {
+      "id": "22864",
+      "date": "2026-10-15",
+      "url": "https://www.thefarside.com/2026/10/15/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9234d350df100137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9234d350df100137cbaf005056a9545d",
+      "caption": "An impressionable moment in the childhood of Buffalo Bill",
+      "title": "An impressionable moment in the childhood of Buffalo Bill"
+    },
+    {
+      "id": "22865",
+      "date": "2026-10-15",
+      "url": "https://www.thefarside.com/2026/10/15/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8d2bb2a0dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8d2bb2a0dcc90137caaf005056a9545d",
+      "caption": "\u201cGo ahead, Vera \u2026 treat me like dirt.\u201d",
+      "title": "\u201cGo ahead, Vera \u2026 treat me like dirt"
+    },
+    {
+      "id": "22866",
+      "date": "2026-10-15",
+      "url": "https://www.thefarside.com/2026/10/15/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fffa8e44002800138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ffa8e44002800138d7bb005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22866"
+    }
+  ]
+}
