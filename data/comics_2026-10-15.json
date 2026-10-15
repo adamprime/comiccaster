@@ -8,6 +8,22 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/7e53ae80aae6013fcebd005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-15",
+    "url": "https://www.gocomics.com/robrogers/2026/10/15",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/606cd400aad4013fceb8005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-15",
+    "url": "https://www.gocomics.com/nickanderson/2026/10/15",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/1a2cd520aa47013fcea6005056a9545d?optimizer=image&width=2800&quality=85",
@@ -21,6 +37,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/5eeed210aa80013fceb3005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-15",
     "url": "https://www.gocomics.com/michaelramirez/2026/10/15",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/5e63e670aaa0013fceb5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-15",
+    "url": "https://www.gocomics.com/garyvarvel/2026/10/15",
     "category": "political"
   },
   {
@@ -981,6 +1005,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/19d96950a558013fcd7a005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-15",
     "url": "https://www.gocomics.com/don-brutus/2026/10/15",
+    "category": "daily"
+  },
+  {
+    "name": "Domestic Abuse",
+    "slug": "domesticabuse",
+    "image_url": "https://featureassets.gocomics.com/assets/80316f10aab9013fceb6005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-15",
+    "url": "https://www.gocomics.com/domesticabuse/2026/10/15",
     "category": "daily"
   },
   {
