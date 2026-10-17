@@ -1,5 +1,5 @@
 requests==2.34.2
-tls-client==1.0.1
+tls-client==2.0.0
 beautifulsoup4==4.15.0
 feedgen==1.0.0
 python-dotenv==1.2.4
