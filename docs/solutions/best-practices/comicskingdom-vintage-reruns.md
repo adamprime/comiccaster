@@ -172,6 +172,36 @@ Comics Kingdom's own `ck_first_date`/`ck_last_date` were wrong for many series. 
 
 **Weekday cadence.** Daily-only series (Mon–Sat) deliver nothing on Sundays: the Sunday archive date has no strip of its own, so it is a gap. The same applies to the eight Sunday-only series on weekdays. Most nights therefore show eight or more gaps, and Sundays show one for each daily-only series, all of them by design. Gaps beyond that pattern mean a hole inside a range.
 
+### Production watch (2026-10-07 to 10-19)
+
+Every Pass 1 from the first anchor (10-07) through the night after the last one (10-18), checked against the schedule computed offline:
+
+| Night | Due | Delivered | Gaps | Wrong date / missing |
+|---|---|---|---|---|
+| Wed 10-07 | 3 | 3 | 0 | 0 |
+| Thu 10-08 | 3 | 3 | 0 | 0 |
+| Fri 10-09 | 3 | 3 | 0 | 0 |
+| Sat 10-10 | 4 | 4 | 0 | 0 |
+| Sun 10-11 | 9 | 5 | 4 | 0 |
+| Mon 10-12 | 27 | 22 | 5 | 0 |
+| Tue 10-13 | 28 | 22 | 6 | 0 |
+| Wed 10-14 | 27 | 23 | 4 | 0 |
+| Thu 10-15 | 27 | 22 | 5 | 0 |
+| Fri 10-16 | 27 | 23 | 4 | 0 |
+| Sat 10-17 | 27 | 23 | 4 | 0 |
+| Sun 10-18 | 32 | 9 | 23 | 0 |
+| Mon 10-19 | 32 | 24 | 8 | 0 |
+| **Total** | **249** | **186** | **63** | **0** |
+
+- Every scheduled delivery loaded the right archive date, and no non-rerun comic ever took the rerun path.
+- **Gap causes:**
+  - 59 of the 63 gaps are the weekly cadence: Sunday-only series on weekdays (32), and daily series on Sundays (27; their archives have no Sunday page that date).
+  - Two are real holes in Johnny Hazard's archive (1944-06-06 and 06-08).
+  - Two are Apartment 3-G's old start, which fell inside a Sunday-only run. It was re-anchored by #235 on 10-13, and from 10-18 it delivers daily (1998-10-11, 10-12, …). The 10-14 to 10-17 nights in the table exclude it, because it was before its new anchor.
+- **Feeds:** on 10-19 the 32 vintage feeds held exactly the 186 delivered strips, with no gap listed, no duplicate guid and no repeated image.
+- **Guard:** the count stayed at 153–156 of 156, against the 146 floor.
+- **Unrelated misses during the watch:** Eye Lie Popeye's episodic page came back empty on 10-17 and 10-19 (recorded on 10-18). Mike Smith had a post without images once (10-17). Phantom 2040, which has ended, is never recorded.
+
 ## Known limits
 
 - **A night of all gaps stays green.** Gap records count toward the guard's 146-of-156 floor, so if Comics Kingdom ever served an earlier strip for every requested archive date, all 32 series would record gaps, no vintage feed would gain an item, and the pipeline would pass. The only signal is the log line `Reruns delivered: N`. The plan deliberately left out a delivery alert ("reconsider if reruns go quiet unnoticed"). The mirror case is loud: if the vintage pages stopped loading, 32 comics would be "Not recorded" and 124 < 146 trips the guard.
