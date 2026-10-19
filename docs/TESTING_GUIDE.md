@@ -215,8 +215,8 @@ Tests run automatically on GitHub Actions for:
 
 ### Feed Generation Performance
 ```bash
-# Time feed generation for all comics
-time python scripts/update_feeds.py
+# Time feed generation for all GoComics comics (network-free; reads data/comics_*.json)
+time python scripts/generate_gocomics_feeds.py
 
 # Profile specific scraper
 python -m cProfile -s cumulative scripts/test_tinyview_scraper.py
@@ -341,18 +341,13 @@ python check_comic.py
 ```
 
 ### CI Testing
-The GitHub Actions workflow tests scraping functionality:
-```yaml
-- name: Update GoComics feeds
-  run: |
-    python scripts/update_feeds.py
-```
+CI (`.github/workflows/tests.yml`) runs the offline test suite only; scraping runs on the local pipeline host.
 
 ### Verifying Scraping Approach
 You can verify scraping is working by checking logs:
 ```bash
-# Run with verbose logging
-python scripts/update_feeds.py 2>&1 | grep -E "(success|error|Processing)"
+# Search the pipeline log for the GoComics scrape result
+grep -E "GoComics|❌" logs/master_update.log | tail
 
 # Expected output shows successful processing of comics
 ```

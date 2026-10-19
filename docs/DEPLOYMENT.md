@@ -29,13 +29,13 @@ No deploy step is manual under normal operation. Feed changes ride the same push
 
 1. **Netlify site**: connect to the GitHub repo; publish directory is `public/`; functions directory is `functions/` (configured via `netlify.toml`). Set env var `NODE_VERSION=14` (newer is fine; pinned for historical reproducibility).
 2. **Domain**: point DNS at Netlify per their instructions.
-3. **GitHub Actions** for feed updates (`.github/workflows/update-feeds.yml`, `update-feeds-smart.yml`) are intentionally **disabled** — their `schedule:` triggers are commented out. They remain as `workflow_dispatch` fallbacks if the local host is unavailable (travel, hardware failure, etc.). Don't re-enable without confirming the local pipeline is also off; otherwise both will race to push feed updates.
+3. **No GitHub Actions feed updates.** Feeds are built only by the local pipeline. The old manual fallback workflow (`update-feeds.yml`) was removed on 2026-10-19: it had not run since 2025-11 and no longer worked. If the host is unavailable, run the pipeline from another machine with the same setup.
 4. **Local update pipeline**: install ChromeDriver, configure a repo deploy key, populate `.env`, and load the LaunchAgents that run the scheduled update and keep the host awake. See [LOCAL_AUTOMATION_README.md](LOCAL_AUTOMATION_README.md) for the operational overview; detailed provisioning steps are kept in operator-only notes.
 
 ## Disabled / unused paths
 
 - **Self-hosted Flask deployment** — the `comiccaster/web_interface.py` Flask app is still runnable for local development (`python run_app.py`, port 5001) but not the production serving story. Netlify serves the static site directly.
-- **GitHub Actions feed scheduling** — as above, the workflows exist but their `schedule` keys are commented out. `workflow_dispatch` lets you trigger them manually as emergency backup.
+- **GitHub Actions feed updates** — removed 2026-10-19 (see setup step 3).
 
 ## Deploy rollback
 

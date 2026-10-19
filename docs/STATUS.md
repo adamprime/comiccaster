@@ -27,7 +27,7 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled; **zero open CodeQL alerts**
 - Consistent comic strip sizing (max-width: 700px) and centering across all sources (#105)
-- Manual backfill script available for GoComics feed recovery (`scripts/backfill_gocomics_feeds.py`)
+- GoComics recovery: `scripts/authenticated_scraper_secure.py --backfill-days N` (Pass 2 runs a rolling backfill daily)
 - Daily automated feed monitoring via agent
 - Public feedback site (https://feedback.comiccaster.xyz) auto-tracked: a daily GitHub Action opens an issue for each new post (`feedback-site` label)
 - GitHub Actions on Node 24 actions runtime; only 4 active workflows in `.github/workflows/` (down from 8)
