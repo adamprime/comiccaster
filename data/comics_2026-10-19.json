@@ -1,10 +1,26 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/c3345f60add1013fcf31005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-19",
+    "url": "https://www.gocomics.com/two-party-opera/2026/10/19",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/0ce16b70ab05013fcece005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-19",
     "url": "https://www.gocomics.com/ted-rall/2026/10/19",
+    "category": "political"
+  },
+  {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/1a1f9a00ae08013fcf3e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-19",
+    "url": "https://www.gocomics.com/robert-ariail/2026/10/19",
     "category": "political"
   },
   {
@@ -792,6 +808,14 @@
     "category": "daily"
   },
   {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/79629560ade2013fcf34005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-19",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/10/19",
+    "category": "daily"
+  },
+  {
     "name": "Ginger Meggs",
     "slug": "gingermeggs-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/ec939020ed15012e2fb600163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -829,6 +853,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/b9ecd750729b012ee3c400163e41dd5b?optimizer=image&width=2800&quality=85",
     "date": "2026-10-19",
     "url": "https://www.gocomics.com/geech/2026/10/19",
+    "category": "daily"
+  },
+  {
+    "name": "Gaturro",
+    "slug": "gaturro",
+    "image_url": "https://featureassets.gocomics.com/assets/a092be30adf8013fcf38005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-19",
+    "url": "https://www.gocomics.com/gaturro/2026/10/19",
     "category": "daily"
   },
   {
@@ -1608,6 +1640,14 @@
     "category": "daily"
   },
   {
+    "name": "Lards World Peace Tips",
+    "slug": "lards-world-peace-tips",
+    "image_url": "https://featureassets.gocomics.com/assets/f2e95e70adc7013fcf30005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-19",
+    "url": "https://www.gocomics.com/lards-world-peace-tips/2026/10/19",
+    "category": "daily"
+  },
+  {
     "name": "La Cucaracha",
     "slug": "la-cucaracha-en-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/914c29c0aa14013fce89005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1744,6 +1784,14 @@
     "category": "daily"
   },
   {
+    "name": "Tutelandia",
+    "slug": "tutelandia",
+    "image_url": "https://featureassets.gocomics.com/assets/5d8dac90adff013fcf3a005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-19",
+    "url": "https://www.gocomics.com/tutelandia/2026/10/19",
+    "category": "daily"
+  },
+  {
     "name": "Alley Oop",
     "slug": "trucutu",
     "image_url": "https://featureassets.gocomics.com/assets/67800a40aa15013fce89005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1757,6 +1805,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/20334400a2bb013fccc0005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-19",
     "url": "https://www.gocomics.com/toomuchcoffeeman/2026/10/19",
+    "category": "daily"
+  },
+  {
+    "name": "Tiny Sepuku",
+    "slug": "tinysepuku",
+    "image_url": "https://featureassets.gocomics.com/assets/297e9020adda013fcf32005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-19",
+    "url": "https://www.gocomics.com/tinysepuku/2026/10/19",
     "category": "daily"
   },
   {
