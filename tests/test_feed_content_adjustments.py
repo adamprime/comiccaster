@@ -203,26 +203,3 @@ class TestFeedContentAdjustments:
         # Categories should be comics, not political
         assert any(cat.get('term') == 'comics' for cat in categories)
         assert not any(cat.get('term') == 'political' for cat in categories)
-    
-    @pytest.mark.integration
-    def test_political_comic_feed_generation_end_to_end(self, political_comic_info, tmp_path):
-        """Integration test for complete political comic feed generation."""
-        from scripts.update_feeds import update_feed
-        
-        with patch('scripts.update_feeds.FEEDS_OUTPUT_DIR', tmp_path):
-            with patch('scripts.update_feeds.scrape_comic') as mock_scrape:
-                # Mock successful scraping
-                mock_scrape.return_value = {
-                    'title': 'Test Comic - 2025-07-17',
-                    'url': 'https://example.com/comic',
-                    'image': 'https://example.com/image.jpg',
-                    'pub_date': '2025-07-17',
-                    'description': 'Test political cartoon'
-                }
-                
-                success = update_feed(political_comic_info, days_to_scrape=1)
-                assert success
-                
-                # Check feed was created
-                feed_path = tmp_path / f"{political_comic_info['slug']}.xml"
-                assert feed_path.exists()

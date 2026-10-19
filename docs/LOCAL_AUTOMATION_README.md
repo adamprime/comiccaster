@@ -2,7 +2,7 @@
 
 ComicCaster's daily feed pipeline runs on a dedicated always-on host, not in CI. All scrapers, all feed generators, and the commit/push step run together on that host; Netlify picks up the push and deploys.
 
-An earlier hybrid design split scraping between a laptop (one source) and GitHub Actions (the rest). That was retired 2025-11-26. `.github/workflows/update-feeds.yml` is kept as a manual-only emergency fallback if the local host is unavailable.
+An earlier hybrid design split scraping between a laptop (one source) and GitHub Actions (the rest). That was retired 2025-11-26, and its manual-only fallback workflow (`update-feeds.yml`) was removed on 2026-10-19, since it no longer worked.
 
 ## Pipeline at a glance
 

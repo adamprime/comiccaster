@@ -101,8 +101,8 @@ class TestComicConfiguration:
             assert comics[1]['source'] == 'tinyview'
             assert comics[2]['source'] == 'gocomics-political'
     
-    def test_update_feeds_uses_source_field(self):
-        """Test that update_feeds.py uses source field to select scraper."""
+    def test_scraper_factory_uses_source_field(self):
+        """Test that the scraper factory selects a scraper by the source field."""
         # Use scraper factory directly to test source field mapping
         from comiccaster.scraper_factory import ScraperFactory
         
