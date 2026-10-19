@@ -6,9 +6,7 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "python"
+    labels: []  # no labels; the repo does not use them
     commit-message:
       prefix: "pip"
       include: "scope"
@@ -22,9 +20,7 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "javascript"
+    labels: []  # no labels; the repo does not use them
     commit-message:
       prefix: "npm"
       include: "scope"
@@ -35,9 +31,7 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "github-actions"
+    labels: []  # no labels; the repo does not use them
     commit-message:
       prefix: "github-actions"
       include: "scope" 
