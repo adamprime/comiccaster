@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-19",
+  "scraped_at": "2026-10-19T08:20:15.081875+00:00",
+  "comics": [
+    {
+      "id": "22876",
+      "date": "2026-10-19",
+      "url": "https://www.thefarside.com/2026/10/19/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F891e2b20e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/891e2b20e85b0137cedf005056a9545d",
+      "caption": "The art of conversation",
+      "title": "The art of conversation"
+    },
+    {
+      "id": "22877",
+      "date": "2026-10-19",
+      "url": "https://www.thefarside.com/2026/10/19/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb95d2d60fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b95d2d60fa830137d52f005056a9545d",
+      "caption": "\u201cDisgusting! \u2026 It\u2019s just a sort of heavy huffing and puffing.\u201d",
+      "title": "\u201cDisgusting! \u2026 It\u2019s just a sort of heavy huffing and puffing"
+    },
+    {
+      "id": "22878",
+      "date": "2026-10-19",
+      "url": "https://www.thefarside.com/2026/10/19/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5c1828e0d7420137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5c1828e0d7420137c8a6005056a9545d",
+      "caption": "\u201cMom! Edgar\u2019s making that clicking sound again!\u201d",
+      "title": "\u201cMom! Edgar\u2019s making that clicking sound again!\u201d"
+    },
+    {
+      "id": "22879",
+      "date": "2026-10-19",
+      "url": "https://www.thefarside.com/2026/10/19/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F318081c0e85c0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/318081c0e85c0137cedf005056a9545d",
+      "caption": "\u201cMy gun, Desmond! I sense this striped man-eater is somewhere dead ahead, waiting to ambush us! \u2026 Ohhhhhh, he thinks he\u2019s so clever.\u201d",
+      "title": "\u201cMy gun, Desmond! I sense this striped man-eater is somew..."
+    },
+    {
+      "id": "22880",
+      "date": "2026-10-19",
+      "url": "https://www.thefarside.com/2026/10/19/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5428a660fa880137d531005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5428a660fa880137d531005056a9545d",
+      "caption": "\u201cSituation\u2019s changed, Jules. \u2026 Take my buffalo gun and hand me my mime rifle.\u201d",
+      "title": "\u201cSituation\u2019s changed, Jules"
+    }
+  ]
+}
