@@ -8,11 +8,51 @@
     "category": "political"
   },
   {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/dfaf6040aed0013fcf6c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/6519b920aec6013fcf66005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/nickanderson/2026/10/20",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/d1b25680acfe013fcf1e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/michaelramirez/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/4c75b750aec4013fcf64005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/2a100c00aeca013fcf68005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/c80f25c0ae92013fcf58005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/garyvarvel/2026/10/20",
     "category": "political"
   },
   {
@@ -29,6 +69,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/51889610a94e013fce50005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/doonesbury/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Clay Jones",
+    "slug": "clayjones",
+    "image_url": "https://featureassets.gocomics.com/assets/ef628d50aea5013fcf5b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/clayjones/2026/10/20",
     "category": "political"
   },
   {
@@ -101,6 +149,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/1f2f58e082b4013fc59e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/cornered/2026/10/20",
+    "category": "daily"
+  },
+  {
+    "name": "Compu toon",
+    "slug": "compu-toon",
+    "image_url": "https://featureassets.gocomics.com/assets/7a6f3060aebc013fcf60005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/compu-toon/2026/10/20",
     "category": "daily"
   },
   {
@@ -264,6 +320,14 @@
     "category": "daily"
   },
   {
+    "name": "Bob the Squirrel",
+    "slug": "bobthesquirrel",
+    "image_url": "https://featureassets.gocomics.com/assets/dc457f00aeba013fcf5f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/bobthesquirrel/2026/10/20",
+    "category": "daily"
+  },
+  {
     "name": "Bloom County",
     "slug": "bloomcounty",
     "image_url": "https://featureassets.gocomics.com/assets/086b1f922123102d94d7001438c0f03b?optimizer=image&width=2800&quality=85",
@@ -301,6 +365,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/36600ff05dc4012ee3bf00163e41dd5b?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/bigtop/2026/10/20",
+    "category": "daily"
+  },
+  {
+    "name": "The Big Picture",
+    "slug": "thebigpicture",
+    "image_url": "https://featureassets.gocomics.com/assets/3f7624f0aebc013fcf60005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/thebigpicture/2026/10/20",
     "category": "daily"
   },
   {
@@ -469,6 +541,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/5a548f60df5b013ebadd005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/andertoons/2026/10/20",
+    "category": "daily"
+  },
+  {
+    "name": "Amanda The Great",
+    "slug": "amanda-the-great",
+    "image_url": "https://featureassets.gocomics.com/assets/da5cb560aeba013fcf5f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/amanda-the-great/2026/10/20",
     "category": "daily"
   },
   {
@@ -781,6 +861,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/1639bd5097cd013d817d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/funky-winkerbean/2026/10/20",
+    "category": "daily"
+  },
+  {
+    "name": "Frog Applause",
+    "slug": "frogapplause",
+    "image_url": "https://featureassets.gocomics.com/assets/b241d3f0aebd013fcf61005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/frogapplause/2026/10/20",
     "category": "daily"
   },
   {
@@ -1648,11 +1736,27 @@
     "category": "daily"
   },
   {
+    "name": "That is Priceless",
+    "slug": "that-is-priceless",
+    "image_url": "https://featureassets.gocomics.com/assets/45141250aeb8013fcf5e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/that-is-priceless/2026/10/20",
+    "category": "daily"
+  },
+  {
     "name": "Thatababy 2026",
     "slug": "thatababy",
     "image_url": "https://featureassets.gocomics.com/assets/493fa970a3e3013fcd0e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/thatababy/2026/10/20",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/efe17b30aea1013fcf5a005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/tavicat/2026/10/20",
     "category": "daily"
   },
   {
