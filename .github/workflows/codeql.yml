@@ -1,0 +1,54 @@
+name: CodeQL
+
+# Advanced setup replacing GitHub's default setup, which ran on every push to
+# main -- including the pipeline's several daily feed-data commits -- and cannot
+# be told to skip paths. Same languages and query suite as the default setup.
+# Default setup must stay disabled in Settings > Code security, or uploads from
+# this workflow are rejected.
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'public/feeds/**'
+      - 'data/**'
+      - 'docs/**'
+      - '**.md'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - 'public/feeds/**'
+      - 'data/**'
+      - 'docs/**'
+      - '**.md'
+  schedule:
+    - cron: '23 9 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ actions, javascript-typescript, python ]
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: none
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:${{ matrix.language }}"
