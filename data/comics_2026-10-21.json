@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/57e7dec0af93013fcfa4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-21",
+    "url": "https://www.gocomics.com/tim-campbell/2026/10/21",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/0fc799c0ab05013fcece005056a9545d?optimizer=image&width=2800&quality=85",
@@ -16,11 +24,35 @@
     "category": "political"
   },
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/3eec41e0af96013fcfa6005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-21",
+    "url": "https://www.gocomics.com/robert-ariail/2026/10/21",
+    "category": "political"
+  },
+  {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/8f7b7590af8f013fcfa0005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-21",
+    "url": "https://www.gocomics.com/nickanderson/2026/10/21",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/142e8140aefe013fcf7f005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-21",
     "url": "https://www.gocomics.com/mikeluckovich/2026/10/21",
+    "category": "political"
+  },
+  {
+    "name": "Michael Ramirez",
+    "slug": "michaelramirez",
+    "image_url": "https://featureassets.gocomics.com/assets/2c1da790af56013fcf95005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-21",
+    "url": "https://www.gocomics.com/michaelramirez/2026/10/21",
     "category": "political"
   },
   {
@@ -40,11 +72,27 @@
     "category": "political"
   },
   {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/598e6b80af93013fcfa4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-21",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/10/21",
+    "category": "political"
+  },
+  {
     "name": "Gary Markstein",
     "slug": "garymarkstein",
     "image_url": "https://featureassets.gocomics.com/assets/2e34ebd0aee5013fcf76005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-21",
     "url": "https://www.gocomics.com/garymarkstein/2026/10/21",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/565be960af93013fcfa4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-21",
+    "url": "https://www.gocomics.com/drewsheneman/2026/10/21",
     "category": "political"
   },
   {
@@ -842,7 +890,7 @@
   {
     "name": "Garfield",
     "slug": "garfield",
-    "image_url": "https://featureassets.gocomics.com/assets/4728f1e0a0c8013fcc85005056a9545d?optimizer=image&width=2800&quality=85",
+    "image_url": "https://featureassets.gocomics.com/assets/5dfc3dd0af9e013fcfa9005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-21",
     "url": "https://www.gocomics.com/garfield/2026/10/21",
     "category": "daily"
@@ -1045,6 +1093,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/e5fbf2209e73013fcbd8005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-21",
     "url": "https://www.gocomics.com/drabble/2026/10/21",
+    "category": "daily"
+  },
+  {
+    "name": "Doodle Town",
+    "slug": "doodle-town",
+    "image_url": "https://featureassets.gocomics.com/assets/559641e0af88013fcf9d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-21",
+    "url": "https://www.gocomics.com/doodle-town/2026/10/21",
     "category": "daily"
   },
   {

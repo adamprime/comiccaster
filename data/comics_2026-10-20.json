@@ -1,10 +1,34 @@
 [
   {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "image_url": "https://featureassets.gocomics.com/assets/5cc37b30af30013fcf90005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/stevebreen/2026/10/20",
+    "category": "political"
+  },
+  {
     "name": "Robert Ariail",
     "slug": "robert-ariail",
     "image_url": "https://featureassets.gocomics.com/assets/1bdf16e0ae08013fcf3e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/robert-ariail/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/0489d560aeee013fcf7b005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/robrogers/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Pedro X Melina",
+    "slug": "pedroxmolina",
+    "image_url": "https://featureassets.gocomics.com/assets/3c762020af0d013fcf85005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/pedroxmolina/2026/10/20",
     "category": "political"
   },
   {
@@ -32,11 +56,35 @@
     "category": "political"
   },
   {
+    "name": "Lalo Alcaraz",
+    "slug": "laloalcaraz",
+    "image_url": "https://featureassets.gocomics.com/assets/fbf47430aef9013fcf7e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/laloalcaraz/2026/10/20",
+    "category": "political"
+  },
+  {
     "name": "Joey Weatherford",
     "slug": "joey-weatherford",
     "image_url": "https://featureassets.gocomics.com/assets/4c75b750aec4013fcf64005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/joey-weatherford/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/ec56e0b0aee7013fcf78005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/joelpett/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/b86ced00aef5013fcf7d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/joe-heller/2026/10/20",
     "category": "political"
   },
   {
@@ -61,6 +109,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/0f7e6f60ae86013fcf56005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-20",
     "url": "https://www.gocomics.com/garymarkstein/2026/10/20",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/54a1c1f0af93013fcfa4005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-20",
+    "url": "https://www.gocomics.com/drewsheneman/2026/10/20",
     "category": "political"
   },
   {
