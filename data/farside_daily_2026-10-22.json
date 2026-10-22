@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-22",
+  "scraped_at": "2026-10-22T08:21:12.654207+00:00",
+  "comics": [
+    {
+      "id": "22891",
+      "date": "2026-10-22",
+      "url": "https://www.thefarside.com/2026/10/22/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4b60fe90e3ad0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4b60fe90e3ad0137cd49005056a9545d",
+      "caption": "\u201cUh-oh, Donny. Sounds like the monster in the basement has heard you crying again. ... Let\u2019s be reeeeal quiet and hope he goes away.\u201d",
+      "title": "\u201cUh-oh, Donny"
+    },
+    {
+      "id": "22892",
+      "date": "2026-10-22",
+      "url": "https://www.thefarside.com/2026/10/22/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F263090709ee701396086005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/263090709ee701396086005056a9545d",
+      "caption": "\u201cMind if we check the ears?\u201d",
+      "title": "\u201cMind if we check the ears?\u201d"
+    },
+    {
+      "id": "22893",
+      "date": "2026-10-22",
+      "url": "https://www.thefarside.com/2026/10/22/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4ba56700cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4ba56700cdd40137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22893"
+    },
+    {
+      "id": "22894",
+      "date": "2026-10-22",
+      "url": "https://www.thefarside.com/2026/10/22/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4325f970e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4325f970e9ef0137cf93005056a9545d",
+      "caption": "\u201cHow could you think that? \u2026 I\u2019ve always been attracted by your personality.\u201d",
+      "title": "\u201cHow could you think that? \u2026 I\u2019ve always been attracted b..."
+    },
+    {
+      "id": "22895",
+      "date": "2026-10-22",
+      "url": "https://www.thefarside.com/2026/10/22/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fde3e6530ea240137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/de3e6530ea240137cfba005056a9545d",
+      "caption": "Leonard felt his skin suddenly crawl. Coming through the door were a couple of real sketchy characters.",
+      "title": "Leonard felt his skin suddenly crawl"
+    }
+  ]
+}
