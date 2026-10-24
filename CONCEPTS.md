@@ -18,6 +18,8 @@ The lists that say which comics ComicCaster offers. Each list does two jobs at o
 
 The two jobs are independent, so a comic can sit on a tab that no loader for its Source reads. It then appears on the site with a feed link that never resolves, while every pipeline run reports success. Hence three rules. Each Source's loaders read every list its entries can live in. Each comic lives in exactly one of the Daily and Political lists, apart from a named handful deliberately shown on both. A derived list, such as the Spanish filter built from the Daily list, is covered by a check rather than read by a loader. A list drifting away from one of its consumers has recurred often enough that these rules are asserted by tests, not left to convention.
 
+`public/catalog.json` is a derived view of all the lists for agents, one entry per feed, rebuilt from the lists and the feed files on every pass that writes feeds. It is never edited by hand and is read by no loader. A listed comic with no feed file appears with `has_feed: false`, never with a feed URL that 404s.
+
 ### Feed identity
 The slug is the feed's identity: one slug means one file at `/feeds/<slug>.xml`, owned by exactly one feed-generating Source. Two Sources claiming the same slug is not a merge — each generator writes the whole file, so whichever runs last wins and the other's content is destroyed. Because the `<guid>` changes with the source, subscribers see each overwrite as new items and receive the same strip repeatedly. This is asserted by the catalog integrity tests rather than left to convention, because the pipeline reports success either way.
 

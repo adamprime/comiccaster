@@ -318,6 +318,17 @@ else
     FAILURES+=("Mr. Boffo feed generation")
 fi
 
+# After every generator, so a comic whose first feed appeared this run is in it
+# and each entry's last_updated matches its feed's lastBuildDate.
+echo ""
+echo "Building the agent catalog (public/catalog.json)..."
+if python scripts/generate_catalog.py; then
+    echo "✅ Catalog build succeeded"
+else
+    echo "❌ Catalog build failed"
+    FAILURES+=("Catalog generation")
+fi
+
 # Host-local yesterday. Pass 1 runs at 03:05, usually before the site has
 # published today's Daily Dose -- the morning pass ships that later -- so the
 # Far Side checks below verify yesterday's dose. Push recovery reuses it too.
@@ -473,6 +484,7 @@ verify_push_landed() {
 # sync a checkout with an unexpected tracked change.
 stage_pipeline_data() {
     git add -f data/*.json public/feeds/*.xml
+    git add -f public/catalog.json
     if [ -f data/farside_new_last_id.txt ]; then
         git add -f data/farside_new_last_id.txt
     fi
@@ -543,6 +555,7 @@ Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.g
         python scripts/generate_farside_feeds.py            || FAILURES+=("Far Side regen in recovery")
         python scripts/generate_creators_feeds.py           || FAILURES+=("Creators regen in recovery")
         python scripts/generate_mrboffo_feeds.py            || FAILURES+=("Mr. Boffo regen in recovery")
+        python scripts/generate_catalog.py                  || FAILURES+=("Catalog regen in recovery")
 
         stage_pipeline_data
         if git diff --staged --quiet; then

@@ -81,6 +81,7 @@ An earlier hybrid design split scraping between a laptop (one source) and GitHub
 | `scripts/catchup_master_update.sh` | Login-triggered safety net — runs the master update only if today's GoComics data file is missing |
 | `scripts/scrape_*.py` and per-source authenticated scrapers | Phase 1 scrapers; each writes to `data/*.json` |
 | `scripts/generate_*.py` | Phase 2 generators; each reads `data/*.json` and writes to `public/feeds/*.xml` |
+| `scripts/generate_catalog.py` | Last step of Phase 2 in Pass 1 and Pass 2, and of their push recovery: rebuilds `public/catalog.json` (the agent catalog) from the comic lists and feed files. A failure is log-only and leaves the previous catalog in place |
 | `scripts/report_pipeline_failures.py` | Opens / comments / closes the GitHub issue for each failing source. Runs in Actions, not on the host (see Failure alerting) |
 | `scripts/check_pipeline_heartbeat.py` | Dead-man's switch — alerts when no pipeline commit has landed in 20h |
 | `scripts/check_ck_session.py` | Reads the CK token *cookie expiry*. Its real value is verifying a reauth took; it cannot detect a server-side logout, because CK refreshes the expiry even on requests it rejects |
@@ -151,7 +152,7 @@ The pipeline runs **three schedules a day**, all in host-local time: Pass 1 at 0
 2. The wrapper exports `PATH`, `GIT_SSH_COMMAND`, and `CK_SCRAPER_EXTRA_ARGS`, then `exec`s the tracked master update.
 3. SSH auth check against GitHub. On failure the run aborts cleanly, notifies, and dispatches a `preflight` alert — this abort happens *before* any scraping, so it would otherwise be the quietest failure of all.
 4. Phase 1 scrape (the long part — Comics Kingdom dominates runtime).
-5. Phase 2 feed generation (fast, no network).
+5. Phase 2 feed generation (fast, no network), then the agent catalog rebuild (`public/catalog.json`).
 6. Invariant guard verifies every successful scrape wrote its dated JSON file **and** that the file holds a plausible number of entries — existence alone was satisfiable by an empty scrape (see Empty and partial scrapes). The Far Side Daily Dose is checked for **yesterday**, because Pass 1 usually runs before the site publishes today's; the morning pass ships today's. Pass 1 also checks that the morning pass reached a final outcome for yesterday (`farside:morning-pass`). Far Side is scraped in two invocations, so the Daily Dose reports as `farside` and New Stuff, still checked for today, as `farside-new`.
 7. Preflights that warn while there is still time to act: the CK session cookie, and the host auto-login/remote-access settings the LaunchAgents depend on.
 8. Phase 3 commit + push. If the first push is accepted, we're done.
