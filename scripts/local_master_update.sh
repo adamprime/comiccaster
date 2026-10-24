@@ -54,7 +54,7 @@ FAILED_KEYS=()
 # be closed by the morning pass nor share an issue with the Daily Dose.
 # `preflight` is included because reaching the end of a run proves it passed,
 # which is what auto-closes a preflight issue from a previous run.
-ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,farside-new,creators,mrboffo,push,preflight,cksession,branch,autologin"
+ALERT_COVERED="gocomics,comicskingdom,tinyview,newyorker,farside,farside-new,creators,mrboffo,push,preflight,cksession,branch,autologin,vulnaudit"
 
 # Load environment variables (.env has GoComics credentials)
 if [ -f "$REPO_DIR/.env" ]; then
@@ -421,6 +421,26 @@ if python scripts/check_host_config.py; then
 else
     FAILURES+=("Host configuration drifted")
     FAILED_KEYS+=("autologin:config")
+fi
+
+# Vulnerability audit of what the host venv actually runs.
+# CI installs unconstrained and Dependabot reads the repo, so neither sees the
+# host: on 2026-10-24 CI was green on brotli 1.2.1 while this venv, locked by
+# constraints.txt, still ran the vulnerable 1.2.0 (CVE-2026-111497, #243).
+# This asks OSV about every installed version, transitives included.
+# Exit 75 means OSV was unreachable: warn only, and drop `vulnaudit` from this
+# run's coverage -- nothing was examined, so an open issue must not auto-close.
+# No detail goes to the reporter: naming the exploitable package in a public
+# issue would advertise the hole while it is still open.
+echo ""
+echo "=== Auditing host venv for known vulnerabilities ==="
+python scripts/check_vulnerabilities.py
+VULN_RC=$?
+if [ "$VULN_RC" -eq 75 ]; then
+    ALERT_COVERED="${ALERT_COVERED/,vulnaudit/}"
+elif [ "$VULN_RC" -ne 0 ]; then
+    FAILURES+=("Vulnerability audit")
+    FAILED_KEYS+=("vulnaudit:audit")
 fi
 
 # Phase 3: Commit and push everything that succeeded.

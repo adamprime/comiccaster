@@ -61,6 +61,7 @@ SOURCE_NAMES = {
     "cksession": "Comics Kingdom session",
     "branch": "Repo branch",
     "autologin": "Host configuration",
+    "vulnaudit": "Vulnerability audit",
 }
 
 # A few alerts are warnings rather than failures, and read badly through the
@@ -70,6 +71,8 @@ TITLE_OVERRIDES = {
     "branch": "[pipeline] Pipeline ran on the wrong branch",
     # Deliberately says nothing about *which* setting drifted -- see the lead.
     "autologin": "[pipeline] Host configuration preflight failed",
+    # Also says nothing about which package or CVE, for the same reason.
+    "vulnaudit": "[pipeline] Host venv vulnerability audit failed",
 }
 
 LEAD_OVERRIDES = {
@@ -102,6 +105,23 @@ LEAD_OVERRIDES = {
         "**Fix it now, while you can still get in.** Run the check on the host "
         "for the specifics, which are deliberately not repeated here:\n\n"
         "```bash\npython scripts/check_host_config.py\n```"
+    ),
+    # Intentionally vague too: which package on the host is exploitable is
+    # not something to publish while it still is.
+    "vulnaudit": (
+        "The daily audit of the host venv against the OSV vulnerability "
+        "database failed. Either an installed package has a known "
+        "vulnerability, or the audit itself could not run. (OSV being "
+        "unreachable only warns; it never opens this issue.)\n\n"
+        "CI and Dependabot cannot see this: CI installs unconstrained and "
+        "Dependabot reads the repository, while the host runs what "
+        "`constraints.txt` pins. Run the audit on the host for the specifics, "
+        "which are deliberately not repeated here:\n\n"
+        "```bash\nvenv/bin/python scripts/check_vulnerabilities.py\n```\n\n"
+        "For a vulnerable package, bump its pin in `constraints.txt` (and in "
+        "`requirements.txt` if it is a direct dependency), merge, then run "
+        "`venv/bin/python -m pip install -r requirements.txt -c constraints.txt` "
+        "on the host."
     ),
 }
 

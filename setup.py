@@ -13,8 +13,6 @@ setup(
         "selenium>=4.0.0",
         "feedparser>=6.0.11",
         "python-dotenv>=1.0.1",
-        "APScheduler>=3.10.4",
-        "requests-toolbelt>=1.0.0",
     ],
     extras_require={
         "dev": [

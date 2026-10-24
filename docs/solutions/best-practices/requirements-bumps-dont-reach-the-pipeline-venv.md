@@ -12,7 +12,8 @@ applies_when:
   - "Reproducing a pipeline failure locally gives a different result than the host does"
   - "Auditing what version of selenium/requests the production scrapers actually load"
   - "A CVE is fixed upstream and CI already tests the fixed version, but the host may still run the vulnerable one"
-tags: [dependencies, dependabot, venv, drift, selenium, pipeline, ci-vs-production, constraints, security, brotli]
+  - "A vulnaudit pipeline issue opened, or a dependency is being removed rather than bumped"
+tags: [dependencies, dependabot, venv, drift, selenium, pipeline, ci-vs-production, constraints, security, brotli, osv, pip-audit, certifi]
 stack: [python, github-actions]
 github_prs: [163, 170, 182, 186, 189, 243]
 last_updated: 2026-10-24
@@ -60,7 +61,7 @@ the scrapers. The scrapers run on the host, from the venv, and only a manual
 
 ```bash
 # What production actually loads, vs. what main declares:
-venv/bin/python -m pip list | grep -iE "^(selenium|pytz|feedparser|python-dotenv|APScheduler|requests) "
+venv/bin/python -m pip list | grep -iE "^(selenium|pytz|feedparser|python-dotenv|requests) "
 cat requirements.txt
 ```
 
@@ -142,6 +143,39 @@ security-update PRs were turned off. **They were turned on on 2026-10-24**, so
 the next transitive CVE should arrive as a PR as soon as GitHub publishes an
 advisory. That PR is still only half the fix. Merging it changes the files,
 and the host only changes when you run the install above.
+
+### Watching what the host runs
+
+Turning on Dependabot security updates still left a gap: Dependabot reads the
+repository, so it can't see a host that lags the repo. Since 2026-10-24 every
+Pass 1 runs `scripts/check_vulnerabilities.py` from the venv. It lists every
+installed package with `pip list` (transitives included) and asks OSV (the
+source of PyPI's advisory data, and a pip-audit backend) about those exact
+versions. A hit opens a `vulnaudit` issue. That issue is deliberately generic,
+because the repo is public; run the script on the host for the package, the
+advisory and the fix version. When OSV is unreachable the audit only warns (exit 75), and that run
+doesn't count `vulnaudit` as covered, so an open issue stays open.
+
+Its first real run found a second hole the same day. The host had certifi
+2026.7.22, which ships emSign roots whose intermediate keys were compromised
+(GHSA-6q48-6c7w-9gw2, critical, fixed in 2026.10.19). CI and every PR were
+green on it.
+
+Fewer packages also means fewer holes. The same change removed APScheduler,
+tzlocal and requests-toolbelt, which nothing imported. Removing a package
+takes one more step than adding one: `pip install -r requirements.txt -c
+constraints.txt` never uninstalls anything. And `setup.py` declared
+APScheduler and requests-toolbelt too, and the pipeline runs `pip install -e .`
+on every pass, which would quietly reinstall them. So drop the package from `setup.py` as well,
+merge, then refresh the editable install *before* uninstalling:
+
+```bash
+git pull --ff-only
+venv/bin/python -m pip install -e . -c constraints.txt   # re-reads setup.py's install_requires
+venv/bin/python -m pip uninstall -y APScheduler tzlocal requests-toolbelt
+venv/bin/python -m pip install -r requirements.txt -c constraints.txt   # should be a no-op
+venv/bin/python -m pip check
+```
 
 ## Timing
 

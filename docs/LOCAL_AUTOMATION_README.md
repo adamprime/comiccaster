@@ -23,7 +23,8 @@ An earlier hybrid design split scraping between a laptop (one source) and GitHub
 │  Far Side Daily Dose: yesterday's file, plus the morning       │
 │  pass's final outcome for yesterday.                           │
 │                                                                │
-│  Preflights: CK session cookie, host auto-login config         │
+│  Preflights: CK session cookie, host auto-login config,        │
+│  host venv vulnerability audit (OSV)                           │
 │                                                                │
 │  Phase 3 — commit and push (with recovery on rejection)        │
 │    save JSONs / fetch / reset --hard origin/main / restore     │
@@ -86,6 +87,7 @@ An earlier hybrid design split scraping between a laptop (one source) and GitHub
 | `scripts/check_ck_session.py` | Reads the CK token *cookie expiry*. Its real value is verifying a reauth took; it cannot detect a server-side logout, because CK refreshes the expiry even on requests it rejects |
 | `scripts/check_scrape_counts.py` | Invariant guard's count half — asserts each scrape's JSON holds a plausible number of entries. Per-source minimums in `SOURCE_RULES`; register new sources there |
 | `scripts/check_host_config.py` | Verifies the host settings the LaunchAgents depend on (`kcpassword`, `autoLoginUser`, FileVault off, Tailscale start-on-login) while drift is still fixable remotely |
+| `scripts/check_vulnerabilities.py` | Asks OSV about every package installed in the host venv, transitives included. It sees what the host runs, which CI and Dependabot cannot. Exit 75 means OSV was unreachable: a warning, not an alert |
 | `.github/workflows/pipeline-alert.yml` | Dispatched by Pass 1, Pass 2 and the Far Side morning pass; runs the reporter under `GITHUB_TOKEN` |
 | `.github/workflows/pipeline-heartbeat.yml` | Scheduled 11:00 UTC; runs the heartbeat check |
 | `scripts/reauth_comicskingdom.py` | Manual Comics Kingdom session refresh |
@@ -153,7 +155,7 @@ The pipeline runs **three schedules a day**, all in host-local time: Pass 1 at 0
 4. Phase 1 scrape (the long part — Comics Kingdom dominates runtime).
 5. Phase 2 feed generation (fast, no network).
 6. Invariant guard verifies every successful scrape wrote its dated JSON file **and** that the file holds a plausible number of entries — existence alone was satisfiable by an empty scrape (see Empty and partial scrapes). The Far Side Daily Dose is checked for **yesterday**, because Pass 1 usually runs before the site publishes today's; the morning pass ships today's. Pass 1 also checks that the morning pass reached a final outcome for yesterday (`farside:morning-pass`). Far Side is scraped in two invocations, so the Daily Dose reports as `farside` and New Stuff, still checked for today, as `farside-new`.
-7. Preflights that warn while there is still time to act: the CK session cookie, and the host auto-login/remote-access settings the LaunchAgents depend on.
+7. Preflights that warn while there is still time to act: the CK session cookie, the host auto-login/remote-access settings the LaunchAgents depend on, and a vulnerability audit of the host venv against OSV (`vulnaudit`). If OSV can't be reached, the audit only logs a warning and drops `vulnaudit` from that run's coverage, so an open audit issue stays open until a run that actually checked.
 8. Phase 3 commit + push. If the first push is accepted, we're done.
 9. Netlify detects the push and deploys within ~30 seconds.
 10. The run dispatches `pipeline-alert.yml` with what failed and what it examined — on every run, success included, because that is what closes issues for sources that have recovered.
@@ -312,7 +314,7 @@ Every run is unattended, so the primary failure signal is a **GitHub issue**, wh
 - **One issue per failing source**, titled `[pipeline] <Source> <kind> failed` and labelled `pipeline-failure`.
 - **Recurrences comment** on the existing issue rather than opening duplicates.
 - **Issues close themselves** when that source next succeeds, with a "Recovered" comment.
-- **In scope:** scrape failures, invariant-guard violations (missing *or* empty/partial data), `git push` failures, the SSH preflight abort, the CK session warning, host auto-login drift, the Far Side morning pass's noon slot failing to ship, and a morning pass that recorded no final outcome. Pass 1 and Pass 2 log feed-generation and `git fetch` failures only; the morning pass reports them only from its final slot, as `farside:generate` and `farside:fetch`.
+- **In scope:** scrape failures, invariant-guard violations (missing *or* empty/partial data), `git push` failures, the SSH preflight abort, the CK session warning, host auto-login drift, a known-vulnerable package in the host venv, the Far Side morning pass's noon slot failing to ship, and a morning pass that recorded no final outcome. Pass 1 and Pass 2 log feed-generation and `git fetch` failures only; the morning pass reports them only from its final slot, as `farside:generate` and `farside:fetch`.
 
 Issues are identified by a `Pipeline-Failure-Key: <slug>` marker in the body, not by title or label — label-filtered listing on GitHub is eventually consistent and briefly omits freshly created issues.
 
@@ -444,7 +446,7 @@ The master LaunchAgent is user-level (`~/Library/LaunchAgents/...`) and only fir
 
 ### A `[pipeline]` issue arrived
 
-1. Read the issue: it names the source, the failure kind (`scrape`, `invariant`, `push`, `ssh`, `cksession`, `autologin`, or for Far Side also `morning-pass` and the morning pass's own kinds), and the run.
+1. Read the issue: it names the source, the failure kind (`scrape`, `invariant`, `push`, `ssh`, `cksession`, `autologin`, `vulnaudit`, or for Far Side also `morning-pass` and the morning pass's own kinds), and the run.
 2. Pull the detail from the host log — the issue deliberately carries none:
 
    ```bash
