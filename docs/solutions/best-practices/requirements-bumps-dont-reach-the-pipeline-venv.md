@@ -137,9 +137,11 @@ install and verification above. The freeze diff should show only the brotli
 line.
 
 **Why nothing proposed it sooner:** Dependabot version updates run weekly
-(they do edit `constraints.txt`; see pluggy, #241), and the repo has Dependabot
-security-update PRs turned off. Whether to turn them on is an open decision in
-`docs/STATUS.md`.
+(they do edit `constraints.txt`; see pluggy, #241), and Dependabot
+security-update PRs were turned off. **They were turned on on 2026-10-24**, so
+the next transitive CVE should arrive as a PR as soon as GitHub publishes an
+advisory. That PR is still only half the fix. Merging it changes the files,
+and the host only changes when you run the install above.
 
 ## Timing
 

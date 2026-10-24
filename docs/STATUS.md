@@ -26,6 +26,7 @@ Stable. Shape A (CK profile-based auth) has been on prod since 2026-04-20 with n
 - 461 GoComics feeds, 156 Comics Kingdom feeds (147 daily + 9 political), TinyView feeds, Far Side Daily Dose + New Stuff, New Yorker Daily Cartoon, 10 Creators feeds, and Mr. Boffo (single daily strip) updating daily. CK moved 153 → 150 on 2026-08-24: four comics (broomhilda, edge-city, pluggers, shoe) were reassigned to GoComics, and `edge-city-classic` was added for CK's separate run of Edge City. CK moved 150 → 156 on 2026-09-28, when the CK loaders began reading `political_comics_list.json`: six cartoonists listed only there had never been scraped
 - Static site + Netlify functions deployment flow
 - Security policy and private vulnerability reporting enabled; **zero open CodeQL alerts**
+- Dependabot alerts and Dependabot security-update PRs enabled (security PRs since 2026-10-24); secret scanning enabled. Merging a security PR still doesn't patch the host. Run the venv install afterwards (see `docs/solutions/best-practices/requirements-bumps-dont-reach-the-pipeline-venv.md`)
 - Consistent comic strip sizing (max-width: 700px) and centering across all sources (#105)
 - GoComics recovery: `scripts/authenticated_scraper_secure.py --backfill-days N` (Pass 2 runs a rolling backfill daily)
 - Daily automated feed monitoring via agent
@@ -52,7 +53,9 @@ _Cleared 2026-08-24/25: merged all five open Dependabot PRs (#163, #170, #182, #
 
 | Decision | Options Considered | Leaning Toward | Blocking? |
 |----------|--------------------|----------------|-----------|
-| Turn on Dependabot security updates? Brotli 1.2.1 shipped 2026-10-22, but the repo has Dependabot alerts on and automatic security-fix PRs off, and the weekly version-update run hadn't proposed it before the brief arrived. | (a) Enable security updates: a PR as soon as GitHub publishes an advisory. (b) Keep the weekly cadence and rely on outside briefs. | (a). It's cheap, though it only helps once GitHub has an advisory, and there was no open alert for brotli on 2026-10-24. | No |
+|          |                    |                |           |
+
+_Decided 2026-10-24: **Dependabot security updates turned on** (operator call: "the more places sharing security info with us the better"). Alerts were already on; security-fix PRs were off, so brotli 1.2.1 would have waited for the weekly version-update run. Security PRs only open once GitHub publishes an advisory, so outside briefs still matter._
 
 ## Known Issues
 <!-- Bugs, tech debt, or things that are broken but not urgent. -->
