@@ -25,7 +25,10 @@
 #
 # Verified 2026-08-25: pytest 499 passed; 341/341 regenerated feeds
 # byte-identical to production output; APScheduler timezone resolution unchanged.
-APScheduler==3.11.3
+#
+# Removed 2026-10-24: APScheduler (with tzlocal, which only APScheduler needed)
+# and requests-toolbelt. Nothing in comiccaster/, scripts/, tests/ or
+# run_app.py imports them, so they were attack surface with no use.
 attrs==26.1.0
 beautifulsoup4==4.15.0
 blinker==1.9.0
@@ -57,7 +60,6 @@ python-dateutil==2.9.0.post0
 python-dotenv==1.2.4
 pytz==2026.5
 requests==2.34.2
-requests-toolbelt==1.0.0
 selenium==4.51.0
 sgmllib3k==1.0.0
 six==1.17.0
@@ -67,7 +69,6 @@ soupsieve==2.10
 trio==0.34.0
 trio-websocket==0.12.2
 typing_extensions==4.16.0
-tzlocal==5.4.4
 urllib3==2.8.0
 webdriver-manager==4.1.2
 websocket-client==1.9.2
