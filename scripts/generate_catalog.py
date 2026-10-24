@@ -12,7 +12,9 @@ document with one schema per comic:
 `category` is the tab a comic is listed on. A comic in the Daily list and a
 more specific one (Spanish, Political, Far Side, New Yorker) is one feed and
 one entry, in the specific category; its name, author and site URL come from
-the Daily list. An external-RSS comic is a separate entry even when a hosted
+the Daily list. `language` is the one the comic's entry declares (the Daily
+list says `es` for every Spanish-tab comic), else `en`: the same field the feed
+generator writes as the feed's <language>. An external-RSS comic is a separate entry even when a hosted
 feed shares its slug, so `feed_url` is the unique key, not `slug`.
 
 A listed comic with no public/feeds/<slug>.xml (upstream-dormant ones, which
@@ -89,14 +91,14 @@ def last_build_date(feed_path):
     return None
 
 
-def _entry(slug, name, author, source, category, feed_url, site_url, has_feed, last_updated):
+def _entry(slug, name, author, source, category, language, feed_url, site_url, has_feed, last_updated):
     return {
         'slug': slug,
         'name': name,
         'author': author or None,
         'source': source,
         'category': category,
-        'language': 'es' if category == 'spanish' else 'en',
+        'language': language or 'en',
         'feed_url': feed_url,
         'site_url': site_url or None,
         'has_feed': has_feed,
@@ -113,9 +115,11 @@ def _hosted_entries(public_dir):
                 'author': comic.get('author'),
                 'source': comic.get('source') or GOCOMICS,
                 'site_url': comic.get('url'),
+                'language': comic.get('language'),
             })
-            fields['author'] = fields['author'] or comic.get('author')
-            fields['site_url'] = fields['site_url'] or comic.get('url')
+            for key, value in (('author', comic.get('author')), ('site_url', comic.get('url')),
+                               ('language', comic.get('language'))):
+                fields[key] = fields[key] or value
             fields['category'] = category
 
     for slug, fields in merged.items():
@@ -123,6 +127,7 @@ def _hosted_entries(public_dir):
         has_feed = feed_path.is_file()
         yield _entry(
             slug, fields['name'], fields['author'], fields['source'], fields['category'],
+            fields['language'],
             feed_url=f'{SITE}/feeds/{slug}.xml' if has_feed else None,
             site_url=fields['site_url'],
             has_feed=has_feed,
@@ -134,6 +139,7 @@ def _external_entries(public_dir):
     for comic in _read_list(public_dir / EXTERNAL_LIST):
         yield _entry(
             comic['slug'], comic['name'], comic.get('author'), comic['source'], 'external',
+            comic.get('language'),
             feed_url=comic['feed_url'],
             site_url=comic.get('url'),
             has_feed=True,

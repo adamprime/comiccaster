@@ -244,6 +244,7 @@
     "author": "Hector D. Cant\u00fa and Carlos Castellanos",
     "url": "https://www.gocomics.com/baldoespanol",
     "slug": "baldoespanol",
+    "language": "es",
     "position": 31,
     "is_updated": true
   },
@@ -332,6 +333,7 @@
     "author": "Pierre S. De Beaumont",
     "url": "https://www.gocomics.com/muttandjeffespanol",
     "slug": "muttandjeffespanol",
+    "language": "es",
     "position": 42,
     "is_updated": false
   },
@@ -596,6 +598,7 @@
     "author": "Bill Watterson",
     "url": "https://www.gocomics.com/calvinandhobbesespanol",
     "slug": "calvinandhobbesespanol",
+    "language": "es",
     "position": 75,
     "is_updated": true
   },
@@ -1126,6 +1129,7 @@
     "author": "Bill Amend",
     "url": "https://www.gocomics.com/foxtrotespanol",
     "slug": "foxtrotespanol",
+    "language": "es",
     "position": 142,
     "is_updated": true
   },
@@ -1166,6 +1170,7 @@
     "author": "Alex Graham",
     "url": "https://www.gocomics.com/fredbassetespanol",
     "slug": "fredbassetespanol",
+    "language": "es",
     "position": 147,
     "is_updated": true
   },
@@ -1230,6 +1235,7 @@
     "author": "Jim Davis",
     "url": "https://www.gocomics.com/garfieldespanol",
     "slug": "garfieldespanol",
+    "language": "es",
     "position": 155,
     "is_updated": false
   },
@@ -1302,6 +1308,7 @@
     "author": "Jason Chatfield",
     "url": "https://www.gocomics.com/gingermeggs-espanol",
     "slug": "gingermeggs-espanol",
+    "language": "es",
     "position": 164,
     "is_updated": true
   },
@@ -1414,6 +1421,7 @@
     "author": "George Gately",
     "url": "https://www.gocomics.com/heathcliffespanol",
     "slug": "heathcliffespanol",
+    "language": "es",
     "position": 178,
     "is_updated": false
   },
@@ -1654,6 +1662,7 @@
     "author": "Lalo Alcaraz",
     "url": "https://www.gocomics.com/la-cucaracha-en-espanol",
     "slug": "la-cucaracha-en-espanol",
+    "language": "es",
     "position": 208,
     "is_updated": false
   },
@@ -1670,6 +1679,7 @@
     "author": "Jan Eliot",
     "url": "https://www.gocomics.com/stonesoup_espanol",
     "slug": "stonesoup_espanol",
+    "language": "es",
     "position": 210,
     "is_updated": true
   },
@@ -1742,6 +1752,7 @@
     "author": "Mark Tatulli",
     "url": "https://www.gocomics.com/lioespanol",
     "slug": "lioespanol",
+    "language": "es",
     "position": 219,
     "is_updated": false
   },
@@ -1798,6 +1809,7 @@
     "author": "Todd Clark",
     "url": "https://www.gocomics.com/lola-en-espanol",
     "slug": "lola-en-espanol",
+    "language": "es",
     "position": 226,
     "is_updated": true
   },
@@ -1862,6 +1874,7 @@
     "author": "Greg Evans",
     "url": "https://www.gocomics.com/luannspanish",
     "slug": "luannspanish",
+    "language": "es",
     "position": 234,
     "is_updated": true
   },
@@ -2278,6 +2291,7 @@
     "author": "Chip Dunham",
     "url": "https://www.gocomics.com/overboardespanol",
     "slug": "overboardespanol",
+    "language": "es",
     "position": 287,
     "is_updated": true
   },
@@ -2318,6 +2332,7 @@
     "author": "Charles Schulz",
     "url": "https://www.gocomics.com/peanuts-espanol",
     "slug": "peanuts-espanol",
+    "language": "es",
     "position": 292,
     "is_updated": true
   },
@@ -2542,6 +2557,7 @@
     "author": "John Graziano",
     "url": "https://www.gocomics.com/ripleys-en-espanol",
     "slug": "ripleys-en-espanol",
+    "language": "es",
     "position": 320,
     "is_updated": false
   },
@@ -2806,6 +2822,7 @@
     "author": "Edgar Rice Burroughs",
     "url": "https://www.gocomics.com/tarzan-en-espanol",
     "slug": "tarzan-en-espanol",
+    "language": "es",
     "position": 353,
     "is_updated": false
   },
@@ -3087,6 +3104,7 @@
     "author": "Parker and Hart",
     "url": "https://www.gocomics.com/wizardofidespanol",
     "slug": "wizardofidespanol",
+    "language": "es",
     "position": 388,
     "is_updated": false
   },
@@ -3159,6 +3177,7 @@
     "author": "Wulff & Morgenthaler",
     "url": "https://www.gocomics.com/wumoespanol",
     "slug": "wumoespanol",
+    "language": "es",
     "position": 397,
     "is_updated": false
   },
@@ -3215,6 +3234,7 @@
     "author": "Tom Wilson & Tom II",
     "url": "https://www.gocomics.com/ziggyespanol",
     "slug": "ziggyespanol",
+    "language": "es",
     "position": 404,
     "is_updated": true
   },
@@ -3319,6 +3339,7 @@
   {
     "name": "Jeremias",
     "slug": "jeremias",
+    "language": "es",
     "url": "https://comicskingdom.com/jeremias/2025-11-15",
     "author": "",
     "position": 418,
@@ -3328,6 +3349,7 @@
   {
     "name": "Palurdeando",
     "slug": "palurdeando",
+    "language": "es",
     "url": "https://comicskingdom.com/palurdeando/2025-11-15",
     "author": "",
     "position": 419,
@@ -3370,6 +3392,7 @@
   {
     "name": "Barney Google And Snuffy Smith (Spanish)",
     "slug": "tapon",
+    "language": "es",
     "url": "https://comicskingdom.com/tapon",
     "source": "comicskingdom",
     "position": 424,
@@ -3386,6 +3409,7 @@
   {
     "name": "Beetle Bailey (Spanish)",
     "slug": "beto-el-recluta",
+    "language": "es",
     "url": "https://comicskingdom.com/beto-el-recluta",
     "source": "comicskingdom",
     "position": 426,
@@ -3426,6 +3450,7 @@
   {
     "name": "Blondie (Spanish)",
     "slug": "pepita",
+    "language": "es",
     "url": "https://comicskingdom.com/pepita",
     "source": "comicskingdom",
     "position": 431,
@@ -3442,6 +3467,7 @@
   {
     "name": "Bringing Up Father (Spanish)",
     "slug": "educando-a-papa",
+    "language": "es",
     "url": "https://comicskingdom.com/educando-a-papa",
     "source": "comicskingdom",
     "position": 433,
@@ -3466,6 +3492,7 @@
   {
     "name": "Crock (Spanish)",
     "slug": "crock-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/crock-spanish",
     "source": "comicskingdom",
     "position": 436,
@@ -3490,6 +3517,7 @@
   {
     "name": "Dennis The Menace (Spanish)",
     "slug": "daniel-el-travieso",
+    "language": "es",
     "url": "https://comicskingdom.com/daniel-el-travieso",
     "source": "comicskingdom",
     "position": 439,
@@ -3538,6 +3566,7 @@
   {
     "name": "The Family Circus (Spanish)",
     "slug": "circulo-familiar",
+    "language": "es",
     "url": "https://comicskingdom.com/circulo-familiar",
     "source": "comicskingdom",
     "position": 445,
@@ -3578,6 +3607,7 @@
   {
     "name": "Goomer (Spanish)",
     "slug": "goomer-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/goomer-spanish",
     "source": "comicskingdom",
     "position": 450,
@@ -3594,6 +3624,7 @@
   {
     "name": "Hagar The Horrible (Spanish)",
     "slug": "olafo",
+    "language": "es",
     "url": "https://comicskingdom.com/olafo",
     "source": "comicskingdom",
     "position": 452,
@@ -3642,6 +3673,7 @@
   {
     "name": "Katzenjammer Kids (Spanish)",
     "slug": "maldades-de-dos-pilluelos",
+    "language": "es",
     "url": "https://comicskingdom.com/maldades-de-dos-pilluelos",
     "source": "comicskingdom",
     "position": 459,
@@ -3666,6 +3698,7 @@
   {
     "name": "Lalo Y Lola (Spanish)",
     "slug": "lalo-y-lola",
+    "language": "es",
     "url": "https://comicskingdom.com/lalo-y-lola",
     "source": "comicskingdom",
     "position": 462,
@@ -3682,6 +3715,7 @@
   {
     "name": "Macanudo",
     "slug": "macanudo",
+    "language": "es",
     "url": "https://comicskingdom.com/macanudo",
     "source": "comicskingdom",
     "position": 464,
@@ -3690,6 +3724,7 @@
   {
     "name": "Macanudo (Spanish)",
     "slug": "macanudo-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/macanudo-spanish",
     "source": "comicskingdom",
     "position": 465,
@@ -3698,6 +3733,7 @@
   {
     "name": "Mandrake The Magician (Spanish)",
     "slug": "mandrake-the-magician-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/mandrake-the-magician-spanish",
     "source": "comicskingdom",
     "position": 466,
@@ -3714,6 +3750,7 @@
   {
     "name": "Mark Trail (Spanish)",
     "slug": "mark-trail-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/mark-trail-spanish",
     "source": "comicskingdom",
     "position": 468,
@@ -3730,6 +3767,7 @@
   {
     "name": "Marvin (Spanish)",
     "slug": "marvin-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/marvin-spanish",
     "source": "comicskingdom",
     "position": 470,
@@ -3746,6 +3784,7 @@
   {
     "name": "Mary Worth (Spanish)",
     "slug": "maria-de-oro",
+    "language": "es",
     "url": "https://comicskingdom.com/maria-de-oro",
     "source": "comicskingdom",
     "position": 472,
@@ -3762,6 +3801,7 @@
   {
     "name": "Moose And Molly (Spanish)",
     "slug": "quintin",
+    "language": "es",
     "url": "https://comicskingdom.com/quintin",
     "source": "comicskingdom",
     "position": 474,
@@ -3778,6 +3818,7 @@
   {
     "name": "Mr. Abernathy (Spanish)",
     "slug": "don-abundio",
+    "language": "es",
     "url": "https://comicskingdom.com/don-abundio",
     "source": "comicskingdom",
     "position": 476,
@@ -3794,6 +3835,7 @@
   {
     "name": "Mutts (Spanish)",
     "slug": "motas",
+    "language": "es",
     "url": "https://comicskingdom.com/motas",
     "source": "comicskingdom",
     "position": 478,
@@ -3858,6 +3900,7 @@
   {
     "name": "Palurdeando (Spanish)",
     "slug": "palurdeando-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/palurdeando-spanish",
     "source": "comicskingdom",
     "position": 486,
@@ -3882,6 +3925,7 @@
   {
     "name": "The Phantom (Spanish)",
     "slug": "el-fantasma",
+    "language": "es",
     "url": "https://comicskingdom.com/el-fantasma",
     "source": "comicskingdom",
     "position": 489,
@@ -3914,6 +3958,7 @@
   {
     "name": "Popeye (Spanish)",
     "slug": "popeye-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/popeye-spanish",
     "source": "comicskingdom",
     "position": 493,
@@ -3938,6 +3983,7 @@
   {
     "name": "Principe Valiente (Spanish)",
     "slug": "principe-valiente",
+    "language": "es",
     "url": "https://comicskingdom.com/principe-valiente",
     "source": "comicskingdom",
     "position": 496,
@@ -3962,6 +4008,7 @@
   {
     "name": "Rex Morgan M.D. (Spanish)",
     "slug": "rex-morgan-md-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/rex-morgan-md-spanish",
     "source": "comicskingdom",
     "position": 499,
@@ -4026,6 +4073,7 @@
   {
     "name": "Sam And Silo (Spanish)",
     "slug": "soso-y-siso",
+    "language": "es",
     "url": "https://comicskingdom.com/soso-y-siso",
     "source": "comicskingdom",
     "position": 507,
@@ -4042,6 +4090,7 @@
   {
     "name": "Slylock Fox (Spanish)",
     "slug": "solo-para-ninos",
+    "language": "es",
     "url": "https://comicskingdom.com/solo-para-ninos",
     "source": "comicskingdom",
     "position": 509,
@@ -4074,6 +4123,7 @@
   {
     "name": "They\u2019ll Do It Every Time (Spanish)",
     "slug": "nunca-falta-alguien-asi",
+    "language": "es",
     "url": "https://comicskingdom.com/nunca-falta-alguien-asi",
     "source": "comicskingdom",
     "position": 513,
@@ -4082,6 +4132,7 @@
   {
     "name": "Tiger (Spanish)",
     "slug": "tigrillo",
+    "language": "es",
     "url": "https://comicskingdom.com/tigrillo",
     "source": "comicskingdom",
     "position": 514,
@@ -4098,6 +4149,7 @@
   {
     "name": "A Toda Velocidad (Spanish)",
     "slug": "a-toda-velocidad",
+    "language": "es",
     "url": "https://comicskingdom.com/a-toda-velocidad",
     "source": "comicskingdom",
     "position": 516,
@@ -4106,6 +4158,7 @@
   {
     "name": "Willy Black (Spanish)",
     "slug": "willy-black-spanish",
+    "language": "es",
     "url": "https://comicskingdom.com/willy-black-spanish",
     "source": "comicskingdom",
     "position": 518,
@@ -4577,6 +4630,7 @@
     "name": "Archie Spanish",
     "url": "https://www.creators.com/read/archie-spanish",
     "slug": "archie-spanish",
+    "language": "es",
     "position": 559,
     "is_updated": false,
     "source": "creators",
@@ -4604,6 +4658,7 @@
     "name": "Heathcliff Spanish",
     "url": "https://www.creators.com/read/heathcliff-spanish",
     "slug": "heathcliff-spanish",
+    "language": "es",
     "position": 562,
     "is_updated": false,
     "source": "creators",
@@ -4649,6 +4704,7 @@
     "name": "Wizard of Id Spanish",
     "url": "https://www.creators.com/read/wizard-of-id-spanish",
     "slug": "wizard-of-id-spanish",
+    "language": "es",
     "position": 567,
     "is_updated": false,
     "source": "creators",

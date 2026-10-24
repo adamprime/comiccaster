@@ -73,7 +73,8 @@ class ComicFeedGenerator:
             fg.description(f"Political editorial cartoon by {comic_info.get('author', comic_info['name'])} from {source_display}. May contain political content and commentary on current events.")
         else:
             fg.description(f"Daily {comic_info['name']} comic strip by {comic_info.get('author', 'Unknown Author')} from {source_display}")
-        fg.language('en')
+        # The catalog entry declares it (Spanish-tab comics say 'es'); English otherwise.
+        fg.language(comic_info.get('language') or 'en')
 
         fg.category(term=source, label=source_display)
 

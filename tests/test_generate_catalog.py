@@ -180,20 +180,38 @@ def test_a_feed_file_no_list_claims_is_left_out_and_reported(public):
 
 # --- Categories and the lists a comic sits in --------------------------------
 
-@pytest.mark.parametrize('list_name, category, language', [
-    ('comics_list.json', 'daily', 'en'),
-    ('political_comics_list.json', 'political', 'en'),
-    ('spanish_comics_list.json', 'spanish', 'es'),
-    ('tinyview_comics_list.json', 'tinyview', 'en'),
-    ('farside_comics_list.json', 'farside', 'en'),
-    ('newyorker_comics_list.json', 'newyorker', 'en'),
+@pytest.mark.parametrize('list_name, category', [
+    ('comics_list.json', 'daily'),
+    ('political_comics_list.json', 'political'),
+    ('spanish_comics_list.json', 'spanish'),
+    ('tinyview_comics_list.json', 'tinyview'),
+    ('farside_comics_list.json', 'farside'),
+    ('newyorker_comics_list.json', 'newyorker'),
 ])
-def test_each_list_sets_the_category_of_its_comics(public, list_name, category, language):
+def test_each_list_sets_the_category_of_its_comics(public, list_name, category):
     _write_list(public, list_name, [{'name': 'A', 'slug': 'a', 'url': 'https://example.com/a'}])
     _write_feed(public, 'a')
 
-    entry = _by_slug(gen.build_catalog(public))['a']
-    assert (entry['category'], entry['language']) == (category, language)
+    assert _by_slug(gen.build_catalog(public))['a']['category'] == category
+
+
+def test_language_is_the_one_the_comic_declares(public):
+    """The same field the feed generator writes as the feed's <language>."""
+    comic = {'name': 'Peanuts en Español', 'slug': 'peanuts-espanol',
+             'url': 'https://www.gocomics.com/peanuts-espanol', 'language': 'es'}
+    _write_list(public, 'comics_list.json', [comic])
+    _write_list(public, 'spanish_comics_list.json', [{k: v for k, v in comic.items() if k != 'language'}])
+    _write_feed(public, 'peanuts-espanol')
+
+    entry = _by_slug(gen.build_catalog(public))['peanuts-espanol']
+    assert (entry['category'], entry['language']) == ('spanish', 'es')
+
+
+def test_language_defaults_to_english(public):
+    _write_list(public, 'spanish_comics_list.json', [{'name': 'A', 'slug': 'a', 'url': 'https://example.com/a'}])
+    _write_feed(public, 'a')
+
+    assert _by_slug(gen.build_catalog(public))['a']['language'] == 'en'
 
 
 @pytest.mark.parametrize('other_list, category', [

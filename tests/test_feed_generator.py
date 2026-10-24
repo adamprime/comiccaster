@@ -57,6 +57,28 @@ def test_create_feed(feed_generator, comic_info):
     assert comic_info['author'] in feed_str
 
 
+def test_create_feed_declares_the_comics_own_language(feed_generator, comic_info):
+    """A Spanish comic's catalog entry says language: es; its feed must say so too."""
+    fg = feed_generator.create_feed({**comic_info, 'language': 'es'})
+
+    feed_str = fg.rss_str(pretty=True).decode('utf-8')
+    assert '<language>es</language>' in feed_str
+    assert '<language>en</language>' not in feed_str
+
+
+def test_generate_feed_writes_the_language_into_the_feed_file(feed_generator, comic_info):
+    entries = [{
+        'title': 'Test Comic - Day 1',
+        'url': 'https://example.com/comic/1',
+        'image': 'https://example.com/image/1.jpg',
+        'pub_date': 'Sun, 1 Apr 2024 00:00:00 -0400',
+    }]
+
+    assert feed_generator.generate_feed({**comic_info, 'language': 'es'}, entries) is True
+    feed_xml = (feed_generator.output_dir / f"{comic_info['slug']}.xml").read_text()
+    assert '<language>es</language>' in feed_xml
+
+
 @pytest.mark.parametrize('source,display', [
     ('mrboffo', 'Neatly Chiseled Features'),
     ('farside-daily', 'The Far Side'),

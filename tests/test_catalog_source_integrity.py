@@ -335,6 +335,69 @@ def test_every_spanish_comicskingdom_entry_is_loaded(load, monkeypatch):
     )
 
 
+# --- Feed language -----------------------------------------------------------
+#
+# A comic is Spanish because its Daily-list entry declares `language: es`; the
+# generators pass catalog entries to the feed generator as they are, so that
+# field becomes the feed's <language>. Until 2026-10-24 no entry declared one
+# and every feed, all 56 on the Spanish tab included, said <language>en</language>.
+# The Spanish tab is a derived list, so it is checked against the field rather
+# than read by a loader.
+
+KNOWN_LANGUAGES = {"en", "es"}
+
+
+def test_the_spanish_tab_lists_exactly_the_comics_declared_spanish():
+    declared = {c["slug"] for c in _catalog(DAILY) if c.get("language") == "es"}
+    tab = {c["slug"] for c in _catalog(SPANISH)}
+    assert declared == tab, (
+        f"On the Spanish tab but not declared language: es in {DAILY} (its feed "
+        f"says English): {sorted(tab - declared)}\n"
+        f"Declared Spanish but missing from {SPANISH} (not on the Spanish tab): "
+        f"{sorted(declared - tab)}"
+    )
+
+
+def test_every_declared_language_is_a_known_code():
+    unknown = sorted(
+        f"{name}:{comic['slug']}={comic['language']!r}"
+        for name, comic in _entries()
+        if "language" in comic and comic["language"] not in KNOWN_LANGUAGES
+    )
+    assert not unknown, f"Catalog entries with an unknown language code: {unknown}"
+
+
+def _gocomics_loader():
+    import generate_gocomics_feeds
+
+    return generate_gocomics_feeds.load_comics_catalog()
+
+
+def _creators_loader():
+    import generate_creators_feeds
+
+    return generate_creators_feeds.load_catalog()
+
+
+SPANISH_FEED_LOADERS = [
+    pytest.param(_gocomics_loader, id="gocomics-generator"),
+    pytest.param(_generator_loader, id="comicskingdom-generator"),
+    pytest.param(_creators_loader, id="creators-generator"),
+]
+
+
+@pytest.mark.parametrize("load", SPANISH_FEED_LOADERS)
+def test_every_feed_generator_hands_spanish_comics_their_language(load, monkeypatch):
+    """A loader that rebuilt entries from chosen keys would drop the language."""
+    monkeypatch.chdir(PROJECT_ROOT)
+    spanish = {c["slug"] for c in _catalog(SPANISH)}
+
+    loaded = [c for c in load() if c["slug"] in spanish]
+    assert loaded, "this loader owns no Spanish comic; drop it from SPANISH_FEED_LOADERS"
+    wrong = sorted(c["slug"] for c in loaded if c.get("language") != "es")
+    assert not wrong, f"Spanish comics loaded without language: es: {wrong}"
+
+
 # --- Vintage reruns (#216) -------------------------------------------------
 #
 # 32 of Comics Kingdom's 33 vintage series are fixed archives that ComicCaster
