@@ -140,5 +140,6 @@ if (!ct.toLowerCase().startsWith('image/')) return unsupportedMediaType();
 - GitHub issue #153 — the Mr. Boffo request that originated this work (closed).
 - `comiccaster/mrboffo_scraper.py`, `scripts/generate_mrboffo_feeds.py` — the reference implementation of §1–§2.
 - `functions/proxy-farside-image.js` — the proxy pattern (Far Side genuinely needs one: its images require a `Referer`), with the §3 hardening applied.
+- `docs/solutions/logic-errors/feed-preview-function-was-an-open-proxy.md` — `functions/fetch-feed.js` missed the §3 hardening until 2026-10-24 and was an open proxy; when you harden one caller-supplied fetch, check the others in `functions/`.
 - `comiccaster/feed_generator.py` — `source_display` branding map (§4) and single- vs multi-image description rendering.
 - Disambiguation: `docs/solutions/logic-errors/gocomics-spanish-english-feed-contamination.md` discusses feed-*merge* overwrite semantics — a different "overwrite" from this doc's intentional single-image overwrite.
