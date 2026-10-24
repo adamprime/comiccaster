@@ -10,6 +10,12 @@
 # certifi five months stale -- a latent TLS risk against any source rotating to
 # a newly cross-signed root.
 #
+# The lock cuts both ways: it also holds a fix back until someone bumps it. On
+# 2026-10-24 it still pinned certifi 2026.7.22, which trusts an emSign root
+# whose intermediate CA keys were compromised (GHSA-6q48-6c7w-9gw2), four days
+# after the fixed release shipped. scripts/check_vulnerabilities.py now flags
+# that on every Pass 1.
+#
 # Install the host venv with:
 #     venv/bin/python -m pip install -r requirements.txt -c constraints.txt
 #
@@ -33,7 +39,7 @@ attrs==26.1.0
 beautifulsoup4==4.15.0
 blinker==1.9.0
 brotli==1.2.1
-certifi==2026.7.22
+certifi==2026.10.19
 charset-normalizer==3.5.2
 click==8.5.0
 coverage==7.16.2
