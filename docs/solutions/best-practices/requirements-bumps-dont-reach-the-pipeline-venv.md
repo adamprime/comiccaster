@@ -13,9 +13,9 @@ applies_when:
   - "Auditing what version of selenium/requests the production scrapers actually load"
   - "A CVE is fixed upstream and CI already tests the fixed version, but the host may still run the vulnerable one"
   - "A vulnaudit pipeline issue opened, or a dependency is being removed rather than bumped"
-tags: [dependencies, dependabot, venv, drift, selenium, pipeline, ci-vs-production, constraints, security, brotli, osv, pip-audit, certifi]
+tags: [dependencies, dependabot, venv, drift, selenium, pipeline, ci-vs-production, constraints, security, brotli, osv, pip-audit, certifi, ci]
 stack: [python, github-actions]
-github_prs: [163, 170, 182, 186, 189, 243]
+github_prs: [163, 170, 182, 186, 189, 243, 245, 247]
 last_updated: 2026-10-24
 ---
 
@@ -27,9 +27,10 @@ merging a bump advances the declaration while production keeps running the old
 library. Run `venv/bin/python -m pip install -r requirements.txt -c constraints.txt`
 on the host after merging dependency PRs. It is the step that makes the bump
 real. Since 2026-08-25, `constraints.txt` locks every transitive on the host, so
-a fix only reaches production once it is in **that** file. CI never reads it.
-That's how the host was still on the vulnerable brotli 1.2.0 while CI tested
-1.2.1 (see "Security fixes" below).
+a fix only reaches production once it is in **that** file. Until 2026-10-24
+CI never read it. That's how the host was still on the vulnerable brotli 1.2.0
+while CI tested 1.2.1 (see "Security fixes" below). CI's gating job now
+installs with it too (see "CI now tests the lock").
 
 ## What was observed
 
@@ -47,8 +48,9 @@ drift accumulated from earlier merges, not from the PRs being reviewed that day.
 
 Every signal available in the PR says "shipped":
 
-- CI installs `requirements.txt` fresh into a clean runner, so it always tests
-  the *new* version and always goes green.
+- Until 2026-10-24, CI installed `requirements.txt` unconstrained into a clean
+  runner, so it always tested the *newest* versions and always went green. It
+  now installs with `-c constraints.txt` (see "CI now tests the lock").
 - Netlify redeploys on push, which makes the merge feel like a deployment.
 - The nightly pipeline keeps reporting ALL SUCCESS, because it is succeeding —
   just with the old libraries.
@@ -80,7 +82,10 @@ with `git reset --hard origin/main`, so a half-finished edit there is silently
 wiped at 03:05 or 13:00 rather than blocking the run. Build any change in a
 `git worktree`, and test it in a throwaway venv made from the production venv's
 base interpreter (`/opt/homebrew/opt/python@3.14/bin/python3.14`). Bare
-`python3` on the host is Apple's 3.9.6, which `setup.py` rejects.
+`python3` on the host is Apple's 3.9.6, which `setup.py` rejects. Upgrade pip
+in the throwaway venv first: Homebrew's 3.14 seeds new venvs with pip 25.3,
+which the audit flags with five CVEs and which, like every pip below 26.2.2,
+trusts the compromised emSign CAs (see "pip carries its own certifi").
 
 For a **selenium** bump specifically, `pytest` is necessary but *not* sufficient:
 the suite mocks the browser by design (see CLAUDE.md — unit tests never touch
@@ -153,13 +158,33 @@ installed package with `pip list` (transitives included) and asks OSV (the
 source of PyPI's advisory data, and a pip-audit backend) about those exact
 versions. A hit opens a `vulnaudit` issue. That issue is deliberately generic,
 because the repo is public; run the script on the host for the package, the
-advisory and the fix version. When OSV is unreachable the audit only warns (exit 75), and that run
-doesn't count `vulnaudit` as covered, so an open issue stays open.
+advisory and the fix version. When OSV is unreachable the audit only warns
+(exit 75), and that run doesn't count `vulnaudit` as covered, so an open issue
+stays open.
 
 Its first real run found a second hole the same day. The host had certifi
 2026.7.22, which ships emSign roots whose intermediate keys were compromised
 (GHSA-6q48-6c7w-9gw2, critical, fixed in 2026.10.19). CI and every PR were
-green on it.
+green on it. #247 pinned 2026.10.19, the release the PSF recommends. 2026.10.23
+is an automated bundle sync that also drops two emSign roots (C1, ECC C3) that
+10.19 had deliberately restored as unaffected; neither release has an advisory.
+
+**pip carries its own certifi.** pip vendors a copy (`pip._vendor.certifi`) and
+uses it for every download from PyPI, whatever certifi package the venv has.
+Every pip below 26.2.2 kept trusting the compromised emSign CAs
+(discuss.python.org/t/109576). The host's pip 26.2.1 vendored certifi
+2026.06.17, and OSV has no advisory for pip itself, so the audit could not see
+it, even though Pass 1 and Pass 2 download through it on every run
+(`pip install -e .`). Upgrade pip from a hash-pinned wheel, so the upgrade
+itself can't be swapped in transit, and before installing anything else:
+
+```bash
+venv/bin/python -m pip install "pip @ https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl#sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
+venv/bin/python -c "import pip._vendor.certifi as c; print(c.__version__)"   # 2026.10.19
+```
+
+Check the hash against PyPI's own JSON API (`https://pypi.org/pypi/pip/<version>/json`),
+not only against the advisory that quotes it.
 
 Fewer packages also means fewer holes. The same change removed APScheduler,
 tzlocal and requests-toolbelt, which nothing imported. Removing a package
@@ -176,6 +201,27 @@ venv/bin/python -m pip uninstall -y APScheduler tzlocal requests-toolbelt
 venv/bin/python -m pip install -r requirements.txt -c constraints.txt   # should be a no-op
 venv/bin/python -m pip check
 ```
+
+## CI now tests the lock (2026-10-24)
+
+CI used to install unconstrained on purpose, as a canary for new transitive
+releases. The cost showed twice in one day: CI was green on patched brotli and
+certifi while the host ran the vulnerable versions, so a green PR said nothing
+about production. GitHub's dependency graph doesn't help either. It reads only
+`requirements.txt` and `setup.py`, so Dependabot alerts can't see a transitive
+pin.
+
+Now the gating Tests job (`tests.yml`) installs with `-c constraints.txt`, the
+set the host runs. The canary moved to `dependency-canary.yml`, a weekly (and
+manual) unconstrained run with no `pull_request` trigger, so it never blocks a
+merge. It prints which packages resolved past their pins, then runs the suite.
+A canary failure that Tests doesn't reproduce means a new transitive release
+broke us.
+
+One consequence is intended: bumping a direct dependency in `requirements.txt`
+without moving its `constraints.txt` pin now fails Tests with a resolution
+conflict. Bump both, so the version that turns CI green is the one the host
+will install.
 
 ## Timing
 
