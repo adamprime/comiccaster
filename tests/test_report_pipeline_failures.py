@@ -388,6 +388,14 @@ class TestAlertWording:
         created = calls_of(gh_mock, 'issue', 'create')[0]
         assert f'{MARKER_PREFIX}branch' in created[created.index('--body') + 1]
 
+    def test_vulnerability_audit_alert_says_what_to_run(self):
+        title = issue_title('vulnaudit', 'audit')
+        assert 'vulnerability audit' in title.lower()
+        body = issue_body('vulnaudit', 'audit', 'pass1', '2026-10-25', '')
+        # The specifics stay on the host, so the body must say how to get them.
+        assert 'check_vulnerabilities.py' in body
+        assert 'constraints.txt' in body
+
     def test_ordinary_sources_keep_the_default_template(self):
         assert issue_title('tinyview', 'scrape') == '[pipeline] TinyView scrape failed'
         body = issue_body('tinyview', 'scrape', 'pass1', '2026-07-28', '')
