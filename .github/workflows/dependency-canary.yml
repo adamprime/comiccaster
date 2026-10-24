@@ -1,0 +1,47 @@
+name: Dependency canary
+
+# The gating Tests job installs with -c constraints.txt, so it tests what the
+# pipeline host runs. That gave up what the unconstrained install used to
+# catch: a new transitive release that breaks us. This keeps that canary, off
+# the merge path -- it has no pull_request trigger, so it can never block one.
+#
+# It installs the newest of everything requirements.txt allows, prints which
+# packages resolved past their constraints.txt pin, and runs the suite. A
+# failure here that Tests does not reproduce means "a new transitive release
+# broke us": worth investigating before the next constraints refresh.
+on:
+  schedule:
+    - cron: '17 10 * * 1'  # Mondays 10:17 UTC, after Pass 1 and CodeQL
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-unconstrained:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v7
+
+    # The version the production pipeline host runs.
+    - name: Set up Python
+      uses: actions/setup-python@v7
+      with:
+        python-version: '3.14'
+
+    - name: Install dependencies (unconstrained)
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -e ".[dev]"
+
+    - name: Show what moved past constraints.txt
+      run: |
+        diff -i <(grep -Ev '^(#|$)' constraints.txt | sort -f) \
+                <(pip freeze --exclude-editable | sort -f) || true
+
+    - name: Run tests with pytest
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+      run: python -m pytest -q

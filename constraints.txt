@@ -24,10 +24,15 @@
 # (--exclude-editable matters: a plain freeze emits comiccaster itself as a
 # git+ssh URL pinned to an old SHA, which makes a restore try to re-clone.)
 #
-# CI deliberately does NOT use this file. CI installing unconstrained acts as a
-# canary for new transitive releases, while the host stays reproducible. A CI
-# failure the host does not reproduce means "a transitive broke us" -- worth
-# investigating before the next refresh.
+# CI's gating Tests job installs with this file (since 2026-10-24), so a green
+# PR has tested what the host runs. Until then CI installed unconstrained, as a
+# canary for new transitive releases. The cost was that nothing tested the host:
+# CI stayed green on patched brotli (#243) and certifi (#247) while the host
+# ran the vulnerable versions. The canary still runs, weekly and off the merge
+# path, in .github/workflows/dependency-canary.yml. A canary failure that Tests
+# does not reproduce means "a new transitive release broke us" -- worth
+# investigating before the next refresh. Bumping a direct dependency now means
+# bumping it here too, or Tests fails on the conflicting pins.
 #
 # Verified 2026-08-25: pytest 499 passed; 341/341 regenerated feeds
 # byte-identical to production output; APScheduler timezone resolution unchanged.

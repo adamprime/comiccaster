@@ -103,7 +103,8 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
 5. **.github/workflows/** - CI and alerting
    - `pipeline-alert.yml` - Dispatched by Pass 1, Pass 2 and the Far Side morning pass; creates failure issues as `github-actions[bot]`
    - `pipeline-heartbeat.yml` - Scheduled; alerts when no pipeline commit lands within 20h
-   - `tests.yml` - pytest on 3.10/3.11/3.12 for PRs to `main`
+   - `tests.yml` - pytest on 3.14 (the host's version) for PRs to `main`, installed with `-c constraints.txt` so it tests what the host runs; a direct-dependency bump must move its `constraints.txt` pin too
+   - `dependency-canary.yml` - Weekly unconstrained install + pytest (no PR trigger), catching a new transitive release that breaks us
 
 6. **docs/** - Documentation
    - `docs/LOCAL_AUTOMATION_README.md` - Operational reference for the daily pipeline
