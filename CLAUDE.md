@@ -19,7 +19,7 @@ ceremony; a new comic source or a pipeline change does.
 - Tests are the spec. Write or extend a failing test before the implementation,
   make it pass, then refactor while green.
 - Run `pytest -v` before every commit (config in `pytest.ini`; coverage is on by
-  default). See Git workflow — `main` ships live, so a green run is the gate.
+  default). See Git workflow — `main` ships live, so a green local run is the gate.
 - Test behavior at boundaries, not internals: scraper input → `data/<src>_$DATE.json`,
   generator JSON → `public/feeds/*.xml`, and feed output shape. `tests/` mirrors source.
 - Keep the default run fast and offline. Mock the live comic sources
@@ -66,8 +66,15 @@ ceremony; a new comic source or a pipeline change does.
 - **`main` auto-deploys to Netlify** — a push is live for RSS subscribers. So:
   - Run `pytest -v` before you push. A red suite never goes to `main`.
   - Keep code commits small and reversible.
-  - For risky code changes, route through a branch + PR so the GitHub Action gates
-    it before Netlify ships it. Routine fixes direct to `main` are fine for solo work.
+  - For risky code changes, route through a branch + PR so the Tests workflow runs
+    before Netlify ships it. Nothing *enforces* that gate: no check is required
+    (the ruleset is disabled) and auto-merge is off. Whoever merges reads the checks
+    for the PR's head commit first; see
+    `docs/solutions/best-practices/github-merge-without-required-checks.md`.
+    Routine fixes direct to `main` are fine for solo work.
+  - Running several sessions at once? Each works in its own git worktree; never
+    switch branches in the pipeline checkout. See
+    `docs/solutions/best-practices/parallel-sessions-on-the-live-pipeline-checkout.md`.
   - The daily pipeline commits and pushes regenerated feed XML to `main` directly —
     that's expected automation (see `AGENTS.md`, Phase 3), not something to "fix."
 - `git pull --rebase` before pushing. On a rebase conflict, stop and ask — don't

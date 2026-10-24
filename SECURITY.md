@@ -33,6 +33,16 @@ The following are **out of scope:**
 - Issues that require physical access to the build machine
 - Findings from automated scanners without a demonstrated impact
 
+## Where the Attack Surface Is
+
+ComicCaster has little code exposed to the internet:
+
+- **Public:** static files on Netlify (the site, the feeds, the catalog) and a handful of serverless functions in `functions/`. The two functions that fetch a URL on a caller's behalf accept only allowlisted targets and don't follow redirects. The feed preview fetches only ComicCaster's own feeds and the listed external feed URLs. The Far Side image proxy fetches only Far Side image hosts.
+- **Not public:** scraping and feed generation run on a private host, in Python driving a Chrome browser, and talk only to the comic sources.
+- **Dependencies:** the host's Python environment is pinned in `constraints.txt`. CI tests those exact pins, and every daily run checks the installed packages against the OSV vulnerability database. Dependabot alerts cover direct dependencies. Secret scanning blocks pushes that contain a recognized credential.
+
+A 2026-10-24 review found that the realistic risks are logic, configuration and patching gaps (an over-broad fetch, CI not testing the deployed pins, a vulnerable indirect dependency), not memory-safety bugs in our own code. Reports in those areas are especially welcome.
+
 ## Supported Versions
 
 Only the latest version on the `main` branch is actively maintained. There are no prior releases or version branches.

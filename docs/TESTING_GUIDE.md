@@ -201,15 +201,18 @@ class TestNewFeature:
 
 ## Continuous Integration
 
-Tests run automatically on GitHub Actions for:
-- Every push to main branch
-- All pull requests
-- Daily feed update workflows
+Tests run automatically on GitHub Actions (`.github/workflows/tests.yml`) for:
+- Pushes to `main` and pull requests, **except** changes that touch only `public/feeds/**`, `public/catalog.json`, `data/**`, `docs/**` or Markdown (`paths-ignore`), so the pipeline's daily feed commits start no run
+- Installs use `-c constraints.txt`, the same pins the pipeline host runs
+
+Tests is not a required check, so read its result for the PR's head commit before merging (see `docs/solutions/best-practices/github-merge-without-required-checks.md`).
+
+`.github/workflows/dependency-canary.yml` runs the suite weekly (and on demand) against unconstrained, newest-allowed dependencies, to catch a new upstream release that breaks us. It never runs on pull requests.
 
 ### CI Test Matrix
-- Python versions: 3.9, 3.10, 3.11
-- Operating System: Ubuntu 24.04
-- Additional checks: Code formatting, type hints
+- Python version: 3.14 (the pipeline host's version)
+- Operating System: `ubuntu-latest`
+- `node` is present on the runner, which the fetch-feed function tests need (they skip without it)
 
 ## Performance Testing
 

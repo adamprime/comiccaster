@@ -98,12 +98,12 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
 
 4. **functions/** - Netlify serverless functions
    - `generate-opml.js` - OPML bundle generation
-   - `fetch-feed.js` - Feed preview functionality
+   - `fetch-feed.js` - Feed preview; fetches only ComicCaster's own `/feeds/<slug>.xml` and exact listed external feed URLs, never follows redirects (an open proxy until #244)
 
 5. **.github/workflows/** - CI and alerting
    - `pipeline-alert.yml` - Dispatched by Pass 1, Pass 2 and the Far Side morning pass; creates failure issues as `github-actions[bot]`
    - `pipeline-heartbeat.yml` - Scheduled; alerts when no pipeline commit lands within 20h
-   - `tests.yml` - pytest on 3.14 (the host's version) for PRs to `main`, installed with `-c constraints.txt` so it tests what the host runs; a direct-dependency bump must move its `constraints.txt` pin too
+   - `tests.yml` - pytest on 3.14 (the host's version) for PRs to `main`, installed with `-c constraints.txt` so it tests what the host runs; a direct-dependency bump must move its `constraints.txt` pin too. Not a required check (the ruleset is disabled and auto-merge is off): read its result for the PR's head commit before merging
    - `dependency-canary.yml` - Weekly unconstrained install + pytest (no PR trigger), catching a new transitive release that breaks us
 
 6. **docs/** - Documentation

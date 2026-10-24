@@ -110,7 +110,7 @@ These are the load-bearing assumptions the pipeline relies on. Detailed provisio
 - ChromeDriver installed and on `PATH`, version-matched to Chrome.
 - Git push authenticated via a deploy key wired into `GIT_SSH_COMMAND` by the wrapper script. Not ssh-agent — avoids any keychain prompt at overnight runtime.
 - The system must not sleep before the run; a separate LaunchAgent handles that.
-- A Python venv at `./venv/` with `requirements.txt` installed against the transitive lock (`venv/bin/python -m pip install -r requirements.txt -c constraints.txt`) and the package in editable mode (`pip install -e .`). Merging a dependency PR does not update this venv. Re-run the install between runs; see `docs/solutions/best-practices/requirements-bumps-dont-reach-the-pipeline-venv.md`.
+- A Python venv at `./venv/` with `requirements.txt` installed against the transitive lock (`venv/bin/python -m pip install -r requirements.txt -c constraints.txt`) and the package in editable mode (`pip install -e .`). Merging a dependency PR does not update this venv. Re-run the install between runs, under the pipeline lock (see Shared lock); see `docs/solutions/best-practices/requirements-bumps-dont-reach-the-pipeline-venv.md`.
 
 ## Credentials
 
@@ -291,6 +291,14 @@ Pass 1, Pass 2 and the morning pass all reset, commit and push in the same check
 - The final slot waits up to 30 minutes, so a long catch-up run cannot swallow the day's only alert. If it still cannot get the lock, it logs `lock-busy`, and the next Pass 1 reports `farside:morning-pass` because the day has no final outcome.
 
 The kernel releases the lock when the run exits, so a crashed run leaves nothing to clean up. `lockf` does not pass the lock to child processes, so a lingering Chrome cannot hold it.
+
+Manual changes that a run depends on take the same lock, so they land between runs instead of during one. That covers installing into or removing from `venv/`, upgrading pip, and fast-forwarding the checkout. Write the prefix out in full on each command (zsh won't word-split it out of a variable):
+
+```bash
+/usr/bin/lockf -k -t 1800 logs/pipeline.lock venv/bin/python -m pip install -r requirements.txt -c constraints.txt
+```
+
+Development work never happens in this checkout. Each session uses its own git worktree; see `docs/solutions/best-practices/parallel-sessions-on-the-live-pipeline-checkout.md`.
 
 ### Heartbeat — 11:00 UTC, on GitHub
 

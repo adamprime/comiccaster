@@ -24,6 +24,11 @@ ComicCaster is a web application that generates RSS feeds for comics from multip
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 - **Search and Filter**: Quickly find comics by name or category
 
+### For AI Agents and Developers
+- **Machine-Readable Catalog**: [`/catalog.json`](https://comiccaster.xyz/catalog.json) lists every comic with one schema (name, author, source, category, language, feed URL, last update)
+- **`llms.txt`**: [`/llms.txt`](https://comiccaster.xyz/llms.txt) explains the catalog, feed URL patterns and OPML generation for agents
+- **Cross-Origin Access**: Feeds and the catalog send `Access-Control-Allow-Origin: *`, so browser-based tools can fetch them directly
+
 ### Technical Features
 - **Modular Architecture**: Extensible system supporting multiple comic sources
 - **Error Resilience**: Graceful handling of missing comics, site changes, and network issues
@@ -85,7 +90,7 @@ comiccaster/
 │   └── comics_list.json # Comic metadata
 ├── functions/           # Netlify serverless functions
 │   ├── generate-opml.js # OPML bundle generation
-│   └── fetch-feed.js    # Feed preview functionality
+│   └── fetch-feed.js    # Feed preview (allowlisted: own feeds + listed external feeds)
 ├── scripts/             # Utility and update scripts
 ├── tests/               # Test suite
 └── docs/                # Documentation
