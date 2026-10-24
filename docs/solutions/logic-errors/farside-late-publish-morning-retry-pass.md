@@ -64,7 +64,7 @@ A LaunchAgent, `com.comiccaster.farside`, runs `scripts/mini_farside_morning.sh`
 
 - Only a shipping slot and an unshipped noon slot dispatch `pipeline-alert.yml` (`run=farside-morning`, `covered=farside`). A shipping slot closes any open Far Side issue; earlier misses stay in the log.
 - `farside` now means the Daily Dose in every pass, and New Stuff reports under its own `farside-new` slug. Otherwise a morning success, which never examines New Stuff, could close a New Stuff issue.
-- Pass 1 still scrapes Far Side's three-day window and New Stuff. Its guard now checks **yesterday's** daily file (`local_master_update.sh:361`), plus whether yesterday's morning pass reached a terminal outcome. A missing outcome is reported as `farside:morning-pass` (`:372-373`).
+- Pass 1 still scrapes Far Side's three-day window and New Stuff. Its guard now checks **yesterday's** daily file (`local_master_update.sh:372`), plus whether yesterday's morning pass reached a terminal outcome. A missing outcome is reported as `farside:morning-pass` (`:394-396`).
 - The commit subject deliberately matches none of the heartbeat's prefixes (`check_pipeline_heartbeat.py:43-50`), so a morning commit cannot hide a dead Pass 1.
 
 **Shared lock:** Pass 1, Pass 2 and the morning pass each re-run themselves under macOS `/usr/bin/lockf` on `logs/pipeline.lock` when `PIPELINE_LOCK_HELD` is unset. The kernel releases the lock when the process exits, so there is no stale-lock cleanup, and a lingering Chrome child never holds it. lockf exits 75 on timeout; Pass 1 and Pass 2 log "did not run" when that happens.

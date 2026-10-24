@@ -110,3 +110,8 @@ it only reports steps that fail. A step that succeeds at the wrong thing is
 invisible to it. The pipeline heartbeat would have caught it eventually — no
 pipeline commit on main for 20h — but only after a full day of stale feeds.
 Postcondition checks belong next to the steps themselves.
+
+**Prevention:** the guards above catch a checkout left on a branch. To avoid
+leaving it there at all, do branch work in a git worktree and never switch
+branches in the pipeline checkout. See
+`docs/solutions/best-practices/parallel-sessions-on-the-live-pipeline-checkout.md`.

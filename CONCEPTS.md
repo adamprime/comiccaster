@@ -59,13 +59,23 @@ Part of Pass 2: re-scrape the Reactive favorites page for the last N days (`GOCO
 The Far Side Daily Dose's retry schedule: a run every 30 minutes from 03:30 to 12:00 CT, each run a *slot*, that ships the day's dose on the first slot to find it complete (5 strips on weekdays, 2 at weekends). It exists because the site publishes at an unpredictable hour, often after Pass 1. Only the final, noon slot raises a Failure alert, and it ships a short dose rather than none. Every slot records its outcome in a slot log, so a day's publish time reads off the log as after the last slot that missed it and by the first slot that shipped. Introduced for #219.
 
 ### Failure alert
-The GitHub issue a pipeline run opens when a source fails, identified by a `Pipeline-Failure-Key: <slug>` marker in its body rather than by title or label. One issue per source: a repeat failure comments on the existing issue, and the issue closes itself once that source succeeds again. Covers scrape failures, Invariant guard violations, `git push` failures, the SSH preflight abort, and a Morning pass whose noon slot could not ship — not feed generation or `git fetch` in Pass 1 and Pass 2, which stay log-only. Issues are authored by `github-actions[bot]`, because GitHub sends no notification for an issue you author yourself and the host authenticates as the repo owner.
+The GitHub issue a pipeline run opens when a source fails, identified by a `Pipeline-Failure-Key: <slug>` marker in its body rather than by title or label. One issue per source: a repeat failure comments on the existing issue, and the issue closes itself once that source succeeds again. Covers scrape failures, Invariant guard violations, `git push` failures, a Pipeline checkout found on the wrong branch, the preflights (the SSH abort, an expiring Comics Kingdom session, drifted host configuration, and the host vulnerability audit), and a Morning pass whose noon slot could not ship — not feed generation or `git fetch` in Pass 1 and Pass 2, which stay log-only. Issues are authored by `github-actions[bot]`, because GitHub sends no notification for an issue you author yourself and the host authenticates as the repo owner.
 
 ### Covered set
 The list of slugs a given run actually examined, passed alongside the failures. A source is only eligible to have its Failure alert auto-closed if it appears in the covered set, so Pass 2 — which scrapes GoComics alone — cannot close a Comics Kingdom issue by omission. Likewise the Morning pass covers only the Far Side Daily Dose (`farside`), so it cannot close the Far Side New Stuff issue (`farside-new`) or an overnight push failure. Absence from a run's failures means "healthy" only for sources that run examined; for everything else it means "not looked at."
 
 ### Heartbeat
 The scheduled off-host check that alerts when *no* pipeline run happened, as opposed to a run that failed. It asks whether any pipeline commit has landed on `main` within a staleness window (20h), ignoring human commits so a code push cannot mask a stalled pipeline. Only Pass 1 and Pass 2 commits count; a Morning pass commit does not, so it cannot mask a stalled Pass 1 either. It runs on GitHub Actions rather than the automation host, because a check hosted on the machine it monitors dies with it.
+
+### Pipeline checkout
+The clone on the automation host that every scheduled run works in and commits from. It holds production state and is not a place to develop.
+
+Each Pass 1 and Pass 2 run starts by forcing it to match the remote `main`, which discards uncommitted edits. A run that finds another branch checked out switches back and raises a Failure alert. If it cannot switch, it skips the run and raises an alert anyway. A Morning pass slot skips itself rather than reset a checkout that is dirty or off `main`. So development happens in separate worktrees, and the checkout itself is only fast-forwarded, or has its host environment changed, under the Pipeline lock.
+
+### Pipeline lock
+The single lock every scheduled run (Pass 1, Pass 2, each Morning pass slot) holds for its whole duration, so no two runs use the Pipeline checkout at once.
+
+A run that finds the lock held never starts alongside. Pass 1, Pass 2 and the final Morning pass slot wait for it, up to a limit. An earlier Morning pass slot skips and leaves the work to the next slot. The operating system releases the lock when its holder exits, so it never needs clearing by hand. Any manual change that a run depends on takes the same lock, so it lands between runs instead of during one. That includes installing or removing packages in the host's Python environment and updating the checkout.
 
 ## Feed shaping
 

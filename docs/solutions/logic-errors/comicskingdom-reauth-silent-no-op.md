@@ -140,7 +140,7 @@ when the expiry did not move (`scripts/reauth_comicskingdom.py:86`):
 
 **Changed: the daily pipeline** runs the same check after the scrape invariants
 and records a `cksession:expiry` failure key when it exits non-zero
-(`scripts/local_master_update.sh:330-334`), opening a `[pipeline] Comics Kingdom
+(`scripts/local_master_update.sh:411-415`), opening a `[pipeline] Comics Kingdom
 session needs a reauth` issue. Because `cksession` is in `ALERT_COVERED`, the
 alert clears itself once a good reauth lands.
 

@@ -15,7 +15,7 @@ applies_when:
   - "A vulnaudit pipeline issue opened, or a dependency is being removed rather than bumped"
 tags: [dependencies, dependabot, venv, drift, selenium, pipeline, ci-vs-production, constraints, security, brotli, osv, pip-audit, certifi, ci]
 stack: [python, github-actions]
-github_prs: [163, 170, 182, 186, 189, 243, 245, 247]
+github_prs: [163, 170, 182, 186, 189, 243, 245, 247, 249]
 last_updated: 2026-10-24
 ---
 
@@ -29,7 +29,7 @@ on the host after merging dependency PRs. It is the step that makes the bump
 real. Since 2026-08-25, `constraints.txt` locks every transitive on the host, so
 a fix only reaches production once it is in **that** file. Until 2026-10-24
 CI never read it. That's how the host was still on the vulnerable brotli 1.2.0
-while CI tested 1.2.1 (see "Security fixes" below). CI's gating job now
+while CI tested 1.2.1 (see "Security fixes" below). CI's Tests job now
 installs with it too (see "CI now tests the lock").
 
 ## What was observed
@@ -211,10 +211,11 @@ about production. GitHub's dependency graph doesn't help either. It reads only
 `requirements.txt` and `setup.py`, so Dependabot alerts can't see a transitive
 pin.
 
-Now the gating Tests job (`tests.yml`) installs with `-c constraints.txt`, the
+Now the PR-time Tests job (`tests.yml`) installs with `-c constraints.txt`, the
 set the host runs. The canary moved to `dependency-canary.yml`, a weekly (and
-manual) unconstrained run with no `pull_request` trigger, so it never blocks a
-merge. It prints which packages resolved past their pins, then runs the suite.
+manual) unconstrained run with no `pull_request` trigger, so it never shows up
+on a PR. (Neither job is a required check; see
+`docs/solutions/best-practices/github-merge-without-required-checks.md`.) It prints which packages resolved past their pins, then runs the suite.
 A canary failure that Tests doesn't reproduce means a new transitive release
 broke us.
 
@@ -228,10 +229,21 @@ will install.
 Do the sync in the window between runs, not just before one. Pass 1 is 03:05,
 the Far Side morning pass runs every 30 minutes from 03:30 to 12:00 (from the
 same venv), and Pass 2 is 13:00 (GoComics only). So the open window is from
-when Pass 2 finishes until about 02:45. First check that nothing is running
-(`launchctl list | grep -i comiccaster`; a PID in the first column means a run
-is in progress). An afternoon or evening sync leaves hours to notice a problem
-before Pass 1; a 02:55 sync does not.
+when Pass 2 finishes until about 02:45. An afternoon or evening sync leaves
+hours to notice a problem before Pass 1; a 02:55 sync does not.
+
+Run each step under the pipeline lock, so it waits for a run in progress
+instead of landing during it:
+
+```bash
+/usr/bin/lockf -k -t 1800 logs/pipeline.lock venv/bin/python -m pip install -r requirements.txt -c constraints.txt
+```
+
+Checking `launchctl list | grep -i comiccaster` for a PID is not enough on its
+own: a morning-pass slot can start between the check and the install. Write the
+`lockf` prefix out in full on each command, because zsh won't word-split it out
+of a variable. See
+`docs/solutions/best-practices/parallel-sessions-on-the-live-pipeline-checkout.md`.
 
 ## Related
 

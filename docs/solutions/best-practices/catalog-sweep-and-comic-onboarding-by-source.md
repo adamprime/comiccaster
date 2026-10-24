@@ -273,12 +273,15 @@ non-vintage titles only.
    lists (`:212`). If two Sources carry the same comic, compare the actual strips
    before choosing (CONCEPTS.md, *Source slug*).
 2. **Build after Pass 2 (13:00 CT) and push before Pass 1 (03:05).** Both passes
-   start with `git reset --hard origin/main` (`scripts/local_master_update.sh:140`,
-   `scripts/local_pass2_update.sh:149`). The reset reverts an uncommitted catalog
+   start with `git reset --hard origin/main` (`scripts/local_master_update.sh:159`,
+   `scripts/local_pass2_update.sh:162`). The reset reverts an uncommitted catalog
    edit but leaves untracked files. Each pass then force-adds every feed:
-   `git add -f public/feeds/*.xml` (`local_pass2_update.sh:121`), and Pass 1 adds
-   `data/*.json` too (`local_master_update.sh:414`). A feed you built
-   earlier ships in the pipeline's commit, unpreviewed.
+   `git add -f public/feeds/*.xml` (`local_pass2_update.sh:133`), and Pass 1 adds
+   `data/*.json` too (`local_master_update.sh:506`). A feed you built
+   earlier ships in the pipeline's commit, unpreviewed. Building in a git
+   worktree avoids the timing window entirely, because the pipeline's reset and
+   force-add never see it (see
+   `docs/solutions/best-practices/parallel-sessions-on-the-live-pipeline-checkout.md`).
 3. **The operator previews each feed before it ships.** A deploy preview can't
    show an un-merged feed. Render the feeds instead with
    `python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --open`.
@@ -297,7 +300,7 @@ non-vintage titles only.
 - Build: `python scripts/tinyview_scraper_local_authenticated.py --date $DATE --days-back 90`,
   then `python scripts/generate_tinyview_feeds_from_data.py`.
 - **Feed contents.** The pipeline lists 90 days of strips (`--days-back 90`,
-  `scripts/local_master_update.sh:177`) and fetches each new one by its own
+  `scripts/local_master_update.sh:196`) and fetches each new one by its own
   address. The generator builds each feed from every strip dated within 90 days
   of the newest `data/tinyview_YYYY-MM-DD.json`, reading every data file
   (`WINDOW_DAYS` and `load_window_strips` in
