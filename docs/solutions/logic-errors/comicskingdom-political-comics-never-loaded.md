@@ -107,7 +107,7 @@ six comics nobody asked about stayed dark for six more months.
 
 The copy also had a cost of its own. Mallard's daily entry had no `is_political`,
 so the feed was built without the "Political Comics" category
-(`comiccaster/feed_generator.py:87-88`). The feed as it stood just before the
+(`comiccaster/feed_generator.py:88-89`). The feed as it stood just before the
 fix has 0 occurrences of that category. Today it has 91 (the channel plus 90
 items).
 

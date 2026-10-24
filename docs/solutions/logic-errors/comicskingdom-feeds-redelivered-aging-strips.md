@@ -85,13 +85,13 @@ if file_date >= window_start:
 
 On gap-free data this holds exactly the 90 newest files. Rebuilding old data on any later day gives the same feed.
 
-**A comic with nothing to list is not written.** `main()` counts it as untouched and never calls the writer (`:213`-`:216`), and `generate_feed_for_comic` also refuses to write an empty feed (`:165`-`:167`). An existing file stays byte-identical, and no new file is created. This guard is load-bearing: `ComicFeedGenerator.generate_feed` rebuilds the whole file from the entries it is given and never merges with the old file (`comiccaster/feed_generator.py:342`-`:382`).
+**A comic with nothing to list is not written.** `main()` counts it as untouched and never calls the writer (`:213`-`:216`), and `generate_feed_for_comic` also refuses to write an empty feed (`:165`-`:167`). An existing file stays byte-identical, and no new file is created. This guard is load-bearing: `ComicFeedGenerator.generate_feed` rebuilds the whole file from the entries it is given and never merges with the old file (`comiccaster/feed_generator.py:343`-`:383`).
 
 **The generator is network-free.** The live fallback `extract_live_comicskingdom_entries` was removed along with the `requests` import. It ran for any catalog slug missing from the loaded data (pre-#217 `:19`, `:174`-`:175`) and was the only network call in any Phase 2 generator.
 
 **Skip and warn, never stop.** Only `comicskingdom_YYYY-MM-DD.json` names are read (`DATA_FILE_NAME`, `:44`), so backup files are ignored and cannot anchor the window. A name with an impossible date is skipped with a warning (`:54`-`:57`). An unreadable file, or one that is not a list, gives `[]` with a warning naming it (`:62`-`:73`). A malformed record, including null or non-text image fields, is skipped with a warning naming its file and position (`:85`-`:98`, `:115`-`:119`). No data files at all exits 1 (`:189`-`:192`). The run summary prints Written, Untouched and Failed separately (`:226`-`:228`).
 
-**Item fields are unchanged.** Title is `"<Name> - <date>"`, guid and link are the record `url`, pubDate is 00:00 UTC on the record date, and the description is `"Comic strip for <date>"` (`:157`-`:162`). The guid comes from `id` (`comiccaster/feed_generator.py:268`).
+**Item fields are unchanged.** Title is `"<Name> - <date>"`, guid and link are the record `url`, pubDate is 00:00 UTC on the record date, and the description is `"Comic strip for <date>"` (`:157`-`:162`). The guid comes from `id` (`comiccaster/feed_generator.py:269`).
 
 **Rollout proof** (2026-10-01 data, before merge). Every CK feed was regenerated to scratch and compared with its committed copy:
 

@@ -82,7 +82,7 @@ code had not changed since 2025-12-06.
 
 The same plan's Key Decisions say generators "merge new entries into existing feed
 XML (preserving old entries)" (`:40`). `generate_feed` does no merging. It starts a
-new feed (`comiccaster/feed_generator.py:343`) and writes the whole file
+new feed (`comiccaster/feed_generator.py:344`) and writes the whole file
 (`:382`). GoComics and Comics Kingdom reached 90 items only because their generators
 loaded 90 files (the Comics Kingdom generator has read all saved history since
 PR #217). So #113 raised only the TinyView scraper's lookback, from 15 to 90
@@ -274,7 +274,7 @@ python scripts/preview_feeds.py public/feeds/kowal-comics.xml public/feeds/nick-
 **The root cause was two parts composed.** The scraper saves each strip once: it
 skips anything already recorded, so each night's file holds only that night's new
 strips. The generator read only the newest file, and `generate_feed` rewrites the
-whole feed (`comiccaster/feed_generator.py:382`). Together, each feed was rebuilt
+whole feed (`comiccaster/feed_generator.py:383`). Together, each feed was rebuilt
 from the newest night's strips. Neither part is wrong alone, which is why checking
 each part in isolation didn't find it. The generator now reads the same history the
 scraper assumes exists.
@@ -300,7 +300,7 @@ scraper assumes exists.
   later copy.
 - *Ordered by (strip date, address)*, so same-date siblings come out in one fixed
   order whichever file saved them first. `generate_feed` sorts by pubDate only
-  (`feed_generator.py:368`), and Python's sort is stable, so ties keep the order they
+  (`feed_generator.py:369`), and Python's sort is stable, so ties keep the order they
   arrive in.
 
 **Why not the Comics Kingdom shape (dedup by image).** Dedup by image across a
@@ -311,7 +311,7 @@ dating each image set from its first sighting in all saved history
 TinyView strip's address never changes, so deduping by address has nothing to roll.
 
 **Why not `update_feed`.** It carries the old entries over but drops every entry
-that shares the new entry's date (`feed_generator.py:321`). Same-date siblings are
+that shares the new entry's date (`feed_generator.py:322`). Same-date siblings are
 exactly the case this fix exists for.
 
 ## Prevention
