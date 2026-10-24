@@ -50,6 +50,10 @@ python scripts/generate_farside_feeds.py
 python scripts/generate_creators_feeds.py
 python scripts/generate_mrboffo_feeds.py
 
+# Agent catalog (end of Phase 2 — reads public/*comics_list.json + public/feeds/*.xml,
+# writes public/catalog.json; network-free)
+python scripts/generate_catalog.py
+
 # Visual check of feed XML before it ships: writes one HTML page (fields, checks,
 # images); --against marks items new/changed/missing vs a git ref or a directory
 python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --open
@@ -70,6 +74,8 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
 2. **public/** - Static files served by Netlify
    - `feeds/*.xml` - Pre-generated RSS feeds
    - `comics_list.json` - Comic metadata
+   - `catalog.json` - Generated, machine-readable list of every comic and feed URL for agents (`scripts/generate_catalog.py`; do not edit by hand)
+   - `llms.txt`, `robots.txt`, `_headers` - Agent entry point, crawler policy, and the CORS header on feeds and the catalog
    - `index.html` - Main web interface
 
 3. **scripts/** - Update and utility scripts
@@ -87,6 +93,7 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
    - `scrape_*.py` and authenticated scrapers — per-source scrapers (Phase 1), each writes `data/<src>_$DATE.json`
    - `generate_*.py` — per-source generators (Phase 2), network-free, read the saved scraped JSON (the newest snapshot, every snapshot in the feed's window, or — Comics Kingdom — all saved history, whose records from before post dates were recorded must not be overwritten, relabeled or deleted until the last of them leaves the feed window, 90 dates after the first post-dated file; see `CONCEPTS.md` "Strip identity") and write `public/feeds/*.xml`
    - `preview_feeds.py` — renders feed XML as an HTML page for a visual check before shipping (read-only)
+   - `generate_catalog.py` — builds `public/catalog.json` from the seven comic lists and the feed files; runs after the generators in Pass 1, Pass 2 and their push recovery
    - `reauth_comicskingdom.py` — session refresh for Comics Kingdom
 
 4. **functions/** - Netlify serverless functions
@@ -106,7 +113,7 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
 
 Updates run on a dedicated always-on host, on three schedules — Pass 1 at 03:05 (all sources), the Far Side morning pass every 30 minutes from 03:30 to 12:00 (Daily Dose only, catching a late publish), and Pass 2 at 13:00 (GoComics only, catching late political/editorial publishers). A shared lock (`logs/pipeline.lock`) keeps them from overlapping. Pass 1 runs every step below; Pass 2 and the morning pass run a subset for their one source:
 1. **Phase 1 — scrape** the seven sources (GoComics, Comics Kingdom, TinyView, New Yorker, Far Side, Creators Syndicate, Mr. Boffo), each writing to `data/<src>_$DATE.json`.
-2. **Phase 2 — generate** feeds from those JSONs. Each source has a dedicated generator; all are network-free.
+2. **Phase 2 — generate** feeds from those JSONs. Each source has a dedicated generator; all are network-free. Then `generate_catalog.py` rebuilds `public/catalog.json` from the lists and whichever feeds now exist (Pass 1 and Pass 2 only; the morning pass leaves it alone).
 3. **Invariant guard:** every successful scrape must have written its dated JSON file **and** filled it with a plausible number of entries; missing *or* empty/partial files surface as failures. Existence alone was satisfiable by an empty scrape — see `docs/solutions/logic-errors/silent-empty-scrape-passed-as-success.md`. The Far Side Daily Dose is checked for yesterday, since the morning pass ships today's, along with the morning pass's final outcome for yesterday in `logs/farside_morning_slots.log`.
 4. **Preflights:** the CK session cookie and the host auto-login settings, both of which warn while there is still time to act, and a vulnerability audit of the packages installed in the host venv.
 5. **Phase 3 — commit and push.** On push rejection, recovery saves today's JSONs, resets to `origin/main`, restores them, and regenerates all feeds. Netlify auto-deploys on push.

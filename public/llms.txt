@@ -1,0 +1,36 @@
+# ComicCaster
+
+> ComicCaster publishes free RSS feeds for daily comic strips and editorial cartoons from GoComics, Comics Kingdom, TinyView, The Far Side, The New Yorker, Creators Syndicate and Mr. Boffo, and links to the native RSS feeds of some independent webcomics. Feeds are static files rebuilt a few times a day. Everything here is read-only and needs no account or key.
+
+## Find a comic
+
+- [Catalog](https://comiccaster.xyz/catalog.json): every comic on the site, as JSON. Each entry in `comics` has `slug`, `name`, `author`, `source`, `category`, `language`, `feed_url`, `site_url`, `has_feed` and `last_updated`.
+
+Reading the catalog:
+
+- Give people the `feed_url`. It is unique per entry. `slug` is not: a few comics have both a ComicCaster feed and the publisher's own feed under the same slug.
+- `has_feed: false` means the comic is listed but has no feed yet, usually because it has not published in a long time. Its `feed_url` is null.
+- `category` is the site tab the comic is on: daily, political, spanish, tinyview, farside, newyorker or external. `source` is where the strips come from: gocomics, comicskingdom, creators, tinyview, farside-daily, farside-new, newyorker, mrboffo or external-rss.
+- `language` is en, or es for the Spanish tab.
+- `last_updated` is the feed's lastBuildDate in ISO 8601 UTC. It is null for external feeds, which ComicCaster does not fetch. A date months in the past usually means the comic stopped publishing upstream: the feed still works but gets no new strips.
+
+The catalog and the feeds are served with `Access-Control-Allow-Origin: *`. They change a few times a day, so there is no need to poll more often than hourly.
+
+## Feed URLs
+
+- `https://comiccaster.xyz/feeds/<slug>.xml`: the RSS 2.0 feed of a comic ComicCaster hosts.
+- `https://comiccaster.xyz/rss/<slug>`: an alias for the same file.
+- External comics (`source: external-rss`) use the publisher's own feed. Use their `feed_url` as given.
+
+## Bundle feeds as OPML
+
+POST JSON to `https://comiccaster.xyz/.netlify/functions/generate-opml`:
+
+    {"type": "daily", "comics": ["peanuts", "pickles"]}
+
+`type` is the comics' category: daily, political, spanish, tinyview or external (use daily for farside and newyorker comics). `comics` is a list of slugs from that category. The response is an OPML file that feed readers can import. Slugs in no catalog list are dropped. Writing the OPML yourself from catalog `feed_url`s works just as well and can mix categories.
+
+## More
+
+- [Website](https://comiccaster.xyz/): browse comics, copy feed URLs and preview the feeds of listed comics.
+- [Source code](https://github.com/adamprime/comiccaster)

@@ -122,7 +122,8 @@ for i in $(seq 1 "$BACKFILL_DAYS"); do
 done
 echo "🗂️  Date files in scope: ${DATE_FILES[*]}"
 
-# Stage only the touched date files that actually exist, plus regenerated feeds.
+# Stage only the touched date files that actually exist, plus regenerated feeds
+# and the catalog built from them.
 # Used on both the happy path and the push-conflict recovery path.
 stage_touched_files() {
     local f
@@ -130,6 +131,7 @@ stage_touched_files() {
         [ -f "$f" ] && git add -f "$f"
     done
     git add -f public/feeds/*.xml
+    git add -f public/catalog.json
 }
 
 # Branch guard -- same rationale as local_master_update.sh. Everything below
@@ -186,6 +188,15 @@ if python scripts/generate_gocomics_feeds.py; then
 else
     echo "❌ GoComics feed generation failed"
     FAILURES+=("GoComics feed generation")
+fi
+
+# A late publisher's first-ever feed can appear in this pass; rebuild the
+# catalog so it is listed today rather than after tomorrow's Pass 1.
+if python scripts/generate_catalog.py; then
+    echo "✅ Catalog rebuilt"
+else
+    echo "❌ Catalog build failed"
+    FAILURES+=("Catalog generation")
 fi
 
 echo ""
@@ -265,6 +276,7 @@ pass-1 scrape. See docs/solutions/logic-errors/gocomics-favorites-page-timing.md
 
         echo "🔧 Regenerating GoComics feeds from restored scrape data"
         python scripts/generate_gocomics_feeds.py || FAILURES+=("GoComics regen in pass-2 recovery")
+        python scripts/generate_catalog.py        || FAILURES+=("Catalog regen in pass-2 recovery")
 
         stage_touched_files
         if git diff --staged --quiet; then

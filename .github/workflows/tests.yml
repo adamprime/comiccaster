@@ -1,7 +1,7 @@
 name: Tests
 
-# The daily pipeline pushes feed XML and scraped JSON to main several times a
-# day. Those commits change no code, so testing them only spent Actions
+# The daily pipeline pushes feed XML, scraped JSON and the catalog built from
+# them to main several times a day. Those commits change no code, so testing them only spent Actions
 # minutes; ignore them (and docs) here. If the main-branch ruleset is ever
 # re-enabled with "Tests" as a required check, a PR touching only these paths
 # will wait on a check that never starts.
@@ -10,6 +10,7 @@ on:
     branches: [ main, test-branch-protection ]
     paths-ignore:
       - 'public/feeds/**'
+      - 'public/catalog.json'
       - 'data/**'
       - 'docs/**'
       - '**.md'
@@ -17,6 +18,7 @@ on:
     branches: [ main ]
     paths-ignore:
       - 'public/feeds/**'
+      - 'public/catalog.json'
       - 'data/**'
       - 'docs/**'
       - '**.md'
