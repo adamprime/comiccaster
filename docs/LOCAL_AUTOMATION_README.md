@@ -107,7 +107,7 @@ These are the load-bearing assumptions the pipeline relies on. Detailed provisio
 - ChromeDriver installed and on `PATH`, version-matched to Chrome.
 - Git push authenticated via a deploy key wired into `GIT_SSH_COMMAND` by the wrapper script. Not ssh-agent — avoids any keychain prompt at overnight runtime.
 - The system must not sleep before the run; a separate LaunchAgent handles that.
-- A Python venv at `./venv/` with `requirements.txt` installed and the package in editable mode (`pip install -e .`).
+- A Python venv at `./venv/` with `requirements.txt` installed against the transitive lock (`venv/bin/python -m pip install -r requirements.txt -c constraints.txt`) and the package in editable mode (`pip install -e .`). Merging a dependency PR does not update this venv. Re-run the install between runs; see `docs/solutions/best-practices/requirements-bumps-dont-reach-the-pipeline-venv.md`.
 
 ## Credentials
 
