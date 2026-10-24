@@ -1,0 +1,4 @@
+# ComicCaster serves public RSS feeds. Crawlers and AI agents are welcome.
+# Agents: start with /llms.txt; every comic and feed URL is in /catalog.json.
+User-agent: *
+Allow: /

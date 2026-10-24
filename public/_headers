@@ -4,4 +4,17 @@
 
 /favicon.ico
   Cache-Control: public, max-age=31536000
-  Content-Type: image/x-icon 
+  Content-Type: image/x-icon
+
+# Feeds and the catalog are public, read-only data. Allowing any origin lets
+# browser-based agents and web feed readers fetch them directly. /rss/* is a
+# rewrite to /feeds/*.xml; it carries the header too in case rules match the
+# requested path rather than the rewrite target.
+/feeds/*
+  Access-Control-Allow-Origin: *
+
+/rss/*
+  Access-Control-Allow-Origin: *
+
+/catalog.json
+  Access-Control-Allow-Origin: *
