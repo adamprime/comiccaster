@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-10-25",
+  "scraped_at": "2026-10-25T08:20:41.034937+00:00",
+  "comics": [
+    {
+      "id": "22903",
+      "date": "2026-10-25",
+      "url": "https://www.thefarside.com/2026/10/25/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd60d6600d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d60d6600d7410137c8a6005056a9545d",
+      "caption": "\u201cSo then Sheila says to Betty that Arnold told her what Harry was up to, but Betty told me she already heard it from Blanche, don\u2019t you know \u2026\u201d",
+      "title": "\u201cSo then Sheila says to Betty that Arnold told her what H..."
+    },
+    {
+      "id": "22904",
+      "date": "2026-10-25",
+      "url": "https://www.thefarside.com/2026/10/25/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F21385eb0e4860137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/21385eb0e4860137cda5005056a9545d",
+      "caption": "Infamous moments in jazz",
+      "title": "Infamous moments in jazz"
+    }
+  ]
+}
