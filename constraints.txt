@@ -80,6 +80,7 @@ soupsieve==2.10
 trio==0.34.0
 trio-websocket==0.12.2
 typing_extensions==4.16.0
+tzdata==2026.5
 urllib3==2.8.0
 webdriver-manager==4.1.2
 websocket-client==1.9.2
