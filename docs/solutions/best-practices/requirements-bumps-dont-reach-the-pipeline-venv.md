@@ -13,10 +13,12 @@ applies_when:
   - "Auditing what version of selenium/requests the production scrapers actually load"
   - "A CVE is fixed upstream and CI already tests the fixed version, but the host may still run the vulnerable one"
   - "A vulnaudit pipeline issue opened, or a dependency is being removed rather than bumped"
-tags: [dependencies, dependabot, venv, drift, selenium, pipeline, ci-vs-production, constraints, security, brotli, osv, pip-audit, certifi, ci]
+  - "A bump pulls in a package that constraints.txt doesn't list yet"
+  - "A PR's Netlify deploy-preview check sits at pending and gh pr checks --watch never returns"
+tags: [dependencies, dependabot, venv, drift, selenium, pipeline, ci-vs-production, constraints, security, brotli, osv, pip-audit, certifi, ci, python-dateutil, tzdata, netlify]
 stack: [python, github-actions]
-github_prs: [163, 170, 182, 186, 189, 243, 245, 247, 249]
-last_updated: 2026-10-24
+github_prs: [163, 170, 182, 186, 189, 243, 245, 247, 249, 250, 251, 252]
+last_updated: 2026-10-27
 ---
 
 ## TL;DR
@@ -74,7 +76,7 @@ git pull --ff-only                                 # get the merged pins (tree m
 venv/bin/python -m pip freeze > /tmp/before.txt
 venv/bin/python -m pip install -r requirements.txt -c constraints.txt   # make them real
 venv/bin/python -m pip freeze | diff /tmp/before.txt -                  # only the bumped lines should move
-venv/bin/python -m pytest -q                       # 819 passed on 2026-10-24
+venv/bin/python -m pytest -q                       # 942 passed on 2026-10-27
 ```
 
 Run it in the pipeline clone only on a clean tree. Pass 1 and Pass 2 begin
@@ -223,6 +225,89 @@ One consequence is intended: bumping a direct dependency in `requirements.txt`
 without moving its `constraints.txt` pin now fails Tests with a resolution
 conflict. Bump both, so the version that turns CI green is the one the host
 will install.
+
+## A new transitive needs its pin added by hand (2026-10-27)
+
+The lock only holds back the packages it names. When a bump brings in a
+package the lock has never seen, that package installs at whatever version is
+newest, on CI and on the host, and nothing turns red.
+
+python-dateutil 3.0.0 (#252) stopped bundling the IANA time zone database and
+started depending on `tzdata`. Dependabot's PR changed only the existing
+`python-dateutil==` line. The gap showed up in the Tests log:
+
+```
+Collecting tzdata (from python-dateutil->feedgen==1.0.0->-r requirements.txt (line 3))
+```
+
+Tests passed with `tzdata` 2026.5 unpinned. Merged as-is, the host would have
+installed whatever `tzdata` was newest on the day of the install, and the venv
+would no longer be reproducible from the repo. That is the drift
+`constraints.txt` exists to stop. `pip check` is clean in that state, and the
+audit only looks at what's installed, so neither one notices.
+
+To catch it, look in the PR's Tests log for `Collecting <pkg> (from <bumped
+package>...)` lines that name a package the lock doesn't have. Or install the
+PR's files into a throwaway venv and compare it against the lock:
+
+```bash
+grep -v '^#' constraints.txt | grep . | diff - <(venv-test/bin/python -m pip freeze --exclude-editable)
+```
+
+A line that only the freeze has is an unpinned new transitive. Add the pin at
+the version CI resolved, in alphabetical order, as its own commit on the PR.
+Dependabot stops rebasing a branch once you have pushed to it, which doesn't
+matter if you merge it next.
+
+The reverse case leaves a dead pin. When a package stops needing a transitive,
+the pin stays in the lock and the package stays in the venv, because `pip
+install` never uninstalls anything. `sgmllib3k` is an example: feedparser 6.0.14
+depends on `feedparser-sgmllib` instead, but `sgmllib3k==1.0.0` was still in
+both on 2026-10-27. To remove one, follow the steps under "Security fixes"
+above.
+
+Two smaller lessons from the same batch:
+
+- Pins on adjacent lines conflict. `pytest-mock` and `python-dateutil` sit next
+  to each other in the lock, so #252 conflicted as soon as #251 merged.
+  Dependabot rebases on its own if you leave the PR alone. Once you have pushed
+  to the branch, merge `main` into it yourself.
+- For a major bump of a library the generators use (feedgen, python-dateutil,
+  pytz, lxml), the suite only covers its fixtures. Regenerating the real feeds
+  covers every date and string the saved data actually holds. Run all seven
+  generators plus `generate_catalog.py` from the committed `data/`, once with
+  the current venv and once with the throwaway one. Do it in a worktree with
+  `PYTHONPATH` set to it, never in the pipeline checkout, because the generators
+  write `public/feeds/`. Then diff the two outputs, ignoring the build stamps.
+  For dateutil 3.0, all 664 feeds matched apart from `<lastBuildDate>`:
+
+```bash
+diff -r -I '<lastBuildDate>' out-old/feeds out-new/feeds   # no output = no change
+```
+
+## Reading a PR's checks: Netlify's status can stall (2026-10-27)
+
+On #252, `netlify/comiccaster/deploy-preview` sat at "pending — Deploy
+Preview processing" for an hour. Netlify had finished the deploy (`ready`) 21
+seconds after it started, but never sent GitHub the final status. `gh pr checks
+--watch` waits for every check, so it never returned.
+
+A deploy preview says nothing about a dependency bump, because Netlify serves
+`public/` and installs no Python. Merge on `test` and CodeQL for the head
+commit (see `github-merge-without-required-checks.md`). To wait for those
+without the Netlify check, watch the Tests run itself:
+
+```bash
+gh run list --branch <pr-branch> --workflow tests.yml --json databaseId,headSha --limit 1
+gh run watch <databaseId> --exit-status
+```
+
+To ask Netlify directly, take the deploy id from the last segment of the
+check's URL:
+
+```bash
+netlify api getDeploy --data '{"deploy_id":"<id>"}'   # "state": "ready" means it finished
+```
 
 ## Timing
 
