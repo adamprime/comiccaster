@@ -9,5 +9,5 @@ pytz==2026.5
 brotli>=1.2.1
 pytest==9.1.1
 pytest-cov==7.1.0
-pytest-mock==3.16.0
+pytest-mock==3.17.0
 feedparser==6.0.14
