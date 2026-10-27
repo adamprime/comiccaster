@@ -8,11 +8,35 @@
     "category": "political"
   },
   {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/50e0cda0b3a4013fd06a005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-25",
+    "url": "https://www.gocomics.com/mattdavies/2026/10/25",
+    "category": "political"
+  },
+  {
+    "name": "Michael Ramirez",
+    "slug": "michaelramirez",
+    "image_url": "https://featureassets.gocomics.com/assets/5defb700b3ee013fd080005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-25",
+    "url": "https://www.gocomics.com/michaelramirez/2026/10/25",
+    "category": "political"
+  },
+  {
     "name": "M2 Bulls",
     "slug": "m2bulls",
     "image_url": "https://featureassets.gocomics.com/assets/aabe3460b303013fd04a005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-25",
     "url": "https://www.gocomics.com/m2bulls/2026/10/25",
+    "category": "political"
+  },
+  {
+    "name": "John Deering",
+    "slug": "johndeering",
+    "image_url": "https://featureassets.gocomics.com/assets/f88a8c50b40d013fd082005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-25",
+    "url": "https://www.gocomics.com/johndeering/2026/10/25",
     "category": "political"
   },
   {
