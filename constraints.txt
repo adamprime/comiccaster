@@ -67,7 +67,7 @@ PySocks==1.7.1
 pytest==9.1.1
 pytest-cov==7.1.0
 pytest-mock==3.17.0
-python-dateutil==2.9.0.post0
+python-dateutil==3.0.0
 python-dotenv==1.2.4
 pytz==2026.5
 requests==2.34.2
@@ -80,6 +80,7 @@ soupsieve==2.10
 trio==0.34.0
 trio-websocket==0.12.2
 typing_extensions==4.16.0
+tzdata==2026.5
 urllib3==2.8.0
 webdriver-manager==4.1.2
 websocket-client==1.9.2
