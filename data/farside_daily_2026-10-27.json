@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-27",
+  "scraped_at": "2026-10-27T08:20:52.437496+00:00",
+  "comics": [
+    {
+      "id": "22919",
+      "date": "2026-10-27",
+      "url": "https://www.thefarside.com/2026/10/27/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee47eed358c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee47eed358c311ea8bf6005056a9",
+      "caption": "Stephen King\u2019s childhood ant farm",
+      "title": "Stephen King\u2019s childhood ant farm"
+    },
+    {
+      "id": "22920",
+      "date": "2026-10-27",
+      "url": "https://www.thefarside.com/2026/10/27/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fbb4251f0d7400137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/bb4251f0d7400137c8a6005056a9545d",
+      "caption": "\u201cJust pull it off and apologize, Cromwell ... or we\u2019ll go out in the hall and establish this pecking order once and for all!\u201d",
+      "title": "\u201cJust pull it off and apologize, Cromwell"
+    },
+    {
+      "id": "22921",
+      "date": "2026-10-27",
+      "url": "https://www.thefarside.com/2026/10/27/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fef9de4b0e85a0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ef9de4b0e85a0137cedf005056a9545d",
+      "caption": "\u201cHey! What\u2019s that clown think he\u2019s doing?\u201d",
+      "title": "\u201cHey! What\u2019s that clown think he\u2019s doing?\u201d"
+    },
+    {
+      "id": "22922",
+      "date": "2026-10-27",
+      "url": "https://www.thefarside.com/2026/10/27/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6f45cfa0d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6f45cfa0d7410137c8a6005056a9545d",
+      "caption": "\u201cOkay, now it\u2019s my turn. \u2026 Bob want the cracker \u2026 Bob want\n the cracker \u2026 \u201d",
+      "title": "\u201cOkay, now it\u2019s my turn"
+    },
+    {
+      "id": "22923",
+      "date": "2026-10-27",
+      "url": "https://www.thefarside.com/2026/10/27/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7ae6a490d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7ae6a490d7410137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22923"
+    }
+  ]
+}
