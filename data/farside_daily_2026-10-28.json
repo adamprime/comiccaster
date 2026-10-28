@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-28",
+  "scraped_at": "2026-10-28T08:21:24.863317+00:00",
+  "comics": [
+    {
+      "id": "22924",
+      "date": "2026-10-28",
+      "url": "https://www.thefarside.com/2026/10/28/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3c497910ea260137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3c497910ea260137cfba005056a9545d",
+      "caption": "\u201cIt\u2019s the only way to go, Frank. Why, my life\u2019s changed, ever since I discovered Stackable Livestock\u00ae.\u201d",
+      "title": "\u201cIt\u2019s the only way to go, Frank"
+    },
+    {
+      "id": "22925",
+      "date": "2026-10-28",
+      "url": "https://www.thefarside.com/2026/10/28/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fbd340fa0ea240137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/bd340fa0ea240137cfba005056a9545d",
+      "caption": "Professor Ferrington and his controversial theory\n that dinosaurs were actually the discarded\n \u201cchicken\u201d bones of giant, alien picnickers.",
+      "title": "Professor Ferrington and his controversial theory\n that d..."
+    },
+    {
+      "id": "22926",
+      "date": "2026-10-28",
+      "url": "https://www.thefarside.com/2026/10/28/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F991aa600cdd60137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/991aa600cdd60137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22926"
+    },
+    {
+      "id": "22927",
+      "date": "2026-10-28",
+      "url": "https://www.thefarside.com/2026/10/28/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fbdaafef0e4850137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/bdaafef0e4850137cda5005056a9545d",
+      "caption": "The untold ending of D. B. Cooper",
+      "title": "The untold ending of D"
+    },
+    {
+      "id": "22928",
+      "date": "2026-10-28",
+      "url": "https://www.thefarside.com/2026/10/28/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F650cc0e0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/650cc0e0cdd20137c56b005056a9545d",
+      "caption": "\u201cNext!\u201d",
+      "title": "\u201cNext!\u201d"
+    }
+  ]
+}
