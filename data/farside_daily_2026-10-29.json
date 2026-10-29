@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-10-29",
+  "scraped_at": "2026-10-29T08:20:33.724256+00:00",
+  "comics": [
+    {
+      "id": "22929",
+      "date": "2026-10-29",
+      "url": "https://www.thefarside.com/2026/10/29/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd64299700cdf01393512005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d64299700cdf01393512005056a9545d",
+      "caption": "It was always a bizarre spectacle, but no one ever, ever , ridiculed the Teapot Kid.",
+      "title": "It was always a bizarre spectacle, but no one ever, ever ..."
+    },
+    {
+      "id": "22930",
+      "date": "2026-10-29",
+      "url": "https://www.thefarside.com/2026/10/29/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd343f740fa830137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d343f740fa830137d52f005056a9545d",
+      "caption": "\u201cC\u2019mon, c\u2019mon! Either it\u2019s here or it isn\u2019t!\u201d",
+      "title": "\u201cC\u2019mon, c\u2019mon! Either it\u2019s here or it isn\u2019t!\u201d"
+    },
+    {
+      "id": "22938",
+      "date": "2026-10-29",
+      "url": "https://www.thefarside.com/2026/10/29/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3f51f710fa840137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3f51f710fa840137d52f005056a9545d",
+      "caption": "\u201cCalm down, everyone! I\u2019ve had experience with this sort of thing before. \u2026 Does someone have a hammer?\u201d",
+      "title": "\u201cCalm down, everyone! I\u2019ve had experience with this sort ..."
+    },
+    {
+      "id": "22939",
+      "date": "2026-10-29",
+      "url": "https://www.thefarside.com/2026/10/29/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0e268070cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0e268070cdd40137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22939"
+    },
+    {
+      "id": "22940",
+      "date": "2026-10-29",
+      "url": "https://www.thefarside.com/2026/10/29/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F53367410cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/53367410cdd40137c56b005056a9545d",
+      "caption": "\u201cThag, this is Noona. Noona, this is Thag. \u2026 Thag is a \nHunter and Gatherer.\u201d",
+      "title": "\u201cThag, this is Noona"
+    }
+  ]
+}
