@@ -32,6 +32,14 @@
     "category": "political"
   },
   {
+    "name": "Michael Ramirez",
+    "slug": "michaelramirez",
+    "image_url": "https://featureassets.gocomics.com/assets/8298b280b6a7013fd143005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/michaelramirez/2026/10/30",
+    "category": "political"
+  },
+  {
     "name": "Kevin Kallaugher",
     "slug": "kal",
     "image_url": "https://featureassets.gocomics.com/assets/6495aca0b124013fd008005056a9545d?optimizer=image&width=2800&quality=85",
@@ -56,11 +64,35 @@
     "category": "political"
   },
   {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/55f0e910b6a8013fd144005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/joelpett/2026/10/30",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/47842a50b3a7013fd06b005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-30",
     "url": "https://www.gocomics.com/jeffstahler/2026/10/30",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/d1fcd890b6a5013fd142005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/10/30",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/8c179580b668013fd134005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/garyvarvel/2026/10/30",
     "category": "political"
   },
   {
@@ -896,6 +928,14 @@
     "category": "daily"
   },
   {
+    "name": "Frog Applause",
+    "slug": "frogapplause",
+    "image_url": "https://featureassets.gocomics.com/assets/84cbd350b668013fd134005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/frogapplause/2026/10/30",
+    "category": "daily"
+  },
+  {
     "name": "Freshly Squeezed",
     "slug": "freshlysqueezed",
     "image_url": "https://featureassets.gocomics.com/assets/732148e03aa40132a733005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1013,6 +1053,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/d76a3b10a5540131428e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-30",
     "url": "https://www.gocomics.com/familytree/2026/10/30",
+    "category": "daily"
+  },
+  {
+    "name": "Endtown",
+    "slug": "endtown",
+    "image_url": "https://featureassets.gocomics.com/assets/d6676e40b670013fd135005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/endtown/2026/10/30",
     "category": "daily"
   },
   {
