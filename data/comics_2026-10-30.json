@@ -16,6 +16,14 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/c55192f0b6c0013fd152005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/robrogers/2026/10/30",
+    "category": "political"
+  },
+  {
     "name": "Phil Hands",
     "slug": "phil-hands",
     "image_url": "https://featureassets.gocomics.com/assets/d14eadd0b5f5013fd115005056a9545d?optimizer=image&width=2800&quality=85",
@@ -29,6 +37,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/f62de430b61f013fd126005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-30",
     "url": "https://www.gocomics.com/mikeluckovich/2026/10/30",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/a88930d0b6c0013fd152005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/mattdavies/2026/10/30",
+    "category": "political"
+  },
+  {
+    "name": "Matt Wuerker",
+    "slug": "mattwuerker",
+    "image_url": "https://featureassets.gocomics.com/assets/0041c390b6d7013fd15e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/mattwuerker/2026/10/30",
     "category": "political"
   },
   {
@@ -88,11 +112,27 @@
     "category": "political"
   },
   {
+    "name": "Jack Ohman",
+    "slug": "jackohman",
+    "image_url": "https://featureassets.gocomics.com/assets/bd59ba30b6cf013fd159005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/jackohman/2026/10/30",
+    "category": "political"
+  },
+  {
     "name": "Gary Varvel",
     "slug": "garyvarvel",
     "image_url": "https://featureassets.gocomics.com/assets/8c179580b668013fd134005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-30",
     "url": "https://www.gocomics.com/garyvarvel/2026/10/30",
+    "category": "political"
+  },
+  {
+    "name": "Gary Markstein",
+    "slug": "garymarkstein",
+    "image_url": "https://featureassets.gocomics.com/assets/96319ac0b6ea013fd161005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-30",
+    "url": "https://www.gocomics.com/garymarkstein/2026/10/30",
     "category": "political"
   },
   {
