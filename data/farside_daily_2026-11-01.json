@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-11-01",
+  "scraped_at": "2026-11-01T09:20:43.792002+00:00",
+  "comics": [
+    {
+      "id": "22941",
+      "date": "2026-11-01",
+      "url": "https://www.thefarside.com/2026/11/01/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa6325210fa850137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a6325210fa850137d52f005056a9545d",
+      "caption": "Kids\u2019 shows that bombed",
+      "title": "Kids\u2019 shows that bombed"
+    },
+    {
+      "id": "22942",
+      "date": "2026-11-01",
+      "url": "https://www.thefarside.com/2026/11/01/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8a9d14a0cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8a9d14a0cdd20137c56b005056a9545d",
+      "caption": "\u201c\u2018H,\u2019 please \u2026 for both of us.\u201d",
+      "title": "\u201c\u2018H,\u2019 please \u2026 for both of us"
+    }
+  ]
+}
