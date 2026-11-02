@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-02",
+  "scraped_at": "2026-11-02T09:19:45.364115+00:00",
+  "comics": [
+    {
+      "id": "22943",
+      "date": "2026-11-02",
+      "url": "https://www.thefarside.com/2026/11/02/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F961a0620dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/961a0620dcca0137caaf005056a9545d",
+      "caption": "In God\u2019s kitchen",
+      "title": "In God\u2019s kitchen"
+    },
+    {
+      "id": "22944",
+      "date": "2026-11-02",
+      "url": "https://www.thefarside.com/2026/11/02/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6f065d20fa850137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6f065d20fa850137d52f005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22944"
+    },
+    {
+      "id": "22945",
+      "date": "2026-11-02",
+      "url": "https://www.thefarside.com/2026/11/02/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcae46420df100137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cae46420df100137cbaf005056a9545d",
+      "caption": "\u201cCoincidence, ladies and gentlemen? Coincidence that my client just happened to live across from the A-1 Mask Co., just happened to walk by their office windows each day, and they, in turn, just happened to stumble across this\n new design?\u201d",
+      "title": "\u201cCoincidence, ladies and gentlemen? Coincidence that my c..."
+    },
+    {
+      "id": "22946",
+      "date": "2026-11-02",
+      "url": "https://www.thefarside.com/2026/11/02/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0a652650df120137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0a652650df120137cbaf005056a9545d",
+      "caption": "Early chemists describe the first dirt molecule.",
+      "title": "Early chemists describe the first dirt molecule"
+    },
+    {
+      "id": "22947",
+      "date": "2026-11-02",
+      "url": "https://www.thefarside.com/2026/11/02/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F936c0330cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/936c0330cdd50137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22947"
+    }
+  ]
+}
