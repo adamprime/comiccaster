@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/98ebdc60b914013fd1a3005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/11/02",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/8059a310b807013fd17a005056a9545d?optimizer=image&width=2800&quality=85",
@@ -21,6 +29,30 @@
     "image_url": "https://featureassets.gocomics.com/assets/2658e930b5fa013fd118005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-02",
     "url": "https://www.gocomics.com/kal/2026/11/02",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/07ecb5c0b908013fd19d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/11/02",
+    "category": "political"
+  },
+  {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/b9182600b909013fd19e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/11/02",
+    "category": "political"
+  },
+  {
+    "name": "Jack Ohman",
+    "slug": "jackohman",
+    "image_url": "https://featureassets.gocomics.com/assets/b44a3ec0b909013fd19e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/jackohman/2026/11/02",
     "category": "political"
   },
   {
@@ -464,6 +496,14 @@
     "category": "daily"
   },
   {
+    "name": "Ike",
+    "slug": "backintheday",
+    "image_url": "https://featureassets.gocomics.com/assets/41de8440b8da013fd191005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/backintheday/2026/11/02",
+    "category": "daily"
+  },
+  {
     "name": "Baby Blues",
     "slug": "babyblues",
     "image_url": "https://featureassets.gocomics.com/assets/8f4183b0b44e013fd08f005056a9545d?optimizer=image&width=2800&quality=85",
@@ -616,6 +656,14 @@
     "category": "daily"
   },
   {
+    "name": "1 And Done",
+    "slug": "1-and-done",
+    "image_url": "https://featureassets.gocomics.com/assets/d15c9bd0b8db013fd192005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/1-and-done/2026/11/02",
+    "category": "daily"
+  },
+  {
     "name": "Jumpstart",
     "slug": "jumpstart",
     "image_url": "https://featureassets.gocomics.com/assets/4ec6ebd0b43e013fd089005056a9545d?optimizer=image&width=2800&quality=85",
@@ -765,6 +813,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/e8ea6630170d013fbf8d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-02",
     "url": "https://www.gocomics.com/globetrotter/2026/11/02",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/357d2250b8eb013fd195005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/11/02",
     "category": "daily"
   },
   {
@@ -1576,6 +1632,14 @@
     "category": "daily"
   },
   {
+    "name": "Lards World Peace Tips",
+    "slug": "lards-world-peace-tips",
+    "image_url": "https://featureassets.gocomics.com/assets/ef1c4ef0b8d1013fd190005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/lards-world-peace-tips/2026/11/02",
+    "category": "daily"
+  },
+  {
     "name": "La Cucaracha",
     "slug": "la-cucaracha-en-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/56713660b519013fd0ce005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1672,6 +1736,14 @@
     "category": "daily"
   },
   {
+    "name": "Wizard of Id Classics",
+    "slug": "wizard-of-id-classics",
+    "image_url": "https://featureassets.gocomics.com/assets/7c601f60b8f6013fd197005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/wizard-of-id-classics/2026/11/02",
+    "category": "daily"
+  },
+  {
     "name": "Wee Pals",
     "slug": "weepals",
     "image_url": "https://featureassets.gocomics.com/assets/aef55c40abd9013fceff005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1717,6 +1789,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/2ccc6f40a2bb013fccc0005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-02",
     "url": "https://www.gocomics.com/toomuchcoffeeman/2026/11/02",
+    "category": "daily"
+  },
+  {
+    "name": "Tiny Sepuku",
+    "slug": "tinysepuku",
+    "image_url": "https://featureassets.gocomics.com/assets/21abf800b8d2013fd190005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/tinysepuku/2026/11/02",
     "category": "daily"
   },
   {
