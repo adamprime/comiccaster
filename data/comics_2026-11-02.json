@@ -472,6 +472,14 @@
     "category": "daily"
   },
   {
+    "name": "B C",
+    "slug": "bc",
+    "image_url": "https://featureassets.gocomics.com/assets/79de53a0b92f013fd1ae005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/bc/2026/11/02",
+    "category": "daily"
+  },
+  {
     "name": "Basic Instructions",
     "slug": "basicinstructions",
     "image_url": "https://featureassets.gocomics.com/assets/a131fd70b4f0013fd0be005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1336,6 +1344,14 @@
     "category": "daily"
   },
   {
+    "name": "Our Super Adventure",
+    "slug": "our-super-adventure",
+    "image_url": "https://featureassets.gocomics.com/assets/501de5d0b943013fd1b8005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/our-super-adventure/2026/11/02",
+    "category": "daily"
+  },
+  {
     "name": "The Other Coast",
     "slug": "theothercoast",
     "image_url": "https://featureassets.gocomics.com/assets/54149c409f68013fcc22005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1805,6 +1821,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/7c601f60b8f6013fd197005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-02",
     "url": "https://www.gocomics.com/wizard-of-id-classics/2026/11/02",
+    "category": "daily"
+  },
+  {
+    "name": "Wizard Of Id",
+    "slug": "wizardofid",
+    "image_url": "https://featureassets.gocomics.com/assets/7c263eb0b935013fd1b3005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-02",
+    "url": "https://www.gocomics.com/wizardofid/2026/11/02",
     "category": "daily"
   },
   {
