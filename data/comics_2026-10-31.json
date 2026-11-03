@@ -1,5 +1,13 @@
 [
   {
+    "name": "Steve Breen",
+    "slug": "stevebreen",
+    "image_url": "https://featureassets.gocomics.com/assets/188ed0d0b91c013fd1a6005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-31",
+    "url": "https://www.gocomics.com/stevebreen/2026/10/31",
+    "category": "political"
+  },
+  {
     "name": "Robert Ariail",
     "slug": "robert-ariail",
     "image_url": "https://featureassets.gocomics.com/assets/ab334410b6d2013fd15c005056a9545d?optimizer=image&width=2800&quality=85",
@@ -85,6 +93,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/42db0250b6f1013fd162005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-10-31",
     "url": "https://www.gocomics.com/claybennett/2026/10/31",
+    "category": "political"
+  },
+  {
+    "name": "Chip Bok",
+    "slug": "chipbok",
+    "image_url": "https://featureassets.gocomics.com/assets/9cc861f0b967013fd1c5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-10-31",
+    "url": "https://www.gocomics.com/chipbok/2026/10/31",
     "category": "political"
   },
   {
