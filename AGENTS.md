@@ -93,6 +93,7 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
    - `scrape_*.py` and authenticated scrapers — per-source scrapers (Phase 1), each writes `data/<src>_$DATE.json`
    - `generate_*.py` — per-source generators (Phase 2), network-free, read the saved scraped JSON (the newest snapshot, every snapshot in the feed's window, or — Comics Kingdom — all saved history, whose records from before post dates were recorded must not be overwritten, relabeled or deleted until the last of them leaves the feed window, 90 dates after the first post-dated file; see `CONCEPTS.md` "Strip identity") and write `public/feeds/*.xml`
    - `preview_feeds.py` — renders feed XML as an HTML page for a visual check before shipping (read-only)
+   - `diagnose_political_favorites.py` — for a "comic X stopped updating" report: renders the political favorites page for a date and lists which slugs it shows as updated vs not issued (read-only)
    - `generate_catalog.py` — builds `public/catalog.json` from the seven comic lists and the feed files; runs after the generators in Pass 1, Pass 2 and their push recovery
    - `reauth_comicskingdom.py` — session refresh for Comics Kingdom
 
