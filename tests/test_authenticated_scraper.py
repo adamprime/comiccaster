@@ -20,6 +20,7 @@ from scripts.authenticated_scraper_secure import (
     backfill_target_dates,
     run_backfill,
     is_bot_challenge_page,
+    is_unrecognised_page,
 )
 import scripts.authenticated_scraper_secure as scraper
 from datetime import date
@@ -668,6 +669,37 @@ class TestBotChallengeDetection:
         assert (tmp_path / 'gocomics_debug_2026-09-05.html').read_text() == _BUNNY_SHIELD_HTML
 
 
+_RECOGNISED_PAGE = _build_page_html(_make_hashed_comic_container('garfield', 'Garfield', 'img1'))
+# A real GoComics page whose class names no longer match (2026-11-03 shape).
+_UNRECOGNISED_PAGE = ('<html><head><title>Comics from X | GoComics</title></head>'
+                      '<body><div class="Zz9_viewer"><a href="/garfield"></a></div></body></html>')
+
+
+def _run_scraper_main(monkeypatch, tmp_path, pages, *argv):
+    """Run main() over `pages` ({url: html}) with login and the browser faked.
+
+    The fake extraction leaves the driver on the page it fetched, as the real
+    one does, and returns one comic named after the page's position.
+    """
+    fetched = []
+
+    def fake_extract(driver, url, date_str):
+        fetched.append(url)
+        driver.page_source = pages[url.split('?')[0]]
+        return [_political_comic(f'comic-{len(fetched)}', date_str)]
+
+    monkeypatch.setattr(scraper, 'load_config_from_env', lambda: {
+        'credentials': {'email': 'test@example.com', 'password': 'test'},
+        'custom_pages': [{'url': url, 'category': 'daily'} for url in pages],
+    })
+    monkeypatch.setattr(scraper, 'build_chrome_driver', lambda options: MagicMock())
+    monkeypatch.setattr(scraper, 'login', lambda driver, email, password: True)
+    monkeypatch.setattr(scraper, 'extract_comics_from_page', fake_extract)
+    monkeypatch.setattr(sys, 'argv', ['scraper', '--output-dir', str(tmp_path), *argv])
+
+    return scraper.main(), fetched
+
+
 class TestMainDateOption:
     """--date must fetch that date's pages. It used to fetch today's and stamp
     them with the requested date, which would have merged Nov 3 strips into
@@ -676,22 +708,8 @@ class TestMainDateOption:
     _PAGE = 'https://www.gocomics.com/profile/U/comics/1'
 
     def _run_main(self, monkeypatch, tmp_path, *argv):
-        fetched = []
-
-        def fake_extract(driver, url, date_str):
-            fetched.append(url)
-            return [_political_comic('garfield', date_str)]
-
-        monkeypatch.setattr(scraper, 'load_config_from_env', lambda: {
-            'credentials': {'email': 'test@example.com', 'password': 'test'},
-            'custom_pages': [{'url': self._PAGE, 'category': 'daily'}],
-        })
-        monkeypatch.setattr(scraper, 'build_chrome_driver', lambda options: MagicMock())
-        monkeypatch.setattr(scraper, 'login', lambda driver, email, password: True)
-        monkeypatch.setattr(scraper, 'extract_comics_from_page', fake_extract)
-        monkeypatch.setattr(sys, 'argv', ['scraper', '--output-dir', str(tmp_path), *argv])
-
-        assert scraper.main() == 0
+        rc, fetched = _run_scraper_main(monkeypatch, tmp_path, {self._PAGE: _RECOGNISED_PAGE}, *argv)
+        assert rc == 0
         return fetched
 
     def test_explicit_date_fetches_that_dates_pages(self, monkeypatch, tmp_path):
@@ -705,3 +723,43 @@ class TestMainDateOption:
         fetched = self._run_main(monkeypatch, tmp_path)
 
         assert fetched == [self._PAGE]
+
+
+class TestUnrecognisedPage:
+    """A favorites page always lists its comics, as updated or as "didn't
+    update today". A page with neither was not understood. On 2026-11-03 every
+    page read "0 updated, 0 not updated today" and the run only failed on the
+    day's total; a miss on one small page would have stayed above that floor."""
+
+    def test_page_with_comic_containers_is_recognised(self):
+        assert not is_unrecognised_page(_RECOGNISED_PAGE)
+
+    def test_page_with_only_a_not_issued_section_is_recognised(self):
+        assert not is_unrecognised_page(_build_page_html(_hashed_not_issued_section('sour-grapes')))
+
+    def test_page_with_renamed_classes_is_unrecognised(self):
+        assert is_unrecognised_page(_UNRECOGNISED_PAGE)
+
+    def test_bot_challenge_page_is_unrecognised(self):
+        assert is_unrecognised_page(_BUNNY_SHIELD_HTML)
+
+    def test_one_unrecognised_page_fails_the_run_but_keeps_the_rest(self, monkeypatch, tmp_path, capsys):
+        good = 'https://www.gocomics.com/profile/U/comics/1'
+        bad = 'https://www.gocomics.com/profile/U/comics/2'
+
+        rc, _ = _run_scraper_main(monkeypatch, tmp_path, {good: _RECOGNISED_PAGE, bad: _UNRECOGNISED_PAGE},
+                                  '--date', '2026-11-03')
+        out = capsys.readouterr().out
+
+        assert rc == 1
+        assert f'not recognised: {bad}' in out
+        assert good not in out.split('not recognised')[1]
+        saved = json.loads((tmp_path / 'comics_2026-11-03.json').read_text())
+        assert [c['slug'] for c in saved] == ['comic-1', 'comic-2']
+
+    def test_all_pages_recognised_succeeds(self, monkeypatch, tmp_path):
+        pages = {f'https://www.gocomics.com/profile/U/comics/{i}': _RECOGNISED_PAGE for i in (1, 2)}
+
+        rc, _ = _run_scraper_main(monkeypatch, tmp_path, pages)
+
+        assert rc == 0
