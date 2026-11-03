@@ -666,3 +666,42 @@ class TestBotChallengeDetection:
         extract_comics_from_page(_mock_driver(_BUNNY_SHIELD_HTML), 'https://example.com/page', '2026-09-05')
 
         assert (tmp_path / 'gocomics_debug_2026-09-05.html').read_text() == _BUNNY_SHIELD_HTML
+
+
+class TestMainDateOption:
+    """--date must fetch that date's pages. It used to fetch today's and stamp
+    them with the requested date, which would have merged Nov 3 strips into
+    the Nov 2 file as Nov 2 (2026-11-03)."""
+
+    _PAGE = 'https://www.gocomics.com/profile/U/comics/1'
+
+    def _run_main(self, monkeypatch, tmp_path, *argv):
+        fetched = []
+
+        def fake_extract(driver, url, date_str):
+            fetched.append(url)
+            return [_political_comic('garfield', date_str)]
+
+        monkeypatch.setattr(scraper, 'load_config_from_env', lambda: {
+            'credentials': {'email': 'test@example.com', 'password': 'test'},
+            'custom_pages': [{'url': self._PAGE, 'category': 'daily'}],
+        })
+        monkeypatch.setattr(scraper, 'build_chrome_driver', lambda options: MagicMock())
+        monkeypatch.setattr(scraper, 'login', lambda driver, email, password: True)
+        monkeypatch.setattr(scraper, 'extract_comics_from_page', fake_extract)
+        monkeypatch.setattr(sys, 'argv', ['scraper', '--output-dir', str(tmp_path), *argv])
+
+        assert scraper.main() == 0
+        return fetched
+
+    def test_explicit_date_fetches_that_dates_pages(self, monkeypatch, tmp_path):
+        fetched = self._run_main(monkeypatch, tmp_path, '--date', '2026-11-02')
+
+        assert fetched == [f'{self._PAGE}?date=2026-11-02']
+        saved = json.loads((tmp_path / 'comics_2026-11-02.json').read_text())
+        assert [c['date'] for c in saved] == ['2026-11-02']
+
+    def test_default_run_fetches_the_plain_page(self, monkeypatch, tmp_path):
+        fetched = self._run_main(monkeypatch, tmp_path)
+
+        assert fetched == [self._PAGE]

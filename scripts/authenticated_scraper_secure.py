@@ -495,7 +495,10 @@ def main():
         all_comics = []
         
         for page in config['custom_pages']:
-            comics = extract_comics_from_page(driver, page['url'], date_str)
+            # The plain URL always shows today. An explicit --date must fetch that
+            # date's page, or today's strips get saved under the requested date.
+            page_url = page_url_for_date(page['url'], args.date) if args.date else page['url']
+            comics = extract_comics_from_page(driver, page_url, date_str)
             
             # Add category metadata
             for comic in comics:
