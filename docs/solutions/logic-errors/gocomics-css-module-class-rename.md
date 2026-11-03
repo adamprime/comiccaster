@@ -67,12 +67,22 @@ The invariant guard caught it (`GoComics: only 0 entries, expected at least
 4. The fixed scraper, run live at 07:53 against a scratch `--output-dir`,
    extracted 246 comics across all six pages, each page's cross-check matching.
 
-## Gotcha: tests overwrite the debug page
+## Gotcha: tests overwrote the debug page (fixed)
 
-`extract_comics_from_page` writes `/tmp/gocomics_debug_<date>.html` whenever it
-finds no containers, and that includes unit tests using the same date string.
+`extract_comics_from_page` saves a page with no containers to
+`/tmp/gocomics_debug_<date>.html`, and unit tests used to write that real path.
 Here the red run of the new tests (dated 2026-11-03) replaced the real saved
-page with test HTML. **Copy the debug page somewhere safe before running tests.**
+page with test HTML. Since the follow-up fix, an autouse fixture in
+`tests/test_authenticated_scraper.py` points `_DEBUG_DIR` at `tmp_path` (and
+stubs out the scraper's ~9 s of sleeps per call, which took that file from
+~136 s to under a second).
+
+The same review found `diagnose_political_favorites.py` still built a raw
+headless `webdriver.Chrome()`. Run on 2026-11-03 it crashed at startup: it
+picked up the stale `/opt/homebrew/bin/chromedriver` 151 against Chrome 156.
+Past that, its HeadlessChrome user-agent would have met Bunny Shield. It now
+uses `build_chrome_driver`, names a challenge page instead of diagnosing it, and
+read the political page live (8 updated + 53 not issued, the same as the scrape).
 
 ## Recovery
 

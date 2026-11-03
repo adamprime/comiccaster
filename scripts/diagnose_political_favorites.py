@@ -16,16 +16,17 @@ from datetime import datetime
 from pathlib import Path
 
 from bs4 import BeautifulSoup
-from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 
+from comiccaster.webdriver_setup import build_chrome_driver
 from authenticated_scraper_secure import (
     _COMIC_CONTAINER_RE,
     _COMIC_CONTAINER_SELECTOR,
     _NOT_ISSUED_RE,
     _extract_comic_slug_from_link,
+    is_bot_challenge_page,
     load_config_from_env,
     login,
 )
@@ -105,7 +106,11 @@ def main():
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1920,1080')
 
-    driver = webdriver.Chrome(options=options)
+    # The shared builder matches ChromeDriver to the installed Chrome (a raw
+    # webdriver.Chrome() crashed here on a stale PATH chromedriver, 2026-11-03)
+    # and presents headless Chrome as plain Chrome, which Bunny Shield requires
+    # (issue #198).
+    driver = build_chrome_driver(options)
 
     try:
         if not login(driver, config['credentials']['email'], config['credentials']['password']):
@@ -119,6 +124,12 @@ def main():
     out_path = Path(args.output_dir) / f'political_favorites_{args.date}.html'
     out_path.write_text(html)
     print(f"\nSaved HTML to: {out_path} ({len(html):,} bytes)")
+
+    if is_bot_challenge_page(html):
+        print("\n❌ GoComics' CDN served its bot challenge (Bunny Shield) instead of the "
+              "favorites page, so there is nothing to diagnose -- see "
+              "docs/solutions/logic-errors/gocomics-bunny-shield-refuses-headless-chrome.md")
+        return 1
 
     updated, not_issued = extract_slugs(html)
     target = args.target_slug

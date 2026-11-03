@@ -56,8 +56,12 @@ recovered the gap.
 ## Do / don't
 
 - **Do** build every driver with `build_chrome_driver(options)`. Grep guard:
-  `grep -rln "webdriver.Chrome(" scripts/ comiccaster/` should return only
-  non-production tooling (e.g. `diagnose_political_favorites.py`).
+  `grep -rln "webdriver.Chrome(" scripts/ comiccaster/` should return no
+  script that loads GoComics pages. Diagnostic tools count: the
+  `diagnose_political_favorites.py` runbook tool was exempt here as
+  "non-production", stayed on a raw driver, and by 2026-11-03 crashed at
+  startup on the stale PATH chromedriver (151 vs Chrome 156). Moved onto the
+  helper that day.
 - **Do** add a guard test when touching a scraper's driver setup — e.g.
   `tests/test_tinyview_scraper_secure.py::TestSetupDriverBuilder` asserts
   `setup_driver` calls the shared helper, not a raw driver.

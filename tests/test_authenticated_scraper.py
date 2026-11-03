@@ -21,7 +21,20 @@ from scripts.authenticated_scraper_secure import (
     run_backfill,
     is_bot_challenge_page,
 )
+import scripts.authenticated_scraper_secure as scraper
 from datetime import date
+
+
+@pytest.fixture(autouse=True)
+def _no_sleep_and_private_debug_dir(monkeypatch, tmp_path):
+    """Keep extraction tests fast and away from the real debug page.
+
+    extract_comics_from_page sleeps ~9s per call, and saves a page with no comics
+    to /tmp/gocomics_debug_<date>.html; a red run once overwrote the live page
+    from the 2026-11-03 incident with test HTML.
+    """
+    monkeypatch.setattr(scraper.time, 'sleep', lambda *_: None)
+    monkeypatch.setattr(scraper, '_DEBUG_DIR', tmp_path)
 
 
 def _make_comic_container(slug, badge_name, image_asset_id, include_strip=True,
@@ -648,3 +661,8 @@ class TestBotChallengeDetection:
         out = capsys.readouterr().out
         assert 'bot challenge' in out.lower()
         assert 'No comic containers found' in out
+
+    def test_page_with_no_comics_is_saved_under_debug_dir(self, tmp_path):
+        extract_comics_from_page(_mock_driver(_BUNNY_SHIELD_HTML), 'https://example.com/page', '2026-09-05')
+
+        assert (tmp_path / 'gocomics_debug_2026-09-05.html').read_text() == _BUNNY_SHIELD_HTML

@@ -36,6 +36,9 @@ _COMIC_CONTAINER_RE = re.compile(r'comicViewer')
 _BOT_CHALLENGE_MARKERS = ('Establishing a secure connection', 'shield-templates-prod.b-cdn.net')
 _NOT_ISSUED_RE = re.compile(r'featuresNotIssued')
 
+# Where a page with no comic containers is saved for diagnosis.
+_DEBUG_DIR = Path('/tmp')
+
 
 def get_required_env_var(name):
     """Get required environment variable or exit with error."""
@@ -251,7 +254,7 @@ def extract_comics_from_page(driver, page_url, date_str):
     containers = soup.find_all('div', class_=_COMIC_CONTAINER_RE)
 
     if not containers:
-        debug_file = Path(f'/tmp/gocomics_debug_{date_str}.html')
+        debug_file = _DEBUG_DIR / f'gocomics_debug_{date_str}.html'
         debug_file.write_text(driver.page_source)
         if is_bot_challenge_page(driver.page_source):
             print("  ❌ Page is a CDN bot challenge (Bunny Shield), not GoComics content. "
