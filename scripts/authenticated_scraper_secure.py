@@ -23,14 +23,18 @@ from bs4 import BeautifulSoup
 import time
 
 
-# CSS class patterns used to locate elements on profile pages.
-_COMIC_CONTAINER_SELECTOR = '[class*="ComicViewer"]'
-_COMIC_CONTAINER_RE = re.compile(r'ComicViewer')
+# CSS class patterns used to locate elements on profile pages. Match the CSS-module
+# *local* name (comicViewer, featuresNotIssued), the part every naming scheme keeps:
+# GoComics went from "ComicViewer-module-scss-module__x__comicViewer" to
+# "FfaN_W_comicViewer" overnight on 2026-11-03 (issue #254).
+_COMIC_CONTAINER_SELECTOR = '[class*="comicViewer"]'
+_COMIC_CONTAINER_RE = re.compile(r'comicViewer')
 
 # Markers of the Bunny Shield interstitial GoComics' CDN serves instead of the
 # page when it decides the client is a bot (first seen 2026-09-05, issue #198).
-_BOT_CHALLENGE_MARKERS = ('Establishing a secure connection', '/.bunny-shield/')
-_NOT_ISSUED_RE = re.compile(r'FeaturesNotIssued')
+# Not "/.bunny-shield/" alone: real pages load /.bunny-shield/bd/bunnyprint.js.
+_BOT_CHALLENGE_MARKERS = ('Establishing a secure connection', 'shield-templates-prod.b-cdn.net')
+_NOT_ISSUED_RE = re.compile(r'featuresNotIssued')
 
 
 def get_required_env_var(name):

@@ -432,6 +432,92 @@ class TestExtractComicsFromPage:
         assert 'all 2 updated comics captured' in captured.out
 
 
+def _make_hashed_comic_container(slug, badge_name, image_asset_id):
+    """A comic container in GoComics' markup from 2026-11-03 on.
+
+    The build tool now names CSS-module classes ``<hash>_<local>``
+    (``FfaN_W_comicViewer``) instead of ``<File>-module-scss-module__<hash>__<local>``.
+    The strip sits in a scroll zone beside the badge's ``__layout`` div, and the
+    ``__layout``/``__footer`` children carry the local name too.
+    """
+    badge_url = (
+        f"https://gocomicscmsassets.gocomics.com/staging-assets/assets/"
+        f"Global_Feature_Badge_{badge_name.replace(' ', '_')}_600_7fcd2b4484.png"
+    )
+    strip_url = (
+        f"https://featureassets.gocomics.com/assets/{image_asset_id}"
+        f"?optimizer=image&width=2800&quality=85"
+    )
+    return f"""
+    <div class="FfaN_W_comicViewer">
+      <div class="FfaN_W_comicViewer__layout">
+        <div class="SBMwlW_badgeByline">
+          <a href="/{slug}"><img class="RDfMzq_badge__image" src="{badge_url}" alt="" /></a>
+          <div class="SBMwlW_badgeByline__textWrapper"><a href="/{slug}">{badge_name}</a></div>
+        </div>
+      </div>
+      <div class="vx0EGq_scrollZone"><div class="_3szrOa_comic _3szrOa_comic_isStrip">
+        <img class="_3szrOa_comic__image _3szrOa_comic__image_isStrip"
+             src="{strip_url}" alt="undefined for November 3, 2026" />
+      </div></div>
+      <div class="FfaN_W_comicViewer__footer FfaN_W_comicViewer__layout">
+        <div class="FfaN_W_comicViewer__rerun"></div>
+      </div>
+    </div>
+    """
+
+
+def _hashed_not_issued_section(*slugs):
+    cards = ''.join(f'<div><a class="_3ke_CW_card" href="/{s}"></a></div>' for s in slugs)
+    return f'<div class="kf5J4a_featuresNotIssued"><div class="Je51Wq_gridDeck">{cards}</div></div>'
+
+
+_BUNNYPRINT_SCRIPT = '<script src="/.bunny-shield/bd/bunnyprint.js" data-key="k"></script>'
+
+
+class TestHashedClassNames:
+    """GoComics renamed its CSS-module classes between the 2026-11-02 Pass 2 and the
+    2026-11-03 Pass 1; matching the old ``ComicViewer`` file prefix found 0 comics
+    on every page (issue #254)."""
+
+    def test_extracts_comic_from_hashed_container(self):
+        html = _build_page_html(_make_hashed_comic_container('ziggy', 'Ziggy', 'img71332'))
+
+        comics = extract_comics_from_page(_mock_driver(html), 'https://example.com/page', '2026-11-03')
+
+        assert comics == [{
+            'name': 'Ziggy',
+            'slug': 'ziggy',
+            'image_url': 'https://featureassets.gocomics.com/assets/img71332?optimizer=image&width=2800&quality=85',
+            'date': '2026-11-03',
+            'url': 'https://www.gocomics.com/ziggy/2026/11/03',
+        }]
+
+    def test_validation_counts_hashed_not_issued_section(self, capsys):
+        html = _build_page_html(
+            _make_hashed_comic_container('ziggy', 'Ziggy', 'img1')
+            + _make_hashed_comic_container('zackhill', 'Zack Hill', 'img2')
+            + _hashed_not_issued_section('sour-grapes', 'zen-pencils')
+        )
+
+        comics = extract_comics_from_page(_mock_driver(html), 'https://example.com/page', '2026-11-03')
+        out = capsys.readouterr().out
+
+        assert [c['slug'] for c in comics] == ['ziggy', 'zackhill']
+        assert 'Page reports: 2 updated, 2 not updated today' in out
+        assert 'all 2 updated comics captured' in out
+
+    def test_real_page_loading_bunnyprint_is_not_reported_as_challenge(self, capsys):
+        """Real pages load Bunny's fingerprinting script from /.bunny-shield/ too."""
+        html = (f'<html><head><title>Comics from X | GoComics</title>{_BUNNYPRINT_SCRIPT}</head>'
+                f'<body>{_make_hashed_comic_container("ziggy", "Ziggy", "img1")}</body></html>')
+
+        comics = extract_comics_from_page(_mock_driver(html), 'https://example.com/page', '2026-11-03')
+
+        assert len(comics) == 1
+        assert 'bot challenge' not in capsys.readouterr().out.lower()
+
+
 class TestMergeWithExisting:
     """Verifies the second-pass merge logic that combines pass-1 and pass-2 scrapes."""
 
@@ -547,6 +633,11 @@ class TestBotChallengeDetection:
 
     def test_empty_profile_page_is_not_a_challenge(self):
         assert not is_bot_challenge_page(_build_page_html(''))
+
+    def test_page_loading_bunnyprint_is_not_a_challenge(self):
+        """An empty-looking real page must not be blamed on the shield (2026-11-03)."""
+        html = f'<html><head><title>Comics from X | GoComics</title>{_BUNNYPRINT_SCRIPT}</head><body></body></html>'
+        assert not is_bot_challenge_page(html)
 
     def test_extract_names_the_challenge_and_returns_nothing(self, capsys):
         driver = _mock_driver(_BUNNY_SHIELD_HTML)

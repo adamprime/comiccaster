@@ -102,6 +102,11 @@ string after launch and editing one token is always accurate.
 
 ## If it happens again
 
+- **First, confirm it is the shield.** The challenge page is ~2 KB and titled
+  *Establishing a secure connection ...*. Since 2026-11-03 real pages also load
+  `/.bunny-shield/bd/bunnyprint.js`, so a `/.bunny-shield/` path alone proves
+  nothing; that marker once misreported a class rename as a challenge (see
+  `gocomics-css-module-class-rename.md`).
 - **Same symptom, headless still refused after this fix:** Bunny has tightened
   detection beyond the UA token. Run the GoComics scraper headed
   (`--show-browser`) — the measured fallback, and the host already has a GUI
