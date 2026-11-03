@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-03",
+  "scraped_at": "2026-11-03T09:22:51.234999+00:00",
+  "comics": [
+    {
+      "id": "22948",
+      "date": "2026-11-03",
+      "url": "https://www.thefarside.com/2026/11/03/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8057a8d0e92d0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8057a8d0e92d0137cf47005056a9545d",
+      "caption": "In the corridors of Clowngress",
+      "title": "In the corridors of Clowngress"
+    },
+    {
+      "id": "22949",
+      "date": "2026-11-03",
+      "url": "https://www.thefarside.com/2026/11/03/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F5e4868c0e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/5e4868c0e92f0137cf47005056a9545d",
+      "caption": "\u201cNow, moving on from the so-called funny bone, we come to this little guy\u2014and you tickle him at your own peril.\u201d",
+      "title": "\u201cNow, moving on from the so-called funny bone, we come to..."
+    },
+    {
+      "id": "22950",
+      "date": "2026-11-03",
+      "url": "https://www.thefarside.com/2026/11/03/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1ed7f700df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1ed7f700df110137cbaf005056a9545d",
+      "caption": "\u201cJust a word of warning, Myron\u2014if you miss, I\u2019m comin\u2019 after your big hazel.\u201d",
+      "title": "\u201cJust a word of warning, Myron\u2014if you miss, I\u2019m comin\u2019 af..."
+    },
+    {
+      "id": "22951",
+      "date": "2026-11-03",
+      "url": "https://www.thefarside.com/2026/11/03/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe4936750cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e4936750cdd40137c56b005056a9545d",
+      "caption": "\u201cWell, well. \u2026 The great hunter returneth.\u201d",
+      "title": "\u201cWell, well"
+    },
+    {
+      "id": "22952",
+      "date": "2026-11-03",
+      "url": "https://www.thefarside.com/2026/11/03/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F80255140cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/80255140cdd20137c56b005056a9545d",
+      "caption": "\u201cI told you to watch for bones.\u201d",
+      "title": "\u201cI told you to watch for bones"
+    }
+  ]
+}
