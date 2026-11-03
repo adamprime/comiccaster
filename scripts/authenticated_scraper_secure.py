@@ -225,6 +225,19 @@ def is_bot_challenge_page(html):
     return any(marker in html for marker in _BOT_CHALLENGE_MARKERS)
 
 
+def is_unrecognised_page(html):
+    """True when ``html`` has neither comic containers nor a "didn't update today" section.
+
+    A favorites page always lists its comics in one or the other, so a page with
+    neither was not understood: a markup change (2026-11-03), a bot challenge or
+    an error page. A real day can have zero updated comics; it can't have zero
+    comics at all.
+    """
+    soup = BeautifulSoup(html, 'html.parser')
+    return not (soup.find('div', class_=_COMIC_CONTAINER_RE)
+                or soup.find('div', class_=_NOT_ISSUED_RE))
+
+
 def extract_comics_from_page(driver, page_url, date_str):
     """Extract comics from a custom/profile page.
 
@@ -493,12 +506,21 @@ def main():
         
         # Extract comics from all pages
         all_comics = []
-        
+        # Pages the scraper couldn't read. The day's file still saves the rest, but
+        # the run exits 1 so the pipeline alerts: a miss on one small page would
+        # otherwise leave the day above the invariant's entry floor.
+        unrecognised_pages = []
+
         for page in config['custom_pages']:
             # The plain URL always shows today. An explicit --date must fetch that
             # date's page, or today's strips get saved under the requested date.
             page_url = page_url_for_date(page['url'], args.date) if args.date else page['url']
             comics = extract_comics_from_page(driver, page_url, date_str)
+            if is_unrecognised_page(driver.page_source):
+                print(f"  ❌ Page not recognised: {page['url']} -- no comic containers and no "
+                      "\"didn't update today\" section. GoComics' markup may have changed; see "
+                      "docs/solutions/logic-errors/gocomics-css-module-class-rename.md")
+                unrecognised_pages.append(page['url'])
             
             # Add category metadata
             for comic in comics:
@@ -532,7 +554,11 @@ def main():
             json.dump(all_comics, f, indent=2)
         
         print(f"\n{'='*80}")
-        print(f"✅ SUCCESS! Extracted {len(all_comics)} comics for {date_str}")
+        if unrecognised_pages:
+            print(f"❌ {len(unrecognised_pages)} of {len(config['custom_pages'])} pages not recognised; "
+                  f"saved {len(all_comics)} comics from the rest for {date_str}")
+        else:
+            print(f"✅ SUCCESS! Extracted {len(all_comics)} comics for {date_str}")
         print(f"💾 Saved to {output_file}")
         print(f"{'='*80}\n")
 
@@ -548,8 +574,8 @@ def main():
                   f"{', '.join(p.name for p in touched) or '(none)'}")
 
         driver.quit()
-        return 0
-        
+        return 1 if unrecognised_pages else 0
+
     except Exception as e:
         print(f"\n❌ Error: {e}")
         import traceback
