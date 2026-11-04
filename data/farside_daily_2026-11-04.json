@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-04",
+  "scraped_at": "2026-11-04T09:20:52.729190+00:00",
+  "comics": [
+    {
+      "id": "22953",
+      "date": "2026-11-04",
+      "url": "https://www.thefarside.com/2026/11/04/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Faecccee0e4860137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/aecccee0e4860137cda5005056a9545d",
+      "caption": "\u201cWe understand your concern, ma\u2019am\u2014but this just isn\u2019t enough for us to go on. Now, you find the other half of your husband, and then we\u2019ve got a case.\u201d",
+      "title": "\u201cWe understand your concern, ma\u2019am\u2014but this just isn\u2019t en..."
+    },
+    {
+      "id": "22954",
+      "date": "2026-11-04",
+      "url": "https://www.thefarside.com/2026/11/04/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6f2b92d0e3ad0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6f2b92d0e3ad0137cd49005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22954"
+    },
+    {
+      "id": "22955",
+      "date": "2026-11-04",
+      "url": "https://www.thefarside.com/2026/11/04/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc32136e0d7400137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c32136e0d7400137c8a6005056a9545d",
+      "caption": "\u201cTrim the bowl, you idiots! Trim the bowl!\u201d",
+      "title": "\u201cTrim the bowl, you idiots! Trim the bowl!\u201d"
+    },
+    {
+      "id": "22956",
+      "date": "2026-11-04",
+      "url": "https://www.thefarside.com/2026/11/04/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee431a4a58c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee431a4a58c311ea8bf6005056a9",
+      "caption": "\u201cTwo, four, six, eight, who do we appreciate \u2026\u201d",
+      "title": "\u201cTwo, four, six, eight, who do we appreciate \u2026\u201d"
+    },
+    {
+      "id": "22957",
+      "date": "2026-11-04",
+      "url": "https://www.thefarside.com/2026/11/04/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc9180b70df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c9180b70df110137cbaf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22957"
+    }
+  ]
+}
