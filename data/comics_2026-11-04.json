@@ -16,6 +16,14 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/73bf5d10ba9c013fd212005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/nickanderson/2026/11/04",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/eee00b10ba0f013fd1f5005056a9545d?optimizer=image&width=2800&quality=85",
@@ -40,6 +48,14 @@
     "category": "political"
   },
   {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/edce8440baa6013fd219005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/joelpett/2026/11/04",
+    "category": "political"
+  },
+  {
     "name": "Jen Sorensen",
     "slug": "jen-sorensen",
     "image_url": "https://featureassets.gocomics.com/assets/3bf510b0b9e1013fd1e3005056a9545d?optimizer=image&width=2800&quality=85",
@@ -53,6 +69,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/3ad0c9d0ba0b013fd1f3005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-04",
     "url": "https://www.gocomics.com/jeffstahler/2026/11/04",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/a265c270ba73013fd205005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/garyvarvel/2026/11/04",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/6995d000baa4013fd217005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/drewsheneman/2026/11/04",
     "category": "political"
   },
   {
@@ -1773,6 +1805,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/0cc0a610b926013fd1ab005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-04",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/11/04",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/3c986990ba67013fd204005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/tavicat/2026/11/04",
     "category": "daily"
   },
   {
