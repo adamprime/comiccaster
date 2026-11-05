@@ -16,6 +16,30 @@
     "category": "political"
   },
   {
+    "name": "Robert Ariail",
+    "slug": "robert-ariail",
+    "image_url": "https://featureassets.gocomics.com/assets/7afa4db0bab9013fd227005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/robert-ariail/2026/11/04",
+    "category": "political"
+  },
+  {
+    "name": "Pedro X Melina",
+    "slug": "pedroxmolina",
+    "image_url": "https://featureassets.gocomics.com/assets/bd7c06e0bad6013fd237005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/pedroxmolina/2026/11/04",
+    "category": "political"
+  },
+  {
+    "name": "Bill Bramhall",
+    "slug": "bill-bramhall",
+    "image_url": "https://featureassets.gocomics.com/assets/807b9840bab3013fd223005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/bill-bramhall/2026/11/04",
+    "category": "political"
+  },
+  {
     "name": "Nick Anderson",
     "slug": "nickanderson",
     "image_url": "https://featureassets.gocomics.com/assets/73bf5d10ba9c013fd212005056a9545d?optimizer=image&width=2800&quality=85",
@@ -32,11 +56,27 @@
     "category": "political"
   },
   {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/4da172c0bac4013fd22d005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/mattdavies/2026/11/04",
+    "category": "political"
+  },
+  {
     "name": "Michael Ramirez",
     "slug": "michaelramirez",
     "image_url": "https://featureassets.gocomics.com/assets/b30182d0b9aa013fd1cb005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-04",
     "url": "https://www.gocomics.com/michaelramirez/2026/11/04",
+    "category": "political"
+  },
+  {
+    "name": "Lisa Benson",
+    "slug": "lisabenson",
+    "image_url": "https://featureassets.gocomics.com/assets/b93faad0bad6013fd237005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/lisabenson/2026/11/04",
     "category": "political"
   },
   {
@@ -64,6 +104,14 @@
     "category": "political"
   },
   {
+    "name": "Joe Heller",
+    "slug": "joe-heller",
+    "image_url": "https://featureassets.gocomics.com/assets/6148e240baf1013fd23f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/joe-heller/2026/11/04",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/3ad0c9d0ba0b013fd1f3005056a9545d?optimizer=image&width=2800&quality=85",
@@ -72,11 +120,35 @@
     "category": "political"
   },
   {
+    "name": "Jeff Danziger",
+    "slug": "jeffdanziger",
+    "image_url": "https://featureassets.gocomics.com/assets/97d30c40bb6d013fd253005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/jeffdanziger/2026/11/04",
+    "category": "political"
+  },
+  {
+    "name": "Jack Ohman",
+    "slug": "jackohman",
+    "image_url": "https://featureassets.gocomics.com/assets/b73ad740bad6013fd237005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/jackohman/2026/11/04",
+    "category": "political"
+  },
+  {
     "name": "Gary Varvel",
     "slug": "garyvarvel",
     "image_url": "https://featureassets.gocomics.com/assets/a265c270ba73013fd205005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-04",
     "url": "https://www.gocomics.com/garyvarvel/2026/11/04",
+    "category": "political"
+  },
+  {
+    "name": "Gary Markstein",
+    "slug": "garymarkstein",
+    "image_url": "https://featureassets.gocomics.com/assets/29e575f0bad0013fd232005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/garymarkstein/2026/11/04",
     "category": "political"
   },
   {
@@ -109,6 +181,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/ed885b40ba15013fd1f8005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-04",
     "url": "https://www.gocomics.com/claybennett/2026/11/04",
+    "category": "political"
+  },
+  {
+    "name": "Chris Britt",
+    "slug": "chrisbritt",
+    "image_url": "https://featureassets.gocomics.com/assets/edd63490bacf013fd232005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-04",
+    "url": "https://www.gocomics.com/chrisbritt/2026/11/04",
     "category": "political"
   },
   {

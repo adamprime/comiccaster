@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/854a1670bb63013fd24f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-05",
+    "url": "https://www.gocomics.com/nickanderson/2026/11/05",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/88dd3790bab6013fd225005056a9545d?optimizer=image&width=2800&quality=85",
@@ -24,11 +32,27 @@
     "category": "political"
   },
   {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/86932260bb63013fd24f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-05",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/11/05",
+    "category": "political"
+  },
+  {
     "name": "Jeff Stahler",
     "slug": "jeffstahler",
     "image_url": "https://featureassets.gocomics.com/assets/7d337e10bac4013fd22d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-05",
     "url": "https://www.gocomics.com/jeffstahler/2026/11/05",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/e1a7b5f0bb2d013fd247005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-05",
+    "url": "https://www.gocomics.com/garyvarvel/2026/11/05",
     "category": "political"
   },
   {
@@ -1600,6 +1624,14 @@
     "category": "daily"
   },
   {
+    "name": "Wizard of Id Classics",
+    "slug": "wizard-of-id-classics",
+    "image_url": "https://featureassets.gocomics.com/assets/e28b27d0bb5b013fd24c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-05",
+    "url": "https://www.gocomics.com/wizard-of-id-classics/2026/11/05",
+    "category": "daily"
+  },
+  {
     "name": "Wizard Of Id",
     "slug": "wizardofid",
     "image_url": "https://featureassets.gocomics.com/assets/8042a810b935013fd1b3005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1677,6 +1709,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/60b7ecc0b6df013fd15f005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-05",
     "url": "https://www.gocomics.com/ten-cats/2026/11/05",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/26b1b150bb28013fd245005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-05",
+    "url": "https://www.gocomics.com/tavicat/2026/11/05",
     "category": "daily"
   },
   {
