@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-05",
+  "scraped_at": "2026-11-05T09:21:11.950001+00:00",
+  "comics": [
+    {
+      "id": "22958",
+      "date": "2026-11-05",
+      "url": "https://www.thefarside.com/2026/11/05/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9c3707d0c1520137c0b4005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9c3707d0c1520137c0b4005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22958"
+    },
+    {
+      "id": "22959",
+      "date": "2026-11-05",
+      "url": "https://www.thefarside.com/2026/11/05/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F95b43b9258c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/95b43b9258c311ea8bf6005056a9",
+      "caption": "\u201cJust look at this room\u2014body segments\neverywhere!\u201d",
+      "title": "\u201cJust look at this room\u2014body segments\neverywhere!\u201d"
+    },
+    {
+      "id": "22960",
+      "date": "2026-11-05",
+      "url": "https://www.thefarside.com/2026/11/05/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F321c9f40cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/321c9f40cdd40137c56b005056a9545d",
+      "caption": "\u201cI told you guys to slow down and take it easy or something like this would happen.\u201d",
+      "title": "\u201cI told you guys to slow down and take it easy or somethi..."
+    },
+    {
+      "id": "22961",
+      "date": "2026-11-05",
+      "url": "https://www.thefarside.com/2026/11/05/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0616a9f0e92e0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0616a9f0e92e0137cf47005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22961"
+    },
+    {
+      "id": "22962",
+      "date": "2026-11-05",
+      "url": "https://www.thefarside.com/2026/11/05/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc38ab700df100137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c38ab700df100137cbaf005056a9545d",
+      "caption": "Appliance healers",
+      "title": "Appliance healers"
+    }
+  ]
+}
