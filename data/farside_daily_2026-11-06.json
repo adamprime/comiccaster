@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-06",
+  "scraped_at": "2026-11-06T09:21:04.031606+00:00",
+  "comics": [
+    {
+      "id": "22963",
+      "date": "2026-11-06",
+      "url": "https://www.thefarside.com/2026/11/06/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fca2aafd0e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ca2aafd0e6f80137ce50005056a9545d",
+      "caption": "\u201cOkay, Jane, this guy you want me to go out with\u2014you say he lives alone, he doesn\u2019t have any friends, and he has a slight frothing problem. \u2026 He\u2019s not a rogue, is he?\u201d",
+      "title": "\u201cOkay, Jane, this guy you want me to go out with\u2014you say ..."
+    },
+    {
+      "id": "22964",
+      "date": "2026-11-06",
+      "url": "https://www.thefarside.com/2026/11/06/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff133de80d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f133de80d7410137c8a6005056a9545d",
+      "caption": "\u201cI\u2019ve had it, Doc! I\u2019ve come all the way from Alabama with this danged thing on my knee!\u201d",
+      "title": "\u201cI\u2019ve had it, Doc! I\u2019ve come all the way from Alabama wit..."
+    },
+    {
+      "id": "22965",
+      "date": "2026-11-06",
+      "url": "https://www.thefarside.com/2026/11/06/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F003a8c50dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/003a8c50dcc90137caaf005056a9545d",
+      "caption": "\u201cWell, we might as well put it on board\u2014although I\u2019m not sure what use we\u2019ll have for a box of rusty nails, broken glass, and\n throwing darts.\u201d",
+      "title": "\u201cWell, we might as well put it on board\u2014although I\u2019m not ..."
+    },
+    {
+      "id": "22966",
+      "date": "2026-11-06",
+      "url": "https://www.thefarside.com/2026/11/06/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa6cab980d0ea0137c64d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a6cab980d0ea0137c64d005056a9545d",
+      "caption": "\u201cWe\u2019re in trouble.\u201d",
+      "title": "\u201cWe\u2019re in trouble"
+    },
+    {
+      "id": "22967",
+      "date": "2026-11-06",
+      "url": "https://www.thefarside.com/2026/11/06/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F80203400e92f0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/80203400e92f0137cf47005056a9545d",
+      "caption": "Long before his rise to fame, artist Gus Nickerson experimented with many variations on a single theme\u2014until that fateful day when a friend said, \u201cGus \u2026 have you tried dogs playing poker?\u201d",
+      "title": "Long before his rise to fame, artist Gus Nickerson experi..."
+    }
+  ]
+}
