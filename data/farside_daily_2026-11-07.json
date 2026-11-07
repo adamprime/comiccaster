@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-11-07",
+  "scraped_at": "2026-11-07T09:20:58.457471+00:00",
+  "comics": [
+    {
+      "id": "22968",
+      "date": "2026-11-07",
+      "url": "https://www.thefarside.com/2026/11/07/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F165e3740d8ba0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/165e3740d8ba0137c959005056a9545d",
+      "caption": "\u201cOkay! I\u2019ll talk! I\u2019ll talk! \u2026 Take two sticks of approximately equal size and weight\u2014rub them together at opposing angles using short, brisk strokes \u2026 \u201d",
+      "title": "\u201cOkay! I\u2019ll talk! I\u2019ll talk! \u2026 Take two sticks of approxi..."
+    },
+    {
+      "id": "22969",
+      "date": "2026-11-07",
+      "url": "https://www.thefarside.com/2026/11/07/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F97b9d1d0e3ad0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/97b9d1d0e3ad0137cd49005056a9545d",
+      "caption": "Nov. 12, 1957: Kevin Wakefield, during snack time,\nmakes kindergarten history by selecting the soda cracker\nover the graham.",
+      "title": "Nov"
+    }
+  ]
+}
