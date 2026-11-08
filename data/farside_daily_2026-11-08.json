@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-11-08",
+  "scraped_at": "2026-11-08T09:20:34.988942+00:00",
+  "comics": [
+    {
+      "id": "22970",
+      "date": "2026-11-08",
+      "url": "https://www.thefarside.com/2026/11/08/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F89cc9ec0e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/89cc9ec0e6f90137ce50005056a9545d",
+      "caption": "Buffalo, N.Y., Nov. 2-5: The annual convention of the Big Galoot Society of America",
+      "title": "Buffalo, N"
+    },
+    {
+      "id": "22971",
+      "date": "2026-11-08",
+      "url": "https://www.thefarside.com/2026/11/08/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0efd3c40dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0efd3c40dcc90137caaf005056a9545d",
+      "caption": "When snakes trip",
+      "title": "When snakes trip"
+    }
+  ]
+}
