@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-09",
+  "scraped_at": "2026-11-09T09:20:50.868984+00:00",
+  "comics": [
+    {
+      "id": "22972",
+      "date": "2026-11-09",
+      "url": "https://www.thefarside.com/2026/11/09/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7cfc26b0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7cfc26b0cdd30137c56b005056a9545d",
+      "caption": "\u201cFor twelve perfect years I was a car-chaser. Pontiacs, \nFords, Chryslers\u2014I took \u2019em all on \u2026 and yesterday my \nstupid owner backs over me in the driveway.\u201d",
+      "title": "\u201cFor twelve perfect years I was a car-chaser"
+    },
+    {
+      "id": "22973",
+      "date": "2026-11-09",
+      "url": "https://www.thefarside.com/2026/11/09/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff42845b0df0f0137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f42845b0df0f0137cbaf005056a9545d",
+      "caption": "\u201cUh-oh\u2014did anyone remember to feed the giraffe tonight?\u201d",
+      "title": "\u201cUh-oh\u2014did anyone remember to feed the giraffe tonight?\u201d"
+    },
+    {
+      "id": "22974",
+      "date": "2026-11-09",
+      "url": "https://www.thefarside.com/2026/11/09/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F71cc3160e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/71cc3160e6f90137ce50005056a9545d",
+      "caption": "The class was quietly doing its lesson when Russell, suffering from problems at home, prepared to employ an attention-getting device.",
+      "title": "The class was quietly doing its lesson when Russell, suff..."
+    },
+    {
+      "id": "22975",
+      "date": "2026-11-09",
+      "url": "https://www.thefarside.com/2026/11/09/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7771e43002810138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7771e43002810138d7bb005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22975"
+    },
+    {
+      "id": "22976",
+      "date": "2026-11-09",
+      "url": "https://www.thefarside.com/2026/11/09/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd459a09002800138d7bb005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d459a09002800138d7bb005056a9545d",
+      "caption": "\u201cHey, Sid! Remember that time last summer we were all gathered around the kill like this, someone told a leopard joke, and you laughed so hard an antler came out\n your nose?\u201d",
+      "title": "\u201cHey, Sid! Remember that time last summer we were all gat..."
+    }
+  ]
+}
