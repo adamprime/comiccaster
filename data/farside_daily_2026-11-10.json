@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-10",
+  "scraped_at": "2026-11-10T09:21:20.215101+00:00",
+  "comics": [
+    {
+      "id": "22977",
+      "date": "2026-11-10",
+      "url": "https://www.thefarside.com/2026/11/10/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F260ccd10df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/260ccd10df110137cbaf005056a9545d",
+      "caption": "Auditions for the Lone Ranger\u2019s horse",
+      "title": "Auditions for the Lone Ranger\u2019s horse"
+    },
+    {
+      "id": "22978",
+      "date": "2026-11-10",
+      "url": "https://www.thefarside.com/2026/11/10/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe12c61f0d7400137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e12c61f0d7400137c8a6005056a9545d",
+      "caption": "\u201cWhat a find, Williams! The fossilized footprint of a brachiosaurus! \u2026 And a Homo habilus thrown in to boot!\u201d",
+      "title": "\u201cWhat a find, Williams! The fossilized footprint of a bra..."
+    },
+    {
+      "id": "22979",
+      "date": "2026-11-10",
+      "url": "https://www.thefarside.com/2026/11/10/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6eb08340fa840137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6eb08340fa840137d52f005056a9545d",
+      "caption": "\u201cYou know, I have a confession to make, Bernie. Win or lose, I love doing this.\u201d",
+      "title": "\u201cYou know, I have a confession to make, Bernie"
+    },
+    {
+      "id": "22980",
+      "date": "2026-11-10",
+      "url": "https://www.thefarside.com/2026/11/10/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa447dbe0dcc90137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a447dbe0dcc90137caaf005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22980"
+    },
+    {
+      "id": "22981",
+      "date": "2026-11-10",
+      "url": "https://www.thefarside.com/2026/11/10/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F4e78b870d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/4e78b870d8bb0137c959005056a9545d",
+      "caption": "Suddenly, Professor Liebowitz realizes he has come to the seminar without his duck.",
+      "title": "Suddenly, Professor Liebowitz realizes he has come to the..."
+    }
+  ]
+}
