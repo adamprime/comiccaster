@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-11",
+  "scraped_at": "2026-11-11T09:21:08.422052+00:00",
+  "comics": [
+    {
+      "id": "22982",
+      "date": "2026-11-11",
+      "url": "https://www.thefarside.com/2026/11/11/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd8a7c1e0e4790137cd9d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d8a7c1e0e4790137cd9d005056a9545d",
+      "caption": "Gargoyle socks",
+      "title": "Gargoyle socks"
+    },
+    {
+      "id": "22983",
+      "date": "2026-11-11",
+      "url": "https://www.thefarside.com/2026/11/11/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F390a53f0cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/390a53f0cdd50137c56b005056a9545d",
+      "caption": "\u201cAnd, as you shall soon observe, we are quite proud of our test tube baby progress.\u201d",
+      "title": "\u201cAnd, as you shall soon observe, we are quite proud of ou..."
+    },
+    {
+      "id": "22984",
+      "date": "2026-11-11",
+      "url": "https://www.thefarside.com/2026/11/11/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fde4bfbc0cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/de4bfbc0cdd40137c56b005056a9545d",
+      "caption": "\u201cDon\u2019t be alarmed, folks\u2014he\u2019s completely harmless unless something startles him.\u201d",
+      "title": "\u201cDon\u2019t be alarmed, folks\u2014he\u2019s completely harmless unless ..."
+    },
+    {
+      "id": "22985",
+      "date": "2026-11-11",
+      "url": "https://www.thefarside.com/2026/11/11/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0ca3ce20dccb0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0ca3ce20dccb0137caaf005056a9545d",
+      "caption": "Punk porcupines",
+      "title": "Punk porcupines"
+    },
+    {
+      "id": "22986",
+      "date": "2026-11-11",
+      "url": "https://www.thefarside.com/2026/11/11/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F8fd967d0d8bb0137c959005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/8fd967d0d8bb0137c959005056a9545d",
+      "caption": "\u201cLet\u2019s see here. \u2026 Oh! Close, but no cigar. You want the place up the road\u2014same as I told those other fellahs.\u201d",
+      "title": "\u201cLet\u2019s see here"
+    }
+  ]
+}
