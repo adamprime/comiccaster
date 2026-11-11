@@ -1,5 +1,13 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/6ab35ae0bfe7013fd345005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-11",
+    "url": "https://www.gocomics.com/two-party-opera/2026/11/11",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/df34d8c0bb89013fd266005056a9545d?optimizer=image&width=2800&quality=85",
@@ -61,6 +69,22 @@
     "image_url": "https://featureassets.gocomics.com/assets/087aef10bf53013fd31c005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-11",
     "url": "https://www.gocomics.com/jeffdanziger/2026/11/11",
+    "category": "political"
+  },
+  {
+    "name": "Gary Varvel",
+    "slug": "garyvarvel",
+    "image_url": "https://featureassets.gocomics.com/assets/dbd5b040c01d013fd353005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-11",
+    "url": "https://www.gocomics.com/garyvarvel/2026/11/11",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/327b41f0c01c013fd352005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-11",
+    "url": "https://www.gocomics.com/drewsheneman/2026/11/11",
     "category": "political"
   },
   {
