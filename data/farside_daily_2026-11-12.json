@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-12",
+  "scraped_at": "2026-11-12T09:21:14.832642+00:00",
+  "comics": [
+    {
+      "id": "22987",
+      "date": "2026-11-12",
+      "url": "https://www.thefarside.com/2026/11/12/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fba56af70cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ba56af70cdd20137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22987"
+    },
+    {
+      "id": "22988",
+      "date": "2026-11-12",
+      "url": "https://www.thefarside.com/2026/11/12/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fade4b120dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ade4b120dcca0137caaf005056a9545d",
+      "caption": "The rhino in repose",
+      "title": "The rhino in repose"
+    },
+    {
+      "id": "22989",
+      "date": "2026-11-12",
+      "url": "https://www.thefarside.com/2026/11/12/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6a602fe0dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6a602fe0dcca0137caaf005056a9545d",
+      "caption": "\u201cOpen the gate! It\u2019s a big wiener dog!\u201d",
+      "title": "\u201cOpen the gate! It\u2019s a big wiener dog!\u201d"
+    },
+    {
+      "id": "22990",
+      "date": "2026-11-12",
+      "url": "https://www.thefarside.com/2026/11/12/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3a29b420df110137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3a29b420df110137cbaf005056a9545d",
+      "caption": "\u201cWawa!\u201d",
+      "title": "\u201cWawa!\u201d"
+    },
+    {
+      "id": "22991",
+      "date": "2026-11-12",
+      "url": "https://www.thefarside.com/2026/11/12/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe49aaac0ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e49aaac0ea250137cfba005056a9545d",
+      "caption": "Despite his repeated efforts to explain things to her, \nSatan could never dissuade his mother from offering cookies and milk to the accursed.",
+      "title": "Despite his repeated efforts to explain things to her, \nS..."
+    }
+  ]
+}
