@@ -24,6 +24,14 @@
     "category": "political"
   },
   {
+    "name": "Rob Rogers",
+    "slug": "robrogers",
+    "image_url": "https://featureassets.gocomics.com/assets/73e75b60c0fc013fd391005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-12",
+    "url": "https://www.gocomics.com/robrogers/2026/11/12",
+    "category": "political"
+  },
+  {
     "name": "Phil Hands",
     "slug": "phil-hands",
     "image_url": "https://featureassets.gocomics.com/assets/b86e82c0c03d013fd361005056a9545d?optimizer=image&width=2800&quality=85",
@@ -56,11 +64,27 @@
     "category": "political"
   },
   {
+    "name": "Lisa Benson",
+    "slug": "lisabenson",
+    "image_url": "https://featureassets.gocomics.com/assets/445c63e0c10f013fd399005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-12",
+    "url": "https://www.gocomics.com/lisabenson/2026/11/12",
+    "category": "political"
+  },
+  {
     "name": "Joey Weatherford",
     "slug": "joey-weatherford",
     "image_url": "https://featureassets.gocomics.com/assets/7e072de0c0df013fd387005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-12",
     "url": "https://www.gocomics.com/joey-weatherford/2026/11/12",
+    "category": "political"
+  },
+  {
+    "name": "Joe Pett",
+    "slug": "joelpett",
+    "image_url": "https://featureassets.gocomics.com/assets/af82fd00c10f013fd39a005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-12",
+    "url": "https://www.gocomics.com/joelpett/2026/11/12",
     "category": "political"
   },
   {
@@ -93,6 +117,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/2823a170c03c013fd360005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-12",
     "url": "https://www.gocomics.com/clayjones/2026/11/12",
+    "category": "political"
+  },
+  {
+    "name": "Chris Britt",
+    "slug": "chrisbritt",
+    "image_url": "https://featureassets.gocomics.com/assets/8c307830c121013fd3a2005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-12",
+    "url": "https://www.gocomics.com/chrisbritt/2026/11/12",
     "category": "political"
   },
   {
