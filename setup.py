@@ -22,5 +22,8 @@ setup(
             "pytest-mock>=3.6.0",
         ],
     },
-    python_requires=">=3.10",
+    # The floor of the locked soupsieve (constraints.txt). Dependabot appears to
+    # resolve against the lowest Python allowed here: while this said 3.10, it
+    # proposed no soupsieve 3/4 or python-dateutil 4, which both need 3.11+.
+    python_requires=">=3.11.5",
 ) 
