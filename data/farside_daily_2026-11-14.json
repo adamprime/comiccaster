@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-11-14",
+  "scraped_at": "2026-11-14T09:20:36.099118+00:00",
+  "comics": [
+    {
+      "id": "22997",
+      "date": "2026-11-14",
+      "url": "https://www.thefarside.com/2026/11/14/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F43123210e3af0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/43123210e3af0137cd49005056a9545d",
+      "caption": "\u201cNo doubt about it, boys. \u2026 See these markings on the bottom? This is an Apache pie pan!\u201d",
+      "title": "\u201cNo doubt about it, boys"
+    },
+    {
+      "id": "22998",
+      "date": "2026-11-14",
+      "url": "https://www.thefarside.com/2026/11/14/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fc03b0bf0d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/c03b0bf0d7410137c8a6005056a9545d",
+      "caption": "",
+      "title": "The Far Side #22998"
+    }
+  ]
+}
