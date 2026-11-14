@@ -672,6 +672,14 @@
     "category": "daily"
   },
   {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/0414c0e0c25c013fd3e9005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-14",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/11/14",
+    "category": "daily"
+  },
+  {
     "name": "Ginger Meggs",
     "slug": "gingermeggs-espanol",
     "image_url": "https://featureassets.gocomics.com/assets/f6d23f500269012f2fbf00163e41dd5b?optimizer=image&width=2800&quality=85",
@@ -893,6 +901,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/e57ae640a5540131428e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-14",
     "url": "https://www.gocomics.com/familytree/2026/11/14",
+    "category": "daily"
+  },
+  {
+    "name": "Endtown",
+    "slug": "endtown",
+    "image_url": "https://featureassets.gocomics.com/assets/4b1b2700c24f013fd3e7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-14",
+    "url": "https://www.gocomics.com/endtown/2026/11/14",
     "category": "daily"
   },
   {
