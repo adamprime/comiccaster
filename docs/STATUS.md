@@ -102,7 +102,7 @@ _Decided 2026-10-24: **Dependabot security updates turned on** (operator call: "
 <!-- How to run this project. Critical for fresh agent sessions. -->
 
 **Run locally:** `netlify dev` (full stack at `http://localhost:8888`) or `python run_app.py` (Flask at `http://localhost:5001`)
-**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 959 passing in about 35 s (the fetch-feed tests run the Netlify function under `node` and skip without it), requires Python ≥3.10 (on the host, bare `python3` is Apple's 3.9.6; build venvs from `/opt/homebrew/opt/python@3.14/bin/python3.14`, the production venv's base)
+**Run tests:** `pytest -v` (or `pytest -v --cov=comiccaster --cov-report=term-missing`) — 959 passing in about 35 s (the fetch-feed tests run the Netlify function under `node` and skip without it), requires Python ≥3.11.5 (on the host, bare `python3` is Apple's 3.9.6; build venvs from `/opt/homebrew/opt/python@3.14/bin/python3.14`, the production venv's base)
 **Install (pipeline host):** `venv/bin/python -m pip install -r requirements.txt -c constraints.txt` — the constraints file pins transitives so the host venv is reproducible. CI's Tests job installs the same way (since #249); only the weekly `dependency-canary.yml` installs unconstrained. Change the host venv only after a PR merges, under `/usr/bin/lockf -k -t 1800 logs/pipeline.lock`
 **Deploy:** Push to `main` to trigger Netlify deployment
 **Key env vars:** `FLASK_DEBUG` (local optional), `NODE_VERSION`, `NETLIFY_FUNCTIONS_DIR`
