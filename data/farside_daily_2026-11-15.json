@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-11-15",
+  "scraped_at": "2026-11-15T09:20:30.644136+00:00",
+  "comics": [
+    {
+      "id": "22999",
+      "date": "2026-11-15",
+      "url": "https://www.thefarside.com/2026/11/15/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F3afa56b0e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/3afa56b0e85b0137cedf005056a9545d",
+      "caption": "\u201c... And please let Mom, Dad, Rex, Ginger, Tucker, me, and all the rest of the family see color.\u201d",
+      "title": "\u201c"
+    },
+    {
+      "id": "23000",
+      "date": "2026-11-15",
+      "url": "https://www.thefarside.com/2026/11/15/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1a9d11e0d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1a9d11e0d0f70137c652005056a9545d",
+      "caption": "School for the Mechanically Declined",
+      "title": "School for the Mechanically Declined"
+    }
+  ]
+}
