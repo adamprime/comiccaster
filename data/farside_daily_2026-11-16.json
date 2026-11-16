@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-16",
+  "scraped_at": "2026-11-16T09:20:33.113700+00:00",
+  "comics": [
+    {
+      "id": "23001",
+      "date": "2026-11-16",
+      "url": "https://www.thefarside.com/2026/11/16/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F935a82d0e9ef0137cf93005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/935a82d0e9ef0137cf93005056a9545d",
+      "caption": "Some anthropologists believe that the discoveries of fire, shelter, and language were almost simultaneous.",
+      "title": "Some anthropologists believe that the discoveries of fire..."
+    },
+    {
+      "id": "23002",
+      "date": "2026-11-16",
+      "url": "https://www.thefarside.com/2026/11/16/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb02573b0e6f70137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b02573b0e6f70137ce50005056a9545d",
+      "caption": "Suddenly, on a national talk show in front of millions of viewers, Dick Clark ages 200 years in 30 seconds.",
+      "title": "Suddenly, on a national talk show in front of millions of..."
+    },
+    {
+      "id": "23003",
+      "date": "2026-11-16",
+      "url": "https://www.thefarside.com/2026/11/16/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F12aac050d0f70137c652005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/12aac050d0f70137c652005056a9545d",
+      "caption": "Mankind arrives on Earth",
+      "title": "Mankind arrives on Earth"
+    },
+    {
+      "id": "23004",
+      "date": "2026-11-16",
+      "url": "https://www.thefarside.com/2026/11/16/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe4475460e92d0137cf47005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e4475460e92d0137cf47005056a9545d",
+      "caption": "\u201cWell, I\u2019m not sure we can afford stomach insurance\u2014right now we\u2019re trying to put the kids through the small intestine.\u201d",
+      "title": "\u201cWell, I\u2019m not sure we can afford stomach insurance\u2014right..."
+    },
+    {
+      "id": "23017",
+      "date": "2026-11-16",
+      "url": "https://www.thefarside.com/2026/11/16/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb1bb1710e85b0137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b1bb1710e85b0137cedf005056a9545d",
+      "caption": "\u201cMy marriage is in trouble, Barbara. You ever tried communicating with a hammerhead?\u201d",
+      "title": "\u201cMy marriage is in trouble, Barbara"
+    }
+  ]
+}
