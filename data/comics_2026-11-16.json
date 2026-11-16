@@ -1,5 +1,21 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/dac6bf20c3da013fd40e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-16",
+    "url": "https://www.gocomics.com/two-party-opera/2026/11/16",
+    "category": "political"
+  },
+  {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/058d6140c40a013fd417005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-16",
+    "url": "https://www.gocomics.com/tim-campbell/2026/11/16",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/1785c1d0c1d6013fd3cf005056a9545d?optimizer=image&width=2800&quality=85",
@@ -29,6 +45,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/d2aae330c3c5013fd40a005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-16",
     "url": "https://www.gocomics.com/m2bulls/2026/11/16",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/0ed24ff0c402013fd413005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-16",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/11/16",
     "category": "political"
   },
   {
@@ -797,6 +821,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/4d5176501712013fbf8d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-16",
     "url": "https://www.gocomics.com/globetrotter/2026/11/16",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/a41efa10c3ed013fd40f005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-16",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/11/16",
     "category": "daily"
   },
   {
@@ -1773,6 +1805,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/38b2f840a2bb013fccc0005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-16",
     "url": "https://www.gocomics.com/toomuchcoffeeman/2026/11/16",
+    "category": "daily"
+  },
+  {
+    "name": "Tiny Sepuku",
+    "slug": "tinysepuku",
+    "image_url": "https://featureassets.gocomics.com/assets/a7363f60c3d6013fd40c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-16",
+    "url": "https://www.gocomics.com/tinysepuku/2026/11/16",
     "category": "daily"
   },
   {
