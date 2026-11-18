@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-18",
+  "scraped_at": "2026-11-18T09:21:20.256281+00:00",
+  "comics": [
+    {
+      "id": "23012",
+      "date": "2026-11-18",
+      "url": "https://www.thefarside.com/2026/11/18/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fa3d77c00cdd20137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/a3d77c00cdd20137c56b005056a9545d",
+      "caption": "\u201cI got a bad feeling about this, Harriet.\u201d",
+      "title": "\u201cI got a bad feeling about this, Harriet"
+    },
+    {
+      "id": "23013",
+      "date": "2026-11-18",
+      "url": "https://www.thefarside.com/2026/11/18/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff4f50f40ea250137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f4f50f40ea250137cfba005056a9545d",
+      "caption": "\u201cBut on the other hand, Feldman, having the biggest \nbrain among us means that it is mere child\u2019s play to \nsubdue you with an ordinary headlock!\u201d",
+      "title": "\u201cBut on the other hand, Feldman, having the biggest \nbrai..."
+    },
+    {
+      "id": "23014",
+      "date": "2026-11-18",
+      "url": "https://www.thefarside.com/2026/11/18/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F44929690e24d0137cca4005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/44929690e24d0137cca4005056a9545d",
+      "caption": "\u201cAaaaaaaaaa! ... Oh, sorry\u2014it\u2019s just the dog.\u201d",
+      "title": "\u201cAaaaaaaaaa!"
+    },
+    {
+      "id": "23015",
+      "date": "2026-11-18",
+      "url": "https://www.thefarside.com/2026/11/18/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F43a84030cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/43a84030cdd30137c56b005056a9545d",
+      "caption": "",
+      "title": "The Far Side #23015"
+    },
+    {
+      "id": "23016",
+      "date": "2026-11-18",
+      "url": "https://www.thefarside.com/2026/11/18/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F2b007360cdd70137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/2b007360cdd70137c56b005056a9545d",
+      "caption": "\u201cWell, you can just rebuild the fort later, Harold. \u2026 Phyllis and Shirley are coming over and I\u2019ll need the cushions.\u201d",
+      "title": "\u201cWell, you can just rebuild the fort later, Harold"
+    }
+  ]
+}
