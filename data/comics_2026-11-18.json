@@ -1,5 +1,21 @@
 [
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/94015eb0c56e013fd475005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-18",
+    "url": "https://www.gocomics.com/two-party-opera/2026/11/18",
+    "category": "political"
+  },
+  {
+    "name": "Tim Campbell",
+    "slug": "tim-campbell",
+    "image_url": "https://featureassets.gocomics.com/assets/c08dddc0c5a4013fd483005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-18",
+    "url": "https://www.gocomics.com/tim-campbell/2026/11/18",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/1a36ef80c1d6013fd3cf005056a9545d?optimizer=image&width=2800&quality=85",
@@ -16,11 +32,27 @@
     "category": "political"
   },
   {
+    "name": "Nick Anderson",
+    "slug": "nickanderson",
+    "image_url": "https://featureassets.gocomics.com/assets/f62ed720c5a0013fd482005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-18",
+    "url": "https://www.gocomics.com/nickanderson/2026/11/18",
+    "category": "political"
+  },
+  {
     "name": "Mike Luckovich",
     "slug": "mikeluckovich",
     "image_url": "https://featureassets.gocomics.com/assets/73a90150c50f013fd462005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-18",
     "url": "https://www.gocomics.com/mikeluckovich/2026/11/18",
+    "category": "political"
+  },
+  {
+    "name": "Matt Davies",
+    "slug": "mattdavies",
+    "image_url": "https://featureassets.gocomics.com/assets/8901c070c59b013fd480005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-18",
+    "url": "https://www.gocomics.com/mattdavies/2026/11/18",
     "category": "political"
   },
   {
@@ -40,6 +72,14 @@
     "category": "political"
   },
   {
+    "name": "Jeff Stahler",
+    "slug": "jeffstahler",
+    "image_url": "https://featureassets.gocomics.com/assets/4a366d50c595013fd47c005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-18",
+    "url": "https://www.gocomics.com/jeffstahler/2026/11/18",
+    "category": "political"
+  },
+  {
     "name": "Jack Ohman",
     "slug": "jackohman",
     "image_url": "https://featureassets.gocomics.com/assets/15aa03b0c44d013fd42e005056a9545d?optimizer=image&width=2800&quality=85",
@@ -53,6 +93,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/710b49b0c50f013fd462005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-18",
     "url": "https://www.gocomics.com/garyvarvel/2026/11/18",
+    "category": "political"
+  },
+  {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/bb97d930c5a4013fd483005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-18",
+    "url": "https://www.gocomics.com/drewsheneman/2026/11/18",
     "category": "political"
   },
   {
@@ -789,6 +837,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/51a927101712013fbf8d005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-18",
     "url": "https://www.gocomics.com/globetrotter/2026/11/18",
+    "category": "daily"
+  },
+  {
+    "name": "Glasbergen Cartoons",
+    "slug": "glasbergen-cartoons",
+    "image_url": "https://featureassets.gocomics.com/assets/e6e0b430c584013fd478005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-18",
+    "url": "https://www.gocomics.com/glasbergen-cartoons/2026/11/18",
     "category": "daily"
   },
   {
@@ -1757,6 +1813,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/cc711b30c41c013fd41e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-18",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/11/18",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/2fbee9a0c574013fd477005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-18",
+    "url": "https://www.gocomics.com/tavicat/2026/11/18",
     "category": "daily"
   },
   {
