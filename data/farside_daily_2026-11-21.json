@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-11-21",
+  "scraped_at": "2026-11-21T09:21:06.276485+00:00",
+  "comics": [
+    {
+      "id": "23028",
+      "date": "2026-11-21",
+      "url": "https://www.thefarside.com/2026/11/21/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe499f3c0dcca0137caaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e499f3c0dcca0137caaf005056a9545d",
+      "caption": "French mammoth",
+      "title": "French mammoth"
+    },
+    {
+      "id": "23029",
+      "date": "2026-11-21",
+      "url": "https://www.thefarside.com/2026/11/21/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0fda1900cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0fda1900cdd50137c56b005056a9545d",
+      "caption": "\u201cReuben! The Johnsons are here! You come up this instant ... or I\u2019ll get the hose!\u201d",
+      "title": "\u201cReuben! The Johnsons are here! You come up this instant"
+    }
+  ]
+}
