@@ -2,7 +2,7 @@
 title: Agent access, next steps - Plan
 type: feat
 date: 2026-10-24
-status: proposed (direction agreed; step 1 planned in detail in docs/plans/2026-11-22-1514-feat-feed-strip-images-media-thumbnail-plan.md; run ce-plan on steps 2 and 3 before implementing them)
+status: in progress (step 1 done in #267; step 2 decided 2026-11-22, see its note; run ce-plan on step 3 before implementing it)
 ---
 
 # Agent access, next steps - Plan
@@ -53,6 +53,38 @@ do the job, and then keep it read-only, with no outbound fetching.
    variant (`?type=daily&comics=a,b`) on the existing function, or have agents
    build OPML themselves from `catalog.json` (already described in `llms.txt`).
    Decide whether the GET variant is worth a code change at all.
+
+   **Decided 2026-11-22: yes, add the GET form.** An agent can't hand a person a
+   file it wrote; it can hand them a link, and a person can share a link. The
+   change runs no new kind of code: same function, same lists, still no outbound
+   fetch, just a second way to send the same input. Writing OPML from
+   `catalog.json` stays documented for agents that need to mix categories.
+   The design:
+
+   - `GET /.netlify/functions/generate-opml?type=daily&comics=peanuts,pickles`
+     returns the POST form's OPML with `Content-Disposition: attachment`, so a
+     browser downloads it. POST stays as it is for `public/index.html`.
+   - **One category per link.** Slugs aren't unique across the lists:
+     `false-knees` is a ComicCaster feed under daily and the publisher's own
+     feed under external, and 60-odd Spanish and political slugs are in the
+     daily list too. The category is what decides which feed a slug means. A
+     mixed link would need its own per-slug syntax for a case no caller has
+     yet, and the OPML has one category outline and one filename.
+   - **A link keeps only slugs in its own category's list.** The POST form's
+     filter (`comicFeedExists`) also passes a slug from another category, or
+     any path that names a feed file such as `../feeds/pickles`, which then gets
+     a made-up name or a URL that 404s. A link narrows that filter to the
+     requested category, so nothing from the query reaches the OPML except a
+     listed slug.
+   - **Caps:** at most 100 slugs and a 5,000-character query. 100 of the
+     longest real slugs, commas percent-encoded, fit inside the length cap.
+   - `type` must be daily, political, spanish, tinyview or external (default
+     daily); the Far Side and New Yorker comics are in the daily list.
+   - GET responses send `Access-Control-Allow-Origin: *`, like the feeds and
+     the catalog, so a browser-based agent can read them.
+   - Found on the way, fixed for both forms: comic names weren't XML-escaped,
+     so a bundle with Barney & Clyde (or any of the seven `&` names) was not
+     well-formed and a strict reader would reject the whole file.
 3. **A read-only MCP server, last.** Tools such as `search_comics`,
    `get_comic`, `latest_strip` and `build_opml`, reading only `catalog.json`
    and the feeds, with no outbound fetches, so it can never become another

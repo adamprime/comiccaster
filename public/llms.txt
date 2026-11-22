@@ -26,11 +26,17 @@ Each item in a ComicCaster feed names its strip images in Media RSS `media:thumb
 
 ## Bundle feeds as OPML
 
-POST JSON to `https://comiccaster.xyz/.netlify/functions/generate-opml`:
+Link to `https://comiccaster.xyz/.netlify/functions/generate-opml` with a category and a comma-separated list of slugs:
 
-    {"type": "daily", "comics": ["peanuts", "pickles"]}
+    https://comiccaster.xyz/.netlify/functions/generate-opml?type=daily&comics=peanuts,pickles
 
-`type` is the comics' category: daily, political, spanish, tinyview or external (use daily for farside and newyorker comics). `comics` is a list of slugs from that category. The response is an OPML file that feed readers can import. Slugs in no catalog list are dropped. Writing the OPML yourself from catalog `feed_url`s works just as well and can mix categories.
+Opening the link downloads an OPML file that feed readers can import, so you can give the link to a person as it is, or they can share it.
+
+- `type` is one category: daily, political, spanish, tinyview or external. Use daily for farside and newyorker comics. It defaults to daily.
+- `comics` is up to 100 slugs from that category. Slugs not listed in that category are dropped. If none are left, the response is a 400 with a JSON `error`.
+- One link holds one category, because the same slug can mean different feeds in different categories (false-knees is a ComicCaster feed in daily and the publisher's own feed in external). For comics from several categories, give one link per category, or write the OPML yourself from catalog `feed_url`s.
+
+POSTing JSON to the same URL returns the same file: `{"type": "daily", "comics": ["peanuts", "pickles"]}`.
 
 ## More
 

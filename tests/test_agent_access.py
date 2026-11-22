@@ -55,6 +55,7 @@ def test_llms_txt_says_where_the_catalog_and_feeds_are():
         'https://comiccaster.xyz/rss/<slug>',
         'media:thumbnail',
         '/.netlify/functions/generate-opml',
+        'https://comiccaster.xyz/.netlify/functions/generate-opml?type=daily&comics=',
         'has_feed',
     ]:
         assert needle in text, f'llms.txt does not mention {needle}'
