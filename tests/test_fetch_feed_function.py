@@ -32,6 +32,7 @@ const calls = { fetch: [], parseURL: [] };
 
 class FakeParser {
   async parseString(xml) {
+    if (xml === 'not a feed') throw new Error('Non-whitespace before first tag.');
     return { title: 'Feed', description: 'd', link: 'l',
              items: [{ title: 'Strip', content: '<img src="x">', link: 'l', pubDate: 'p' }] };
   }
@@ -52,15 +53,24 @@ console.log = console.error;
 
 const cases = JSON.parse(fs.readFileSync(0, 'utf8'));
 let redirects = {};
+let upstream = {};
 
 global.fetch = async (url, options = {}) => {
   url = String(url);
   calls.fetch.push({ url, redirect: options.redirect });
+  if (upstream.network_error) {
+    throw new TypeError('fetch failed');
+  }
   if (redirects[url]) {
     return { ok: false, status: 302, headers: { get: () => redirects[url] },
              text: async () => '' };
   }
-  return { ok: true, status: 200, headers: { get: () => null }, text: async () => '<rss/>' };
+  if (upstream.status) {
+    return { ok: false, status: upstream.status, headers: { get: () => null },
+             text: async () => 'Forbidden' };
+  }
+  return { ok: true, status: 200, headers: { get: () => null },
+           text: async () => upstream.body || '<rss/>' };
 };
 
 const { handler } = require(process.argv[1]);
@@ -70,6 +80,8 @@ const { handler } = require(process.argv[1]);
   for (const c of cases) {
     calls.fetch = [];
     redirects = c.redirect_to ? { [c.url]: c.redirect_to } : {};
+    upstream = { status: c.upstream_status, body: c.upstream_body,
+                 network_error: c.network_error };
     const res = await handler({
       httpMethod: 'POST',
       headers: {},
@@ -172,6 +184,39 @@ def test_does_not_follow_redirects():
     assert result["status"] != 200
     assert result["fetched"] == [{"url": "https://xkcd.com/rss.xml", "redirect": "manual"}]
     assert result["parseURL"] == []
+
+
+# A preview that fails must say why. On 2026-10-24 Dumbing of Age's preview
+# failed with only "Failed to fetch or parse feed", so nobody could tell a
+# server refusing Netlify's requests from a feed that didn't parse, and by
+# 2026-11-22 it no longer reproduced.
+
+def test_an_upstream_error_status_is_named():
+    [result] = run_handler([{"url": "https://xkcd.com/rss.xml", "upstream_status": 403}])
+    assert result["status"] == 502, result
+    assert "HTTP 403" in result["body"]["error"]
+
+
+def test_a_redirect_names_its_status_but_not_its_target():
+    [result] = run_handler([{
+        "url": "https://xkcd.com/rss.xml",
+        "redirect_to": "http://169.254.169.254/latest/meta-data/",
+    }])
+    assert result["status"] == 502, result
+    assert "HTTP 302" in result["body"]["error"]
+    assert "169.254" not in result["body"]["error"]
+
+
+def test_a_feed_that_does_not_parse_says_so():
+    [result] = run_handler([{"url": "https://xkcd.com/rss.xml", "upstream_body": "not a feed"}])
+    assert result["status"] == 502, result
+    assert "isn't a readable RSS or Atom feed" in result["body"]["error"]
+
+
+def test_an_unreachable_server_says_so():
+    [result] = run_handler([{"url": "https://xkcd.com/rss.xml", "network_error": True}])
+    assert result["status"] == 502, result
+    assert "couldn't reach" in result["body"]["error"].lower()
 
 
 def test_local_dev_previews_localhost_feeds():

@@ -48,6 +48,14 @@ function isOwnFeed(parsed, isDev) {
         (OWN_HOSTS.includes(host) || host.endsWith(OWN_DEPLOY_HOST_SUFFIX));
 }
 
+// The feed's own server failed us, not the request: 502, with the reason.
+function upstreamFailure(reason) {
+    return {
+        statusCode: 502,
+        body: JSON.stringify({ error: `${reason}, so it can't be previewed right now.` })
+    };
+}
+
 exports.handler = async function(event, context) {
     // Only allow POST requests
     if (event.httpMethod !== 'POST') {
@@ -98,19 +106,34 @@ exports.handler = async function(event, context) {
 
         // Fetch it ourselves rather than with parser.parseURL, which follows
         // redirects: a listed feed that redirected could send us anywhere.
-        const response = await fetch(feedUrl, {
-            redirect: 'manual',
-            headers: {
-                'User-Agent': 'ComicCaster feed preview (+https://comiccaster.xyz)',
-                'Accept': 'application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.8'
-            }
-        });
+        // Each failure below names its reason, because the preview page shows
+        // it: a bare "failed" left a Dumbing of Age failure undiagnosable.
+        let response;
+        try {
+            response = await fetch(feedUrl, {
+                redirect: 'manual',
+                headers: {
+                    'User-Agent': 'ComicCaster feed preview (+https://comiccaster.xyz)',
+                    'Accept': 'application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.8'
+                }
+            });
+        } catch (fetchError) {
+            console.error(`Could not reach ${feedUrl}:`, fetchError);
+            return upstreamFailure("Couldn't reach the feed's server");
+        }
         if (!response.ok) {
-            throw new Error(`Feed request returned HTTP ${response.status}`);
+            // A redirect lands here too; its target is never followed or shown.
+            console.error(`${feedUrl} answered HTTP ${response.status}`);
+            return upstreamFailure(`The feed's server answered HTTP ${response.status}`);
         }
 
-        // Parse the feed
-        const feed = await parser.parseString(await response.text());
+        let feed;
+        try {
+            feed = await parser.parseString(await response.text());
+        } catch (parseError) {
+            console.error(`Could not parse ${feedUrl}:`, parseError);
+            return upstreamFailure("The feed's server answered, but what it sent isn't a readable RSS or Atom feed");
+        }
 
         // Transform the feed data
         const transformedFeed = {
