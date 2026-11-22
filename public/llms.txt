@@ -22,6 +22,8 @@ The catalog and the feeds are served with `Access-Control-Allow-Origin: *`. They
 - `https://comiccaster.xyz/rss/<slug>`: an alias for the same file.
 - External comics (`source: external-rss`) use the publisher's own feed. Use their `feed_url` as given.
 
+Each item in a ComicCaster feed names its strip images in Media RSS `media:content` elements (namespace `http://search.yahoo.com/mrss/`), one per image in panel order, so you can take the image URLs from the `url` attributes without parsing the `<description>` HTML, which shows the same images. An item without an image has none.
+
 ## Bundle feeds as OPML
 
 POST JSON to `https://comiccaster.xyz/.netlify/functions/generate-opml`:

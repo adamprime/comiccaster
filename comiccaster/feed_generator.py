@@ -51,6 +51,8 @@ class ComicFeedGenerator:
             FeedGenerator: A configured feed generator instance.
         """
         fg = FeedGenerator()
+        # Declares xmlns:media on <rss> for the items' media:content.
+        fg.load_extension('media')
 
         # Map the source key to a human-readable display name for the feed title.
         source = comic_info.get('source', 'gocomics-daily')
@@ -176,6 +178,37 @@ class ComicFeedGenerator:
         
         return gallery_html
     
+    @staticmethod
+    def _strip_image_urls(metadata: Dict) -> List[str]:
+        """The strip's image URLs, in the order the description shows them.
+
+        Mirrors create_entry's rendering: a non-empty ``images`` list (entries
+        without a url are skipped, as the gallery skips them), else
+        ``image_url``, else ``image``. A generator that writes its own
+        description HTML names its images in ``media_urls`` instead.
+        """
+        if 'media_urls' in metadata:
+            return [url for url in metadata['media_urls'] if url]
+        images = metadata.get('images', [])
+        if images and isinstance(images, list):
+            return [image['url'] for image in images if image.get('url')]
+        image_url = metadata.get('image_url', metadata.get('image', ''))
+        return [image_url] if image_url else []
+
+    @staticmethod
+    def _add_media_content(entry: FeedEntry, image_urls: List[str]) -> None:
+        """Name each strip image in a Media RSS <media:content> on the item.
+
+        Agents read the image URLs from these instead of parsing the
+        description's HTML. Each sits directly under <item> (group=None):
+        Media RSS reserves <media:group> for alternate versions of one object,
+        and a strip's panels are separate images.
+        """
+        if not image_urls:
+            return
+        entry.load_extension('media')
+        entry.media.content([{'url': url, 'medium': 'image'} for url in image_urls], group=None)
+
     def create_feed_object(self, comic_info: Dict[str, str]) -> FeedGenerator:
         """Alias for create_feed (kept for test compatibility)."""
         return self.create_feed(comic_info)
@@ -262,6 +295,7 @@ class ComicFeedGenerator:
                 description = self._create_single_image_content(image_url, description, comic_info)
 
         entry.description(description)
+        self._add_media_content(entry, self._strip_image_urls(metadata))
 
         entry.published(pub_date)
 

@@ -337,3 +337,185 @@ def test_generate_feed_error(feed_generator, comic_info):
         result = feed_generator.generate_feed(comic_info, [])
         
         assert result is False 
+
+# --- Strip images as Media RSS media:content (agent access, step 1) ---------
+#
+# Each item names its strip images in <media:content url=... medium="image"/>,
+# so an agent can read them without parsing the description's escaped HTML.
+# The description itself must not change.
+
+from html.parser import HTMLParser
+
+import feedparser
+from lxml import etree
+
+MEDIA_NS = 'http://search.yahoo.com/mrss/'
+
+
+class _ImgSources(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.sources = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'img':
+            self.sources.append(dict(attrs).get('src'))
+
+
+def _description_images(item):
+    parser = _ImgSources()
+    parser.feed(item.findtext('description') or '')
+    return parser.sources
+
+
+def _strip_entry(day, **fields):
+    return {
+        'title': f'Test Comic - 2024-04-{day:02d}',
+        'url': f'https://www.gocomics.com/test-comic/2024/04/{day:02d}',
+        'pub_date': f'2024-04-{day:02d}',
+        'description': f'Comic strip for 2024-04-{day:02d}',
+        **fields,
+    }
+
+
+def _written_items(feed_generator, comic_info, entries):
+    assert feed_generator.generate_feed(comic_info, entries) is True
+    path = feed_generator.output_dir / f"{comic_info['slug']}.xml"
+    return etree.parse(str(path)).getroot().findall('channel/item')
+
+
+def _media(item):
+    return [(el.get('url'), el.get('medium')) for el in item.iter(f'{{{MEDIA_NS}}}content')]
+
+
+def test_single_image_item_carries_one_media_content_directly_under_the_item(feed_generator, comic_info):
+    [item] = _written_items(feed_generator, comic_info, [
+        _strip_entry(6, image='https://img.example/strip.jpg'),
+    ])
+
+    assert _media(item) == [('https://img.example/strip.jpg', 'image')]
+    [element] = item.iter(f'{{{MEDIA_NS}}}content')
+    assert element.getparent() is item
+
+
+@pytest.mark.parametrize('images', [
+    # TinyView: a multi-panel strip, alt text set to the image URL.
+    [{'url': f'https://cdn.tinyview.com/adhdinos/{n}.jpg', 'alt': f'https://cdn.tinyview.com/adhdinos/{n}.jpg'}
+     for n in range(1, 4)],
+    # Comics Kingdom: a multi-panel Sunday page.
+    [{'url': f'https://wp.comicskingdom.com/panel-{n}.png', 'alt': f'Test Comic - Panel {n}'}
+     for n in range(1, 5)],
+], ids=['tinyview', 'comicskingdom'])
+def test_multi_image_item_carries_one_media_content_per_image_in_order(feed_generator, comic_info, images):
+    [item] = _written_items(feed_generator, comic_info, [_strip_entry(6, images=images)])
+
+    assert _media(item) == [(image['url'], 'image') for image in images]
+    assert all(el.getparent() is item for el in item.iter(f'{{{MEDIA_NS}}}content'))
+    assert item.find(f'{{{MEDIA_NS}}}group') is None
+
+
+def test_images_without_a_url_are_skipped_as_the_gallery_skips_them(feed_generator, comic_info):
+    [item] = _written_items(feed_generator, comic_info, [_strip_entry(6, images=[
+        {'url': 'https://img.example/1.png'},
+        {'alt': 'no url at all'},
+        {'url': ''},
+        {'url': 'https://img.example/2.png'},
+    ])])
+
+    assert _media(item) == [('https://img.example/1.png', 'image'), ('https://img.example/2.png', 'image')]
+
+
+def test_an_empty_images_list_falls_back_to_image_url(feed_generator, comic_info):
+    [item] = _written_items(feed_generator, comic_info, [
+        _strip_entry(6, images=[], image_url='https://img.example/single.gif'),
+    ])
+
+    assert _media(item) == [('https://img.example/single.gif', 'image')]
+
+
+def test_an_item_without_an_image_gets_no_media_elements(feed_generator, comic_info):
+    [item] = _written_items(feed_generator, comic_info, [_strip_entry(6)])
+
+    assert [el for el in item.iter() if str(el.tag).startswith(f'{{{MEDIA_NS}}}')] == []
+
+
+@pytest.mark.parametrize('fields', [
+    {'image': 'https://img.example/a.jpg'},
+    {'image_url': 'https://img.example/b.jpg'},
+    {'images': [{'url': 'https://img.example/c1.png'}, {'url': 'https://img.example/c2.png'}]},
+], ids=['image', 'image_url', 'images'])
+def test_media_content_names_exactly_the_images_the_description_shows(feed_generator, comic_info, fields):
+    [item] = _written_items(feed_generator, comic_info, [_strip_entry(6, **fields)])
+
+    assert [url for url, _ in _media(item)] == _description_images(item)
+
+
+def test_an_image_url_with_an_ampersand_round_trips(feed_generator, comic_info):
+    url = 'https://featureassets.gocomics.com/assets/abc?optimizer=image&width=2800&quality=85'
+    [item] = _written_items(feed_generator, comic_info, [_strip_entry(6, image_url=url)])
+
+    assert _media(item) == [(url, 'image')]
+    xml = (feed_generator.output_dir / f"{comic_info['slug']}.xml").read_text()
+    assert f'url="{url.replace("&", "&amp;")}"' in xml
+
+
+def test_the_feed_declares_the_media_namespace_and_feedparser_reads_the_images(feed_generator, comic_info):
+    feed_generator.generate_feed(comic_info, [
+        _strip_entry(6, images=[{'url': 'https://img.example/p1.png'}, {'url': 'https://img.example/p2.png'}]),
+    ])
+    path = feed_generator.output_dir / f"{comic_info['slug']}.xml"
+
+    assert etree.parse(str(path)).getroot().nsmap.get('media') == MEDIA_NS
+    [entry] = feedparser.parse(str(path)).entries
+    assert [m['url'] for m in entry.media_content] == ['https://img.example/p1.png', 'https://img.example/p2.png']
+
+
+def test_media_urls_names_the_strip_and_leaves_a_prebuilt_description_alone(feed_generator, comic_info):
+    """The Far Side writes its own description HTML and names its image in media_urls."""
+    prebuilt = ('<div style="text-align: center;"><img src="https://img.example/fs.jpg" alt="The Far Side comic"/></div>'
+                '<p>caption</p>')
+    entry = feed_generator.create_entry(comic_info, _strip_entry(
+        6, description=prebuilt, media_urls=['https://img.example/fs.jpg']))
+
+    assert entry.description() == prebuilt
+    [item] = _written_items(feed_generator, comic_info, [_strip_entry(
+        6, description=prebuilt, media_urls=['https://img.example/fs.jpg'])])
+    assert _media(item) == [('https://img.example/fs.jpg', 'image')]
+
+
+def test_media_urls_wins_over_images_and_image_url(feed_generator, comic_info):
+    [item] = _written_items(feed_generator, comic_info, [_strip_entry(
+        6,
+        media_urls=['https://img.example/named.png'],
+        images=[{'url': 'https://img.example/other.png'}],
+        image_url='https://img.example/single.png',
+    )])
+
+    assert _media(item) == [('https://img.example/named.png', 'image')]
+
+
+def test_media_content_leaves_the_description_html_byte_identical(feed_generator, comic_info):
+    """Pinned from the generator before media:content existed (R5)."""
+    gallery = feed_generator.create_entry(comic_info, _strip_entry(6, images=[
+        {'url': 'https://img.example/a.png', 'alt': 'Test Comic - Panel 1'},
+        {'url': 'https://img.example/b.png', 'alt': 'Test Comic - Panel 2'},
+    ]))
+    single = feed_generator.create_entry(comic_info, _strip_entry(
+        6, description='A caption', image_url='https://img.example/c.jpg'))
+
+    assert gallery.description() == (
+        '<div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;">\n'
+        '<p style="margin-bottom: 15px; font-style: italic;">Comic strip for 2024-04-06</p>\n'
+        '    <div class="comic-panel" style="margin: 15px 0;">\n'
+        '        <img src="https://img.example/a.png" alt="Test Comic - Panel 1" style="max-width: 100%; height: auto;" loading="lazy">\n'
+        '    </div>\n'
+        '    <div class="comic-panel" style="margin: 15px 0;">\n'
+        '        <img src="https://img.example/b.png" alt="Test Comic - Panel 2" style="max-width: 100%; height: auto;" loading="lazy">\n'
+        '    </div>\n'
+        '</div>\n'
+    )
+    assert single.description() == (
+        '<div style="text-align: center; max-width: 700px; margin: 0 auto;">'
+        '<img src="https://img.example/c.jpg" alt="Test Comic" style="max-width: 100%; height: auto;" loading="lazy">'
+        '</div><p style="margin-top: 10px; font-style: italic;">A caption</p>'
+    )
