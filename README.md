@@ -28,6 +28,8 @@ ComicCaster is a web application that generates RSS feeds for comics from multip
 - **Machine-Readable Catalog**: [`/catalog.json`](https://comiccaster.xyz/catalog.json) lists every comic with one schema (name, author, source, category, language, feed URL, last update)
 - **`llms.txt`**: [`/llms.txt`](https://comiccaster.xyz/llms.txt) explains the catalog, feed URL patterns and OPML generation for agents
 - **Cross-Origin Access**: Feeds and the catalog send `Access-Control-Allow-Origin: *`, so browser-based tools can fetch them directly
+- **Strip Images as Data**: Feed items name their strip images in `media:thumbnail`, so a tool can get them without parsing the description HTML. A feed picks this up the next time it publishes a strip
+- **OPML from a Link**: [`/.netlify/functions/generate-opml?type=daily&comics=peanuts,pickles`](https://comiccaster.xyz/.netlify/functions/generate-opml?type=daily&comics=peanuts,pickles) downloads an OPML bundle any feed reader can import, one category per link
 
 ### Technical Features
 - **Modular Architecture**: Extensible system supporting multiple comic sources
@@ -82,7 +84,7 @@ The Flask app will be available at `http://localhost:5001`
 comiccaster/
 ├── comiccaster/           # Main Python package
 │   ├── feed_generator.py   # RSS feed generation
-│   ├── loader.py          # Comic configuration management
+│   ├── loader.py          # Reads comic lists for the Flask app
 │   └── web_interface.py   # Flask web application
 ├── public/               # Static files served by Netlify
 │   ├── index.html       # Main application page

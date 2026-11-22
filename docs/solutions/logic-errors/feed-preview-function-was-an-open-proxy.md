@@ -10,7 +10,7 @@ applies_when:
   - "Writing or reviewing any Netlify function that fetches a URL taken from the request"
   - "Hardening one function against SSRF: check its siblings in functions/ too"
   - "Changing what the preview page can preview (deploy previews, external feeds)"
-  - "An external feed's preview fails with 'Failed to fetch or parse feed' but the feed works in a reader"
+  - "An external feed's preview fails but the feed works in a reader"
 tags: [ssrf, open-proxy, netlify-functions, allowlist, redirects, external-rss, deploy-preview]
 stack: [javascript, netlify]
 ---
@@ -56,11 +56,17 @@ That broke one external comic: `https://www.buttersafe.com/feed/` 302s to
 `https://feeds.feedburner.com/buttersafe`, not to follow the redirect. If an
 external comic's preview starts failing while the feed still works in a reader,
 check for a new redirect (`curl -sI <feed_url>`) and update its `feed_url`.
+Since 2026-11-22 the preview page says which failure it was, as a 502: "The
+feed's server answered HTTP 301" for a redirect (its target is never shown),
+and a separate message for a feed that won't parse or a server it can't reach.
+Before that the page said only "Failed to fetch or parse feed". A Dumbing of
+Age failure on 2026-10-24 was never diagnosed because of it.
 
 ## How it's tested
 
 `tests/test_fetch_feed_function.py` runs the real handler under `node` with
 `fetch` and `rss-parser` stubbed, so it stays offline. It checks our feeds and
 every listed external feed are allowed, a list of lookalike and internal URLs
-are refused without a fetch, and a redirect is not followed. The tests skip
+are refused without a fetch, a redirect is not followed, and each upstream
+failure names its reason without echoing a redirect's target. The tests skip
 when `node` is missing; GitHub's Ubuntu runners have it.

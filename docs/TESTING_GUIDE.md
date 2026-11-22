@@ -103,7 +103,8 @@ pytest -v -k "multi_image"
 - **`test_feed_generator.py`** - RSS feed generation tests
   - Single image backward compatibility
   - Feed metadata generation
-  - Date parsing and timezone handling
+  - Date parsing and timezone handling, every branch of `parse_date_with_timezone` including the dateutil fallback
+  - One `media:thumbnail` per strip image, in description order, and never `media:content` or `<enclosure>` (#28)
 
 - **`test_multi_image_rss.py`** - Multi-image RSS support tests
   - Multiple panel comic handling
@@ -126,6 +127,15 @@ pytest -v -k "multi_image"
   - External catalog shape and direct `feed_url` fields
   - Browse and OPML tab wiring
   - Netlify function packaging for catalog JSON files
+
+- **`test_fetch_feed_function.py`** - Feed-preview function, run under node with the network stubbed
+  - Only ComicCaster's own feeds and listed external feeds are fetched, and redirects are never followed
+  - A failed preview names its reason (upstream HTTP status, unparseable feed, unreachable server)
+
+- **`test_generate_opml_function.py`** - OPML function, POST and GET forms, run under node
+  - One category per GET link, slug and query caps, no outbound fetch, XML-escaped names
+
+- **`test_agent_access.py`** - What agents rely on: CORS headers on feeds and the catalog, `llms.txt` (where the catalog, feeds, thumbnails and OPML link are; plain ASCII) and `robots.txt`
 
 ## Regression Testing
 

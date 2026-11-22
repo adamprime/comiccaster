@@ -94,10 +94,11 @@ do the job, and then keep it read-only, with no outbound fetching.
 
 ## Related findings, not agent work
 
-- Awkward Zombie and Wilde Life external feeds return HTTP 500 (Open Decisions in
-  `docs/STATUS.md`). The catalog still lists them.
-- Previewing Dumbing of Age fails from Netlify's servers (Known Issues in
-  `docs/STATUS.md`).
+- Awkward Zombie and Wilde Life external feeds returned HTTP 500. They recovered
+  by 2026-11-03 and stay listed.
+- Previewing Dumbing of Age failed on 2026-10-24. It no longer reproduces as of
+  2026-11-22, and the preview function now says why a preview fails
+  (2387d61481).
 
 ## Out of scope
 

@@ -26,6 +26,10 @@ ceremony; a new comic source or a pipeline change does.
   (GoComics, Comics Kingdom, TinyView, New Yorker, Far Side, Creators, Mr. Boffo) — never hit
   them in unit tests. Use the existing `network` / `integration` pytest markers for
   the few tests that genuinely need the network.
+- A change to feed XML shape, such as a new per-item element, also needs a look in a
+  real feed reader before it merges. Tests and `preview_feeds.py` check what we
+  write, not how readers show it. On 2026-11-22 `media:content` passed every test
+  but showed each strip twice in Thunderbird (`docs/solutions/ui-bugs/media-content-doubles-strips-in-thunderbird.md`).
 
 ### SOLID, applied here
 - **OCP is already in the codebase.** `scraper_factory.py` selects a scraper by
@@ -77,6 +81,9 @@ ceremony; a new comic source or a pipeline change does.
     `docs/solutions/best-practices/parallel-sessions-on-the-live-pipeline-checkout.md`.
   - The daily pipeline commits and pushes regenerated feed XML to `main` directly —
     that's expected automation (see `AGENTS.md`, Phase 3), not something to "fix."
+- Outside PRs (the repo is public): read the author's other PRs and the feed itself
+  before the diff, and never run a fork's branch on the host. See
+  `docs/solutions/best-practices/vetting-outside-prs-that-add-a-feed.md`.
 - `git pull --rebase` before pushing. On a rebase conflict, stop and ask — don't
   try to be clever.
 - Never `--no-verify` to skip a hook, never force-push shared `main`, never amend a

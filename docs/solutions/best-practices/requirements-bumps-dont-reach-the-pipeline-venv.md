@@ -17,8 +17,8 @@ applies_when:
   - "A PR's Netlify deploy-preview check sits at pending and gh pr checks --watch never returns"
 tags: [dependencies, dependabot, venv, drift, selenium, pipeline, ci-vs-production, constraints, security, brotli, osv, pip-audit, certifi, ci, python-dateutil, tzdata, netlify]
 stack: [python, github-actions]
-github_prs: [163, 170, 182, 186, 189, 243, 245, 247, 249, 250, 251, 252]
-last_updated: 2026-10-27
+github_prs: [163, 170, 182, 186, 189, 243, 245, 247, 249, 250, 251, 252, 264, 265]
+last_updated: 2026-11-22
 ---
 
 ## TL;DR
@@ -133,10 +133,12 @@ here: CI showed 1.2.1 broke nothing. But that only helps if someone then moves
 the lock.
 
 **The `Accept-Encoding` header doesn't protect us.** `comiccaster/http_client.py`
-sends `Accept-Encoding: gzip, deflate`, but urllib3 picks its decoder from the
+sent `Accept-Encoding: gzip, deflate`, but urllib3 picks its decoder from the
 *response's* `Content-Encoding` (`urllib3/response.py`, `CONTENT_DECODERS`) and
 includes `br` whenever brotli is importable. Any site a scraper fetches could
 send a `br` body, and that's how a compromised comic site reaches the decoder.
+(Nothing imported `http_client.py` by then; it was removed on 2026-11-22. The
+point stands for every scraper that uses `requests`.)
 
 **The fix (#243)** bumped both files: `constraints.txt` to `brotli==1.2.1`
 (what the host installs) and `requirements.txt` to `brotli>=1.2.1` (so an
@@ -261,10 +263,13 @@ matter if you merge it next.
 
 The reverse case leaves a dead pin. When a package stops needing a transitive,
 the pin stays in the lock and the package stays in the venv, because `pip
-install` never uninstalls anything. `sgmllib3k` is an example: feedparser 6.0.14
-depends on `feedparser-sgmllib` instead, but `sgmllib3k==1.0.0` was still in
-both on 2026-10-27. To remove one, follow the steps under "Security fixes"
-above.
+install` never uninstalls anything. `sgmllib3k` was an example: feedparser
+6.0.14 depends on `feedparser-sgmllib` instead, but `sgmllib3k==1.0.0` stayed
+in both until 2026-11-22. A bump can orphan one too. python-dateutil 4.0 (#265)
+dropped its dependency on `six`, and nothing else needed `six`. To remove one,
+follow the steps under "Security fixes" above. Both were removed that way on
+2026-11-22 (48dc3e0764, c7152d99c8). After that, `pip freeze --exclude-editable`
+matched the lock exactly.
 
 Two smaller lessons from the same batch:
 
@@ -279,7 +284,8 @@ Two smaller lessons from the same batch:
   the current venv and once with the throwaway one. Do it in a worktree with
   `PYTHONPATH` set to it, never in the pipeline checkout, because the generators
   write `public/feeds/`. Then diff the two outputs, ignoring the build stamps.
-  For dateutil 3.0, all 664 feeds matched apart from `<lastBuildDate>`:
+  For dateutil 3.0, and again for 4.0 on 2026-11-22, all 664 feeds (and, for
+  4.0, the catalog) matched apart from `<lastBuildDate>`:
 
 ```bash
 diff -r -I '<lastBuildDate>' out-old/feeds out-new/feeds   # no output = no change

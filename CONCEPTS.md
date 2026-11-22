@@ -20,6 +20,9 @@ The two jobs are independent, so a comic can sit on a tab that no loader for its
 
 `public/catalog.json` is a derived view of all the lists for agents, one entry per feed, rebuilt from the lists and the feed files on every pass that writes feeds. It is never edited by hand and is read by no loader. A listed comic with no feed file appears with `has_feed: false`, never with a feed URL that 404s.
 
+### OPML bundle
+An OPML file listing several feeds, which a feed reader imports to subscribe to all of them at once. `functions/generate-opml.js` builds one from a category and a list of slugs. The website POSTs; agents and people use a plain GET link. A bundle covers one category, because the same slug can mean different feeds in different lists (`false-knees` is ComicCaster's feed under Daily and the publisher's own under External). The function only looks slugs up in the lists and never fetches anything.
+
 ### Feed identity
 The slug is the feed's identity: one slug means one file at `/feeds/<slug>.xml`, owned by exactly one feed-generating Source. Two Sources claiming the same slug is not a merge — each generator writes the whole file, so whichever runs last wins and the other's content is destroyed. Because the `<guid>` changes with the source, subscribers see each overwrite as new items and receive the same strip repeatedly. This is asserted by the catalog integrity tests rather than left to convention, because the pipeline reports success either way.
 
@@ -78,6 +81,9 @@ The single lock every scheduled run (Pass 1, Pass 2, each Morning pass slot) hol
 A run that finds the lock held never starts alongside. Pass 1, Pass 2 and the final Morning pass slot wait for it, up to a limit. An earlier Morning pass slot skips and leaves the work to the next slot. The operating system releases the lock when its holder exits, so it never needs clearing by hand. Any manual change that a run depends on takes the same lock, so it lands between runs instead of during one. That includes installing or removing packages in the host's Python environment and updating the checkout.
 
 ## Feed shaping
+
+### Strip images
+Each feed item names its strip images in two ways, for two audiences, and readers must still show the strip once. Readers show the description HTML, which embeds the images. Agents read one `media:thumbnail` per image, in the same order, and don't need to parse HTML. The images must never also appear as `media:content` or `<enclosure>`. Readers such as Thunderbird render those as attachments under the description, so every strip shows twice: issue #28, and again with `media:content` in the first version of #267.
 
 ### Daily Dose
 A dating model for sources that have no per-day permalink: the day's strip selection is made upstream by the publisher, and ComicCaster records it dated by fetch date rather than by the strip's own publication date. Used by The Far Side and Mr. Boffo.

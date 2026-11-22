@@ -64,10 +64,10 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
 ### Core Components
 
 1. **comiccaster/** - Main Python package
-   - `feed_generator.py` - RSS feed generation with multi-image support
+   - `feed_generator.py` - RSS feed generation with multi-image support. Each item also names its strip images in `media:thumbnail`, never `media:content` or `<enclosure>`, because those show the strip twice in Thunderbird (#28)
    - `scraper_factory.py` - Factory pattern for selecting appropriate scraper
    - `*_scraper.py` - Source-specific scrapers
-   - `loader.py` - Comic configuration management
+   - `loader.py` - Reads a comic list for the local Flask interface (`web_interface.py`); the pipeline's scrapers and generators read their lists themselves
    - `comicskingdom_reruns.py` - Calendar schedule that replays Comics Kingdom's fixed vintage archives (`CONCEPTS.md` "Rerun schedule")
    - `web_interface.py` - Flask web application
 
@@ -99,7 +99,7 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
 
 4. **functions/** - Netlify serverless functions
    - `generate-opml.js` - OPML bundle generation: the site POSTs JSON; agents and people use a GET link (`?type=daily&comics=a,b`, one category per link). Looks slugs up in the comic lists and never fetches anything
-   - `fetch-feed.js` - Feed preview; fetches only ComicCaster's own `/feeds/<slug>.xml` and exact listed external feed URLs, never follows redirects (an open proxy until #244)
+   - `fetch-feed.js` - Feed preview; fetches only ComicCaster's own `/feeds/<slug>.xml` and exact listed external feed URLs, never follows redirects (an open proxy until #244). A failed preview returns its reason as a 502: the server's HTTP status, a feed that won't parse, or a server it can't reach
 
 5. **.github/workflows/** - CI and alerting
    - `pipeline-alert.yml` - Dispatched by Pass 1, Pass 2 and the Far Side morning pass; creates failure issues as `github-actions[bot]`
@@ -130,6 +130,11 @@ See [docs/LOCAL_AUTOMATION_README.md](docs/LOCAL_AUTOMATION_README.md) for the o
 - Test files in `tests/` mirror source structure
 - Use pytest fixtures for common test data
 - Run `pytest -v` before committing changes
+- A change to feed XML shape, such as a new per-item element, also needs a look in a real feed reader before it merges. `preview_feeds.py` shows descriptions, not media elements. See `docs/solutions/ui-bugs/media-content-doubles-strips-in-thunderbird.md`
+
+### Outside contributions
+
+- `CONTRIBUTING.md` says what qualifies for External RSS. For an outside PR, read the author's other PRs and the feed itself before the diff, and never run a fork's branch on the host. See `docs/solutions/best-practices/vetting-outside-prs-that-add-a-feed.md`
 
 ### Deployment
 
