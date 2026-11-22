@@ -53,7 +53,7 @@ def test_llms_txt_says_where_the_catalog_and_feeds_are():
         'https://comiccaster.xyz/catalog.json',
         'https://comiccaster.xyz/feeds/<slug>.xml',
         'https://comiccaster.xyz/rss/<slug>',
-        'media:content',
+        'media:thumbnail',
         '/.netlify/functions/generate-opml',
         'has_feed',
     ]:

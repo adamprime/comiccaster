@@ -184,7 +184,7 @@ class TestMain:
 
 class TestEntriesNameTheirStripImage:
     """Far Side entries carry pre-built description HTML, so they name their
-    strip image in ``media_urls`` for the feed's media:content."""
+    strip image in ``media_urls`` for the feed's media:thumbnail."""
 
     def test_daily_entries_name_the_image_their_description_shows(self):
         snapshots = [('2026-04-17', [_fake_comic(0), _fake_comic(1, with_caption=False)])]

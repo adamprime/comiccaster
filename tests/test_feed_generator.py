@@ -338,11 +338,14 @@ def test_generate_feed_error(feed_generator, comic_info):
         
         assert result is False 
 
-# --- Strip images as Media RSS media:content (agent access, step 1) ---------
+# --- Strip images as Media RSS media:thumbnail (agent access, step 1) -------
 #
-# Each item names its strip images in <media:content url=... medium="image"/>,
-# so an agent can read them without parsing the description's escaped HTML.
-# The description itself must not change.
+# Each item names its strip images in <media:thumbnail url=.../>, so an agent
+# can read them without parsing the description's escaped HTML. Never
+# media:content or <enclosure>: Thunderbird shows those as attachments beside
+# the description, so every strip appeared twice (issue #28, seen again on
+# Thunderbird 160 with media:content in November 2026). The description
+# itself must not change.
 
 from html.parser import HTMLParser
 
@@ -384,18 +387,19 @@ def _written_items(feed_generator, comic_info, entries):
     return etree.parse(str(path)).getroot().findall('channel/item')
 
 
-def _media(item):
-    return [(el.get('url'), el.get('medium')) for el in item.iter(f'{{{MEDIA_NS}}}content')]
+def _thumbnails(item):
+    return [el.get('url') for el in item.iter(f'{{{MEDIA_NS}}}thumbnail')]
 
 
-def test_single_image_item_carries_one_media_content_directly_under_the_item(feed_generator, comic_info):
+def test_single_image_item_carries_one_thumbnail_directly_under_the_item(feed_generator, comic_info):
     [item] = _written_items(feed_generator, comic_info, [
         _strip_entry(6, image='https://img.example/strip.jpg'),
     ])
 
-    assert _media(item) == [('https://img.example/strip.jpg', 'image')]
-    [element] = item.iter(f'{{{MEDIA_NS}}}content')
+    assert _thumbnails(item) == ['https://img.example/strip.jpg']
+    [element] = item.iter(f'{{{MEDIA_NS}}}thumbnail')
     assert element.getparent() is item
+    assert dict(element.attrib) == {'url': 'https://img.example/strip.jpg'}
 
 
 @pytest.mark.parametrize('images', [
@@ -406,11 +410,11 @@ def test_single_image_item_carries_one_media_content_directly_under_the_item(fee
     [{'url': f'https://wp.comicskingdom.com/panel-{n}.png', 'alt': f'Test Comic - Panel {n}'}
      for n in range(1, 5)],
 ], ids=['tinyview', 'comicskingdom'])
-def test_multi_image_item_carries_one_media_content_per_image_in_order(feed_generator, comic_info, images):
+def test_multi_image_item_carries_one_thumbnail_per_image_in_order(feed_generator, comic_info, images):
     [item] = _written_items(feed_generator, comic_info, [_strip_entry(6, images=images)])
 
-    assert _media(item) == [(image['url'], 'image') for image in images]
-    assert all(el.getparent() is item for el in item.iter(f'{{{MEDIA_NS}}}content'))
+    assert _thumbnails(item) == [image['url'] for image in images]
+    assert all(el.getparent() is item for el in item.iter(f'{{{MEDIA_NS}}}thumbnail'))
     assert item.find(f'{{{MEDIA_NS}}}group') is None
 
 
@@ -422,7 +426,7 @@ def test_images_without_a_url_are_skipped_as_the_gallery_skips_them(feed_generat
         {'url': 'https://img.example/2.png'},
     ])])
 
-    assert _media(item) == [('https://img.example/1.png', 'image'), ('https://img.example/2.png', 'image')]
+    assert _thumbnails(item) == ['https://img.example/1.png', 'https://img.example/2.png']
 
 
 def test_an_empty_images_list_falls_back_to_image_url(feed_generator, comic_info):
@@ -430,7 +434,7 @@ def test_an_empty_images_list_falls_back_to_image_url(feed_generator, comic_info
         _strip_entry(6, images=[], image_url='https://img.example/single.gif'),
     ])
 
-    assert _media(item) == [('https://img.example/single.gif', 'image')]
+    assert _thumbnails(item) == ['https://img.example/single.gif']
 
 
 def test_an_item_without_an_image_gets_no_media_elements(feed_generator, comic_info):
@@ -444,17 +448,39 @@ def test_an_item_without_an_image_gets_no_media_elements(feed_generator, comic_i
     {'image_url': 'https://img.example/b.jpg'},
     {'images': [{'url': 'https://img.example/c1.png'}, {'url': 'https://img.example/c2.png'}]},
 ], ids=['image', 'image_url', 'images'])
-def test_media_content_names_exactly_the_images_the_description_shows(feed_generator, comic_info, fields):
+def test_thumbnails_name_exactly_the_images_the_description_shows(feed_generator, comic_info, fields):
     [item] = _written_items(feed_generator, comic_info, [_strip_entry(6, **fields)])
 
-    assert [url for url, _ in _media(item)] == _description_images(item)
+    assert _thumbnails(item) == _description_images(item)
+
+
+def test_no_item_carries_media_content_or_an_enclosure(feed_generator, comic_info):
+    """Issue #28: Thunderbird shows media:content and <enclosure> as attachments
+    beside the description, so the strip appears twice."""
+    prebuilt = '<div><img src="https://img.example/fs.jpg" alt="The Far Side comic"/></div><p>caption</p>'
+    items = _written_items(feed_generator, comic_info, [
+        _strip_entry(1, image='https://img.example/1.jpg'),
+        _strip_entry(2, image_url='https://img.example/2.jpg'),
+        _strip_entry(3, images=[{'url': 'https://img.example/3a.png'}, {'url': 'https://img.example/3b.png'}]),
+        _strip_entry(4, description=prebuilt, media_urls=['https://img.example/fs.jpg']),
+        _strip_entry(5),
+    ])
+    xml = (feed_generator.output_dir / f"{comic_info['slug']}.xml").read_text()
+
+    assert len(items) == 5
+    assert 'media:content' not in xml
+    assert '<enclosure' not in xml
+    for item in items:
+        assert item.find('enclosure') is None
+        assert list(item.iter(f'{{{MEDIA_NS}}}content')) == []
+        assert _thumbnails(item) == _description_images(item)
 
 
 def test_an_image_url_with_an_ampersand_round_trips(feed_generator, comic_info):
     url = 'https://featureassets.gocomics.com/assets/abc?optimizer=image&width=2800&quality=85'
     [item] = _written_items(feed_generator, comic_info, [_strip_entry(6, image_url=url)])
 
-    assert _media(item) == [(url, 'image')]
+    assert _thumbnails(item) == [url]
     xml = (feed_generator.output_dir / f"{comic_info['slug']}.xml").read_text()
     assert f'url="{url.replace("&", "&amp;")}"' in xml
 
@@ -467,7 +493,7 @@ def test_the_feed_declares_the_media_namespace_and_feedparser_reads_the_images(f
 
     assert etree.parse(str(path)).getroot().nsmap.get('media') == MEDIA_NS
     [entry] = feedparser.parse(str(path)).entries
-    assert [m['url'] for m in entry.media_content] == ['https://img.example/p1.png', 'https://img.example/p2.png']
+    assert [m['url'] for m in entry.media_thumbnail] == ['https://img.example/p1.png', 'https://img.example/p2.png']
 
 
 def test_media_urls_names_the_strip_and_leaves_a_prebuilt_description_alone(feed_generator, comic_info):
@@ -480,11 +506,11 @@ def test_media_urls_names_the_strip_and_leaves_a_prebuilt_description_alone(feed
     assert entry.description() == prebuilt
     [item] = _written_items(feed_generator, comic_info, [_strip_entry(
         6, description=prebuilt, media_urls=['https://img.example/fs.jpg'])])
-    assert _media(item) == [('https://img.example/fs.jpg', 'image')]
+    assert _thumbnails(item) == ['https://img.example/fs.jpg']
 
 
-def test_media_content_leaves_the_description_html_byte_identical(feed_generator, comic_info):
-    """Pinned from the generator before media:content existed (R5)."""
+def test_thumbnails_leave_the_description_html_byte_identical(feed_generator, comic_info):
+    """Pinned from the generator before the thumbnails existed (R5)."""
     gallery = feed_generator.create_entry(comic_info, _strip_entry(6, images=[
         {'url': 'https://img.example/a.png', 'alt': 'Test Comic - Panel 1'},
         {'url': 'https://img.example/b.png', 'alt': 'Test Comic - Panel 2'},

@@ -51,7 +51,7 @@ class ComicFeedGenerator:
             FeedGenerator: A configured feed generator instance.
         """
         fg = FeedGenerator()
-        # Declares xmlns:media on <rss> for the items' media:content.
+        # Declares xmlns:media on <rss> for the items' media:thumbnail.
         fg.load_extension('media')
 
         # Map the source key to a human-readable display name for the feed title.
@@ -196,18 +196,20 @@ class ComicFeedGenerator:
         return [image_url] if image_url else []
 
     @staticmethod
-    def _add_media_content(entry: FeedEntry, image_urls: List[str]) -> None:
-        """Name each strip image in a Media RSS <media:content> on the item.
+    def _add_media_thumbnails(entry: FeedEntry, image_urls: List[str]) -> None:
+        """Name each strip image in a Media RSS <media:thumbnail> on the item.
 
         Agents read the image URLs from these instead of parsing the
-        description's HTML. Each sits directly under <item> (group=None):
-        Media RSS reserves <media:group> for alternate versions of one object,
-        and a strip's panels are separate images.
+        description's HTML. Not <media:content> or <enclosure>: Thunderbird
+        shows those as attachments beside the description, so every strip
+        appeared twice (issue #28). Each sits directly under <item>
+        (group=None), never in a <media:group>. media:thumbnail takes no
+        medium attribute; feedgen raises ValueError for one.
         """
         if not image_urls:
             return
         entry.load_extension('media')
-        entry.media.content([{'url': url, 'medium': 'image'} for url in image_urls], group=None)
+        entry.media.thumbnail([{'url': url} for url in image_urls], group=None)
 
     def create_feed_object(self, comic_info: Dict[str, str]) -> FeedGenerator:
         """Alias for create_feed (kept for test compatibility)."""
@@ -295,7 +297,7 @@ class ComicFeedGenerator:
                 description = self._create_single_image_content(image_url, description, comic_info)
 
         entry.description(description)
-        self._add_media_content(entry, self._strip_image_urls(metadata))
+        self._add_media_thumbnails(entry, self._strip_image_urls(metadata))
 
         entry.published(pub_date)
 
