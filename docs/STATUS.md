@@ -94,7 +94,7 @@ _Decided 2026-10-24: **Dependabot security updates turned on** (operator call: "
 <!-- Bugs, tech debt, or things that are broken but not urgent. -->
 
 - GoComics strips don't save to read-later platforms like Pocket/Instapaper (#91) — **closed WONTFIX (2026-06-09).** Read-later apps re-fetch the linked page and extract the image themselves; GoComics' page/image delivery doesn't expose it in a form they can pull. The only fix is self-hosting the images, which we won't do. Not actionable; don't reopen.
-- Previewing Dumbing of Age on the site fails ("Failed to fetch or parse feed"). It failed the same way before #244, and the feed loads fine from the host, so the site probably treats requests from Netlify's servers differently. Subscribing is unaffected.
+- **Resolved 2026-11-22, cause unknown:** previewing Dumbing of Age failed on 2026-10-24 with only "Failed to fetch or parse feed". It no longer reproduces: 10 of 10 live calls to the preview function returned the feed. The real handler run under node also previewed it, along with xkcd and Poorly Drawn Lines. Nothing recorded why it failed, so `functions/fetch-feed.js` now returns the reason as a 502. That reason is the server's HTTP status (never a redirect's target), a feed that won't parse, or a server it can't reach, and the preview page shows it. If a preview fails again, the message says which.
 - Old data files (pre-March 31) have fewer entries (~100/day vs 257) than current runs; only ~115 comics matched slugs under the old extraction approach.
 
 ## Environment & Setup
