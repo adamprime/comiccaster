@@ -12,7 +12,9 @@ applies_when:
   - "A change needs a host action (venv install or uninstall, pip upgrade) after its PR merges"
   - "Two open PRs touch scripts/local_master_update.sh, the AGENTS.md/CLAUDE.md pair, or a generated file"
   - "A side session reports done and you are about to tell the operator"
-tags: [parallel-sessions, worktrees, orchestration, pipeline-lock, merge-order, host-venv, verification]
+  - "A session wants to try a Netlify function change locally with netlify dev"
+tags: [parallel-sessions, worktrees, orchestration, pipeline-lock, merge-order, host-venv, verification, netlify-dev, deploy-preview]
+last_updated: 2026-11-22
 ---
 
 # Running parallel Claude sessions when the main checkout is the live pipeline's working copy
@@ -84,6 +86,18 @@ PYTHONPATH=. /Users/openclaw/projects/comiccaster/venv/bin/python -m pytest -q
 To prove a dependency change, build a throwaway venv from the production base
 interpreter (`/opt/homebrew/opt/python@3.14/bin/python3.14`; bare `python3` on
 the host is Apple's 3.9.6). Never use the host venv for that.
+
+**Don't run `netlify dev` from a worktree.** It serves the *main checkout*. On
+2026-11-22 the #268 session ran it in its worktree to check a function change.
+The CLI walked up to the main repository's `.git` directory and served the main
+checkout's `functions/` and its `.env`. It also rewrote files in the main
+checkout's gitignored `.netlify/` folder, which holds the site link (`state.json`
+survived). So the run tested `main`, not the branch. Check a function change on
+the PR's deploy preview instead. Netlify builds one for every PR at
+`https://deploy-preview-<N>--comiccaster.netlify.app/.netlify/functions/<name>`.
+Or run `netlify dev` from a standalone copy outside the repository. Locally,
+`netlify dev` also reads the committed list copies under `functions/data/` as
+they are. Netlify's build overwrites those, so they can be out of date.
 
 **2. Split the shared files before anyone commits.** A few files are touched by
 most pipeline changes. On 2026-10-24 they were `scripts/local_master_update.sh`, the
