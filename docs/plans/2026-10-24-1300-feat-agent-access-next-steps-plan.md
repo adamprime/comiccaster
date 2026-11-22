@@ -2,7 +2,7 @@
 title: Agent access, next steps - Plan
 type: feat
 date: 2026-10-24
-status: proposed (direction agreed; step 1 planned in detail in docs/plans/2026-11-22-1514-feat-feed-strip-images-media-content-plan.md; run ce-plan on steps 2 and 3 before implementing them)
+status: proposed (direction agreed; step 1 planned in detail in docs/plans/2026-11-22-1514-feat-feed-strip-images-media-thumbnail-plan.md; run ce-plan on steps 2 and 3 before implementing them)
 ---
 
 # Agent access, next steps - Plan
@@ -45,9 +45,9 @@ do the job, and then keep it read-only, with no outbound fetching.
    Check: regenerated feeds differ only by the added elements, the same
    before-and-after diff #248 used.
    Planned in detail on 2026-11-22:
-   `docs/plans/2026-11-22-1514-feat-feed-strip-images-media-content-plan.md`.
-   Planning found that Thunderbird turns every `media:content` into an
-   attachment, which brings back #28's doubled image (OQ1 there).
+   `docs/plans/2026-11-22-1514-feat-feed-strip-images-media-thumbnail-plan.md`.
+   It emits `media:thumbnail`, not `media:content`: a Thunderbird test showed
+   `media:content` doubling every strip, the #28 regression.
 2. **An OPML link that works with GET.** `functions/generate-opml.js` only accepts
    a POSTed JSON body, so an agent can't give a person a link. Options: a GET
    variant (`?type=daily&comics=a,b`) on the existing function, or have agents
