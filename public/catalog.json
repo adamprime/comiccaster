@@ -1,7 +1,7 @@
 {
   "site": "https://comiccaster.xyz",
   "docs": "https://comiccaster.xyz/llms.txt",
-  "count": 694,
+  "count": 695,
   "comics": [
     {
       "slug": "think",
@@ -4130,6 +4130,18 @@
       "site_url": "https://www.gocomics.com/looseparts",
       "has_feed": true,
       "last_updated": "2026-11-21T19:02:17+00:00"
+    },
+    {
+      "slug": "lori-builds-castlori",
+      "name": "Lori Builds Castlori",
+      "author": "Castlori",
+      "source": "external-rss",
+      "category": "external",
+      "language": "en",
+      "feed_url": "https://guide.castlori.com/lori-builds-castlori/feed.xml",
+      "site_url": "https://guide.castlori.com/lori-builds-castlori/",
+      "has_feed": true,
+      "last_updated": null
     },
     {
       "slug": "los-osorios",

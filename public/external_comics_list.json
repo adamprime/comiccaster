@@ -96,6 +96,14 @@
     "source": "external-rss"
   },
   {
+    "name": "Lori Builds Castlori",
+    "slug": "lori-builds-castlori",
+    "author": "Castlori",
+    "url": "https://guide.castlori.com/lori-builds-castlori/",
+    "feed_url": "https://guide.castlori.com/lori-builds-castlori/feed.xml",
+    "source": "external-rss"
+  },
+  {
     "name": "Namesake",
     "slug": "namesake",
     "author": "Isabelle Melancon and Megan Lavey-Heaton",
