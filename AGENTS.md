@@ -98,7 +98,7 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
    - `reauth_comicskingdom.py` — session refresh for Comics Kingdom
 
 4. **functions/** - Netlify serverless functions
-   - `generate-opml.js` - OPML bundle generation
+   - `generate-opml.js` - OPML bundle generation: the site POSTs JSON; agents and people use a GET link (`?type=daily&comics=a,b`, one category per link). Looks slugs up in the comic lists and never fetches anything
    - `fetch-feed.js` - Feed preview; fetches only ComicCaster's own `/feeds/<slug>.xml` and exact listed external feed URLs, never follows redirects (an open proxy until #244)
 
 5. **.github/workflows/** - CI and alerting

@@ -9,7 +9,7 @@ ComicCaster is a static site plus daily-generated RSS feed files, served by Netl
 | Component | Hosted by | Responsibility |
 |---|---|---|
 | Static site (`public/`) | Netlify | The landing page, comic list UI, OPML builder UI |
-| Serverless functions (`functions/`) | Netlify | `generate-opml.js` (builds OPML bundles on demand), `fetch-feed.js` (feed preview) |
+| Serverless functions (`functions/`) | Netlify | `generate-opml.js` (builds OPML bundles on demand, from the site's POST or a GET link), `fetch-feed.js` (feed preview) |
 | Feed files (`public/feeds/*.xml`) | Netlify (served as static assets) | Pre-generated RSS per comic |
 | Feed update pipeline | Dedicated always-on host, overnight daily | Scrapes sources, generates feeds, commits + pushes to `main` |
 | Source data (`data/*.json`) | Git (tracked) | Authoritative pipeline inputs — each scraper writes one per run |
