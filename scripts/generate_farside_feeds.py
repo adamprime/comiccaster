@@ -123,6 +123,8 @@ def build_daily_entries(snapshots):
                 'title': f"The Far Side - {date_formatted} #{(i % 5) + 1}",
                 'url': comic.get('url', DAILY_COMIC_INFO['url']),
                 'description': description,
+                # The description is pre-built HTML, so name the strip for media:thumbnail.
+                'media_urls': [image_url],
                 'pub_date': pub_time.strftime('%a, %d %b %Y %H:%M:%S %z'),
             })
             i += 1
@@ -200,6 +202,8 @@ def build_new_stuff_entries(scraped_at, comics):
             'title': f"The Far Side - New Stuff: {title}",
             'url': comic.get('url', NEW_COMIC_INFO['url']),
             'description': description,
+            # The description is pre-built HTML, so name the strip for media:thumbnail.
+            'media_urls': [image_url],
             'pub_date': pub_time.strftime('%a, %d %b %Y %H:%M:%S %z'),
         })
     return entries

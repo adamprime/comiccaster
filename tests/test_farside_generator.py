@@ -180,3 +180,26 @@ class TestMain:
         daily = (farside_repo / 'public' / 'feeds' / 'farside-daily.xml').read_text()
         assert daily.count('<item>') == 5
         assert new_feed.read_text() == '<rss>published earlier</rss>'
+
+
+class TestEntriesNameTheirStripImage:
+    """Far Side entries carry pre-built description HTML, so they name their
+    strip image in ``media_urls`` for the feed's media:thumbnail."""
+
+    def test_daily_entries_name_the_image_their_description_shows(self):
+        snapshots = [('2026-04-17', [_fake_comic(0), _fake_comic(1, with_caption=False)])]
+        entries = gen.build_daily_entries(snapshots)
+
+        assert [e['media_urls'] for e in entries] == [['https://img.example/0.jpg'], ['https://img.example/1.jpg']]
+        for e in entries:
+            assert e['description'].count('<img ') == 1
+            assert f'<img src="{e["media_urls"][0]}"' in e['description']
+
+    def test_new_stuff_entries_name_the_image_their_description_shows(self):
+        scraped_at = pytz.timezone('US/Eastern').localize(datetime(2026, 4, 17, 12, 0, 0))
+        entries = gen.build_new_stuff_entries(scraped_at, [_fake_comic(0), _fake_comic(1)])
+
+        assert [e['media_urls'] for e in entries] == [['https://img.example/0.jpg'], ['https://img.example/1.jpg']]
+        for e in entries:
+            assert e['description'].count('<img ') == 1
+            assert f'<img src="{e["media_urls"][0]}"' in e['description']
