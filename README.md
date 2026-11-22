@@ -161,25 +161,26 @@ See [TESTING_GUIDE.md](TESTING_GUIDE.md) for comprehensive testing documentation
 
 ### Adding New Comics
 
-1. **For GoComics**: Add to appropriate JSON file in `public/`
-2. **For TinyView**: Add to `public/tinyview_comics_list.json`
-3. **For first-party external RSS feeds**: Add to `public/external_comics_list.json`, then run `python scripts/generate_catalog.py`. See [what qualifies](CONTRIBUTING.md#suggesting-an-external-rss-feed) first; the list is curated.
-4. **Required fields**:
-   ```json
-   {
-     "name": "Comic Name",
-     "slug": "comic-slug",
-     "url": "https://source.com/comic-slug",
-     "source": "gocomics-daily|gocomics-political|tinyview"
-   }
-   ```
-5. **External RSS feeds also require**:
-   ```json
-   {
-     "feed_url": "https://comic.example/feed.xml",
-     "source": "external-rss"
-   }
-   ```
+Each comic is an entry in one of the lists in `public/`. Every entry has `name`, `slug`, `url` and usually `author`; the `source` field says which scraper owns it.
+
+| Source | List | `source` | Also needed |
+|---|---|---|---|
+| GoComics | `comics_list.json`, or `political_comics_list.json` for editorial cartoons | none | Add the comic to the GoComics account's favorites. The scraper reads the favorites pages, not the list. |
+| Comics Kingdom | `comics_list.json` or `political_comics_list.json` | `"comicskingdom"` | `source_slug` when the slug differs from Comics Kingdom's |
+| Creators Syndicate | `comics_list.json` | `"creators"` | `source_slug` (Creators' own slug) |
+| TinyView | `tinyview_comics_list.json` | `"tinyview"` | |
+| External RSS | `external_comics_list.json` | `"external-rss"` | `feed_url`. The list is curated: see [what qualifies](CONTRIBUTING.md#suggesting-an-external-rss-feed) |
+
+The Far Side, The New Yorker and Mr. Boffo are fixed feeds with nothing to add. `spanish_comics_list.json` only drives the Spanish tab. A Spanish comic still needs its entry in its source's list (see `docs/solutions/ui-bugs/spanish-ui-filter-missing-comics-source-list-mismatch.md`).
+
+A slug is a feed's identity (`public/feeds/<slug>.xml`), so it must not already belong to another source; `tests/test_catalog_source_integrity.py` checks this. After editing a list, rebuild the catalog and run the tests:
+
+```bash
+python scripts/generate_catalog.py
+pytest -v
+```
+
+Adding a new *source*, rather than a comic, means a scraper and a generator. See `AGENTS.md` and `CLAUDE.md`.
 
 ## Contributing
 
