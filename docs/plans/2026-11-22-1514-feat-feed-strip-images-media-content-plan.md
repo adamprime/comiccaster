@@ -11,7 +11,7 @@ execution: code
 
 ## Goal Capsule
 
-- **Objective:** An agent or script reading any ComicCaster feed gets each strip's image URLs from a structured element on the item, without unescaping and parsing the HTML in `<description>`. The description that feed readers render stays exactly as it is.
+- **Objective:** An agent or script reading any ComicCaster feed the pipeline rebuilds from now on gets each strip's image URLs from a structured element on the item, without unescaping and parsing the HTML in `<description>`. The description that feed readers render stays exactly as it is.
 - **Means:** Every item carries one Media RSS `media:content` per strip image, written by `ComicFeedGenerator.create_entry` (KTD1-KTD4).
 - **Authority:**
   - Requirements win on behavior, KTDs win on mechanism, and units override neither.
@@ -63,7 +63,13 @@ Considered and not built:
 
 ### Open Questions
 
-- OQ1. **Decide before merge: Thunderbird will show each strip twice again, the #28 symptom.** Thunderbird's feed parser reads every `media:content` into the item's enclosures, the same as `<enclosure>`. It needs no `type` and doesn't compare the URL with the `<img>` tags in the body (`parseAsRSS2` in `mailnews/extensions/newsblog/FeedParser.sys.mjs`, comm-central master on 2026-11-22). `FeedItem.sys.mjs` then writes each enclosure as an external attachment beside the HTML body. That is the path that produced #28's "hash number above where the comic is posted a 2nd time." The plan builds `media:content` because that is what step 1 asked for. The alternative is `media:thumbnail`, which Thunderbird ignores entirely and which gives agents the same URL. Switching is a change to the element name in U1's writer plus its tests. Other readers (Miniflux, SimplePie-based readers such as FreshRSS) were not checked.
+- OQ1. **Decide before merge: some readers will show each strip twice again, the #28 symptom.** The plan builds `media:content` because that is what step 1 asked for. What the two readers named in #28 do with it:
+  - **Thunderbird** reads every `media:content` into the item's enclosures, the same as `<enclosure>`. It needs no `type` and doesn't compare the URL with the `<img>` tags in the body (`parseAsRSS2` in `mailnews/extensions/newsblog/FeedParser.sys.mjs`, comm-central master on 2026-11-22). `FeedItem.sys.mjs` then writes each enclosure as an external attachment beside the HTML body. That is the path behind #28's "hash number above where the comic is posted a 2nd time."
+  - **Feed-on-Feeds**, where #28 was first reported, parses with SimplePie, whose `Item::get_enclosures()` also turns an item-level `media:content` into an enclosure. Its author said in #28 that Feed-on-Feeds now puts enclosures in a separate reveal.
+  - **FreshRSS**, also SimplePie-based, hides an enclosure whose URL already appears quoted in the content (`Entry::content()` and `containsLink()`), so it shows no duplicate.
+  - Feedly, Inoreader, NetNewsWire and Miniflux were not checked, and nothing records which readers subscribers use.
+
+  The alternative is `media:thumbnail`. Thunderbird ignores it, but Media RSS defines thumbnails as representative images in order of importance, not as the media itself, so it is a weaker signal to agents. SimplePie still builds a link-less fallback enclosure from it. Switching is more than a rename. `media:thumbnail` has no `medium` attribute, and feedgen's `thumbnail()` raises `ValueError` if given one, which `generate_feed` would catch per entry, silently dropping every item with an image. R1-R3, KTD5, R6, and U3's `llms.txt` paragraph and test would all change too.
 
 ---
 
@@ -74,13 +80,13 @@ Considered and not built:
 - KTD1. **Use feedgen's media extension, loaded on the feed and on each entry.** `create_feed` loads it on the `FeedGenerator`, so `<rss>` declares `xmlns:media` once. `create_entry` builds its `FeedEntry` before `add_entry` sees it, so it loads the extension on the entry too. `add_entry`'s own attempt to register it again raises `ImportError`, which feedgen catches (`feedgen/feed.py`, `add_entry`). Every feed declares the namespace, including feeds with no images, which keeps one code path and is valid XML.
 - KTD2. **Each `media:content` sits directly under `<item>`, never in `media:group`.** feedgen puts content into a `media:group` named `default` unless `group` is `None` (`feedgen/ext/media.py`). MRSS reserves `media:group` for alternate versions of the same media object, and panels are separate objects.
 - KTD3. **One function decides an item's strip images, with the precedence the description already uses.** A non-empty `images` list wins, skipping entries with no `url`, as `_create_multi_image_content` does. Otherwise `image_url`, then `image`. The description rendering code is not touched (R5). R3 is held by tests that compare the two.
-- KTD4. **The Far Side names its strip image in a `media_urls` field.** Its generator writes the description HTML itself, `<img>` included. Passing `image_url` instead would make `create_entry` re-wrap it and drop the caption and copyright line, breaking R5. When `media_urls` is present, `create_entry` uses it for `media:content` and leaves the description alone. No other generator sets it.
+- KTD4. **The Far Side names its strip image in a `media_urls` field.** Its generator writes the description HTML itself, `<img>` included. Passing `image_url` instead would make `create_entry` re-wrap it and drop the caption and copyright line, breaking R5. When `media_urls` is present, `create_entry` uses it for `media:content`. Far Side entries carry no `images` or `image_url`, so their description passes through unchanged. No other generator sets it.
 - KTD5. **Attributes are `url` and `medium="image"` only.** See Scope Boundaries.
 
 ### Assumptions
 
 - Adding elements doesn't change any `<guid>`, so no strip is re-delivered (`CONCEPTS.md`, Strip identity). Readers that already hold an item don't fetch it again, so only new items show any reader-side effect (OQ1).
-- Feeds whose generator skips them when they have no new strips keep their current XML until they next publish, as with #248's language tag.
+- A generator skips a feed with no strips in its window, so that feed keeps its current XML until it next publishes, as with #248's language tag. Regenerating from the committed data on 2026-11-22 rewrote 520 of 664 feed files. The other 144 are dormant, holding 1,230 items with an `<img>` in the description and no `media:content`. Many will never be rebuilt, because their comics stopped publishing upstream, so `llms.txt` says so (U3).
 
 ### System-Wide Impact
 
@@ -139,7 +145,6 @@ Considered and not built:
   - Each Daily Dose entry carries `media_urls` equal to its comic's `image_url`, and its description is unchanged.
   - Each New Stuff entry does the same.
   - `create_entry` given `media_urls` and a pre-built HTML description writes `media:content` for those URLs and passes the description through untouched.
-  - `media_urls` wins when an entry also has `images` or `image_url`.
 - **Verification:** A Far Side feed generated from committed `data/` has one `media:content` per item, matching the item's `<img>`.
 
 ### U3. Tell agents about media:content
@@ -148,7 +153,7 @@ Considered and not built:
 - **Requirements:** R6.
 - **Dependencies:** none.
 - **Files:** `public/llms.txt`, `tests/test_agent_access.py`.
-- **Approach:** One or two plain-ASCII sentences under "Feed URLs": each item's strip images are `media:content` elements (Media RSS namespace), one per image in panel order, and the description holds the same images as HTML.
+- **Approach:** A short plain-ASCII paragraph under "Feed URLs". It says each item's strip images are `media:content` elements (Media RSS namespace), one per image in panel order, and that the description holds the same images as HTML. It also says feeds not rebuilt since this change, mostly comics that stopped publishing, have their images only in the description.
 - **Test scenarios:**
   - `test_llms_txt_says_where_the_catalog_and_feeds_are` also requires `media:content` in the text. The existing ASCII test still passes.
 - **Verification:** The agent-access tests pass.
@@ -162,7 +167,7 @@ Considered and not built:
 - **Approach:**
   1. Export `origin/main` and the branch with `git archive` into two scratch copies. Run all seven generators in each against the same committed `data/`, never in the pipeline checkout.
   2. Diff the two `public/feeds/` trees with `lastBuildDate` stripped, after also removing `media:content` and the `xmlns:media` declaration from the branch side. Expect zero differences, and count the feeds and items that gained elements.
-  3. On the branch side, check that every item's `media:content` URLs equal its description's `<img>` sources, and count items with none.
+  3. On the branch side, in every feed the run rewrote (one that differs from the committed copy), check that each item's `media:content` URLs equal its description's `<img>` sources, and count items with none. Count the untouched feeds separately (see Assumptions).
   4. Render a few regenerated feeds (a single-image GoComics, a multi-panel TinyView, a multi-panel Comics Kingdom, Far Side Daily Dose) with `scripts/preview_feeds.py --against origin/main`. Their items should show as unchanged.
 - **Test expectation:** none. This unit verifies U1-U3 on production data.
 - **Verification:** The counts and the before-and-after snippet go in the PR body.
@@ -175,7 +180,7 @@ Considered and not built:
 |---|---|---|
 | Unit tests | `pytest -v` green locally (host venv, Python 3.14) and the PR's Tests check green on its head commit | U1, U2, U3 |
 | Output diff | U4 steps 1-2: zero differences beyond R5 | U1, U2 |
-| Image parity | U4 step 3: every item's `media:content` URLs equal its description's images | U1, U2 |
+| Image parity | U4 step 3: in every rewritten feed, each item's `media:content` URLs equal its description's images | U1, U2 |
 | Preview | U4 step 4: the previewed items read as unchanged against `origin/main` | U1, U2 |
 
 ---

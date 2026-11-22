@@ -483,17 +483,6 @@ def test_media_urls_names_the_strip_and_leaves_a_prebuilt_description_alone(feed
     assert _media(item) == [('https://img.example/fs.jpg', 'image')]
 
 
-def test_media_urls_wins_over_images_and_image_url(feed_generator, comic_info):
-    [item] = _written_items(feed_generator, comic_info, [_strip_entry(
-        6,
-        media_urls=['https://img.example/named.png'],
-        images=[{'url': 'https://img.example/other.png'}],
-        image_url='https://img.example/single.png',
-    )])
-
-    assert _media(item) == [('https://img.example/named.png', 'image')]
-
-
 def test_media_content_leaves_the_description_html_byte_identical(feed_generator, comic_info):
     """Pinned from the generator before media:content existed (R5)."""
     gallery = feed_generator.create_entry(comic_info, _strip_entry(6, images=[
