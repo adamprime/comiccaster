@@ -1,7 +1,8 @@
 """Tests for the ComicFeedGenerator class."""
 
 import pytest
-from datetime import datetime, timezone
+import dateutil.parser
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 from feedgen.feed import FeedGenerator
@@ -200,6 +201,64 @@ def test_create_entry_invalid_date(feed_generator, comic_info, metadata):
     # Should still create entry with current date
     assert metadata['title'] in feed_str
     assert metadata['url'] in feed_str
+
+# parse_date_with_timezone tries RFC 2822, then a bare YYYY-MM-DD, then
+# dateutil. Every generator today passes a datetime, or (Far Side) an RFC 2822
+# string, so dateutil only runs for other string formats. The tests below pin
+# what each branch returns, so a dateutil upgrade that changes parsing fails
+# here instead of shifting dates in a live feed.
+
+CST = timezone(timedelta(hours=-6))
+
+def test_parse_date_returns_an_aware_datetime_unchanged(feed_generator):
+    when = datetime(2026, 11, 22, 3, 5, tzinfo=CST)
+    result = feed_generator.parse_date_with_timezone(when)
+    assert result == when
+    assert result.utcoffset() == timedelta(hours=-6)
+
+def test_parse_date_reads_a_naive_datetime_as_utc(feed_generator):
+    result = feed_generator.parse_date_with_timezone(datetime(2026, 11, 22, 3, 5))
+    assert result == datetime(2026, 11, 22, 3, 5, tzinfo=timezone.utc)
+
+@pytest.mark.parametrize('date_str, expected', [
+    # Far Side's format: the offset is kept.
+    ('Sat, 22 Nov 2026 06:00:00 -0600', datetime(2026, 11, 22, 6, 0, tzinfo=CST)),
+    ('2026-11-22', datetime(2026, 11, 22, tzinfo=timezone.utc)),
+])
+def test_parse_date_handles_rfc2822_and_plain_dates_without_dateutil(
+        feed_generator, mocker, date_str, expected):
+    spy = mocker.spy(dateutil.parser, 'parse')
+    result = feed_generator.parse_date_with_timezone(date_str)
+    assert spy.call_count == 0
+    assert result == expected
+    assert result.utcoffset() == expected.utcoffset()
+
+@pytest.mark.parametrize('date_str, expected', [
+    ('2026-11-22T03:05:00-06:00', datetime(2026, 11, 22, 3, 5, tzinfo=CST)),
+    ('2026-11-22T09:05:00Z', datetime(2026, 11, 22, 9, 5, tzinfo=timezone.utc)),
+    # No offset in the string: read as UTC.
+    ('2026-11-22T03:05:00', datetime(2026, 11, 22, 3, 5, tzinfo=timezone.utc)),
+    ('November 22, 2026', datetime(2026, 11, 22, tzinfo=timezone.utc)),
+    ('2026/11/22', datetime(2026, 11, 22, tzinfo=timezone.utc)),
+])
+def test_parse_date_falls_back_to_dateutil_for_other_formats(
+        feed_generator, mocker, date_str, expected):
+    spy = mocker.spy(dateutil.parser, 'parse')
+    result = feed_generator.parse_date_with_timezone(date_str)
+    assert spy.call_count == 1
+    assert result == expected
+    assert result.utcoffset() == expected.utcoffset()
+
+@pytest.mark.parametrize('date_str', ['not a date', ''])
+def test_parse_date_turns_an_unparseable_date_into_now_and_logs_it(
+        feed_generator, caplog, date_str):
+    # A missing pub_date arrives as '' and takes this path too: the entry is
+    # silently stamped with the run time, so the log line is the only trace.
+    before = datetime.now(timezone.utc)
+    result = feed_generator.parse_date_with_timezone(date_str)
+    after = datetime.now(timezone.utc)
+    assert before <= result <= after
+    assert 'Failed to parse date string' in caplog.text
 
 def test_update_feed_new(feed_generator, comic_info, metadata):
     """Test updating a non-existent feed (creates new)."""
