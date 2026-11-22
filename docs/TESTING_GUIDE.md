@@ -117,14 +117,10 @@ pytest -v -k "multi_image"
   - Singleton pattern implementation
   - Performance optimization
 
-- **`test_comic_config.py`** - Configuration management tests
-  - Source field validation
-  - Backward compatibility
-  - Comic metadata handling
-
-- **`test_feed_aggregator.py`** - Feed aggregation tests
-  - Combined feed generation
-  - OPML export functionality
+- **`test_comic_config.py`** - Comic configuration tests
+  - `ComicsLoader` returns list entries unchanged
+  - Scraper factory selection by `source`
+  - Source branding in feed metadata
 
 - **`test_external_rss_catalog.py`** - External first-party RSS catalog tests
   - External catalog shape and direct `feed_url` fields
