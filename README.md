@@ -163,7 +163,7 @@ See [TESTING_GUIDE.md](TESTING_GUIDE.md) for comprehensive testing documentation
 
 1. **For GoComics**: Add to appropriate JSON file in `public/`
 2. **For TinyView**: Add to `public/tinyview_comics_list.json`
-3. **For first-party external RSS feeds**: Add to `public/external_comics_list.json`
+3. **For first-party external RSS feeds**: Add to `public/external_comics_list.json`, then run `python scripts/generate_catalog.py`. See [what qualifies](CONTRIBUTING.md#suggesting-an-external-rss-feed) first; the list is curated.
 4. **Required fields**:
    ```json
    {
@@ -218,6 +218,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### External RSS Feeds
 - **First-party feeds**: Popular independent webcomics that publish their own RSS feeds, such as xkcd and Poorly Drawn Lines
 - **No scraping required**: ComicCaster links directly to the publisher's RSS feed
+- **Suggesting one**: the list is curated; see [what qualifies](CONTRIBUTING.md#suggesting-an-external-rss-feed)
 
 ## Acknowledgments
 

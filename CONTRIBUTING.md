@@ -14,6 +14,48 @@ Please be respectful and considerate of others when contributing to this project
 4. Test your changes
 5. Submit a pull request
 
+## Suggesting an External RSS feed
+
+The External RSS tab lists independent webcomics that publish their own RSS
+feed. ComicCaster links straight to the publisher's feed and hosts nothing. The
+list is curated, so a comic has to meet all of these:
+
+- **It's the comic's own feed.** The creator or the comic's official site
+  publishes it, over HTTPS. A mirror, or a feed someone else generates from the
+  site, doesn't count.
+- **The comic is established.** It has a real archive, built up on a regular
+  schedule. A new series, or a handful of posts, doesn't qualify yet. A
+  finished comic with its full archive is fine.
+- **It isn't advertising.** A comic whose purpose is to promote a product,
+  service or platform isn't listed, however well it's made.
+- **It isn't sexually explicit.**
+
+Creators are welcome to suggest their own comic. The same bar applies.
+
+To add one, put an entry in `public/external_comics_list.json`, in alphabetical
+order:
+
+```json
+{
+  "name": "Comic Name",
+  "slug": "comic-name",
+  "author": "Creator Name",
+  "url": "https://comic.example/",
+  "feed_url": "https://comic.example/feed.xml",
+  "source": "external-rss"
+}
+```
+
+Then rebuild the catalog and run the tests:
+
+```bash
+python scripts/generate_catalog.py
+pytest -v
+```
+
+Commit both `public/external_comics_list.json` and `public/catalog.json`. A
+test fails if the committed catalog doesn't match the comic lists.
+
 ## Development Setup
 
 1. Clone your fork:
