@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-11-22",
+  "scraped_at": "2026-11-22T09:20:16.516985+00:00",
+  "comics": [
+    {
+      "id": "23030",
+      "date": "2026-11-22",
+      "url": "https://www.thefarside.com/2026/11/22/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd4d8b940e4790137cd9d005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d4d8b940e4790137cd9d005056a9545d",
+      "caption": "\u201cFor crying out loud, Igor! First there\u2019s that screw-up with the wrong brain business, and now you\u2019ve let his head go through the wash in your pants pocket!\u201d",
+      "title": "\u201cFor crying out loud, Igor! First there\u2019s that screw-up w..."
+    },
+    {
+      "id": "23031",
+      "date": "2026-11-22",
+      "url": "https://www.thefarside.com/2026/11/22/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F90e41430e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/90e41430e6f80137ce50005056a9545d",
+      "caption": "Slug vacation disasters",
+      "title": "Slug vacation disasters"
+    }
+  ]
+}
