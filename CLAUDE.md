@@ -30,6 +30,8 @@ ceremony; a new comic source or a pipeline change does.
   real feed reader before it merges. Tests and `preview_feeds.py` check what we
   write, not how readers show it. On 2026-11-22 `media:content` passed every test
   but showed each strip twice in Thunderbird (`docs/solutions/ui-bugs/media-content-doubles-strips-in-thunderbird.md`).
+  One reader is not enough: `media:thumbnail` passed in Thunderbird and doubled every
+  strip in RSS Guard a day later (`docs/solutions/ui-bugs/media-thumbnail-doubles-strips-in-rss-guard.md`).
 
 ### SOLID, applied here
 - **OCP is already in the codebase.** `scraper_factory.py` selects a scraper by

@@ -64,7 +64,7 @@ python scripts/preview_feeds.py public/feeds/<slug>.xml --against origin/main --
 ### Core Components
 
 1. **comiccaster/** - Main Python package
-   - `feed_generator.py` - RSS feed generation with multi-image support. Each item also names its strip images in `media:thumbnail`, never `media:content` or `<enclosure>`, because those show the strip twice in Thunderbird (#28)
+   - `feed_generator.py` - RSS feed generation with multi-image support. Each item also names its strip images in one `comiccaster:images` element in our own namespace, never `<enclosure>` or a Media RSS element, because readers show those as a second copy of the strip (Thunderbird #28, RSS Guard #269)
    - `scraper_factory.py` - Factory pattern for selecting appropriate scraper
    - `*_scraper.py` - Source-specific scrapers
    - `loader.py` - Reads a comic list for the local Flask interface (`web_interface.py`); the pipeline's scrapers and generators read their lists themselves
@@ -130,7 +130,7 @@ See [docs/LOCAL_AUTOMATION_README.md](docs/LOCAL_AUTOMATION_README.md) for the o
 - Test files in `tests/` mirror source structure
 - Use pytest fixtures for common test data
 - Run `pytest -v` before committing changes
-- A change to feed XML shape, such as a new per-item element, also needs a look in a real feed reader before it merges. `preview_feeds.py` shows descriptions, not media elements. See `docs/solutions/ui-bugs/media-content-doubles-strips-in-thunderbird.md`
+- A change to feed XML shape, such as a new per-item element, also needs a look in a real feed reader before it merges. `preview_feeds.py` shows descriptions, not media elements. See `docs/solutions/ui-bugs/media-content-doubles-strips-in-thunderbird.md` and `docs/solutions/ui-bugs/media-thumbnail-doubles-strips-in-rss-guard.md`
 
 ### Outside contributions
 

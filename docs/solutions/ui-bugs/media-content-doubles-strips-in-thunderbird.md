@@ -15,6 +15,12 @@ stack: [python, feedgen]
 github_prs: [267]
 ---
 
+> **Superseded in part (2026-11-23):** `media:thumbnail` is safe in Thunderbird
+> but doubles every strip in RSS Guard (issue #269). Feeds now use
+> `comiccaster:images` instead. See
+> `media-thumbnail-doubles-strips-in-rss-guard.md`. The Thunderbird test
+> procedure below still applies.
+
 ## TL;DR
 
 Agent access step 1 (#267) wanted each feed item to name its strip images as
