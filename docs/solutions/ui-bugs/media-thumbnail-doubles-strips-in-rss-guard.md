@@ -30,7 +30,7 @@ namespace they don't know.
 
 ## Why RSS Guard doubled it
 
-From RSS Guard's source (not from running it):
+From RSS Guard's source:
 
 - `src/librssguard-standard/src/parsers/feedparser.cpp`, `xmlMrssGetEnclosures`:
   every `media:content` and every `media:thumbnail` becomes an article
@@ -41,6 +41,26 @@ From RSS Guard's source (not from running it):
 The reporter's screenshot shows exactly that: an `(IMAGE/JPG)` attachment chip,
 the strip, then the description with the strip again. Articles fetched before
 the change kept their old copies and looked fine.
+
+## Reproduced in RSS Guard 5.3.0
+
+On a Linux box, RSS Guard 5.3.0 (the official AppImage, `text-qt6`) fetched two
+trimmed Garfield feeds, three items each, and this is what it stored per
+article in the `enclosures` column of its `Messages` table:
+
+| Feed | Stored attachments |
+|---|---|
+| BEFORE: `main`, with `media:thumbnail` | one `image/jpg` attachment per article, the strip's URL |
+| AFTER: PR #270, with `comiccaster:images` | `[]` for every article |
+
+The stored article body was the same length in both. Nobody looked at the
+window: the box's screen wasn't reachable, so RSS Guard was driven over ssh
+through its accessibility interface (AT-SPI, `python3-gi`; launch it with
+`QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1` and `WAYLAND_DISPLAY`,
+`XDG_RUNTIME_DIR` and `DBUS_SESSION_BUS_ADDRESS` pointing at the logged-in
+session, and `-d <folder>` for a throwaway profile). The doubled image itself
+is the reporter's screenshot plus the skin code above, which draws every image
+attachment.
 
 Not explained: the reporter said non-GoComics feeds were fine, though The Far
 Side carried the same element.
