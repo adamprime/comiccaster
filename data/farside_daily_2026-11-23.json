@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-23",
+  "scraped_at": "2026-11-23T09:20:26.611364+00:00",
+  "comics": [
+    {
+      "id": "23032",
+      "date": "2026-11-23",
+      "url": "https://www.thefarside.com/2026/11/23/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd07264b0cdd30137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d07264b0cdd30137c56b005056a9545d",
+      "caption": "\u201cWell, we both knew there\u2019d be some adjustments moving from a small town to a big city.\u201d",
+      "title": "\u201cWell, we both knew there\u2019d be some adjustments moving fr..."
+    },
+    {
+      "id": "23033",
+      "date": "2026-11-23",
+      "url": "https://www.thefarside.com/2026/11/23/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff606f6a0e4850137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f606f6a0e4850137cda5005056a9545d",
+      "caption": "Babette\u2019s Botulism: The Sequel",
+      "title": "Babette\u2019s Botulism: The Sequel"
+    },
+    {
+      "id": "23034",
+      "date": "2026-11-23",
+      "url": "https://www.thefarside.com/2026/11/23/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb653bfa0e4860137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b653bfa0e4860137cda5005056a9545d",
+      "caption": "Animal toughs and their hangouts",
+      "title": "Animal toughs and their hangouts"
+    },
+    {
+      "id": "23035",
+      "date": "2026-11-23",
+      "url": "https://www.thefarside.com/2026/11/23/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fb2b45c50e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/b2b45c50e6f80137ce50005056a9545d",
+      "caption": "After flicking on the light, Professor Zurkowitz is caught off guard by the overnight success of his efforts to crossbreed \nflying fish and piranhas.",
+      "title": "After flicking on the light, Professor Zurkowitz is caugh..."
+    },
+    {
+      "id": "23036",
+      "date": "2026-11-23",
+      "url": "https://www.thefarside.com/2026/11/23/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff989a310e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f989a310e3ae0137cd49005056a9545d",
+      "caption": "Eskimo restaurants",
+      "title": "Eskimo restaurants"
+    }
+  ]
+}
