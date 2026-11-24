@@ -51,7 +51,7 @@ brotli==1.2.1
 certifi==2026.10.23
 charset-normalizer==3.5.2
 click==8.5.1
-coverage==7.17.3
+coverage==7.17.4
 feedgen==1.0.0
 feedparser==6.0.14
 feedparser-sgmllib==2.1.0
