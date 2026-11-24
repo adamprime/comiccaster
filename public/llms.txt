@@ -22,7 +22,7 @@ The catalog and the feeds are served with `Access-Control-Allow-Origin: *`. They
 - `https://comiccaster.xyz/rss/<slug>`: an alias for the same file.
 - External comics (`source: external-rss`) use the publisher's own feed. Use their `feed_url` as given.
 
-Each item in a ComicCaster feed names its strip images in Media RSS `media:thumbnail` elements (namespace `http://search.yahoo.com/mrss/`), one per image in panel order. Despite the element's name, each `url` is the full-size strip, the same image the `<description>` HTML shows, so you can take the image URLs from these without parsing that HTML. An item without an image has none. Feeds not rebuilt since November 2026, mostly comics that have stopped publishing, don't have these elements yet: their images are only in the description.
+Each item in a ComicCaster feed names its strip images in one `comiccaster:images` element (namespace `https://comiccaster.xyz/ns/feed`). Its text is the image URLs in panel order, separated by whitespace: split it on whitespace to get the list. Each URL is the full-size strip, the same image the `<description>` HTML shows, so you can take the image URLs from this element without parsing that HTML. An item without an image has no such element. Feeds not rebuilt since November 2026, mostly comics that have stopped publishing, don't have the element yet: their images are only in the description. A few of those may still carry the `media:thumbnail` elements used for one day before it; ignore them.
 
 ## Bundle feeds as OPML
 

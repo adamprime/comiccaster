@@ -17,6 +17,8 @@ import pytz
 
 from feedgen.feed import FeedGenerator
 from feedgen.entry import FeedEntry
+from feedgen.ext.base import BaseEntryExtension, BaseExtension
+from feedgen.util import xml_elem
 
 # Set up logging
 logging.basicConfig(
@@ -24,6 +26,45 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+COMICCASTER_NS = 'https://comiccaster.xyz/ns/feed'
+
+
+class ComicCasterExtension(BaseExtension):
+    """Declares ComicCaster's own namespace on the feed's root element."""
+
+    def extend_ns(self):
+        return {'comiccaster': COMICCASTER_NS}
+
+
+class ComicCasterEntryExtension(BaseEntryExtension):
+    """Writes <comiccaster:images> on an item: its strip image URLs in panel
+    order, separated by a space.
+
+    The element is ours because readers render every standard way of naming
+    an item's image as a second copy of the strip, beside the one in the
+    description: <enclosure> and media:content in Thunderbird (issue #28), and
+    every Media RSS element, media:thumbnail included, in RSS Guard (issue
+    #269). Readers skip an element in a namespace they do not know.
+
+    It is one element holding every URL, not one element per image, because
+    feedparser keeps only the last of a repeated element it does not know.
+    """
+
+    def __init__(self):
+        self._images: List[str] = []
+
+    def images(self, urls: Optional[List[str]] = None) -> List[str]:
+        if urls is not None:
+            # Whitespace separates the URLs, so none may contain any.
+            self._images = [re.sub(r'\s', '%20', url.strip()) for url in urls]
+        return self._images
+
+    def extend_rss(self, entry):
+        if self._images:
+            xml_elem(f'{{{COMICCASTER_NS}}}images', entry).text = ' '.join(self._images)
+        return entry
+
 
 class ComicFeedGenerator:
     """Handles generating RSS feeds for individual comics."""
@@ -51,8 +92,8 @@ class ComicFeedGenerator:
             FeedGenerator: A configured feed generator instance.
         """
         fg = FeedGenerator()
-        # Declares xmlns:media on <rss> for the items' media:thumbnail.
-        fg.load_extension('media')
+        # Declares xmlns:comiccaster on <rss> for the items' comiccaster:images.
+        fg.register_extension('comiccaster', ComicCasterExtension, ComicCasterEntryExtension, atom=False)
 
         # Map the source key to a human-readable display name for the feed title.
         source = comic_info.get('source', 'gocomics-daily')
@@ -196,20 +237,17 @@ class ComicFeedGenerator:
         return [image_url] if image_url else []
 
     @staticmethod
-    def _add_media_thumbnails(entry: FeedEntry, image_urls: List[str]) -> None:
-        """Name each strip image in a Media RSS <media:thumbnail> on the item.
+    def _add_strip_images(entry: FeedEntry, image_urls: List[str]) -> None:
+        """Name the strip's images in one <comiccaster:images> on the item.
 
-        Agents read the image URLs from these instead of parsing the
-        description's HTML. Not <media:content> or <enclosure>: Thunderbird
-        shows those as attachments beside the description, so every strip
-        appeared twice (issue #28). Each sits directly under <item>
-        (group=None), never in a <media:group>. media:thumbnail takes no
-        medium attribute; feedgen raises ValueError for one.
+        Agents read the image URLs from it instead of parsing the
+        description's HTML. See ComicCasterEntryExtension for why it is not a
+        standard element.
         """
         if not image_urls:
             return
-        entry.load_extension('media')
-        entry.media.thumbnail([{'url': url} for url in image_urls], group=None)
+        entry.register_extension('comiccaster', ComicCasterEntryExtension, atom=False)
+        entry.comiccaster.images(image_urls)
 
     def create_feed_object(self, comic_info: Dict[str, str]) -> FeedGenerator:
         """Alias for create_feed (kept for test compatibility)."""
@@ -297,7 +335,7 @@ class ComicFeedGenerator:
                 description = self._create_single_image_content(image_url, description, comic_info)
 
         entry.description(description)
-        self._add_media_thumbnails(entry, self._strip_image_urls(metadata))
+        self._add_strip_images(entry, self._strip_image_urls(metadata))
 
         entry.published(pub_date)
 

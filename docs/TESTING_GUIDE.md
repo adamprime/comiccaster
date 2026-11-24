@@ -104,7 +104,7 @@ pytest -v -k "multi_image"
   - Single image backward compatibility
   - Feed metadata generation
   - Date parsing and timezone handling, every branch of `parse_date_with_timezone` including the dateutil fallback
-  - One `media:thumbnail` per strip image, in description order, and never `media:content` or `<enclosure>` (#28)
+  - One `comiccaster:images` element per item naming its strip images in description order, and never `<enclosure>` or a Media RSS element (#28, #269)
 
 - **`test_multi_image_rss.py`** - Multi-image RSS support tests
   - Multiple panel comic handling
@@ -135,7 +135,7 @@ pytest -v -k "multi_image"
 - **`test_generate_opml_function.py`** - OPML function, POST and GET forms, run under node
   - One category per GET link, slug and query caps, no outbound fetch, XML-escaped names
 
-- **`test_agent_access.py`** - What agents rely on: CORS headers on feeds and the catalog, `llms.txt` (where the catalog, feeds, thumbnails and OPML link are; plain ASCII) and `robots.txt`
+- **`test_agent_access.py`** - What agents rely on: CORS headers on feeds and the catalog, `llms.txt` (where the catalog, feeds, strip-image element and OPML link are; plain ASCII) and `robots.txt`
 
 ## Regression Testing
 

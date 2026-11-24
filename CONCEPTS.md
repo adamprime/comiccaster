@@ -83,7 +83,7 @@ A run that finds the lock held never starts alongside. Pass 1, Pass 2 and the fi
 ## Feed shaping
 
 ### Strip images
-Each feed item names its strip images in two ways, for two audiences, and readers must still show the strip once. Readers show the description HTML, which embeds the images. Agents read one `media:thumbnail` per image, in the same order, and don't need to parse HTML. The images must never also appear as `media:content` or `<enclosure>`. Readers such as Thunderbird render those as attachments under the description, so every strip shows twice: issue #28, and again with `media:content` in the first version of #267.
+Each feed item names its strip images in two ways, for two audiences, and readers must still show the strip once. Readers show the description HTML, which embeds the images. Agents read one `comiccaster:images` element per item, whose text is the image URLs in the same order, separated by whitespace, and don't need to parse HTML. The element is in ComicCaster's own namespace (`https://comiccaster.xyz/ns/feed`), which readers skip. The images must never also appear as `<enclosure>` or in any Media RSS element. Readers render those as attachments beside the description, so every strip shows twice: `<enclosure>` in issue #28, `media:content` in Thunderbird in the first version of #267, and `media:thumbnail` in RSS Guard in issue #269.
 
 ### Daily Dose
 A dating model for sources that have no per-day permalink: the day's strip selection is made upstream by the publisher, and ComicCaster records it dated by fetch date rather than by the strip's own publication date. Used by The Far Side and Mr. Boffo.
