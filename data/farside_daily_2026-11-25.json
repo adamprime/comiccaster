@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-25",
+  "scraped_at": "2026-11-25T09:10:12.524028+00:00",
+  "comics": [
+    {
+      "id": "23042",
+      "date": "2026-11-25",
+      "url": "https://www.thefarside.com/2026/11/25/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F29f454d0e6f90137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/29f454d0e6f90137ce50005056a9545d",
+      "caption": "\u201cYou\u2019re in luck! This place just came on the market a few days ago. \u2026 The previous owners had their heads chopped off.\u201d",
+      "title": "\u201cYou\u2019re in luck! This place just came on the market a few..."
+    },
+    {
+      "id": "23043",
+      "date": "2026-11-25",
+      "url": "https://www.thefarside.com/2026/11/25/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7b4f10e0e4860137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7b4f10e0e4860137cda5005056a9545d",
+      "caption": "",
+      "title": "The Far Side #23043"
+    },
+    {
+      "id": "23044",
+      "date": "2026-11-25",
+      "url": "https://www.thefarside.com/2026/11/25/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F0660d450e4870137cda5005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/0660d450e4870137cda5005056a9545d",
+      "caption": "",
+      "title": "The Far Side #23044"
+    },
+    {
+      "id": "23045",
+      "date": "2026-11-25",
+      "url": "https://www.thefarside.com/2026/11/25/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee46120858c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee46120858c311ea8bf6005056a9",
+      "caption": "\u201cHoly cow! What\u2019s gotten into our La-Z-Boy?\u201d",
+      "title": "\u201cHoly cow! What\u2019s gotten into our La-Z-Boy?\u201d"
+    },
+    {
+      "id": "23046",
+      "date": "2026-11-25",
+      "url": "https://www.thefarside.com/2026/11/25/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fee45a86758c311ea8bf6005056a9",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ee45a86758c311ea8bf6005056a9",
+      "caption": "\u201cYou have to prime it, you know.\u201d",
+      "title": "\u201cYou have to prime it, you know"
+    }
+  ]
+}
