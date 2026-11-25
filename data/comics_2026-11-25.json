@@ -48,6 +48,22 @@
     "category": "political"
   },
   {
+    "name": "Lisa Benson",
+    "slug": "lisabenson",
+    "image_url": "https://featureassets.gocomics.com/assets/e6b2ab60cb24013fd595005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-25",
+    "url": "https://www.gocomics.com/lisabenson/2026/11/25",
+    "category": "political"
+  },
+  {
+    "name": "Joey Weatherford",
+    "slug": "joey-weatherford",
+    "image_url": "https://featureassets.gocomics.com/assets/bd49f070cb18013fd58e005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-25",
+    "url": "https://www.gocomics.com/joey-weatherford/2026/11/25",
+    "category": "political"
+  },
+  {
     "name": "Jen Sorensen",
     "slug": "jen-sorensen",
     "image_url": "https://featureassets.gocomics.com/assets/674302f0ca58013fd555005056a9545d?optimizer=image&width=2800&quality=85",
@@ -80,6 +96,14 @@
     "category": "political"
   },
   {
+    "name": "Drew Sheneman",
+    "slug": "drewsheneman",
+    "image_url": "https://featureassets.gocomics.com/assets/22a7c530cb14013fd588005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-25",
+    "url": "https://www.gocomics.com/drewsheneman/2026/11/25",
+    "category": "political"
+  },
+  {
     "name": "Doonesbury",
     "slug": "doonesbury",
     "image_url": "https://featureassets.gocomics.com/assets/be921ae0c4d4013fd447005056a9545d?optimizer=image&width=2800&quality=85",
@@ -101,6 +125,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/686812e0ca96013fd573005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-25",
     "url": "https://www.gocomics.com/claybennett/2026/11/25",
+    "category": "political"
+  },
+  {
+    "name": "Chris Britt",
+    "slug": "chrisbritt",
+    "image_url": "https://featureassets.gocomics.com/assets/7a30d780cb26013fd596005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-25",
+    "url": "https://www.gocomics.com/chrisbritt/2026/11/25",
     "category": "political"
   },
   {
