@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/4643ac00cbb0013fd5c1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-26",
+    "url": "https://www.gocomics.com/two-party-opera/2026/11/26",
+    "category": "political"
+  },
+  {
     "name": "Phil Hands",
     "slug": "phil-hands",
     "image_url": "https://featureassets.gocomics.com/assets/7a179980ca80013fd569005056a9545d?optimizer=image&width=2800&quality=85",
@@ -1733,6 +1741,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/d97b7f60c41c013fd41e005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-26",
     "url": "https://www.gocomics.com/texts-from-mittens/2026/11/26",
+    "category": "daily"
+  },
+  {
+    "name": "Tavicat",
+    "slug": "tavicat",
+    "image_url": "https://featureassets.gocomics.com/assets/4500dee0cbb0013fd5c1005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-26",
+    "url": "https://www.gocomics.com/tavicat/2026/11/26",
     "category": "daily"
   },
   {
