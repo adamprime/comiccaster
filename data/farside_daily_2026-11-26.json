@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-26",
+  "scraped_at": "2026-11-26T09:21:10.254795+00:00",
+  "comics": [
+    {
+      "id": "23047",
+      "date": "2026-11-26",
+      "url": "https://www.thefarside.com/2026/11/26/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ff4216700e8590137cedf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/f4216700e8590137cedf005056a9545d",
+      "caption": "\u201cI\u2019m afraid it\u2019s bad news, Mr. Griswold. \u2026 The lab results indicate your body cavity is stuffed with a tasty, breadlike substance.\u201d",
+      "title": "\u201cI\u2019m afraid it\u2019s bad news, Mr"
+    },
+    {
+      "id": "23048",
+      "date": "2026-11-26",
+      "url": "https://www.thefarside.com/2026/11/26/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Ffeb12370e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/feb12370e3ae0137cd49005056a9545d",
+      "caption": "Helen paused. With an audible \u201cwumph,\u201d Muffy\u2019s familiar yipping had ended, and only the sounds of Ed\u2019s football game now emanated from the living room.",
+      "title": "Helen paused"
+    },
+    {
+      "id": "23049",
+      "date": "2026-11-26",
+      "url": "https://www.thefarside.com/2026/11/26/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F7d56bca0fa850137d52f005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/7d56bca0fa850137d52f005056a9545d",
+      "caption": "\u201cHey! I\u2019m trying to pass the potatoes! \u2026 Remember, my forearms are just as useless as yours!\u201d",
+      "title": "\u201cHey! I\u2019m trying to pass the potatoes! \u2026 Remember, my for..."
+    },
+    {
+      "id": "23050",
+      "date": "2026-11-26",
+      "url": "https://www.thefarside.com/2026/11/26/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fded262b0d7410137c8a6005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/ded262b0d7410137c8a6005056a9545d",
+      "caption": "\u201cOkay, everyone, dig in \u2026 and you kids watch for stingers.\u201d",
+      "title": "\u201cOkay, everyone, dig in \u2026 and you kids watch for stingers"
+    },
+    {
+      "id": "23051",
+      "date": "2026-11-26",
+      "url": "https://www.thefarside.com/2026/11/26/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F42105420cdd50137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/42105420cdd50137c56b005056a9545d",
+      "caption": "\u201cI can\u2019t believe this! Can\u2019t anyone here get the lid off the mayonnaise?\u201d",
+      "title": "\u201cI can\u2019t believe this! Can\u2019t anyone here get the lid off ..."
+    }
+  ]
+}
