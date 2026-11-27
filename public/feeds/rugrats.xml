@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:comiccaster="https://comiccaster.xyz/ns/feed" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Rugrats - Creators</title><link>https://www.creators.com/read/rugrats</link><description>Daily Rugrats comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/rugrats.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Nov 2026 09:22:37 +0000</lastBuildDate><ttl>1440</ttl><item><title>Rugrats for Nov 26, 2026</title><link>https://www.creators.com/read/rugrats/11/26/427351</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+<rss xmlns:comiccaster="https://comiccaster.xyz/ns/feed" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Rugrats - Creators</title><link>https://www.creators.com/read/rugrats</link><description>Daily Rugrats comic strip by Unknown Author from Creators</description><atom:link href="https://comiccaster.xyz/feeds/rugrats.xml" rel="self" type="application/rss+xml"/><category>Creators</category><category>Comic Strips</category><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 27 Nov 2026 09:22:30 +0000</lastBuildDate><ttl>1440</ttl><item><title>Rugrats for Nov 27, 2026</title><link>https://www.creators.com/read/rugrats/11/26/427353</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
+&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-11-27&lt;/p&gt;
+    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
+        &lt;img src="https://cdn.alphacomedy.com/50/2026/11_27_26_107844cf09c614bfdb09a62d63600df8.jpg" alt="Rugrats" style="max-width: 100%; height: auto;" loading="lazy"&gt;
+        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Rugrats&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description><guid isPermaLink="false">https://www.creators.com/read/rugrats/11/26/427353</guid><pubDate>Fri, 27 Nov 2026 00:00:00 +0000</pubDate><comiccaster:images>https://cdn.alphacomedy.com/50/2026/11_27_26_107844cf09c614bfdb09a62d63600df8.jpg</comiccaster:images></item><item><title>Rugrats for Nov 26, 2026</title><link>https://www.creators.com/read/rugrats/11/26/427351</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
 &lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-11-26&lt;/p&gt;
     &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
         &lt;img src="https://cdn.alphacomedy.com/50/2026/11_26_26_22dc45cf450f8313db25b314f89411fb.jpg" alt="Rugrats" style="max-width: 100%; height: auto;" loading="lazy"&gt;
@@ -160,11 +167,4 @@
         &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Rugrats&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/rugrats/11/26/425382</guid><pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate><comiccaster:images>https://cdn.alphacomedy.com/50/2026/11_04_26_25e2f879b37d0bceb20a527d4200729b.jpg</comiccaster:images></item><item><title>Rugrats for Nov 03, 2026</title><link>https://www.creators.com/read/rugrats/11/26/425370</link><description>&lt;div class="comic-gallery" style="text-align: center; max-width: 700px; margin: 10px auto;"&gt;
-&lt;p style="margin-bottom: 15px; font-style: italic;"&gt;Comic strip for 2026-11-03&lt;/p&gt;
-    &lt;div class="comic-panel" style="margin: 15px 0;"&gt;
-        &lt;img src="https://cdn.alphacomedy.com/50/2026/11_03_26_74329c60e9562e2282dc20e9107f7d20.jpg" alt="Rugrats" style="max-width: 100%; height: auto;" loading="lazy"&gt;
-        &lt;div class="panel-description" style="font-size: 0.9em; color: #666; margin-top: 5px; font-style: italic;"&gt;Rugrats&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</description><guid isPermaLink="false">https://www.creators.com/read/rugrats/11/26/425370</guid><pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate><comiccaster:images>https://cdn.alphacomedy.com/50/2026/11_03_26_74329c60e9562e2282dc20e9107f7d20.jpg</comiccaster:images></item></channel></rss>
+</description><guid isPermaLink="false">https://www.creators.com/read/rugrats/11/26/425382</guid><pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate><comiccaster:images>https://cdn.alphacomedy.com/50/2026/11_04_26_25e2f879b37d0bceb20a527d4200729b.jpg</comiccaster:images></item></channel></rss>

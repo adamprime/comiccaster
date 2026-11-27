@@ -1,0 +1,51 @@
+{
+  "target_date": "2026-11-27",
+  "scraped_at": "2026-11-27T09:21:01.153698+00:00",
+  "comics": [
+    {
+      "id": "23052",
+      "date": "2026-11-27",
+      "url": "https://www.thefarside.com/2026/11/27/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F9ee39700e3ae0137cd49005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/9ee39700e3ae0137cd49005056a9545d",
+      "caption": "\u201cCrimony! \u2026 I must\u2019ve been tangled in some bimbo\u2019s hair for more than two hours!\u201d",
+      "title": "\u201cCrimony! \u2026 I must\u2019ve been tangled in some bimbo\u2019s hair f..."
+    },
+    {
+      "id": "23053",
+      "date": "2026-11-27",
+      "url": "https://www.thefarside.com/2026/11/27/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F1bd0f9c0ea260137cfba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/1bd0f9c0ea260137cfba005056a9545d",
+      "caption": "\u201cEveryone can just put down their loot and plunder, and Sven here\u2014yes, old Sven, who was in charge of reading the tide chart\u2014has something to say to us all.\u201d",
+      "title": "\u201cEveryone can just put down their loot and plunder, and S..."
+    },
+    {
+      "id": "23054",
+      "date": "2026-11-27",
+      "url": "https://www.thefarside.com/2026/11/27/2",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fe06343c0027e0138d7ba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/e06343c0027e0138d7ba005056a9545d",
+      "caption": "",
+      "title": "The Far Side #23054"
+    },
+    {
+      "id": "23055",
+      "date": "2026-11-27",
+      "url": "https://www.thefarside.com/2026/11/27/3",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F48efe910df100137cbaf005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/48efe910df100137cbaf005056a9545d",
+      "caption": "Brain aerobics",
+      "title": "Brain aerobics"
+    },
+    {
+      "id": "23056",
+      "date": "2026-11-27",
+      "url": "https://www.thefarside.com/2026/11/27/4",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fcf173130e6f80137ce50005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/cf173130e6f80137ce50005056a9545d",
+      "caption": "Suddenly, two bystanders stuck their heads inside the frame and ruined one of the funniest cartoons ever.",
+      "title": "Suddenly, two bystanders stuck their heads inside the fra..."
+    }
+  ]
+}
