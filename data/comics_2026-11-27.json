@@ -8,6 +8,14 @@
     "category": "political"
   },
   {
+    "name": "Two Party Opera",
+    "slug": "two-party-opera",
+    "image_url": "https://featureassets.gocomics.com/assets/47ed2b80cc93013fd5d5005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-27",
+    "url": "https://www.gocomics.com/two-party-opera/2026/11/27",
+    "category": "political"
+  },
+  {
     "name": "Ted Rall",
     "slug": "ted-rall",
     "image_url": "https://featureassets.gocomics.com/assets/aa173b30c692013fd4c3005056a9545d?optimizer=image&width=2800&quality=85",
@@ -461,6 +469,14 @@
     "image_url": "https://featureassets.gocomics.com/assets/ce438a50be7a013fd2e0005056a9545d?optimizer=image&width=2800&quality=85",
     "date": "2026-11-27",
     "url": "https://www.gocomics.com/back-to-bc/2026/11/27",
+    "category": "daily"
+  },
+  {
+    "name": "Ike",
+    "slug": "backintheday",
+    "image_url": "https://featureassets.gocomics.com/assets/61588160cc9b013fd5d7005056a9545d?optimizer=image&width=2800&quality=85",
+    "date": "2026-11-27",
+    "url": "https://www.gocomics.com/backintheday/2026/11/27",
     "category": "daily"
   },
   {
