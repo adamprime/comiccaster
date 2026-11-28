@@ -1,0 +1,24 @@
+{
+  "target_date": "2026-11-28",
+  "scraped_at": "2026-11-28T09:21:02.944078+00:00",
+  "comics": [
+    {
+      "id": "23057",
+      "date": "2026-11-28",
+      "url": "https://www.thefarside.com/2026/11/28/0",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2F6d144440cdd40137c56b005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/6d144440cdd40137c56b005056a9545d",
+      "caption": "\u201cGive up, Sir James. \u2026 You\u2019ve lost.\u201d",
+      "title": "\u201cGive up, Sir James"
+    },
+    {
+      "id": "23058",
+      "date": "2026-11-28",
+      "url": "https://www.thefarside.com/2026/11/28/1",
+      "image_url": "https://comiccaster.xyz/.netlify/functions/proxy-farside-image?url=https%3A%2F%2Ffeatureassets.amuniversal.com%2Fassets%2Fd878c040027e0138d7ba005056a9545d",
+      "original_image_url": "https://featureassets.amuniversal.com/assets/d878c040027e0138d7ba005056a9545d",
+      "caption": "\u201cFair is fair, Larry. ... We\u2019re out of food, we drew straws\u2014you lost.\u201d",
+      "title": "\u201cFair is fair, Larry"
+    }
+  ]
+}
